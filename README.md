@@ -198,3 +198,10 @@ ROS tests use `/test_camera` and `/test_path` with synthetic TF and predictor
 fixtures. The separate inference test runs real NoMaD modules on CPU with a
 seeded synthetic checkpoint and compares against the original navigation code.
 These tests do not establish navigation accuracy or replace bag/real-robot tests.
+
+### K-Rail baseline robot profile
+
+Use [the K-Rail baseline deployment guide](docs/krail-baseline-robot.md) for the
+2026-09-04 standard NoMaD checkpoint, dedicated configuration, goal images, and
+robot/bag startup. The profile preserves the model architecture and requires an
+explicit goal image directory before startup.

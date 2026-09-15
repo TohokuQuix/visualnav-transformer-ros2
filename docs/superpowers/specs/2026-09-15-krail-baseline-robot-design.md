@@ -1,7 +1,7 @@
 # K-Rail baseline NoMaD：実機接続仕様
 
 作成日: 2026-09-15
-状態: レビュー用。今回は仕様書とブランチ分離のみ。baseline固有の起動設定・実機検証は未実施。
+状態: 承認済み。baseline専用設定と重み配置を実装済み。検証結果・未確認項目は [起動手順](../../krail-baseline-robot.md) を参照。実機試験は未実施。
 
 ## 1. 目的と対象
 
@@ -30,9 +30,9 @@ baselineの設定・検証記録はbaselineブランチに置く。分類・条�
 
 ## 3. 採用するbaseline
 
-### 暫定選択
+### 採用モデル
 
-最新の条件付きモデルとのデータ条件を近づけるため、次を推奨対象とする。9月4日版と8月21日版の選択について確認中であり、この仕様では9月4日版を暫定採用する。
+最新の条件付きモデルとのデータ条件を近づけるため、次を推奨対象とする。2026-09-15に9月4日版の採用が承認された。
 
 学習リポジトリのルート:
 `/home/ubuntu/visualnav_docker/visualnav-transformer/train`
@@ -69,7 +69,7 @@ len_traj_pred: 8
 learn_angle: false
 ```
 
-学習設定を出典としてbaseline専用モデル設定を作る。重みは名前を固定したコピーとして配置し、SHA256と出典を記録する。重み本体はGitへ追加しない。今回選ぶのは上記 `latest.pth` であり、別のEMA重み等へ暗黙に差し替えない。strictロード失敗時は起動を中止する。
+学習設定を出典としてbaseline専用モデル設定を作る。重みは名前を固定したコピーとして配置し、SHA256と出典を記録する。重み本体はGitへ追加しない。採用したのは上記 `latest.pth` であり、別のEMA重み等へ暗黙に差し替えない。strictロード失敗時は起動を中止する。
 
 ## 4. ロボットとの接続
 
@@ -136,7 +136,7 @@ uv run python -m visualnav_transformer.deployment.src.navigate_robot \
 ros2 launch simple_trajectory_follower nomad_follower.launch.py
 ```
 
-これらのbaseline専用設定はまだ作成していない。goal未確定・重み不足では起動エラーとし、仮のgoalで走行を開始しない。ROS環境はROS2のみをsourceする。既存 `scripts/publish_cmd.py` は併用しない。
+これらのbaseline専用設定は作成済み。goal未確定・重み不足では起動エラーとし、仮のgoalで走行を開始しない。ROS環境はROS2のみをsourceする。既存 `scripts/publish_cmd.py` は併用しない。
 
 追従側は `rolling`、自律リカバリー無効のNoMaD設定を使う。空Path、経路期限切れ、不正経路で停止する。接続側も画像途絶、TF欠落、古い推論結果、時刻巻き戻り、goal到達時に空Pathを配信する。詳細は共通仕様を継承する。
 
@@ -166,7 +166,7 @@ ros2 launch simple_trajectory_follower nomad_follower.launch.py
 
 ## 8. レビューで確定する事項
 
-- 暫定採用した9月4日のdirectional-camera baselineを使用するか。
+- 9月4日のdirectional-camera baselineを使用する（承認済み）。
 - 実機試験の走行場所・方向に対応するgoal画像列。
 
 教師座標とTFの同期対応、および実機計算機の処理時間は、実装・検証工程で解決する項目とする。最新の条件付きモデルの対応は、このbaseline接続と検証の後に別仕様として扱う。
