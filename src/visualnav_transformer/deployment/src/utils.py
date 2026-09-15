@@ -32,6 +32,7 @@ def load_model(
     model_path: str,
     config: dict,
     device: torch.device = torch.device("cpu"),
+    *, strict: bool = False,
 ) -> nn.Module:
     """Load a model from a checkpoint file (works with models trained on multiple GPUs)"""
     model_type = config["model_type"]
@@ -95,18 +96,18 @@ def load_model(
     else:
         raise ValueError(f"Invalid model type: {model_type}")
 
-    checkpoint = torch.load(model_path, map_location=device)
+    checkpoint = torch.load(model_path, map_location=device, **({"weights_only": True} if strict else {}))
     if model_type == "nomad":
         state_dict = checkpoint
-        model.load_state_dict(state_dict, strict=False)
+        model.load_state_dict(state_dict, strict=strict)
     else:
         loaded_model = checkpoint["model"]
         try:
             state_dict = loaded_model.module.state_dict()
-            model.load_state_dict(state_dict, strict=False)
+            model.load_state_dict(state_dict, strict=strict)
         except AttributeError as e:
             state_dict = loaded_model.state_dict()
-            model.load_state_dict(state_dict, strict=False)
+            model.load_state_dict(state_dict, strict=strict)
     model.to(device)
     return model
 

@@ -1,0 +1,22 @@
+# Paths are relative to this YAML file; absolute paths are also accepted.
+model_config: ../src/visualnav_transformer/train/config/nomad.yaml
+checkpoint: ../model_weights/nomad.pth
+# Set these three values for the selected checkpoint / teaching image sequence.
+# null values deliberately prevent startup; no training-dependent scale is guessed.
+topomap: null
+context_interval_sec: null
+action_scale_m: null
+
+image_topic: /front_camera/image_raw/compressed
+path_topic: /teaching_playback/path
+robot_frame: chassis/body
+global_frame: map
+observation_timeout_sec: 0.8
+image_receive_timeout_sec: 0.8
+freshness_check_period_sec: 0.05
+
+goal_node: -1
+radius: 4
+close_threshold: 3.0
+num_samples: 8
+device: auto

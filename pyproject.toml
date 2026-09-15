@@ -13,6 +13,12 @@ dependencies = [
     "vit-pytorch>=1.7.0",
     "prettytable>=3.10.0",
     "numpy<2",
+    "opencv-python-headless>=4.8,<4.12",
+    "PyYAML>=6",
+    "Pillow>=10",
+    "torchvision>=0.18",
+    "matplotlib>=3.7",
+    "wandb>=0.17",
 ]
 
 [tool.uv.sources]
