@@ -39,7 +39,9 @@ class NoMaDPredictor:
         *,
         model_config,
         checkpoint,
-        topomap,
+        topomap=None,
+        goal_image=None,
+        goal_distance_threshold=3.0,
         goal_node=-1,
         radius=4,
         close_threshold=3.0,
@@ -54,7 +56,18 @@ class NoMaDPredictor:
             if device == "auto"
             else device
         )
-        self.topomap = load_topomap(topomap)
+        if bool(topomap) == bool(goal_image):
+            raise ValueError("Specify exactly one of topomap or goal_image")
+        if not np.isfinite(goal_distance_threshold) or goal_distance_threshold < 0:
+            raise ValueError("goal_distance_threshold must be finite and nonnegative")
+        self.single_goal = bool(goal_image)
+        self.goal_distance_threshold = goal_distance_threshold
+        if self.single_goal:
+            with Image.open(goal_image) as image:
+                self.topomap = [image.convert("RGB")]
+            goal_node = 0
+        else:
+            self.topomap = load_topomap(topomap)
         self.goal_node = len(self.topomap) - 1 if goal_node == -1 else goal_node
         if not 0 <= self.goal_node < len(self.topomap):
             raise ValueError("goal_node out of range")
@@ -75,6 +88,8 @@ class NoMaDPredictor:
         cfg = self.cfg
         obs_images = transform_images(images, cfg["image_size"], center_crop=False)
         obs_images = torch.cat(torch.split(obs_images, 3, dim=1), dim=1).to(self.device)
+        if self.single_goal:
+            closest_node = 0
         start = max(closest_node - self.radius, 0)
         end = min(closest_node + self.radius + 1, self.goal_node)
         goals = torch.concat(
@@ -124,4 +139,9 @@ class NoMaDPredictor:
                     model_output=noise, timestep=timestep, sample=action
                 ).prev_sample
         points = to_numpy(get_action(action))[0]
-        return Prediction(points, closest_node, closest_node == self.goal_node)
+        reached_goal = (
+            bool(distances[0] < self.goal_distance_threshold)
+            if self.single_goal
+            else closest_node == self.goal_node
+        )
+        return Prediction(points, closest_node, reached_goal)

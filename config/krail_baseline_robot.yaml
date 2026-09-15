@@ -1,8 +1,10 @@
-# Paths are relative to this file. Set topomap explicitly for your route.
+# Paths are relative to this file. Set goal_image to your destination image.
 # Forward/front-camera operation; no rear-camera or state conditioning.
 model_config: krail_baseline_model.yaml
 checkpoint: ../model_weights/krail_baseline_20260904_latest.pth
-topomap: null
+goal_image: ""
+# Learned distance-head units, NOT meters; calibrate on bag before robot use.
+goal_distance_threshold: 3.0
 context_interval_sec: 0.25
 action_scale_m: 0.05
 image_topic: /front_camera/image_raw/compressed

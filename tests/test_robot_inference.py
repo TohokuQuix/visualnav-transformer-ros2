@@ -141,3 +141,56 @@ def test_topomap_must_be_contiguous(tmp_path):
     Image.new("RGB", (8, 8)).save(tmp_path / "1.png")
     with pytest.raises(ValueError, match="contiguous"):
         load_topomap(tmp_path)
+
+
+def test_single_goal_matches_one_image_inference_without_index_arrival(inputs):
+    cfg, ckpt, topomap = inputs
+    goal = topomap / "0.png"
+    # Use the same one-image goal in the legacy path for exact diffusion comparison.
+    for path in (topomap / "1.png", topomap / "2.png"):
+        path.unlink()
+    legacy = NoMaDPredictor(
+        model_config=cfg,
+        checkpoint=str(ckpt),
+        topomap=str(topomap),
+        device="cpu",
+        num_samples=2,
+    )
+    single = NoMaDPredictor(
+        model_config=cfg,
+        checkpoint=str(ckpt),
+        goal_image=str(goal),
+        goal_distance_threshold=0.0,
+        device="cpu",
+        num_samples=2,
+    )
+    images = [Image.new("RGB", (96, 96), "yellow")]
+    # Fix only the distance head output; vision encoder and diffusion remain real.
+    with torch.no_grad():
+        for model in (legacy.model, single.model):
+            for parameter in model.dist_pred_net.parameters():
+                parameter.zero_()
+    torch.manual_seed(42)
+    expected = legacy(images, 0)
+    torch.manual_seed(42)
+    actual = single(images, 99)
+    np.testing.assert_array_equal(actual.points, expected.points)
+    assert expected.reached_goal
+    assert not actual.reached_goal  # strict distance < threshold, never index == 0
+    single.goal_distance_threshold = 1.0
+    assert single(images, 0).reached_goal
+
+
+def test_single_goal_rejects_invalid_image_and_ambiguous_sources(inputs, tmp_path):
+    cfg, ckpt, topomap = inputs
+    with pytest.raises(ValueError, match="exactly one"):
+        NoMaDPredictor(
+            model_config=cfg,
+            checkpoint=str(ckpt),
+            topomap=str(topomap),
+            goal_image=str(topomap / "0.png"),
+        )
+    bad = tmp_path / "bad.jpg"
+    bad.write_text("not an image")
+    with pytest.raises((ValueError, OSError)):
+        NoMaDPredictor(model_config=cfg, checkpoint=str(ckpt), goal_image=str(bad))

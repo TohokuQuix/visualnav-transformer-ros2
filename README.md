@@ -203,5 +203,6 @@ These tests do not establish navigation accuracy or replace bag/real-robot tests
 
 Use [the K-Rail baseline deployment guide](docs/krail-baseline-robot.md) for the
 2026-09-04 standard NoMaD checkpoint, dedicated configuration, goal images, and
-robot/bag startup. The profile preserves the model architecture and requires an
-explicit goal image directory before startup.
+robot/bag startup. The baseline profile uses one fixed `goal_image` file and a
+configurable learned-distance arrival threshold, preserving the model architecture.
+The common interface also retains topomap support; specify only one goal source.

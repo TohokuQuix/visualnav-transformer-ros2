@@ -76,7 +76,7 @@ learn_angle: false
 ```text
 /front_camera/image_raw/compressed
   → RGB画像・時刻付き履歴
-  → 標準NoMaD + K-Rail baseline重み ← 保存済みgoal画像列
+  → 標準NoMaD + K-Rail baseline重み ← 固定goal画像1枚
   → メートル復元 → 観測時刻のTFでmapへ変換
   → /teaching_playback/path
   → simple_trajectory_follower (rolling)
@@ -105,26 +105,27 @@ learn_angle: false
 
 教師座標の基準・時間対応を確認する必要がある。bagのTFと教師CSVの簡易照合では同一値まで確認できていないため、教師位置がそのまま観測時刻の `chassis/body` と一致するとは現時点で断定しない。データ生成時の時刻基準・同期方法・位置yawの出典を照合し、対応を記録してから実機へ進む。誤差を距離係数の調整で隠さない。
 
-## 5. goal画像と最初の走行範囲
+## 5. 単一goal画像（承認済み変更）
 
-goalは既存方式の保存済みトポマップ画像列で与える。Pathをgoal入力にしない。`0.jpg` から連番のRGB画像列など、共通ローダーが受理する形式を使用し、最終画像を初期のgoalとする。近傍探索と到達判定は既存方式を維持する。
+2026-09-15、topomap画像列を使用する方式から、起動時に `goal_image` で画像ファイルを1枚指定する方式へ変更することが承認された。本節が共通仕様のtopomap・最終ノードによる到達判定に優先する。
 
-bag接続確認の候補:
+- JPEG/PNGなどの画像をRGBとして起動時に読み込む。画像前処理は既存方式を維持。
+- 観測履歴4枚と固定goal画像を毎回入力する。近傍探索・goal切り替えは行わない。
+- `goal_image` は必須。未指定・画像破損・topomapとの同時指定では起動しない。
+- ネットワーク、重み、DDPM、先頭サンプル採用、メートル復元・TF・Path契約は維持。
+- 距離ヘッドの予測値が `goal_distance_threshold` 未満で到達。空Pathを配信し、再起動まで停止する。初期値3.0はメートル値ではなく、実機前にbagで調整する。
+- 最終ノード番号との一致を単一goalの到達判定に使わない。
 
-- bag: `/media/ubuntu/Extreme SSD/20260803_experiment/2026_08_03-10_31_05`
-- 画像列候補: `/home/ubuntu/visualnav_docker/visualnav-transformer/datasets/krail_directional_camera_master/2026_08_03-10_31_05/`
-- データ一覧でforward/front、193フレームを確認済み。
+実機goalは走行先に対応する前方画像を指定する。bag確認候補は `krail_directional_camera_master/2026_08_03-10_31_05/192.jpg`。学習由来画像での確認を汎化性能評価とは扱わない。画像1枚だけでは途中の通過点を指定しないため、遠方goalでの性能は別途確認する。
 
-この画像列はbagでの接続検証候補であり、実機の走行先として確定したものではない。実機では走行場所・方向・目的地点に一致する前方カメラの画像列を選び、設定に明記する。学習データ由来の画像列による確認を、未知経路への汎化性能評価として扱わない。
-
-学習データにはforward/frontが21系列、return/rearが13系列含まれる。9月4日baselineの設定自体がこのdirectional-cameraデータを参照しており、rear利用は最新の条件付きモデルだけの変更ではない。既存krail_cleanとのtraj_data.pkl比較では、往路21系列のyawは同一、復路13系列のyawは180度差（角度周期を考慮した最大誤差4.5e-16 rad未満）であることを確認した。これは教師座標のyaw変更であり、画像画素を180度回転したという意味ではない。前方カメラ固定で始める今回の初期評価は前進・前方画像の条件に限定する。後方カメラで学習した帰路や切り返しの性能は別途評価する。
+9月4日baselineの学習データはforward/front 21系列、return/rear 13系列。krail_clean比で復路の教師yawが180度変更され、往路は同一であることを確認済み。これは画素の180度回転ではない。初期実機評価は前方カメラ固定・前進に限定する。
 
 ## 6. 実装予定
 
 共通 `navigate_robot` を使用し、別の推論ループやモデルクラスを作らない。
 
 1. `config/krail_baseline_model.yaml`: 上記の学習設定に対応する推論モデル設定。
-2. `config/krail_baseline_robot.yaml`: 画像・Path・frame・0.25秒・0.05係数・重み・goal画像ディレクトリを指定する設定。
+2. `config/krail_baseline_robot.yaml`: 画像・Path・frame・0.25秒・0.05係数・重み・goal画像ファイルを指定する設定。
 3. READMEまたは専用手順書: 重みの配置・ハッシュ確認、goalの選択、起動、bag再生、検証記録の方法。
 4. 必要な検証: 実重みとの互換性、既存推論との一致、設定の読み込みと経路配信の確認。
 
@@ -145,7 +146,7 @@ ros2 launch simple_trajectory_follower nomad_follower.launch.py
 ### A. モデル・データ
 
 - 採用重みとSHA256を固定し、strictロード成功を記録する。9月4日候補のCPUロードは確認済み。
-- 固定した観測画像・goal画像・乱数条件で、元のbaseline推論と接続側推論の局所XYを比較する。実重みでの比較は未実施。
+- 固定した観測画像・goal画像・乱数条件で、元のbaseline推論と接続側推論の局所XYを比較する。実重みで同一goalを与えた場合の局所8点の完全一致を確認済み。
 - RGB変換、画像前処理、履歴間隔、距離係数が学習条件と一致する。
 - 教師座標とbag TFの位置・yaw・時刻基準の対応を確認する。
 
@@ -159,7 +160,7 @@ ros2 launch simple_trajectory_follower nomad_follower.launch.py
 
 ### C. 実機
 
-- 走行先とgoal画像列を確定し、前方カメラ固定の前進区間で確認する。
+- 走行先とgoal画像を確定し、前方カメラ固定の前進区間で確認する。
 - ロボット側の速度制限と停止手段を確認して試走し、画像、TF、出力Path、速度指令を記録する。
 - 経路更新への追従、goal到達停止、画像途絶時停止を確認する。
 - 単体試験・bag試験・実機試験の結果を分けて記録する。今回の仕様作成時点では実機動作は未確認。
@@ -167,7 +168,7 @@ ros2 launch simple_trajectory_follower nomad_follower.launch.py
 ## 8. レビューで確定する事項
 
 - 9月4日のdirectional-camera baselineを使用する（承認済み）。
-- 実機試験の走行場所・方向に対応するgoal画像列。
+- 実機試験の走行場所・方向に対応するgoal画像。
 
 教師座標とTFの同期対応、および実機計算機の処理時間は、実装・検証工程で解決する項目とする。最新の条件付きモデルの対応は、このbaseline接続と検証の後に別仕様として扱う。
 

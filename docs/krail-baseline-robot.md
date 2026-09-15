@@ -26,20 +26,26 @@ sha256sum model_weights/krail_baseline_20260904_latest.pth
 設定は画像履歴0.25秒、context_size=3（合計4枚）、距離復元係数0.05、8予測点。
 モデルが出す累積局所XYに係数を一度だけ掛け、車体原点を加えた通常9点を配信する。
 
-## 2. goal画像列を設定する
+## 2. goal画像を1枚設定する
 
-`config/krail_baseline_robot.yaml` の `topomap: null` を、走行先に対応する画像フォルダーの絶対パスへ変更する。
-`0.jpg`, `1.jpg`, ... の連番画像を走行順に配置する。PNG/JPEGも使用できる。`goal_node: -1` は最終画像。
-未指定のままでは起動しない。設定中の相対パスはYAMLファイルの位置を基準に解決する。
-
-bag接続確認に限った候補（実機のgoalとして自動設定しない）:
+`config/krail_baseline_robot.yaml` の `goal_image: ""` を、目的地の画像ファイルの絶対パスへ変更する。
+JPEG/PNGなどPillowが読み込める画像を指定する。起動時にRGBで読み込み、毎回同じgoal画像を使用する。実行中の切り替えは行わない。
 
 ```yaml
-topomap: /home/ubuntu/visualnav_docker/visualnav-transformer/datasets/krail_directional_camera_master/2026_08_03-10_31_05
+goal_image: /absolute/path/to/goal.jpg
+goal_distance_threshold: 3.0
 ```
 
-この候補はforward/frontの193枚。学習データ由来なので未知経路での性能評価には使わない。
-初回の実機評価は前方カメラ固定の前進区間で行う。学習データの復路にはrear画像と180度変更した教師yawが含まれるが、この設定はrear入力や復路座標切り替えを実装しない。
+未指定、読めない画像、topomapとの同時指定は起動エラーになる。相対パスは設定YAMLの位置を基準に解決する。
+画像履歴は現在と過去3枚を使い、ネットワーク構造・重み・DDPM処理は変更しない。画像列の探索やサブゴール切り替えは行わない。
+
+既存距離ヘッドの予測値が `goal_distance_threshold` 未満になった観測で到達と判定し、空Pathを送り、その起動中は停止を維持する。これは**メートル単位ではない**。初期値3.0は既存の近接閾値を参考にした値で、単一goalの到達判定として実機検証済みではない。bagで早すぎる停止・停止不足を確認して調整する。厳密な位置への到達保証ではない。
+
+bag検証用の候補画像（実機goalとして自動設定しない）:
+`/home/ubuntu/visualnav_docker/visualnav-transformer/datasets/krail_directional_camera_master/2026_08_03-10_31_05/192.jpg`
+
+この画像は学習データ由来なので未知経路での性能評価には使わない。初回の実機評価は前方カメラ固定の前進区間で行う。学習データの復路にはrear画像と180度変更した教師yawが含まれるが、この設定はrear入力や復路座標切り替えを実装しない。
+単一goal方式は途中の通過点を指定しないため、遠い・見た目が異なるgoalへの長距離走行性能は別途検証する。
 
 ## 3. 起動
 
@@ -90,9 +96,10 @@ Pathの始点・向き・単位をTFと重ねて確認する。画像途絶、TF
 2026-09-15、このPCで確認:
 
 - 配置した重みのSHA256一致、標準NoMaDへのstrictロード成功。
-- 実重み、実画像4枚、193枚のgoal列、seed42、8サンプル、10 DDPMステップを使用。既存 `navigate.py` のNoMaD分岐と接続側の局所8点が完全一致。
-- 実設定・重み・候補goal列によるROSノードの構築と終了。
-- 既存テスト28件成功。PyTorch Transformerのnested-tensorに関する警告2件あり。
+- topomap方式の実装時には実重み、実画像4枚、193枚のgoal列、seed42、8サンプル、10 DDPMステップを使用。既存 `navigate.py` のNoMaD分岐と接続側の局所8点が完全一致。
+- 単一goal方式でも実重み・実画像4枚・goal画像192.jpgで、同じgoalを与えた従来推論との局所8点の完全一致を確認。到達判定はFalseとなり、1枚指定だけで即到達しない。
+- 実設定・重み・単一goal画像によるROSノードの構築と終了。
+- 単一goal対応後はテスト31件成功。PyTorch Transformerのnested-tensorに関する警告4件あり。
 - 検証環境: ROS2 Jazzy、Python3.12、CPU、Torch2.14.0+cpu、torchvision0.29、diffusers0.40。検証用環境は `/tmp/nomad-interface-venv`。`uv sync`による本番環境全体の検証とは区別する。
 
 既存テストの再実行（ROS2とPython依存環境を準備して実行）:
@@ -106,6 +113,6 @@ PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST \
 
 - 教師位置・yawの生成時刻とbag TFの同期対応。サンプルの単純照合で完全一致は未確認。
 - 全bag再生でのPath位置・向き・到達動作と追従ノード接続。
-- 実機で使うgoal画像列、GPU環境と推論時間、実機走行。
+- 実機で使うgoal画像、GPU環境と推論時間、実機走行。
 
 実機では有効Pathの観測年齢が0.8秒の期限内に収まることを測定する。期限変更時は追従側の1.0秒期限との関係も再検証する。上記の座標同期とbag検証を終えてから、速度制限と停止手段を確認して前進試走する。

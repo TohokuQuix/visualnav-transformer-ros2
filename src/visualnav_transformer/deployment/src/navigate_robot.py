@@ -50,6 +50,8 @@ class RobotNavigationNode(Node):
             model_config="",
             checkpoint="",
             topomap="",
+            goal_image="",
+            goal_distance_threshold=3.0,
             goal_node=-1,
             radius=4,
             close_threshold=3.0,
@@ -87,8 +89,18 @@ class RobotNavigationNode(Node):
         for name in ("model_config", "checkpoint"):
             if not FilePath(c[name]).is_file():
                 raise ValueError(f"{name} must name an existing file")
-        if not FilePath(c["topomap"]).is_dir():
+        if bool(c["topomap"]) == bool(c["goal_image"]):
+            raise ValueError("Specify exactly one of topomap or goal_image")
+        if c["goal_image"]:
+            if not FilePath(c["goal_image"]).is_file():
+                raise ValueError("goal_image must name an existing file")
+        elif not FilePath(c["topomap"]).is_dir():
             raise ValueError("topomap must name an existing directory")
+        if (
+            not math.isfinite(c["goal_distance_threshold"])
+            or c["goal_distance_threshold"] < 0
+        ):
+            raise ValueError("goal_distance_threshold must be finite and nonnegative")
         with open(c["model_config"]) as stream:
             model_cfg = yaml.safe_load(stream)
         if not model_cfg["normalize"] and c["action_scale_m"] != 1.0:
@@ -106,6 +118,8 @@ class RobotNavigationNode(Node):
             model_config=model_cfg,
             checkpoint=c["checkpoint"],
             topomap=c["topomap"],
+            goal_image=c["goal_image"],
+            goal_distance_threshold=c["goal_distance_threshold"],
             goal_node=c["goal_node"],
             radius=c["radius"],
             close_threshold=c["close_threshold"],
@@ -289,7 +303,7 @@ def load_settings(filename):
         settings = yaml.safe_load(stream)
     if not isinstance(settings, dict):
         raise ValueError("Interface config must be a YAML mapping")
-    for name in ("model_config", "checkpoint", "topomap"):
+    for name in ("model_config", "checkpoint", "topomap", "goal_image"):
         value = settings.get(name)
         if value and not FilePath(value).is_absolute():
             settings[name] = str(filename.parent / value)

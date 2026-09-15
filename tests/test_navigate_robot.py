@@ -321,3 +321,11 @@ def test_reset_does_not_reinfer_same_observation(rig):
     image(node, stamp)
     spin(0.08)
     assert len(calls) == 1
+
+
+def test_goal_image_settings_resolve_relative_path(tmp_path):
+    from visualnav_transformer.deployment.src.navigate_robot import load_settings
+
+    cfg = tmp_path / "robot.yaml"
+    cfg.write_text("goal_image: goal.jpg\n")
+    assert load_settings(cfg)["goal_image"] == str(tmp_path / "goal.jpg")
