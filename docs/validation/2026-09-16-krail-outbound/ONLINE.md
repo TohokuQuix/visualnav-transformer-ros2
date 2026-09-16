@@ -1,5 +1,7 @@
 # baseline ROSノード・bag・RVizのオンライン確認
 
+GPU推論を使う場合は [GPU版の起動手順](GPU.md) を参照。この文書の以下のコマンドはCPU版。
+
 ## 起動
 
 このPCの検証用CPU環境 `/tmp/nomad-interface-venv` と保存済みgoal.jpgを使う。学習モデルや速度指令ノードは変更しない。
