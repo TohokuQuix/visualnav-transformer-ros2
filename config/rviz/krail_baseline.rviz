@@ -1,0 +1,49 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 30
+    Background Color: 35; 35; 35
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 30
+      Color: 90; 90; 90
+    - Class: rviz_default_plugins/Path
+      Name: NoMaD baseline Path
+      Enabled: true
+      Topic:
+        Value: /teaching_playback/path
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Depth: 1
+      Color: 0; 255; 100
+      Line Style: Lines
+      Line Width: 0.03
+      Buffer Length: 1
+      Pose Style: None
+    - Class: rviz_default_plugins/TF
+      Name: Robot TF
+      Enabled: true
+      Show Names: true
+      Show Axes: true
+      Show Arrows: false
+      Marker Scale: 0.2
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Top view
+      Target Frame: map
+      Scale: 150
+      X: 1.5
+      Y: -0.7
+      Angle: 0
+Window Geometry:
+  Width: 1200
+  Height: 850

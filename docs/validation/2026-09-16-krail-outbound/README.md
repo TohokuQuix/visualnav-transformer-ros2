@@ -51,3 +51,7 @@ TFをbag全体から先に読み込んだオフライン計算であり、再生
 - [観測ごとの拡大図](all_candidates/baseline_candidates_detail.png): 赤は候補0、青は残り7本、黒点は観測時の車体位置。
 - [8候補の数値](all_candidates/results.json)
 - [診断スクリプト](all_candidates/offline_all_candidates.py): 上記と同じ一時ソース・検証環境が必要。
+
+## ROSノードを起動したオンライン検証
+
+追加で実際のbaselineノード・等速bag再生・RVizを起動し、Cyclone DDSで55秒間に有効Path142件を受信した。起動方法と通信設定・測定結果は [ONLINE.md](ONLINE.md) を参照。前述のオフライン結果とは別の検証である。
