@@ -173,7 +173,7 @@ def test_single_goal_matches_one_image_inference_without_index_arrival(inputs):
     torch.manual_seed(42)
     expected = legacy(images, 0)
     torch.manual_seed(42)
-    actual = single(images, 99)
+    actual = single(tuple(images), 99)
     np.testing.assert_array_equal(actual.points, expected.points)
     assert expected.reached_goal
     assert not actual.reached_goal  # strict distance < threshold, never index == 0

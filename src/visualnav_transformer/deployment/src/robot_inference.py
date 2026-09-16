@@ -86,7 +86,7 @@ class NoMaDPredictor:
 
     def __call__(self, images, closest_node):
         cfg = self.cfg
-        obs_images = transform_images(images, cfg["image_size"], center_crop=False)
+        obs_images = transform_images(list(images), cfg["image_size"], center_crop=False)
         obs_images = torch.cat(torch.split(obs_images, 3, dim=1), dim=1).to(self.device)
         if self.single_goal:
             closest_node = 0
