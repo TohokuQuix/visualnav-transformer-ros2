@@ -1,0 +1,263 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Image1
+        - /Image1/Topic1
+      Splitter Ratio: 0.5
+    Tree Height: 247
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 0.5
+      Class: rviz_default_plugins/Grid
+      Color: 90; 90; 90
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 30
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 0; 255; 100
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: NoMaD baseline Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 1
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /nomad/baseline_predicted_path
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        arm/base_link:
+          Value: true
+        arm/dummy_left:
+          Value: true
+        arm/dummy_right:
+          Value: true
+        arm/link1:
+          Value: true
+        arm/link2:
+          Value: true
+        arm/link3:
+          Value: true
+        arm/link4:
+          Value: true
+        arm/link5:
+          Value: true
+        arm/link6:
+          Value: true
+        camera_color_frame:
+          Value: true
+        camera_color_optical_frame:
+          Value: true
+        camera_depth_frame:
+          Value: true
+        camera_depth_optical_frame:
+          Value: true
+        camera_link:
+          Value: true
+        chassis/body:
+          Value: true
+        chassis/fl_body:
+          Value: true
+        chassis/fl_sprocket:
+          Value: true
+        chassis/fl_track:
+          Value: true
+        chassis/fr_body:
+          Value: true
+        chassis/fr_sprocket:
+          Value: true
+        chassis/fr_track:
+          Value: true
+        chassis/imu_imu_link:
+          Value: true
+        chassis/left_track:
+          Value: true
+        chassis/right_track:
+          Value: true
+        chassis/rl_body:
+          Value: true
+        chassis/rl_sprocket:
+          Value: true
+        chassis/rl_track:
+          Value: true
+        chassis/rr_body:
+          Value: true
+        chassis/rr_sprocket:
+          Value: true
+        chassis/rr_track:
+          Value: true
+        elbow_camera0:
+          Value: true
+        elbow_camera1:
+          Value: true
+        front_camera:
+          Value: true
+        front_lidar:
+          Value: true
+        hand_camera:
+          Value: true
+        map:
+          Value: true
+        rear_camera:
+          Value: true
+        rear_lidar:
+          Value: true
+        wrist_realsense_bottom_screw_frame:
+          Value: true
+        wrist_realsense_link:
+          Value: true
+      Marker Scale: 0.20000000298023224
+      Name: Robot TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: true
+      Tree:
+        map:
+          chassis/body:
+            arm/base_link:
+              arm/link1:
+                arm/link2:
+                  arm/link3:
+                    arm/link4:
+                      arm/link5:
+                        arm/link6:
+                          arm/dummy_left:
+                            {}
+                          arm/dummy_right:
+                            {}
+                          hand_camera:
+                            wrist_realsense_bottom_screw_frame:
+                              wrist_realsense_link:
+                                {}
+                    elbow_camera0:
+                      elbow_camera1:
+                        {}
+            chassis/fl_body:
+              chassis/fl_track:
+                {}
+            chassis/fl_sprocket:
+              {}
+            chassis/fr_body:
+              chassis/fr_track:
+                {}
+            chassis/fr_sprocket:
+              {}
+            chassis/imu_imu_link:
+              {}
+            chassis/left_track:
+              {}
+            chassis/right_track:
+              {}
+            chassis/rl_body:
+              chassis/rl_track:
+                {}
+            chassis/rl_sprocket:
+              {}
+            chassis/rr_body:
+              chassis/rr_track:
+                {}
+            chassis/rr_sprocket:
+              {}
+            front_camera:
+              {}
+            front_lidar:
+              {}
+            rear_camera:
+              {}
+            rear_lidar:
+              {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /front_camera/image_raw/compressed
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 35; 35; 35
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools: ~
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Angle: 0
+      Class: rviz_default_plugins/TopDownOrtho
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Scale: 150
+      Target Frame: map
+      Value: TopDownOrtho (rviz_default_plugins)
+      X: 1.5
+      Y: -0.699999988079071
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 850
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Image:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000001db000002f8fc0200000002fb000000100044006900730070006c006100790073010000003d0000017a000000c900fffffffb0000000a0049006d00610067006501000001bd000001780000001600ffffff000002cf000002f800000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Width: 1200
+  X: 216
+  Y: 182
