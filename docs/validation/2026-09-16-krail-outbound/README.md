@@ -42,3 +42,12 @@ TFをbag全体から先に読み込んだオフライン計算であり、再生
 ## 今後の対象
 
 ユーザー指示により、以後の動作確認はbaselineのみを対象とする。上記の最新モデル比較は過去の診断結果として残す。GPUでのbaseline推論・ROS連続再生は未実施。
+
+## baselineの8候補表示
+
+同じbag・goal・11観測・seed42・CPUでbaselineのみ再推論し、各観測8候補（各8点）を保存した。先頭候補は前回保存した結果と全11観測で完全一致。実行コードのget_action出力を診断用に捕捉し、本体の経路選択・Path配信処理は変更していない。
+
+- [全体重ね合わせ図](all_candidates/baseline_all_candidates.png): 観測ごとに色分け。太線は採用候補0、細線は候補1〜7、灰色は記録走行軌跡。
+- [観測ごとの拡大図](all_candidates/baseline_candidates_detail.png): 赤は候補0、青は残り7本、黒点は観測時の車体位置。
+- [8候補の数値](all_candidates/results.json)
+- [診断スクリプト](all_candidates/offline_all_candidates.py): 上記と同じ一時ソース・検証環境が必要。
