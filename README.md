@@ -2,9 +2,79 @@
 
 This repository is a port of [visualnav-transformer](https://github.com/robodhruv/visualnav-transformer) to ROS2. Its purpose is to make running the models more straightforward by providing a Dockerfile with all dependencies set up. For more details on the models, please refer to the original repository.
 
-### Installation (uv)
+### Running the code
 
-The project's Python dependencies are managed with [uv](https://docs.astral.sh/uv/). The Docker images below install everything automatically, so this step is optional. You only need a local setup to run the visualization (`uv run python scripts/visualize.py`) on your host. Everything else can run in Docker.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/RobotecAI/visualnav-transformer-ros2
+cd visualnav-transformer-ros2
+```
+
+2. Download the default NoMaD weights and build the Docker image:
+
+From the repository root, run the setup script. It uses Docker to download the default weights to `model_weights/nomad.pth`, then builds the image. An existing nonempty weight file is left untouched.
+
+```bash
+./scripts/setup_docker.sh
+```
+
+The defaults are ROS 2 Jazzy, NVIDIA PyTorch, and the image tag `visualnav_transformer:latest`. Set `ROS_DISTRO`, `TORCH_VARIANT` (`nvidia`, `amd`, or `cpu`), or `IMAGE_TAG` to change them:
+
+```bash
+ROS_DISTRO=humble TORCH_VARIANT=amd ./scripts/setup_docker.sh
+# For CPU only:
+TORCH_VARIANT=cpu ./scripts/setup_docker.sh
+```
+
+To download the default weights again, remove `model_weights/nomad.pth` and rerun the script.
+
+3. Run the Docker container:
+
+The run script resolves the repository from its own location. It mounts that repository at `/visualnav-transformer`, regardless of your current directory. Run it from the repository root as shown below, or invoke it by its absolute path from elsewhere.
+
+```bash
+# NVIDIA (default; requires the NVIDIA Container Toolkit)
+./scripts/run_docker.sh
+
+# AMD (requires ROCm drivers and an image built with TORCH_VARIANT=amd)
+TORCH_VARIANT=amd ./scripts/run_docker.sh
+
+# CPU (requires an image built with TORCH_VARIANT=cpu)
+TORCH_VARIANT=cpu ./scripts/run_docker.sh
+```
+
+Set `IMAGE_TAG` to the same value used during setup if you chose a custom image tag. `ROS_DOMAIN_ID` is passed through to the container. Additional arguments to the script are passed to `docker run`; for example, if the GPU is not detected, try `./scripts/run_docker.sh --group-add video --group-add render --security-opt seccomp=unconfined`.
+
+Edits to local code and weight files are visible in the container immediately. Restart the model process to load changed weights. The Python environment stays in the image at `/opt/visualnav-venv`; rerun the setup script after changing Python dependencies.
+
+4. Run the model:
+
+Inside the container, run the following commands:
+```bash
+uv run python src/visualnav_transformer/deployment/src/explore.py
+```
+
+> [!TIP]
+> Instead of prefixing every command with `uv run`, you can activate the environment once inside Docker with `source /opt/visualnav-venv/bin/activate` and then just use `python`.
+
+This will run the model and publish the predicted waypoints to a ROS2 topic, but your robot will not move yet. Next to running the model you have to run a script that will publish the movement commands to the robot.
+
+```bash
+uv run python scripts/publish_cmd.py
+```
+
+Now the robot should start moving based on the model's predictions.
+
+To visualize the waypoints that the model is outputting you can run the following command:
+```bash
+uv run python scripts/visualize.py
+```
+A window should appear with the camera image and the model outputs updated in real time.
+
+### Optional local Python setup (uv)
+
+The Docker workflow above installs Python dependencies inside the image and downloads the default model weights to this repository. You do not need a local Python environment to run the model in Docker. Set one up only if you want to run tools such as `uv run python scripts/visualize.py` on the host.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -30,70 +100,6 @@ export UV_NO_SYNC=1
 
 > [!NOTE]
 > `UV_NO_SYNC=1` stops `uv run` from syncing the environment back to the lockfile, which would restore pytorch to CPU-only. Requires a ROS2 installation sourced in your shell.
-
-### Running the code
-
-1. Clone the repository:
-```bash
-git clone https://github.com/RobotecAI/visualnav-transformer-ros2
-cd visualnav-transformer-ros2
-```
-
-2. Build the Docker image:
-
-The image is based on the [`osrf/ros`](https://hub.docker.com/r/osrf/ros) desktop images and can be built for ROS2 Jazzy (default) or Humble via the `ROS_DISTRO` build argument:
-```bash
-# ROS2 Jazzy (Ubuntu 24.04)
-docker build -t visualnav_transformer:latest .
-
-# ROS2 Humble (Ubuntu 22.04)
-docker build --build-arg ROS_DISTRO=humble -t visualnav_transformer:latest .
-```
-
-The PyTorch build is selected with the `TORCH_VARIANT` build argument: `nvidia` (CUDA, default), `amd` (ROCm) or `cpu`:
-```bash
-docker build --build-arg TORCH_VARIANT=amd -t visualnav_transformer:latest .
-```
-
-3. Run the Docker container:
-
-**NVIDIA GPU** (requires the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)):
-```bash
-docker run -it --env ROS_DOMAIN_ID=$ROS_DOMAIN_ID --rm --gpus=all --net=host visualnav_transformer:latest
-```
-
-**AMD GPU** (requires [ROCm](https://rocm.docs.amd.com/) drivers on the host and an image built with `TORCH_VARIANT=amd`):
-```bash
-docker run -it --env ROS_DOMAIN_ID=$ROS_DOMAIN_ID --rm --net=host \
-    --device=/dev/kfd --device=/dev/dri \
-    visualnav_transformer:latest
-```
-
-If the GPU is not detected inside the container, try adding `--group-add video --group-add render` and `--security-opt seccomp=unconfined`.
-
-4. Run the model:
-
-Inside the container, run the following commands:
-```bash
-uv run python src/visualnav_transformer/deployment/src/explore.py
-```
-
-> [!TIP]
-> Instead of prefixing every command with `uv run`, you can activate the environment once with `source .venv/bin/activate` and then just use `python`.
-
-This will run the model and publish the predicted waypoints to a ROS2 topic, but your robot will not move yet. Next to running the model you have to run a script that will publish the movement commands to the robot.
-
-```bash
-uv run python scripts/publish_cmd.py
-```
-
-Now the robot should start moving based on the model's predictions.
-
-To visualize the waypoints that the model is outputting you can run the following command:
-```bash
-uv run python scripts/visualize.py
-```
-A window should appear with the camera image and the model outputs updated in real time.
 
 ### Creating a topomap of the environment
 
