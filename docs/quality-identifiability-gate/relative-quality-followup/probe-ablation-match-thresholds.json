@@ -1,0 +1,43 @@
+{
+  "candidate_count": 9996,
+  "distance": "Euclidean train-standardized vector / sqrt(dimension)",
+  "geometry": {
+    "goal_direction_deg": 30.0,
+    "goal_distance_m": 0.1,
+    "max_dem_rmse_m": 0.05,
+    "min_mask_iou": 0.8
+  },
+  "heldout_used_for_threshold": false,
+  "source_sha256": "9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524",
+  "source_split": "train",
+  "thresholds": {
+    "probe_delta_drawdown": {
+      "large": 0.9916591426388472,
+      "large_quantile": 0.75,
+      "small": 0.28527229811349464,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "probe_multi_no_v0": {
+      "large": 1.0654702707938577,
+      "large_quantile": 0.75,
+      "small": 0.37913256972319304,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "probe_multi_reward_free": {
+      "large": 1.157612919807434,
+      "large_quantile": 0.75,
+      "small": 0.5567709654569626,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "probe_relative_triplet": {
+      "large": 1.039726585738968,
+      "large_quantile": 0.75,
+      "small": 0.3237581323762981,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    }
+  }
+}

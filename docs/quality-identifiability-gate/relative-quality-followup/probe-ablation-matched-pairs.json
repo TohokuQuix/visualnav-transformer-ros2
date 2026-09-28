@@ -1,0 +1,344 @@
+{
+  "heldout_candidate_count": 9408,
+  "heldout_source_sha256": "2e76591744be9f32430556df6adf9fe5fafde0b4d0dc93dfc279f3a98debd609",
+  "metrics": {
+    "probe_delta": {
+      "cross_count": 114,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.06761650807294692,
+            0.11519795921524745
+          ],
+          "observed_mean_difference": 0.02280561826888025,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.06979873742787294,
+            0.1152042240086226
+          ],
+          "observed_mean_difference": 0.021284612276734144,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.09573810798344821,
+            0.11258384219142983
+          ],
+          "observed_mean_difference": 0.007762794107096405,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.05243209826349953,
+            0.16947622057008777
+          ],
+          "observed_mean_difference": 0.11140182564954303,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -0.915173699169766,
+            1.3141997611818728
+          ],
+          "observed_mean_difference": 0.13893384614989213,
+          "valid_replicates": 2000
+        }
+      },
+      "prior_artifact_sha256": "52479df7926c3230b19280f4852641b54d8910da605653aed2fe33454e2a7768",
+      "same_count": 115,
+      "source": "frozen prior train-thresholded matched pairs"
+    },
+    "probe_delta_drawdown": {
+      "cross_count": 113,
+      "cross_episode_count": 84,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.029562596060196924,
+            0.13965596828154056
+          ],
+          "observed_mean_difference": 0.0514505882263266,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.02900415330364503,
+            0.14172075779381038
+          ],
+          "observed_mean_difference": 0.052289299493555236,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.055524301999379945,
+            0.15157369451845223
+          ],
+          "observed_mean_difference": 0.049784853630567075,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.060363450524102726,
+            0.17765999337446903
+          ],
+          "observed_mean_difference": 0.11873887130528231,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -0.5680296354556517,
+            1.4743077885997298
+          ],
+          "observed_mean_difference": 0.42113710184935993,
+          "valid_replicates": 2000
+        }
+      },
+      "same_count": 116
+    },
+    "probe_multi": {
+      "prior_artifact_sha256": "a9cb2a62bb83cbf8a83083995cac6ece71d98cc5582970356d5555cafbf0e4b8",
+      "source": "frozen prior Q-multi matched pairs"
+    },
+    "probe_multi_no_v0": {
+      "cross_count": 113,
+      "cross_episode_count": 84,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.08949709418972199,
+            0.09866942502096197
+          ],
+          "observed_mean_difference": 0.017925878758140903,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.0928483061214515,
+            0.09855219697353063
+          ],
+          "observed_mean_difference": 0.016305365339932057,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.06997630943526544,
+            0.12237875426454835
+          ],
+          "observed_mean_difference": 0.030433934964253936,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.036390258558421505,
+            0.14075295264700685
+          ],
+          "observed_mean_difference": 0.0920150464177404,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -0.877917940239632,
+            1.4178557196379054
+          ],
+          "observed_mean_difference": 0.36622814811478044,
+          "valid_replicates": 2000
+        }
+      },
+      "same_count": 115
+    },
+    "probe_multi_reward_free": {
+      "cross_count": 114,
+      "cross_episode_count": 85,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.04935364589720729,
+            0.12912697676238732
+          ],
+          "observed_mean_difference": 0.045588224570794006,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.04997281457044719,
+            0.12802646530098036
+          ],
+          "observed_mean_difference": 0.044824797972364744,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.07195084755651845,
+            0.13762755727873535
+          ],
+          "observed_mean_difference": 0.03940793741508625,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.052421378826971704,
+            0.1740663174655369
+          ],
+          "observed_mean_difference": 0.1167812315872881,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -1.3437414550547402,
+            0.9618452333408554
+          ],
+          "observed_mean_difference": -0.18961335647557132,
+          "valid_replicates": 2000
+        }
+      },
+      "same_count": 115
+    },
+    "probe_recovery": {
+      "cross_count": 114,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.0752705417640048,
+            0.08935133034907157
+          ],
+          "observed_mean_difference": 0.01995764207602882,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.07836391255098951,
+            0.08957757565927305
+          ],
+          "observed_mean_difference": 0.01799791357091414,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.07890570776352229,
+            0.10678769786246789
+          ],
+          "observed_mean_difference": 0.017166105540175197,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.013654834263861214,
+            0.11743881290719009
+          ],
+          "observed_mean_difference": 0.068775570598857,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -1.4978299405960447,
+            0.9986316079620111
+          ],
+          "observed_mean_difference": -0.19836105530774883,
+          "valid_replicates": 2000
+        }
+      },
+      "prior_artifact_sha256": "52479df7926c3230b19280f4852641b54d8910da605653aed2fe33454e2a7768",
+      "same_count": 117,
+      "source": "frozen prior train-thresholded matched pairs"
+    },
+    "probe_relative_triplet": {
+      "cross_count": 115,
+      "cross_episode_count": 85,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.04340261333907984,
+            0.12385029170430711
+          ],
+          "observed_mean_difference": 0.04237379705756093,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.04553134418608974,
+            0.12335430715503617
+          ],
+          "observed_mean_difference": 0.04054723430181975,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.05127623856175857,
+            0.14512619982588262
+          ],
+          "observed_mean_difference": 0.043937341496348384,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            0.08226459744811052,
+            0.19066901053397964
+          ],
+          "observed_mean_difference": 0.13544082087667092,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -1.408763557797995,
+            0.7902130688694049
+          ],
+          "observed_mean_difference": -0.27930680786299966,
+          "valid_replicates": 2000
+        }
+      },
+      "same_count": 115
+    },
+    "probe_return": {
+      "cross_count": 101,
+      "cross_minus_same": {
+        "endpoint_m": {
+          "ci_95": [
+            -0.08361770193944658,
+            0.05440109250343001
+          ],
+          "observed_mean_difference": -0.011562818311351752,
+          "valid_replicates": 2000
+        },
+        "forward_progress_m": {
+          "ci_95": [
+            -0.08470305207813243,
+            0.0526641621642483
+          ],
+          "observed_mean_difference": -0.013772039645906606,
+          "valid_replicates": 2000
+        },
+        "path_length_m": {
+          "ci_95": [
+            -0.0418288203814116,
+            0.19237714487594296
+          ],
+          "observed_mean_difference": 0.06925779979972713,
+          "valid_replicates": 2000
+        },
+        "trajectory_rms_m": {
+          "ci_95": [
+            -0.03277683548138051,
+            0.07012738578242962
+          ],
+          "observed_mean_difference": 0.021525418904239438,
+          "valid_replicates": 2000
+        },
+        "turning_rad": {
+          "ci_95": [
+            -1.4875150103666193,
+            1.086672135579748
+          ],
+          "observed_mean_difference": -0.14194824175874388,
+          "valid_replicates": 2000
+        }
+      },
+      "prior_artifact_sha256": "52479df7926c3230b19280f4852641b54d8910da605653aed2fe33454e2a7768",
+      "same_count": 113,
+      "source": "frozen prior train-thresholded matched pairs"
+    }
+  },
+  "train_candidate_count": 9996,
+  "train_threshold_file": "probe-ablation-match-thresholds.json"
+}

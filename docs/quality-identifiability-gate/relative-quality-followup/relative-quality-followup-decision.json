@@ -1,0 +1,207 @@
+{
+  "all_seven_terrain_generalization_claim": false,
+  "common_support_terrains": [
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "oracle_best_of_k_evidence": "not yet established by forward evaluator; no rollout performed",
+  "phase_a": {
+    "probe_delta": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": true,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "delta_v": 0.0018686839590797977
+      },
+      "matched_rms_gap_ci95": [
+        0.05243209826349953,
+        0.16947622057008777
+      ],
+      "matched_rms_gap_m": 0.11140182564954303,
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_delta_drawdown": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": true,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "delta_v": 0.0018686839590797977,
+        "drawdown": 0.013177574070572518
+      },
+      "matched_rms_gap_ci95": [
+        0.060363450524102726,
+        0.17765999337446903
+      ],
+      "matched_rms_gap_m": 0.11873887130528231,
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_multi_no_v0": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": true,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "advantage_h": 0.006595953580904479,
+        "drawdown": 0.013177574070572518,
+        "recovery": 0.05294833216631245
+      },
+      "matched_rms_gap_ci95": [
+        0.036390258558421505,
+        0.14075295264700685
+      ],
+      "matched_rms_gap_m": 0.0920150464177404,
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_multi_reward_free": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": true,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "delta_v": 0.0018686839590797977,
+        "drawdown": 0.013177574070572518,
+        "recovery": 0.05294833216631245,
+        "v0": 0.07326873982821369
+      },
+      "matched_rms_gap_ci95": [
+        0.052421378826971704,
+        0.1740663174655369
+      ],
+      "matched_rms_gap_m": 0.1167812315872881,
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_recovery": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": false,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "recovery": 0.05294833216631245
+      },
+      "matched_rms_gap_ci95": [
+        0.013654834263861214,
+        0.11743881290719009
+      ],
+      "matched_rms_gap_m": 0.068775570598857,
+      "status": "fail",
+      "underfit": false
+    },
+    "probe_relative_triplet": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": true,
+        "delta_r2_at_least_0p02": true,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": true,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": true
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "delta_v": 0.0018686839590797977,
+        "drawdown": 0.013177574070572518,
+        "recovery": 0.05294833216631245
+      },
+      "matched_rms_gap_ci95": [
+        0.08226459744811052,
+        0.19066901053397964
+      ],
+      "matched_rms_gap_m": 0.13544082087667092,
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_return": {
+      "checks": {
+        "beats_all_terrain_shuffles": true,
+        "better_than_absolute_q": true,
+        "common_support_direction": false,
+        "delta_r2_at_least_0p02": false,
+        "episode_ci_positive": true,
+        "goal_dem_proxy_not_sufficient": true,
+        "matched_trajectory_difference": false,
+        "not_single_episode_dependent": true,
+        "rms_reduction_at_least_5pct": false
+      },
+      "goal_dem_linear_proxy_r2_by_component": {
+        "return_h": 0.06413506866049967
+      },
+      "matched_rms_gap_ci95": [
+        -0.03277683548138051,
+        0.07012738578242962
+      ],
+      "matched_rms_gap_m": 0.021525418904239438,
+      "status": "fail",
+      "underfit": false
+    }
+  },
+  "phase_a_questions": {
+    "advantage_v0_spearman": -0.21936279866538477,
+    "delta_beats_absolute_q": true,
+    "delta_beats_advantage": true,
+    "delta_beats_drawdown": true,
+    "recovery_single_pass": false,
+    "return_initial_state_confounding_supported": true,
+    "return_v0_spearman": 0.755010403381817,
+    "reward_free_multi_at_least_existing_multi": false,
+    "reward_free_multi_beats_delta_ci": true,
+    "reward_free_multi_point_rms_vs_existing_multi_pct": -0.8954291174413074,
+    "reward_free_multi_vs_delta_mse_gain_ci95": [
+      0.002522823711240207,
+      0.008270798173181982
+    ],
+    "scalar_vs_multi_parameter_difference": 192,
+    "v0_improves_adv_multi_vs_no_v0": true,
+    "v0_improves_reward_free_vs_triplet": true
+  },
+  "phase_b": {
+    "candidate_ranking_claim": false,
+    "reason": "recorded 22-D actor observation absent; body-state input/window correspondence cannot be checked",
+    "status": "inconclusive",
+    "training_performed": false
+  },
+  "raw_data_only": true
+}

@@ -1,0 +1,37 @@
+{
+  "completed": true,
+  "device": "cuda",
+  "heldout_used": false,
+  "input_fingerprint": {
+    "config": "31e113666f0a670a9d1bfb25af55dd4a8930a45c539c35f13f21eda84632b6cc",
+    "model": "2f4a9420f21deb84e7867f82a5ad6ee98656fa7cd10aa8cdfce2cf3670a50f52",
+    "train": "9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524",
+    "trainer": "98419c5cc683ac39ced3b7728357a0f472cd894ca1dfa89e23b06b0d22babc60",
+    "val": "ec9eb97dc0a7ffdc3caccd6cc2c0c534b8c4052e3c5bcd85fe74030110479c4f"
+  },
+  "mean_trajectory_validation_mse": 1.0498294830322266,
+  "mode": "smoke",
+  "peak_torch_gpu_bytes": 38559232,
+  "prior_reference_fingerprint": {
+    "config": "7e61e64983a7f9466dd81c461712d9a565a0171f8b770c3e0444eeb538f42fc4",
+    "probe_code": "e114407e03e58e5febc5d54d47962b0f72cdea8af2167bbef8f3d9da4d5ac75c",
+    "train": "9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524",
+    "val": "ec9eb97dc0a7ffdc3caccd6cc2c0c534b8c4052e3c5bcd85fe74030110479c4f"
+  },
+  "runs": [
+    {
+      "best_epoch": 1,
+      "best_validation_loss": 1.252071075439453,
+      "checkpoint": "/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/smoke-probes/probe_delta-seed11/best.pt",
+      "checkpoint_sha256": "59d882c9b78fc84fdc790603442869cc1a63f1b0ba3dc6bbc4e4099cfa6b40d8",
+      "epochs_ran": 2,
+      "kind": "probe_delta",
+      "parameter_count": 58360,
+      "seed": 11,
+      "validation_improving_at_cap": true
+    }
+  ],
+  "seconds": 0.7727618459612131,
+  "train_windows": 100,
+  "validation_windows": 50
+}

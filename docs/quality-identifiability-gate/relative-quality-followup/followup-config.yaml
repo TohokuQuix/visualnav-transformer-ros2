@@ -1,0 +1,46 @@
+schema_version: 1
+source_relative_config_sha256: 7e61e64983a7f9466dd81c461712d9a565a0171f8b770c3e0444eeb538f42fc4
+source_manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+source_relative_values_sha256: 27ec942006b97cf5a09de4ba2e66a6157d4eaaf4233d6a7d855da7d7c905f3b7
+source_relative_probe_code_sha256: e114407e03e58e5febc5d54d47962b0f72cdea8af2167bbef8f3d9da4d5ac75c
+source_aligned_split_sha256:
+  train: 9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524
+  val: ec9eb97dc0a7ffdc3caccd6cc2c0c534b8c4052e3c5bcd85fe74030110479c4f
+  test: 2e76591744be9f32430556df6adf9fe5fafde0b4d0dc93dfc279f3a98debd609
+split_hash: ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f
+complete_aligned: {train: 49576, val: 6164, test: 6208}
+terminal_endpoint_excluded: {train: 22, val: 7, test: 0}
+control_step_sec: 0.05
+gamma: 0.99
+reward_steps: 40
+probe_kinds: [probe_delta, probe_recovery, probe_return, probe_delta_drawdown, probe_relative_triplet, probe_multi_reward_free, probe_multi_no_v0]
+reference_kinds: [probe_0, probe_abs, probe_adv, probe_drawdown, probe_multi]
+probe_seeds: [11, 29, 47]
+fixed_probe_quality: 0.5
+probe_batch_size: 64
+probe_learning_rate: 0.0003
+probe_max_epochs: 100
+probe_patience: 12
+probe_min_delta: 0.0001
+min_validation_gain_over_mean: 0.05
+bootstrap_seed: 613
+bootstrap_repeats: 2000
+permutation_seed: 907
+initial_permutations: 10
+final_permutations: 100
+permutation_boundary_relative_rms_margin: 0.01
+permutation_boundary_r2_margin: 0.005
+min_relative_rms_gain: 0.05
+min_delta_r2: 0.02
+min_terrain_q_bin: 30
+match_seed: 123
+match_train_candidate_cap: 10000
+match_heldout_candidate_cap: 10000
+match_episode_cap: 3
+match_pairs_per_kind: 1000
+match_goal_distance_m: 0.1
+match_goal_direction_deg: 30.0
+match_min_mask_iou: 0.8
+match_max_dem_rmse_m: 0.05
+match_small_difference_train_quantile: 0.25
+match_large_difference_train_quantile: 0.75

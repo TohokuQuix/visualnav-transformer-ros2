@@ -1,0 +1,73 @@
+{
+  "aligned_primary_counts": {
+    "test": 6208,
+    "train": 49576,
+    "val": 6164
+  },
+  "episode_counts": {
+    "test": 90,
+    "train": 726,
+    "val": 93
+  },
+  "episode_leakage": false,
+  "gamma": 0.99,
+  "original_ecdf_exact_match": true,
+  "previous_probe_checkpoints_verified": 15,
+  "raw_label_and_z_reproduced_count": 61948,
+  "raw_record_sha256": "27ec942006b97cf5a09de4ba2e66a6157d4eaaf4233d6a7d855da7d7c905f3b7",
+  "reward_steps": 40,
+  "status": "pass",
+  "terminal_endpoint_excluded": {
+    "train": 22,
+    "val": 7
+  },
+  "timing_semantics": "pre-action Critic; post-step pose/reward; anchor uses next-record Critic",
+  "train_only_action_statistics": {
+    "count": 416944,
+    "mean": [
+      0.028174810111522675,
+      -1.7856798876891844e-05
+    ],
+    "std": [
+      0.0853688195347786,
+      0.015020611695945263
+    ]
+  },
+  "train_only_relative_scalers": {
+    "advantage_h": {
+      "count": 49576,
+      "mean": 1.0535838110961464,
+      "std": 1.424378909826039
+    },
+    "critic_slope_per_sec": {
+      "count": 49576,
+      "mean": -0.00782479547405115,
+      "std": 0.5947273900171819
+    },
+    "delta_v": {
+      "count": 49576,
+      "mean": -0.06204546139735896,
+      "std": 1.725506964463198
+    },
+    "drawdown": {
+      "count": 49576,
+      "mean": -0.891400078749496,
+      "std": 1.5778410882648821
+    },
+    "recovery": {
+      "count": 49576,
+      "mean": 0.8293546173521371,
+      "std": 1.0950204301626585
+    },
+    "return_h": {
+      "count": 49576,
+      "mean": 38.34792891602328,
+      "std": 2.0447261627397393
+    },
+    "v0": {
+      "count": 49576,
+      "mean": 37.29434510492713,
+      "std": 1.7733943149043385
+    }
+  }
+}

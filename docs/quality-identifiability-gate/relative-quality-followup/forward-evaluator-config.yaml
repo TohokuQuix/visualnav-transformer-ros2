@@ -1,0 +1,10 @@
+# Forward evaluator specification retained for a future observation-complete dataset
+schema_version: 1
+status: blocked_actor_observation_missing
+required_body_state: exact_pre_action_actor_observation
+actor_latent: only_if_exact_recomputation_and_action_consistency_pass
+candidate_trajectory_shape: [8, 2]
+variants: [E-state, E-traj, E-state-traj, E-latent-traj]
+outputs: [critic_delta, advantage_h, drawdown, recovery, return_h]
+training_started: false
+heldout_evaluation_started: false

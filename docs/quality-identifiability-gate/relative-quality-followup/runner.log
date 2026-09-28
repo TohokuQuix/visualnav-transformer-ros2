@@ -1,0 +1,364 @@
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/relative-label-audit.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/relative-label-audit.json.tmp
+STAGE_COMPLETE 01_audit
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/smoke-probes/training-summary.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-smoke.json.tmp
+STAGE_COMPLETE 02_smoke
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_followup_probe_train.py
+FOLLOWUP_PROBE_EPOCH probe_delta 11 1 0.436174
+FOLLOWUP_PROBE_EPOCH probe_delta 11 2 0.427543
+FOLLOWUP_PROBE_EPOCH probe_delta 11 3 0.418282
+FOLLOWUP_PROBE_EPOCH probe_delta 11 4 0.41657
+FOLLOWUP_PROBE_EPOCH probe_delta 11 5 0.415111
+FOLLOWUP_PROBE_EPOCH probe_delta 11 7 0.413634
+FOLLOWUP_PROBE_EPOCH probe_delta 11 9 0.412462
+FOLLOWUP_PROBE_EPOCH probe_delta 11 10 0.41258
+FOLLOWUP_PROBE_EPOCH probe_delta 11 13 0.409625
+FOLLOWUP_PROBE_EPOCH probe_delta 11 20 0.408871
+FOLLOWUP_PROBE_EPOCH probe_delta 11 25 0.408723
+FOLLOWUP_PROBE_EPOCH probe_delta 11 30 0.411222
+FOLLOWUP_PROBE_DONE probe_delta 11 25 0.408723
+FOLLOWUP_PROBE_EPOCH probe_delta 29 1 0.432695
+FOLLOWUP_PROBE_EPOCH probe_delta 29 2 0.425028
+FOLLOWUP_PROBE_EPOCH probe_delta 29 3 0.421068
+FOLLOWUP_PROBE_EPOCH probe_delta 29 4 0.417695
+FOLLOWUP_PROBE_EPOCH probe_delta 29 5 0.414985
+FOLLOWUP_PROBE_EPOCH probe_delta 29 7 0.413648
+FOLLOWUP_PROBE_EPOCH probe_delta 29 9 0.412752
+FOLLOWUP_PROBE_EPOCH probe_delta 29 10 0.411981
+FOLLOWUP_PROBE_EPOCH probe_delta 29 11 0.411768
+FOLLOWUP_PROBE_EPOCH probe_delta 29 12 0.409522
+FOLLOWUP_PROBE_EPOCH probe_delta 29 14 0.408868
+FOLLOWUP_PROBE_EPOCH probe_delta 29 20 0.410433
+FOLLOWUP_PROBE_EPOCH probe_delta 29 21 0.408754
+FOLLOWUP_PROBE_EPOCH probe_delta 29 30 0.408812
+FOLLOWUP_PROBE_EPOCH probe_delta 29 31 0.407972
+FOLLOWUP_PROBE_EPOCH probe_delta 29 40 0.409826
+FOLLOWUP_PROBE_DONE probe_delta 29 31 0.407972
+FOLLOWUP_PROBE_EPOCH probe_delta 47 1 0.433216
+FOLLOWUP_PROBE_EPOCH probe_delta 47 2 0.421275
+FOLLOWUP_PROBE_EPOCH probe_delta 47 4 0.419436
+FOLLOWUP_PROBE_EPOCH probe_delta 47 5 0.415755
+FOLLOWUP_PROBE_EPOCH probe_delta 47 7 0.414321
+FOLLOWUP_PROBE_EPOCH probe_delta 47 8 0.41361
+FOLLOWUP_PROBE_EPOCH probe_delta 47 10 0.417204
+FOLLOWUP_PROBE_EPOCH probe_delta 47 11 0.411865
+FOLLOWUP_PROBE_EPOCH probe_delta 47 14 0.41091
+FOLLOWUP_PROBE_EPOCH probe_delta 47 19 0.410562
+FOLLOWUP_PROBE_EPOCH probe_delta 47 20 0.408735
+FOLLOWUP_PROBE_EPOCH probe_delta 47 30 0.408778
+FOLLOWUP_PROBE_DONE probe_delta 47 20 0.408735
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 1 0.453376
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 2 0.445938
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 3 0.43786
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 4 0.435658
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 5 0.433143
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 6 0.432645
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 7 0.430594
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 9 0.430107
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 10 0.430559
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 11 0.428459
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 13 0.426947
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 20 0.426186
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 21 0.425645
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 25 0.424313
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 30 0.424389
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 35 0.424037
+FOLLOWUP_PROBE_EPOCH probe_recovery 11 40 0.42622
+FOLLOWUP_PROBE_DONE probe_recovery 11 35 0.424037
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 1 0.449616
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 2 0.446669
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 3 0.438956
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 4 0.435876
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 5 0.433497
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 7 0.431949
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 9 0.430092
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 10 0.429527
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 11 0.42903
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 12 0.427951
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 14 0.427585
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 16 0.426169
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 18 0.425043
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 20 0.427296
+FOLLOWUP_PROBE_EPOCH probe_recovery 29 30 0.426074
+FOLLOWUP_PROBE_DONE probe_recovery 29 18 0.425043
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 1 0.449697
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 2 0.44012
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 4 0.435719
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 5 0.43211
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 7 0.430153
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 8 0.428355
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 10 0.433126
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 11 0.42741
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 14 0.427293
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 19 0.42719
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 20 0.424335
+FOLLOWUP_PROBE_EPOCH probe_recovery 47 30 0.427057
+FOLLOWUP_PROBE_DONE probe_recovery 47 20 0.424335
+FOLLOWUP_PROBE_EPOCH probe_return 11 1 0.471304
+FOLLOWUP_PROBE_EPOCH probe_return 11 2 0.463358
+FOLLOWUP_PROBE_EPOCH probe_return 11 3 0.459389
+FOLLOWUP_PROBE_EPOCH probe_return 11 4 0.455522
+FOLLOWUP_PROBE_EPOCH probe_return 11 5 0.452245
+FOLLOWUP_PROBE_EPOCH probe_return 11 6 0.45196
+FOLLOWUP_PROBE_EPOCH probe_return 11 7 0.449981
+FOLLOWUP_PROBE_EPOCH probe_return 11 9 0.448086
+FOLLOWUP_PROBE_EPOCH probe_return 11 10 0.447637
+FOLLOWUP_PROBE_EPOCH probe_return 11 13 0.445768
+FOLLOWUP_PROBE_EPOCH probe_return 11 14 0.44446
+FOLLOWUP_PROBE_EPOCH probe_return 11 20 0.442608
+FOLLOWUP_PROBE_EPOCH probe_return 11 25 0.441323
+FOLLOWUP_PROBE_EPOCH probe_return 11 30 0.443005
+FOLLOWUP_PROBE_DONE probe_return 11 25 0.441323
+FOLLOWUP_PROBE_EPOCH probe_return 29 1 0.467819
+FOLLOWUP_PROBE_EPOCH probe_return 29 2 0.465001
+FOLLOWUP_PROBE_EPOCH probe_return 29 3 0.460448
+FOLLOWUP_PROBE_EPOCH probe_return 29 4 0.456413
+FOLLOWUP_PROBE_EPOCH probe_return 29 5 0.452098
+FOLLOWUP_PROBE_EPOCH probe_return 29 7 0.449001
+FOLLOWUP_PROBE_EPOCH probe_return 29 10 0.448448
+FOLLOWUP_PROBE_EPOCH probe_return 29 11 0.446466
+FOLLOWUP_PROBE_EPOCH probe_return 29 12 0.444794
+FOLLOWUP_PROBE_EPOCH probe_return 29 13 0.444534
+FOLLOWUP_PROBE_EPOCH probe_return 29 15 0.443605
+FOLLOWUP_PROBE_EPOCH probe_return 29 16 0.442826
+FOLLOWUP_PROBE_EPOCH probe_return 29 19 0.44172
+FOLLOWUP_PROBE_EPOCH probe_return 29 20 0.444166
+FOLLOWUP_PROBE_EPOCH probe_return 29 21 0.441224
+FOLLOWUP_PROBE_EPOCH probe_return 29 26 0.440133
+FOLLOWUP_PROBE_EPOCH probe_return 29 30 0.440938
+FOLLOWUP_PROBE_DONE probe_return 29 26 0.440133
+FOLLOWUP_PROBE_EPOCH probe_return 47 1 0.466197
+FOLLOWUP_PROBE_EPOCH probe_return 47 2 0.460991
+FOLLOWUP_PROBE_EPOCH probe_return 47 3 0.458995
+FOLLOWUP_PROBE_EPOCH probe_return 47 4 0.456393
+FOLLOWUP_PROBE_EPOCH probe_return 47 5 0.451298
+FOLLOWUP_PROBE_EPOCH probe_return 47 7 0.448203
+FOLLOWUP_PROBE_EPOCH probe_return 47 9 0.448096
+FOLLOWUP_PROBE_EPOCH probe_return 47 10 0.451053
+FOLLOWUP_PROBE_EPOCH probe_return 47 11 0.446765
+FOLLOWUP_PROBE_EPOCH probe_return 47 14 0.445045
+FOLLOWUP_PROBE_EPOCH probe_return 47 20 0.443168
+FOLLOWUP_PROBE_EPOCH probe_return 47 30 0.442738
+FOLLOWUP_PROBE_EPOCH probe_return 47 40 0.44395
+FOLLOWUP_PROBE_DONE probe_return 47 30 0.442738
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 1 0.434969
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 2 0.425724
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 3 0.416892
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 4 0.414886
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 5 0.413498
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 7 0.412216
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 9 0.41074
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 10 0.411898
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 11 0.409736
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 13 0.406888
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 20 0.406492
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 11 30 0.406475
+FOLLOWUP_PROBE_DONE probe_delta_drawdown 11 20 0.406492
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 1 0.431129
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 2 0.422491
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 3 0.419472
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 4 0.415906
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 5 0.413818
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 7 0.411936
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 9 0.411656
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 10 0.409392
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 12 0.408145
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 20 0.409587
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 21 0.406466
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 29 30 0.408462
+FOLLOWUP_PROBE_DONE probe_delta_drawdown 29 21 0.406466
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 1 0.433059
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 2 0.41848
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 4 0.417378
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 5 0.413235
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 7 0.410772
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 8 0.410074
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 10 0.414062
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 11 0.409566
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 14 0.409142
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 19 0.408439
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 20 0.406674
+FOLLOWUP_PROBE_EPOCH probe_delta_drawdown 47 30 0.410536
+FOLLOWUP_PROBE_DONE probe_delta_drawdown 47 20 0.406674
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 1 0.434647
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 2 0.42548
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 3 0.415633
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 4 0.413965
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 5 0.413619
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 6 0.413062
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 7 0.411774
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 9 0.410662
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 10 0.411375
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 11 0.409757
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 13 0.406479
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 20 0.405911
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 11 30 0.40744
+FOLLOWUP_PROBE_DONE probe_relative_triplet 11 20 0.405911
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 1 0.431072
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 2 0.422192
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 3 0.417796
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 4 0.416333
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 5 0.412472
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 7 0.41084
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 9 0.41044
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 10 0.409399
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 12 0.407334
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 20 0.409282
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 21 0.406379
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 29 30 0.409929
+FOLLOWUP_PROBE_DONE probe_relative_triplet 29 21 0.406379
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 1 0.431257
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 2 0.41799
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 4 0.416309
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 5 0.413062
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 7 0.41204
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 8 0.409977
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 10 0.414433
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 19 0.409674
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 20 0.408953
+FOLLOWUP_PROBE_EPOCH probe_relative_triplet 47 30 0.413625
+FOLLOWUP_PROBE_DONE probe_relative_triplet 47 20 0.408953
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 1 0.434313
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 2 0.422279
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 3 0.415745
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 4 0.412244
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 5 0.411562
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 7 0.409976
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 9 0.409605
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 10 0.40912
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 11 0.408631
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 13 0.404694
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 20 0.405033
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 25 0.404328
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 30 0.40379
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 11 40 0.406878
+FOLLOWUP_PROBE_DONE probe_multi_reward_free 11 30 0.40379
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 1 0.429821
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 2 0.418675
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 3 0.414472
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 5 0.409752
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 7 0.408303
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 9 0.408007
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 10 0.407013
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 11 0.4059
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 12 0.405589
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 13 0.40548
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 14 0.405011
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 15 0.404872
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 20 0.406406
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 21 0.403492
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 29 30 0.405946
+FOLLOWUP_PROBE_DONE probe_multi_reward_free 29 21 0.403492
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 1 0.429802
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 2 0.418115
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 3 0.416762
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 4 0.415336
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 5 0.409847
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 7 0.408348
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 8 0.407813
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 10 0.41137
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 14 0.406898
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 20 0.404406
+FOLLOWUP_PROBE_EPOCH probe_multi_reward_free 47 30 0.405549
+FOLLOWUP_PROBE_DONE probe_multi_reward_free 47 20 0.404406
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 1 0.433655
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 2 0.424931
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 3 0.414024
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 4 0.412516
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 5 0.411342
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 7 0.410337
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 9 0.408038
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 10 0.410274
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 11 0.407416
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 13 0.404186
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 11 20 0.404344
+FOLLOWUP_PROBE_DONE probe_multi_no_v0 11 13 0.404186
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 1 0.43062
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 2 0.42086
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 3 0.416469
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 4 0.414373
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 5 0.410638
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 7 0.408591
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 10 0.406489
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 12 0.404881
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 29 20 0.407036
+FOLLOWUP_PROBE_DONE probe_multi_no_v0 29 12 0.404881
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 1 0.431222
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 2 0.417497
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 4 0.415074
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 5 0.411265
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 7 0.409456
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 8 0.407892
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 10 0.412157
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 11 0.407766
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 20 0.405292
+FOLLOWUP_PROBE_EPOCH probe_multi_no_v0 47 30 0.409768
+FOLLOWUP_PROBE_DONE probe_multi_no_v0 47 20 0.405292
+FOLLOWUP_TRAIN_COMPLETE train 1089.9
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/probe-ablation-training-summary.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-training-summary.json.tmp
+STAGE_COMPLETE 03_train
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_followup_probe_evaluate.py
+FOLLOWUP_HELDOUT probe_0-seed11 0.36838
+FOLLOWUP_HELDOUT probe_0-seed29 0.368293
+FOLLOWUP_HELDOUT probe_0-seed47 0.37084
+FOLLOWUP_HELDOUT probe_abs-seed11 0.369507
+FOLLOWUP_HELDOUT probe_abs-seed29 0.36801
+FOLLOWUP_HELDOUT probe_abs-seed47 0.371448
+FOLLOWUP_HELDOUT probe_adv-seed11 0.340937
+FOLLOWUP_HELDOUT probe_adv-seed29 0.339436
+FOLLOWUP_HELDOUT probe_adv-seed47 0.341047
+FOLLOWUP_HELDOUT probe_drawdown-seed11 0.346128
+FOLLOWUP_HELDOUT probe_drawdown-seed29 0.345015
+FOLLOWUP_HELDOUT probe_drawdown-seed47 0.347059
+FOLLOWUP_HELDOUT probe_multi-seed11 0.320681
+FOLLOWUP_HELDOUT probe_multi-seed29 0.325617
+FOLLOWUP_HELDOUT probe_multi-seed47 0.325684
+FOLLOWUP_HELDOUT probe_delta-seed11 0.332183
+FOLLOWUP_HELDOUT probe_delta-seed29 0.334058
+FOLLOWUP_HELDOUT probe_delta-seed47 0.334971
+FOLLOWUP_HELDOUT probe_recovery-seed11 0.356594
+FOLLOWUP_HELDOUT probe_recovery-seed29 0.353136
+FOLLOWUP_HELDOUT probe_recovery-seed47 0.354362
+FOLLOWUP_HELDOUT probe_return-seed11 0.364259
+FOLLOWUP_HELDOUT probe_return-seed29 0.365715
+FOLLOWUP_HELDOUT probe_return-seed47 0.366736
+FOLLOWUP_HELDOUT probe_delta_drawdown-seed11 0.331978
+FOLLOWUP_HELDOUT probe_delta_drawdown-seed29 0.32961
+FOLLOWUP_HELDOUT probe_delta_drawdown-seed47 0.331349
+FOLLOWUP_HELDOUT probe_relative_triplet-seed11 0.331691
+FOLLOWUP_HELDOUT probe_relative_triplet-seed29 0.330679
+FOLLOWUP_HELDOUT probe_relative_triplet-seed47 0.332038
+FOLLOWUP_HELDOUT probe_multi_reward_free-seed11 0.32757
+FOLLOWUP_HELDOUT probe_multi_reward_free-seed29 0.328304
+FOLLOWUP_HELDOUT probe_multi_reward_free-seed47 0.329459
+FOLLOWUP_HELDOUT probe_multi_no_v0-seed11 0.328828
+FOLLOWUP_HELDOUT probe_multi_no_v0-seed29 0.329945
+FOLLOWUP_HELDOUT probe_multi_no_v0-seed47 0.328276
+FOLLOWUP_EVALUATION_COMPLETE
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/probe-ablation-results.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-results.json.tmp
+STAGE_COMPLETE 04_evaluate
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_followup_probe_matching.py
+FOLLOWUP_MATCHED probe_delta_drawdown 113 116
+FOLLOWUP_MATCHED probe_relative_triplet 115 115
+FOLLOWUP_MATCHED probe_multi_reward_free 114 115
+FOLLOWUP_MATCHED probe_multi_no_v0 113 115
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/probe-ablation-matched-pairs.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-matched-pairs.json.tmp
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/probe-ablation-match-thresholds.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-match-thresholds.json.tmp
+STAGE_COMPLETE 05_matching
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_followup_probe_permutation.py
+FOLLOWUP_PERMUTATION probe_delta 100 0.071971
+FOLLOWUP_PERMUTATION probe_recovery 100 0.037287
+FOLLOWUP_PERMUTATION probe_return 10 0.017968
+FOLLOWUP_PERMUTATION probe_delta_drawdown 100 0.076961
+FOLLOWUP_PERMUTATION probe_relative_triplet 100 0.077336
+FOLLOWUP_PERMUTATION probe_multi_reward_free 100 0.08815
+FOLLOWUP_PERMUTATION probe_multi_no_v0 100 0.085012
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/probe-ablation-permutation.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/probe-ablation-permutation.json.tmp
+STAGE_COMPLETE 06_permutation
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_followup_actor_audit.py
+FOLLOWUP_ACTOR_AUDIT actor_observation_missing 360000
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality-followup/output/actor-latent-provenance.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality-followup/actor-latent-provenance.json.tmp
+STAGE_COMPLETE 07_actor_audit
+RUN /home/kojima/anaconda3/envs/isaac/bin/python /tmp/eatnav-vnt/scripts/eat_nav_relative_followup_report.py
+FOLLOWUP_REPORT_COMPLETE
+STAGE_COMPLETE 08_report
+FOLLOWUP_COMPLETE complete_phase_a_forward_blocked

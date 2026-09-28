@@ -1,0 +1,81 @@
+{
+  "actor_checkpoint_has_weights": true,
+  "actor_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "actor_latent_deterministic_recomputation": "unavailable_without_observation",
+  "actor_latent_saved_records": 0,
+  "actor_observation_dim": 22,
+  "actor_observation_status_counts": {
+    "missing": 360000
+  },
+  "actor_output_vs_recorded_action_check": "not_testable_without_recorded_actor_observation",
+  "empirical_normalization_enabled": false,
+  "explanation": "Collector used obs[policy] to produce action, but serialized action/pose/twist/command/DEM without the 22-D actor observation. The saved observation has corrupted joint position, joint velocity, projected gravity and angular velocity terms; raw records have neither joint state nor observation noise realization. Reconstructing it from twist/action would be an approximation and cannot verify actor action alignment.",
+  "forward_evaluator_gate": "stop_before_training",
+  "joint_positions_velocities_saved": false,
+  "policy_observation_corruption_enabled": true,
+  "raw_record_count": 360000,
+  "raw_schema_variants": [
+    {
+      "count": 72871,
+      "keys": [
+        "action",
+        "command",
+        "command_seed",
+        "contact_force_max",
+        "critic_value",
+        "dem",
+        "env_id",
+        "episode_id",
+        "initial_seed",
+        "pose",
+        "pre_reset",
+        "reward",
+        "session_id",
+        "step",
+        "terminated",
+        "termination_reason",
+        "terrain_difficulty",
+        "terrain_id",
+        "terrain_seed",
+        "terrain_type",
+        "timestamp_ns",
+        "truncated",
+        "twist",
+        "yaw"
+      ]
+    },
+    {
+      "count": 287129,
+      "keys": [
+        "action",
+        "command",
+        "command_seed",
+        "contact_force_max",
+        "critic_value",
+        "env_id",
+        "episode_id",
+        "initial_seed",
+        "pose",
+        "pre_reset",
+        "reward",
+        "session_id",
+        "step",
+        "terminated",
+        "termination_reason",
+        "terrain_difficulty",
+        "terrain_id",
+        "terrain_seed",
+        "terrain_type",
+        "timestamp_ns",
+        "truncated",
+        "twist",
+        "yaw"
+      ]
+    }
+  ],
+  "required_future_data": "record exact pre-action obs[policy] per session/env/episode/step with policy action and source checkpoint SHA",
+  "saved_collector_sha256": "022d818bbe5f48a6a38fc4bd78065c16491d5035b389eed01a9753efe0c61195",
+  "saved_observation_config_sha256": "f357e63f7f8b95caa5b6c6ac064cf1b76cc38a797edd7c435c01f2373d79ac71",
+  "status": "actor_observation_missing",
+  "window_anchor_correspondence": "not_testable_without_recorded_actor_observation"
+}
