@@ -64,7 +64,9 @@ split は terrain seed と episode ID を単位とし、test に未使用 terrai
 
 ## 4. EAT-Nav model と training
 
-shared 2-channel CNN で各 DEM を256次元 token にする。relative goal `[x,y]` と品質 scalar は各 MLP で256次元 token にする。NoMaD と同じ位置埋め込み・4層4 head Transformer 設定を使い、token を平均 pool して既存 `ConditionalUnet1D` の global condition へ渡す。diffusion は固定8点の XY 差分、DDPM 10 step、epsilon prediction。全重みを scratch から初期化し、NoMaD pretrained checkpoint をロードしない。品質なし baseline は config で品質 token を除いて別モデルとして学習する。
+EAT-Nav は RGB 画像を入力しない。既存 NoMaD は各 RGB 観測を EfficientNet-B0 で token 化するが、EAT-Nav はその画像 encoder を2チャンネル DEM 専用の小さな **共有 CNN encoder** に置き換える。各時刻の `DEM[2,20,20]` は convolution 層、空間 pooling、256次元への線形 projection を経て **1 DEM token `[256]`** になる。生の DEM 格子を flatten して MLP に渡す方式は採用しない。全時刻の DEM は同じ CNN の重みを使う。相対 goal `[x,y]` と品質 scalar `q` にだけ、それぞれ独立した MLP を使って256次元 token を作る。既定 `context_size=3` かつ Quality 有効時の Transformer 入力は `DEM token ×4 + goal token ×1 + quality token ×1 = [B,6,256]` である。
+
+NoMaD と同じ位置埋め込み・4層4 head Transformer 設定を使い、token を平均 pool して既存 `ConditionalUnet1D` の global condition へ渡す。diffusion は固定8点の XY 差分、DDPM 10 step、epsilon prediction。全重みを scratch から初期化し、NoMaD pretrained checkpoint をロードしない。品質なし baseline は config で品質 token を除いて別モデルとして学習する。
 
 train/validation の diffusion noise prediction loss と trajectory error を記録し、品質 bin 別の trajectory/failure 傾向も評価する。checkpoint は model state、optimizer/scheduler state、DEM/時間/軌道 config、train 由来の action stats と ECDF、split manifest hash をまとめる。ロード時は全 shape と config の整合を厳密に検証する。
 
