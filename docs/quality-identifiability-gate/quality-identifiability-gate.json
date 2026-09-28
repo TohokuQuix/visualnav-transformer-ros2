@@ -1,0 +1,253 @@
+{
+  "baseline_checkpoint_sha256": "c8187d5b57baf6ddfb6ab36029de7b644b8dcfa699553bb6fbe260942c7465fb",
+  "full_collection_allowed": false,
+  "gate_a": "inconclusive_not_run",
+  "gate_b": "inconclusive_not_run",
+  "implemented_before_stop": [
+    "fixed-q and gate decision config/tests",
+    "split and episode audit",
+    "canonical pair and duplicate/episode-cap primitives/tests"
+  ],
+  "manifest_sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+  "not_run": [
+    "matched-pair selection",
+    "deterministic probe training",
+    "q permutation training",
+    "scratch overfit training",
+    "layer sensitivity",
+    "plots"
+  ],
+  "overall": "inconclusive",
+  "q_bin_counts": {
+    "test": {
+      "0": 1060,
+      "1": 1701,
+      "2": 1960,
+      "3": 2207
+    },
+    "train": {
+      "0": 13839,
+      "1": 13839,
+      "2": 13840,
+      "3": 13840
+    },
+    "val": {
+      "0": 1887,
+      "1": 1582,
+      "2": 1436,
+      "3": 1989
+    }
+  },
+  "q_by_terrain": {
+    "test": {
+      "boxes": {
+        "bins": {
+          "0": 167,
+          "1": 311,
+          "2": 466,
+          "3": 442
+        },
+        "count": 1386,
+        "q_median": 0.6338740561436468
+      },
+      "k_rail_step_field": {
+        "bins": {
+          "0": 116,
+          "1": 260,
+          "2": 542,
+          "3": 468
+        },
+        "count": 1386,
+        "q_median": 0.6404494382022472
+      },
+      "pyramid_stairs": {
+        "bins": {
+          "0": 408,
+          "1": 539,
+          "2": 483,
+          "3": 647
+        },
+        "count": 2077,
+        "q_median": 0.5281440803497236
+      },
+      "pyramid_stairs_inv": {
+        "bins": {
+          "0": 238,
+          "1": 455,
+          "2": 327,
+          "3": 366
+        },
+        "count": 1386,
+        "q_median": 0.5001716102460348
+      },
+      "random_rough": {
+        "bins": {
+          "0": 131,
+          "1": 136,
+          "2": 142,
+          "3": 284
+        },
+        "count": 693,
+        "q_median": 0.6779507930199791
+      }
+    },
+    "train": {
+      "boxes": {
+        "bins": {
+          "0": 633,
+          "1": 844,
+          "2": 986,
+          "3": 991
+        },
+        "count": 3454,
+        "q_median": 0.5586636077892988
+      },
+      "hf_pyramid_slope": {
+        "bins": {
+          "0": 1084,
+          "1": 1762,
+          "2": 1226,
+          "3": 2165
+        },
+        "count": 6237,
+        "q_median": 0.5607500270963547
+      },
+      "k_rail_field": {
+        "bins": {
+          "0": 2741,
+          "1": 2091,
+          "2": 1972,
+          "3": 1490
+        },
+        "count": 8294,
+        "q_median": 0.4250605151920228
+      },
+      "k_rail_step_field": {
+        "bins": {
+          "0": 3243,
+          "1": 1902,
+          "2": 1793,
+          "3": 1367
+        },
+        "count": 8305,
+        "q_median": 0.37900574442718304
+      },
+      "pyramid_stairs": {
+        "bins": {
+          "0": 1952,
+          "1": 2253,
+          "2": 2190,
+          "3": 1907
+        },
+        "count": 8302,
+        "q_median": 0.4940749304526898
+      },
+      "pyramid_stairs_inv": {
+        "bins": {
+          "0": 2188,
+          "1": 2609,
+          "2": 2470,
+          "3": 2414
+        },
+        "count": 9681,
+        "q_median": 0.5054373351638426
+      },
+      "random_rough": {
+        "bins": {
+          "0": 1998,
+          "1": 2378,
+          "2": 3203,
+          "3": 3506
+        },
+        "count": 11085,
+        "q_median": 0.6224393944867951
+      }
+    },
+    "val": {
+      "hf_pyramid_slope": {
+        "bins": {
+          "0": 163,
+          "1": 282,
+          "2": 344,
+          "3": 597
+        },
+        "count": 1386,
+        "q_median": 0.6882293435456484
+      },
+      "k_rail_field": {
+        "bins": {
+          "0": 305,
+          "1": 230,
+          "2": 133,
+          "3": 25
+        },
+        "count": 693,
+        "q_median": 0.32181437190649953
+      },
+      "k_rail_step_field": {
+        "bins": {
+          "0": 450,
+          "1": 151,
+          "2": 72,
+          "3": 6
+        },
+        "count": 679,
+        "q_median": 0.06029842118573648
+      },
+      "pyramid_stairs": {
+        "bins": {
+          "0": 584,
+          "1": 532,
+          "2": 356,
+          "3": 585
+        },
+        "count": 2057,
+        "q_median": 0.4577838794754146
+      },
+      "pyramid_stairs_inv": {
+        "bins": {
+          "0": 242,
+          "1": 196,
+          "2": 330,
+          "3": 618
+        },
+        "count": 1386,
+        "q_median": 0.6842190830593591
+      },
+      "random_rough": {
+        "bins": {
+          "0": 143,
+          "1": 191,
+          "2": 201,
+          "3": 158
+        },
+        "count": 693,
+        "q_median": 0.5411503305755265
+      }
+    }
+  },
+  "quality_checkpoint_sha256": "fcaf3b9397f3344a0017a52e324ad11ce879c29d9737e1b924d3800293e00987",
+  "record_counts": {
+    "all": 360000,
+    "dem_not_sampled": 287129,
+    "dem_valid": 72871
+  },
+  "source_commit": "0aa4a83",
+  "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
+  "status": "stopped_at_data_audit",
+  "stop_reason": "Extreme validation q-bin imbalance within k_rail_step_field: bin 3 has 6/679 windows (0.8837%); validation/test terrain-type coverage also differs from train.",
+  "terminal_episode_counts": {
+    "test": {
+      "tilt_over": 1,
+      "time_out": 89
+    },
+    "train": {
+      "tilt_over": 12,
+      "time_out": 708
+    },
+    "val": {
+      "tilt_over": 4,
+      "time_out": 87
+    }
+  }
+}
