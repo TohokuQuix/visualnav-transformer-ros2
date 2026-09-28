@@ -1,0 +1,192 @@
+{
+  "decision_metrics": {
+    "correct_selection_fraction": 0.0,
+    "direction_fraction": 0.4583333333333333,
+    "effect_fraction": 0.05770315926675097,
+    "effect_sampling_ratio": 0.5390345457364814,
+    "high_target_closer": true,
+    "low_target_closer": false,
+    "seed_robust": false,
+    "training_converged": false
+  },
+  "diffusion_seeds": [
+    11,
+    29,
+    47
+  ],
+  "median_metrics": {
+    "correct_selection_fraction": 0.0,
+    "direction_fraction": 0.4583333333333333,
+    "effect_fraction": 0.05770315926675097,
+    "effect_sampling_ratio": 0.5390345457364814,
+    "generated_effect_m": 0.04526517814825495,
+    "high_to_high_m": 0.1227041955939965,
+    "high_to_low_m": 0.7617319796505764,
+    "low_to_high_m": 0.13648279681284048,
+    "low_to_low_m": 0.6807157718938048,
+    "target_effect_m": 0.7844488711441683
+  },
+  "pair_count": 8,
+  "per_seed": [
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/05_gate_b8/seed-11/final.pt",
+      "correct_selection_fraction": 0.0,
+      "direction_fraction": 0.4583333333333333,
+      "effect_fraction": 0.1054917748815366,
+      "effect_sampling_ratio": 0.5471446231005782,
+      "fixed_bank_loss_final": 0.3503715395927429,
+      "forward_direction_fraction": 0.9583333333333334,
+      "generated_effect_m": 0.08275290372081612,
+      "high_correct_fraction": 0.9583333333333334,
+      "high_to_high_m": 0.12088785466746607,
+      "high_to_low_m": 0.7617319796505764,
+      "low_correct_fraction": 0.041666666666666664,
+      "low_to_high_m": 0.13017424649953716,
+      "low_to_low_m": 0.6807157718938048,
+      "path_direction_fraction": 0.8333333333333334,
+      "sampling_variation_m": 0.15124502778053284,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 11,
+      "turning_direction_fraction": 0.4583333333333333
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/05_gate_b8/seed-29/final.pt",
+      "correct_selection_fraction": 0.0,
+      "direction_fraction": 0.4583333333333333,
+      "effect_fraction": 0.01199793740863407,
+      "effect_sampling_ratio": 0.038862968501388304,
+      "fixed_bank_loss_final": 0.38888365030288696,
+      "forward_direction_fraction": 0.9583333333333334,
+      "generated_effect_m": 0.009411768456261384,
+      "high_correct_fraction": 0.9583333333333334,
+      "high_to_high_m": 0.19014564006051493,
+      "high_to_low_m": 0.8543712692865497,
+      "low_correct_fraction": 0.041666666666666664,
+      "low_to_high_m": 0.1873953962303702,
+      "low_to_low_m": 0.842207415698432,
+      "path_direction_fraction": 0.6666666666666666,
+      "sampling_variation_m": 0.2421783208847046,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 29,
+      "turning_direction_fraction": 0.4583333333333333
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/05_gate_b8/seed-47/final.pt",
+      "correct_selection_fraction": 0.08333333333333333,
+      "direction_fraction": 0.3333333333333333,
+      "effect_fraction": 0.05770315926675097,
+      "effect_sampling_ratio": 0.5390345457364814,
+      "fixed_bank_loss_final": 0.3578192889690399,
+      "forward_direction_fraction": 0.9166666666666666,
+      "generated_effect_m": 0.04526517814825495,
+      "high_correct_fraction": 0.9583333333333334,
+      "high_to_high_m": 0.1227041955939965,
+      "high_to_low_m": 0.6758150739633828,
+      "low_correct_fraction": 0.125,
+      "low_to_high_m": 0.13648279681284048,
+      "low_to_low_m": 0.6455091903390359,
+      "path_direction_fraction": 0.9583333333333334,
+      "sampling_variation_m": 0.08397454023361206,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 47,
+      "turning_direction_fraction": 0.3333333333333333
+    }
+  ],
+  "per_seed_full_criteria_pass": [
+    false,
+    false,
+    false
+  ],
+  "q_sweep": [
+    {
+      "adjacent_trajectory_rms_m": [
+        0.017067957669496536,
+        0.0222562775015831,
+        0.024850573390722275,
+        0.0284794382750988,
+        0.00799116026610136
+      ],
+      "forward_progress_median_m": [
+        0.8245755434036255,
+        0.7997093796730042,
+        0.7340248227119446,
+        0.7046688795089722,
+        0.654900074005127,
+        0.6426342129707336
+      ],
+      "median_forward_spearman": -1.0,
+      "monotonic_forward_fraction": 1.0,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 11
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.0026467228308320045,
+        0.002426469698548317,
+        0.0024247863329946995,
+        0.002578438725322485,
+        0.0007007113890722394
+      ],
+      "forward_progress_median_m": [
+        0.42545342445373535,
+        0.4201093912124634,
+        0.41719162464141846,
+        0.41078582406044006,
+        0.40467315912246704,
+        0.4032162129878998
+      ],
+      "median_forward_spearman": -1.0,
+      "monotonic_forward_fraction": 0.9583333333333334,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 29
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.006544332019984722,
+        0.010322364047169685,
+        0.01639413833618164,
+        0.02267489954829216,
+        0.005729271564632654
+      ],
+      "forward_progress_median_m": [
+        0.880666971206665,
+        0.8739950656890869,
+        0.8607689142227173,
+        0.8327710032463074,
+        0.791214108467102,
+        0.7851050496101379
+      ],
+      "median_forward_spearman": -1.0,
+      "monotonic_forward_fraction": 0.9166666666666666,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 47
+    }
+  ],
+  "scratch_training": true,
+  "status": "inconclusive",
+  "target_source_split": "train"
+}

@@ -1,0 +1,51 @@
+{
+  "mode": "train",
+  "pair_count": 64,
+  "peak_gpu_memory_bytes": 343801344,
+  "runs": [
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-11/final.pt",
+      "epochs_ran": 176,
+      "final_fixed_bank_loss": 0.27386486530303955,
+      "final_gradient_norm_median": 2.3716386556625366,
+      "fixed_bank_loss_min": 0.24875621497631073,
+      "initial_fixed_bank_loss": 0.9735584855079651,
+      "stop_reason": "plateau",
+      "training_converged": false,
+      "training_seed": 11,
+      "wall_seconds": 9.335362993879244
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-29/final.pt",
+      "epochs_ran": 250,
+      "final_fixed_bank_loss": 0.22055211663246155,
+      "final_gradient_norm_median": 1.6772597432136536,
+      "fixed_bank_loss_min": 0.21436072885990143,
+      "initial_fixed_bank_loss": 0.9358637928962708,
+      "stop_reason": "plateau",
+      "training_converged": false,
+      "training_seed": 29,
+      "wall_seconds": 12.624047937104478
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-47/final.pt",
+      "epochs_ran": 205,
+      "final_fixed_bank_loss": 0.2548178434371948,
+      "final_gradient_norm_median": 2.0694022178649902,
+      "fixed_bank_loss_min": 0.23092007637023926,
+      "initial_fixed_bank_loss": 0.9663536548614502,
+      "stop_reason": "plateau",
+      "training_converged": false,
+      "training_seed": 47,
+      "wall_seconds": 10.443604076979682
+    }
+  ],
+  "scratch_start": true,
+  "train_only": true,
+  "training_seeds": [
+    11,
+    29,
+    47
+  ],
+  "wall_seconds": 32.49940350698307
+}

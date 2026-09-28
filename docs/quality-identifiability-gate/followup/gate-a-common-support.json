@@ -1,0 +1,94 @@
+{
+  "common_terrain_types": [
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "min_q_bin_count": 30,
+  "note": "NA terrain cells are excluded from official terrain performance claims; aggregate Gate A uses all validation windows.",
+  "official_stratified_results": {
+    "boxes": {
+      "heldout_windows": 1242,
+      "paired_mse_improvement": null,
+      "pass_fail": null,
+      "split_support": {
+        "test": "supported",
+        "train": "supported",
+        "val": "absent"
+      },
+      "status": "absent in split"
+    },
+    "hf_pyramid_slope": {
+      "heldout_windows": null,
+      "paired_mse_improvement": null,
+      "pass_fail": null,
+      "split_support": {
+        "test": "absent",
+        "train": "supported",
+        "val": "supported"
+      },
+      "status": "absent in split"
+    },
+    "k_rail_field": {
+      "heldout_windows": null,
+      "paired_mse_improvement": null,
+      "pass_fail": null,
+      "split_support": {
+        "test": "absent",
+        "train": "supported",
+        "val": "insufficient support"
+      },
+      "status": "insufficient support"
+    },
+    "k_rail_step_field": {
+      "heldout_windows": 1242,
+      "paired_mse_improvement": null,
+      "pass_fail": null,
+      "split_support": {
+        "test": "supported",
+        "train": "supported",
+        "val": "insufficient support"
+      },
+      "status": "insufficient support"
+    },
+    "pyramid_stairs": {
+      "heldout_windows": 1861,
+      "paired_mse_improvement": 0.00023214208314049483,
+      "pass_fail": null,
+      "split_support": {
+        "test": "supported",
+        "train": "supported",
+        "val": "supported"
+      },
+      "status": "supported"
+    },
+    "pyramid_stairs_inv": {
+      "heldout_windows": 1242,
+      "paired_mse_improvement": -0.0010254837238763209,
+      "pass_fail": null,
+      "split_support": {
+        "test": "supported",
+        "train": "supported",
+        "val": "supported"
+      },
+      "status": "supported"
+    },
+    "random_rough": {
+      "heldout_windows": 621,
+      "paired_mse_improvement": -0.0004533313682689757,
+      "pass_fail": null,
+      "split_support": {
+        "test": "supported",
+        "train": "supported",
+        "val": "supported"
+      },
+      "status": "supported"
+    }
+  },
+  "q_supported_all_splits": [
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ]
+}

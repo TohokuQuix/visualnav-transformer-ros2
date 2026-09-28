@@ -1,0 +1,192 @@
+{
+  "decision_metrics": {
+    "correct_selection_fraction": 0.03125,
+    "direction_fraction": 0.4635416666666667,
+    "effect_fraction": 0.17000882751059934,
+    "effect_sampling_ratio": 1.9523098717734646,
+    "high_target_closer": true,
+    "low_target_closer": false,
+    "seed_robust": false,
+    "training_converged": false
+  },
+  "diffusion_seeds": [
+    11,
+    29,
+    47
+  ],
+  "median_metrics": {
+    "correct_selection_fraction": 0.03125,
+    "direction_fraction": 0.4635416666666667,
+    "effect_fraction": 0.17000882751059934,
+    "effect_sampling_ratio": 1.9523098717734646,
+    "generated_effect_m": 0.13336323282523327,
+    "high_to_high_m": 0.10183171302694582,
+    "high_to_low_m": 0.8050753074510526,
+    "low_to_high_m": 0.15308984647703394,
+    "low_to_low_m": 0.6700788469864657,
+    "target_effect_m": 0.7844488711441683
+  },
+  "pair_count": 64,
+  "per_seed": [
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-11/final.pt",
+      "correct_selection_fraction": 0.03125,
+      "direction_fraction": 0.5833333333333334,
+      "effect_fraction": 0.31837867546187476,
+      "effect_sampling_ratio": 2.4334103472574466,
+      "fixed_bank_loss_final": 0.27386486530303955,
+      "forward_direction_fraction": 0.9479166666666666,
+      "generated_effect_m": 0.24975179256244318,
+      "high_correct_fraction": 0.953125,
+      "high_to_high_m": 0.16311357549421995,
+      "high_to_low_m": 0.9210665540271354,
+      "low_correct_fraction": 0.0625,
+      "low_to_high_m": 0.15587640285700333,
+      "low_to_low_m": 0.6717692786536136,
+      "path_direction_fraction": 0.96875,
+      "sampling_variation_m": 0.1026344746351242,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 11,
+      "turning_direction_fraction": 0.5833333333333334
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-29/final.pt",
+      "correct_selection_fraction": 0.026041666666666668,
+      "direction_fraction": 0.4635416666666667,
+      "effect_fraction": 0.17000882751059934,
+      "effect_sampling_ratio": 1.9523098717734646,
+      "fixed_bank_loss_final": 0.22055211663246155,
+      "forward_direction_fraction": 0.8854166666666666,
+      "generated_effect_m": 0.13336323282523327,
+      "high_correct_fraction": 0.9583333333333334,
+      "high_to_high_m": 0.08250776057365497,
+      "high_to_low_m": 0.8050753074510526,
+      "low_correct_fraction": 0.06770833333333333,
+      "low_to_high_m": 0.14860978030170166,
+      "low_to_low_m": 0.6700788469864657,
+      "path_direction_fraction": 0.953125,
+      "sampling_variation_m": 0.06831048429012299,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 29,
+      "turning_direction_fraction": 0.4635416666666667
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/followup/stages/06_gate_b64/seed-47/final.pt",
+      "correct_selection_fraction": 0.036458333333333336,
+      "direction_fraction": 0.3802083333333333,
+      "effect_fraction": 0.09206766541930407,
+      "effect_sampling_ratio": 1.4005088465138285,
+      "fixed_bank_loss_final": 0.2548178434371948,
+      "forward_direction_fraction": 0.6927083333333334,
+      "generated_effect_m": 0.07222237620705206,
+      "high_correct_fraction": 0.9635416666666666,
+      "high_to_high_m": 0.10183171302694582,
+      "high_to_low_m": 0.7302674167513203,
+      "low_correct_fraction": 0.07291666666666667,
+      "low_to_high_m": 0.15308984647703394,
+      "low_to_low_m": 0.6691442401099631,
+      "path_direction_fraction": 0.765625,
+      "sampling_variation_m": 0.05156866833567619,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 47,
+      "turning_direction_fraction": 0.3802083333333333
+    }
+  ],
+  "per_seed_full_criteria_pass": [
+    false,
+    false,
+    false
+  ],
+  "q_sweep": [
+    {
+      "adjacent_trajectory_rms_m": [
+        0.004119270481169224,
+        0.05256585776805878,
+        0.1494520902633667,
+        0.06337295472621918,
+        0.006952940486371517
+      ],
+      "forward_progress_median_m": [
+        0.8774795532226562,
+        0.8731669187545776,
+        0.7813133597373962,
+        0.6051738262176514,
+        0.5315706133842468,
+        0.5238852500915527
+      ],
+      "median_forward_spearman": -1.0,
+      "monotonic_forward_fraction": 0.609375,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 11
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.009093073196709156,
+        0.02081776224076748,
+        0.08312038332223892,
+        0.04509260505437851,
+        0.006657452322542667
+      ],
+      "forward_progress_median_m": [
+        0.8732223510742188,
+        0.8718371391296387,
+        0.8442994356155396,
+        0.7295373678207397,
+        0.6743417978286743,
+        0.6653416156768799
+      ],
+      "median_forward_spearman": -0.9856107606091623,
+      "monotonic_forward_fraction": 0.5677083333333334,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 29
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.003146920120343566,
+        0.008402900770306587,
+        0.031924255192279816,
+        0.07499779760837555,
+        0.015276370570063591
+      ],
+      "forward_progress_median_m": [
+        0.8483004570007324,
+        0.8548433780670166,
+        0.8685815334320068,
+        0.831885576248169,
+        0.7536846399307251,
+        0.7373102903366089
+      ],
+      "median_forward_spearman": -0.7714285714285715,
+      "monotonic_forward_fraction": 0.19270833333333334,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 47
+    }
+  ],
+  "scratch_training": true,
+  "status": "inconclusive",
+  "target_source_split": "train"
+}
