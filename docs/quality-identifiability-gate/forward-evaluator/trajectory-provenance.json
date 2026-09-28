@@ -1,0 +1,16 @@
+{
+  "axes": "forward x, left y",
+  "episode_boundary_crossings": 0,
+  "future_fields_allowed": [
+    "candidate XY trajectory"
+  ],
+  "goal_frame": "same robot-local frame",
+  "horizon_sec": 2.0,
+  "interval_sec": 0.25,
+  "representation": "increments of 8 cumulative robot-local XY waypoints",
+  "shape": [
+    8,
+    2
+  ],
+  "source": "frozen complete aligned window"
+}

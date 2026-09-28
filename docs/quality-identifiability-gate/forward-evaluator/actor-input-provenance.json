@@ -1,0 +1,38 @@
+{
+  "actor_observation_dim": 22,
+  "anchor_alignment": "unavailable: exact pre-action obs[policy] was not serialized",
+  "available_variants": [
+    "G",
+    "GT",
+    "GV0",
+    "GTV0"
+  ],
+  "deployability": "some joints and command available on robot, but exact noisy vector absent from log",
+  "fields": [
+    "base_ang_vel",
+    "projected_gravity",
+    "velocity_commands",
+    "flipper_fold_mode",
+    "joint_pos_rel",
+    "track_mean_velocity",
+    "joint_effort_with_track_sum"
+  ],
+  "history": "no actor observation history configured",
+  "normalization": "empirical normalization disabled; configured scale/clip and policy observation noise enabled",
+  "privileged": false,
+  "record_count": 360000,
+  "saved_training_toggles": {
+    "use_height_scan_obs": false,
+    "use_joint_effort_obs": true,
+    "use_last_action_obs": false
+  },
+  "status": "missing",
+  "unavailable_variants": [
+    "GB",
+    "GBT",
+    "GL",
+    "GLT",
+    "GBTV0",
+    "GLTV0"
+  ]
+}

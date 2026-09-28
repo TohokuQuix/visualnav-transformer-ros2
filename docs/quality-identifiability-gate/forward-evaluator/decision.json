@@ -1,0 +1,34 @@
+{
+  "body_benefit": "unavailable_actor_observation",
+  "checks_by_seed": {
+    "11": {
+      "delta_spearman": true,
+      "linear_proxy": true,
+      "simple_baseline": true,
+      "trajectory_ci": true,
+      "two_primary_r2": true
+    },
+    "29": {
+      "delta_spearman": true,
+      "linear_proxy": true,
+      "simple_baseline": true,
+      "trajectory_ci": true,
+      "two_primary_r2": true
+    },
+    "47": {
+      "delta_spearman": true,
+      "linear_proxy": true,
+      "simple_baseline": true,
+      "trajectory_ci": true,
+      "two_primary_r2": true
+    }
+  },
+  "common_support_direction_consistent": true,
+  "heldout_episodes": 90,
+  "latent_benefit": "unavailable_actor_observation",
+  "note": "No simulator rollout or policy integration was performed.",
+  "oracle_rollout_recommended": true,
+  "ordering_delta_ci_above_chance": true,
+  "predictive_signal": "present",
+  "underfit": false
+}

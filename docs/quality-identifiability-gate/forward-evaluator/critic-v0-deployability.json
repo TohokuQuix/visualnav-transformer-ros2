@@ -1,0 +1,12 @@
+{
+  "critic_observation_dim": 267,
+  "deployable": false,
+  "note": "No on-robot equivalence established for critic observation. V0 is never used for deployable gate.",
+  "privileged_fields": [
+    "base_lin_vel",
+    "control_latency",
+    "roller_contact_binary",
+    "height_scan_critic"
+  ],
+  "status": "privileged upper bound only"
+}

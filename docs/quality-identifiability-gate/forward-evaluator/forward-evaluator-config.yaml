@@ -1,0 +1,22 @@
+schema_version: 1
+source_relative_config_sha256: 7e61e64983a7f9466dd81c461712d9a565a0171f8b770c3e0444eeb538f42fc4
+source_followup_config_sha256: 31e113666f0a670a9d1bfb25af55dd4a8930a45c539c35f13f21eda84632b6cc
+source_split_sha256:
+  train: 9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524
+  val: ec9eb97dc0a7ffdc3caccd6cc2c0c534b8c4052e3c5bcd85fe74030110479c4f
+  test: 2e76591744be9f32430556df6adf9fe5fafde0b4d0dc93dfc279f3a98debd609
+counts: {train: 49576, val: 6164, test: 6208}
+seeds: [11, 29, 47]
+batch_size: 512
+learning_rate: 0.0003
+max_epochs: 60
+patience: 8
+min_delta: 0.0001
+episode_bootstrap_seed: 613
+episode_bootstrap_repeats: 500
+candidate_trajectory_shape: [8, 2]
+candidate_interval_sec: 0.25
+target_heads: [delta_v, advantage_h, drawdown, recovery]
+disabled_branch_input: fixed_zero
+checkpoint_selection: aggregate_validation_standardized_mse
+heldout_selection: forbidden

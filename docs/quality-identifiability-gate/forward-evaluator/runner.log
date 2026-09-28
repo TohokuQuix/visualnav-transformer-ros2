@@ -1,0 +1,75 @@
+FORWARD_STAGE audit pass_with_actor_input_unavailable
+FORWARD_STAGE baselines pass
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+FORWARD_STAGE training running
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:213: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  'standardized_mse': float(np.mean(error ** 2)), 'r2': r2, 'spearman': float(spearmanr(truth, p).statistic) if np.std(p) > 1e-9 else None,
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+/tmp/eatnav-train/eat_nav_forward_evaluator.py:211: RankWarning: Polyfit may be poorly conditioned
+  slope, intercept = np.polyfit(p, truth, 1) if np.std(p) > 1e-9 else (None, None)
+FORWARD_STAGE failed failed
+Traceback (most recent call last):
+  File "/tmp/eatnav-train/eat_nav_forward_evaluator.py", line 380, in <module>
+    main()
+  File "/tmp/eatnav-train/eat_nav_forward_evaluator.py", line 287, in main
+    evaluate(spec, runs)
+  File "/tmp/eatnav-train/eat_nav_forward_evaluator.py", line 341, in evaluate
+    write(ROOT / 'heldout-results.json', result)
+  File "/tmp/eatnav-train/eat_nav_forward_evaluator.py", line 40, in write
+    tmp.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + '\n')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/isaac-sim/kit/python/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  [Previous line repeated 3 more times]
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 398, in _iterencode_dict
+    yield _floatstr(value)
+          ^^^^^^^^^^^^^^^^
+  File "/isaac-sim/kit/python/lib/python3.11/json/encoder.py", line 240, in floatstr
+    raise ValueError(
+ValueError: Out of range float values are not JSON compliant: nan
+There was an error running python
+FORWARD_STAGE evaluation pass
+FORWARD_STAGE complete pass
+FORWARD_STAGE evaluation pass
+FORWARD_STAGE complete pass
+FORWARD_STAGE evaluation pass
+FORWARD_STAGE complete pass
+FORWARD_STAGE evaluation pass
+FORWARD_STAGE complete pass
