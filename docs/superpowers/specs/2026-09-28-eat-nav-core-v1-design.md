@@ -68,6 +68,12 @@ split は terrain seed と episode ID を単位とし、test に未使用 terrai
 
 有効な Critic 列の P10 を raw quality `c` とする。train split の `c` だけで経験 CDF を作り、train/validation/test に同じ写像を適用して `q∈[0,1]` にする。低品質 sample は削除しない。品質と reward/終了率の関係、terrain/command 別の分布、品質極値と mask 率を学習前に診断する。
 
+### 本収集・本学習前の Quality 識別性 gate
+
+100環境の短時間収集から dataset window と train split の ECDF を作った時点で、同一または類似する **DEM history + relative goal** 条件に異なる quality bin が共存するかを診断する。比較前に DEM 有効 mask の重なり、共通有効セルの高さ RMSE、goal XY 距離の近傍閾値を config に固定し、品質値を見てから閾値を調整しない。初期値は mask IoU 0.8以上、全 history の共通有効セル高さ RMSE 0.05 m以下、goal 距離0.1 m以下とする。同一 window や隣接 window を重複 evidence と数えず、異なる episode の近傍を使う。train ECDF による `q` を4 bin（[0,.25), [.25,.5), [.5,.75), [.75,1]）に分け、近傍内の bin 数、bin 別 sample 数、複数 bin を持つ anchor の割合を全有効 pilot window を分母として terrain と goal 距離帯別にも報告する。地形/goal だけから品質がほぼ決まる状態を可視化する。初期 gate は独立 episode にまたがる複数 bin の近傍を少なくとも50個の異なる anchor で、かつ全有効 pilot window の5%以上で観測することとし、閾値と評価対象数を manifest に記録する。短時間データが不足した場合も「未判定」として報告し、合格扱いにしない。
+
+小規模の Quality 有効モデルを短時間データで学習した後、held-out の同じ DEM history と relative goal を固定し、`q=0.1, 0.5, 0.9, 0.95` だけを変更して生成する。同じ diffusion 初期 noise/seed を各 q で再利用して paired trajectory 差を測り、複数 seed の同一 q 出力から sampling 由来の変動も測る。少なくとも50の held-out 固定条件を用い、不足すれば「未判定」とする。点ごとの XY 差、終点、経路長、曲率の変化と、同一 q 内の stochastic variation に対する q 変更効果を報告する。Quality 無効 baseline も比較対象とする。q 変更効果が数値誤差レベル、または同一 q の sampling ばらつき以下なら **conditioning sensitivity が確認できない** と明記する。軌道形状が q に対して単調に変わることを合格条件にはしない。軌道が変わることは q 利用の必要条件であり、実際の走行品質の改善を証明するものではない。近傍の quality overlap が不足する、または sensitivity が確認できない場合は、本収集・本学習へ進む前に診断結果を報告して収集条件・データ分布を再評価する。この gate のために quality loss やモデル構造を追加変更しない。
+
 ## 4. EAT-Nav model と training
 
 EAT-Nav は RGB 画像を入力しない。既存 NoMaD は各 RGB 観測を EfficientNet-B0 で token 化するが、EAT-Nav はその画像 encoder を2チャンネル DEM 専用の小さな **共有 CNN encoder** に置き換える。各時刻の `DEM[2,20,20]` は convolution 層、空間 pooling、256次元への線形 projection を経て **1 DEM token `[256]`** になる。生の DEM 格子を flatten して MLP に渡す方式は採用しない。全時刻の DEM は同じ CNN の重みを使う。相対 goal `[x,y]` と品質 scalar `q` にだけ、それぞれ独立した MLP を使って256次元 token を作る。既定 `context_size=3` かつ Quality 有効時の Transformer 入力は `DEM token ×4 + goal token ×1 + quality token ×1 = [B,6,256]` である。
@@ -91,7 +97,7 @@ EAT 出力は車体 XY の `len_traj_pred` 点（既定8点）。観測時刻の
 1. 既存3 workspace の shape/topic/座標調査を記録し、指定 checkpoint の安全な tensor shape 検証を Isaac 実行環境で行う。
 2. DEM adapter の軸・欠損・相対高さテストを通す。実メッセージで20 × 20、resolution、frame、start index、NaN、更新頻度を確認する。
 3. 100環境の短時間収集で command/Critic/reward/終了が変化し、env ごとの episode reset と多様な terrain が観測されることを確認する。MB/robot-hour、GB/100 robot-hours、書き込み帯域を報告する。
-4. 小規模実データから split、window、P10、train ECDF、モデル1 batch の学習、checkpoint の保存/再読込、既定8点と変更した `len_traj_pred` の推論点数を検証する。
+4. 小規模実データから split、window、P10、train ECDF と Quality overlap を診断する。小規模学習・checkpoint 再読込後に、固定 DEM/goal に対する複数 q の paired 推論と sampling baseline を評価する。既定8点と変更した `len_traj_pred` の推論点数も検証する。両 Quality 診断を本収集・本学習前の gate とする。
 5. ROS dry-run で DEM、goal、TF、quality、車体/参照座標 Path の整合を確認する。guard の DEM/TF/goal/Path/heartbeat 欠落と回復を模擬し、`/cmd_vel_auto` が設定 TTL 内にゼロになり、新規 Path 前には再開しないことをテストする。下流 controller timeout を確認してからライブ接続を有効化する。
 
 Isaac GPU、実機 GridMap または bag が使えない環境では、対応する integration test を「未実行」として記録する。合成 fixture の unit test を実機検証の代わりとしない。

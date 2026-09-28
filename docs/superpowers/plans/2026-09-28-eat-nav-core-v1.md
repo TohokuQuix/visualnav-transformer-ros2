@@ -27,17 +27,18 @@
 - Default `context_size=3` means four DEM frames; `context_size=5` means six. Default `len_traj_pred=8`, `trajectory_interval_sec=0.25`, and derived `trajectory_horizon_sec=2.0`. Point count and interval are independent config inputs; horizon is derived and any explicit horizon must match.
 - NoMaD's 4 Hz bag preprocessor and stride 1 imply a nominal 0.25 s point interval, but its mixed preprocessed datasets lack timestamps; inheriting eight points does not establish an exact NoMaD physical horizon.
 - NoMaD pretrained weights are never loaded. Reuse its Transformer, diffusion U-Net, scheduler and XY-delta trajectory representation; replace RGB encoding with a shared CNN DEM encoder. Goal and Quality use separate MLP tokens.
-- Train-only action statistics and train-only Quality ECDF apply to all splits. Keep failed episodes and their termination reasons. Quality disabled is a config-selected baseline.
+- Train-only action statistics and train-only Quality ECDF apply to all splits. Keep failed episodes and their termination reasons. Quality disabled is a config-selected baseline. Run Quality overlap and fixed-input q-sensitivity pilot gates before full collection or full training; do not add a quality loss or change model structure for these diagnostics.
 - Network trajectories are in the base frame. ROS converts goals to base and generated paths to the configurable reference frame (default `map`).
 - EAT and planner adapter are launched exclusively. Do not modify follower source or its config file. The EAT launch may override the follower command topic and interpose a command guard.
 
 ## Review Focus
 
 1. GridMap circular-buffer index, axis inversion and unknown cells: Task 2 tests against an actual message or bag and asymmetric fixtures.
-2. Episode reset at the end of an Isaac step: Task 3 proves the terminal state/reason is logged before reset and never joined to the next episode.
-3. Irregular DEM timestamps: Task 4 rejects windows outside tolerance and never silently substitutes an adjacent frame.
+2. Episode reset at the end of an Isaac step: Task 4 proves the terminal state/reason is logged before reset and never joined to the next episode.
+3. Irregular DEM timestamps: Task 5 rejects windows outside tolerance and never silently substitutes an adjacent frame.
 4. Different `len_traj_pred` checkpoints: Tasks 5–7 test that load fails explicitly; Task 8 tests that Path/model/evaluation point counts follow config.
-5. Stale follower output after EAT input loss: Task 8 transport tests prove guarded velocity becomes zero within TTL and stays zero until a new valid path.
+5. Quality tied to terrain/goal or ignored by the model: Tasks 5 and 7 test overlap and fixed-input q sensitivity before full collection/training.
+6. Stale follower output after EAT input loss: Task 9 transport tests prove guarded velocity becomes zero within TTL and stays zero until a new valid path.
 
 ---
 
@@ -87,14 +88,15 @@
 
 ### Task 5: Episode dataset, split, quality and variable-length targets
 
-**Files:** Create `VNT/src/visualnav_transformer/eat_nav/dataset.py`, `quality.py`, `VNT/tests/eat_nav/test_dataset.py`, `test_quality.py`.
+**Files:** Create `VNT/src/visualnav_transformer/eat_nav/dataset.py`, `quality.py`, `quality_diagnostics.py`, `VNT/tests/eat_nav/test_dataset.py`, `test_quality.py`, `test_quality_diagnostics.py`.
 
-**Interfaces:** `EATDataset(manifest: Path, split: str, config: EATConfig)` returns DEM `[context_size+1,2,20,20]`, goal `[2]`, action `[len_traj_pred,2]`, valid action mask `[len_traj_pred]`, raw Critic slice and normalized quality. `fit_train_statistics(train_windows)` produces action stats and ECDF; validation/test only load them.
+**Interfaces:** `EATDataset(manifest: Path, split: str, config: EATConfig)` returns DEM `[context_size+1,2,20,20]`, goal `[2]`, action `[len_traj_pred,2]`, valid action mask `[len_traj_pred]`, raw Critic slice and normalized quality. `fit_train_statistics(train_windows)` produces action stats and ECDF; validation/test only load them. `diagnose_quality_overlap(windows, config) -> OverlapReport` uses only DEM-history/mask/goal similarity to form independent-episode neighborhoods, then counts train-ECDF q bins.
 
 - [ ] Test fixed terrain/episode split, 3→4 and 5→6 history frames, 8 and 12 point extraction from timestamps, irregular-frame rejection, base-frame XY transform, bounded goal, terminal padding/mask, no cross-episode frames, and corresponding raw Critic samples.
 - [ ] Test P10 from raw sequence, train-only ECDF, unchanged validation/test mapping, q in [0,1], low-quality retention, and action statistics recomputed on valid train deltas when `len_traj_pred` changes.
-- [ ] Run `python -m pytest tests/eat_nav/test_dataset.py tests/eat_nav/test_quality.py -q`; expect failure.
-- [ ] Implement indexed windows and frozen split/statistics artifacts; rerun tests, expect pass, then commit.
+- [ ] Test overlap diagnostics on matched DEM/goal with multiple q bins, terrain/goal-to-q one-to-one fixtures, duplicate adjacent windows, and insufficient pilot samples. Assert the report includes neighborhood/bin counts, multi-bin anchor fraction and per-terrain/goal-stratum values; the one-to-one fixture must fail the gate.
+- [ ] Run `python -m pytest tests/eat_nav/test_dataset.py tests/eat_nav/test_quality.py tests/eat_nav/test_quality_diagnostics.py -q`; expect failure.
+- [ ] Implement indexed windows, frozen split/statistics artifacts and predeclared mask IoU/height RMSE/goal-distance matching (defaults 0.8/0.05 m/0.1 m). Use four q bins, independent episodes, and report the initial gate of at least 50 distinct multi-bin anchors across independent episodes and 5% of all valid pilot windows. Rerun tests, expect pass, then commit.
 
 ### Task 6: DEM/Goal/Quality tokens and NoMaD diffusion model
 
@@ -109,14 +111,15 @@
 
 ### Task 7: Training, checkpoint compatibility and evaluation
 
-**Files:** Create `VNT/src/visualnav_transformer/train/train_eat_nav.py`, `VNT/src/visualnav_transformer/eat_nav/checkpoint.py`, `evaluation.py`, `visualize.py`, `VNT/tests/eat_nav/test_training.py`.
+**Files:** Create `VNT/src/visualnav_transformer/train/train_eat_nav.py`, `VNT/src/visualnav_transformer/eat_nav/checkpoint.py`, `evaluation.py`, `visualize.py`, `VNT/tests/eat_nav/test_training.py`, `test_conditioning_sensitivity.py`.
 
-**Interfaces:** `train(config_path, manifest, output_dir)`; `save_checkpoint(model, optimizer, stats, ecdf, config, split_hash, path)`; `load_checkpoint(path, config) -> (model, stats, ecdf)`; `evaluate(model, loader, config)` reports loss and pointwise trajectory errors for exactly `len_traj_pred` points.
+**Interfaces:** `train(config_path, manifest, output_dir)`; `save_checkpoint(model, optimizer, stats, ecdf, config, split_hash, path)`; `load_checkpoint(path, config) -> (model, stats, ecdf)`; `evaluate(model, loader, config)` reports loss and pointwise trajectory errors for exactly `len_traj_pred` points. `diagnose_conditioning_sensitivity(model, heldout_windows, q_values, seeds) -> SensitivityReport` keeps DEM/goal and diffusion noise paired across q.
 
 - [ ] Test one-batch train/validation for lengths 8 and 12, masked loss, train-only statistics, quality-enabled and disabled runs, best EMA checkpoint on improving validation metric, patience stop before max_epochs, resume, and rejection of count/interval/history/DEM mismatch. Test evaluation and visualization dimensions for both lengths.
-- [ ] Run `python -m pytest tests/eat_nav/test_training.py -q`; expect failure.
+- [ ] Test sensitivity diagnostics with a model that ignores q and one that changes trajectories with q. Assert q=[0.1,0.5,0.9,0.95], at least 50 held-out fixed inputs (otherwise inconclusive), identical noise seeds across q, separate same-q stochastic baseline, and report of per-point XY, endpoint, path length and curvature changes.
+- [ ] Run `python -m pytest tests/eat_nav/test_training.py tests/eat_nav/test_conditioning_sensitivity.py -q`; expect failure.
 - [ ] Implement max_epochs=100 upper bound, configurable validation metric, patience, minimum improvement and best selection. Store schema/config/hash/stats/ECDF/model/EMA/optimizer; verify strict compatibility before constructing an inference model.
-- [ ] Rerun focused tests, then a small real-collected-data training smoke test. Record curves and quality distribution. Commit.
+- [ ] Rerun focused tests, then perform a small Quality-enabled pilot training run on short-collection data; run paired-q sensitivity against its checkpoint and Quality-disabled baseline. Record curves, quality distribution and the sensitivity-to-sampling comparison. If q effects are at numerical noise level or below same-q sampling variation, report that conditioning use is unconfirmed. Commit.
 
 ### Task 8: ROS inference and dynamic Path size
 
@@ -145,7 +148,7 @@
 **Interfaces:** Deliver commands for collection probe/full run, dataset build, training/baseline, checkpoint evaluation, ROS dry-run and live launch.
 
 - [ ] Run VNT unit tests and 8/12-point model/training smoke tests; expect all pass.
-- [ ] Run 100-env short Isaac integration and report seed uniqueness, Critic/command/termination distributions, throughput and storage estimate. Run the 3600 s/env collection only after the short-run gate; record its actual completeness.
+- [ ] Run 100-env short Isaac integration and report seed uniqueness, Critic/command/termination distributions, throughput and storage estimate. Build its pilot dataset, run Task 5 Quality overlap diagnosis and Task 7 small training plus paired-q sensitivity diagnosis. Record the two reports and gate status before starting the 3600 s/env collection or full training; if either gate fails or is inconclusive, stop those full runs and report the evidence without changing loss or architecture. Record actual completeness if full collection proceeds.
 - [ ] Build a dataset from collected chunks, train a scratch checkpoint, reload it, and produce a Path from recorded or real GridMap plus goal in ROS dry-run. Confirm frame and point count from checkpoint config.
 - [ ] Test guard loss/recovery with follower in dry-run; verify downstream timeout and publisher exclusivity before any live motion.
 - [ ] Record executed tests, parameter count, training/validation curves, ROS topics/TF/launch commands, measured limits and any skipped GPU/real-message tests. Commit docs, then request whole-branch review before integration.
