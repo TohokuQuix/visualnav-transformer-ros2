@@ -1,0 +1,26 @@
+context_size: 3
+dem_history_interval_sec: 0.25
+len_traj_pred: 8
+trajectory_interval_sec: 0.25
+trajectory_horizon_sec: 2.0
+dem_height_cells: 20
+dem_width_cells: 20
+dem_resolution_m: 0.1
+dem_min_valid_fraction: 0.25
+reference_frame: map
+base_frame: chassis/body
+quality_conditioning:
+  enabled: true
+quality_target: 0.95
+max_epochs: 100
+validation_metric: diffusion_loss
+validation_interval_epochs: 1
+early_stopping_patience: 10
+early_stopping_min_delta: 0.0
+best_checkpoint_metric_mode: min
+best_checkpoint_weights: ema
+overlap_min_mask_iou: 0.8
+overlap_max_height_rmse_m: 0.05
+overlap_max_goal_distance_m: 0.1
+overlap_min_distinct_anchors: 50
+overlap_min_anchor_fraction: 0.05
