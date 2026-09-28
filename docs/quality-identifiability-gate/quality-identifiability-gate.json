@@ -1,4 +1,10 @@
 {
+  "artifacts": {
+    "overfit_checkpoint_archive": "/tmp/eatnav-quality-identifiability-gate/overfit-full",
+    "plots": "plots/",
+    "train_checkpoint_archive": "/tmp/eatnav-quality-identifiability-gate/probe-full",
+    "window_identities": "window-identities.jsonl.gz"
+  },
   "audit_warnings": [
     "validation k_rail_step_field q bin 3: 6/679 windows",
     "validation lacks boxes; held-out lacks hf_pyramid_slope and k_rail_field",
@@ -6,20 +12,121 @@
   ],
   "baseline_checkpoint_sha256": "c8187d5b57baf6ddfb6ab36029de7b644b8dcfa699553bb6fbe260942c7465fb",
   "full_collection_allowed": false,
-  "gate_a": "pending",
-  "gate_b": "pending",
-  "implemented_before_stop": [
-    "fixed-q and gate decision config/tests",
-    "split and episode audit",
-    "canonical pair and duplicate/episode-cap primitives/tests"
-  ],
+  "gate_a": "fail",
+  "gate_a_evidence": {
+    "checkpoint_sha256": {
+      "probe_0-seed11": "7152c0fae34ee7587fac2f52b09897560e083dc16fbb4c1b816beb31a89359ea",
+      "probe_0-seed29": "98bed2af1208beaf0914fd57cdf71d9de3c4056de871f6d27997a884f088728b",
+      "probe_0-seed47": "8ad3f83c51e6622bd4c1bce26f40c1cdbfd3ea1cb55b4e00c62375264f037a97",
+      "probe_q-seed11": "67ec47c138ad5d350a8fa6c9168f8699b564bb6dcf76f47f2b464cd774267c72",
+      "probe_q-seed29": "e057092786d0dafc2540e31266ae87af0e35ab118fa44531d9a9c7be58449175",
+      "probe_q-seed47": "5587bd74490dd8f73e9be8a5be7b590d3951e68236bcffd7f3b1ab97c9e7a90d",
+      "probe_q_shuffled-seed11-shuffle0": "e7b18f4ae4e4226e63e91c4ff378cd9eb73a0db7d43dd5b4060b0fcd1f5a115b",
+      "probe_q_shuffled-seed11-shuffle3": "07018d8182ecf6c178748df998ef021f428e4b2532eb72a1eab4c8d8407f7fb5",
+      "probe_q_shuffled-seed11-shuffle6": "3a4dd257c68e895635124066059f048e8ea5a6d6f85e21dd96c165e649947718",
+      "probe_q_shuffled-seed11-shuffle9": "672cdca36f114b0a25205db47049c63a8009307fb0c81a4295c6b482cd4d96c2",
+      "probe_q_shuffled-seed29-shuffle1": "e5c8c8796f22e1d8bfea2a56ae8375961f7f35cb3b08f9073c0a89b46f741e76",
+      "probe_q_shuffled-seed29-shuffle4": "330502bd51795beb1e84451fcc2ed2107acd4e2cb7074f9415ec940ffb097266",
+      "probe_q_shuffled-seed29-shuffle7": "179cfb8d32e92340958cad68a563423a6b3858c858ea72aac0402ca7827b47e8",
+      "probe_q_shuffled-seed47-shuffle2": "70d4b50880d10d5076f60a8f23667d89b9c4a0fadba8a90ea42077133cd1ed6c",
+      "probe_q_shuffled-seed47-shuffle5": "75bd9feefdde0ffa58e1c6e5a4283f7f2213310cec0b177f45dedce9325e12b6",
+      "probe_q_shuffled-seed47-shuffle8": "03870e208dec3cac9aee411255c5166247051976964b54ccec9d14d2ea383ae7"
+    },
+    "common_terrain_types": [
+      "k_rail_step_field",
+      "pyramid_stairs",
+      "pyramid_stairs_inv",
+      "random_rough"
+    ],
+    "delta_r2": -0.0010003136322089357,
+    "episode_cluster_ci_95": [
+      -0.002325635004653855,
+      0.00048342239331071566
+    ],
+    "heldout_paired_mse_improvement": -0.0009211714607263999,
+    "heldout_terrain_types": [
+      "boxes",
+      "k_rail_step_field",
+      "pyramid_stairs",
+      "pyramid_stairs_inv",
+      "random_rough"
+    ],
+    "heldout_window_count": 6838,
+    "mean_trajectory_validation_mse": 1.0471150875091553,
+    "permutation_p_value": 0.8181818181818182,
+    "q_supported_all_splits": [
+      "pyramid_stairs",
+      "pyramid_stairs_inv",
+      "random_rough"
+    ],
+    "relative_physical_rms_improvement": 0.0010355239050538402,
+    "shuffles": 10,
+    "training_seeds": [
+      11,
+      29,
+      47
+    ]
+  },
+  "gate_b": "inconclusive",
+  "gate_b_evidence": {
+    "candidate_count": 580477,
+    "checkpoint_sha256": {
+      "11": "b43be27ea46936bd1194e93d481ae50c3952a554eb70a3d04928e8e438d5fc58",
+      "29": "8cddb1ce73521cac1601181f26d8dbd5f6b51a58e74f903ac374753c3d2a9745",
+      "47": "b06844628330e19815df78afd500872de538b236da9eaa57f4d21a5accadeecd"
+    },
+    "decision_metrics": {
+      "correct_selection_fraction": 0.036458333333333336,
+      "direction_fraction": 0.4583333333333333,
+      "effect_fraction": 0.18390159684378904,
+      "effect_sampling_ratio": 2.810393220059279,
+      "high_target_closer": true,
+      "low_target_closer": false,
+      "seed_robust": false,
+      "training_converged": false
+    },
+    "direction_threshold": 0.3410000823438168,
+    "episode_use_cap": 3,
+    "fixed_bank_loss_final": {
+      "11": 0.20998500287532806,
+      "29": 0.2025826871395111,
+      "47": 0.20802488923072815
+    },
+    "median_metrics": {
+      "correct_selection_fraction": 0.036458333333333336,
+      "direction_fraction": 0.4583333333333333,
+      "effect_fraction": 0.18390159684378904,
+      "effect_sampling_ratio": 2.810393220059279,
+      "generated_effect_m": 0.14426140004572025,
+      "high_to_high_m": 0.07791545355275209,
+      "high_to_low_m": 0.7873743356597752,
+      "low_to_high_m": 0.1577345301706095,
+      "low_to_low_m": 0.653335018712419,
+      "target_effect_m": 0.7844488711441683
+    },
+    "pair_count": 64,
+    "training_seeds": [
+      11,
+      29,
+      47
+    ],
+    "trajectory_rms_threshold_m": 0.21188762784004211
+  },
+  "layer_sensitivity_evidence": {
+    "checkpoint_sha256": "fcaf3b9397f3344a0017a52e324ad11ce879c29d9737e1b924d3800293e00987",
+    "final_context_relative_change": 0.12266368418931961,
+    "final_effect_sampling_ratio": 0.10016291588544846,
+    "final_noise_relative_change": 0.049314916133880615,
+    "heldout_inputs": 50,
+    "quality_mlp_relative_change": 0.7979653477668762
+  },
   "manifest_sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
   "not_run": [
-    "Gate A",
-    "Gate B",
-    "layer sensitivity"
+    "full collection",
+    "model architecture change",
+    "loss change"
   ],
-  "overall": "audit warning / Gate A and B pending",
+  "overall": "audit warning / Gate A fail / Gate B inconclusive",
   "q_bin_counts": {
     "test": {
       "0": 1060,
@@ -234,10 +341,19 @@
     "dem_not_sampled": 287129,
     "dem_valid": 72871
   },
-  "source_commit": "0aa4a83",
+  "sequence": [
+    "data audit",
+    "waterfall and episode integrity",
+    "thresholds and matched pairs frozen",
+    "Gate A",
+    "Gate B",
+    "stratified and layer sensitivity",
+    "overall decision"
+  ],
+  "source_commit": "1487206",
   "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
-  "status": "audit_warning_gates_pending",
-  "stop_reason": null,
+  "status": "completed_not_passed",
+  "stop_reason": "Gate A predictive benefit not established; Gate B training convergence not established",
   "terminal_episode_counts": {
     "test": {
       "tilt_over": 1,
@@ -307,5 +423,6 @@
     },
     "cross_episode_sources": 0,
     "valid_training_windows": 69180
-  }
+  },
+  "window_identity_sha256": "a54b868a7e9961eb68ea1937e5cdba397893fd1a30aab51b9df7013c32b96213"
 }

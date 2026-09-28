@@ -34,10 +34,11 @@ def test_gate_b_scratch_policy_seed_changes_initial_weights_without_checkpoint()
     assert a.config.quality_enabled
 
 
-def test_pair_effect_metrics_detects_correct_quality_target_selection():
+@pytest.mark.parametrize("point_count", [8, 12])
+def test_pair_effect_metrics_detects_correct_quality_target_selection(point_count):
     from visualnav_transformer.eat_nav.quality_gate_overfit import pair_effect_metrics
-    low=np.zeros((2,8,2),dtype=np.float32)
-    high=np.ones((2,8,2),dtype=np.float32)
+    low=np.zeros((2,point_count,2),dtype=np.float32)
+    high=np.ones((2,point_count,2),dtype=np.float32)
     low[:, :, 1]=0
     high[:, :, 1]=0
     result=pair_effect_metrics(low,high,low,high)

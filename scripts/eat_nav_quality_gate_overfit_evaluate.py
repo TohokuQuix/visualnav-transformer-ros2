@@ -61,7 +61,7 @@ def main():
             sweep.append(np.stack(outputs,axis=0));mid_out.append(outputs[2])
         low_out=np.stack(low_out);high_out=np.stack(high_out)
         sweep=np.stack(sweep)
-        effect=pair_effect_metrics(low_out.reshape(-1,8,2),high_out.reshape(-1,8,2),
+        effect=pair_effect_metrics(low_out.reshape(-1,config.len_traj_pred,2),high_out.reshape(-1,config.len_traj_pred,2),
                                    np.tile(targetlow,(len(settings.diffusion_seeds),1,1)),
                                    np.tile(targethigh,(len(settings.diffusion_seeds),1,1)))
         stochastic=np.concatenate([rms(mid_out[i],mid_out[j]) for i,j in combinations(range(len(mid_out)),2)])
