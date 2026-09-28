@@ -1,0 +1,14 @@
+fixed_probe_q: 0.5
+training_seeds: [11, 29, 47]
+min_b_pairs: 32
+max_b_pairs: 64
+max_b_episode_uses: 3
+b_trajectory_rms_quantile: 0.75
+b_direction_abs_quantile: 0.5
+overfit_epochs: 300
+overfit_batch_size: 32
+overfit_learning_rate: 0.0001
+overfit_plateau_patience: 50
+overfit_plateau_delta: 0.0001
+overfit_loss_ceiling: 0.05
+diffusion_seeds: [11, 29, 47]
