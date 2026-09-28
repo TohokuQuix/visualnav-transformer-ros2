@@ -1,0 +1,32 @@
+schema_version: 1
+source_split: test
+complete_window_count: 6208
+split_seed: 123
+checkpoint_quality_sha256: fcaf3b9397f3344a0017a52e324ad11ce879c29d9737e1b924d3800293e00987
+checkpoint_baseline_sha256: c8187d5b57baf6ddfb6ab36029de7b644b8dcfa699553bb6fbe260942c7465fb
+manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+quality_config_sha256: 6e979ffbeceb591d6201f71d8e040b83ea167418a5b14be39a7bc3fdb8fb49e8
+q_values: [0.1, 0.3, 0.5, 0.7, 0.9, 0.95]
+diffusion_seeds: [11, 29, 47, 61, 79, 101, 127, 151]
+selection_seed: 641
+bootstrap_seed: 613
+bootstrap_repeats: 1000
+cohort_a_terminal_reason: tilt_over
+cohort_b_train_endpoint_quantile: 0.05
+cohort_b_control_train_endpoint_quantile: 0.5
+cohort_b_max: 30
+cohort_c_pairs: 25
+cohort_d_count: 50
+cohort_episode_cap: 3
+cohort_b_match_goal_weight: 1.0
+cohort_b_match_dem_rmse_weight: 2.0
+cohort_b_match_mask_iou_weight: 0.2
+support_min_per_terrain_q_bin: 10
+category_thresholds:
+  q_ignored_effect_ratio_max: 1.0
+  q_ignored_rms_m_max: 0.05
+  sampling_dominance_ratio_min: 2.0
+  monotonic_spearman_min: 0.7
+  low_teacher_distance_margin_m: 0.02
+  goal_progress_correlation_min: 0.7
+  goal_no_progress_max_m: 0.2

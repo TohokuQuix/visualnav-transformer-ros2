@@ -1,0 +1,252 @@
+{
+  "category_counts": {
+    "A": 17,
+    "B": 0,
+    "C": 270,
+    "D": 0,
+    "E": 34
+  },
+  "cohort_category_counts": {
+    "A": {
+      "categories": {
+        "A": 0,
+        "B": 0,
+        "C": 67,
+        "D": 0,
+        "E": 0
+      },
+      "n": 67,
+      "q_bins": {
+        "0": 56,
+        "1": 11
+      },
+      "status": "supported"
+    },
+    "B": {
+      "categories": {
+        "A": 17,
+        "B": 0,
+        "C": 30,
+        "D": 0,
+        "E": 30
+      },
+      "n": 30,
+      "q_bins": {
+        "1": 4,
+        "2": 4,
+        "3": 22
+      },
+      "q_effect_ci95_episode": [
+        0.012958950161098203,
+        0.013187815972064114
+      ],
+      "status": "supported"
+    },
+    "B_control": {
+      "categories": {
+        "A": 0,
+        "B": 0,
+        "C": 30,
+        "D": 0,
+        "E": 0
+      },
+      "n": 30,
+      "q_bins": {
+        "0": 3,
+        "1": 6,
+        "2": 5,
+        "3": 16
+      },
+      "q_effect_ci95_episode": [
+        0.016443616314670714,
+        0.021075681722048663
+      ],
+      "status": "supported"
+    },
+    "C": {
+      "categories": {
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0,
+        "E": 0
+      },
+      "n": 50,
+      "q_bins": {
+        "0": 25,
+        "3": 25
+      },
+      "q_effect_ci95_episode": [
+        0.011514720609025413,
+        0.014360622957496995
+      ],
+      "status": "supported"
+    },
+    "C_control": {
+      "categories": {
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0,
+        "E": 4
+      },
+      "n": 50,
+      "q_bins": {
+        "0": 4,
+        "1": 4,
+        "2": 14,
+        "3": 28
+      },
+      "q_effect_ci95_episode": [
+        0.01381289191577093,
+        0.01580034839783089
+      ],
+      "status": "supported"
+    },
+    "D": {
+      "categories": {
+        "A": 2,
+        "B": 0,
+        "C": 50,
+        "D": 0,
+        "E": 3
+      },
+      "n": 50,
+      "q_bins": {
+        "0": 13,
+        "1": 13,
+        "2": 12,
+        "3": 12
+      },
+      "q_effect_ci95_episode": [
+        0.012761790984619034,
+        0.015158548586757647
+      ],
+      "status": "supported"
+    }
+  },
+  "cohort_counts": {
+    "A": 67,
+    "B": 30,
+    "B_matched": 30,
+    "C": 25,
+    "C_same_q": 25,
+    "D": 50,
+    "unique": 270
+  },
+  "disabled_mean_teacher_rms_m": 0.13085664027473992,
+  "enabled_mean_teacher_rms_m": 0.14244030197323473,
+  "interpretation": "Static XY only; no physical safety or closed-loop failure conclusion.",
+  "median_q_effect_rms_m": 0.013192636775784194,
+  "median_q_sampling_ratio": 0.14025422287112038,
+  "median_sampling_rms_m": 0.11061841934653266,
+  "pair_count": 25,
+  "pair_high_nearest_at_q_high": 0.72,
+  "pair_low_nearest_at_q_low": 0.26,
+  "q_values": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    0.95
+  ],
+  "seeds": [
+    11,
+    29,
+    47,
+    61,
+    79,
+    101,
+    127,
+    151
+  ],
+  "terrain_category_counts": {
+    "boxes": {
+      "categories": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "n": 39,
+      "q_bins": {
+        "0": 7,
+        "1": 5,
+        "2": 7,
+        "3": 20
+      },
+      "status": "insufficient support"
+    },
+    "k_rail_step_field": {
+      "categories": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "n": 57,
+      "q_bins": {
+        "0": 11,
+        "1": 8,
+        "2": 13,
+        "3": 25
+      },
+      "status": "insufficient support"
+    },
+    "pyramid_stairs": {
+      "categories": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "n": 116,
+      "q_bins": {
+        "0": 69,
+        "1": 17,
+        "2": 6,
+        "3": 24
+      },
+      "status": "insufficient support"
+    },
+    "pyramid_stairs_inv": {
+      "categories": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "n": 27,
+      "q_bins": {
+        "0": 6,
+        "1": 4,
+        "2": 4,
+        "3": 13
+      },
+      "status": "insufficient support"
+    },
+    "random_rough": {
+      "categories": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "n": 31,
+      "q_bins": {
+        "0": 6,
+        "1": 3,
+        "2": 4,
+        "3": 18
+      },
+      "status": "insufficient support"
+    }
+  },
+  "window_count": 270
+}
