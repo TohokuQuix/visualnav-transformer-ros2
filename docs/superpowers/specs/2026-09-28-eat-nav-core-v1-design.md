@@ -32,9 +32,9 @@ Onix の RL Actor が多様な速度指令で実行した成功・失敗軌道�
 
 ### 軌道点間隔と physical horizon
 
-NoMaD の軌道点数8は `len_traj_pred: 8` から継承する。一方、現行 `vint_dataset.py` の将来点は `curr_time + k * waypoint_spacing` の **frame index**（`k=1..8`）で取り、`train.py` は未指定の `waypoint_spacing` を1にする。`process_bags.py` と `process_bag_diff.py` の標準 `--sample-rate` は4.0 Hzで、bag の実時間が前回採用時刻から0.25秒以上進んだ frame を採用する。したがって**標準前処理・stride 1 の名目値は1点0.25秒、8点で2.0秒**。サンプリングの遅れや CLI 上書きで実間隔は長くなり得る。前処理済み `traj_data.pkl` は位置と yaw を保存するが採用時刻を保存しないため、現行 `nomad.yaml` は複数の dataset を指定し、各 dataset の実際の前処理実行引数・採用時刻も checkpoint に含まれないため、学習済み checkpoint 全体の実間隔が0.25秒と一意に断定することはできない。`data_config.yaml` の `metric_waypoint_spacing` は平均**距離**であり時間の根拠には使わない。
+NoMaD の軌道点数は `len_traj_pred: 8` を v1 の既定値として継承する。一方、現行 `vint_dataset.py` の将来点は `curr_time + k * waypoint_spacing` の **frame index**（`k=1..8`）で取り、`train.py` は未指定の `waypoint_spacing` を1にする。`process_bags.py` と `process_bag_diff.py` の標準 `--sample-rate` は4.0 Hzで、bag の実時間が前回採用時刻から0.25秒以上進んだ frame を採用する。したがって**標準前処理・stride 1 の名目値は1点0.25秒、8点で2.0秒**。サンプリングの遅れや CLI 上書きで実間隔は長くなり得る。前処理済み `traj_data.pkl` は位置と yaw を保存するが採用時刻を保存しない。現行 `nomad.yaml` は複数 dataset を指定し、各 dataset の前処理実行引数・採用時刻も checkpoint に含まれない。よって、学習済み checkpoint 全体の実間隔が0.25秒と一意に断定することはできない。`data_config.yaml` の `metric_waypoint_spacing` は平均**距離**であり時間の根拠には使わない。
 
-EAT-Nav は独立した `trajectory_interval_sec: 0.25`、`trajectory_horizon_sec: 2.0`、`dem_history_interval_sec: 0.25` を初期値とし、いずれも EAT config から変更可能にする。v1 の `trajectory_point_count: 8` は NoMaD と同じ値に固定する。`trajectory_horizon_sec = trajectory_point_count * trajectory_interval_sec` を config 読込時に検証し、将来点 `k` の時刻を `t + k * trajectory_interval_sec` とする。収集 DEM の既定4 Hzはこれに合わせるが、実機 DEM 更新周期を計測し、本収集前に history 間隔と欠落許容値を決める。raw record には各 frame の実 timestamp を保持し、window 作成時は時刻誤差の閾値を適用する。これで NoMaD の点数だけを継承し、時間間隔と物理的な予測範囲を EAT のデータ・実機周期に合わせて変更できる。
+EAT-Nav の共通 trajectory config は `len_traj_pred: 8` と `trajectory_interval_sec: 0.25` を独立した変更可能な入力とし、結果の `trajectory_horizon_sec = len_traj_pred * trajectory_interval_sec` を導出する。設定に `trajectory_horizon_sec` を明示する場合は導出値との一致を読込時に検証する。将来点 `k` の時刻は `t + k * trajectory_interval_sec`（`k=1..len_traj_pred`）。`dem_history_interval_sec: 0.25` は別の変更可能な設定とする。収集 DEM の既定4 Hzはこれに合わせるが、実機 DEM 更新周期を計測し、本収集前に history 間隔と欠落許容値を決める。raw record には各 frame の実 timestamp を保持し、window 作成時は時刻誤差の閾値を適用する。例えば間隔を0.2秒（5 Hz）に変更して点数8を維持すれば、horizon は1.6秒になる。この値を固定仕様にはしない。NoMaD の既定点数と NoMaD データの実時間 horizon を区別し、点数と時間間隔を EAT のデータ・実機周期に合わせて変更できる。
 
 現行 NoMaD の training loop は `latest` と epoch 番号付き checkpoint を保存するが、validation metric による best 選択と early stopping は備えない。`epochs` はモデル構造を決めない。EAT 学習 config は `max_epochs: 100` を初期上限とし、`validation_metric: diffusion_loss`、`early_stopping_patience: 10`、`early_stopping_min_delta: 0.0`、`validation_interval_epochs: 1`、`best_checkpoint_metric_mode: min` を変更可能にする。validation goal/window は評価ごとに再サンプルせず固定し、train と同じ正規化統計を使う。各評価で validation metric を記録し、改善時に `best` checkpoint を保存する。patience に達したら100 epochs 前でも停止する。最新 checkpoint も resume 用に保存する。raw model と EMA のどちらを best 判定・保存対象にするかも config で明示し、既定は EMA とする。
 
@@ -62,7 +62,7 @@ EAT 専用の Isaac RayCaster を追加する。既存 RL 用 scanner と観測 
 
 ## 3. Dataset と品質
 
-split は terrain seed と episode ID を単位とし、test に未使用 terrain seed を確保する。manifest に割り当てを固定し、隣接 window を別 split へ流さない。各 sample は `context_size + 1` 枚（既定4枚）の DEM 履歴、現在 pose から将来位置へ変換した相対 goal、既定0.25秒間隔で切り出した8点の実行 XY 軌道、その時間区間に含まれる20 Hzの全 Critic/reward/command 列、終了情報と有効長 mask を持つ。既定では未終了の2.0秒区間 `[t,t+2.0s)` に20 Hzの Critic 値40個が対応し、P10 はこの raw 列から計算する。将来点と history はそれぞれ独立 config の秒数で切り出し、記録 DEM 周期とは一致を仮定しない。実 timestamp を使い、許容誤差内に frame がなければ window を無効にする。実機地図の実測更新周期と照合して本収集前に設定を確定する。
+split は terrain seed と episode ID を単位とし、test に未使用 terrain seed を確保する。manifest に割り当てを固定し、隣接 window を別 split へ流さない。各 sample は `context_size + 1` 枚（既定4枚）の DEM 履歴、現在 pose から将来位置へ変換した相対 goal、`len_traj_pred` 点（既定8点）を `trajectory_interval_sec`（既定0.25秒）で切り出した実行 XY 軌道、その時間区間に含まれる20 Hzの全 Critic/reward/command 列、終了情報と有効長 mask を持つ。既定では未終了の2.0秒区間 `[t,t+2.0s)` に20 Hzの Critic 値40個が対応し、P10 はこの raw 列から計算する。将来点と history はそれぞれ独立 config の秒数で切り出し、記録 DEM 周期とは一致を仮定しない。実 timestamp を使い、許容誤差内に frame がなければ window を無効にする。実機地図の実測更新周期と照合して本収集前に設定を確定する。
 
 将来 goal は同じ episode の位置から選ぶ。局所 goal の最大半径は初期値0.8 mとして方向を保って clip し、有効セル率が不足する方向の goal は sample から除外する。半径は config 化し、短時間収集で得る有効 DEM 領域から本収集前に検証する。終了を含む window は削除せず、終了後の軌道を最終位置で pad し、loss mask で未実行点を除く。次 episode の点を混入させない。学習軌道は車体座標のメートル単位で定義し、diffusion 用 XY 差分の正規化統計は train split のみから計算する。
 
@@ -72,15 +72,17 @@ split は terrain seed と episode ID を単位とし、test に未使用 terrai
 
 EAT-Nav は RGB 画像を入力しない。既存 NoMaD は各 RGB 観測を EfficientNet-B0 で token 化するが、EAT-Nav はその画像 encoder を2チャンネル DEM 専用の小さな **共有 CNN encoder** に置き換える。各時刻の `DEM[2,20,20]` は convolution 層、空間 pooling、256次元への線形 projection を経て **1 DEM token `[256]`** になる。生の DEM 格子を flatten して MLP に渡す方式は採用しない。全時刻の DEM は同じ CNN の重みを使う。相対 goal `[x,y]` と品質 scalar `q` にだけ、それぞれ独立した MLP を使って256次元 token を作る。既定 `context_size=3` かつ Quality 有効時の Transformer 入力は `DEM token ×4 + goal token ×1 + quality token ×1 = [B,6,256]` である。
 
-NoMaD と同じ位置埋め込み・4層4 head Transformer 設定を使い、token を平均 pool して既存 `ConditionalUnet1D` の global condition へ渡す。diffusion は固定8点の XY 差分、DDPM 10 step、epsilon prediction。全重みを scratch から初期化し、NoMaD pretrained checkpoint をロードしない。品質なし baseline は config で品質 token を除いて別モデルとして学習する。
+NoMaD と同じ位置埋め込み・4層4 head Transformer 設定を使い、token を平均 pool して既存 `ConditionalUnet1D` の global condition へ渡す。diffusion は `len_traj_pred` 点の XY 差分、DDPM 10 step、epsilon prediction。全重みを scratch から初期化し、NoMaD pretrained checkpoint をロードしない。品質なし baseline は config で品質 token を除いて別モデルとして学習する。
 
-train/validation の diffusion noise prediction loss と trajectory error を記録し、品質 bin 別の trajectory/failure 傾向も評価する。checkpoint は model state、optimizer/scheduler state、DEM/履歴間隔/軌道点間隔/physical horizon config、train 由来の action stats と ECDF、split manifest hash をまとめる。ロード時は全 shape と config の整合を厳密に検証する。
+共通 `len_traj_pred` から dataset window と future trajectory extraction、終了後の有効長 mask、diffusion action tensor `[B,len_traj_pred,2]`、masked training loss、train split の正規化統計、推論 tensor、ROS `nav_msgs/Path` の生成軌道点数、可視化と評価の横軸・点数を一貫して構築する。Path は生成軌道の `len_traj_pred` 点を持ち、現在位置を追加点として混入させない。checkpoint は `len_traj_pred`、sampling interval、導出 horizon を記録し、load 時にいずれも設定と照合する。異なる点数の checkpoint を黙ってロードしない。
+
+train/validation の diffusion noise prediction loss と trajectory error を記録し、品質 bin 別の trajectory/failure 傾向も評価する。checkpoint は model state、optimizer/scheduler state、DEM/履歴間隔/`len_traj_pred`/軌道点間隔/導出済み physical horizon config、train 由来の action stats と ECDF、split manifest hash をまとめる。ロード時は全 shape と config の整合を厳密に検証する。
 
 ## 5. ROS 推論
 
 ROS node は `/elevation_map`、`/goal_pose` を購読し、品質 target の既定値を0.95とする。参照座標の既定は `map`、設定で変更可能。DEM history は学習と同じ間隔で `context_size + 1` 件（既定4件）保持し、欠落・時刻逆行・TF 失敗では history を無効化する。各 GridMap はその header frame から `chassis/body` への時刻付き TF と共通 DEM adapter で処理する。RViz goal は goal 自身の frame から車体 frame へ TF 変換し、遠い goal は向きを保って局所到達範囲へ clip する。goal provider は後に Nav2 global path を採用できるよう独立させる。
 
-EAT 出力は車体 XY の8点。観測時刻の TF で設定された参照座標（既定 `map`）へ変換し、`nav_msgs/Path` を follower の `/teaching_playback/path` へ publish する。goal は逆向きの TF で参照座標から車体へ変換する。軌道の座標変換は network の外、ROS 境界だけで行う。EAT 用 launch は planner adapter を起動しない。dry-run では follower へは publish せず debug Path、入力 DEM、requested/local goal、品質 target を RViz で確認する。follower のコード・設定は変更しない。
+EAT 出力は車体 XY の `len_traj_pred` 点（既定8点）。観測時刻の TF で設定された参照座標（既定 `map`）へ変換し、`nav_msgs/Path` を follower の `/teaching_playback/path` へ publish する。goal は逆向きの TF で参照座標から車体へ変換する。軌道の座標変換は network の外、ROS 境界だけで行う。EAT 用 launch は planner adapter を起動しない。dry-run では follower へは publish せず debug Path、入力 DEM、requested/local goal、品質 target を RViz で確認する。follower のコード・設定は変更しない。
 
 既存 follower は空 Path を無視し、Path 自体に有効期限がない。このため EAT 専用 launch では follower の `cmd_vel_topic` を `/eat_nav/follower_cmd_vel` に設定し、別プロセスの EAT command guard だけが `/cmd_vel_auto` へ `TwistStamped` を publish する。guard は EAT の `std_msgs/Bool` ready heartbeat、最新 Path の時刻、follower command の時刻を steady clock で監視する。既定 TTL は heartbeat と command が0.3 s、Path が0.8 sで、いずれかの失効または EAT の明示的 invalid で20 Hzのゼロ速度を publish する。無効化後は invalid 以降に生成した新しい有効 Path と heartbeat を受けるまで再開しない。DEM/goal/TF 欠落、推論失敗、EAT node 停止、時刻逆行をこの条件へ接続する。follower のソースと設定ファイルは変更せず、EAT launch のパラメータ上書きだけで経路を差し替える。guard が落ちた場合は下流 chassis controller の `cmd_vel_timeout`（現行3.0 s）に依存するため、実機接続前にその停止動作と、`/cmd_vel_auto` の publisher が guard だけであることを確認する。条件を満たせなければライブ launch は有効化しない。
 
@@ -89,7 +91,7 @@ EAT 出力は車体 XY の8点。観測時刻の TF で設定された参照座�
 1. 既存3 workspace の shape/topic/座標調査を記録し、指定 checkpoint の安全な tensor shape 検証を Isaac 実行環境で行う。
 2. DEM adapter の軸・欠損・相対高さテストを通す。実メッセージで20 × 20、resolution、frame、start index、NaN、更新頻度を確認する。
 3. 100環境の短時間収集で command/Critic/reward/終了が変化し、env ごとの episode reset と多様な terrain が観測されることを確認する。MB/robot-hour、GB/100 robot-hours、書き込み帯域を報告する。
-4. 小規模実データから split、window、P10、train ECDF、モデル1 batch の学習、checkpoint の保存/再読込、推論8点を実行する。
+4. 小規模実データから split、window、P10、train ECDF、モデル1 batch の学習、checkpoint の保存/再読込、既定8点と変更した `len_traj_pred` の推論点数を検証する。
 5. ROS dry-run で DEM、goal、TF、quality、車体/参照座標 Path の整合を確認する。guard の DEM/TF/goal/Path/heartbeat 欠落と回復を模擬し、`/cmd_vel_auto` が設定 TTL 内にゼロになり、新規 Path 前には再開しないことをテストする。下流 controller timeout を確認してからライブ接続を有効化する。
 
 Isaac GPU、実機 GridMap または bag が使えない環境では、対応する integration test を「未実行」として記録する。合成 fixture の unit test を実機検証の代わりとしない。
