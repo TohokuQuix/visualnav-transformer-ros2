@@ -1,0 +1,764 @@
+{
+  "bootstrap_ci_95": [
+    -0.002325635004653855,
+    0.00048342239331071566
+  ],
+  "by_terrain": {
+    "boxes": {
+      "mse_improvement": 0.0008918306525707566,
+      "status": "supported",
+      "windows": 1368
+    },
+    "k_rail_step_field": {
+      "mse_improvement": -0.000580187864704174,
+      "status": "supported",
+      "windows": 1368
+    },
+    "pyramid_stairs": {
+      "mse_improvement": -0.0017448070109581122,
+      "status": "supported",
+      "windows": 2050
+    },
+    "pyramid_stairs_inv": {
+      "mse_improvement": -0.0017644153824852725,
+      "status": "supported",
+      "windows": 1368
+    },
+    "random_rough": {
+      "mse_improvement": -0.0010741566762341205,
+      "status": "supported",
+      "windows": 684
+    }
+  },
+  "data_pair_comparison": {
+    "cross_minus_same": {
+      "endpoint_m": {
+        "ci_95": [
+          -0.01004711432538548,
+          0.083280010950474
+        ],
+        "observed_mean_difference": 0.02690805493365042,
+        "valid_replicates": 2000
+      },
+      "forward_progress_m": {
+        "ci_95": [
+          -0.01602904802912469,
+          0.07860087426019458
+        ],
+        "observed_mean_difference": 0.022013590525340986,
+        "valid_replicates": 2000
+      },
+      "path_length_m": {
+        "ci_95": [
+          -0.0034519148254527343,
+          0.20142131407401148
+        ],
+        "observed_mean_difference": 0.11123300216812641,
+        "valid_replicates": 2000
+      },
+      "total_turning_rad": {
+        "ci_95": [
+          -0.8864854293941765,
+          1.1732658524219306
+        ],
+        "observed_mean_difference": 0.13324408587813386,
+        "valid_replicates": 2000
+      },
+      "trajectory_rms_m": {
+        "ci_95": [
+          0.02278042333366422,
+          0.10577260683405204
+        ],
+        "observed_mean_difference": 0.07163230648823084,
+        "valid_replicates": 2000
+      }
+    },
+    "cross_q": {
+      "count": 1000,
+      "means": {
+        "endpoint_m": 0.09278532232157886,
+        "forward_progress_m": 0.07791046722023748,
+        "path_length_m": 0.1936547785010189,
+        "total_turning_rad": 2.8644842028319837,
+        "trajectory_rms_m": 0.14388241827487946
+      },
+      "medians": {
+        "endpoint_m": 0.07048826292157173,
+        "forward_progress_m": 0.053699880838394165,
+        "path_length_m": 0.1473757028579712,
+        "total_turning_rad": 2.4491411447525024,
+        "trajectory_rms_m": 0.12606266140937805
+      }
+    },
+    "same_q": {
+      "count": 1000,
+      "means": {
+        "endpoint_m": 0.06587726738792844,
+        "forward_progress_m": 0.05589687669489649,
+        "path_length_m": 0.08242177633289248,
+        "total_turning_rad": 2.73124011695385,
+        "trajectory_rms_m": 0.07225011178664863
+      },
+      "medians": {
+        "endpoint_m": 0.05730546824634075,
+        "forward_progress_m": 0.04572073742747307,
+        "path_length_m": 0.05070953816175461,
+        "total_turning_rad": 2.31835401058197,
+        "trajectory_rms_m": 0.05202608369290829
+      }
+    }
+  },
+  "decision_metrics": {
+    "ci_lower": -0.002325635004653855,
+    "delta_r2": -0.0010003136322089357,
+    "direction_agreement": true,
+    "improvement": -0.0009211714607263999,
+    "mean_mse": 1.0471150875091553,
+    "near_boundary": false,
+    "probe_0_mse": 0.4445937919877672,
+    "probe_q_mse": 0.4442403079186523,
+    "relative_rms_improvement": 0.0010355239050538402,
+    "shuffled": [
+      -0.00039150366780005275,
+      -0.0011417736427751235,
+      0.0004742442476153852,
+      -0.0005284683500076937,
+      -0.0016136000763958824,
+      7.466368743552776e-05,
+      -0.00014042047421530812,
+      -0.00022711794142360464,
+      0.00019998616694372195,
+      4.732940079948955e-05
+    ],
+    "terrain_robust": false,
+    "validation_improving_at_cap": false
+  },
+  "direction_comparison": {
+    "forward_progress": {
+      "actual_median": -0.020438723266124725,
+      "predicted_median": -0.028475195169448853,
+      "sign_agreement": true
+    },
+    "path_length": {
+      "actual_median": -0.0963951051235199,
+      "predicted_median": -0.042814526706933975,
+      "sign_agreement": true
+    },
+    "total_turning": {
+      "actual_median": -0.3962884843349457,
+      "predicted_median": 0.022918453440070152,
+      "sign_agreement": false
+    }
+  },
+  "heldout_only_for_final_evaluation": true,
+  "heldout_window_count": 6838,
+  "mean_trajectory_test_mse": 0.9202755093574524,
+  "mean_trajectory_test_window_mse": 0.9208826422691345,
+  "mean_trajectory_validation_mse": 1.0471150875091553,
+  "permutation_p_value": 0.8181818181818182,
+  "run_results": [
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.44285933906299496,
+      "endpoint_error_m": 0.05717414374331696,
+      "forward_progress_error_m": 0.05635014198623482,
+      "heldout_mse": 0.3670104297413958,
+      "heldout_rms_m": 0.0885476916218631,
+      "heldout_window_mean_mse": 0.3690627569971056,
+      "kind": "probe_0",
+      "path_length_error_m": 0.09882304375881823,
+      "per_point_error_m": [
+        0.04334865996588653,
+        0.07394962861403802,
+        0.09365216802994972,
+        0.10298209704046349,
+        0.10174401710305667,
+        0.09128343694343682,
+        0.07320659683903886,
+        0.05742647728777548
+      ],
+      "shuffle_seed": null,
+      "training_seed": 11,
+      "turning_error_rad": 3.157788552658653,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 28,
+      "best_validation_loss": 0.4455826519261148,
+      "endpoint_error_m": 0.05316801229450674,
+      "forward_progress_error_m": 0.052223117243439726,
+      "heldout_mse": 0.369111244287042,
+      "heldout_rms_m": 0.0885752927891114,
+      "heldout_window_mean_mse": 0.371701780285131,
+      "kind": "probe_0",
+      "path_length_error_m": 0.10192269868120193,
+      "per_point_error_m": [
+        0.043518884093319894,
+        0.07422324342938394,
+        0.09387703488064439,
+        0.10298814166802601,
+        0.10174645200539104,
+        0.09131315691773915,
+        0.07285436914820453,
+        0.05269315512476826
+      ],
+      "shuffle_seed": null,
+      "training_seed": 29,
+      "turning_error_rad": 3.117232528516092,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 30,
+      "best_validation_loss": 0.44533938497419207,
+      "endpoint_error_m": 0.05077138405664867,
+      "forward_progress_error_m": 0.0495640164552816,
+      "heldout_mse": 0.36921229896855357,
+      "heldout_rms_m": 0.08750300337544,
+      "heldout_window_mean_mse": 0.3721326072976723,
+      "kind": "probe_0",
+      "path_length_error_m": 0.10252443689821963,
+      "per_point_error_m": [
+        0.04344220949384797,
+        0.07388399087189677,
+        0.09341179114283416,
+        0.10233131586205885,
+        0.1009549656700934,
+        0.08990013026692745,
+        0.07093431825065909,
+        0.04983131320940361
+      ],
+      "shuffle_seed": null,
+      "training_seed": 47,
+      "turning_error_rad": 3.0617751381335276,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.4424829717724582,
+      "endpoint_error_m": 0.05763604126861158,
+      "forward_progress_error_m": 0.0567364484645398,
+      "heldout_mse": 0.3670730087886134,
+      "heldout_rms_m": 0.08810153005723602,
+      "heldout_window_mean_mse": 0.3694181552215113,
+      "kind": "probe_q",
+      "path_length_error_m": 0.0985269308205202,
+      "per_point_error_m": [
+        0.04325762683249833,
+        0.07358973788279109,
+        0.09294566038434428,
+        0.10195070103395149,
+        0.10059144161693857,
+        0.09031759415337227,
+        0.072995035471861,
+        0.05754967619443876
+      ],
+      "shuffle_seed": null,
+      "training_seed": 11,
+      "turning_error_rad": 3.1867789110240032,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 28,
+      "best_validation_loss": 0.44384039967998906,
+      "endpoint_error_m": 0.053511157223127194,
+      "forward_progress_error_m": 0.052282481345490524,
+      "heldout_mse": 0.36799174555419284,
+      "heldout_rms_m": 0.08770635946697643,
+      "heldout_window_mean_mse": 0.3707123516428373,
+      "kind": "probe_q",
+      "path_length_error_m": 0.10365457590331269,
+      "per_point_error_m": [
+        0.04321625396922288,
+        0.07353111357864665,
+        0.092877122207559,
+        0.10173989694191905,
+        0.10039284677338559,
+        0.09002530009028716,
+        0.0719770853511279,
+        0.05277250544441322
+      ],
+      "shuffle_seed": null,
+      "training_seed": 29,
+      "turning_error_rad": 3.1350356569078204,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 16,
+      "best_validation_loss": 0.4463975523035097,
+      "endpoint_error_m": 0.05523596893555054,
+      "forward_progress_error_m": 0.05364546712782669,
+      "heldout_mse": 0.3709940801419017,
+      "heldout_rms_m": 0.08854407172595075,
+      "heldout_window_mean_mse": 0.37553015209773943,
+      "kind": "probe_q",
+      "path_length_error_m": 0.10201653206827538,
+      "per_point_error_m": [
+        0.04363662421478227,
+        0.07432025628899293,
+        0.0940759679412,
+        0.10305709746340395,
+        0.10163097551649419,
+        0.09061455666421349,
+        0.07201022500804918,
+        0.05431660608528608
+      ],
+      "shuffle_seed": null,
+      "training_seed": 47,
+      "turning_error_rad": 3.1149125788246286,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.44390922835001345,
+      "endpoint_error_m": 0.056689821938207804,
+      "forward_progress_error_m": 0.05579652026571872,
+      "heldout_mse": 0.3672264996215315,
+      "heldout_rms_m": 0.08822665801390442,
+      "heldout_window_mean_mse": 0.36945426066490566,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.09868137276825746,
+      "per_point_error_m": [
+        0.04337907603135785,
+        0.07392696038182459,
+        0.09351732804578144,
+        0.10273246617613802,
+        0.10148065899184834,
+        0.09071895869453127,
+        0.0725814177520576,
+        0.05687331847123243
+      ],
+      "shuffle_seed": 0,
+      "training_seed": 11,
+      "turning_error_rad": 3.188563442875706,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 38,
+      "best_validation_loss": 0.4457234219815019,
+      "endpoint_error_m": 0.05447441934514623,
+      "forward_progress_error_m": 0.052577609678718926,
+      "heldout_mse": 0.37006695958052277,
+      "heldout_rms_m": 0.08835497444262695,
+      "heldout_window_mean_mse": 0.37284355392790614,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.10177932074894337,
+      "per_point_error_m": [
+        0.043071724483641494,
+        0.07350768931889665,
+        0.09316525939401137,
+        0.10241540986877928,
+        0.10154149425733269,
+        0.09155320745348337,
+        0.07348371458921107,
+        0.054215967277436425
+      ],
+      "shuffle_seed": 1,
+      "training_seed": 29,
+      "turning_error_rad": 3.1614358683771893,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 30,
+      "best_validation_loss": 0.44534883258204494,
+      "endpoint_error_m": 0.05134513447701883,
+      "forward_progress_error_m": 0.050319223620572805,
+      "heldout_mse": 0.3687501422251073,
+      "heldout_rms_m": 0.08765614248807227,
+      "heldout_window_mean_mse": 0.3716583630500569,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.10299017826651553,
+      "per_point_error_m": [
+        0.04343431066751436,
+        0.07394038746588465,
+        0.0935787986486388,
+        0.10255508578159261,
+        0.10121072733063693,
+        0.09011658788695827,
+        0.07109468894169667,
+        0.050459341153882516
+      ],
+      "shuffle_seed": 2,
+      "training_seed": 47,
+      "turning_error_rad": 3.0784582146343995,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.44372081026968735,
+      "endpoint_error_m": 0.057996181633417826,
+      "forward_progress_error_m": 0.05708237496128676,
+      "heldout_mse": 0.36725805113875903,
+      "heldout_rms_m": 0.08857251706083659,
+      "heldout_window_mean_mse": 0.3695912253471133,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.09873752242055368,
+      "per_point_error_m": [
+        0.04348205622145235,
+        0.07407236092229084,
+        0.09369157366427623,
+        0.10292026301201108,
+        0.10167378065103745,
+        0.09106921243145379,
+        0.0732789339955063,
+        0.05828931903165921
+      ],
+      "shuffle_seed": 3,
+      "training_seed": 11,
+      "turning_error_rad": 3.193082294643538,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 38,
+      "best_validation_loss": 0.4455258060559785,
+      "endpoint_error_m": 0.05325914882672866,
+      "forward_progress_error_m": 0.051370784959832924,
+      "heldout_mse": 0.3704179561743063,
+      "heldout_rms_m": 0.08815425537617438,
+      "heldout_window_mean_mse": 0.3733153803615269,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.10184614208012646,
+      "per_point_error_m": [
+        0.04309771280414849,
+        0.07354697211521613,
+        0.09318920392625354,
+        0.10236289490544283,
+        0.10140807907744524,
+        0.0912056926842962,
+        0.07294413144941762,
+        0.052787982904414874
+      ],
+      "shuffle_seed": 4,
+      "training_seed": 29,
+      "turning_error_rad": 3.1481787754230375,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 30,
+      "best_validation_loss": 0.4454059043964113,
+      "endpoint_error_m": 0.051836856904518065,
+      "forward_progress_error_m": 0.05070639876365492,
+      "heldout_mse": 0.36916585124271806,
+      "heldout_rms_m": 0.08778414934134302,
+      "heldout_window_mean_mse": 0.37205794361023675,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.10315850382110293,
+      "per_point_error_m": [
+        0.04345088828370945,
+        0.07396772277710377,
+        0.09361102270511072,
+        0.10261287570594806,
+        0.10131618196026432,
+        0.09031461018308601,
+        0.07138790245151988,
+        0.050978878821691546
+      ],
+      "shuffle_seed": 5,
+      "training_seed": 47,
+      "turning_error_rad": 3.054854395412423,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.4430684130111535,
+      "endpoint_error_m": 0.05450265619570335,
+      "forward_progress_error_m": 0.05345162053604216,
+      "heldout_mse": 0.3668831382703511,
+      "heldout_rms_m": 0.08789508332916857,
+      "heldout_window_mean_mse": 0.3692031774713209,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.0986075188039799,
+      "per_point_error_m": [
+        0.043279957649268154,
+        0.07377888526597488,
+        0.0933450879158484,
+        0.1025484860048693,
+        0.101278970201111,
+        0.09048638727437444,
+        0.07190024280292306,
+        0.054448153840852866
+      ],
+      "shuffle_seed": 6,
+      "training_seed": 11,
+      "turning_error_rad": 3.1511588823316092,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 28,
+      "best_validation_loss": 0.4457254310730384,
+      "endpoint_error_m": 0.05376582380926139,
+      "forward_progress_error_m": 0.05284580448519795,
+      "heldout_mse": 0.3694068479442933,
+      "heldout_rms_m": 0.08859663239845915,
+      "heldout_window_mean_mse": 0.3719288982265546,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.1016866248229908,
+      "per_point_error_m": [
+        0.043498483446793086,
+        0.07416573276230992,
+        0.09379950395341227,
+        0.10294646367058595,
+        0.10173213673148562,
+        0.09136106675981762,
+        0.07295112270464388,
+        0.05340705632070094
+      ],
+      "shuffle_seed": 7,
+      "training_seed": 29,
+      "turning_error_rad": 3.107566578438152,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 30,
+      "best_validation_loss": 0.44546813981016753,
+      "endpoint_error_m": 0.05153380060872567,
+      "forward_progress_error_m": 0.05049485617128489,
+      "heldout_mse": 0.36904140427381954,
+      "heldout_rms_m": 0.08773416684800489,
+      "heldout_window_mean_mse": 0.37193262113072856,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.10292275343239783,
+      "per_point_error_m": [
+        0.043493152165857994,
+        0.07400997932081539,
+        0.09362643987334138,
+        0.10259464627187993,
+        0.10125334808532502,
+        0.0901783819000792,
+        0.07120605907011467,
+        0.050680521571341564
+      ],
+      "shuffle_seed": 8,
+      "training_seed": 47,
+      "turning_error_rad": 3.068175716810703,
+      "validation_improving_at_cap": false
+    },
+    {
+      "best_epoch": 35,
+      "best_validation_loss": 0.44328622383711225,
+      "endpoint_error_m": 0.05479373559406041,
+      "forward_progress_error_m": 0.05384717531023919,
+      "heldout_mse": 0.36679260076124864,
+      "heldout_rms_m": 0.08802915446242428,
+      "heldout_window_mean_mse": 0.3690154275963061,
+      "kind": "probe_q_shuffled",
+      "path_length_error_m": 0.09881406037236268,
+      "per_point_error_m": [
+        0.043290091165561956,
+        0.07384387402433919,
+        0.09345172878871393,
+        0.10271815152959786,
+        0.1014510330263858,
+        0.09068615850365841,
+        0.07212067375978044,
+        0.05473982917251464
+      ],
+      "shuffle_seed": 9,
+      "training_seed": 11,
+      "turning_error_rad": 3.160176611711807,
+      "validation_improving_at_cap": false
+    }
+  ],
+  "status": "fail",
+  "support": {
+    "by_split": {
+      "test": {
+        "boxes": {
+          "bin_counts": {
+            "0": 167,
+            "1": 311,
+            "2": 466,
+            "3": 442
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "k_rail_step_field": {
+          "bin_counts": {
+            "0": 116,
+            "1": 260,
+            "2": 542,
+            "3": 468
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "pyramid_stairs": {
+          "bin_counts": {
+            "0": 408,
+            "1": 539,
+            "2": 483,
+            "3": 647
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "pyramid_stairs_inv": {
+          "bin_counts": {
+            "0": 238,
+            "1": 455,
+            "2": 327,
+            "3": 366
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "random_rough": {
+          "bin_counts": {
+            "0": 131,
+            "1": 136,
+            "2": 142,
+            "3": 284
+          },
+          "metric": null,
+          "status": "supported"
+        }
+      },
+      "train": {
+        "boxes": {
+          "bin_counts": {
+            "0": 633,
+            "1": 844,
+            "2": 986,
+            "3": 991
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "hf_pyramid_slope": {
+          "bin_counts": {
+            "0": 1084,
+            "1": 1762,
+            "2": 1226,
+            "3": 2165
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "k_rail_field": {
+          "bin_counts": {
+            "0": 2741,
+            "1": 2091,
+            "2": 1972,
+            "3": 1490
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "k_rail_step_field": {
+          "bin_counts": {
+            "0": 3243,
+            "1": 1902,
+            "2": 1793,
+            "3": 1367
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "pyramid_stairs": {
+          "bin_counts": {
+            "0": 1952,
+            "1": 2253,
+            "2": 2190,
+            "3": 1907
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "pyramid_stairs_inv": {
+          "bin_counts": {
+            "0": 2188,
+            "1": 2609,
+            "2": 2470,
+            "3": 2414
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "random_rough": {
+          "bin_counts": {
+            "0": 1998,
+            "1": 2378,
+            "2": 3203,
+            "3": 3506
+          },
+          "metric": null,
+          "status": "supported"
+        }
+      },
+      "val": {
+        "hf_pyramid_slope": {
+          "bin_counts": {
+            "0": 163,
+            "1": 282,
+            "2": 344,
+            "3": 597
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "k_rail_field": {
+          "bin_counts": {
+            "0": 305,
+            "1": 230,
+            "2": 133,
+            "3": 25
+          },
+          "metric": null,
+          "status": "insufficient support"
+        },
+        "k_rail_step_field": {
+          "bin_counts": {
+            "0": 450,
+            "1": 151,
+            "2": 72,
+            "3": 6
+          },
+          "metric": null,
+          "status": "insufficient support"
+        },
+        "pyramid_stairs": {
+          "bin_counts": {
+            "0": 584,
+            "1": 532,
+            "2": 356,
+            "3": 585
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "pyramid_stairs_inv": {
+          "bin_counts": {
+            "0": 242,
+            "1": 196,
+            "2": 330,
+            "3": 618
+          },
+          "metric": null,
+          "status": "supported"
+        },
+        "random_rough": {
+          "bin_counts": {
+            "0": 143,
+            "1": 191,
+            "2": 201,
+            "3": 158
+          },
+          "metric": null,
+          "status": "supported"
+        }
+      }
+    },
+    "common_terrain_types": [
+      "k_rail_step_field",
+      "pyramid_stairs",
+      "pyramid_stairs_inv",
+      "random_rough"
+    ],
+    "minimum_per_bin": 30,
+    "q_supported_all_splits": [
+      "pyramid_stairs",
+      "pyramid_stairs_inv",
+      "random_rough"
+    ]
+  }
+}

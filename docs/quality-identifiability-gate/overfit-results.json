@@ -1,0 +1,192 @@
+{
+  "decision_metrics": {
+    "correct_selection_fraction": 0.036458333333333336,
+    "direction_fraction": 0.4583333333333333,
+    "effect_fraction": 0.18390159684378904,
+    "effect_sampling_ratio": 2.810393220059279,
+    "high_target_closer": true,
+    "low_target_closer": false,
+    "seed_robust": false,
+    "training_converged": false
+  },
+  "diffusion_seeds": [
+    11,
+    29,
+    47
+  ],
+  "median_metrics": {
+    "correct_selection_fraction": 0.036458333333333336,
+    "direction_fraction": 0.4583333333333333,
+    "effect_fraction": 0.18390159684378904,
+    "effect_sampling_ratio": 2.810393220059279,
+    "generated_effect_m": 0.14426140004572025,
+    "high_to_high_m": 0.07791545355275209,
+    "high_to_low_m": 0.7873743356597752,
+    "low_to_high_m": 0.1577345301706095,
+    "low_to_low_m": 0.653335018712419,
+    "target_effect_m": 0.7844488711441683
+  },
+  "pair_count": 64,
+  "per_seed": [
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-11/epoch-300.pt",
+      "correct_selection_fraction": 0.036458333333333336,
+      "direction_fraction": 0.4635416666666667,
+      "effect_fraction": 0.18996695799602825,
+      "effect_sampling_ratio": 3.333855726831678,
+      "fixed_bank_loss_final": 0.20998500287532806,
+      "forward_direction_fraction": 0.9427083333333334,
+      "generated_effect_m": 0.149019365754676,
+      "high_correct_fraction": 0.9635416666666666,
+      "high_to_high_m": 0.07868642824461558,
+      "high_to_low_m": 0.7927649835719079,
+      "low_correct_fraction": 0.07291666666666667,
+      "low_to_high_m": 0.1577345301706095,
+      "low_to_low_m": 0.653335018712419,
+      "path_direction_fraction": 0.96875,
+      "sampling_variation_m": 0.0446988046169281,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 11,
+      "turning_direction_fraction": 0.4635416666666667
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-29/epoch-300.pt",
+      "correct_selection_fraction": 0.057291666666666664,
+      "direction_fraction": 0.4583333333333333,
+      "effect_fraction": 0.17252051910633237,
+      "effect_sampling_ratio": 2.500066711997086,
+      "fixed_bank_loss_final": 0.2025826871395111,
+      "forward_direction_fraction": 0.9270833333333334,
+      "generated_effect_m": 0.13533352646216834,
+      "high_correct_fraction": 0.9791666666666666,
+      "high_to_high_m": 0.07791545355275209,
+      "high_to_low_m": 0.7873743356597752,
+      "low_correct_fraction": 0.078125,
+      "low_to_high_m": 0.15633610989852575,
+      "low_to_low_m": 0.655458497776987,
+      "path_direction_fraction": 0.96875,
+      "sampling_variation_m": 0.05413196608424187,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 29,
+      "turning_direction_fraction": 0.4583333333333333
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-47/epoch-300.pt",
+      "correct_selection_fraction": 0.03125,
+      "direction_fraction": 0.3854166666666667,
+      "effect_fraction": 0.18390159684378904,
+      "effect_sampling_ratio": 2.810393220059279,
+      "fixed_bank_loss_final": 0.20802488923072815,
+      "forward_direction_fraction": 0.9166666666666666,
+      "generated_effect_m": 0.14426140004572025,
+      "high_correct_fraction": 0.9583333333333334,
+      "high_to_high_m": 0.07607599655568006,
+      "high_to_low_m": 0.7868897792133775,
+      "low_correct_fraction": 0.07291666666666667,
+      "low_to_high_m": 0.1579728893267539,
+      "low_to_low_m": 0.6519257721044529,
+      "path_direction_fraction": 0.96875,
+      "sampling_variation_m": 0.05133139342069626,
+      "target_effect_m": 0.7844488711441683,
+      "training_converged": false,
+      "training_seed": 47,
+      "turning_direction_fraction": 0.3854166666666667
+    }
+  ],
+  "per_seed_full_criteria_pass": [
+    false,
+    false,
+    false
+  ],
+  "q_sweep": [
+    {
+      "adjacent_trajectory_rms_m": [
+        0.0033035771921277046,
+        0.008790001273155212,
+        0.10615655779838562,
+        0.04697622358798981,
+        0.0032304422929883003
+      ],
+      "forward_progress_median_m": [
+        0.8910508155822754,
+        0.8905404806137085,
+        0.8884047269821167,
+        0.7513322830200195,
+        0.7001339197158813,
+        0.7017990350723267
+      ],
+      "median_forward_spearman": -0.9066739713791017,
+      "monotonic_forward_fraction": 0.11458333333333333,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 11
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.016495872288942337,
+        0.02524086833000183,
+        0.0810706615447998,
+        0.035989679396152496,
+        0.005741337314248085
+      ],
+      "forward_progress_median_m": [
+        0.8933679461479187,
+        0.8856749534606934,
+        0.8604726195335388,
+        0.7538201808929443,
+        0.7159669995307922,
+        0.709630012512207
+      ],
+      "median_forward_spearman": -0.9856107606091623,
+      "monotonic_forward_fraction": 0.5833333333333334,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 29
+    },
+    {
+      "adjacent_trajectory_rms_m": [
+        0.004766638390719891,
+        0.028718246147036552,
+        0.09858090430498123,
+        0.027728235349059105,
+        0.004385647363960743
+      ],
+      "forward_progress_median_m": [
+        0.8951133489608765,
+        0.8970036506652832,
+        0.8569404482841492,
+        0.7334867119789124,
+        0.7044281959533691,
+        0.6992319226264954
+      ],
+      "median_forward_spearman": -0.942857142857143,
+      "monotonic_forward_fraction": 0.484375,
+      "q_values": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9,
+        0.95
+      ],
+      "training_seed": 47
+    }
+  ],
+  "scratch_training": true,
+  "status": "inconclusive",
+  "target_source_split": "train"
+}

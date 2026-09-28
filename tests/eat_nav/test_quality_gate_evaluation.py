@@ -44,3 +44,11 @@ def test_trajectory_errors_use_valid_points_only_and_physical_xy():
     assert result['rms_m'][0]==1.0
     assert result['endpoint_m'][0]==1.0
     assert result['path_length_error_m'][0]==1.0
+
+
+def test_bootstrap_accepts_real_tuple_episode_keys():
+    values=np.array([1.,2.,3.])
+    episodes=[(1,0,0),(1,0,0),(1,1,0)]
+    ci,samples=episode_cluster_ci(values,episodes,seed=2,repeats=50)
+    assert len(samples)==50
+    assert ci[0]<=ci[1]

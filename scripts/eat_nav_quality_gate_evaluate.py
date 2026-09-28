@@ -70,6 +70,9 @@ def main():
         y=mean.unsqueeze(0).expand(len(data['q']),-1,-1)
         return float((((y-data['action']).square())*data['mask'].unsqueeze(-1)).sum()/(2*data['mask'].sum()))
     mean_val=mean_error(val_data);mean_test=mean_error(test_data)
+    baseline_target=test_data['action']
+    baseline_mask=test_data['mask']
+    mean_test_window=float(((((mean.unsqueeze(0)-baseline_target).square())*baseline_mask.unsqueeze(-1)).sum(dim=(1,2))/(2*baseline_mask.sum(dim=1).clamp_min(1))).mean())
     target=test_data['action'].cpu().numpy()
     mask=test_data['mask'].cpu().numpy()
     physical_target=target*train.stats.std+train.stats.mean
@@ -84,6 +87,7 @@ def main():
         metrics=trajectory_errors(physical_pred,physical_target,mask)
         entry={'kind':kind,'training_seed':seed,'shuffle_seed':run['shuffle_seed'],
                'heldout_mse':float(np.sum(np.square(pred-target)*mask[:,:,None])/(2*mask.sum())),
+               'heldout_window_mean_mse':float(np.mean(norm_mse)),
                'heldout_rms_m':float(np.mean(metrics['rms_m'])),
                'endpoint_error_m':float(np.mean(metrics['endpoint_m'])),
                'forward_progress_error_m':float(np.mean(metrics['forward_progress_error_m'])),
@@ -101,14 +105,14 @@ def main():
                      for seed in settings.training_seeds]).mean(axis=0)
     ci,_=episode_cluster_ci(paired,test_data['episode'],seed=settings.bootstrap_seed,
                             repeats=settings.bootstrap_replicates)
-    p0_mse=np.mean([by_seed[s]['probe_0']['summary']['heldout_mse'] for s in settings.training_seeds])
-    pq_mse=np.mean([by_seed[s]['probe_q']['summary']['heldout_mse'] for s in settings.training_seeds])
+    p0_mse=np.mean([by_seed[s]['probe_0']['summary']['heldout_window_mean_mse'] for s in settings.training_seeds])
+    pq_mse=np.mean([by_seed[s]['probe_q']['summary']['heldout_window_mean_mse'] for s in settings.training_seeds])
     p0_rms=np.mean([by_seed[s]['probe_0']['summary']['heldout_rms_m'] for s in settings.training_seeds])
     pq_rms=np.mean([by_seed[s]['probe_q']['summary']['heldout_rms_m'] for s in settings.training_seeds])
     shuffle_effect=[]
     for entry in run_results:
         if entry['kind']=='probe_q_shuffled':
-            shuffle_effect.append(float(by_seed[entry['training_seed']]['probe_0']['summary']['heldout_mse']-entry['heldout_mse']))
+            shuffle_effect.append(float(by_seed[entry['training_seed']]['probe_0']['summary']['heldout_window_mean_mse']-entry['heldout_window_mean_mse']))
     terrain=np.asarray(test_data['terrain'])
     by_terrain={}
     for typ in sorted(set(terrain)):
@@ -146,10 +150,10 @@ def main():
                       'sign_agreement':bool(np.sign(np.median(v['actual']))==np.sign(np.median(v['predicted'])))}
                 for name,v in pair_directions.items()}
     near=(p0_mse-pq_mse>0 and ((p0_rms-pq_rms)/p0_rms>=settings.min_relative_rms_gain-settings.near_relative_rms_margin
-           or (p0_mse-pq_mse)/mean_test>=settings.min_delta_r2-settings.near_delta_r2_margin))
+           or (p0_mse-pq_mse)/mean_test_window>=settings.min_delta_r2-settings.near_delta_r2_margin))
     decision_metrics={'improvement':float(p0_mse-pq_mse),'ci_lower':float(ci[0]),
                       'shuffled':shuffle_effect,'relative_rms_improvement':float((p0_rms-pq_rms)/p0_rms),
-                      'delta_r2':float((p0_mse-pq_mse)/mean_test),
+                      'delta_r2':float((p0_mse-pq_mse)/mean_test_window),
                       'terrain_robust':bool(robust),
                       'direction_agreement':any(v['sign_agreement'] for v in directions.values()),
                       'probe_0_mse':float(np.mean([by_seed[s]['probe_0']['summary']['best_validation_loss'] for s in settings.training_seeds])),
@@ -160,7 +164,7 @@ def main():
     status=decide_gate_a(decision_metrics,settings)
     result={'status':status,'decision_metrics':decision_metrics,'bootstrap_ci_95':ci,
             'permutation_p_value':(1+sum(x>=decision_metrics['improvement'] for x in shuffle_effect))/(1+len(shuffle_effect)),
-            'mean_trajectory_validation_mse':mean_val,'mean_trajectory_test_mse':mean_test,
+            'mean_trajectory_validation_mse':mean_val,'mean_trajectory_test_mse':mean_test,'mean_trajectory_test_window_mse':mean_test_window,
             'heldout_window_count':len(test_data['q']),'run_results':run_results,
             'by_terrain':by_terrain,'support':support,'data_pair_comparison':pairs_and_ci(controls,test.windows,settings),
             'direction_comparison':directions,'heldout_only_for_final_evaluation':True}

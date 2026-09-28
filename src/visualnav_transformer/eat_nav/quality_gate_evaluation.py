@@ -6,8 +6,8 @@ import numpy as np
 
 def episode_cluster_ci(values, episodes, *, seed=613, repeats=2000):
     values=np.asarray(values,dtype=float)
-    episodes=np.asarray(episodes,dtype=object)
-    unique=list(dict.fromkeys(episodes.tolist()))
+    episodes=[tuple(e) if isinstance(e,(tuple,list,np.ndarray)) else e for e in episodes]
+    unique=list(dict.fromkeys(episodes))
     if len(values)!=len(episodes) or not unique:
         raise ValueError('cluster bootstrap input mismatch')
     rng=np.random.default_rng(seed)

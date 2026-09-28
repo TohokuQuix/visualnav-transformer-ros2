@@ -1,0 +1,54 @@
+{
+  "mode": "train",
+  "pair_count": 64,
+  "peak_gpu_memory_bytes": 172952576,
+  "runs": [
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-11/epoch-300.pt",
+      "checkpoint_host_path": "/tmp/eatnav-quality-identifiability-gate/overfit-full/seed-11/epoch-300.pt",
+      "checkpoint_sha256": "b43be27ea46936bd1194e93d481ae50c3952a554eb70a3d04928e8e438d5fc58",
+      "epochs_ran": 300,
+      "final_fixed_bank_loss": 0.20998500287532806,
+      "final_gradient_norm_median": 1.5459242463111877,
+      "fixed_bank_loss_min": 0.20961304008960724,
+      "initial_fixed_bank_loss": 0.9735739231109619,
+      "training_converged": false,
+      "training_seed": 11,
+      "wall_seconds": 14.465111454948783
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-29/epoch-300.pt",
+      "checkpoint_host_path": "/tmp/eatnav-quality-identifiability-gate/overfit-full/seed-29/epoch-300.pt",
+      "checkpoint_sha256": "8cddb1ce73521cac1601181f26d8dbd5f6b51a58e74f903ac374753c3d2a9745",
+      "epochs_ran": 300,
+      "final_fixed_bank_loss": 0.2025826871395111,
+      "final_gradient_norm_median": 1.5527181029319763,
+      "fixed_bank_loss_min": 0.20077145099639893,
+      "initial_fixed_bank_loss": 0.9358582496643066,
+      "training_converged": false,
+      "training_seed": 29,
+      "wall_seconds": 14.092112872051075
+    },
+    {
+      "checkpoint": "/tmp/eatnav-train/quality-gate-output/overfit-full/seed-47/epoch-300.pt",
+      "checkpoint_host_path": "/tmp/eatnav-quality-identifiability-gate/overfit-full/seed-47/epoch-300.pt",
+      "checkpoint_sha256": "b06844628330e19815df78afd500872de538b236da9eaa57f4d21a5accadeecd",
+      "epochs_ran": 300,
+      "final_fixed_bank_loss": 0.20802488923072815,
+      "final_gradient_norm_median": 1.5129725933074951,
+      "fixed_bank_loss_min": 0.1990126520395279,
+      "initial_fixed_bank_loss": 0.9663355350494385,
+      "training_converged": false,
+      "training_seed": 47,
+      "wall_seconds": 13.993032678030431
+    }
+  ],
+  "scratch_start": true,
+  "train_only": true,
+  "training_seeds": [
+    11,
+    29,
+    47
+  ],
+  "wall_seconds": 42.650445010047406
+}
