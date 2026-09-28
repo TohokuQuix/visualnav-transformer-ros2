@@ -1,0 +1,11 @@
+context_size: 3
+len_traj_pred: 8
+trajectory_interval_sec: 0.25
+quality_enabled: true
+max_epochs: 8
+validation_metric: diffusion_loss
+validation_interval_epochs: 1
+early_stopping_patience: 3
+early_stopping_min_delta: 0.0005
+best_checkpoint_metric_mode: min
+best_checkpoint_weights: ema
