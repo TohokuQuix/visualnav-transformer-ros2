@@ -30,17 +30,23 @@ Onix の RL Actor が多様な速度指令で実行した成功・失敗軌道�
 
 [NoMaD 論文 Figure 2 と Training Details](https://arxiv.org/pdf/2310.07896) は過去5時刻の観測、8 future actions、30 epochs を示す。一方、現在使用している `src/visualnav_transformer/train/config/nomad.yaml` は `context_size: 3`、`len_traj_pred: 8`、`epochs: 100` である。現行 `vint_dataset.py` は `range(curr_time - context_size * waypoint_spacing, curr_time + 1, waypoint_spacing)` で履歴を切り出し、`NoMaD_ViNT` は `context_size + 1` 個の観測 token へ reshape する。したがって `context_size=3` は **過去3枚＋現在1枚＝4枚の DEM frame**、`context_size=5` は **過去5枚＋現在1枚＝6枚**を意味する。EAT-Nav v1 は現行実装に合わせて3を既定とし、3/5を config から変更できる。履歴 buffer、dataset window、DEM encoder token 数、位置埋め込み長、checkpoint metadata を同じ設定から構築する。Quality 有効時の Transformer 入力 token 数はそれぞれ6/8（DEM 4/6＋goal＋quality）、無効時は5/7とする。異なる履歴長の checkpoint を黙ってロードしない。
 
+### 軌道点間隔と physical horizon
+
+NoMaD の軌道点数8は `len_traj_pred: 8` から継承する。一方、現行 `vint_dataset.py` の将来点は `curr_time + k * waypoint_spacing` の **frame index**（`k=1..8`）で取り、`train.py` は未指定の `waypoint_spacing` を1にする。`process_bags.py` と `process_bag_diff.py` の標準 `--sample-rate` は4.0 Hzで、bag の実時間が前回採用時刻から0.25秒以上進んだ frame を採用する。したがって**標準前処理・stride 1 の名目値は1点0.25秒、8点で2.0秒**。サンプリングの遅れや CLI 上書きで実間隔は長くなり得る。前処理済み `traj_data.pkl` は位置と yaw を保存するが採用時刻を保存しないため、現行 `nomad.yaml` は複数の dataset を指定し、各 dataset の実際の前処理実行引数・採用時刻も checkpoint に含まれないため、学習済み checkpoint 全体の実間隔が0.25秒と一意に断定することはできない。`data_config.yaml` の `metric_waypoint_spacing` は平均**距離**であり時間の根拠には使わない。
+
+EAT-Nav は独立した `trajectory_interval_sec: 0.25`、`trajectory_horizon_sec: 2.0`、`dem_history_interval_sec: 0.25` を初期値とし、いずれも EAT config から変更可能にする。v1 の `trajectory_point_count: 8` は NoMaD と同じ値に固定する。`trajectory_horizon_sec = trajectory_point_count * trajectory_interval_sec` を config 読込時に検証し、将来点 `k` の時刻を `t + k * trajectory_interval_sec` とする。収集 DEM の既定4 Hzはこれに合わせるが、実機 DEM 更新周期を計測し、本収集前に history 間隔と欠落許容値を決める。raw record には各 frame の実 timestamp を保持し、window 作成時は時刻誤差の閾値を適用する。これで NoMaD の点数だけを継承し、時間間隔と物理的な予測範囲を EAT のデータ・実機周期に合わせて変更できる。
+
 現行 NoMaD の training loop は `latest` と epoch 番号付き checkpoint を保存するが、validation metric による best 選択と early stopping は備えない。`epochs` はモデル構造を決めない。EAT 学習 config は `max_epochs: 100` を初期上限とし、`validation_metric: diffusion_loss`、`early_stopping_patience: 10`、`early_stopping_min_delta: 0.0`、`validation_interval_epochs: 1`、`best_checkpoint_metric_mode: min` を変更可能にする。validation goal/window は評価ごとに再サンプルせず固定し、train と同じ正規化統計を使う。各評価で validation metric を記録し、改善時に `best` checkpoint を保存する。patience に達したら100 epochs 前でも停止する。最新 checkpoint も resume 用に保存する。raw model と EMA のどちらを best 判定・保存対象にするかも config で明示し、既定は EMA とする。
 
 ## 1. DEM 座標と前処理
 
 EAT 専用の Isaac RayCaster を追加する。既存 RL 用 scanner と観測 group は変更しない。EAT scanner は `ray_alignment="world"` とし、中心は車体位置を追い、格子軸は world に固定する。IsaacLab の `GridPatternCfg` は端点を含むため、`size=(1.9,1.9), resolution=0.1` の20 × 20 ray をセル中心として使う。実機 GridMap の位置と位相はメッセージ metadata を優先し、scanner 側にもセル中心の phase を適用してテストする。取得した world 固定格子を実機 GridMap と同じ resolution、grid size、source axis、未知値表現（NaN/無効 mask）へ変換してから、共通 adapter で学習用入力に変換する。
 
-出力格子は車体 yaw に固定された20 × 20セル、各セル0.1 m。有効セルの高さを robot/reference height で差し引く。参照高さは車体中心から0.3–0.8 mの環状領域にある有効セルの median とする。有効セル率が既定の25%を下回れば観測を棄却し、この閾値は config で変更できる。高さが無効なセルは高さチャンネルを0、有効 mask を0にする。補間は全ての寄与元セルが有効なときだけ行い、地図外や NaN を高さ値へ外挿しない。
+出力格子は車体 yaw に固定された20 × 20セル、各セル0.1 m。有効セルの高さを robot/reference height で差し引く。参照高さは車体中心から0.3–0.8 mの環状領域にある有効セルの median とする。有効セル率が既定の25%を下回れば観測を棄却し、この閾値は config で変更できる。正規化は有効な高さからこの単一 scalar を引く `h_relative = h - h_ref` だけとし、local ground plane の推定、roll/pitch 補正、傾斜の平坦化は v1 では行わない。車体 yaw に合わせた XY 格子の回転は高さ面の傾斜補正ではない。高さが無効なセルは高さチャンネルを0、有効 mask を0にする。補間は全ての寄与元セルが有効なときだけ行い、地図外や NaN を高さ値へ外挿しない。
 
 各車体格子セル `(x_b,y_b)` を観測時刻の車体 pose で source map frame に写し、GridMap の円形バッファ開始 index、position、resolution に従って source height を取得する。`map` に固定された2 m四方を車体へ回すと斜め姿勢で四隅が地図外になるため、その mask を残す。シミュレーションにも同じ地図外 mask を適用する。実機固有の LiDAR 欠測を完全再現できない部分は、実地図の mask 分布を測った後に収集時の欠損付与で補う。
 
-検証は非対称な高さ配置で yaw 0°/45°/90°、地図中心のセル単位移動、円形バッファ折り返し、NaN、中心欠損、標高オフセット不変性を含める。単純な左右対称地形だけでは軸反転を検出できない。
+検証は非対称な高さ配置で yaw 0°/45°/90°、地図中心のセル単位移動、円形バッファ折り返し、NaN、中心欠損、標高オフセット不変性と、一定勾配が scalar offset 後も残ることを含める。単純な左右対称地形だけでは軸反転を検出できない。
 
 ## 2. 収集と raw schema
 
@@ -48,15 +54,15 @@ EAT 専用の Isaac RayCaster を追加する。既存 RL 用 scanner と観測 
 
 収集用 command は env ごとに独立 seed を持つ piecewise constant `(v_x, ω)`。heading command による上書きを無効にし、`v_y=0`、上記の学習済み範囲を守る。保持時間の初期範囲は0.5–3.0 s、カテゴリは前進・後退・弱/強旋回・その場旋回・ほぼ停止を含め、実頻度を診断する。コマンド分布の変更と checkpoint の評価値への影響を短時間収集で調べる。
 
-1 control tick の論理 record は `timestamp, env_id, episode_id, terrain_id/seed, pose, orientation, body/world velocity, command, actor action, critic_value, reward, termination flags/reasons` を持つ。これを20 Hzで保存し、DEM source/height/mask は5 Hzと終了 tickで保存する。`V_t` は `t` の観測と command に対応し、`reward_t` と終了は `t→t+1` の実行に対応する。終了 tick の状態は IsaacLab の pre-reset recorder hook で取得し、その環境だけ新 episode を開始する。終了理由は `TerminationManager.get_term(name)` から取得する。reward component は manager で利用可能なら別系列として保存する。Critic sequence は各 control tick の raw `critic_value` として保存し、収集時に P10 その他の集約を行わない。failure 軌道も消さず、`termination_reason` と episode metadata を残す。
+1 control tick の論理 record は `timestamp, env_id, episode_id, terrain_id/seed, pose, orientation, body/world velocity, command, actor action, critic_value, reward, termination flags/reasons` を持つ。これを20 Hzで保存し、DEM source/height/mask は4 Hzと終了 tickで保存する。`V_t` は `t` の観測と command に対応し、`reward_t` と終了は `t→t+1` の実行に対応する。終了 tick の状態は IsaacLab の pre-reset recorder hook で取得し、その環境だけ新 episode を開始する。終了理由は `TerminationManager.get_term(name)` から取得する。reward component は manager で利用可能なら別系列として保存する。Critic sequence は各 control tick の raw `critic_value` として保存し、収集時に P10 その他の集約を行わない。failure 軌道も消さず、`termination_reason` と episode metadata を残す。
 
 保存形式は少数の圧縮 chunk と manifest。chunk は env/episode 境界を索引で保持し、原子的 rename で確定して resume 時に上書きしない。DEM の source/world 固定観測と変換後 height/mask の両方、生成地形の config/seed と再生成に必要な terrain ID を保持する。収集開始前に、既存 terrain generator の tile 数と seed 処理を検査する。100環境ごとに独立 seed から terrain tile を生成し、terrain 種別・難易度も分散させる。単一の global seed で生成した少数 tile を100環境に再利用するだけでは要件を満たさない。manifest は checkpoint path/hash、RL/env config、terrain config/seed、command config、DEM config、git commit、開始時刻、chunk checksum を記録する。
 
-初期 DEM 記録周期は5 Hz とし、20 Hz の RL 制御および scalar 記録と区別する。20 × 20 × 2チャンネルをそれぞれ float32/uint8 で保存すると、DEM だけで約2 kB/frame、5 Hz ×100環境×1時間で約3.6 GB（圧縮前）になる。これに20 Hzの scalar 記録と終了時 DEM が加わる。実測書き込み帯域と容量から本収集前に chunk 長と圧縮方式を確定する。
+初期 DEM 記録周期は4 Hz とし、20 Hz の RL 制御および scalar 記録と区別する。20 × 20 × 2チャンネルをそれぞれ float32/uint8 で保存すると、DEM だけで約2 kB/frame、4 Hz ×100環境×1時間で約2.88 GB（圧縮前）になる。これに20 Hzの scalar 記録と終了時 DEM が加わる。実測書き込み帯域と容量から本収集前に chunk 長と圧縮方式を確定する。
 
 ## 3. Dataset と品質
 
-split は terrain seed と episode ID を単位とし、test に未使用 terrain seed を確保する。manifest に割り当てを固定し、隣接 window を別 split へ流さない。各 sample は `context_size + 1` 枚（既定4枚）の DEM 履歴、現在 pose から将来位置へ変換した相対 goal、5 Hzで切り出した8点の実行 XY 軌道、その時間区間に含まれる20 Hzの全 Critic/reward/command 列、終了情報と有効長 mask を持つ。既定では未終了の1.6秒区間に32個の Critic 値が対応し、P10 はこの raw 列から計算する。history と将来点の間隔は記録周期と同じ config で管理し、実機地図の実測更新周期に合わない場合は本収集前に config を変更する。
+split は terrain seed と episode ID を単位とし、test に未使用 terrain seed を確保する。manifest に割り当てを固定し、隣接 window を別 split へ流さない。各 sample は `context_size + 1` 枚（既定4枚）の DEM 履歴、現在 pose から将来位置へ変換した相対 goal、既定0.25秒間隔で切り出した8点の実行 XY 軌道、その時間区間に含まれる20 Hzの全 Critic/reward/command 列、終了情報と有効長 mask を持つ。既定では未終了の2.0秒区間 `[t,t+2.0s)` に20 Hzの Critic 値40個が対応し、P10 はこの raw 列から計算する。将来点と history はそれぞれ独立 config の秒数で切り出し、記録 DEM 周期とは一致を仮定しない。実 timestamp を使い、許容誤差内に frame がなければ window を無効にする。実機地図の実測更新周期と照合して本収集前に設定を確定する。
 
 将来 goal は同じ episode の位置から選ぶ。局所 goal の最大半径は初期値0.8 mとして方向を保って clip し、有効セル率が不足する方向の goal は sample から除外する。半径は config 化し、短時間収集で得る有効 DEM 領域から本収集前に検証する。終了を含む window は削除せず、終了後の軌道を最終位置で pad し、loss mask で未実行点を除く。次 episode の点を混入させない。学習軌道は車体座標のメートル単位で定義し、diffusion 用 XY 差分の正規化統計は train split のみから計算する。
 
@@ -68,7 +74,7 @@ EAT-Nav は RGB 画像を入力しない。既存 NoMaD は各 RGB 観測を Eff
 
 NoMaD と同じ位置埋め込み・4層4 head Transformer 設定を使い、token を平均 pool して既存 `ConditionalUnet1D` の global condition へ渡す。diffusion は固定8点の XY 差分、DDPM 10 step、epsilon prediction。全重みを scratch から初期化し、NoMaD pretrained checkpoint をロードしない。品質なし baseline は config で品質 token を除いて別モデルとして学習する。
 
-train/validation の diffusion noise prediction loss と trajectory error を記録し、品質 bin 別の trajectory/failure 傾向も評価する。checkpoint は model state、optimizer/scheduler state、DEM/時間/軌道 config、train 由来の action stats と ECDF、split manifest hash をまとめる。ロード時は全 shape と config の整合を厳密に検証する。
+train/validation の diffusion noise prediction loss と trajectory error を記録し、品質 bin 別の trajectory/failure 傾向も評価する。checkpoint は model state、optimizer/scheduler state、DEM/履歴間隔/軌道点間隔/physical horizon config、train 由来の action stats と ECDF、split manifest hash をまとめる。ロード時は全 shape と config の整合を厳密に検証する。
 
 ## 5. ROS 推論
 
