@@ -1,0 +1,42 @@
+schema_version: 1
+manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+split_hash: ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f
+rl_checkpoint_sha256: b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d
+quality_config_sha256: 6e979ffbeceb591d6201f71d8e040b83ea167418a5b14be39a7bc3fdb8fb49e8
+gamma: 0.99
+control_step_sec: 0.05
+trajectory_interval_sec: 0.25
+trajectory_steps: 8
+horizon_sec: 2.0
+expected_complete: {train: 49598, val: 6171, test: 6208}
+expected_terminal_endpoint: {train: 22, val: 7, test: 0}
+probe_seeds: [11, 29, 47]
+fixed_probe_quality: 0.5
+probe_max_epochs: 100
+probe_patience: 12
+probe_min_delta: 0.0001
+probe_batch_size: 64
+probe_learning_rate: 0.0003
+bootstrap_seed: 613
+bootstrap_repeats: 2000
+permutation_seed: 907
+initial_permutations: 10
+final_permutations: 100
+permutation_boundary_relative_rms_margin: 0.01
+permutation_boundary_r2_margin: 0.005
+match_seed: 123
+match_train_candidate_cap: 10000
+match_heldout_candidate_cap: 10000
+match_pairs_per_kind: 1000
+match_episode_cap: 3
+match_goal_distance_m: 0.1
+match_goal_direction_deg: 30.0
+match_min_mask_iou: 0.8
+match_max_dem_rmse_m: 0.05
+match_large_difference_train_quantile: 0.75
+match_small_difference_train_quantile: 0.25
+terrain_q_min_support: 30
+min_relative_rms_gain: 0.05
+min_delta_r2: 0.02
+min_probe_validation_gain_over_mean: 0.05
+min_relative_rms_gain_vs_abs: 0.0

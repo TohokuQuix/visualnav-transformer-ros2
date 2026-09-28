@@ -1,0 +1,375 @@
+{
+  "goal_dem_proxy_heldout": {
+    "advantage_h": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.006595953580904479,
+      "train_coefficients": [
+        1.2477847024172486,
+        -0.4614863998552499,
+        -0.21823271457619142
+      ]
+    },
+    "critic_slope_per_sec": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.004300889065549929,
+      "train_coefficients": [
+        -0.03997347733331127,
+        0.023605437400210122,
+        0.4384003518182326
+      ]
+    },
+    "delta_v": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.0018686839590797977,
+      "train_coefficients": [
+        -0.12979881467640478,
+        0.05897590814051404,
+        0.853614137039906
+      ]
+    },
+    "drawdown": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.013177574070572518,
+      "train_coefficients": [
+        -0.6700576432911104,
+        -0.4624576102009995,
+        -0.7328133240500713
+      ]
+    },
+    "quality_abs": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.12401821282578451,
+      "train_coefficients": [
+        0.6746984922795806,
+        -0.28801679822566056,
+        -1.1770472801860634
+      ]
+    },
+    "recovery": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.05294833216631245,
+      "train_coefficients": [
+        0.540258828614703,
+        0.5214335183415161,
+        1.586427461089978
+      ]
+    },
+    "return_h": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.06413506866049967,
+      "train_coefficients": [
+        39.39036163850682,
+        -1.5656320097485161,
+        -8.117501119815543
+      ]
+    },
+    "v0": {
+      "features": [
+        "intercept",
+        "goal_distance_m",
+        "dem_height_std_m"
+      ],
+      "heldout_r2": 0.07326873982821369,
+      "train_coefficients": [
+        38.142576936089604,
+        -1.1041456098932594,
+        -7.899268405239378
+      ]
+    }
+  },
+  "test": {
+    "advantage_h": {
+      "dem_height_std_m": 0.013783214298813476,
+      "forward_progress_m": -0.07794505371349218,
+      "goal_distance_m": -0.10648332324017791,
+      "path_length_m": -0.133644272511194,
+      "quality_abs": 0.13975933308058727,
+      "quality_p10_raw": 0.1397579516772582,
+      "terminal_seconds": 0.051257648952875906,
+      "terrain_eta_squared": 0.007828043842403529,
+      "turning_rad": 0.004376180400671056
+    },
+    "critic_slope_per_sec": {
+      "dem_height_std_m": 0.0743895681895745,
+      "forward_progress_m": -0.008206047996121974,
+      "goal_distance_m": 0.06449497682196524,
+      "path_length_m": 0.05616035720856002,
+      "quality_abs": -0.030101893500732013,
+      "quality_p10_raw": -0.03010475796586241,
+      "terminal_seconds": 0.003314231023319801,
+      "terrain_eta_squared": 0.0013098236838792402,
+      "turning_rad": -0.03150070443197907
+    },
+    "delta_v": {
+      "dem_height_std_m": 0.05645968533055937,
+      "forward_progress_m": -0.00616333288723389,
+      "goal_distance_m": 0.06138434739271547,
+      "path_length_m": 0.06029160240552554,
+      "quality_abs": -0.023127368015783318,
+      "quality_p10_raw": -0.023129098900680215,
+      "terminal_seconds": 0.012945758911792147,
+      "terrain_eta_squared": 0.0003443376388287756,
+      "turning_rad": -0.053872729137197234
+    },
+    "drawdown": {
+      "dem_height_std_m": 0.05256614563519467,
+      "forward_progress_m": -0.1264369904318152,
+      "goal_distance_m": -0.20131293403982012,
+      "path_length_m": -0.23654333350328824,
+      "quality_abs": 0.15352501523505746,
+      "quality_p10_raw": 0.15352891676443306,
+      "terminal_seconds": 0.0174208261393419,
+      "terrain_eta_squared": 0.004649481142950296,
+      "turning_rad": 0.010819285859869661
+    },
+    "quality_abs": {
+      "dem_height_std_m": -0.26095577425238453,
+      "forward_progress_m": -0.1497727386201106,
+      "goal_distance_m": -0.3483786742468741,
+      "path_length_m": -0.4009039591355924,
+      "quality_p10_raw": 0.9999999490661856,
+      "terminal_seconds": 0.05097394064394717,
+      "terrain_eta_squared": 0.01978045493199876,
+      "turning_rad": 0.12029074066280457
+    },
+    "recovery": {
+      "dem_height_std_m": 0.056270152609263456,
+      "forward_progress_m": 0.14090891686761067,
+      "goal_distance_m": 0.3136590107509459,
+      "path_length_m": 0.35805250244421327,
+      "quality_abs": -0.23262487707852336,
+      "quality_p10_raw": -0.2326324840260617,
+      "terminal_seconds": -0.0029027710791828874,
+      "terrain_eta_squared": 0.0054127990023750015,
+      "turning_rad": -0.06053531137699262
+    },
+    "return_h": {
+      "dem_height_std_m": -0.2563748961556115,
+      "forward_progress_m": -0.12167684489831554,
+      "goal_distance_m": -0.2787196090983656,
+      "path_length_m": -0.33768475557808225,
+      "quality_abs": 0.8825959328307917,
+      "quality_p10_raw": 0.8825923430745519,
+      "terminal_seconds": 0.07205465223939046,
+      "terrain_eta_squared": 0.014866406847485936,
+      "turning_rad": 0.11543848326861646
+    },
+    "v0": {
+      "dem_height_std_m": -0.2941398574843634,
+      "forward_progress_m": -0.06825855849824834,
+      "goal_distance_m": -0.23644364922315042,
+      "path_length_m": -0.28131175474795017,
+      "quality_abs": 0.8496562989631908,
+      "quality_p10_raw": 0.8496556724309331,
+      "terminal_seconds": 0.04964900865858098,
+      "terrain_eta_squared": 0.022242749629472414,
+      "turning_rad": 0.12380964241382388
+    }
+  },
+  "train": {
+    "advantage_h": {
+      "dem_height_std_m": 0.013996513297689554,
+      "forward_progress_m": -0.0642901870244889,
+      "goal_distance_m": -0.10948932067074832,
+      "path_length_m": -0.12204655981836801,
+      "quality_abs": 0.13153019001037727,
+      "quality_p10_raw": 0.13153019001037727,
+      "terminal_seconds": 0.015282934926168825,
+      "terrain_eta_squared": 0.005769392749209022,
+      "turning_rad": 0.04202667326541552
+    },
+    "critic_slope_per_sec": {
+      "dem_height_std_m": 0.06524396346234047,
+      "forward_progress_m": -0.00321024073816411,
+      "goal_distance_m": 0.024849322304930675,
+      "path_length_m": 0.040415220496045165,
+      "quality_abs": -0.012456539155840099,
+      "quality_p10_raw": -0.012456539155840099,
+      "terminal_seconds": -0.006463864177695735,
+      "terrain_eta_squared": 0.0008980794013688318,
+      "turning_rad": 0.015634696970669045
+    },
+    "delta_v": {
+      "dem_height_std_m": 0.06249838104614434,
+      "forward_progress_m": -0.0007623202883758591,
+      "goal_distance_m": 0.022586789107533554,
+      "path_length_m": 0.038781961203694905,
+      "quality_abs": -0.017401513474809005,
+      "quality_p10_raw": -0.017401513474809005,
+      "terminal_seconds": -0.005706306679372619,
+      "terrain_eta_squared": 0.0004406040422905331,
+      "turning_rad": 0.00406193080875094
+    },
+    "drawdown": {
+      "dem_height_std_m": -0.010711323717218543,
+      "forward_progress_m": -0.09259050161076132,
+      "goal_distance_m": -0.17549502049579174,
+      "path_length_m": -0.20003647379568404,
+      "quality_abs": 0.21182546350769763,
+      "quality_p10_raw": 0.21182546350769763,
+      "terminal_seconds": 0.00046325892059205986,
+      "terrain_eta_squared": 0.011115291053674176,
+      "turning_rad": 0.020784193704980646
+    },
+    "quality_abs": {
+      "dem_height_std_m": -0.2602806524960752,
+      "forward_progress_m": -0.11723286400731084,
+      "goal_distance_m": -0.28549127547473957,
+      "path_length_m": -0.33380774315752304,
+      "quality_p10_raw": 1.0,
+      "terminal_seconds": 0.036009438438604754,
+      "terrain_eta_squared": 0.045744617821918666,
+      "turning_rad": 0.09089454043391824
+    },
+    "recovery": {
+      "dem_height_std_m": 0.1082158961756244,
+      "forward_progress_m": 0.09510947124301837,
+      "goal_distance_m": 0.2273845882459164,
+      "path_length_m": 0.28732262263801056,
+      "quality_abs": -0.25810042851584136,
+      "quality_p10_raw": -0.25810042851584136,
+      "terminal_seconds": -0.010194671064142192,
+      "terrain_eta_squared": 0.020707383943615758,
+      "turning_rad": -0.005692028433371897
+    },
+    "return_h": {
+      "dem_height_std_m": -0.24454521640036714,
+      "forward_progress_m": -0.11575314378018779,
+      "goal_distance_m": -0.24561982343870253,
+      "path_length_m": -0.293332160023797,
+      "quality_abs": 0.9029231351049504,
+      "quality_p10_raw": 0.9029231351049504,
+      "terminal_seconds": 0.04638503833343169,
+      "terrain_eta_squared": 0.039123181545634746,
+      "turning_rad": 0.10260502466103118
+    },
+    "v0": {
+      "dem_height_std_m": -0.27400450175437147,
+      "forward_progress_m": -0.07987956297887001,
+      "goal_distance_m": -0.19315915365219363,
+      "path_length_m": -0.2380410635465243,
+      "quality_abs": 0.8700538698771759,
+      "quality_p10_raw": 0.8700538698771759,
+      "terminal_seconds": 0.04025848682738344,
+      "terrain_eta_squared": 0.038843747711716135,
+      "turning_rad": 0.08440677012090941
+    }
+  },
+  "val": {
+    "advantage_h": {
+      "dem_height_std_m": -0.013767247085289619,
+      "forward_progress_m": -0.09455790006714636,
+      "goal_distance_m": -0.12490815602570297,
+      "path_length_m": -0.14565290865518074,
+      "quality_abs": 0.19065836000225153,
+      "quality_p10_raw": 0.19065499400825903,
+      "terminal_seconds": 0.05102296090626544,
+      "terrain_eta_squared": 0.004497142221414527,
+      "turning_rad": 0.06657021880750993
+    },
+    "critic_slope_per_sec": {
+      "dem_height_std_m": 0.06334193297016243,
+      "forward_progress_m": -0.027886250364071236,
+      "goal_distance_m": 0.026822343399828148,
+      "path_length_m": 0.035866064661896076,
+      "quality_abs": 0.006322021688475623,
+      "quality_p10_raw": 0.00632290193114664,
+      "terminal_seconds": 0.0019304736728138734,
+      "terrain_eta_squared": 0.0007608539642628838,
+      "turning_rad": 0.045939028178025844
+    },
+    "delta_v": {
+      "dem_height_std_m": 0.06314709531633886,
+      "forward_progress_m": -0.016936667682729088,
+      "goal_distance_m": 0.04357762026574,
+      "path_length_m": 0.058153153773610695,
+      "quality_abs": -0.004548241252493611,
+      "quality_p10_raw": -0.004549026585199172,
+      "terminal_seconds": 0.012043695653424334,
+      "terrain_eta_squared": 0.0019266021766318237,
+      "turning_rad": 0.029626734375754325
+    },
+    "drawdown": {
+      "dem_height_std_m": -0.03361199023407329,
+      "forward_progress_m": -0.09310551999490846,
+      "goal_distance_m": -0.14587272938439416,
+      "path_length_m": -0.17548112301774407,
+      "quality_abs": 0.30122861951431523,
+      "quality_p10_raw": 0.3012263093062183,
+      "terminal_seconds": 0.03939836410571198,
+      "terrain_eta_squared": 0.03430101979883659,
+      "turning_rad": 0.002303275593106891
+    },
+    "quality_abs": {
+      "dem_height_std_m": -0.30681901436289416,
+      "forward_progress_m": -0.10192310902008564,
+      "goal_distance_m": -0.2141768342273442,
+      "path_length_m": -0.2711908398180375,
+      "quality_p10_raw": 0.9999999589838544,
+      "terminal_seconds": 0.11635523695947714,
+      "terrain_eta_squared": 0.20997940165636947,
+      "turning_rad": -0.05167939741045704
+    },
+    "recovery": {
+      "dem_height_std_m": 0.12985238278138095,
+      "forward_progress_m": 0.06325437223171526,
+      "goal_distance_m": 0.21372445083527059,
+      "path_length_m": 0.27098726414439095,
+      "quality_abs": -0.3118164943521291,
+      "quality_p10_raw": -0.31182030002109445,
+      "terminal_seconds": -0.013020150757946583,
+      "terrain_eta_squared": 0.03335288071694715,
+      "turning_rad": 0.044105089251988465
+    },
+    "return_h": {
+      "dem_height_std_m": -0.30462035267153215,
+      "forward_progress_m": -0.10411807485176956,
+      "goal_distance_m": -0.19187089229595355,
+      "path_length_m": -0.24925904071634625,
+      "quality_abs": 0.9256941454651967,
+      "quality_p10_raw": 0.9256923044519374,
+      "terminal_seconds": 0.13453023930202634,
+      "terrain_eta_squared": 0.16837658500727995,
+      "turning_rad": -0.017067988499218992
+    },
+    "v0": {
+      "dem_height_std_m": -0.3336535229024676,
+      "forward_progress_m": -0.06007646920530784,
+      "goal_distance_m": -0.1402782265919653,
+      "path_length_m": -0.19509063064965287,
+      "quality_abs": 0.8969435560424621,
+      "quality_p10_raw": 0.8969450649801627,
+      "terminal_seconds": 0.1194751749415234,
+      "terrain_eta_squared": 0.15863893696722237,
+      "turning_rad": -0.06888566241168491
+    }
+  }
+}

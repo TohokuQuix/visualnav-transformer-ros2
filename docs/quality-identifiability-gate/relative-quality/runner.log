@@ -1,0 +1,250 @@
+STAGE_COMPLETE 01_semantics
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-extraction.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-extraction.json.tmp
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-values.jsonl.gz /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-values.jsonl.gz.tmp
+STAGE_COMPLETE 02_extract
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-summary.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-summary.json.tmp
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-correlations.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-correlations.json.tmp
+STAGE_COMPLETE 03_statistics
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-match-thresholds.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-match-thresholds.json.tmp
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-matched-pairs.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-matched-pairs.json.tmp
+STAGE_COMPLETE 04_matching
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_quality_probe.py --stage train
+RELATIVE_PROBE_EPOCH probe_0 11 1 0.47177
+RELATIVE_PROBE_EPOCH probe_0 11 2 0.463454
+RELATIVE_PROBE_EPOCH probe_0 11 3 0.461091
+RELATIVE_PROBE_EPOCH probe_0 11 4 0.458023
+RELATIVE_PROBE_EPOCH probe_0 11 5 0.453939
+RELATIVE_PROBE_EPOCH probe_0 11 6 0.453087
+RELATIVE_PROBE_EPOCH probe_0 11 7 0.452948
+RELATIVE_PROBE_EPOCH probe_0 11 9 0.450275
+RELATIVE_PROBE_EPOCH probe_0 11 10 0.450622
+RELATIVE_PROBE_EPOCH probe_0 11 13 0.44831
+RELATIVE_PROBE_EPOCH probe_0 11 14 0.447567
+RELATIVE_PROBE_EPOCH probe_0 11 20 0.447695
+RELATIVE_PROBE_EPOCH probe_0 11 25 0.447308
+RELATIVE_PROBE_EPOCH probe_0 11 27 0.447181
+RELATIVE_PROBE_EPOCH probe_0 11 30 0.447019
+RELATIVE_PROBE_EPOCH probe_0 11 31 0.446876
+RELATIVE_PROBE_EPOCH probe_0 11 35 0.44617
+RELATIVE_PROBE_EPOCH probe_0 11 39 0.445954
+RELATIVE_PROBE_EPOCH probe_0 11 40 0.446018
+RELATIVE_PROBE_EPOCH probe_0 11 50 0.449392
+RELATIVE_PROBE_DONE probe_0 11 39 0.445954
+RELATIVE_PROBE_EPOCH probe_0 29 1 0.466716
+RELATIVE_PROBE_EPOCH probe_0 29 2 0.462975
+RELATIVE_PROBE_EPOCH probe_0 29 3 0.459964
+RELATIVE_PROBE_EPOCH probe_0 29 4 0.458899
+RELATIVE_PROBE_EPOCH probe_0 29 5 0.454465
+RELATIVE_PROBE_EPOCH probe_0 29 7 0.45227
+RELATIVE_PROBE_EPOCH probe_0 29 10 0.451403
+RELATIVE_PROBE_EPOCH probe_0 29 11 0.450449
+RELATIVE_PROBE_EPOCH probe_0 29 12 0.449609
+RELATIVE_PROBE_EPOCH probe_0 29 13 0.44863
+RELATIVE_PROBE_EPOCH probe_0 29 14 0.448419
+RELATIVE_PROBE_EPOCH probe_0 29 19 0.44721
+RELATIVE_PROBE_EPOCH probe_0 29 20 0.448573
+RELATIVE_PROBE_EPOCH probe_0 29 21 0.446771
+RELATIVE_PROBE_EPOCH probe_0 29 26 0.443939
+RELATIVE_PROBE_EPOCH probe_0 29 30 0.444989
+RELATIVE_PROBE_DONE probe_0 29 26 0.443939
+RELATIVE_PROBE_EPOCH probe_0 47 1 0.467439
+RELATIVE_PROBE_EPOCH probe_0 47 2 0.460609
+RELATIVE_PROBE_EPOCH probe_0 47 4 0.45764
+RELATIVE_PROBE_EPOCH probe_0 47 5 0.45318
+RELATIVE_PROBE_EPOCH probe_0 47 7 0.451211
+RELATIVE_PROBE_EPOCH probe_0 47 9 0.450199
+RELATIVE_PROBE_EPOCH probe_0 47 10 0.453395
+RELATIVE_PROBE_EPOCH probe_0 47 11 0.448857
+RELATIVE_PROBE_EPOCH probe_0 47 14 0.448678
+RELATIVE_PROBE_EPOCH probe_0 47 19 0.448479
+RELATIVE_PROBE_EPOCH probe_0 47 20 0.447264
+RELATIVE_PROBE_EPOCH probe_0 47 30 0.448364
+RELATIVE_PROBE_DONE probe_0 47 20 0.447264
+RELATIVE_PROBE_EPOCH probe_abs 11 1 0.470382
+RELATIVE_PROBE_EPOCH probe_abs 11 2 0.463342
+RELATIVE_PROBE_EPOCH probe_abs 11 3 0.460159
+RELATIVE_PROBE_EPOCH probe_abs 11 4 0.456864
+RELATIVE_PROBE_EPOCH probe_abs 11 5 0.453002
+RELATIVE_PROBE_EPOCH probe_abs 11 6 0.452885
+RELATIVE_PROBE_EPOCH probe_abs 11 7 0.452255
+RELATIVE_PROBE_EPOCH probe_abs 11 9 0.449828
+RELATIVE_PROBE_EPOCH probe_abs 11 10 0.449557
+RELATIVE_PROBE_EPOCH probe_abs 11 13 0.446656
+RELATIVE_PROBE_EPOCH probe_abs 11 14 0.446251
+RELATIVE_PROBE_EPOCH probe_abs 11 20 0.446264
+RELATIVE_PROBE_EPOCH probe_abs 11 25 0.444815
+RELATIVE_PROBE_EPOCH probe_abs 11 30 0.445523
+RELATIVE_PROBE_EPOCH probe_abs 11 31 0.444621
+RELATIVE_PROBE_EPOCH probe_abs 11 40 0.448302
+RELATIVE_PROBE_DONE probe_abs 11 31 0.444621
+RELATIVE_PROBE_EPOCH probe_abs 29 1 0.466649
+RELATIVE_PROBE_EPOCH probe_abs 29 2 0.463788
+RELATIVE_PROBE_EPOCH probe_abs 29 3 0.459288
+RELATIVE_PROBE_EPOCH probe_abs 29 4 0.457315
+RELATIVE_PROBE_EPOCH probe_abs 29 5 0.453101
+RELATIVE_PROBE_EPOCH probe_abs 29 7 0.451008
+RELATIVE_PROBE_EPOCH probe_abs 29 10 0.450156
+RELATIVE_PROBE_EPOCH probe_abs 29 11 0.448851
+RELATIVE_PROBE_EPOCH probe_abs 29 12 0.448149
+RELATIVE_PROBE_EPOCH probe_abs 29 13 0.447331
+RELATIVE_PROBE_EPOCH probe_abs 29 19 0.446258
+RELATIVE_PROBE_EPOCH probe_abs 29 20 0.447426
+RELATIVE_PROBE_EPOCH probe_abs 29 26 0.443845
+RELATIVE_PROBE_EPOCH probe_abs 29 30 0.443562
+RELATIVE_PROBE_EPOCH probe_abs 29 40 0.444362
+RELATIVE_PROBE_DONE probe_abs 29 30 0.443562
+RELATIVE_PROBE_EPOCH probe_abs 47 1 0.466191
+RELATIVE_PROBE_EPOCH probe_abs 47 2 0.460946
+RELATIVE_PROBE_EPOCH probe_abs 47 3 0.460289
+RELATIVE_PROBE_EPOCH probe_abs 47 4 0.457036
+RELATIVE_PROBE_EPOCH probe_abs 47 5 0.452293
+RELATIVE_PROBE_EPOCH probe_abs 47 7 0.449649
+RELATIVE_PROBE_EPOCH probe_abs 47 9 0.448799
+RELATIVE_PROBE_EPOCH probe_abs 47 10 0.452371
+RELATIVE_PROBE_EPOCH probe_abs 47 11 0.447777
+RELATIVE_PROBE_EPOCH probe_abs 47 14 0.447542
+RELATIVE_PROBE_EPOCH probe_abs 47 20 0.44667
+RELATIVE_PROBE_EPOCH probe_abs 47 30 0.448439
+RELATIVE_PROBE_DONE probe_abs 47 20 0.44667
+RELATIVE_PROBE_EPOCH probe_adv 11 1 0.4408
+RELATIVE_PROBE_EPOCH probe_adv 11 2 0.433776
+RELATIVE_PROBE_EPOCH probe_adv 11 3 0.425393
+RELATIVE_PROBE_EPOCH probe_adv 11 4 0.423464
+RELATIVE_PROBE_EPOCH probe_adv 11 5 0.421126
+RELATIVE_PROBE_EPOCH probe_adv 11 7 0.419544
+RELATIVE_PROBE_EPOCH probe_adv 11 9 0.418228
+RELATIVE_PROBE_EPOCH probe_adv 11 10 0.418743
+RELATIVE_PROBE_EPOCH probe_adv 11 13 0.415484
+RELATIVE_PROBE_EPOCH probe_adv 11 20 0.415488
+RELATIVE_PROBE_EPOCH probe_adv 11 21 0.414899
+RELATIVE_PROBE_EPOCH probe_adv 11 30 0.415956
+RELATIVE_PROBE_DONE probe_adv 11 21 0.414899
+RELATIVE_PROBE_EPOCH probe_adv 29 1 0.438374
+RELATIVE_PROBE_EPOCH probe_adv 29 2 0.433111
+RELATIVE_PROBE_EPOCH probe_adv 29 3 0.429376
+RELATIVE_PROBE_EPOCH probe_adv 29 4 0.424314
+RELATIVE_PROBE_EPOCH probe_adv 29 5 0.420369
+RELATIVE_PROBE_EPOCH probe_adv 29 7 0.41823
+RELATIVE_PROBE_EPOCH probe_adv 29 10 0.416916
+RELATIVE_PROBE_EPOCH probe_adv 29 12 0.414906
+RELATIVE_PROBE_EPOCH probe_adv 29 14 0.414367
+RELATIVE_PROBE_EPOCH probe_adv 29 20 0.416982
+RELATIVE_PROBE_DONE probe_adv 29 14 0.414367
+RELATIVE_PROBE_EPOCH probe_adv 47 1 0.437995
+RELATIVE_PROBE_EPOCH probe_adv 47 2 0.427369
+RELATIVE_PROBE_EPOCH probe_adv 47 5 0.421939
+RELATIVE_PROBE_EPOCH probe_adv 47 7 0.419789
+RELATIVE_PROBE_EPOCH probe_adv 47 10 0.424003
+RELATIVE_PROBE_EPOCH probe_adv 47 11 0.418039
+RELATIVE_PROBE_EPOCH probe_adv 47 14 0.417707
+RELATIVE_PROBE_EPOCH probe_adv 47 20 0.414778
+RELATIVE_PROBE_EPOCH probe_adv 47 30 0.415825
+RELATIVE_PROBE_DONE probe_adv 47 20 0.414778
+RELATIVE_PROBE_EPOCH probe_drawdown 11 1 0.455687
+RELATIVE_PROBE_EPOCH probe_drawdown 11 2 0.443264
+RELATIVE_PROBE_EPOCH probe_drawdown 11 3 0.437086
+RELATIVE_PROBE_EPOCH probe_drawdown 11 4 0.432373
+RELATIVE_PROBE_EPOCH probe_drawdown 11 5 0.430818
+RELATIVE_PROBE_EPOCH probe_drawdown 11 9 0.429868
+RELATIVE_PROBE_EPOCH probe_drawdown 11 10 0.429573
+RELATIVE_PROBE_EPOCH probe_drawdown 11 13 0.427899
+RELATIVE_PROBE_EPOCH probe_drawdown 11 20 0.427106
+RELATIVE_PROBE_EPOCH probe_drawdown 11 30 0.428523
+RELATIVE_PROBE_DONE probe_drawdown 11 20 0.427106
+RELATIVE_PROBE_EPOCH probe_drawdown 29 1 0.450141
+RELATIVE_PROBE_EPOCH probe_drawdown 29 2 0.443851
+RELATIVE_PROBE_EPOCH probe_drawdown 29 3 0.438371
+RELATIVE_PROBE_EPOCH probe_drawdown 29 4 0.434494
+RELATIVE_PROBE_EPOCH probe_drawdown 29 5 0.43172
+RELATIVE_PROBE_EPOCH probe_drawdown 29 7 0.43006
+RELATIVE_PROBE_EPOCH probe_drawdown 29 10 0.428719
+RELATIVE_PROBE_EPOCH probe_drawdown 29 12 0.427107
+RELATIVE_PROBE_EPOCH probe_drawdown 29 14 0.426318
+RELATIVE_PROBE_EPOCH probe_drawdown 29 20 0.4283
+RELATIVE_PROBE_DONE probe_drawdown 29 14 0.426318
+RELATIVE_PROBE_EPOCH probe_drawdown 47 1 0.45059
+RELATIVE_PROBE_EPOCH probe_drawdown 47 2 0.439025
+RELATIVE_PROBE_EPOCH probe_drawdown 47 3 0.437891
+RELATIVE_PROBE_EPOCH probe_drawdown 47 4 0.437594
+RELATIVE_PROBE_EPOCH probe_drawdown 47 5 0.432847
+RELATIVE_PROBE_EPOCH probe_drawdown 47 7 0.431054
+RELATIVE_PROBE_EPOCH probe_drawdown 47 8 0.430071
+RELATIVE_PROBE_EPOCH probe_drawdown 47 10 0.433632
+RELATIVE_PROBE_EPOCH probe_drawdown 47 11 0.429663
+RELATIVE_PROBE_EPOCH probe_drawdown 47 14 0.4287
+RELATIVE_PROBE_EPOCH probe_drawdown 47 20 0.426266
+RELATIVE_PROBE_EPOCH probe_drawdown 47 30 0.426658
+RELATIVE_PROBE_DONE probe_drawdown 47 20 0.426266
+RELATIVE_PROBE_EPOCH probe_multi 11 1 0.434604
+RELATIVE_PROBE_EPOCH probe_multi 11 2 0.421789
+RELATIVE_PROBE_EPOCH probe_multi 11 3 0.414878
+RELATIVE_PROBE_EPOCH probe_multi 11 4 0.411381
+RELATIVE_PROBE_EPOCH probe_multi 11 5 0.41012
+RELATIVE_PROBE_EPOCH probe_multi 11 7 0.408069
+RELATIVE_PROBE_EPOCH probe_multi 11 9 0.40699
+RELATIVE_PROBE_EPOCH probe_multi 11 10 0.407348
+RELATIVE_PROBE_EPOCH probe_multi 11 11 0.405666
+RELATIVE_PROBE_EPOCH probe_multi 11 13 0.401523
+RELATIVE_PROBE_EPOCH probe_multi 11 20 0.40168
+RELATIVE_PROBE_EPOCH probe_multi 11 25 0.401318
+RELATIVE_PROBE_EPOCH probe_multi 11 30 0.402044
+RELATIVE_PROBE_DONE probe_multi 11 25 0.401318
+RELATIVE_PROBE_EPOCH probe_multi 29 1 0.430096
+RELATIVE_PROBE_EPOCH probe_multi 29 2 0.41835
+RELATIVE_PROBE_EPOCH probe_multi 29 3 0.413702
+RELATIVE_PROBE_EPOCH probe_multi 29 4 0.413069
+RELATIVE_PROBE_EPOCH probe_multi 29 5 0.408703
+RELATIVE_PROBE_EPOCH probe_multi 29 7 0.407337
+RELATIVE_PROBE_EPOCH probe_multi 29 9 0.406638
+RELATIVE_PROBE_EPOCH probe_multi 29 10 0.404782
+RELATIVE_PROBE_EPOCH probe_multi 29 11 0.404604
+RELATIVE_PROBE_EPOCH probe_multi 29 12 0.403092
+RELATIVE_PROBE_EPOCH probe_multi 29 20 0.403596
+RELATIVE_PROBE_EPOCH probe_multi 29 21 0.401456
+RELATIVE_PROBE_EPOCH probe_multi 29 30 0.40237
+RELATIVE_PROBE_DONE probe_multi 29 21 0.401456
+RELATIVE_PROBE_EPOCH probe_multi 47 1 0.430588
+RELATIVE_PROBE_EPOCH probe_multi 47 2 0.41863
+RELATIVE_PROBE_EPOCH probe_multi 47 3 0.416309
+RELATIVE_PROBE_EPOCH probe_multi 47 4 0.414986
+RELATIVE_PROBE_EPOCH probe_multi 47 5 0.408939
+RELATIVE_PROBE_EPOCH probe_multi 47 7 0.406696
+RELATIVE_PROBE_EPOCH probe_multi 47 8 0.406586
+RELATIVE_PROBE_EPOCH probe_multi 47 10 0.409643
+RELATIVE_PROBE_EPOCH probe_multi 47 14 0.405107
+RELATIVE_PROBE_EPOCH probe_multi 47 20 0.401038
+RELATIVE_PROBE_EPOCH probe_multi 47 30 0.402051
+RELATIVE_PROBE_DONE probe_multi 47 20 0.401038
+RELATIVE_PROBE_TRAIN_COMPLETE train 774.12
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-probe-training-summary.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-probe-training-summary.json.tmp
+STAGE_COMPLETE 05_train
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_quality_probe.py --stage evaluate
+RELATIVE_HELDOUT probe_0 11 0.36838
+RELATIVE_HELDOUT probe_0 29 0.368293
+RELATIVE_HELDOUT probe_0 47 0.37084
+RELATIVE_HELDOUT probe_abs 11 0.369507
+RELATIVE_HELDOUT probe_abs 29 0.36801
+RELATIVE_HELDOUT probe_abs 47 0.371448
+RELATIVE_HELDOUT probe_adv 11 0.340937
+RELATIVE_HELDOUT probe_adv 29 0.339436
+RELATIVE_HELDOUT probe_adv 47 0.341047
+RELATIVE_HELDOUT probe_drawdown 11 0.346128
+RELATIVE_HELDOUT probe_drawdown 29 0.345015
+RELATIVE_HELDOUT probe_drawdown 47 0.347059
+RELATIVE_HELDOUT probe_multi 11 0.320681
+RELATIVE_HELDOUT probe_multi 29 0.325617
+RELATIVE_HELDOUT probe_multi 47 0.325684
+RELATIVE_EVALUATION_COMPLETE {"probe_abs": {"relative_physical_rms_gain": 0.008982104769691806, "delta_r2": -0.0005263774495425634}, "probe_adv": {"relative_physical_rms_gain": 0.10616527924255384, "delta_r2": 0.031185600126663816}, "probe_drawdown": {"relative_physical_rms_gain": 0.08000303440225084, "delta_r2": 0.025106618015892257}, "probe_multi": {"relative_physical_rms_gain": 0.15973883345616705, "delta_r2": 0.04909358572088284}}
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-probe-results.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-probe-results.json.tmp
+STAGE_COMPLETE 06_evaluate
+RUN docker exec -e PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src isaac-lab-onix /isaac-sim/python.sh /tmp/eatnav-train/eat_nav_relative_quality_probe.py --stage permutation
+RELATIVE_PERMUTATION probe_abs 10 0.0034146924813588386
+RELATIVE_PERMUTATION probe_adv 100 0.07250428696473439
+RELATIVE_PERMUTATION probe_drawdown 100 0.04625198652346927
+RELATIVE_PERMUTATION probe_multi 100 0.09421733210484184
+RUN docker cp isaac-lab-onix:/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-permutation.json /tmp/eatnav-vnt/docs/quality-identifiability-gate/relative-quality/relative-quality-permutation.json.tmp
+STAGE_COMPLETE 07_permutation
+RUN /home/kojima/anaconda3/envs/isaac/bin/python /tmp/eatnav-vnt/scripts/eat_nav_relative_quality_report.py
+RELATIVE_REPORT_COMPLETE
+STAGE_COMPLETE 08_report
+RELATIVE_QUALITY_COMPLETE

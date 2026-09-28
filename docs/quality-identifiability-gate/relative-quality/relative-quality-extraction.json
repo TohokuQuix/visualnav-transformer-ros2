@@ -1,0 +1,70 @@
+{
+  "aligned_primary_counts": {
+    "test": 6208,
+    "train": 49576,
+    "val": 6164
+  },
+  "complete_counts": {
+    "test": 6208,
+    "train": 49598,
+    "val": 6171
+  },
+  "elapsed_seconds": 98.35573649499565,
+  "feature_npz_sha256": {
+    "test": "2e76591744be9f32430556df6adf9fe5fafde0b4d0dc93dfc279f3a98debd609",
+    "train": "9ce1c14a2b58cc4a8504f6c3e348e05d035aa0a6e8e8baaa8db391185ebae524",
+    "val": "ec9eb97dc0a7ffdc3caccd6cc2c0c534b8c4052e3c5bcd85fe74030110479c4f"
+  },
+  "frozen_identity_match": 61977,
+  "gamma": 0.99,
+  "original_ecdf_exact_match": true,
+  "raw_values_sha256": "27ec942006b97cf5a09de4ba2e66a6157d4eaaf4233d6a7d855da7d7c905f3b7",
+  "reward_steps": 40,
+  "terminal_endpoint_counts": {
+    "test": 0,
+    "train": 22,
+    "val": 7
+  },
+  "terminal_endpoint_kinds": {
+    "train:ppo_timeout_preterminal": 17,
+    "train:true_terminal_zero": 5,
+    "val:ppo_timeout_preterminal": 7
+  },
+  "train_only_scalers": {
+    "advantage_h": {
+      "count": 49576,
+      "mean": 1.0535838110961464,
+      "std": 1.424378909826039
+    },
+    "critic_slope_per_sec": {
+      "count": 49576,
+      "mean": -0.00782479547405115,
+      "std": 0.5947273900171819
+    },
+    "delta_v": {
+      "count": 49576,
+      "mean": -0.06204546139735896,
+      "std": 1.725506964463198
+    },
+    "drawdown": {
+      "count": 49576,
+      "mean": -0.891400078749496,
+      "std": 1.5778410882648821
+    },
+    "recovery": {
+      "count": 49576,
+      "mean": 0.8293546173521371,
+      "std": 1.0950204301626585
+    },
+    "return_h": {
+      "count": 49576,
+      "mean": 38.34792891602328,
+      "std": 2.0447261627397393
+    },
+    "v0": {
+      "count": 49576,
+      "mean": 37.29434510492713,
+      "std": 1.7733943149043385
+    }
+  }
+}

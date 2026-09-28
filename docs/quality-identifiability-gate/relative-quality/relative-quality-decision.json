@@ -1,0 +1,112 @@
+{
+  "all_terrain_generalization_claim": false,
+  "common_support_terrains": [
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "heldout_supported_terrains": [
+    "boxes",
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "matching_ranking_by_rms_gap": [
+    [
+      "delta_v",
+      0.11140182564954303
+    ],
+    [
+      "drawdown",
+      0.09231764056016112
+    ],
+    [
+      "advantage_h",
+      0.07673887222270502
+    ],
+    [
+      "recovery",
+      0.068775570598857
+    ],
+    [
+      "quality_abs",
+      0.026680887676775455
+    ],
+    [
+      "return_h",
+      0.021525418904239438
+    ]
+  ],
+  "oracle_best_of_k_recommendation": "consider only after interpretation of gates; no rollout approved",
+  "relative_candidates": {
+    "probe_adv": {
+      "checks": {
+        "beats_every_permutation": true,
+        "better_than_absolute_q": true,
+        "common_terrain_direction": true,
+        "delta_r2_0.02": true,
+        "matched_trajectory_difference": true,
+        "not_goal_dem_proxy_only": true,
+        "not_single_episode_dependent": true,
+        "physical_rms_gain_5pct": true,
+        "positive_episode_ci": true
+      },
+      "episode_concentration": {
+        "all_leave_one_out_positive": true,
+        "episode_count": 90,
+        "minimum_leave_one_episode_out_gain": 0.027719875797629356,
+        "tilt_episode_count": 1,
+        "tilt_excluded_gain": 0.028099386021494865
+      },
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_drawdown": {
+      "checks": {
+        "beats_every_permutation": true,
+        "better_than_absolute_q": true,
+        "common_terrain_direction": true,
+        "delta_r2_0.02": true,
+        "matched_trajectory_difference": true,
+        "not_goal_dem_proxy_only": true,
+        "not_single_episode_dependent": true,
+        "physical_rms_gain_5pct": true,
+        "positive_episode_ci": true
+      },
+      "episode_concentration": {
+        "all_leave_one_out_positive": true,
+        "episode_count": 90,
+        "minimum_leave_one_episode_out_gain": 0.022532064467668533,
+        "tilt_episode_count": 1,
+        "tilt_excluded_gain": 0.02272016555070877
+      },
+      "status": "pass",
+      "underfit": false
+    },
+    "probe_multi": {
+      "checks": {
+        "beats_every_permutation": true,
+        "better_than_absolute_q": true,
+        "common_terrain_direction": true,
+        "delta_r2_0.02": true,
+        "matched_trajectory_difference": true,
+        "not_goal_dem_proxy_only": true,
+        "not_single_episode_dependent": true,
+        "physical_rms_gain_5pct": true,
+        "positive_episode_ci": true
+      },
+      "episode_concentration": {
+        "all_leave_one_out_positive": true,
+        "episode_count": 90,
+        "minimum_leave_one_episode_out_gain": 0.04387832060456276,
+        "tilt_episode_count": 1,
+        "tilt_excluded_gain": 0.044677481055259705
+      },
+      "status": "pass",
+      "underfit": false
+    }
+  },
+  "scope": "post-hoc static diagnostic only"
+}

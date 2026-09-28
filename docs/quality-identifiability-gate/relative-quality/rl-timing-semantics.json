@@ -1,0 +1,52 @@
+{
+  "aligned_window": "anchor pose row i: V0=row i+1; rewards=row i+1..j inclusive; endpoint V=row j+1; j selected by timestamp at anchor+2.0 s",
+  "auxiliary_terminal_return": "true terminal: bootstrap 0. timeout: PPO adds gamma*V(preterminal) to final reward, equivalent to gamma**N*V(preterminal) beyond raw discounted sum",
+  "collector_critic": "V(s_t), evaluated from obs before env.step(action_t)",
+  "collector_pose": "s_{t+1} snapshot after step; terminal row snapshot is pre-reset",
+  "collector_reward": "raw env reward for s_t -> s_{t+1}, recorded in the same row as action_t; PPO timeout correction is not applied by collector",
+  "collector_timestamp": "(global_step+1)*step_dt, identifies reward/pose endpoint; critic corresponds one control step earlier",
+  "control_step_sec": 0.05,
+  "current_quality": "Critic P10 uses same-row pre-action values across anchor to horizon, preserved exactly rather than silently realigned",
+  "decimation": 10,
+  "horizon_control_steps": 40,
+  "physics_step_sec": 0.005,
+  "raw_terminal_pre_reset_rows": 901,
+  "raw_terminal_rows": 901,
+  "reset_boundary_rule": "never use next episode row for endpoint value",
+  "reward_decomposition_saved": false,
+  "reward_scaled_by_control_dt": true,
+  "rl_checkpoint_gamma": 0.99,
+  "source_files": {
+    "collector": {
+      "path": "/tmp/eatnav-relative-collect.py",
+      "sha256": "022d818bbe5f48a6a38fc4bd78065c16491d5035b389eed01a9753efe0c61195"
+    },
+    "onix_env": {
+      "path": "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/tasks/locomotion/velocity/envs.py",
+      "sha256": "10c67c223eed605e012fe336ddfe4a2760d0e5cd74bca1c38a0789fc668bc013"
+    },
+    "ppo": {
+      "path": "/tmp/eatnav-relative-ppo.py",
+      "sha256": "4373ac1b2f9fdf14d9da57516968fc95d8f605d2967fee01dc61bf0d09423478"
+    },
+    "reward_manager": {
+      "path": "/tmp/eatnav-relative-reward-manager.py",
+      "sha256": "6be44a98df5aed8a0ebac2913ebea33010633e007e816697a6d99f7ccfd731db"
+    },
+    "wrapper": {
+      "path": "/tmp/eatnav-relative-wrapper.py",
+      "sha256": "1d27c1a7ac75d6bc62ce5376bceb23cac08c168a1343930a72073acddaf76693"
+    }
+  },
+  "status": "timing semantics established",
+  "terminal_endpoint_complete_windows": {
+    "test": 0,
+    "tilt_over": 5,
+    "time_out": 24,
+    "total": 29,
+    "train": 22,
+    "val": 7
+  },
+  "terminal_endpoint_value": "not recorded; primary V-end-dependent labels are null for 29 windows",
+  "timeout_bootstrap_training": "is_finite_horizon=false; wrapper exports time_outs and PPO.process_env_step corrects reward using gamma*transition.values"
+}

@@ -1,0 +1,25 @@
+{
+  "distance": "Euclidean train-standardized vector / sqrt(4)",
+  "fields": [
+    "z_v0",
+    "z_advantage_h",
+    "z_drawdown",
+    "z_recovery"
+  ],
+  "geometry": {
+    "goal_direction_deg": 30.0,
+    "goal_distance_m": 0.1,
+    "max_dem_rmse_m": 0.05,
+    "min_mask_iou": 0.8
+  },
+  "heldout_used_for_threshold": false,
+  "source_split": "train",
+  "threshold": {
+    "large": 1.1776008307933807,
+    "large_quantile": 0.75,
+    "small": 0.5797143131494522,
+    "small_quantile": 0.25,
+    "train_candidates": 9996
+  },
+  "train_candidate_count": 9996
+}

@@ -1,0 +1,56 @@
+{
+  "geometry": {
+    "goal_direction_deg": 30.0,
+    "goal_distance_m": 0.1,
+    "max_dem_rmse_m": 0.05,
+    "min_mask_iou": 0.8
+  },
+  "heldout_used_for_threshold": false,
+  "seed": 123,
+  "source_candidate_count": 9996,
+  "source_split": "train",
+  "thresholds": {
+    "advantage_h": {
+      "large": 1.1562789380550385,
+      "large_quantile": 0.75,
+      "small": 0.30040568113327026,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "delta_v": {
+      "large": 1.0971388220787048,
+      "large_quantile": 0.75,
+      "small": 0.26735105365514755,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "drawdown": {
+      "large": 0.8354260325431824,
+      "large_quantile": 0.75,
+      "small": 0.11783718317747116,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "quality_abs": {
+      "large": 0.4822383395353878,
+      "large_quantile": 0.75,
+      "small": 0.08427417898045447,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "recovery": {
+      "large": 1.0274564921855927,
+      "large_quantile": 0.75,
+      "small": 0.14978331327438354,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    },
+    "return_h": {
+      "large": 1.3901630342006683,
+      "large_quantile": 0.75,
+      "small": 0.3253103494644165,
+      "small_quantile": 0.25,
+      "train_candidates": 9996
+    }
+  }
+}
