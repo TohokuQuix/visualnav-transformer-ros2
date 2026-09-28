@@ -1,0 +1,171 @@
+{
+  "conclusion": "no converged quality-disabled reference; Phase C-0 required",
+  "legacy_image_nomad": {
+    "formal_reference_eligible": false,
+    "path": "/home/kojima/lib/visualnav-transformer-ros2/model_weights/nomad.pth",
+    "reason": "RGB EfficientNet vision encoder and image-goal NoMaD checkpoint; incompatible with EAT DEM+relative-goal input and scratch requirement",
+    "sha256": "70f79b8262527e20e56ced64a3e3d7ef91855bc9e7c3fa348d78edcb83c6a333",
+    "size_bytes": 76473631
+  },
+  "phase_b_gt_evaluators": [
+    {
+      "epoch": 8,
+      "matches_phase_b_summary": true,
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-11/best.pt",
+      "seed": 11,
+      "sha256": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35",
+      "validation_loss": 2.9934375286102295
+    },
+    {
+      "epoch": 9,
+      "matches_phase_b_summary": true,
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-29/best.pt",
+      "seed": 29,
+      "sha256": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2",
+      "validation_loss": 2.991220712661743
+    },
+    {
+      "epoch": 6,
+      "matches_phase_b_summary": true,
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-47/best.pt",
+      "seed": 47,
+      "sha256": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f",
+      "validation_loss": 3.0245919227600098
+    }
+  ],
+  "reference_candidates": [
+    {
+      "action_statistics": {
+        "count": 416944,
+        "mean": [
+          0.028174810111522675,
+          -1.7856798876891844e-05
+        ],
+        "std": [
+          0.0853688195347786,
+          0.015020611695945263
+        ]
+      },
+      "best_epoch": 8,
+      "best_validation_loss": 0.32210806384682655,
+      "ema_present": true,
+      "formal_reference_eligible": false,
+      "last_epoch": 8,
+      "metadata": {
+        "context_size": 3,
+        "dem_height_cells": 20,
+        "dem_history_interval_sec": 0.25,
+        "dem_resolution_m": 0.1,
+        "dem_width_cells": 20,
+        "goal_max_radius_m": 0.8,
+        "len_traj_pred": 8,
+        "quality_enabled": true,
+        "schema_version": 1,
+        "trajectory_horizon_sec": 2.0,
+        "trajectory_interval_sec": 0.25
+      },
+      "name": "quality_enabled_8epoch",
+      "normalization_source": "all valid train windows, including padded futures; Phase C-0 must recompute from complete-only train",
+      "optimizer_present": true,
+      "path": "/tmp/eatnav-train/quality-run/best.pt",
+      "quality_ecdf_count": 55358,
+      "quality_enabled": true,
+      "reason": "4,096/512 subset and validation improving at epoch-8 limit",
+      "scheduler": {
+        "beta_schedule": "squaredcos_cap_v2",
+        "kind": "DDPM",
+        "prediction_type": "epsilon",
+        "train_timesteps": 10
+      },
+      "sha256": "fcaf3b9397f3344a0017a52e324ad11ce879c29d9737e1b924d3800293e00987",
+      "size_bytes": 114715501,
+      "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
+      "train_windows": 4096,
+      "validation_curve": [
+        0.8317893519997597,
+        0.6128537133336067,
+        0.4792814590036869,
+        0.4074650667607784,
+        0.3680077828466892,
+        0.34476013481616974,
+        0.3306972961872816,
+        0.32210806384682655
+      ],
+      "validation_improving_at_limit": true,
+      "validation_windows": 512,
+      "warm_start_provenance": "not encoded in checkpoint; existing trainer initializes scratch when resume=None"
+    },
+    {
+      "action_statistics": {
+        "count": 416944,
+        "mean": [
+          0.028174810111522675,
+          -1.7856798876891844e-05
+        ],
+        "std": [
+          0.0853688195347786,
+          0.015020611695945263
+        ]
+      },
+      "best_epoch": 8,
+      "best_validation_loss": 0.31524696201086044,
+      "ema_present": true,
+      "formal_reference_eligible": false,
+      "last_epoch": 8,
+      "metadata": {
+        "context_size": 3,
+        "dem_height_cells": 20,
+        "dem_history_interval_sec": 0.25,
+        "dem_resolution_m": 0.1,
+        "dem_width_cells": 20,
+        "goal_max_radius_m": 0.8,
+        "len_traj_pred": 8,
+        "quality_enabled": false,
+        "schema_version": 1,
+        "trajectory_horizon_sec": 2.0,
+        "trajectory_interval_sec": 0.25
+      },
+      "name": "quality_disabled_8epoch",
+      "normalization_source": "all valid train windows, including padded futures; Phase C-0 must recompute from complete-only train",
+      "optimizer_present": true,
+      "path": "/tmp/eatnav-train/baseline-run/best.pt",
+      "quality_ecdf_count": 55358,
+      "quality_enabled": false,
+      "reason": "4,096/512 subset and validation improving at epoch-8 limit",
+      "scheduler": {
+        "beta_schedule": "squaredcos_cap_v2",
+        "kind": "DDPM",
+        "prediction_type": "epsilon",
+        "train_timesteps": 10
+      },
+      "sha256": "c8187d5b57baf6ddfb6ab36029de7b644b8dcfa699553bb6fbe260942c7465fb",
+      "size_bytes": 114174785,
+      "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
+      "train_windows": 4096,
+      "validation_curve": [
+        0.8990608155727386,
+        0.6410144045948982,
+        0.49114858731627464,
+        0.41062215715646744,
+        0.36657530069351196,
+        0.34038324281573296,
+        0.32418649457395077,
+        0.31524696201086044
+      ],
+      "validation_improving_at_limit": true,
+      "validation_windows": 512,
+      "warm_start_provenance": "not encoded in checkpoint; existing trainer initializes scratch when resume=None"
+    }
+  ],
+  "rl_checkpoint": {
+    "expected_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+    "path": "/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt",
+    "sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d"
+  },
+  "source_code_sha256": {
+    "dataset.py": "6ceb12edb028cdfa83dfa55f9927cf3b01d9e5eb798a0c0e04530812a377815b",
+    "model.py": "7b488a54234d148ae2b696b67b859cd82db3261be7e8da46a56c50117e3577ad",
+    "train_eat_nav.py": "72783b63a0cbdc9b7fcd7d7f6c8297c5eb794e2a31b4b7e05058c44741cbb1f6"
+  },
+  "specialized_gate_b_checkpoints": "small-pair overfit only; excluded from formal reference"
+}

@@ -1,0 +1,36 @@
+# Stage 0 proposal for first approval. No training or rollout has used this file.
+schema_version: 1
+status: proposed_pending_first_approval
+frozen_split_seed: 123
+frozen_phase_b_evaluator_seeds: [11, 29, 47]
+reference_nomad:
+  quality_enabled: false
+  initialization: scratch
+  train_complete_only: 49598
+  validation_complete_only: 6171
+  heldout_excluded: 6208
+  seed: 123
+  batch_size: 64
+  learning_rate: 0.0001
+  max_epochs: 100
+  early_stopping_patience: 10
+  early_stopping_min_delta: 0.0
+  validation_metric: diffusion_loss
+  checkpoint_weights: ema
+  architecture_scheduler_loss: unchanged_eat_nav_model
+shortcut_diagnostic:
+  variants: [G, GTE, GTS, GT]
+  evaluator_seeds: [11, 29, 47]
+formal_rollout:
+  status: requires_second_approval
+  initial_state_count_proposal: 64
+  candidates_per_state: 8
+  candidate_index_zero: canonical_single
+  horizon_control_steps: 40
+  horizon_sec: 2.0
+  primary_selector: mean_of_train_standardized_delta_advantage_drawdown
+  candidate_diffusion_seeds_proposal: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008]
+  evaluation_terrain_seed_base_proposal: 20260929
+  state_selection: terrain_stratified_present_and_past_only
+  state_restore_preference: synchronized_parallel_clones_pending_consistency_smoke
+  follower: actual_simple_trajectory_follower_via_ros_bridge_pending_smoke
