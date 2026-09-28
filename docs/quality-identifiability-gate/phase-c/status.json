@@ -1,8 +1,17 @@
 {
-  "stage": "stage_0_preflight",
-  "status": "awaiting_first_approval",
-  "training_started": false,
-  "simulator_smoke_started": false,
+  "stage": "second_preflight_report_complete",
+  "status": "blocked_before_formal_rollout",
+  "timing_probe": "complete",
+  "reference_training": "complete_gate_c0_inconclusive",
+  "shortcut_diagnostic": "complete",
+  "bridge": "live_follower_verified",
+  "state_consistency": "initial_visible_state_exact",
+  "duplicate_variation": "candidate_effect_not_distinguishable",
+  "few_state_smoke": "complete",
+  "resume": "pass_epoch_boundary",
   "formal_rollout_started": false,
-  "phase_d_or_e_started": false
+  "phase_b_retraining_started": false,
+  "phase_d_or_e_started": false,
+  "full_collection_started": false,
+  "real_robot_test_started": false
 }

@@ -1,0 +1,48 @@
+{
+  "best_epoch": 100,
+  "best_validation_loss": 0.1979841376177748,
+  "candidate_path_rms_m": 0.021490085249191035,
+  "candidate_within_duplicate_variation": true,
+  "candidate_xy_rms_m": 0.054720070357238026,
+  "duplicate_xy_rms_m": [
+    0.07726423617803455,
+    0.06809296799180478,
+    0.05352180805507819
+  ],
+  "formal_rollout": "blocked_not_started",
+  "gate_c0": "inconclusive",
+  "initial_post_delay_actor_input_rms": 0.008570874109864235,
+  "initial_pre_noise_rms": 0.0,
+  "last_epoch": 100,
+  "shortcut_aggregate_mse": {
+    "11": {
+      "G": 0.6075623631477356,
+      "GT": 0.44024163484573364,
+      "GTE": 0.606353759765625,
+      "GTS": 0.4308438003063202
+    },
+    "29": {
+      "G": 0.6158831119537354,
+      "GT": 0.4465084373950958,
+      "GTE": 0.6207987070083618,
+      "GTS": 0.44294488430023193
+    },
+    "47": {
+      "G": 0.611912727355957,
+      "GT": 0.46929869055747986,
+      "GTE": 0.6092830300331116,
+      "GTS": 0.4628441035747528
+    }
+  },
+  "smoke_cpu_peak_rss_kb": 5847260,
+  "smoke_gpu_total_used_mib_end": 4989,
+  "state_max_abs": {
+    "command": 0.0,
+    "joint_position": 0.0,
+    "joint_velocity": 0.0,
+    "root_local_state": 0.0
+  },
+  "training_cpu_peak_rss_kb": 3479092,
+  "training_epoch_seconds_total": 1039.6434753853828,
+  "training_gpu_peak_allocated_bytes": 206456832
+}

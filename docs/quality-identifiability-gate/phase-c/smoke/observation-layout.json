@@ -1,0 +1,240 @@
+{
+  "shapes": {
+    "policy": [
+      8,
+      22
+    ],
+    "critic": [
+      8,
+      267
+    ]
+  },
+  "terms": {
+    "policy": [
+      {
+        "name": "base_ang_vel",
+        "shape": [
+          3
+        ],
+        "noise": "UniformNoiseCfg",
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.2500, device='cuda:0')"
+      },
+      {
+        "name": "projected_gravity",
+        "shape": [
+          3
+        ],
+        "noise": "UniformNoiseCfg",
+        "clip": [
+          -1.0,
+          1.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "velocity_commands",
+        "shape": [
+          3
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": null
+      },
+      {
+        "name": "flipper_fold_mode",
+        "shape": [
+          1
+        ],
+        "noise": null,
+        "clip": [
+          -1.0,
+          1.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "joint_pos",
+        "shape": [
+          4
+        ],
+        "noise": "UniformNoiseCfg",
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "joint_vel",
+        "shape": [
+          2
+        ],
+        "noise": "UniformNoiseCfg",
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.0500, device='cuda:0')"
+      },
+      {
+        "name": "joint_effort",
+        "shape": [
+          6
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.0100, device='cuda:0')"
+      }
+    ],
+    "critic": [
+      {
+        "name": "base_lin_vel",
+        "shape": [
+          3
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(2., device='cuda:0')"
+      },
+      {
+        "name": "base_ang_vel",
+        "shape": [
+          3
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.2500, device='cuda:0')"
+      },
+      {
+        "name": "projected_gravity",
+        "shape": [
+          3
+        ],
+        "noise": null,
+        "clip": [
+          -1.0,
+          1.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "velocity_commands",
+        "shape": [
+          3
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": null
+      },
+      {
+        "name": "flipper_fold_mode",
+        "shape": [
+          1
+        ],
+        "noise": null,
+        "clip": [
+          -1.0,
+          1.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "joint_pos",
+        "shape": [
+          4
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "joint_vel",
+        "shape": [
+          2
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.0500, device='cuda:0')"
+      },
+      {
+        "name": "actions",
+        "shape": [
+          6
+        ],
+        "noise": null,
+        "clip": null,
+        "scale": null
+      },
+      {
+        "name": "control_latency",
+        "shape": [
+          1
+        ],
+        "noise": null,
+        "clip": [
+          0.0,
+          1.0
+        ],
+        "scale": null
+      },
+      {
+        "name": "roller_contact_binary",
+        "shape": [
+          48
+        ],
+        "noise": null,
+        "clip": null,
+        "scale": "tensor(1., device='cuda:0')"
+      },
+      {
+        "name": "joint_effort",
+        "shape": [
+          6
+        ],
+        "noise": null,
+        "clip": [
+          -100.0,
+          100.0
+        ],
+        "scale": "tensor(0.0100, device='cuda:0')"
+      },
+      {
+        "name": "height_scan",
+        "shape": [
+          187
+        ],
+        "noise": null,
+        "clip": [
+          -1.0,
+          1.0
+        ],
+        "scale": "tensor(1., device='cuda:0')"
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Stage 0 proposal for first approval. No training or rollout has used this file.
 schema_version: 1
-status: proposed_pending_first_approval
+status: first_stage_approved
 frozen_split_seed: 123
 frozen_phase_b_evaluator_seeds: [11, 29, 47]
 reference_nomad:
@@ -18,6 +18,10 @@ reference_nomad:
   validation_metric: diffusion_loss
   checkpoint_weights: ema
   architecture_scheduler_loss: unchanged_eat_nav_model
+  lr_scheduler: none
+  timing_probe_epochs: 1
+  complete_window_ids: [train, val]
+  normalization_fit_split: complete_only_train
 shortcut_diagnostic:
   variants: [G, GTE, GTS, GT]
   evaluator_seeds: [11, 29, 47]
