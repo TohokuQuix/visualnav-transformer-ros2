@@ -1,0 +1,56 @@
+{
+  "by_split": {
+    "test": {
+      "dem_samples": 7290,
+      "history_complete": 6928,
+      "legacy_strict_complete_windows": 6139,
+      "raw_future_complete": 6208,
+      "training_future_complete": 6208,
+      "training_future_terminal_padded": 630,
+      "training_future_zero_valid": 90,
+      "valid_training_windows": 6928
+    },
+    "train": {
+      "dem_samples": 58298,
+      "history_complete": 55413,
+      "legacy_strict_complete_windows": 47695,
+      "raw_future_complete": 49598,
+      "training_future_complete": 49598,
+      "training_future_terminal_padded": 5040,
+      "training_future_zero_valid": 720,
+      "valid_training_windows": 55358
+    },
+    "val": {
+      "dem_samples": 7283,
+      "history_complete": 6918,
+      "legacy_strict_complete_windows": 5317,
+      "raw_future_complete": 6171,
+      "training_future_complete": 6171,
+      "training_future_terminal_padded": 632,
+      "training_future_zero_valid": 91,
+      "valid_training_windows": 6894
+    }
+  },
+  "counts": {
+    "cross_episode_sources": 0,
+    "current_complete_and_legacy": 59151,
+    "current_complete_only": 2826,
+    "current_only_episode_start_phase_1": 1768,
+    "current_only_episode_start_phase_2": 613,
+    "current_only_episode_start_phase_3": 138,
+    "current_only_episode_start_phase_4": 307,
+    "dem_samples": 72871,
+    "episodes": 914,
+    "history_complete": 69259,
+    "legacy_only": 0,
+    "legacy_strict_complete_windows": 59151,
+    "raw_future_complete": 61977,
+    "raw_records": 360000,
+    "training_future_complete": 61977,
+    "training_future_terminal_padded": 6302,
+    "training_future_zero_valid": 901,
+    "valid_training_windows": 69180
+  },
+  "cross_episode_sources": 0,
+  "valid_training_windows": 69180
+}

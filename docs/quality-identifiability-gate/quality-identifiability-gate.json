@@ -1,8 +1,13 @@
 {
+  "audit_warnings": [
+    "validation k_rail_step_field q bin 3: 6/679 windows",
+    "validation lacks boxes; held-out lacks hf_pyramid_slope and k_rail_field",
+    "no success termination reason; timeout is not necessarily failure"
+  ],
   "baseline_checkpoint_sha256": "c8187d5b57baf6ddfb6ab36029de7b644b8dcfa699553bb6fbe260942c7465fb",
   "full_collection_allowed": false,
-  "gate_a": "inconclusive_not_run",
-  "gate_b": "inconclusive_not_run",
+  "gate_a": "pending",
+  "gate_b": "pending",
   "implemented_before_stop": [
     "fixed-q and gate decision config/tests",
     "split and episode audit",
@@ -10,14 +15,11 @@
   ],
   "manifest_sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
   "not_run": [
-    "matched-pair selection",
-    "deterministic probe training",
-    "q permutation training",
-    "scratch overfit training",
-    "layer sensitivity",
-    "plots"
+    "Gate A",
+    "Gate B",
+    "layer sensitivity"
   ],
-  "overall": "inconclusive",
+  "overall": "audit warning / Gate A and B pending",
   "q_bin_counts": {
     "test": {
       "0": 1060,
@@ -234,8 +236,8 @@
   },
   "source_commit": "0aa4a83",
   "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
-  "status": "stopped_at_data_audit",
-  "stop_reason": "Extreme validation q-bin imbalance within k_rail_step_field: bin 3 has 6/679 windows (0.8837%); validation/test terrain-type coverage also differs from train.",
+  "status": "audit_warning_gates_pending",
+  "stop_reason": null,
   "terminal_episode_counts": {
     "test": {
       "tilt_over": 1,
@@ -249,5 +251,61 @@
       "tilt_over": 4,
       "time_out": 87
     }
+  },
+  "waterfall": {
+    "by_split": {
+      "test": {
+        "dem_samples": 7290,
+        "history_complete": 6928,
+        "legacy_strict_complete_windows": 6139,
+        "raw_future_complete": 6208,
+        "training_future_complete": 6208,
+        "training_future_terminal_padded": 630,
+        "training_future_zero_valid": 90,
+        "valid_training_windows": 6928
+      },
+      "train": {
+        "dem_samples": 58298,
+        "history_complete": 55413,
+        "legacy_strict_complete_windows": 47695,
+        "raw_future_complete": 49598,
+        "training_future_complete": 49598,
+        "training_future_terminal_padded": 5040,
+        "training_future_zero_valid": 720,
+        "valid_training_windows": 55358
+      },
+      "val": {
+        "dem_samples": 7283,
+        "history_complete": 6918,
+        "legacy_strict_complete_windows": 5317,
+        "raw_future_complete": 6171,
+        "training_future_complete": 6171,
+        "training_future_terminal_padded": 632,
+        "training_future_zero_valid": 91,
+        "valid_training_windows": 6894
+      }
+    },
+    "counts": {
+      "cross_episode_sources": 0,
+      "current_complete_and_legacy": 59151,
+      "current_complete_only": 2826,
+      "current_only_episode_start_phase_1": 1768,
+      "current_only_episode_start_phase_2": 613,
+      "current_only_episode_start_phase_3": 138,
+      "current_only_episode_start_phase_4": 307,
+      "dem_samples": 72871,
+      "episodes": 914,
+      "history_complete": 69259,
+      "legacy_only": 0,
+      "legacy_strict_complete_windows": 59151,
+      "raw_future_complete": 61977,
+      "raw_records": 360000,
+      "training_future_complete": 61977,
+      "training_future_terminal_padded": 6302,
+      "training_future_zero_valid": 901,
+      "valid_training_windows": 69180
+    },
+    "cross_episode_sources": 0,
+    "valid_training_windows": 69180
   }
 }
