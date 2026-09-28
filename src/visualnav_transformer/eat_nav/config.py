@@ -23,6 +23,7 @@ class EATConfig:
     dem_width_cells: int = 20
     dem_resolution_m: float = 0.1
     dem_min_valid_fraction: float = 0.25
+    goal_max_radius_m: float = 0.8
     reference_frame: str = "map"
     base_frame: str = "chassis/body"
     quality_enabled: bool = True
@@ -50,7 +51,7 @@ class EATConfig:
             if type(value) is not int or value <= 0:
                 raise ValueError(f"{name} must be a positive integer")
         for name in ("dem_history_interval_sec", "trajectory_interval_sec",
-                     "dem_resolution_m", "overlap_max_height_rmse_m",
+                     "dem_resolution_m", "goal_max_radius_m", "overlap_max_height_rmse_m",
                      "overlap_max_goal_distance_m"):
             value = getattr(self, name)
             if not isinstance(value, (int, float)) or not isfinite(value) or value <= 0:
@@ -83,7 +84,7 @@ class EATConfig:
         names = (
             "context_size", "dem_history_interval_sec", "len_traj_pred",
             "trajectory_interval_sec", "dem_height_cells", "dem_width_cells",
-            "dem_resolution_m", "quality_enabled",
+            "dem_resolution_m", "goal_max_radius_m", "quality_enabled",
         )
         result = {name: getattr(self, name) for name in names}
         result["trajectory_horizon_sec"] = self.trajectory_horizon_sec
