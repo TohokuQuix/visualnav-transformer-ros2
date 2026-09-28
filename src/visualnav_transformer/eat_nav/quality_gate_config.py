@@ -18,6 +18,9 @@ class GateSettings:
     min_mean_mse_gain: float = 0.05
     min_relative_rms_gain: float = 0.05
     min_delta_r2: float = 0.02
+    min_terrain_q_bin_count: int = 30
+    near_relative_rms_margin: float = 0.01
+    near_delta_r2_margin: float = 0.005
     min_b_effect_fraction: float = 0.5
     min_b_selection_fraction: float = 0.9
     min_b_direction_fraction: float = 0.9
@@ -31,6 +34,8 @@ class GateSettings:
     max_b_episode_uses: int = 3
     b_trajectory_rms_quantile: float = 0.75
     b_direction_abs_quantile: float = 0.5
+    b_trajectory_rms_threshold_m: float | None = None
+    b_direction_threshold: float | None = None
     max_probe_epochs: int = 100
     probe_patience: int = 12
     probe_min_delta: float = 0.0001
@@ -98,5 +103,7 @@ def decide_gate_b(m: dict, settings: GateSettings) -> str:
               and m["correct_selection_fraction"] >= settings.min_b_selection_fraction
               and m["direction_fraction"] >= settings.min_b_direction_fraction
               and m["effect_sampling_ratio"] > settings.min_b_sampling_ratio
-              and m["seed_robust"])
+              and m["seed_robust"]
+              and m["low_target_closer"]
+              and m["high_target_closer"])
     return "pass" if passed else "fail"

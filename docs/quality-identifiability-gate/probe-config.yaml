@@ -5,6 +5,9 @@ final_permutations: 100
 min_mean_mse_gain: 0.05
 min_relative_rms_gain: 0.05
 min_delta_r2: 0.02
+min_terrain_q_bin_count: 30
+near_relative_rms_margin: 0.01
+near_delta_r2_margin: 0.005
 split_seed: 123
 bootstrap_seed: 613
 bootstrap_replicates: 2000

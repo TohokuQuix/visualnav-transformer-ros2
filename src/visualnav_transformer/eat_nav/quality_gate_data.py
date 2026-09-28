@@ -133,3 +133,59 @@ def raw_dem_status(row: dict) -> str:
         return 'not_sampled'
     dem = row['dem']
     return 'invalid' if dem.get('transformed') is None or dem.get('error') else 'valid'
+
+
+def trajectory_shape(action):
+    steps = np.asarray(action, dtype=np.float32)
+    xy = np.cumsum(steps, axis=0)
+    length = float(np.linalg.norm(steps, axis=1).sum())
+    angles = np.arctan2(steps[:, 1], steps[:, 0])
+    turning = float(np.abs(np.arctan2(np.sin(np.diff(angles)), np.cos(np.diff(angles)))).sum())
+    return xy, float(xy[-1, 0]), length, turning
+
+
+def match_quality_pairs(windows: list[dict], *, q_mode: str, limit: int | None,
+                        seed: int, goal_tolerance: float = 0.1,
+                        min_mask_iou: float = 0.8, max_height_rmse: float = 0.05):
+    """Return in-episode-complete geometric matches; limits select seeded anchors."""
+    from scipy.spatial import cKDTree
+    if q_mode not in ('cross', 'same'):
+        raise ValueError('q_mode must be cross or same')
+    eligible = [i for i, w in enumerate(windows) if np.asarray(w['action_mask']).all()]
+    if not eligible:
+        return []
+    qbin = {i: min(int(windows[i]['quality'] * 4), 3) for i in eligible}
+    anchors = [i for i in eligible if qbin[i] == 0] if q_mode == 'cross' else eligible
+    targets = [i for i in eligible if qbin[i] == 3] if q_mode == 'cross' else eligible
+    tree = cKDTree(np.stack([windows[i]['goal'] for i in targets]))
+    order = np.random.default_rng(seed).permutation(anchors)
+    pairs = []
+    for i in order:
+        i = int(i)
+        a = windows[i]
+        for local_j in tree.query_ball_point(a['goal'], goal_tolerance):
+            j = targets[local_j]
+            if q_mode == 'same' and (j <= i or qbin[i] != qbin[j]):
+                continue
+            b = windows[j]
+            if a['episode_key'] == b['episode_key'] or a['terrain_type'] != b['terrain_type']:
+                continue
+            ma = a['dem'][:, 1] > .5
+            mb = b['dem'][:, 1] > .5
+            common = ma & mb
+            iou = float(common.sum() / max((ma | mb).sum(), 1))
+            if iou < min_mask_iou:
+                continue
+            rmse = float(np.sqrt(np.square(a['dem'][:, 0] - b['dem'][:, 0])[common].mean()))
+            if not np.isfinite(rmse) or rmse > max_height_rmse:
+                continue
+            xa, fa, la, ta = trajectory_shape(a['action'])
+            xb, fb, lb, tb = trajectory_shape(b['action'])
+            rms = float(np.sqrt(np.square(xa - xb).sum(axis=1).mean()))
+            direction = max(abs(fa - fb), abs(la - lb), 0.1 * abs(ta - tb))
+            pairs.append((i, j, rms, direction,
+                          float(np.linalg.norm(a['goal'] - b['goal'])), rmse, iou))
+            if limit is not None and len(pairs) >= limit:
+                return pairs
+    return pairs
+    return pairs

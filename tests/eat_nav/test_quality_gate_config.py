@@ -51,9 +51,11 @@ def test_gate_a_ten_shuffle_needs_strict_win_even_when_not_escalated():
 def test_gate_b_requires_all_effect_and_selection_conditions():
     good = dict(effect_fraction=0.6, correct_selection_fraction=0.95,
                 direction_fraction=0.92, effect_sampling_ratio=1.1,
-                seed_robust=True, training_converged=True)
+                seed_robust=True, training_converged=True,
+                low_target_closer=True, high_target_closer=True)
     assert decide_gate_b(good, GateSettings()) == "pass"
     assert decide_gate_b(dict(good, effect_fraction=0.49), GateSettings()) == "fail"
+    assert decide_gate_b(dict(good, low_target_closer=False), GateSettings()) == "fail"
     assert decide_gate_b(dict(good, training_converged=False), GateSettings()) == "inconclusive"
 
 
@@ -64,5 +66,15 @@ def test_frozen_configs_include_hard_constraints():
     settings = load_gate_settings(path)
     assert settings.fixed_probe_q == 0.5
     assert settings.initial_permutations == 10
+    assert settings.min_terrain_q_bin_count == 30
     assert settings.final_permutations == 100
     assert settings.training_seeds == (11, 29, 47)
+
+
+def test_overfit_thresholds_are_frozen_before_training():
+    from visualnav_transformer.eat_nav.quality_gate_config import load_gate_settings
+    path = Path(__file__).parents[2] / "docs/quality-identifiability-gate/overfit-config.yaml"
+    settings = load_gate_settings(path)
+    assert settings.b_trajectory_rms_threshold_m == 0.21188762784004211
+    assert settings.b_direction_threshold == 0.3410000823438168
+    assert settings.max_b_episode_uses == 3

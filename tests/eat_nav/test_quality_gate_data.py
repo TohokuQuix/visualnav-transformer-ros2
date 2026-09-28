@@ -5,6 +5,7 @@ from visualnav_transformer.eat_nav.quality_gate_data import (
     assert_split_integrity,
     audit_windows,
     raw_dem_status,
+    match_quality_pairs,
     build_canonical_pair,
     select_overfit_pairs,
 )
@@ -71,3 +72,17 @@ def test_sparse_raw_record_without_dem_is_expected_non_dem_step():
     assert raw_dem_status({"step": 1}) == "not_sampled"
     assert raw_dem_status({"step": 0, "dem": {"transformed": [1], "error": None}}) == "valid"
     assert raw_dem_status({"step": 0, "dem": {"transformed": None, "error": "bad"}}) == "invalid"
+
+
+def test_matcher_requires_same_terrain_cross_episode_and_dem_similarity():
+    a = _window(0, 0, 0.1, 0.1)
+    b = _window(1, 1, 0.9, 0.2)
+    c = _window(2, 2, 0.1, 0.3)
+    for w in (a,b,c):
+        w["dem"] = np.zeros((4,2,2,2), dtype=np.float32)
+        w["dem"][:,1] = 1
+    pairs = match_quality_pairs([a,b,c], q_mode="cross", limit=10, seed=1)
+    assert {(x[0],x[1]) for x in pairs} == {(0,1),(2,1)}
+    b["terrain_type"] = "stairs"
+    assert match_quality_pairs([a,b,c], q_mode="cross", limit=10, seed=1) == []
+    assert {(x[0],x[1]) for x in match_quality_pairs([a,b,c], q_mode="same", limit=10, seed=1)} == {(0,2)}
