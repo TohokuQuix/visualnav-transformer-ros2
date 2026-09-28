@@ -41,7 +41,7 @@ def main():
         model=make_scratch_policy(config,train.stats,seed=seed,device=device)
         checkpoint=torch.load(run['checkpoint'],map_location='cpu',weights_only=True)
         assert_checkpoint_compatible(config,checkpoint['config_metadata'])
-        if checkpoint['seed']!=seed or checkpoint['epoch']!=settings.overfit_epochs:
+        if checkpoint['seed']!=seed or checkpoint['epoch']!=run['epochs_ran']:
             raise ValueError('overfit checkpoint seed/epoch mismatch')
         model.load_state_dict(checkpoint['state_dict'],strict=True)
         model.eval()

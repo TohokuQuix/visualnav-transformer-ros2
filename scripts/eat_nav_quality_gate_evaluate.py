@@ -12,6 +12,7 @@ from visualnav_transformer.eat_nav.quality_gate_config import load_gate_settings
 from visualnav_transformer.eat_nav.quality_gate_probe import tensorize_windows, predict_probe
 from visualnav_transformer.eat_nav.quality_gate_evaluation import episode_cluster_ci, pair_cluster_ci, terrain_support, trajectory_errors
 from visualnav_transformer.eat_nav.quality_gate_data import trajectory_shape
+from visualnav_transformer.eat_nav.quality_followup import is_complete_window
 
 
 def pairs_and_ci(control,windows,settings):
@@ -46,6 +47,7 @@ def main():
     p=argparse.ArgumentParser()
     for name in ('manifest','quality-config','gate-config','runs-summary','pair-controls','audit','output'):
         p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--complete-only',action='store_true')
     a=p.parse_args();torch.set_num_threads(4)
     config=load_eat_config(a.quality_config);settings=load_gate_settings(a.gate_config)
     runs=json.loads(a.runs_summary.read_text())['runs']
@@ -59,9 +61,14 @@ def main():
     if train.ecdf.values!=val.ecdf.values or train.ecdf.values!=test.ecdf.values:
         raise ValueError('ECDF mismatch')
     device='cuda' if torch.cuda.is_available() else 'cpu'
-    train_rows=[dict(train[i],window_index=i) for i in range(len(train))]
-    val_rows=[dict(val[i],window_index=i) for i in range(len(val))]
-    test_rows=[dict(test[i],window_index=i) for i in range(len(test))]
+    def rows(dataset):
+        result=[dict(dataset[i],window_index=i) for i in range(len(dataset))]
+        return [row for row in result if is_complete_window(row,config.len_traj_pred)] if a.complete_only else result
+    train_rows=rows(train)
+    val_rows=rows(val)
+    test_rows=rows(test)
+    if a.complete_only and (len(train_rows),len(val_rows),len(test_rows))!=(49598,6171,6208):
+        raise ValueError('complete-only evaluation window count mismatch')
     train_data=tensorize_windows(train_rows,train.stats,device)
     val_data=tensorize_windows(val_rows,train.stats,device)
     test_data=tensorize_windows(test_rows,train.stats,device)

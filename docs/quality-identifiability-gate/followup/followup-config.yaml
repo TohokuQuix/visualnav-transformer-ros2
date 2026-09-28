@@ -1,0 +1,23 @@
+manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+quality_config_sha256: 6e979ffbeceb591d6201f71d8e040b83ea167418a5b14be39a7bc3fdb8fb49e8
+split_hash: ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f
+frozen_pair_sha256: a9c86cac0b52afcf72eb26195d5f473faadb3a81da624508c5d3aa80060b47f6
+prior_gate_a_sha256: 3fb901518f7cba507c96a29866c918cefa61059bb492b1d65646c0313a80c2dd
+prior_gate_b_sha256: 28add8307f1dcf7058e4e079bcf4f90025b524698c52bee499fbe45fc705b9b9
+expected_complete_windows:
+  train: 49598
+  val: 6171
+  test: 6208
+probe_config: probe-config.yaml
+overfit_config: overfit-config.yaml
+training_seeds: [11, 29, 47]
+diffusion_seeds: [11, 29, 47]
+fixed_probe_q: 0.5
+max_overfit_epochs: 1000
+overfit_checkpoint_interval_epochs: 25
+overfit_loss_ceiling: 0.05
+overfit_plateau_window_epochs: 50
+overfit_plateau_relative_improvement: 0.01
+max_episode_uses: 3
+ladder_pairs: [1, 8, 64]
+q_sweep: [0.1, 0.3, 0.5, 0.7, 0.9, 0.95]
