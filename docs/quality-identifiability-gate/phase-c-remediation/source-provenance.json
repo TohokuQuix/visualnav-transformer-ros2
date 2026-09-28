@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "complete_counts": {
+      "train": 49598,
+      "val": 6171
+    },
+    "complete_ids_decompressed_sha256": "ff8a9ee8b8c165be8f2f2ce2a9f61a227fc3bc39d450cdf7c7ad21aebb8b49d2",
+    "complete_train_ids_decompressed_sha256": "91bda6f328955901ff3c71755b0f3b95ba307e115b2cef6f0a89fdb53f927b62",
+    "complete_validation_ids_decompressed_sha256": "b04ffda586d85984d8e31c5657812935d71abf2c09de6ea8570994bab584b97e",
+    "normalization": {
+      "count": 396784,
+      "mean": [
+        0.028116857632994652,
+        -4.290757715352811e-05
+      ],
+      "std": [
+        0.08537875860929489,
+        0.015024908818304539
+      ]
+    },
+    "normalization_canonical_json_sha256": "1f21a9fbf6a99373911a97d2eedc5f24c09d7b06fa0512d81b1eec62f80f1256",
+    "phase_c0_latest_checkpoint_sha256": "42bb7bb224ecbed85df38817b233533fda0afae20085ff2ca75c01c0aeddb794",
+    "reference_config_sha256": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992",
+    "reference_dataset_manifest_sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "remediation_config_sha256": "5b916b6a562050b46289b8acfa96d88a672463e345779bbdfe23621c9df1e48f"
+  },
+  "docker_image": "PRETTY_NAME=\"Ubuntu 24.04.2 LTS\"\nNAME=\"Ubuntu\"",
+  "docker_image_id": "sha256:e211f8c944c196fca39fb0b27f83f5715514b28fb119610e2dd13b956100d71b",
+  "git_commit": "ab2408f3890a152d3a647e43fc25d034e3ac82bb",
+  "isaac_sim_version": "5.1.0-rc.19+release.26219.9c81211b.gl",
+  "source_sha256": {
+    "scripts/eat_nav_phase_c_remediation_provenance.py": "889ede60619b583145bd1678afcbef19e30fec5818a8149a7b55f7b56387d482",
+    "scripts/eat_nav_phase_c_ros_bridge.py": "ed745a180871d739077ef17ab9952b51f7cc0f81c97df57496ed4a99c6b9bc57",
+    "scripts/eat_nav_phase_c_smoke.py": "bce9d8d1b0f8699ac542f1295a3312a27c299c7ffcdc1667210c4ac68231a433",
+    "src/visualnav_transformer/eat_nav/dataset.py": "6ceb12edb028cdfa83dfa55f9927cf3b01d9e5eb798a0c0e04530812a377815b",
+    "src/visualnav_transformer/eat_nav/model.py": "7b488a54234d148ae2b696b67b859cd82db3261be7e8da46a56c50117e3577ad",
+    "src/visualnav_transformer/eat_nav/phase_c_bridge_client.py": "f4dc28eb505d1ab375d4796dd308ddac70629fe57215c7742a54f511dc69b6ce",
+    "src/visualnav_transformer/eat_nav/phase_c_reference.py": "fd04153cc0cbe814a91a91c021776dc409bcc8671650c273f26d5ffeb0e301de",
+    "src/visualnav_transformer/eat_nav/phase_c_runner.py": "69198184e9c0ce8d5f02a4267c04782f4baedd6e1d214ddc15382cda529b28f1",
+    "src/visualnav_transformer/eat_nav/phase_c_sim.py": "a9f7f6a1c6378bba9582218decf048fdf00edc8698d8732cb4e4575859a5ba75"
+  },
+  "uncommitted_diff_present": true,
+  "uncommitted_diff_sha256": "d49e72e7b14c8e6c18e788c2e545b33f07207b406a551429416f031405b6a4fb",
+  "versions": {
+    "cuda": "12.8",
+    "diffusers": "0.35.1",
+    "python": "3.11.13",
+    "pytorch": "2.7.0+cu128"
+  }
+}

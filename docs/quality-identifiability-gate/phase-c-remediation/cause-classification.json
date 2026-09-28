@@ -1,0 +1,83 @@
+{
+  "candidate_causes_not_yet_isolated": [
+    "PhysX contact warm start vs terrain tile geometry vs per-env latency state within parallel clones",
+    "ROS timer/message delivery timing versus microscopic command amplification in serial live follower"
+  ],
+  "confirmed": [
+    {
+      "evidence": {
+        "actor_action_first_step": 0,
+        "post_noise_first_step": 0,
+        "pre_noise_first_step": 1
+      },
+      "finding": "policy observation noise precedes baseline Actor divergence"
+    },
+    {
+      "evidence": {
+        "baseline_xy_rms_m": 0.05549924520169423,
+        "recorded_command_command_rms": 0.0,
+        "recorded_command_xy_rms_m": 0.05532969089638579
+      },
+      "finding": "ROS command differences are not sufficient to explain parallel branch trajectory variation"
+    },
+    {
+      "evidence": {
+        "recorded_action_root_first_step": 1,
+        "recorded_action_xy_rms_m": 0.03493101750158786,
+        "recorded_input_actor_action_rms": 0.0
+      },
+      "finding": "parallel env index has a residual despite identical command, Actor input, Actor action"
+    },
+    {
+      "evidence": {
+        "parallel_branch_xy_rms_m": 0.03493101750158786,
+        "same_branch_xy_rms_m": 0.0
+      },
+      "finding": "same branch with identical command and action replay is deterministic across three independent runs"
+    },
+    {
+      "evidence": {
+        "failed_reset_subscriber_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "failed_step_sequence_after": [
+          35,
+          35,
+          35,
+          35,
+          36,
+          35,
+          35,
+          0
+        ],
+        "successful_replay_ids": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "finding": "ROS Path subscriber startup race observed and bridge republish after subscriber connection resolves stale branch 7"
+    },
+    {
+      "evidence": {
+        "all_history_hashes_identical": true,
+        "anchor_actor_input_max_abs": 0.0,
+        "anchor_root_max_abs": 0.0,
+        "paths_identical": true,
+        "suffix_command_rms": 0.0007349665393121541,
+        "suffix_xy_rms_m": 0.003500814279537074
+      },
+      "finding": "same-env serial replay preserves exact anchor state, natural DEM history and Path, leaving small live follower timing residual"
+    }
+  ],
+  "formal_rollout_approved": false
+}

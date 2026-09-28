@@ -1,0 +1,28 @@
+{
+  "candidate_coverage": "fail",
+  "completed_stages": [
+    "first-divergence",
+    "recorded-command",
+    "recorded-observation",
+    "recorded-action",
+    "fixed-branch-repeat",
+    "cause-classification",
+    "serial-replay",
+    "candidate-state-selection",
+    "candidate-thresholds",
+    "candidate-generation",
+    "candidate-follower",
+    "duplicate-candidate",
+    "report"
+  ],
+  "formal_phase_c_eligible": false,
+  "formal_rollout_started": false,
+  "full_collection_started": false,
+  "gate_c0": "pass",
+  "phase_b_retrained": false,
+  "reason": "31 of 32 train-only natural-history states have one follower command cluster; episode/state candidate-effect CI unavailable",
+  "remediation_config_sha256": "5b916b6a562050b46289b8acfa96d88a672463e345779bbdfe23621c9df1e48f",
+  "report_sha256": "d40feda2fd28b16c3d996841f00ab94f24546ff878d1fc949bc31a4ad9635680",
+  "source_provenance_sha256": "30cce2a62367926b974e0457d373d13c408224ff5760b92d049b78913fed8776",
+  "stage": "reported_and_stopped"
+}

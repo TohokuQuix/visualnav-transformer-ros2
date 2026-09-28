@@ -111,7 +111,17 @@ class Server:
                        '-p', f'robot_frame:=branch_{i}/chassis/body']
             self.followers.append(subprocess.Popen(command, stdout=subprocess.DEVNULL,
                                                    stderr=subprocess.DEVNULL))
-        time.sleep(0.5)
+        deadline = time.monotonic() + 5.0
+        while time.monotonic() < deadline:
+            self.node.publish_poses(poses)
+            if all(publisher.get_subscription_count() > 0 for publisher in self.node.paths):
+                break
+            time.sleep(0.05)
+        else:
+            raise RuntimeError('Path subscriber startup timeout')
+        self.node.publish_paths(paths)
+        time.sleep(0.1)
+        print(json.dumps({'event':'reset_complete', 'subscriber_counts':[publisher.get_subscription_count() for publisher in self.node.paths], 'followers_alive':[process.poll() is None for process in self.followers]}), flush=True)
         return {'followers': [p.pid for p in self.followers]}
 
     def handle(self, request):
@@ -138,6 +148,7 @@ class Server:
                 if fresh:
                     return {'commands': commands, 'sequence': seq, 'fresh': True}
                 time.sleep(0.02)
+            print(json.dumps({'event':'step_timeout','sequence_before':before,'sequence_after':seq,'subscriber_counts':[publisher.get_subscription_count() for publisher in self.node.paths],'followers_alive':[process.poll() is None for process in self.followers]}), flush=True)
             return {'commands': commands, 'sequence': seq, 'fresh': False, 'error': 'follower command timeout'}
         if action == 'status':
             with self.node.lock:

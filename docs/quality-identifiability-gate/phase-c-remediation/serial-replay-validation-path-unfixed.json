@@ -1,0 +1,135 @@
+{
+  "anchor": {
+    "actor_input": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    },
+    "actor_latent": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    },
+    "critic_observation": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    },
+    "follower_command_at_anchor": {
+      "max_abs_to_first": 2.767890691757202e-06,
+      "rms_to_first": 8.97483211011886e-07
+    },
+    "joint_position": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    },
+    "joint_velocity": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    },
+    "root_state": {
+      "max_abs_to_first": 0.0,
+      "rms_to_first": 0.0
+    }
+  },
+  "history_frame_delta_rms_all": [
+    0.040944957004238454,
+    0.040944957004238454,
+    0.040944957004238454,
+    0.040944957004238454,
+    0.040944957004238454
+  ],
+  "history_sha256_all": [
+    "b22a3e0f963105539178e4ee9e87b661cf2688d8d7786f71bb0df28e944522a0",
+    "b22a3e0f963105539178e4ee9e87b661cf2688d8d7786f71bb0df28e944522a0",
+    "b22a3e0f963105539178e4ee9e87b661cf2688d8d7786f71bb0df28e944522a0",
+    "b22a3e0f963105539178e4ee9e87b661cf2688d8d7786f71bb0df28e944522a0",
+    "b22a3e0f963105539178e4ee9e87b661cf2688d8d7786f71bb0df28e944522a0"
+  ],
+  "paths_identical": false,
+  "post_anchor": {
+    "actor_action": {
+      "max_abs_to_first": 0.8957374095916748,
+      "rms_to_first": 0.1726888120174408
+    },
+    "actor_input": {
+      "max_abs_to_first": 2.0,
+      "rms_to_first": 0.22259549796581268
+    },
+    "actor_latent": {
+      "max_abs_to_first": 2.143734931945801,
+      "rms_to_first": 0.15726543962955475
+    },
+    "command": {
+      "max_abs_to_first": 0.046562131494283676,
+      "rms_to_first": 0.009576681070029736
+    },
+    "contact_force": {
+      "max_abs_to_first": 1752.12841796875,
+      "rms_to_first": 37.5386962890625
+    },
+    "critic_obs": {
+      "max_abs_to_first": 2.0,
+      "rms_to_first": 0.12245837599039078
+    },
+    "critic_value": {
+      "max_abs_to_first": 0.22281646728515625,
+      "rms_to_first": 0.06392956525087357
+    },
+    "joint_position": {
+      "max_abs_to_first": 12.555610656738281,
+      "rms_to_first": 0.8973928093910217
+    },
+    "joint_target": {
+      "max_abs_to_first": 0.7027225494384766,
+      "rms_to_first": 0.05066850408911705
+    },
+    "joint_velocity": {
+      "max_abs_to_first": 25.10344696044922,
+      "rms_to_first": 1.3934345245361328
+    },
+    "post_noise": {
+      "max_abs_to_first": 2.0,
+      "rms_to_first": 0.3281744718551636
+    },
+    "pre_noise": {
+      "max_abs_to_first": 2.0,
+      "rms_to_first": 0.3281746208667755
+    },
+    "processed_action": {
+      "max_abs_to_first": 1.8143106698989868,
+      "rms_to_first": 0.3443647027015686
+    },
+    "raycast": {
+      "max_abs_to_first": 0.0740227997303009,
+      "rms_to_first": 0.007822901010513306
+    },
+    "reward": {
+      "max_abs_to_first": 0.0390336811542511,
+      "rms_to_first": 0.012028022669255733
+    },
+    "root_state": {
+      "max_abs_to_first": 1.5115010738372803,
+      "rms_to_first": 0.14502069354057312
+    },
+    "xy": {
+      "max_abs_to_first": 0.04271888732910156,
+      "rms_to_first": 0.009873301353358125
+    }
+  },
+  "prefix_steps": 15,
+  "repeat_count": 5,
+  "runtime_sec_all": [
+    7.5582916198764,
+    7.649325875099748,
+    7.492495836922899,
+    7.527386303991079,
+    7.5411559590138495
+  ],
+  "same_env_index": 0,
+  "suffix_steps": 40,
+  "trace_sha256": [
+    "9ef35a857c2a807f4a66d8bcdca1423f9793cf2f686d4328a497da8adc3ca7ae",
+    "743e01a7fe309c87fc8562939f124e1f4d7812f2c140172f694dfc124e6e391d",
+    "115fd8ab8613a3ba1b52bf2e6cfe87b82277228084371f3f78d67101525080a5",
+    "d1a5c2658ff7feaedb68b02453be2015b73e059e243fd1c316e13c9920f8a4fd",
+    "35c87cc5f7c3b681158062d67ae6c208ec5b5dc015dead7f977404945494e2ea"
+  ]
+}

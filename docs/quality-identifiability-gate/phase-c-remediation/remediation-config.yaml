@@ -1,0 +1,31 @@
+schema_version: 1
+execution_order: [provenance, reference_resume, gate_c0, first_divergence, recorded_command, recorded_actor_input, recorded_action, fixed_branch_repeat, cause_classification, conditional_serial_replay, serial_duplicate, natural_history_diversity, duplicate_candidate_comparison, formal_eligibility, report]
+reference:
+  initial_checkpoint_epoch: 100
+  total_max_epochs: 300
+  batch_size: 64
+  learning_rate: 0.0001
+  lr_scheduler: none
+  patience: 10
+  min_delta: 0.0
+  seed: 123
+  train_windows: 49598
+  validation_windows: 6171
+  heldout_excluded: 6208
+  checkpoint_selection: aggregate_validation_diffusion_loss_best_ema
+branch:
+  count: 8
+  horizon_control_steps: 40
+  control_hz: 20
+  duplicate_repeat_count: 3
+  serial_duplicate_repeat_count: 5
+candidate:
+  state_count: 32
+  candidates_per_state: 8
+  diffusion_seeds: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008]
+  dem_history_interval_sec: 0.25
+  dem_frame_count: 4
+formal_gate:
+  max_duplicate_to_candidate_rms_ratio: 0.25
+  bootstrap_unit: episode_and_state
+  requires_second_approval: true

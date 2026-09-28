@@ -151,6 +151,9 @@ def run(args) -> dict:
         raise ValueError('mode must be timing or train')
     if args.mode == 'timing' and args.epochs not in (1, 2):
         raise ValueError('timing probe must run 1 or 2 epochs')
+    total_max_epochs = getattr(args, 'total_max_epochs', None) or config.max_epochs
+    if total_max_epochs != config.max_epochs and (not args.resume or args.mode != 'train' or total_max_epochs != 300):
+        raise ValueError('only frozen reference resume to total epoch 300 is permitted')
     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
@@ -210,7 +213,7 @@ def run(args) -> dict:
         start_epoch = int(payload['epoch']) + 1
         restore_rng(payload['rng_state'], sampler)
     provenance = software_provenance()
-    limit = args.epochs if args.mode == 'timing' else config.max_epochs
+    limit = args.epochs if args.mode == 'timing' else total_max_epochs
     for epoch in range(start_epoch, limit + 1):
         atomic_json(output/'status.json', {'stage': 'epoch_running', 'mode': args.mode,
                                            'epoch': epoch, 'global_step': global_step})
@@ -266,7 +269,7 @@ def run(args) -> dict:
     else:
         plateau = stopper.should_stop
         result = {'stage': 'reference_training_complete', 'gate_c0': 'pass' if plateau else gate_c0_status(
-                  [entry['validation_loss'] for entry in history], history[-1]['epoch'], config.max_epochs),
+                  [entry['validation_loss'] for entry in history], history[-1]['epoch'], total_max_epochs),
                   'best_epoch': stopper.best_epoch, 'best_validation_loss': stopper.best,
                   'epochs': len(history), 'source': source}
     atomic_json(output/'result.json', result)
@@ -289,6 +292,7 @@ def main():
     parser.add_argument('--seed', type=int, default=123)
     parser.add_argument('--device', default=None)
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--total-max-epochs', type=int, default=None)
     args = parser.parse_args()
     print(json.dumps(run(args), sort_keys=True), flush=True)
 
