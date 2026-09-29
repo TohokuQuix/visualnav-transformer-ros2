@@ -1,0 +1,49 @@
+--- /tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_command_preview_long_horizon_sim.py
++++ /tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_clock_diagnostic_sim.py
+@@ -186,6 +186,10 @@
+             'terminal':terminal}
+ 
+ 
++def safe_numeric(value):
++    return float(value) if isinstance(value,(int,float)) and math.isfinite(float(value)) else None
++
++
+ def main():
+     started=time.monotonic()
+     config_spec=yaml.safe_load(args.config.read_text())
+@@ -196,9 +200,10 @@
+         raise ValueError('frozen state/logged anchor mismatch')
+     if state['episode_key'][1]!=config_spec['source_state']['env_index'] or len(base_path)!=9:
+         raise ValueError('frozen state/path config mismatch')
+-    if config_spec['control_steps']!=120 or state['state_id'] not in ('coverage-001','coverage-003','coverage-004','coverage-006'):
++    if config_spec['control_steps']!=120 or state['state_id']!='coverage-003':
+         raise ValueError('long-horizon frozen scope mismatch')
+-    if args.stage!='live':raise ValueError('only approved live long-horizon stage')
++    if args.stage!='live':raise ValueError('only approved live clock diagnostic stage')
++    if sha(args.fixed_map_path)!='c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43':raise ValueError('unapproved nominal Path')
+     prefix=np.load(args.prefix)
+     actions=prefix['actions'];prefix_command=prefix['selected_env_commands']
+     with np.load(args.other_env_actions) as data:other_env_actions=np.asarray(data['actions'],dtype=np.float32)
+@@ -324,11 +329,22 @@
+             if tuple(action.shape)!=(1,6) or tuple(obs['policy'].shape)!=(100,22) or tuple(obs['critic'].shape)!=(100,267):
+                 raise ValueError('Actor/Critic/action shape mismatch')
+             record=capture_step(bare,i,obs,current,action,latent,value,None,None,cfg)
++            clock_before={'control_step':control_step,'sim_nominal_elapsed_sec':control_step*.05,
++                          'step_start_monotonic_ns':time.monotonic_ns(),
++                          'step_start_system_ns':time.time_ns(),
++                          'physics_step_count_before':safe_numeric(getattr(bare.sim,'_current_time_step_index',None)),
++                          'sim_context_time_before':safe_numeric(getattr(bare.sim,'current_time',None))}
+             batch=torch.as_tensor(other_env_actions[control_step],device=bare.device).clone()
+             batch[i]=action[0]
+             capture.begin_step()
+             with torch.inference_mode():next_obs,reward,done,_=env.step(batch)
+             current=capture.finish_step(next_obs)
++            record['clock_diag']={**clock_before,
++                'step_end_monotonic_ns':time.monotonic_ns(),
++                'step_end_system_ns':time.time_ns(),
++                'physics_step_count_after':safe_numeric(getattr(bare.sim,'_current_time_step_index',None)),
++                'sim_context_time_after':safe_numeric(getattr(bare.sim,'current_time',None)),
++                'bridge_response':fresh_command[-1] if fresh_command else None}
+             record['reward']=float(reward[i]);record['post_root_state']=tensor_data(bare.scene['robot'].data.root_state_w,i)
+             if bool(done[i]):
+                 record['terminal']={'terminated':bool(bare.reset_terminated[i]),

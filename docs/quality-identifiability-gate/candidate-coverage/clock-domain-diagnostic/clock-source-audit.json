@@ -1,0 +1,101 @@
+{
+  "clock_and_state_locations": {
+    "bridge_command_stamp": "eat_nav_phase_c_ros_bridge.py:54-69 TwistStamped stamp freshness",
+    "bridge_node_clock": "eat_nav_phase_c_ros_bridge.py:88,104,114 publish TF and Path with node clock",
+    "bridge_step_wait": "eat_nav_phase_c_ros_bridge.py:269-303 monotonic deadline and 20ms polling",
+    "linear_stuck_ratio": "simple_trajectory_follower.cpp:773-785 actual/commanded <= threshold",
+    "motion_dt_and_distance": "simple_trajectory_follower.cpp:716-748 dt=(now-last_motion_sample_time).seconds; abs(vx)*dt",
+    "motion_prune": "simple_trajectory_follower.cpp:757-771 by node-clock elapsed > stuck_window_sec",
+    "node_clock_sample": "simple_trajectory_follower.cpp:373 get_clock()->now()",
+    "path_activation_reset": "simple_trajectory_follower.cpp:244-266 resetMotionTracking and resetProgressTracking",
+    "progress_stall": "simple_trajectory_follower.cpp:830-842 node-clock elapsed",
+    "reverse_transition": "simple_trajectory_follower.cpp:1067-1092 beginLinearStuckRecovery; reverse active travel direction",
+    "system_steady_clock_use": "follower control does not directly use system or steady clock; wall timer uses steady scheduling",
+    "tf_lookup": "simple_trajectory_follower.cpp:672-683 latest transform TimePointZero",
+    "wall_control_timer": "simple_trajectory_follower.cpp:154-155 create_wall_timer(1/control_rate_hz)",
+    "window_ready": "simple_trajectory_follower.cpp:803-810 back.stamp-front.stamp >= stuck_window_sec"
+  },
+  "follower_node_clock_type": "RCL_ROS_TIME with use_sim_time=false (system-time fallback)",
+  "follower_timer_type": "rclcpp create_wall_timer",
+  "git": {
+    "branch": "exp/eatnav-candidate-coverage",
+    "head": "6f186c04a3f902b0008eeb10e3da6d84e4abaf53",
+    "status_porcelain_at_freeze": "?? scripts/eat_nav_clock_diagnostic_stage0.py\n",
+    "status_porcelain_before_implementation": ""
+  },
+  "original_duplicate_xy_rms_m": 0.035260755456820767,
+  "original_trace_sha256": [
+    {
+      "run_id": "long-005",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-005/live-0.json",
+        "sha256": "e778960bd4f542efc73ef49b38ce2860dd9a78395cd932e4dc246ab05ef585a9"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-005/live-0.trace.json.gz",
+        "sha256": "3f22cd406abbd335b4df0f3cd550ef237ae7fd88e7594948c2abb02aa7039fb7"
+      }
+    },
+    {
+      "run_id": "long-006",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-006/live-0.json",
+        "sha256": "00a128ca9f1ed75780ffc36b63c18aa5c459930c390a543388c46022a7f32f38"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-006/live-0.trace.json.gz",
+        "sha256": "47b3acb45ed3a3723bfed45bba7eaf81150d5398289b422195c5cf992e131afc"
+      }
+    },
+    {
+      "run_id": "long-007",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-007/live-0.json",
+        "sha256": "da9c747ec57997698e569b3fbaadae7abbc8588f212a46dfae9d2311356ff715"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-007/live-0.trace.json.gz",
+        "sha256": "b891ef41a9bf8f7d95ddee95e012b4e7615d065bb80bba3fd6faef8fec0f9efc"
+      }
+    }
+  ],
+  "simulator_nominal_time_per_control_step_sec": 0.05,
+  "source_sha256": {
+    "bridge_source": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_phase_c_ros_bridge.py",
+      "sha256": "d3bd9bc49593c491cf158c294d32c36ea6b49a7c4365c81853f2e1751b3f6197"
+    },
+    "follower_binary": {
+      "path": "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node",
+      "sha256": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219"
+    },
+    "follower_header": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "7c58d3a4375245863a1ba6aae237ce578da72c62506537d26704d592e19d4b1f"
+    },
+    "follower_parameters": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "follower_source": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "host_runner_source": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_command_preview_long_horizon_run.py",
+      "sha256": "777ab0642071e1b84446a25a7147b6e4c5bc1e5f4c6a1af45dc01c69d6bb6c5c"
+    },
+    "nominal_map_path": {
+      "path": "/tmp/eatnav-candidate-coverage/pilot-inputs/state-003/bank-nominal-map-path.json",
+      "sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43"
+    },
+    "run_identities": {
+      "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon-run-identities.json",
+      "sha256": "1148d8a48002f221a9414ad1c1941b7a3ad22fda0662bd6049cfe2a816c9d9ab"
+    },
+    "simulator_runner_source": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_command_preview_long_horizon_sim.py",
+      "sha256": "729adc4421948be2e8d4b011b8e9a442e15ecfc7e9aaf432a4601df4e2f10b3e"
+    }
+  }
+}

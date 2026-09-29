@@ -1,0 +1,93 @@
+{
+  "originals": [
+    {
+      "run_id": "long-005",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-005/live-0.json",
+        "sha256": "e778960bd4f542efc73ef49b38ce2860dd9a78395cd932e4dc246ab05ef585a9"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-005/live-0.trace.json.gz",
+        "sha256": "3f22cd406abbd335b4df0f3cd550ef237ae7fd88e7594948c2abb02aa7039fb7"
+      }
+    },
+    {
+      "run_id": "long-006",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-006/live-0.json",
+        "sha256": "00a128ca9f1ed75780ffc36b63c18aa5c459930c390a543388c46022a7f32f38"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-006/live-0.trace.json.gz",
+        "sha256": "47b3acb45ed3a3723bfed45bba7eaf81150d5398289b422195c5cf992e131afc"
+      }
+    },
+    {
+      "run_id": "long-007",
+      "summary": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-007/live-0.json",
+        "sha256": "da9c747ec57997698e569b3fbaadae7abbc8588f212a46dfae9d2311356ff715"
+      },
+      "trace": {
+        "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/runs/long-007/live-0.trace.json.gz",
+        "sha256": "b891ef41a9bf8f7d95ddee95e012b4e7615d065bb80bba3fd6faef8fec0f9efc"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "candidate_id": "bank-nominal",
+      "diagnostic_order": 0,
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "order": 5,
+      "prefix_steps": 16,
+      "repeat": 0,
+      "seed": null,
+      "source_run_id": "pilot-052",
+      "source_summary_sha256": "c8c981419247df3f307ce267c6ede3bdaa08a3fa412fa6f708f74779dc217100",
+      "source_trace_sha256": "a43c40494060719e5eabc1afbf378da1a02ac931ebeae3a7becf1b3ee93ff2e2",
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "diagnostic_order": 1,
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "order": 6,
+      "prefix_steps": 16,
+      "repeat": 1,
+      "seed": null,
+      "source_run_id": "pilot-053",
+      "source_summary_sha256": "a9737dff20743e56a5fb417fb02722d24d7648b4baee50875f90f271892c29ea",
+      "source_trace_sha256": "278bea0acc7e9ea289c47b009cd908ba7a20135aebceca94ca581739e50c19c3",
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "diagnostic_order": 2,
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "order": 7,
+      "prefix_steps": 16,
+      "repeat": 2,
+      "seed": null,
+      "source_run_id": "pilot-054",
+      "source_summary_sha256": "a390ae851237da2acf70fa6848bf7a8e5c227c8bff079ab59acef89452717028",
+      "source_trace_sha256": "34d0c8a2bef9e3b6ada793af81e2c5cb8c29f74a18f0cf8bc26c56e712c20137",
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    }
+  ],
+  "state": {
+    "episode_key": [
+      0,
+      44,
+      0
+    ],
+    "state_id": "coverage-003",
+    "step": 15
+  }
+}

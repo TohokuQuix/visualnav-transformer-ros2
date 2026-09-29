@@ -1,0 +1,125 @@
+{
+  "first_observed_vs_root_cause": "First observed divergence is a measured signal; causal classification requires source timing and pre-event state evidence.",
+  "new_clock_signal_divergence": {
+    "run-001_vs_run-000": {
+      "actual_distance_gt_0_05_m": null,
+      "commanded_distance_gt_0_1_m": null,
+      "follower_callback_sequence": 0,
+      "motion_window_ready": null,
+      "recovery_active": null,
+      "sim_nominal_time": null,
+      "tf_age_gt_0_05_sec": null,
+      "wall_elapsed_gt_0_5_sec": 72
+    },
+    "run-002_vs_run-000": {
+      "actual_distance_gt_0_05_m": null,
+      "commanded_distance_gt_0_1_m": null,
+      "follower_callback_sequence": 0,
+      "motion_window_ready": null,
+      "recovery_active": null,
+      "sim_nominal_time": null,
+      "tf_age_gt_0_05_sec": null,
+      "wall_elapsed_gt_0_5_sec": null
+    }
+  },
+  "new_diagnostic_120_step_pairs": {
+    "run-001_vs_run-000": {
+      "actor_action": null,
+      "actor_input": null,
+      "actor_latent": null,
+      "command": null,
+      "contact_force": null,
+      "critic_observation": null,
+      "critic_value": null,
+      "post_root_state": null,
+      "raycast_hits": null,
+      "reward": null,
+      "root_state": null
+    },
+    "run-002_vs_run-000": {
+      "actor_action": null,
+      "actor_input": null,
+      "actor_latent": null,
+      "command": null,
+      "contact_force": null,
+      "critic_observation": null,
+      "critic_value": null,
+      "post_root_state": null,
+      "raycast_hits": null,
+      "reward": null,
+      "root_state": null
+    }
+  },
+  "original_frozen_120_step_pairs": {
+    "run-001_vs_run-000": {
+      "actor_action": 39,
+      "actor_input": 39,
+      "actor_latent": 39,
+      "command": 39,
+      "contact_force": 40,
+      "critic_observation": 39,
+      "critic_value": 39,
+      "post_root_state": 39,
+      "raycast_hits": 40,
+      "reward": 39,
+      "root_state": 40
+    },
+    "run-002_vs_run-000": {
+      "actor_action": null,
+      "actor_input": null,
+      "actor_latent": null,
+      "command": null,
+      "contact_force": null,
+      "critic_observation": null,
+      "critic_value": null,
+      "post_root_state": null,
+      "raycast_hits": null,
+      "reward": null,
+      "root_state": null
+    }
+  },
+  "original_internal_clock_fields": null,
+  "source_sha256": [
+    {
+      "bridge_response_for_command_step_39_follower_callback_sequence": 729,
+      "bridge_response_for_command_step_39_follower_node_elapsed_sec": 34.400067031,
+      "bridge_response_for_command_step_39_wall_elapsed_sec": 33.440703968,
+      "callback_count": 1028,
+      "first_ready_callback": null,
+      "first_recovery_callback": null,
+      "follower_log_sha256": "bcc1f3d17a428f01ad7f437f7781fbac95c2c0d2fbadc2a8ce8ecb880a328ab5",
+      "run": 0,
+      "trace_sha256": "7d19ff4b095115333d374186c3515a98a47efaf18879af2961ad4a0c7a3658f1",
+      "warning_events": []
+    },
+    {
+      "bridge_response_for_command_step_39_follower_callback_sequence": 722,
+      "bridge_response_for_command_step_39_follower_node_elapsed_sec": 34.049904233,
+      "bridge_response_for_command_step_39_wall_elapsed_sec": 33.113256474,
+      "callback_count": 1022,
+      "first_ready_callback": null,
+      "first_recovery_callback": null,
+      "follower_log_sha256": "52d578637644bd80faf637396976cbdcb77ba8134634d6f8cf05ca6b4dff82d3",
+      "run": 1,
+      "trace_sha256": "0a7cc643af88abd901a9d0deb989819fff6615947a3045c56642b711813e422e",
+      "warning_events": []
+    },
+    {
+      "bridge_response_for_command_step_39_follower_callback_sequence": 766,
+      "bridge_response_for_command_step_39_follower_node_elapsed_sec": 34.250020217,
+      "bridge_response_for_command_step_39_wall_elapsed_sec": 33.295016995,
+      "callback_count": 1024,
+      "first_ready_callback": null,
+      "first_recovery_callback": null,
+      "follower_log_sha256": "d367119cdd64caf5ebef95aec37284f13a3b332619fc53f9e3dc60c883cd0e4f",
+      "run": 2,
+      "trace_sha256": "d71cc5c9df87f4405f51bc17e124e4704990f839f883f8a14fdadb7ef33acd1e",
+      "warning_events": []
+    }
+  ],
+  "warnings_by_run": [
+    [],
+    [],
+    []
+  ]
+}

@@ -1,0 +1,31 @@
+anchor_step: 15
+candidate_id: bank-nominal
+control_period_sec: 0.05
+control_steps: 120
+duplicate_xy_rms_limit_m: 0.0105
+episode_key:
+- 0
+- 44
+- 0
+follower_parameters_sha256: ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90
+forbidden:
+- candidate_comparison
+- unfinished_stage_b
+- model_retraining
+- follower_control_change
+- timer_change
+- use_sim_time
+- clock_publisher
+motion_window_sec: 20.0
+nominal_path_sha256: c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43
+prefix_step_cap: 40
+production_follower_binary_sha256: 0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219
+production_follower_source_sha256: 75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be
+repeat_count: 3
+run_order:
+- 0
+- 1
+- 2
+simulator_step_sec: 0.05
+state_id: coverage-003
+stuck_ratio_threshold: 0.25

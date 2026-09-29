@@ -1,0 +1,111 @@
+--- production/simple_trajectory_follower.cpp
++++ diagnostic/simple_trajectory_follower.cpp
+@@ -1,6 +1,8 @@
+ #include "simple_trajectory_follower/simple_trajectory_follower.hpp"
+ 
+ #include <algorithm>
++#include <chrono>
++#include <unistd.h>
+ #include <cmath>
+ #include <limits>
+ 
+@@ -201,6 +203,17 @@
+ 
+ void SimpleTrajectoryFollower::pathCallback(const nav_msgs::msg::Path::SharedPtr path)
+ {
++  if (std::string(this->get_name()) == "eat_nav_follower_0") {
++    const auto wall_ns = std::chrono::system_clock::now().time_since_epoch();
++    const auto steady_ns = std::chrono::steady_clock::now().time_since_epoch();
++    RCLCPP_INFO(this->get_logger(),
++      "CLOCK_DIAG path seq=%lu pid=%d wall_ns=%ld steady_ns=%ld stamp_sec=%d stamp_nsec=%u poses=%zu recovery=%d",
++      ++diagnostic_path_seq_, getpid(),
++      std::chrono::duration_cast<std::chrono::nanoseconds>(wall_ns).count(),
++      std::chrono::duration_cast<std::chrono::nanoseconds>(steady_ns).count(),
++      path->header.stamp.sec, path->header.stamp.nanosec, path->poses.size(),
++      linear_stuck_recovery_active_ ? 1 : 0);
++  }
+   if (path->poses.empty()) {
+     RCLCPP_WARN(this->get_logger(), "Received empty path, ignoring.");
+     return;
+@@ -316,6 +329,7 @@
+ 
+ void SimpleTrajectoryFollower::controlLoop()
+ {
++  const auto diagnostic_seq = ++diagnostic_callback_seq_;
+   if (!current_path_ || current_path_->poses.empty()) {
+     goal_reached_ = false;
+     path_travel_direction_ = 1.0;
+@@ -457,6 +471,27 @@
+     linear_x = active_travel_direction * linear_speed_ * speed_scale;
+   }
+ 
++  if (std::string(this->get_name()) == "eat_nav_follower_0") {
++    const auto wall_ns = std::chrono::system_clock::now().time_since_epoch();
++    const auto steady_ns = std::chrono::steady_clock::now().time_since_epoch();
++    const double window_elapsed = motion_history_.empty() ? 0.0 :
++      (motion_history_.back().stamp - motion_history_.front().stamp).seconds();
++    const double ratio = summed_commanded_linear_distance_ > 1.0e-6 ?
++      summed_actual_linear_distance_ / summed_commanded_linear_distance_ : 0.0;
++    RCLCPP_INFO(this->get_logger(),
++      "CLOCK_DIAG pre seq=%lu pid=%d wall_ns=%ld steady_ns=%ld node_ns=%ld clock_type=%d count=%zu window_elapsed=%.9f ready=%d cmd_dist=%.9f actual_dist=%.9f ratio=%.9f threshold=%.9f motion_ref=%d last_sample_ns=%ld recovery=%d progress_elapsed=%.9f x=%.9f y=%.9f",
++      diagnostic_seq, getpid(),
++      std::chrono::duration_cast<std::chrono::nanoseconds>(wall_ns).count(),
++      std::chrono::duration_cast<std::chrono::nanoseconds>(steady_ns).count(),
++      now.nanoseconds(), static_cast<int>(now.get_clock_type()), motion_history_.size(),
++      window_elapsed, isMotionWindowReady() ? 1 : 0,
++      summed_commanded_linear_distance_, summed_actual_linear_distance_, ratio,
++      linear_stuck_ratio_threshold_, has_motion_reference_ ? 1 : 0,
++      has_motion_reference_ ? last_motion_sample_time_.nanoseconds() : 0,
++      linear_stuck_recovery_active_ ? 1 : 0,
++      has_progress_reference_ ? (now - last_progress_time_).seconds() : 0.0,
++      current_pose_.position.x, current_pose_.position.y);
++  }
+   if (!linear_stuck_recovery_active_ && shouldTriggerProgressStallRecovery(now)) {
+     startProgressStallRecovery(now, remaining_path_distance);
+     if (linear_stuck_recovery_distance_ > 0.0) {
+@@ -502,6 +537,17 @@
+   cmd.angular.z = angular_z;
+   publishVelocityCommand(cmd);
+   updateMotionTracking(now, robot_yaw, cmd.linear.x, cmd.angular.z);
++  if (std::string(this->get_name()) == "eat_nav_follower_0") {
++    const auto steady_ns = std::chrono::steady_clock::now().time_since_epoch();
++    const double window_elapsed = motion_history_.empty() ? 0.0 :
++      (motion_history_.back().stamp - motion_history_.front().stamp).seconds();
++    RCLCPP_INFO(this->get_logger(),
++      "CLOCK_DIAG post seq=%lu steady_ns=%ld node_ns=%ld count=%zu window_elapsed=%.9f cmd_dist=%.9f actual_dist=%.9f recovery=%d vx=%.9f wz=%.9f",
++      diagnostic_seq, std::chrono::duration_cast<std::chrono::nanoseconds>(steady_ns).count(),
++      now.nanoseconds(), motion_history_.size(), window_elapsed,
++      summed_commanded_linear_distance_, summed_actual_linear_distance_,
++      linear_stuck_recovery_active_ ? 1 : 0, cmd.linear.x, cmd.angular.z);
++  }
+ 
+   if (linear_stuck_recovery_active_) {
+     if (summed_actual_linear_distance_ >= linear_stuck_recovery_remaining_distance_ ||
+@@ -676,6 +722,15 @@
+     current_pose_.position.y = transform.transform.translation.y;
+     current_pose_.position.z = transform.transform.translation.z;
+     current_pose_.orientation = transform.transform.rotation;
++    if (std::string(this->get_name()) == "eat_nav_follower_0") {
++      const auto steady_ns = std::chrono::steady_clock::now().time_since_epoch();
++      RCLCPP_INFO(this->get_logger(),
++        "CLOCK_DIAG tf seq=%lu steady_ns=%ld stamp_sec=%d stamp_nsec=%u x=%.9f y=%.9f qz=%.9f qw=%.9f",
++        diagnostic_callback_seq_, std::chrono::duration_cast<std::chrono::nanoseconds>(steady_ns).count(),
++        transform.header.stamp.sec, transform.header.stamp.nanosec,
++        current_pose_.position.x, current_pose_.position.y,
++        current_pose_.orientation.z, current_pose_.orientation.w);
++    }
+     has_robot_pose_ = true;
+     return true;
+   } catch (const tf2::TransformException & ex) {
+--- production/simple_trajectory_follower.hpp
++++ diagnostic/simple_trajectory_follower.hpp
+@@ -212,6 +212,9 @@
+   rclcpp::TimerBase::SharedPtr status_timer_;
+   tf2_ros::Buffer tf_buffer_;
+   tf2_ros::TransformListener tf_listener_;
++  // Diagnostic-only counters; never read by a control decision.
++  uint64_t diagnostic_callback_seq_{0};
++  uint64_t diagnostic_path_seq_{0};
+   FollowerStatus status_{FollowerStatus::Idle};
+ };
+ 

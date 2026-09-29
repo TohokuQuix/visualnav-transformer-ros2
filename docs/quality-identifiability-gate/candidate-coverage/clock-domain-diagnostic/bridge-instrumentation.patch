@@ -1,0 +1,71 @@
+--- /tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_phase_c_ros_bridge.py
++++ /tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_clock_bridge.py
+@@ -39,6 +39,7 @@
+         self.status_first_at = [None] * branches
+         self.active_path_stamp_ns = None
+         self.rejected_command_count = [0] * branches
++        self.command_diagnostics = [None] * branches
+         qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL,
+                          reliability=ReliabilityPolicy.RELIABLE)
+         self.paths = [self.create_publisher(RosPath, f'/phase_c/branch_{i}/path', qos)
+@@ -63,6 +64,13 @@
+                 return
+             self.commands[index] = [float(msg.twist.linear.x), float(msg.twist.linear.y), float(msg.twist.angular.z)]
+             self.sequence[index] += 1
++            self.command_diagnostics[index] = {
++                'sequence': self.sequence[index], 'stamp_ns': stamp_ns,
++                'receive_system_ns': time.time_ns(), 'receive_monotonic_ns': time.monotonic_ns(),
++                'bridge_node_ns': self.get_clock().now().nanoseconds,
++                'command': list(self.commands[index])}
++            if index == 0:
++                print(json.dumps({'event':'clock_diag_command_receive', **self.command_diagnostics[index]}),flush=True)
+             if self.command_first_at[index] is None:
+                 self.command_first_at[index] = time.time()
+                 print(json.dumps({'event': 'first_command', 'branch': index,
+@@ -86,6 +94,9 @@
+         if len(poses) != self.branches:
+             raise ValueError('pose count mismatch')
+         now = self.get_clock().now().to_msg()
++        print(json.dumps({'event':'clock_diag_tf_publish','system_ns':time.time_ns(),
++            'monotonic_ns':time.monotonic_ns(),'stamp_ns':int(now.sec)*1000000000+int(now.nanosec),
++            'branch_0_pose':poses[0]}),flush=True)
+         transforms = []
+         for i, pose in enumerate(poses):
+             x, y, yaw = [float(v) for v in pose]
+@@ -113,6 +124,9 @@
+             raise ValueError('path count mismatch')
+         now_clock = self.get_clock().now()
+         now = now_clock.to_msg()
++        print(json.dumps({'event':'clock_diag_path_publish','system_ns':time.time_ns(),
++            'monotonic_ns':time.monotonic_ns(),'stamp_ns':now_clock.nanoseconds,
++            'branch_0_point_count':len(paths[0])}),flush=True)
+         with self.lock:
+             self.active_path_stamp_ns = now_clock.nanoseconds
+         for i, xy in enumerate(paths):
+@@ -189,6 +203,7 @@
+             self.node.status_count = [0] * self.branches
+             self.node.status_first_at = [None] * self.branches
+             self.node.rejected_command_count = [0] * self.branches
++            self.node.command_diagnostics = [None] * self.branches
+             self.node.active_path_stamp_ns = None
+         reset_started = time.time()
+         # Clear the transient-local Path from the previous run before new subscribers appear.
+@@ -270,6 +285,7 @@
+                 before = list(self.node.sequence)
+             deadline = time.monotonic() + float(request.get('timeout_sec', 1.0))
+             step_started = time.time()
++            step_started_monotonic_ns = time.monotonic_ns()
+             while time.monotonic() < deadline:
+                 self.node.publish_poses(poses)
+                 with self.node.lock:
+@@ -279,6 +295,10 @@
+                 if fresh:
+                     return {'commands': commands, 'sequence': seq, 'fresh': True,
+                             'step_started_wall_time': step_started,
++                            'step_started_monotonic_ns':step_started_monotonic_ns,
++                            'step_end_monotonic_ns':time.monotonic_ns(),
++                            'bridge_node_clock_ns':self.node.get_clock().now().nanoseconds,
++                            'command_diagnostics':list(self.node.command_diagnostics),
+                             'first_command_wall_time':list(self.node.command_first_at)}
+                 time.sleep(0.02)
+             with self.node.lock:
