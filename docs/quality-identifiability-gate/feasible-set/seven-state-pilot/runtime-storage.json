@@ -1,0 +1,63 @@
+{
+  "anchor_time_ratio_lower_bound_vs_state42": 3.3136970060357753,
+  "first_pilot_anchor_completed": false,
+  "first_pilot_anchor_elapsed_lower_bound_sec": 190.00738632609136,
+  "first_pilot_anchor_state_index": 7,
+  "gpu_memory_measurement": "single nvidia-smi sample during state 7 anchor, not peak",
+  "host_artifact_bytes_at_stop": 23400458,
+  "host_artifact_bytes_before_hash_manifest": 23417313,
+  "pilot_selected_prefix_lengths": [
+    {
+      "global_step": 1250,
+      "prefix_steps": 1251,
+      "state_index": 7,
+      "terrain_type": "boxes"
+    },
+    {
+      "global_step": 65,
+      "prefix_steps": 66,
+      "state_index": 13,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "global_step": 80,
+      "prefix_steps": 81,
+      "state_index": 17,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "global_step": 55,
+      "prefix_steps": 56,
+      "state_index": 26,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "global_step": 860,
+      "prefix_steps": 861,
+      "state_index": 37,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "global_step": 820,
+      "prefix_steps": 821,
+      "state_index": 41,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "global_step": 470,
+      "prefix_steps": 471,
+      "state_index": 50,
+      "terrain_type": "random_rough"
+    }
+  ],
+  "prefix_steps_if_three_duplicates_plus_five_candidates_and_one_anchor_per_state": 32463,
+  "sampled_gpu_memory_mib": 5370,
+  "state42_prior_anchor_elapsed_sec": 57.34,
+  "state42_retest_elapsed_sec": [
+    94.78,
+    96.59,
+    96.58
+  ],
+  "status": "stopped_before_first_anchor_complete",
+  "storage_projection": "not estimated from candidate traces because pilot stopped before any candidate result"
+}

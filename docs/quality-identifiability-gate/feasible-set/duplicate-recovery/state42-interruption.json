@@ -1,0 +1,69 @@
+{
+  "auto_retry_performed": false,
+  "bridge_timeout": {
+    "event": "step_timeout",
+    "followers_alive": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "sequence_after": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sequence_before": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "subscriber_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "candidate_runs_started": 0,
+  "cause_region": "ROS bridge/follower startup or TF availability; all 8 subscribers present, followers alive, all command sequences remained zero for 2 s",
+  "classification": "measurement_invalid",
+  "failed_run_included": true,
+  "failure": "fresh follower command timeout before first control action",
+  "formal_rollout_started": false,
+  "next_step": "stop and report; do not treat two successes as the required three",
+  "specific_cause_unproven": true,
+  "stage": "nominal_duplicate_repeat_2",
+  "state_index": 42,
+  "status": {
+    "error": "RuntimeError('stale follower command')",
+    "repeat_id": 2,
+    "stage": "failed",
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/eatnav-train/eat_nav_duplicate_recovery_run.py\", line 372, in <module>\n    main()\n  File \"/tmp/eatnav-train/eat_nav_duplicate_recovery_run.py\", line 301, in main\n    override.set(command_provider())\n                 ^^^^^^^^^^^^^^^^^^\n  File \"/tmp/eatnav-train/eat_nav_duplicate_recovery_run.py\", line 293, in command_provider\n    if not response['fresh']:raise RuntimeError('stale follower command')\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: stale follower command\n"
+  },
+  "successful_nominal_pairs_exact": {
+    "anchor_critical": true,
+    "command_40_steps": true,
+    "fixed_path": true,
+    "root_xy_40_steps": true
+  },
+  "successful_nominal_runs": 2
+}

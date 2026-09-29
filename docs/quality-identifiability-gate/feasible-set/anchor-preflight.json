@@ -1,0 +1,65 @@
+{
+  "actual_pose": [
+    -11.920903205871582,
+    -20.390087127685547,
+    0.11685125529766083,
+    0.8321598768234253,
+    0.010690039023756981,
+    0.01600954681634903,
+    -0.5542014837265015
+  ],
+  "elapsed_sec": 24.42444849293679,
+  "errors": {
+    "dem_rms_m": 0.0,
+    "mask_iou": 1.0,
+    "orientation_rad": 0.0007606153961938,
+    "position_m": 0.0
+  },
+  "expected_pose": [
+    -11.920903205871582,
+    -20.390087127685547,
+    0.11685125529766083,
+    0.8321598768234253,
+    0.010690039023756981,
+    0.01600954681634903,
+    -0.5542014837265015
+  ],
+  "frozen_state": {
+    "dem_sha256": "319ca842343d6cef3194d3b0c38ae622003a5144d5780a27a9ae4dc7a288ee1c",
+    "difficulty_score": 0.09385792984531151,
+    "episode_key": [
+      0,
+      32,
+      0
+    ],
+    "goal": [
+      -0.11116842925548553,
+      0.03154473751783371
+    ],
+    "local_step": 20,
+    "split": "train",
+    "step": 20,
+    "stratum": "constrained",
+    "terrain_seed": 1792205055,
+    "terrain_type": "boxes",
+    "view_index": 14883
+  },
+  "limits": {
+    "dem_rms_m": 0.03,
+    "mask_iou_min": 0.95,
+    "orientation_rad": 0.03,
+    "position_m": 0.02
+  },
+  "measurement_gate": "passed",
+  "source_sha256": {
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "rl_checkpoint": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+    "selection": "ed3b8c860bb5ce37fb3d62e0433d5928725ff5649fcac272b44a743c62ddeb13"
+  },
+  "state_index": 6,
+  "target_record": {
+    "episode_id": 0,
+    "step": 20
+  },
+  "valid_fraction": 1.0
+}

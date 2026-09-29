@@ -1,0 +1,241 @@
+{
+  "approval_required_before_rollout": true,
+  "complete_train_windows": 49598,
+  "eligible_prefix_distribution": {
+    "count": 5796,
+    "max": 80,
+    "min": 15,
+    "p50": 45.0,
+    "p90": 75.0
+  },
+  "episode_cap": 1,
+  "episode_local_prefix_max_steps": 80,
+  "minimum_goal_m": 0.3,
+  "na_terrains": {},
+  "outcome_fields_used": [],
+  "rollout_started": false,
+  "seed": 20260929,
+  "selected": [
+    {
+      "complete": true,
+      "dem_sha256": "5dcf14874ced059cffcb932d29b1ec717f01a289716aa2406c18f53d0fac729b",
+      "episode_key": [
+        0,
+        52,
+        3
+      ],
+      "goal": [
+        -0.7002691030502319,
+        0.017816491425037384
+      ],
+      "goal_distance_m": 0.70049571308715,
+      "local_step": 25,
+      "rank_sha256": "004470b839d31bc38442626d85117e1b309d79302dfe7174abbb1f49cb3a8ffa",
+      "split": "train",
+      "state_id": "v2-000",
+      "step": 1225,
+      "terrain_seed": 3455129400,
+      "terrain_type": "boxes",
+      "view_index": 26880
+    },
+    {
+      "complete": true,
+      "dem_sha256": "1f6de1adbbeb930dfb0aeb5664f94f0fa50f6ee96cd2386549bcab7fa8f3c61b",
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "goal": [
+        0.7993085980415344,
+        -0.033252518624067307
+      ],
+      "goal_distance_m": 0.7999999780612292,
+      "local_step": 40,
+      "rank_sha256": "003fb428f87fa43a5eacfb63581a13e13d2f5f4bc76011333fbe2ff9b595bc8e",
+      "split": "train",
+      "state_id": "v2-001",
+      "step": 40,
+      "terrain_seed": 1740388444,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 29781
+    },
+    {
+      "complete": true,
+      "dem_sha256": "49de474af7c1ba3fa86a250401933bd43ecdaee8b4ec218c01910aab8824274a",
+      "episode_key": [
+        0,
+        55,
+        2
+      ],
+      "goal": [
+        0.5932525396347046,
+        0.0983867347240448
+      ],
+      "goal_distance_m": 0.6013555731451121,
+      "local_step": 35,
+      "rank_sha256": "0011ac52fa0970095aa205852d27745825ec7c9c2a8af37f661200d7ed8a2cc0",
+      "split": "train",
+      "state_id": "v2-002",
+      "step": 835,
+      "terrain_seed": 3990515239,
+      "terrain_type": "k_rail_field",
+      "view_index": 28676
+    },
+    {
+      "complete": true,
+      "dem_sha256": "c8b4dec2ed33ea7cb49edb50480b7282a606c018c41c6f0c8438bd3355fcd036",
+      "episode_key": [
+        0,
+        51,
+        3
+      ],
+      "goal": [
+        0.30853521823883057,
+        -0.08345144987106323
+      ],
+      "goal_distance_m": 0.31962184746863814,
+      "local_step": 70,
+      "rank_sha256": "003f560b0742af1a8b32c17c15d8d37190df19cd6cc8fee2afe1e54a88cd8a6c",
+      "split": "train",
+      "state_id": "v2-003",
+      "step": 1270,
+      "terrain_seed": 120620344,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 26268
+    },
+    {
+      "complete": true,
+      "dem_sha256": "95db5f00d665f380f38472a214798ecfa918b2547de88ca0a6d593d040f64b22",
+      "episode_key": [
+        0,
+        26,
+        2
+      ],
+      "goal": [
+        -0.3888685703277588,
+        -0.0017072680639103055
+      ],
+      "goal_distance_m": 0.38887231805953626,
+      "local_step": 45,
+      "rank_sha256": "000070c776ac7effbca6b203830256cf7f4cfa6cacecd99a376bdf41826780c5",
+      "split": "train",
+      "state_id": "v2-004",
+      "step": 845,
+      "terrain_seed": 666010005,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11921
+    },
+    {
+      "complete": true,
+      "dem_sha256": "28d944be1182095af025880062730cb046cd1f6f713161243c7e92dae9db633d",
+      "episode_key": [
+        0,
+        93,
+        3
+      ],
+      "goal": [
+        0.5151592493057251,
+        0.023027142509818077
+      ],
+      "goal_distance_m": 0.5156736384937722,
+      "local_step": 45,
+      "rank_sha256": "002f11eaab830b803c7e7f530a41ace96044174989379d0358eb35c277f913b5",
+      "split": "train",
+      "state_id": "v2-005",
+      "step": 1245,
+      "terrain_seed": 302001298,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 46706
+    },
+    {
+      "complete": true,
+      "dem_sha256": "229a0d92ecde1d169bbff7198445068845c18efedc126549e1a9d2194c58932a",
+      "episode_key": [
+        0,
+        24,
+        3
+      ],
+      "goal": [
+        0.7927042841911316,
+        -0.10779613256454468
+      ],
+      "goal_distance_m": 0.8000000552317776,
+      "local_step": 50,
+      "rank_sha256": "0010a1fd5ef1177032b1f6ebdace4bb8e705315b406c5c917802658530d62f90",
+      "split": "train",
+      "state_id": "v2-006",
+      "step": 1250,
+      "terrain_seed": 427409947,
+      "terrain_type": "random_rough",
+      "view_index": 11370
+    }
+  ],
+  "selected_prefix_distribution": {
+    "count": 7,
+    "max": 70,
+    "min": 25,
+    "p50": 45.0,
+    "p90": 58.00000000000001
+  },
+  "selection_fields": [
+    "terrain_type",
+    "episode_key",
+    "view_index",
+    "goal",
+    "local_step",
+    "split"
+  ],
+  "source_sha256": {
+    "dataset_source": "6ceb12edb028cdfa83dfa55f9927cf3b01d9e5eb798a0c0e04530812a377815b",
+    "gate_config": "4455b6cbb6006de50e75351db0123b8adbfb87496b88d3cf1bf84f1f2fd4ab52",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "original_selection": "ed3b8c860bb5ce37fb3d62e0433d5928725ff5649fcac272b44a743c62ddeb13",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992",
+    "selector_source": "be637a5bf2863b5e3b35828cde280f2de894f6990d8dffba95b11422beb50210"
+  },
+  "support": {
+    "boxes": {
+      "complete_train": 3094,
+      "eligible": 388,
+      "goal_rejected": 1371,
+      "prefix_rejected": 1335
+    },
+    "hf_pyramid_slope": {
+      "complete_train": 5589,
+      "eligible": 733,
+      "goal_rejected": 2023,
+      "prefix_rejected": 2833
+    },
+    "k_rail_field": {
+      "complete_train": 7430,
+      "eligible": 795,
+      "goal_rejected": 4009,
+      "prefix_rejected": 2626
+    },
+    "k_rail_step_field": {
+      "complete_train": 7441,
+      "eligible": 702,
+      "goal_rejected": 3903,
+      "prefix_rejected": 2836
+    },
+    "pyramid_stairs": {
+      "complete_train": 7438,
+      "eligible": 1023,
+      "goal_rejected": 2788,
+      "prefix_rejected": 3627
+    },
+    "pyramid_stairs_inv": {
+      "complete_train": 8673,
+      "eligible": 1037,
+      "goal_rejected": 3955,
+      "prefix_rejected": 3681
+    },
+    "random_rough": {
+      "complete_train": 9933,
+      "eligible": 1118,
+      "goal_rejected": 4153,
+      "prefix_rejected": 4662
+    }
+  }
+}

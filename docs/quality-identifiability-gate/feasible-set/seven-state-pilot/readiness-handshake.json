@@ -1,0 +1,141 @@
+{
+  "bridge_source_sha256": "d3bd9bc49593c491cf158c294d32c36ea6b49a7c4365c81853f2e1751b3f6197",
+  "clock_mode": "ROS node time with system clock fallback; use_sim_time=false",
+  "clock_topic_publisher_count": 0,
+  "exact_follower_control_timer_and_publish_counts": "not exposed by production follower; bridge received-message counts and status-timer callbacks recorded; see follower stdout and ROS logs",
+  "follower_control_changed": false,
+  "host_two_reset_probe_second_run": {
+    "prepath_rejected_old_commands": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "prepath_sequence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "step_fresh": true
+  },
+  "literal_clock_topic_requirement": "not applicable in current follower runtime; /clock is not published and follower uses wall timers",
+  "simulator_retest": {
+    "classification": "valid",
+    "duplicate_xy_rms_m": 0.0,
+    "per_repeat": [
+      {
+        "first_command_delay_ms": [
+          1.1970996856689453,
+          47.91665077209473,
+          50.12035369873047,
+          1.5745162963867188,
+          0.7808208465576172,
+          40.95125198364258,
+          45.958757400512695,
+          42.90485382080078
+        ],
+        "path_resend_count": 0,
+        "postpath_command_sequence": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1
+        ],
+        "prepath_command_sequence": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "first_command_delay_ms": [
+          6.173372268676758,
+          6.234169006347656,
+          9.58395004272461,
+          7.117271423339844,
+          48.41184616088867,
+          50.284385681152344,
+          2.010822296142578,
+          49.66020584106445
+        ],
+        "path_resend_count": 0,
+        "postpath_command_sequence": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prepath_command_sequence": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "first_command_delay_ms": [
+          5.975961685180664,
+          10.370254516601562,
+          7.128477096557617,
+          7.526159286499023,
+          47.2869873046875,
+          2.2919178009033203,
+          6.375312805175781,
+          1.4553070068359375
+        ],
+        "path_resend_count": 0,
+        "postpath_command_sequence": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prepath_command_sequence": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "two_node_clock_advances": [
+    1790676194596262348,
+    1790676194646715801,
+    1790676194697197312
+  ]
+}

@@ -1,0 +1,17 @@
+schema_version: 1
+source_state: {split: train, state_index: 19, env_index: 96, episode_id: 0, anchor_step: 20}
+nominal_path_source: ../maneuver-bank.npz
+nominal_path_index: 0
+duplicate_runs: 3
+optional_duplicate_runs: 5
+control_steps: 40
+step_dt_sec: 0.05
+max_duplicate_xy_rms_m: 0.0105
+prior_good_xy_rms_m: 0.003500814279537074
+anchor_limits: {position_m: 0.02, orientation_rad: 0.03, dem_rms_m: 0.03, mask_iou_min: 0.95}
+compare_float_exact_tolerance: 0.0
+compare_float_reporting_tolerance: 1.0e-7
+recorded_command_control_runs: 3
+max_maneuver_smoke_states: 3
+stop_before_formal_rollout: true
+no_maneuver_or_model_changes: true

@@ -1,0 +1,1611 @@
+{
+  "candidate_rows": {
+    "train": 4155,
+    "validation": 506
+  },
+  "heldout": [],
+  "selected_counts": {
+    "train": 56,
+    "validation": 20
+  },
+  "terrain_stratum_support": {
+    "train": {
+      "boxes": {
+        "constrained": 87,
+        "intermediate": 86,
+        "open": 87
+      },
+      "hf_pyramid_slope": {
+        "constrained": 156,
+        "intermediate": 156,
+        "open": 156
+      },
+      "k_rail_field": {
+        "constrained": 208,
+        "intermediate": 208,
+        "open": 208
+      },
+      "k_rail_step_field": {
+        "constrained": 207,
+        "intermediate": 208,
+        "open": 207
+      },
+      "pyramid_stairs": {
+        "constrained": 208,
+        "intermediate": 207,
+        "open": 208
+      },
+      "pyramid_stairs_inv": {
+        "constrained": 242,
+        "intermediate": 242,
+        "open": 242
+      },
+      "random_rough": {
+        "constrained": 277,
+        "intermediate": 278,
+        "open": 277
+      }
+    },
+    "validation": {
+      "boxes": {
+        "constrained": 0,
+        "intermediate": 0,
+        "open": 0
+      },
+      "hf_pyramid_slope": {
+        "constrained": 32,
+        "intermediate": 57,
+        "open": 15
+      },
+      "k_rail_field": {
+        "constrained": 24,
+        "intermediate": 28,
+        "open": 0
+      },
+      "k_rail_step_field": {
+        "constrained": 33,
+        "intermediate": 5,
+        "open": 0
+      },
+      "pyramid_stairs": {
+        "constrained": 74,
+        "intermediate": 44,
+        "open": 38
+      },
+      "pyramid_stairs_inv": {
+        "constrained": 11,
+        "intermediate": 48,
+        "open": 45
+      },
+      "random_rough": {
+        "constrained": 22,
+        "intermediate": 19,
+        "open": 11
+      }
+    }
+  },
+  "train": [
+    {
+      "dem_sha256": "099e893247cdadedd0d89c93c9967071ac91bdcdda8bad0ef3b0433b3b84617c",
+      "difficulty_score": 0.03282499777844293,
+      "episode_key": [
+        0,
+        42,
+        0
+      ],
+      "goal": [
+        0.07528484612703323,
+        0.0039059454575181007
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 50,
+      "stratum": "open",
+      "terrain_seed": 102239461,
+      "terrain_type": "boxes",
+      "view_index": 20478
+    },
+    {
+      "dem_sha256": "402ed5837e40df85ddd020c4de73aaae3bb45d1fcdbc2bde43d0131cccb4c16f",
+      "difficulty_score": 0.044218890938222795,
+      "episode_key": [
+        0,
+        36,
+        2
+      ],
+      "goal": [
+        0.056605659425258636,
+        0.003389813005924225
+      ],
+      "local_step": 70,
+      "split": "train",
+      "step": 870,
+      "stratum": "open",
+      "terrain_seed": 645838458,
+      "terrain_type": "boxes",
+      "view_index": 17515
+    },
+    {
+      "dem_sha256": "cbabf22b08f021caf1da5af071e60fa348cc261a57b945d9d4800e1a05b7106d",
+      "difficulty_score": 0.050295999949584246,
+      "episode_key": [
+        0,
+        36,
+        3
+      ],
+      "goal": [
+        0.27171188592910767,
+        -0.015939366072416306
+      ],
+      "local_step": 30,
+      "split": "train",
+      "step": 1230,
+      "stratum": "open",
+      "terrain_seed": 645838458,
+      "terrain_type": "boxes",
+      "view_index": 17576
+    },
+    {
+      "dem_sha256": "27320f259cfe0dfea1bdb26351e3e680003618607c9703e4aab430e11b9167e2",
+      "difficulty_score": 0.07535922295116622,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "goal": [
+        0.23503781855106354,
+        -0.02993674762547016
+      ],
+      "local_step": 40,
+      "split": "train",
+      "step": 40,
+      "stratum": "intermediate",
+      "terrain_seed": 645838458,
+      "terrain_type": "boxes",
+      "view_index": 17371
+    },
+    {
+      "dem_sha256": "aedcf34a2e7ab1065d5100ba9672e490045eeccaf17c93b5fbcd1bc33c6457fd",
+      "difficulty_score": 0.06151433101890923,
+      "episode_key": [
+        0,
+        42,
+        3
+      ],
+      "goal": [
+        0.12481177598237991,
+        -0.01406136341392994
+      ],
+      "local_step": 55,
+      "split": "train",
+      "step": 1255,
+      "stratum": "intermediate",
+      "terrain_seed": 102239461,
+      "terrain_type": "boxes",
+      "view_index": 20686
+    },
+    {
+      "dem_sha256": "f54762081596e8b200ee19bd665be5e62b753f99da8591002c7895da7256c098",
+      "difficulty_score": 0.11281049175661115,
+      "episode_key": [
+        0,
+        42,
+        2
+      ],
+      "goal": [
+        -0.12772662937641144,
+        -0.03214390575885773
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 850,
+      "stratum": "constrained",
+      "terrain_seed": 102239461,
+      "terrain_type": "boxes",
+      "view_index": 20616
+    },
+    {
+      "dem_sha256": "319ca842343d6cef3194d3b0c38ae622003a5144d5780a27a9ae4dc7a288ee1c",
+      "difficulty_score": 0.09385792984531151,
+      "episode_key": [
+        0,
+        32,
+        0
+      ],
+      "goal": [
+        -0.11116842925548553,
+        0.03154473751783371
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 20,
+      "stratum": "constrained",
+      "terrain_seed": 1792205055,
+      "terrain_type": "boxes",
+      "view_index": 14883
+    },
+    {
+      "dem_sha256": "93d3945986277acd7c65cc592fd07b88e5db3bc4068981ceba1358a43e1c9e60",
+      "difficulty_score": 0.1451638866695696,
+      "episode_key": [
+        0,
+        52,
+        3
+      ],
+      "goal": [
+        -0.5028390288352966,
+        0.033521994948387146
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 1250,
+      "stratum": "constrained",
+      "terrain_seed": 3455129400,
+      "terrain_type": "boxes",
+      "view_index": 26885
+    },
+    {
+      "dem_sha256": "8730f3bf0e8a0d214736bf2c5dade79849e9eebe2f845b91390207a19b1583e8",
+      "difficulty_score": 0.040093630901155676,
+      "episode_key": [
+        0,
+        76,
+        3
+      ],
+      "goal": [
+        0.3777000606060028,
+        -0.01979348622262478
+      ],
+      "local_step": 75,
+      "split": "train",
+      "step": 1275,
+      "stratum": "open",
+      "terrain_seed": 1453387328,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 38054
+    },
+    {
+      "dem_sha256": "5206c438635cb3547f96088efe6f4984777c0c7704d0e5524d326b99859469ad",
+      "difficulty_score": 0.02330039139245997,
+      "episode_key": [
+        0,
+        54,
+        1
+      ],
+      "goal": [
+        0.6697195768356323,
+        -0.02930079959332943
+      ],
+      "local_step": 70,
+      "split": "train",
+      "step": 470,
+      "stratum": "open",
+      "terrain_seed": 2480648597,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 27993
+    },
+    {
+      "dem_sha256": "e8a0f276c13c82ed12470c9f03b985d511bb13a26cee415acac20cd2ab06a882",
+      "difficulty_score": 0.03244276672563015,
+      "episode_key": [
+        0,
+        89,
+        0
+      ],
+      "goal": [
+        0.10392557084560394,
+        -0.0028919402975589037
+      ],
+      "local_step": 30,
+      "split": "train",
+      "step": 30,
+      "stratum": "open",
+      "terrain_seed": 1053822081,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 44633
+    },
+    {
+      "dem_sha256": "1ebe172dc5cac902da7ef5279b7821a316c929a17948f1a9a38cc603a4358b7a",
+      "difficulty_score": 0.04877134096025082,
+      "episode_key": [
+        0,
+        46,
+        3
+      ],
+      "goal": [
+        0.7987131476402283,
+        -0.04535749554634094
+      ],
+      "local_step": 65,
+      "split": "train",
+      "step": 1265,
+      "stratum": "intermediate",
+      "terrain_seed": 129512814,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 23172
+    },
+    {
+      "dem_sha256": "c1e73205b30a84a368d44af40ee067d3b15e81324c1533c88d4559d9c2a6794c",
+      "difficulty_score": 0.04297238613413304,
+      "episode_key": [
+        0,
+        0,
+        2
+      ],
+      "goal": [
+        0.7999927401542664,
+        0.003394491272047162
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 880,
+      "stratum": "intermediate",
+      "terrain_seed": 693650678,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 151
+    },
+    {
+      "dem_sha256": "1353f74d63e0afb2be9a37e370c15d1f903bee5b7b2f02d699acc4638c5b6dcc",
+      "difficulty_score": 0.15050041317152274,
+      "episode_key": [
+        0,
+        88,
+        0
+      ],
+      "goal": [
+        0.7993913888931274,
+        -0.031200679019093513
+      ],
+      "local_step": 65,
+      "split": "train",
+      "step": 65,
+      "stratum": "constrained",
+      "terrain_seed": 790575650,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 44019
+    },
+    {
+      "dem_sha256": "add88ec9e5e0066f4dedf86673d913d65aaa9a789a2389846b9f18d1b6d35072",
+      "difficulty_score": 0.18693211131264967,
+      "episode_key": [
+        0,
+        89,
+        3
+      ],
+      "goal": [
+        0.7963037490844727,
+        0.076813705265522
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 1280,
+      "stratum": "constrained",
+      "terrain_seed": 1053822081,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 44850
+    },
+    {
+      "dem_sha256": "a38fdf6702a26c576dc2dc25d50de90b5bc50f9f24daec42d7c538741e1aff93",
+      "difficulty_score": 0.08919506314367337,
+      "episode_key": [
+        0,
+        38,
+        2
+      ],
+      "goal": [
+        -0.6289206743240356,
+        0.13756956160068512
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 820,
+      "stratum": "constrained",
+      "terrain_seed": 4137186650,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 18747
+    },
+    {
+      "dem_sha256": "b8d8ea050c4da8775d3dc00d465dec2e75577241d7e48020475537f2f420bae0",
+      "difficulty_score": 0.04585045684766438,
+      "episode_key": [
+        0,
+        6,
+        1
+      ],
+      "goal": [
+        0.3524051010608673,
+        -0.029029730707406998
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 450,
+      "stratum": "open",
+      "terrain_seed": 2373776937,
+      "terrain_type": "k_rail_field",
+      "view_index": 1939
+    },
+    {
+      "dem_sha256": "beb0dcfbc75df8a3ff4962c70909d85ac877be9de4e996635fada4b17efac59b",
+      "difficulty_score": 0.05656795335824207,
+      "episode_key": [
+        0,
+        59,
+        0
+      ],
+      "goal": [
+        0.563574492931366,
+        0.010585294105112553
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 80,
+      "stratum": "open",
+      "terrain_seed": 1677631261,
+      "terrain_type": "k_rail_field",
+      "view_index": 30410
+    },
+    {
+      "dem_sha256": "f9b1baa462213165d3ebf0cc794d660022db9dca79dcb78c8902ff3d08fe2839",
+      "difficulty_score": 0.05834187899464125,
+      "episode_key": [
+        0,
+        71,
+        1
+      ],
+      "goal": [
+        0.05489042401313782,
+        -0.018824895843863487
+      ],
+      "local_step": 40,
+      "split": "train",
+      "step": 440,
+      "stratum": "open",
+      "terrain_seed": 3662772277,
+      "terrain_type": "k_rail_field",
+      "view_index": 34807
+    },
+    {
+      "dem_sha256": "55b3f62331871f93dafeff8c99dbc80e4f2077db69976fed8b559975628ef704",
+      "difficulty_score": 0.1089738042882821,
+      "episode_key": [
+        0,
+        96,
+        0
+      ],
+      "goal": [
+        0.6637150049209595,
+        0.050114214420318604
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 20,
+      "stratum": "intermediate",
+      "terrain_seed": 2956799243,
+      "terrain_type": "k_rail_field",
+      "view_index": 48357
+    },
+    {
+      "dem_sha256": "ee6d7534a201e3202a4d75a77b3009859088cb9357d25beda62af8b5355ae5b2",
+      "difficulty_score": 0.09108033493027133,
+      "episode_key": [
+        0,
+        7,
+        0
+      ],
+      "goal": [
+        0.03127423673868179,
+        -0.0027376848738640547
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 20,
+      "stratum": "intermediate",
+      "terrain_seed": 2456125862,
+      "terrain_type": "k_rail_field",
+      "view_index": 2485
+    },
+    {
+      "dem_sha256": "e2a559fa545a6c5a7e741a88b6eb27edcf8f6b92fd5057b371ea2ce52afc9100",
+      "difficulty_score": 0.12567230164934293,
+      "episode_key": [
+        0,
+        87,
+        0
+      ],
+      "goal": [
+        -0.6207600235939026,
+        -0.03467395901679993
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 80,
+      "stratum": "constrained",
+      "terrain_seed": 1241653061,
+      "terrain_type": "k_rail_field",
+      "view_index": 43401
+    },
+    {
+      "dem_sha256": "663dd0d6aafe678886d46108b5afcb580928da08dc70e12ef977e60e88741369",
+      "difficulty_score": 0.16282001221783804,
+      "episode_key": [
+        0,
+        96,
+        3
+      ],
+      "goal": [
+        -0.46550607681274414,
+        0.005863220896571875
+      ],
+      "local_step": 30,
+      "split": "train",
+      "step": 1230,
+      "stratum": "constrained",
+      "terrain_seed": 2956799243,
+      "terrain_type": "k_rail_field",
+      "view_index": 48566
+    },
+    {
+      "dem_sha256": "34e34e0b2eac21b3123f7e10fe328c825c16eca6055db7fda1591ebaeb974de1",
+      "difficulty_score": 0.14167763972943914,
+      "episode_key": [
+        0,
+        45,
+        2
+      ],
+      "goal": [
+        -0.5160660743713379,
+        0.13157740235328674
+      ],
+      "local_step": 35,
+      "split": "train",
+      "step": 835,
+      "stratum": "constrained",
+      "terrain_seed": 2664058961,
+      "terrain_type": "k_rail_field",
+      "view_index": 22476
+    },
+    {
+      "dem_sha256": "d1da7680cda122b74c412e3aae15fa5950a6c77f76174f2ed22fd16dc12b53da",
+      "difficulty_score": 0.07688023057137063,
+      "episode_key": [
+        0,
+        44,
+        3
+      ],
+      "goal": [
+        0.2437465488910675,
+        0.011416437104344368
+      ],
+      "local_step": 60,
+      "split": "train",
+      "step": 1260,
+      "stratum": "open",
+      "terrain_seed": 842950983,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21929
+    },
+    {
+      "dem_sha256": "208d123e0c063882328d4763f68b049aa9cb8f801a3b52dd095e5d76653cff42",
+      "difficulty_score": 0.0759634583829349,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "goal": [
+        0.4183064103126526,
+        0.0004786615027114749
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 50,
+      "stratum": "open",
+      "terrain_seed": 842950983,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21720
+    },
+    {
+      "dem_sha256": "537b29e783d096636508f698f989f1586f84af481fdf4c519e054dccfb78782c",
+      "difficulty_score": 0.04531756462864861,
+      "episode_key": [
+        0,
+        51,
+        0
+      ],
+      "goal": [
+        0.7233296036720276,
+        -0.08819065988063812
+      ],
+      "local_step": 55,
+      "split": "train",
+      "step": 55,
+      "stratum": "open",
+      "terrain_seed": 120620344,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 26058
+    },
+    {
+      "dem_sha256": "0bc53a669b1a75ff17dd9ea4e8547019dffa69db162add8cc4a5870587892f37",
+      "difficulty_score": 0.0974357139648422,
+      "episode_key": [
+        0,
+        8,
+        1
+      ],
+      "goal": [
+        0.0005869665765203536,
+        0.0009796874364838004
+      ],
+      "local_step": 65,
+      "split": "train",
+      "step": 465,
+      "stratum": "intermediate",
+      "terrain_seed": 4092162367,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 3173
+    },
+    {
+      "dem_sha256": "5d7c6283d3e668b1478ea2c6d15b9be8cc9d29accb287a3cc89ae83d0e31d277",
+      "difficulty_score": 0.10226710620983144,
+      "episode_key": [
+        0,
+        34,
+        2
+      ],
+      "goal": [
+        0.7543814778327942,
+        -0.26628658175468445
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 880,
+      "stratum": "intermediate",
+      "terrain_seed": 3405522940,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 16275
+    },
+    {
+      "dem_sha256": "82d45f29d33ea23a4a69cd652378f674da1dbed031666660b720772da42e78e2",
+      "difficulty_score": 0.14775982114509026,
+      "episode_key": [
+        0,
+        14,
+        2
+      ],
+      "goal": [
+        -0.41979196667671204,
+        0.026238948106765747
+      ],
+      "local_step": 65,
+      "split": "train",
+      "step": 865,
+      "stratum": "constrained",
+      "terrain_seed": 3135476542,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 6336
+    },
+    {
+      "dem_sha256": "51449818adcb7c825046563d219767105de4198721c7296b4abaaa8b7e313fda",
+      "difficulty_score": 0.13815372058835446,
+      "episode_key": [
+        0,
+        44,
+        2
+      ],
+      "goal": [
+        -0.12436459958553314,
+        0.03001011535525322
+      ],
+      "local_step": 70,
+      "split": "train",
+      "step": 870,
+      "stratum": "constrained",
+      "terrain_seed": 842950983,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21862
+    },
+    {
+      "dem_sha256": "994f7e4c458bc0b7109213a3a30ee9ecc4c44d4fa0ba81da16952d6cd60123c3",
+      "difficulty_score": 0.12706772599479407,
+      "episode_key": [
+        0,
+        67,
+        2
+      ],
+      "goal": [
+        0.797836184501648,
+        -0.058800116181373596
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 880,
+      "stratum": "constrained",
+      "terrain_seed": 3201468644,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 33642
+    },
+    {
+      "dem_sha256": "22fc98716e44d04eb3c67f2d565ec6e0543c237fa5e2641993d484591c2c5dee",
+      "difficulty_score": 0.022776866524803745,
+      "episode_key": [
+        0,
+        23,
+        0
+      ],
+      "goal": [
+        0.1271401345729828,
+        -0.022410523146390915
+      ],
+      "local_step": 25,
+      "split": "train",
+      "step": 25,
+      "stratum": "open",
+      "terrain_seed": 1669945027,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 10537
+    },
+    {
+      "dem_sha256": "c1d5d773beb9568d510e1075a127bccdd434e01fba1aaa5456b5c09af24c99c9",
+      "difficulty_score": 0.04202713729345568,
+      "episode_key": [
+        0,
+        69,
+        3
+      ],
+      "goal": [
+        0.2427658885717392,
+        -0.011427298188209534
+      ],
+      "local_step": 55,
+      "split": "train",
+      "step": 1255,
+      "stratum": "open",
+      "terrain_seed": 3354825475,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 34327
+    },
+    {
+      "dem_sha256": "049111250f181fa0474d13347b942a5fb4bb29503a46a33bb56763c92947b3ce",
+      "difficulty_score": 0.05515131360450681,
+      "episode_key": [
+        0,
+        74,
+        1
+      ],
+      "goal": [
+        0.3891018033027649,
+        0.013081560842692852
+      ],
+      "local_step": 55,
+      "split": "train",
+      "step": 455,
+      "stratum": "open",
+      "terrain_seed": 3488754881,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 36673
+    },
+    {
+      "dem_sha256": "37f39f017e4ee586d1e1d5f60a3226259647b6872e1a2fcbae5278877d5a847e",
+      "difficulty_score": 0.09181207110704548,
+      "episode_key": [
+        0,
+        80,
+        3
+      ],
+      "goal": [
+        -0.7999441623687744,
+        0.009446116164326668
+      ],
+      "local_step": 65,
+      "split": "train",
+      "step": 1265,
+      "stratum": "intermediate",
+      "terrain_seed": 3030003831,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 40522
+    },
+    {
+      "dem_sha256": "496edd7c8b42f2246a4b2ee074daa5b6a64bd0f2f78792b5bb5c990d7de46acb",
+      "difficulty_score": 0.08295480292933405,
+      "episode_key": [
+        0,
+        75,
+        1
+      ],
+      "goal": [
+        -0.5564351677894592,
+        0.08660687506198883
+      ],
+      "local_step": 25,
+      "split": "train",
+      "step": 425,
+      "stratum": "intermediate",
+      "terrain_seed": 801025056,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 37285
+    },
+    {
+      "dem_sha256": "1893e66a9df27eb6fb269dc54b3d7ea6da41f11c45bc513b6d3f937b6fde42b4",
+      "difficulty_score": 0.12307540045035101,
+      "episode_key": [
+        0,
+        75,
+        2
+      ],
+      "goal": [
+        0.7906129956245422,
+        -0.12219273298978806
+      ],
+      "local_step": 60,
+      "split": "train",
+      "step": 860,
+      "stratum": "constrained",
+      "terrain_seed": 801025056,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 37361
+    },
+    {
+      "dem_sha256": "b197b292bf57f41d8f8d69516b9dba800f16bb73a0aab8f9705150786774f419",
+      "difficulty_score": 0.11692947941780937,
+      "episode_key": [
+        0,
+        23,
+        2
+      ],
+      "goal": [
+        -0.4994393587112427,
+        0.12389595061540604
+      ],
+      "local_step": 35,
+      "split": "train",
+      "step": 835,
+      "stratum": "constrained",
+      "terrain_seed": 1669945027,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 10677
+    },
+    {
+      "dem_sha256": "465f3f77d7b93fb3509c3ab4273a3ff58a761f1ebe8c9106582f7216741391e3",
+      "difficulty_score": 0.1600862189599221,
+      "episode_key": [
+        0,
+        26,
+        3
+      ],
+      "goal": [
+        -0.4128417372703552,
+        0.09076432883739471
+      ],
+      "local_step": 45,
+      "split": "train",
+      "step": 1245,
+      "stratum": "constrained",
+      "terrain_seed": 666010005,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11990
+    },
+    {
+      "dem_sha256": "93868a4d4edb13a4762b18464357ee658227afa2d80f362ee4bf21c4205fedb5",
+      "difficulty_score": 0.04341191430624926,
+      "episode_key": [
+        0,
+        29,
+        1
+      ],
+      "goal": [
+        0.196888729929924,
+        -0.017512593418359756
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 480,
+      "stratum": "open",
+      "terrain_seed": 993084048,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 13101
+    },
+    {
+      "dem_sha256": "bbf5d305bc34ecd7b58a701104857a44393ae9e36fabaab7c3f9d9b84f970260",
+      "difficulty_score": 0.04219498389408722,
+      "episode_key": [
+        0,
+        72,
+        2
+      ],
+      "goal": [
+        0.7440487146377563,
+        0.03537071496248245
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 820,
+      "stratum": "open",
+      "terrain_seed": 2467317982,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 35493
+    },
+    {
+      "dem_sha256": "f819711db2c9f4922680cca2582adbf9fbe87ad87f8cc09513152388b2782da7",
+      "difficulty_score": 0.024010650654717,
+      "episode_key": [
+        0,
+        56,
+        0
+      ],
+      "goal": [
+        0.7747336030006409,
+        0.19946877658367157
+      ],
+      "local_step": 60,
+      "split": "train",
+      "step": 60,
+      "stratum": "open",
+      "terrain_seed": 1829651817,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 29164
+    },
+    {
+      "dem_sha256": "5cb42bc6897aae745e031bdaa4f28776831a1980f7fec5489f414f59b7fc8ecb",
+      "difficulty_score": 0.09193645848936392,
+      "episode_key": [
+        0,
+        64,
+        1
+      ],
+      "goal": [
+        0.1759975105524063,
+        0.016989676281809807
+      ],
+      "local_step": 35,
+      "split": "train",
+      "step": 435,
+      "stratum": "intermediate",
+      "terrain_seed": 3834207868,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 32943
+    },
+    {
+      "dem_sha256": "f79acadab167932ab1f215923620044294706d7e4a98e5e5fc35dd79fe6fe23d",
+      "difficulty_score": 0.08800674547324516,
+      "episode_key": [
+        0,
+        56,
+        1
+      ],
+      "goal": [
+        0.15179768204689026,
+        0.03434687480330467
+      ],
+      "local_step": 55,
+      "split": "train",
+      "step": 455,
+      "stratum": "intermediate",
+      "terrain_seed": 1829651817,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 29232
+    },
+    {
+      "dem_sha256": "f595281965748b0355f9f2f2f1efc3982aa517a4cac803928286355bef4fe4d0",
+      "difficulty_score": 0.21157899363054414,
+      "episode_key": [
+        0,
+        2,
+        2
+      ],
+      "goal": [
+        0.5247194170951843,
+        -0.060305312275886536
+      ],
+      "local_step": 40,
+      "split": "train",
+      "step": 840,
+      "stratum": "constrained",
+      "terrain_seed": 2922780060,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 764
+    },
+    {
+      "dem_sha256": "bf134254e7260dac4c7226751eadb5b838e0be027425aacfe58f27e3facdc8c4",
+      "difficulty_score": 0.13619946161763918,
+      "episode_key": [
+        0,
+        84,
+        0
+      ],
+      "goal": [
+        0.21570883691310883,
+        0.012987097725272179
+      ],
+      "local_step": 50,
+      "split": "train",
+      "step": 50,
+      "stratum": "constrained",
+      "terrain_seed": 3841530651,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 42774
+    },
+    {
+      "dem_sha256": "27d27b34e887e8578e84ea3c980fcc536324066ac86b6a1527db29b4e852f6b3",
+      "difficulty_score": 0.13251090264302298,
+      "episode_key": [
+        0,
+        84,
+        3
+      ],
+      "goal": [
+        0.636067271232605,
+        0.160965695977211
+      ],
+      "local_step": 60,
+      "split": "train",
+      "step": 1260,
+      "stratum": "constrained",
+      "terrain_seed": 3841530651,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 42983
+    },
+    {
+      "dem_sha256": "34ae7cccc9b43bf97364d07bd66a815c18f058039ef22f3fd3182b21c721ca45",
+      "difficulty_score": 0.04224203015800389,
+      "episode_key": [
+        0,
+        35,
+        1
+      ],
+      "goal": [
+        0.7115561366081238,
+        -0.08000835031270981
+      ],
+      "local_step": 60,
+      "split": "train",
+      "step": 460,
+      "stratum": "open",
+      "terrain_seed": 4154467705,
+      "terrain_type": "random_rough",
+      "view_index": 16823
+    },
+    {
+      "dem_sha256": "4c8b0b8c619ac5117886135e35e248e910240e5adcee99170754e79b6fc7087c",
+      "difficulty_score": 0.04463771834783664,
+      "episode_key": [
+        0,
+        35,
+        2
+      ],
+      "goal": [
+        0.7998251914978027,
+        0.01672355830669403
+      ],
+      "local_step": 35,
+      "split": "train",
+      "step": 835,
+      "stratum": "open",
+      "terrain_seed": 4154467705,
+      "terrain_type": "random_rough",
+      "view_index": 16887
+    },
+    {
+      "dem_sha256": "7e48938a24501b656c35e3c671b601544b6bc569e5ec4a2300a9ed2822dcebf0",
+      "difficulty_score": 0.04938212963353995,
+      "episode_key": [
+        0,
+        50,
+        1
+      ],
+      "goal": [
+        0.5457925796508789,
+        -0.09994819015264511
+      ],
+      "local_step": 70,
+      "split": "train",
+      "step": 470,
+      "stratum": "open",
+      "terrain_seed": 3563186245,
+      "terrain_type": "random_rough",
+      "view_index": 25509
+    },
+    {
+      "dem_sha256": "1060a32c3b12984d5ba345638fce10fd8d410b9f29a30797c64683499ffa0999",
+      "difficulty_score": 0.06066564968336225,
+      "episode_key": [
+        0,
+        35,
+        0
+      ],
+      "goal": [
+        0.35750308632850647,
+        -0.058244481682777405
+      ],
+      "local_step": 40,
+      "split": "train",
+      "step": 40,
+      "stratum": "intermediate",
+      "terrain_seed": 4154467705,
+      "terrain_type": "random_rough",
+      "view_index": 16750
+    },
+    {
+      "dem_sha256": "2bd98bebd8b035f29ba3c748231dc71dd3b19e953e405aeefcfa3e5f9ec66d6a",
+      "difficulty_score": 0.06382233721072247,
+      "episode_key": [
+        0,
+        95,
+        2
+      ],
+      "goal": [
+        0.7998569011688232,
+        0.01513301394879818
+      ],
+      "local_step": 80,
+      "split": "train",
+      "step": 880,
+      "stratum": "intermediate",
+      "terrain_seed": 3544472891,
+      "terrain_type": "random_rough",
+      "view_index": 47886
+    },
+    {
+      "dem_sha256": "3fc074cf04050c8c3da7ec05ec988b791fcd6476bee0912fdca29e25969037e3",
+      "difficulty_score": 0.06932875189708478,
+      "episode_key": [
+        0,
+        30,
+        1
+      ],
+      "goal": [
+        0.1756255030632019,
+        -0.09023478627204895
+      ],
+      "local_step": 20,
+      "split": "train",
+      "step": 420,
+      "stratum": "constrained",
+      "terrain_seed": 81745809,
+      "terrain_type": "random_rough",
+      "view_index": 13710
+    },
+    {
+      "dem_sha256": "25c5059eeec58e13b9556fb6419cc2dfd258974137b1b2ea9accee9b8350402c",
+      "difficulty_score": 0.10764835181330978,
+      "episode_key": [
+        0,
+        30,
+        0
+      ],
+      "goal": [
+        -0.7983278632164001,
+        0.0516965314745903
+      ],
+      "local_step": 40,
+      "split": "train",
+      "step": 40,
+      "stratum": "constrained",
+      "terrain_seed": 81745809,
+      "terrain_type": "random_rough",
+      "view_index": 13645
+    },
+    {
+      "dem_sha256": "a2ae1054161e4d063bf600b4dab46f3c6d33f9c0b7b643702cecb593f8d70ede",
+      "difficulty_score": 0.10580277320129103,
+      "episode_key": [
+        0,
+        35,
+        3
+      ],
+      "goal": [
+        -0.5711728930473328,
+        0.08161325007677078
+      ],
+      "local_step": 75,
+      "split": "train",
+      "step": 1275,
+      "stratum": "constrained",
+      "terrain_seed": 4154467705,
+      "terrain_type": "random_rough",
+      "view_index": 16964
+    }
+  ],
+  "validation": [
+    {
+      "dem_sha256": "cbf98faf50beecc4e3252feb8d82c7bd9bdec25f96d8b24938ffb7ca4f1eb591",
+      "difficulty_score": 0.038134047886443846,
+      "episode_key": [
+        0,
+        61,
+        0
+      ],
+      "goal": [
+        0.24825561046600342,
+        0.0014342713402584195
+      ],
+      "local_step": 25,
+      "split": "val",
+      "step": 25,
+      "stratum": "open",
+      "terrain_seed": 3289712111,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 3090
+    },
+    {
+      "dem_sha256": "86b0fc02dc4cb83d57a95332a39eeb66bde7ec3f52b3d8ee7479c95cfb93492f",
+      "difficulty_score": 0.024849710891256517,
+      "episode_key": [
+        0,
+        61,
+        3
+      ],
+      "goal": [
+        0.7985104918479919,
+        -0.04879571124911308
+      ],
+      "local_step": 20,
+      "split": "val",
+      "step": 1220,
+      "stratum": "open",
+      "terrain_seed": 3289712111,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 3296
+    },
+    {
+      "dem_sha256": "c76adae41c96ba9b0af6492a4a1f584fc7542a94f47fd33610dfc2303c8e3961",
+      "difficulty_score": 0.051039392171231435,
+      "episode_key": [
+        0,
+        27,
+        2
+      ],
+      "goal": [
+        0.05015687644481659,
+        -0.00639454135671258
+      ],
+      "local_step": 45,
+      "split": "val",
+      "step": 845,
+      "stratum": "intermediate",
+      "terrain_seed": 216588317,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 2611
+    },
+    {
+      "dem_sha256": "13222ccbc1268434903886cd03dfc9f4e80f80a6670fb660ec7e1e7a8a52ec8c",
+      "difficulty_score": 0.09049576636069273,
+      "episode_key": [
+        0,
+        27,
+        0
+      ],
+      "goal": [
+        -0.17639872431755066,
+        0.016802839934825897
+      ],
+      "local_step": 65,
+      "split": "val",
+      "step": 65,
+      "stratum": "constrained",
+      "terrain_seed": 216588317,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 2477
+    },
+    {
+      "dem_sha256": "0952fd8d42d69e1b2e22880eb8e558532b923cc85394e427525448bc459447e2",
+      "difficulty_score": 0.09759371295566682,
+      "episode_key": [
+        0,
+        4,
+        1
+      ],
+      "goal": [
+        0.7856938242912292,
+        -0.15061579644680023
+      ],
+      "local_step": 35,
+      "split": "val",
+      "step": 435,
+      "stratum": "intermediate",
+      "terrain_seed": 668662062,
+      "terrain_type": "k_rail_field",
+      "view_index": 694
+    },
+    {
+      "dem_sha256": "940be1e3ba3a8d9dac8d3b2435c190ac47f83711244dba6ce0d2c9d3a19b8c38",
+      "difficulty_score": 0.14302728837126244,
+      "episode_key": [
+        0,
+        4,
+        2
+      ],
+      "goal": [
+        -0.14466078579425812,
+        -0.024252738803625107
+      ],
+      "local_step": 45,
+      "split": "val",
+      "step": 845,
+      "stratum": "constrained",
+      "terrain_seed": 668662062,
+      "terrain_type": "k_rail_field",
+      "view_index": 765
+    },
+    {
+      "dem_sha256": "492a12c6fdc8c033af61732f2fd1b1b26b2cf9dc205760192140dd64edee8c5f",
+      "difficulty_score": 0.11842164669401203,
+      "episode_key": [
+        0,
+        15,
+        0
+      ],
+      "goal": [
+        0.18609599769115448,
+        -0.011247623711824417
+      ],
+      "local_step": 50,
+      "split": "val",
+      "step": 50,
+      "stratum": "intermediate",
+      "terrain_seed": 494135963,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 1870
+    },
+    {
+      "dem_sha256": "cba119b12c0ddd4949ff7b13535cdd3b50286e10d4396ce47f27974dfeb4c5c9",
+      "difficulty_score": 0.16435364110779666,
+      "episode_key": [
+        0,
+        15,
+        1
+      ],
+      "goal": [
+        -0.033018000423908234,
+        0.0876198410987854
+      ],
+      "local_step": 30,
+      "split": "val",
+      "step": 430,
+      "stratum": "constrained",
+      "terrain_seed": 494135963,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 1935
+    },
+    {
+      "dem_sha256": "b013c3bb9a61f7b96db84d14159dd6ad993c1016cea0eeb2e4603d6effd79c32",
+      "difficulty_score": 0.04289694829109679,
+      "episode_key": [
+        0,
+        68,
+        1
+      ],
+      "goal": [
+        0.12357170879840851,
+        0.006971503607928753
+      ],
+      "local_step": 70,
+      "split": "val",
+      "step": 470,
+      "stratum": "open",
+      "terrain_seed": 1365694772,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 3789
+    },
+    {
+      "dem_sha256": "33f60b56f807f349adad7e8affb70999a34664af1c164aba55b0669b1bf2c3da",
+      "difficulty_score": 0.023278056177714307,
+      "episode_key": [
+        0,
+        92,
+        1
+      ],
+      "goal": [
+        0.12048540264368057,
+        -0.02517291158437729
+      ],
+      "local_step": 30,
+      "split": "val",
+      "step": 430,
+      "stratum": "open",
+      "terrain_seed": 2903329985,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 5012
+    },
+    {
+      "dem_sha256": "4ee123b55920b8fd6ab9f4233c276dfa6e3bbff401babd8d97a24dbb7054a6f9",
+      "difficulty_score": 0.08831886960101842,
+      "episode_key": [
+        0,
+        99,
+        2
+      ],
+      "goal": [
+        -0.04889760538935661,
+        0.011515780352056026
+      ],
+      "local_step": 70,
+      "split": "val",
+      "step": 870,
+      "stratum": "intermediate",
+      "terrain_seed": 1876029471,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 5699
+    },
+    {
+      "dem_sha256": "4b6237618cb9980f79bd254371f79bfac99b344151602ca7858b278964e94665",
+      "difficulty_score": 0.13779686456945428,
+      "episode_key": [
+        0,
+        99,
+        0
+      ],
+      "goal": [
+        -0.02436717040836811,
+        -0.0022626640275120735
+      ],
+      "local_step": 50,
+      "split": "val",
+      "step": 50,
+      "stratum": "constrained",
+      "terrain_seed": 1876029471,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 5557
+    },
+    {
+      "dem_sha256": "ef1a8df9accabd8a00b9531c6f3889107b755275f82ef133c1c0e089803475c5",
+      "difficulty_score": 0.03361558577744296,
+      "episode_key": [
+        0,
+        12,
+        3
+      ],
+      "goal": [
+        0.4862495958805084,
+        -0.049529045820236206
+      ],
+      "local_step": 70,
+      "split": "val",
+      "step": 1270,
+      "stratum": "open",
+      "terrain_seed": 386364851,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 1460
+    },
+    {
+      "dem_sha256": "fedbd6df060da227d5007aa5e4f4f71fd82dc0712fbd4fa21be48fec787c6e9f",
+      "difficulty_score": 0.055547723498331904,
+      "episode_key": [
+        0,
+        1,
+        1
+      ],
+      "goal": [
+        0.7996101379394531,
+        -0.02497238852083683
+      ],
+      "local_step": 50,
+      "split": "val",
+      "step": 450,
+      "stratum": "open",
+      "terrain_seed": 1917560605,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 76
+    },
+    {
+      "dem_sha256": "5931a289820161ed1645f7f0efff36c44edd01ffff150b7cc82bc0dc8cd56ffc",
+      "difficulty_score": 0.06577968610030094,
+      "episode_key": [
+        0,
+        1,
+        3
+      ],
+      "goal": [
+        -0.13212206959724426,
+        0.03587992861866951
+      ],
+      "local_step": 30,
+      "split": "val",
+      "step": 1230,
+      "stratum": "intermediate",
+      "terrain_seed": 1917560605,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 210
+    },
+    {
+      "dem_sha256": "ff74e4b78eedbc1944a13587077c439bf110e2ef129eda341c21af0f48290899",
+      "difficulty_score": 0.10141364616809971,
+      "episode_key": [
+        0,
+        1,
+        0
+      ],
+      "goal": [
+        -0.06008140742778778,
+        -0.013176503591239452
+      ],
+      "local_step": 60,
+      "split": "val",
+      "step": 60,
+      "stratum": "constrained",
+      "terrain_seed": 1917560605,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 9
+    },
+    {
+      "dem_sha256": "ee17ba61d3e4a2daa32518f7593d9059a1cf4f5c8e30265dc3dbcdfd1cd0439c",
+      "difficulty_score": 0.04026233044446718,
+      "episode_key": [
+        0,
+        86,
+        3
+      ],
+      "goal": [
+        0.21190941333770752,
+        0.00687994621694088
+      ],
+      "local_step": 25,
+      "split": "val",
+      "step": 1225,
+      "stratum": "open",
+      "terrain_seed": 3232424643,
+      "terrain_type": "random_rough",
+      "view_index": 4528
+    },
+    {
+      "dem_sha256": "342f8250b3fe156a44dc79d04e186976d36db2ac17f6973bf29c27edcf7710e8",
+      "difficulty_score": 0.0415930387766392,
+      "episode_key": [
+        0,
+        86,
+        0
+      ],
+      "goal": [
+        0.05672450736165047,
+        -0.013282312080264091
+      ],
+      "local_step": 40,
+      "split": "val",
+      "step": 40,
+      "stratum": "open",
+      "terrain_seed": 3232424643,
+      "terrain_type": "random_rough",
+      "view_index": 4324
+    },
+    {
+      "dem_sha256": "3958cd059e60e9cdae28a28267ec5f3949bf48f8a743bc56f80cf83a10bcd93c",
+      "difficulty_score": 0.06533745573691982,
+      "episode_key": [
+        0,
+        86,
+        1
+      ],
+      "goal": [
+        0.1469440460205078,
+        -0.057808902114629745
+      ],
+      "local_step": 70,
+      "split": "val",
+      "step": 470,
+      "stratum": "intermediate",
+      "terrain_seed": 3232424643,
+      "terrain_type": "random_rough",
+      "view_index": 4399
+    },
+    {
+      "dem_sha256": "90b89ae16993d4b882ab0adba2f547867316f02d0498688c7af2e010b592042d",
+      "difficulty_score": 0.1072913044273664,
+      "episode_key": [
+        0,
+        86,
+        2
+      ],
+      "goal": [
+        -0.2999357283115387,
+        0.030886560678482056
+      ],
+      "local_step": 35,
+      "split": "val",
+      "step": 835,
+      "stratum": "constrained",
+      "terrain_seed": 3232424643,
+      "terrain_type": "random_rough",
+      "view_index": 4461
+    }
+  ]
+}

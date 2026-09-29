@@ -1,0 +1,102 @@
+{
+  "baseline_anchor_snapshot_available": false,
+  "baseline_anchor_snapshot_note": "failed run saved root/DEM error and post-action trace, but did not serialize all anchor joint, buffer, contact, raycast or RNG fields; these cannot be recovered retrospectively",
+  "classification": "measurement_invalid",
+  "duplicate_xy_rms_m": 0.023660780874393553,
+  "files_sha256": {
+    "019.json": "c7af94331fb4dab4241715eeba1c04831603d7425d3a6375cc05947966928b0e",
+    "019.traces.json.gz": "017a31dd2ac608f4561346ac5f2055069ae7019d25c525e945350918e775624a",
+    "bridge-source.py": "46176a10d8da1b9dddbcec3586e0d93000225dd46519d9c481241afffcf61ff1",
+    "command-distinctness.json": "d35694fd4547ff73dc990a10b20a1bbf299cf0c0f2df213266acdfad69a7c3b2",
+    "execution-source-provenance-smoke5.json": "13c6e4dcb68f773e26bcfc234f7f4057d8cddee54538da77b75a7c8a3559b3bc",
+    "execution-source-provenance.json": "b32f55959e9ff22516cd2e7c3bf6f377454edbeb05ab53be3ee1b3b9784ab8de",
+    "feasible-set-config.yaml": "3c3e44b0d3376eddbda853096eb6321ac0fa8f6db774f409951abd2133ea8116",
+    "logged-anchor.json": "896377de9189c50d3a280ed7cfd982977cbb40693a30aba778f5be59fbeaa3c4",
+    "maneuver-bank.npz": "9f6274c8e4dce8ea672869ec7633f3e61e1f1986f619378c8120066bea523921",
+    "nominal-path-base.json": "8caecba3e680c67a711f9b54259ebe5a8cd6d399ab0d1f789d874e82bc121316",
+    "prefix-actions.npz": "1088a472756e397775c39af34b74eb525f20153c98ece3b04001841685acdbe9",
+    "ros-bridge.log": "45b64a731f4cc0510eed7c99c26c94c660bfd5eed45ffc5e3f5f0918917a5b8f",
+    "runner-source.py": "a349f8ea1c887d7ee55a43f497f5529d6a99a224c3c6ce5bd9bb5966641beb15",
+    "simulator-smoke.log": "39743e9940a1cae62caff24086f89717f72708baa600908e3aa38376e7d4fa59",
+    "snapshot-source.py": "7ff7cfd9cab42e7167a9995f23a08823d110587910e6b94755476e9c5abdb01c",
+    "state-selection.json": "ed3b8c860bb5ce37fb3d62e0433d5928725ff5649fcac272b44a743c62ddeb13"
+  },
+  "frozen_limit_m": 0.0105,
+  "logged_anchor": {
+    "command": [
+      0.17690689861774445,
+      0.0,
+      0.18526434898376465
+    ],
+    "contact_force_max": 298.7903747558594,
+    "critic_value": 37.69297409057617,
+    "pose": [
+      35.949195861816406,
+      11.842756271362305,
+      0.3365687131881714,
+      0.3280225098133087,
+      -0.0013840358005836606,
+      -0.021244686096906662,
+      -0.9444299340248108
+    ],
+    "reward": 0.42006006836891174,
+    "twist": [
+      -0.11741001158952713,
+      -0.08601117134094238,
+      0.01725965179502964,
+      -0.0763259008526802,
+      -0.1916678100824356,
+      0.09147520363330841
+    ],
+    "yaw": -2.4733409881591797
+  },
+  "map_frame_path_at_failed_run_saved": false,
+  "name": "duplicate-failure-baseline",
+  "nominal_path_base_sha256": "8caecba3e680c67a711f9b54259ebe5a8cd6d399ab0d1f789d874e82bc121316",
+  "path_json_available": true,
+  "prefix_actions_sha256": "1088a472756e397775c39af34b74eb525f20153c98ece3b04001841685acdbe9",
+  "run_order": [
+    "duplicate_0",
+    "duplicate_1",
+    "duplicate_2",
+    "slight_left",
+    "nominal",
+    "strong_left",
+    "strong_right",
+    "slight_right"
+  ],
+  "source_sha256": {
+    "maneuver_bank": "fad5977d2c4ad014e3ef9d9cd9fa006929d8ad45133fa83246d694e12e1d87c6",
+    "maneuvers": "9f6274c8e4dce8ea672869ec7633f3e61e1f1986f619378c8120066bea523921",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "phase_c_sim_source": "a9f7f6a1c6378bba9582218decf048fdf00edc8698d8732cb4e4575859a5ba75",
+    "precheck": "d35694fd4547ff73dc990a10b20a1bbf299cf0c0f2df213266acdfad69a7c3b2",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992",
+    "rl_checkpoint": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+    "runner_source": "a349f8ea1c887d7ee55a43f497f5529d6a99a224c3c6ce5bd9bb5966641beb15",
+    "selection": "ed3b8c860bb5ce37fb3d62e0433d5928725ff5649fcac272b44a743c62ddeb13",
+    "spec": "3c3e44b0d3376eddbda853096eb6321ac0fa8f6db774f409951abd2133ea8116",
+    "state_source": "7ff7cfd9cab42e7167a9995f23a08823d110587910e6b94755476e9c5abdb01c"
+  },
+  "state": {
+    "dem_sha256": "55b3f62331871f93dafeff8c99dbc80e4f2077db69976fed8b559975628ef704",
+    "difficulty_score": 0.1089738042882821,
+    "episode_key": [
+      0,
+      96,
+      0
+    ],
+    "goal": [
+      0.6637150049209595,
+      0.050114214420318604
+    ],
+    "local_step": 20,
+    "split": "train",
+    "step": 20,
+    "stratum": "intermediate",
+    "terrain_seed": 2956799243,
+    "terrain_type": "k_rail_field",
+    "view_index": 48357
+  },
+  "trace_sha256": "017a31dd2ac608f4561346ac5f2055069ae7019d25c525e945350918e775624a"
+}

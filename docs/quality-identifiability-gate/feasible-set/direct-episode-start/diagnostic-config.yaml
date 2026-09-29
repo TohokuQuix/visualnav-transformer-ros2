@@ -1,0 +1,42 @@
+base_seed: 123
+comparison_state_indices:
+- 42
+- 7
+direct_start_strategy: same 100-env scene; normal initial reset, then target-env-only
+  reset episode_id times without physics; replay recorded local actions
+forbidden:
+- candidate_rollout_before_comparison_pass
+- same_process_snapshot_restore
+- formal_56_train
+- formal_20_validation
+- model_or_follower_changes
+input_freeze_sha256:
+  7: 026eea266a9a66b9d904d7b4ea820b33ac21e514546efb7145af0da331acf02e
+  42: 4211e12944d68265fb73c8236a01a74cde7785b89f79f08290095c5366c31e7b
+nominal_only_before_gate: true
+num_envs: 100
+schema_version: 1
+snapshot_restore_used: false
+tolerances:
+  action: 0.0001
+  command: 0.0001
+  contact: 0.001
+  critic: 0.0001
+  delay: 0.0001
+  dem: 0.001
+  exact: 0.0
+  joint: 0.0001
+  latent: 0.0001
+  observation: 0.0001
+  orientation_rad: 0.001
+  reward: 0.0001
+  root: 0.001
+  xy_rms: 0.0105
+v2_selection_if_failed:
+  complete_only: true
+  episode_cap: 1
+  episode_local_prefix_max_steps: 80
+  goal_distance_min_m: 0.3
+  na_reason: NA / no state within runtime budget
+  seed: 20260929
+  split: train

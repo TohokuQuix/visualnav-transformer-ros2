@@ -1,0 +1,136 @@
+{
+  "bridge_source_sha256": "46176a10d8da1b9dddbcec3586e0d93000225dd46519d9c481241afffcf61ff1",
+  "confirmed_cause": "The failed procedure reused a simulator process and incomplete snapshot restore. Replaying the same recorded episode prefix in three independent fresh processes removed the duplicate variation (true XY RMS 0.01694 m to 0.0 m). This identifies the restore procedure as the differing causal region; the specific hidden state is not identified.",
+  "failure_baseline_source": "docs/quality-identifiability-gate/feasible-set/duplicate-recovery/failure-baseline.json",
+  "known_good_source": "docs/quality-identifiability-gate/phase-c-remediation/serial-replay-validation.json",
+  "not_yet_proven": "Which uncopied contact, sensor, latency, observation, clock, or controller state in the snapshot restore first caused the prior pre-noise last-action discrepancy; fresh-prefix first-divergence has no differing signal.",
+  "prior_phase_c_sim_source_sha256": "a9f7f6a1c6378bba9582218decf048fdf00edc8698d8732cb4e4575859a5ba75",
+  "rows": [
+    {
+      "evidence_status": "confirmed from prior report/runner and failed runner",
+      "failed_case": "one process, 3 restore-and-replay cases",
+      "field": "simulator process",
+      "known_good": "independent fresh process for each of 5 measurements"
+    },
+    {
+      "evidence_status": "confirmed from artifacts",
+      "failed_case": "96 for each restore case",
+      "field": "env index",
+      "known_good": "0 for each measurement"
+    },
+    {
+      "evidence_status": "confirmed from config and frozen state",
+      "failed_case": "original 100-tile collection terrain, k_rail_field, seed 2956799243",
+      "field": "terrain",
+      "known_good": "8-branch identical-terrain smoke with fixed terrain type/difficulty"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "env.reset once, then same-scene snapshot.restore at anchor",
+      "field": "episode reset",
+      "known_good": "env.reset then clone env 0 into 7 branches at initial state"
+    },
+    {
+      "evidence_status": "confirmed from source and frozen prefix",
+      "failed_case": "21-step original all-env logged action prefix; natural command sampler",
+      "field": "anchor construction",
+      "known_good": "15-step recorded command/action prefix from a prior trace"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "yes, 21 steps once before repeated snapshot restores",
+      "field": "prefix replay",
+      "known_good": "yes, 15 steps per fresh process"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "yes, including visible tensors/RNG but excluding PhysX/contact/raycaster/clock/follower state",
+      "field": "snapshot restore at anchor",
+      "known_good": "no"
+    },
+    {
+      "evidence_status": "confirmed from source and fresh anchor",
+      "failed_case": "logged all-env action; natural per-env command, matched logged env 96",
+      "field": "command and action prefix",
+      "known_good": "recorded command override and repeated branch-0 recorded action"
+    },
+    {
+      "evidence_status": "confirmed from source; failed trace had initial pre-noise mismatch",
+      "failed_case": "saved/restored Python, NumPy, CPU/CUDA RNG in same process",
+      "field": "observation noise RNG",
+      "known_good": "new simulator process/seed each repeat"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "ring tensors/pointer copied at anchor; hidden sensor/clock state not copied",
+      "field": "latency buffer",
+      "known_good": "naturally advanced by 15-step prefix"
+    },
+    {
+      "evidence_status": "same bridge SHA and source",
+      "failed_case": "bridge reset starts 8 follower processes for each case",
+      "field": "controller startup",
+      "known_good": "bridge reset starts 8 follower processes"
+    },
+    {
+      "evidence_status": "bridge SHA 46176a10... identical",
+      "failed_case": "same code path",
+      "field": "subscriber wait",
+      "known_good": "wait for 8 Path subscribers then republish"
+    },
+    {
+      "evidence_status": "confirmed from source/artifacts; failed map bytes unverified",
+      "failed_case": "bank-fixed base Path transformed at anchor; actual map JSON not serialized in failed run",
+      "field": "Path publication",
+      "known_good": "fixed map Path JSON supplied to good run; republished after subscribers"
+    },
+    {
+      "evidence_status": "same source SHA; runtime timestamp values not logged",
+      "failed_case": "same bridge get_clock().now()",
+      "field": "TF timestamps",
+      "known_good": "bridge get_clock().now() at pose publication"
+    },
+    {
+      "evidence_status": "prior runtime uncertain; current observation verified",
+      "failed_case": "absent from ROS_DOMAIN_ID=77 topic list during recovery bridge",
+      "field": "/clock",
+      "known_good": "not captured in prior runtime logs"
+    },
+    {
+      "evidence_status": "prior binary SHA absent, parameter changes unverified",
+      "failed_case": "same current binary; create_wall_timer",
+      "field": "follower timer",
+      "known_good": "wall timer in same follower source family"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "same bridge step; failed case takes branch 0 of 8 identical Paths",
+      "field": "command sequence readout",
+      "known_good": "bridge step waits for fresh sequence across 8 branches"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "env.step inside torch.inference_mode; restore inside torch.inference_mode",
+      "field": "inference mode",
+      "known_good": "env.step inside torch.inference_mode"
+    },
+    {
+      "evidence_status": "confirmed from source",
+      "failed_case": "20-step warm-up once, then PhysX/contact/raycaster internals not restored",
+      "field": "contact/raycaster warm-up",
+      "known_good": "naturally advanced during every independent 15-step prefix"
+    },
+    {
+      "evidence_status": "confirmed from prior validation and failed trace",
+      "failed_case": "logged root/DEM matched once; three restored runs had pre-noise and Actor input mismatch at step 0",
+      "field": "anchor checks",
+      "known_good": "root/joints/Actor input/latent/Critic and DEM history exact across 5 fresh runs"
+    },
+    {
+      "evidence_status": "confirmed from saved result JSON",
+      "failed_case": "0.023660780874393553",
+      "field": "duplicate XY RMS m",
+      "known_good": "0.003500814279537074"
+    }
+  ]
+}

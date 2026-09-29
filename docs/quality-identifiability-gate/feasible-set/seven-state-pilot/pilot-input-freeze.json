@@ -1,0 +1,251 @@
+{
+  "source_sha256": {
+    "bank": "9f6274c8e4dce8ea672869ec7633f3e61e1f1986f619378c8120066bea523921",
+    "base_config": "dedc7596b55b1e46ccb3e2683d7d94be57ec897de96601a4f568ec2ae1f61442",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "pilot_selection": "9326aa57d44da2622db9005aed6bfd75027e4b850531e8c15ed4ac0baba986aa",
+    "selection": "ed3b8c860bb5ce37fb3d62e0433d5928725ff5649fcac272b44a743c62ddeb13"
+  },
+  "state_indices": [
+    7,
+    13,
+    17,
+    26,
+    37,
+    41,
+    50
+  ],
+  "states": {
+    "7": {
+      "config_sha256": "21f4350a29370342bfba399a73601465eb0ddfbeb5e5808e2ff2881943902e2a",
+      "logged_anchor_sha256": "63f95d0ea58b75fa3e9ff85fadc59060e778caa039f993a3f36a52ab87e22385",
+      "paths_sha256": {
+        "nominal": "5fac48d548cee62879cbb181614bc1f5cc5e336795e67017c91b43056ef67292",
+        "slight_left": "ac782f235917b4d778e479b0328ea33691663b4384b44318a65bad9bd9d8e426",
+        "slight_right": "587c0af64419623216a189642982cf6ca6bca0e67ff257168d9cf3048339d1d4",
+        "strong_left": "b13dadeba024e7a88297a2c198b0a50f2e725287dfec011d6b5a3578d6abe076",
+        "strong_right": "5cd59ac8307885715068d922b9389bdb8eb75b97dea3feee85008e698c55e57a"
+      },
+      "prefix_sha256": "dbe3ecc478bc2333434ebd86e09e94adccdc2cb3707246a1d2b8d8a2010f3494",
+      "state": {
+        "dem_sha256": "93d3945986277acd7c65cc592fd07b88e5db3bc4068981ceba1358a43e1c9e60",
+        "difficulty_score": 0.1451638866695696,
+        "episode_key": [
+          0,
+          52,
+          3
+        ],
+        "goal": [
+          -0.5028390288352966,
+          0.033521994948387146
+        ],
+        "local_step": 50,
+        "split": "train",
+        "step": 1250,
+        "stratum": "constrained",
+        "terrain_seed": 3455129400,
+        "terrain_type": "boxes",
+        "view_index": 26885
+      },
+      "suffix_sha256": "769f15adc3f98b5aceedeb88355b6d891211cc3a475d68ce7d5b67b8da6bb1fa"
+    },
+    "13": {
+      "config_sha256": "5dfa1b3f9b456b9c915859130beb3e8bc01796412529996408dd16fb2f858067",
+      "logged_anchor_sha256": "93a516c31c28a8105081cf5c085d50b820f873200e4e4d9aeb40f3d7ac320c8a",
+      "paths_sha256": {
+        "nominal": "22fb279dddee0d356f966ad39943190aab93ed685da35b561816d1e34ad3ea33",
+        "slight_left": "3dd207612584a6ffa9848bfa0e798034229aac3b4ae01675ec5af2053cf7bd8d",
+        "slight_right": "0c56bf4f6275730545d94e116313888358f443c7658c72fa8e5597e50ac5c425",
+        "strong_left": "4108ec9b242e8994e3a00958af426f027d3685e3dc86bb3b86e7ad7fb0b0ae23",
+        "strong_right": "9f0620f17719d867b31afefc9dfd7f19375757fbce9c0e2f276e0ad0a5cd28dc"
+      },
+      "prefix_sha256": "c05b0d7b56675366c57c5ad6420819d480789b5234c4ed406f9d5ad1d9072acb",
+      "state": {
+        "dem_sha256": "1353f74d63e0afb2be9a37e370c15d1f903bee5b7b2f02d699acc4638c5b6dcc",
+        "difficulty_score": 0.15050041317152274,
+        "episode_key": [
+          0,
+          88,
+          0
+        ],
+        "goal": [
+          0.7993913888931274,
+          -0.031200679019093513
+        ],
+        "local_step": 65,
+        "split": "train",
+        "step": 65,
+        "stratum": "constrained",
+        "terrain_seed": 790575650,
+        "terrain_type": "hf_pyramid_slope",
+        "view_index": 44019
+      },
+      "suffix_sha256": "ceab41fe1cbac203c10a696356e4ab1a7b17e087cfddb2cc64a143eaca99dece"
+    },
+    "17": {
+      "config_sha256": "a18c8c4f25f9a82a4909a1d09156e401f9b0df3590e646fcc2fce31ade7b575a",
+      "logged_anchor_sha256": "a830eb25ca789d1ccddd318b371fbc40fd0bf4a3b3e08c9e130089a6661b9867",
+      "paths_sha256": {
+        "nominal": "b09ec6fb9b5f4b9647e89e2be08e7fac36ab81c7648f021c3aed9a6c6883fbf0",
+        "slight_left": "f52f085d6ad8f4d312694e23c2b0545093a3d1b6c185135b2de87dee635552fa",
+        "slight_right": "edfe5371cb40926e105e5bedbb658108e914049498491a545ae9bdc6f8de4bb4",
+        "strong_left": "9bcb0cc3d7441ea217678757749e7b9cc4ed6d03c0b3aaf8246e0ab28646a5f4",
+        "strong_right": "269c61bfc7e13272a3a5cde2567b0994fbe4f9b0fae6b7f9cea04767a9bafa4f"
+      },
+      "prefix_sha256": "63a27e6d98def270d1070ef7ad5cc57b771de7af40c51b38bcd69b289bee15fe",
+      "state": {
+        "dem_sha256": "beb0dcfbc75df8a3ff4962c70909d85ac877be9de4e996635fada4b17efac59b",
+        "difficulty_score": 0.05656795335824207,
+        "episode_key": [
+          0,
+          59,
+          0
+        ],
+        "goal": [
+          0.563574492931366,
+          0.010585294105112553
+        ],
+        "local_step": 80,
+        "split": "train",
+        "step": 80,
+        "stratum": "open",
+        "terrain_seed": 1677631261,
+        "terrain_type": "k_rail_field",
+        "view_index": 30410
+      },
+      "suffix_sha256": "fa9e988d4b28f2302d2273abe595601c6a1e96e3d09d601237fb46f6795d304e"
+    },
+    "26": {
+      "config_sha256": "5789d0b7d88243c15b3252b7b14e75c3d8fa07b1591895e53a51d674e3a7a933",
+      "logged_anchor_sha256": "60bdd6555986351b8e348148eba7d530c61858055a8da378a8ae9bf8ef228501",
+      "paths_sha256": {
+        "nominal": "fb4341d4819b8794a80d3e3f46dd0e941db543b22034ed1f0f60a8b7f4fe5ae9",
+        "slight_left": "5fb3d22930731e67dcefac37cd0391900f2ea93da2f690cf600fbfb0729cd5a1",
+        "slight_right": "070c20c12c9de0b8b08021601029772641b38f4f108b8d3243829060fd0ee574",
+        "strong_left": "51908f0c98f36a1d9aebade743db60f9e7274da608ab216dbadcd505450ec4d1",
+        "strong_right": "37282a614efa208f0514744d4d769dbfc06686b265b2e50351dea6477883a080"
+      },
+      "prefix_sha256": "84b65fff2a4614431dfa89eef93da1c7e930259894789fac6ad9b76da2aae9f5",
+      "state": {
+        "dem_sha256": "537b29e783d096636508f698f989f1586f84af481fdf4c519e054dccfb78782c",
+        "difficulty_score": 0.04531756462864861,
+        "episode_key": [
+          0,
+          51,
+          0
+        ],
+        "goal": [
+          0.7233296036720276,
+          -0.08819065988063812
+        ],
+        "local_step": 55,
+        "split": "train",
+        "step": 55,
+        "stratum": "open",
+        "terrain_seed": 120620344,
+        "terrain_type": "k_rail_step_field",
+        "view_index": 26058
+      },
+      "suffix_sha256": "28c4100a5a86801c0720f41e906dac12ec0329ee525a68a060ebc16e07df6574"
+    },
+    "37": {
+      "config_sha256": "4ae348a484ed2644528f0ecbbc1baa4f06101c6a2012a24b821e335711c15da4",
+      "logged_anchor_sha256": "d077473c1b6587decfb4f527c17b3c907d3f2f1d9335d715975cef6162d9cc5c",
+      "paths_sha256": {
+        "nominal": "884095abe469445243a9c05821426b72708cdde539b4724e34d7dd7f12b97e18",
+        "slight_left": "61d77089712e7bc241eba2a91c6f60ce0bc57f5fe0cb1c8018e98af7956bb77d",
+        "slight_right": "e471fad2b264a5d39a4b6c3b8bfd30f5578ebe96cc5e793b3d4508d40a6b8775",
+        "strong_left": "7c97ecb471e3ab35db127b8a8d68fe007bfcc485480fb4dda3f9524bea80674d",
+        "strong_right": "ebc5235239ab059f002f4d444f028847d293406e9f5429d1ef6be6f61323425b"
+      },
+      "prefix_sha256": "abf146929986a0ce0f228731467ca8c80d4f46e820aa1f2545b51f9f4ffd672c",
+      "state": {
+        "dem_sha256": "1893e66a9df27eb6fb269dc54b3d7ea6da41f11c45bc513b6d3f937b6fde42b4",
+        "difficulty_score": 0.12307540045035101,
+        "episode_key": [
+          0,
+          75,
+          2
+        ],
+        "goal": [
+          0.7906129956245422,
+          -0.12219273298978806
+        ],
+        "local_step": 60,
+        "split": "train",
+        "step": 860,
+        "stratum": "constrained",
+        "terrain_seed": 801025056,
+        "terrain_type": "pyramid_stairs",
+        "view_index": 37361
+      },
+      "suffix_sha256": "06473e0a1732c986b71b020ed8edc3ad6951d1ff51fc5599a7f23e66170be400"
+    },
+    "41": {
+      "config_sha256": "088e8074aebe8646137b097150a2359b057e2dd2a620daa3d44b978181dbcba6",
+      "logged_anchor_sha256": "36e5bd65f3f70b4239c9fd105188f303d01346935923dd98f64832b140c75850",
+      "paths_sha256": {
+        "nominal": "d7e36c2aeda301067556905b2b43d609965ba43713dca99df8a0f5003c59cafb",
+        "slight_left": "c8607c3e57c86b4b826070d4e9feafff7989c7b3cb613f2cd346aacec22c9694",
+        "slight_right": "2835f185a32d5d8998c1d8f086c096ba2fba13e671cebbfe8f1ba34c7a641dcc",
+        "strong_left": "bc95a57194098e701846cdf613384e8a02ae744272518d31ec695057a0771612",
+        "strong_right": "99dc8884b19865eaecd6b72c74278e8c9698af59d7b8df9e50b68f9f89f0fd72"
+      },
+      "prefix_sha256": "7160640bc5f747e8d8ef57f9bb1ac44770ad82793f2d0d262991459a4e44805f",
+      "state": {
+        "dem_sha256": "bbf5d305bc34ecd7b58a701104857a44393ae9e36fabaab7c3f9d9b84f970260",
+        "difficulty_score": 0.04219498389408722,
+        "episode_key": [
+          0,
+          72,
+          2
+        ],
+        "goal": [
+          0.7440487146377563,
+          0.03537071496248245
+        ],
+        "local_step": 20,
+        "split": "train",
+        "step": 820,
+        "stratum": "open",
+        "terrain_seed": 2467317982,
+        "terrain_type": "pyramid_stairs_inv",
+        "view_index": 35493
+      },
+      "suffix_sha256": "b5a8051196bb91ca66e6c4dc717622121e298f231ad6c41d97f44090ffbad2fb"
+    },
+    "50": {
+      "config_sha256": "c1721d32f8aaadf89917d066ba4f54fc2e80a54913f23c05ebee8a01b917b186",
+      "logged_anchor_sha256": "c5ff4cdf6129aa1de5b3455ffdfb63b9e4aede84e1be4e0d1fa90d234a3dc83a",
+      "paths_sha256": {
+        "nominal": "326e51f0aa506af886981b2f57fed2ed867e86348d9ff67392c4b38d455d57e9",
+        "slight_left": "6a22e0805aadbad88a9b23c2a63de229ac01c6f6b5a7ec7816ad7ebcdeef2d61",
+        "slight_right": "c94d019666a6866a41d107c91327f7daf1c674b7ba40338fddfdf45cde0e4ed5",
+        "strong_left": "1f94e3fcec459ccf8889f150187cf71c020097b53f16f217f07c823bd0c45b5e",
+        "strong_right": "c07f066650c2734fe58c309ff16c79a36d00e76997d42dfd08497cf91c7d7f13"
+      },
+      "prefix_sha256": "895c274568b0adb75ecc5a751a64eeff45575ac4f4b408fd340588999098407b",
+      "state": {
+        "dem_sha256": "7e48938a24501b656c35e3c671b601544b6bc569e5ec4a2300a9ed2822dcebf0",
+        "difficulty_score": 0.04938212963353995,
+        "episode_key": [
+          0,
+          50,
+          1
+        ],
+        "goal": [
+          0.5457925796508789,
+          -0.09994819015264511
+        ],
+        "local_step": 70,
+        "split": "train",
+        "step": 470,
+        "stratum": "open",
+        "terrain_seed": 3563186245,
+        "terrain_type": "random_rough",
+        "view_index": 25509
+      },
+      "suffix_sha256": "c14bef703b30cd55688a80d4918007aff9d30cb33a5f120c43c6b6ae010c3cbf"
+    }
+  }
+}

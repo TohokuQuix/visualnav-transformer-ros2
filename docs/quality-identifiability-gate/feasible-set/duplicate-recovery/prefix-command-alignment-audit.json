@@ -1,0 +1,27 @@
+{
+  "corrected_recovery_check": "compares post-step command to row at same step",
+  "finding": "collector command row is post-step at resampling because commands references a mutable tensor and tensor_list(commands) occurs after env.step",
+  "first_exposed_state": 13,
+  "model_dynamics_config_or_bank_changed": false,
+  "notes": "Original failed attempt remains in runner.log and has no completion marker. The simulator close returned exit 0 despite RECOVERY_FATAL; wrapper now requires the atomic marker.",
+  "old_recovery_check": "compared pre-step command to logged post-step row",
+  "source": "/tmp/eatnav-extended/collect_eat_nav.py:156-177",
+  "state_13_corrected_anchor": {
+    "dem_history_sha_match": true,
+    "dem_rms_m": 0.0,
+    "mask_iou": 1.0,
+    "orientation_rad": 0.0009216754786526738,
+    "position_m": 0.0,
+    "prefix_command_max_abs": 0.0,
+    "velocity_max_abs": 0.0
+  },
+  "state_13_logged_command_change_steps": [
+    25
+  ],
+  "state_19_logged_command_change_steps": [],
+  "state_42_logged_command_change_steps": [
+    13,
+    30,
+    49
+  ]
+}

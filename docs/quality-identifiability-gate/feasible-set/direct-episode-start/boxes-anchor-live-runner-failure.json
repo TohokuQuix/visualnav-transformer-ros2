@@ -1,0 +1,11 @@
+{
+  "state_index": 7,
+  "stage": "anchor_live",
+  "status": "diagnostic_runner_failure",
+  "error": "AttributeError: 'NoneType' object has no attribute 'request'",
+  "cause": "anchor_live created a fixed map Path but did not construct FollowerBridgeClient before nominal command_provider",
+  "fixed_map_path_persisted": true,
+  "candidate_rollout_started": false,
+  "formal_rollout_started": false,
+  "next_stage": "full-prefix live using persisted Path, followed by direct episode-start live"
+}

@@ -1,0 +1,63 @@
+schema_version: 1
+selection:
+  seed: 20260929
+  split_seed: 123
+  episode_cap: 1
+  max_episode_id: 3
+  min_local_step: 20
+  max_local_step: 80
+  train_per_terrain: {open: 3, intermediate: 2, constrained: 3}
+  validation_per_terrain: {open: 2, intermediate: 1, constrained: 1}
+  within_terrain_score_quantiles: [0.3333333333, 0.6666666667]
+  complete_train_expected: 49598
+  complete_validation_expected: 6171
+maneuvers:
+  names: [nominal, slight_left, slight_right, strong_left, strong_right]
+  nominal_diffusion_seed: 1001
+  slight_lateral_train_quantile: 0.75
+  strong_lateral_train_quantile: 0.90
+  endpoint: relative_goal
+  point_count: 8
+  speed_max_mps: 1.0
+  turn_max_radps: 0.6
+  self_intersection_forbidden: true
+command_distinctness:
+  initial_angular_min_radps: 0.05
+  initial_linear_min_mps: 0.03
+  require_nominal_left_right_clusters: true
+replay:
+  horizon_steps: 40
+  step_dt_sec: 0.05
+  nominal_duplicates: 3
+  candidate_order_seed: 20260930
+  same_env_serial: true
+  anchor_position_tolerance_m: 0.02
+  anchor_yaw_tolerance_rad: 0.03
+  anchor_dem_rms_tolerance_m: 0.03
+  duplicate_rms_max_m: 0.0105
+  duplicate_reference_rms_m: 0.0035
+feasibility:
+  tilt_max_deg: 85.0
+  progress_min_m: 0.02
+  stack_displacement_min_m: 0.02
+  progress_vs_nominal_min_fraction: 0.5
+  goal_distance_allowance_m: 0.15
+  path_tracking_error_max_m: 0.25
+  drawdown_min: -0.1
+  max_ood_fraction_for_classification: 0.5
+statistics:
+  bootstrap_unit: episode
+  bootstrap_replicates: 2000
+  bootstrap_seed: 20261001
+  ci: 0.95
+stopping:
+  invalid_anchor_or_duplicate: measurement_invalid_per_state
+  widespread_anchor_failure: stop_before_counterfactual
+  unsupported_stratum: report_NA_no_refill
+  no_post_result_maneuver_or_threshold_changes: true
+prohibitions:
+  heldout: true
+  model_retraining: true
+  formal_phase_c: true
+  full_collection: true
+  real_robot: true

@@ -1,0 +1,270 @@
+{
+  "anchor_step": 60,
+  "classification": "startup_readiness_race_confirmed",
+  "clock": {
+    "clock_topic_observed": null,
+    "source": "ROS system time by default; follower uses create_wall_timer",
+    "two_clock_ticks_observed": null,
+    "use_sim_time_in_params": false
+  },
+  "command_delivery": {
+    "branch_count": 8,
+    "classification": "infrastructure_diagnosis_required",
+    "delivery": "no_message",
+    "fresh_branches": 0,
+    "goal_distance_m": 0.7999999677813376,
+    "goal_tolerance_m": 0.2,
+    "near_goal": false
+  },
+  "diagnosis": "Goal is 0.800 m away and follower publishes a fresh zero command at goal. Prior bridge returned after subscriber discovery without waiting for TF/timer/first command. Simulator-load probe showed branch 0 first command after reset completion. Retained transient-local Path also caused pre-Path command contamination on a subsequent reset. Bridge-only handshake clears retained Path, waits for all branch discovery/status/TF and two advancing system-backed ROS clock intervals, then waits for fresh commands and allows at most one identical Path resend. Three clean State 42 repeats passed with zero duplicate XY RMS.",
+  "episode_key": [
+    0,
+    56,
+    0
+  ],
+  "follower_goal_tolerance_m": 0.2,
+  "follower_logs": {
+    "simple_trajectory_follower_node_773508_1790672910893.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 377,
+      "control_debug_count": 376,
+      "first_control_debug_s": 1790672913.031356,
+      "first_path_callback_s": 1790672911.0822115,
+      "first_started_s": 1790672910.9138062,
+      "first_tf_failure_s": 1790672911.1641908,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "1577289dd635287a21dfca876f1c78b83916fe52f692b1f549ce263bad6791fe",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773509_1790672910888.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 376,
+      "control_debug_count": 375,
+      "first_control_debug_s": 1790672913.0308137,
+      "first_path_callback_s": 1790672911.082229,
+      "first_started_s": 1790672910.9028604,
+      "first_tf_failure_s": 1790672911.1533532,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "d1e4bf788da86a00bf307aa150fd2da9aa0e9ca92bf29780b529e8f4239f3c9d",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773510_1790672910894.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 376,
+      "control_debug_count": 375,
+      "first_control_debug_s": 1790672913.0332165,
+      "first_path_callback_s": 1790672911.082303,
+      "first_started_s": 1790672910.914296,
+      "first_tf_failure_s": 1790672911.1649206,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "0067443b771cbc0e532b873e0989f9c94e359420589d2aefdca3cbced415b950",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773511_1790672910893.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 377,
+      "control_debug_count": 376,
+      "first_control_debug_s": 1790672913.0328674,
+      "first_path_callback_s": 1790672911.0822115,
+      "first_started_s": 1790672910.909232,
+      "first_tf_failure_s": 1790672911.1598096,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "1c554c22b6f70b90b81f762ce2e3de771ef60f0f649d16738452f12dab3ef041",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773512_1790672910892.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 377,
+      "control_debug_count": 376,
+      "first_control_debug_s": 1790672913.02819,
+      "first_path_callback_s": 1790672911.0823143,
+      "first_started_s": 1790672910.9129972,
+      "first_tf_failure_s": 1790672911.1636262,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "a0ca994e2871d074f427b9dc61dccc1766444bce31df8650e0aa212a359c46b0",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773513_1790672910889.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 376,
+      "control_debug_count": 375,
+      "first_control_debug_s": 1790672913.0333178,
+      "first_path_callback_s": 1790672911.082306,
+      "first_started_s": 1790672910.9044333,
+      "first_tf_failure_s": 1790672911.1550522,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "6fed4a7ed24ccedf650ca0b512e1a0b9f835c9e97371d2a304f1eb32edc0c79e",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773514_1790672910888.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 376,
+      "control_debug_count": 375,
+      "first_control_debug_s": 1790672913.0302875,
+      "first_path_callback_s": 1790672911.082218,
+      "first_started_s": 1790672910.9100716,
+      "first_tf_failure_s": 1790672911.1608157,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "0166349cb6c4e835fff50a8194fab90d0d71c497b9fd2b4b2259219d92c7be47",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    },
+    "simple_trajectory_follower_node_773515_1790672910889.log": {
+      "command_publish_count": null,
+      "control_callback_count_lower_bound": 377,
+      "control_debug_count": 376,
+      "first_control_debug_s": 1790672913.0244088,
+      "first_path_callback_s": 1790672911.0821817,
+      "first_started_s": 1790672910.9078064,
+      "first_tf_failure_s": 1790672911.1585891,
+      "path_callback_count_lower_bound": 1,
+      "sha256": "60e4ba7eb377b4278b082c081fd13ff5d5517765ae8426caa8e74d2ff6745ea9",
+      "started_count": 1,
+      "tf_failure_count": 1,
+      "timer_callback_exact_count": null
+    }
+  },
+  "follower_reference_goal_pose_map_xy": [
+    -0.17559216293825552,
+    0.6065954491527287
+  ],
+  "goal_geometry": {
+    "goal_tolerance_m": 0.2,
+    "path_endpoint_map_xy": [
+      -0.17559216293825552,
+      0.6065954491527287
+    ],
+    "published_goal_distance_m": 0.7999999677813376,
+    "relative_goal_base_xy": [
+      0.7747336030006409,
+      0.19946877658367157
+    ],
+    "relative_goal_distance_m": 0.7999999677813376,
+    "robot_pose_map_xy": [
+      -0.06942033767700195,
+      -0.18632793426513672
+    ],
+    "within_goal_tolerance": false
+  },
+  "pilot_allowed": true,
+  "pipeline": {
+    "bridge_sequence_after": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "bridge_sequence_before": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "later_control_evidence": "control debug line in all eight follower logs; exact timer and command publish counts unavailable",
+    "path_callback_evidence": "Activated default path in all eight follower ROS logs",
+    "path_subscriber_count": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "process_alive": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "tf_initial_failure_evidence": "Failed to lookup robot pose in all eight follower logs"
+  },
+  "prior_bridge_timeout": {
+    "event": "step_timeout",
+    "followers_alive": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "sequence_after": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sequence_before": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "subscriber_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "relative_goal": [
+    0.7747336030006409,
+    0.19946877658367157
+  ],
+  "robot_pose_map_xy": [
+    -0.06942033767700195,
+    -0.18632793426513672
+  ],
+  "robot_pose_world": [
+    3.930579662322998,
+    11.813672065734863,
+    -0.3403472900390625,
+    0.7477433681488037,
+    -0.012313182465732098,
+    0.01093297265470028,
+    0.6637835502624512
+  ],
+  "source_provenance": "source-provenance.json",
+  "state_index": 42
+}

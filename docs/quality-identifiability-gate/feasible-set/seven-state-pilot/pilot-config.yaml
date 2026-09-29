@@ -1,0 +1,78 @@
+bridge:
+  clock_source: ROS clock with system-time fallback; /clock publisher absent, use_sim_time=false
+  max_identical_path_resends: 1
+  postpath_timeout_sec: 3.0
+  prepath_timeout_sec: 8.0
+  require_two_advancing_clock_intervals: true
+  require_two_status_timer_messages: true
+candidate_order_by_state:
+  7:
+  - slight_left
+  - strong_left
+  - strong_right
+  - nominal
+  - slight_right
+  13:
+  - slight_left
+  - strong_left
+  - strong_right
+  - nominal
+  - slight_right
+  17:
+  - nominal
+  - strong_left
+  - strong_right
+  - slight_right
+  - slight_left
+  26:
+  - slight_left
+  - slight_right
+  - nominal
+  - strong_left
+  - strong_right
+  37:
+  - slight_left
+  - slight_right
+  - strong_right
+  - nominal
+  - strong_left
+  41:
+  - slight_right
+  - strong_left
+  - slight_left
+  - strong_right
+  - nominal
+  50:
+  - strong_left
+  - nominal
+  - strong_right
+  - slight_right
+  - slight_left
+candidate_order_seed: 20260930
+control_dt_sec: 0.05
+control_steps: 40
+duplicate_xy_rms_max_m: 0.0105
+episode_cap: 1
+input_freeze_sha256: c45d6471ea9af5232bd96803f96f867ea438f442362f245818688727f78ed296
+maneuver_names:
+- nominal
+- slight_left
+- slight_right
+- strong_left
+- strong_right
+min_measurement_valid_states: 6
+minimum_goal_distance_m: 0.3
+nominal_duplicate_repeats: 3
+schema_version: 1
+selection_seed: 20260929
+selection_sha256: 9326aa57d44da2622db9005aed6bfd75027e4b850531e8c15ed4ac0baba986aa
+source_state_indices:
+- 7
+- 13
+- 17
+- 26
+- 37
+- 41
+- 50
+stop_before_formal_56_train: true
+stop_before_validation_20: true
