@@ -112,3 +112,28 @@ def freeze_pilot_selection(rows, *, terrains, seed, min_goal_m,
         "selection_fields": list(_ALLOWED), "outcome_fields_used": [],
         "episode_cap": 1,
     }
+
+
+def validate_frozen_selection(frozen, *, expected_source_sha):
+    """Refuse a changed or outcome-contaminated pilot state file."""
+    if frozen.get('source_sha256') != expected_source_sha:
+        raise ValueError('selection source SHA mismatch')
+    if frozen.get('candidate_outcomes_used') or frozen.get('heldout_used'):
+        raise ValueError('outcome or held-out leakage in selection')
+    if frozen.get('complete_train_windows') != 49598:
+        raise ValueError('complete train count mismatch')
+    selected = frozen.get('selected', [])
+    if len(selected) > 7:
+        raise ValueError('too many pilot states')
+    if len({r['terrain_type'] for r in selected}) != len(selected):
+        raise ValueError('duplicate terrain')
+    if len({tuple(r['episode_key']) for r in selected}) != len(selected):
+        raise ValueError('duplicate episode')
+    for row in selected:
+        if row['split'] != 'train' or row['full_prefix_steps'] != row['step'] + 1:
+            raise ValueError('invalid train full-prefix state')
+        if row.get('complete') is False or row.get('natural_history') is False:
+            raise ValueError('incomplete state')
+        if row['full_prefix_steps'] > frozen.get('max_full_prefix_steps', float('inf')):
+            raise ValueError('state exceeds frozen full-prefix cap')
+    return True

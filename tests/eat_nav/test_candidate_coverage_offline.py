@@ -79,3 +79,30 @@ def test_fixed_bank_uses_nomad_seed_one_as_nominal_and_preserves_goal_endpoint()
     assert all(r["points"][-1] == [1., 0.] for r in sets["fixed_bank"])
     assert sets["fixed_bank"][1]["points"][3][1] > 0
     assert sets["fixed_bank"][2]["points"][3][1] < 0
+
+
+def test_candidate_constraints_flag_outside_dem_and_long_step_without_replacing():
+    from visualnav_transformer.eat_nav.candidate_coverage_offline import candidate_constraints
+    dem = np.ones((4, 2, 20, 20), dtype=float)
+    inside = np.stack((np.linspace(.1, .8, 8), np.zeros(8)), axis=1)
+    limits = {"max_step_m": .2, "max_length_m": 2., "max_curvature_rad": 4.}
+    assert candidate_constraints(inside, dem, resolution_m=.1, limits=limits)["valid"]
+    outside = inside.copy()
+    outside[-1, 0] = 1.2
+    failure = candidate_constraints(outside, dem, resolution_m=.1, limits=limits)
+    assert not failure["valid"]
+    assert "outside_dem" in failure["reasons"]
+    assert "step_length" in failure["reasons"]
+
+
+def test_train_constraint_limits_use_only_supplied_complete_actions():
+    from visualnav_transformer.eat_nav.candidate_coverage_offline import train_constraint_limits
+    actions = np.zeros((2, 8, 2), dtype=float)
+    actions[0, :, 0] = .1
+    actions[1, :, 0] = .2
+    limits = train_constraint_limits(actions)
+    assert limits["max_step_m"] == pytest.approx(.199)
+    assert limits["max_length_m"] == pytest.approx(1.592)
+    assert limits["max_curvature_rad"] == 0
+    with pytest.raises(ValueError, match="nonfinite"):
+        train_constraint_limits(np.full((2, 8, 2), np.nan))

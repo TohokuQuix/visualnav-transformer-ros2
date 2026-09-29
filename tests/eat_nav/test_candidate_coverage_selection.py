@@ -63,3 +63,17 @@ def test_full_prefix_counts_anchor_step_itself():
                                     max_full_prefix_steps=40)
     assert result["selected"] == []
     assert result["all_prefix_steps"]["min"] == 41
+
+
+def test_frozen_selection_rejects_leakage_or_changed_source():
+    from visualnav_transformer.eat_nav.candidate_coverage_selection import validate_frozen_selection
+    frozen = {"complete_train_windows": 49598, "source_sha256": {"manifest": "abc"},
+              "candidate_outcomes_used": False, "heldout_used": False,
+              "selected": [{"split": "train", "terrain_type": "boxes", "episode_key": [0, 0, 0], "view_index": 1,
+                            "step": 20, "full_prefix_steps": 21}]}
+    validate_frozen_selection(frozen, expected_source_sha={"manifest": "abc"})
+    with pytest.raises(ValueError, match="source"):
+        validate_frozen_selection(frozen, expected_source_sha={"manifest": "changed"})
+    bad = dict(frozen, candidate_outcomes_used=True)
+    with pytest.raises(ValueError, match="outcome"):
+        validate_frozen_selection(bad, expected_source_sha={"manifest": "abc"})
