@@ -1,0 +1,45 @@
+{
+  "candidate_outcomes_used": false,
+  "checkpoint": {
+    "best_epoch": 120,
+    "best_metric": 0.19695669938656987,
+    "context_size": 3,
+    "dem_frames": 4,
+    "len_traj_pred": 8,
+    "normalization": {
+      "count": 396784,
+      "mean": [
+        0.028116857632994652,
+        -4.290757715352811e-05
+      ],
+      "std": [
+        0.08537875860929489,
+        0.015024908818304539
+      ]
+    },
+    "quality_enabled": false
+  },
+  "complete_ids_counts": {
+    "train": 49598,
+    "val": 6171
+  },
+  "complete_ids_unique": 55769,
+  "heldout_used": false,
+  "manifest_metadata": {
+    "base_seed": 123,
+    "num_envs": 100,
+    "rl_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d"
+  },
+  "pilot_selection_frozen": false,
+  "rollout_started": false,
+  "sha256": {
+    "complete_ids": "904b22816531c4bf026181de5b70aaad386f0557ea44d9266223c89d48cddf4e",
+    "follower_config": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "reference_best_ema": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992",
+    "rl_checkpoint": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d"
+  },
+  "stage": "source_audit",
+  "status": "passed"
+}
