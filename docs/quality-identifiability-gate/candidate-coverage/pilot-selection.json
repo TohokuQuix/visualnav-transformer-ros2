@@ -1,0 +1,270 @@
+{
+  "all_prefix_steps": {
+    "count": 49598,
+    "max": 3556,
+    "min": 16,
+    "p50": 1781.0,
+    "p90": 3246.0
+  },
+  "approved_budget_hours": 4.0,
+  "approved_budget_sec": 12000.0,
+  "candidate_outcomes_used": false,
+  "complete_train_windows": 49598,
+  "dem_history_frames": 4,
+  "eligible_prefix_steps": {
+    "count": 243,
+    "max": 36,
+    "min": 16,
+    "p50": 26.0,
+    "p90": 36.0
+  },
+  "episode_cap": 1,
+  "heldout_used": false,
+  "max_full_prefix_steps": 40,
+  "min_goal_m": 0.3,
+  "na_terrains": {},
+  "outcome_fields_used": [],
+  "predicted_pilot_sec": 7912.667819657879,
+  "predicted_with_20pct_reserve_sec": 9495.201383589454,
+  "run_count_per_state": 17,
+  "seed": 20260930,
+  "selected": [
+    {
+      "complete": true,
+      "dem_sha256": "1e6eca89cbbababd617a7fd487e517ae373f014ea3720e901126e2d7d84486b3",
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "goal": [
+        0.4108489751815796,
+        -0.00956703070551157
+      ],
+      "goal_distance_m": 0.41096034904145484,
+      "local_step": 25,
+      "natural_history": true,
+      "rank_sha256": "0918381446da4330a6c424f31d3bc907646168a1a9bc32a959cbd0ff90c0ce06",
+      "split": "train",
+      "state_id": "coverage-000",
+      "step": 25,
+      "terrain_seed": 645838458,
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "complete": true,
+      "dem_sha256": "45996fe1387318793f49a13fc7015b59b867dafd2a04f0eb117e201d163f5be0",
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "goal": [
+        0.4835115671157837,
+        -0.0962335616350174
+      ],
+      "goal_distance_m": 0.49299526764434737,
+      "local_step": 20,
+      "natural_history": true,
+      "rank_sha256": "16086187ad0eb19ece413baadd524877cf83cf2572939996f08b474d69b9558f",
+      "split": "train",
+      "state_id": "coverage-001",
+      "step": 20,
+      "terrain_seed": 1453387328,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "complete": true,
+      "dem_sha256": "94e8d3dd57c6d1eb8f083bc82b8a780779838a726e58f9d6a16b7bfca7e913e2",
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "goal": [
+        -0.7894229292869568,
+        0.12965913116931915
+      ],
+      "goal_distance_m": 0.8000000322372383,
+      "local_step": 35,
+      "natural_history": true,
+      "rank_sha256": "0cbdb656e40119700d8ee2a0ae46d06e3618d08494d8d8f9753da3a87252b939",
+      "split": "train",
+      "state_id": "coverage-002",
+      "step": 35,
+      "terrain_seed": 2664058961,
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "complete": true,
+      "dem_sha256": "e5f294eac94176905fecef680e8e27fec1aa4e64aa23273587ce2e17692f47e6",
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "goal": [
+        0.6102461218833923,
+        0.04163522273302078
+      ],
+      "goal_distance_m": 0.6116647946757672,
+      "local_step": 15,
+      "natural_history": true,
+      "rank_sha256": "1236558eff2a4ac4d009a5f40756c03f2ca3d314136a4921e9130cbc5258794d",
+      "split": "train",
+      "state_id": "coverage-003",
+      "step": 15,
+      "terrain_seed": 842950983,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "complete": true,
+      "dem_sha256": "ddaa06f5e8053aceabbd4b49e1c6b4bf42505ef17043b20a490a807e5d6ed09c",
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "goal": [
+        0.7999278903007507,
+        0.010737929493188858
+      ],
+      "goal_distance_m": 0.7999999580067555,
+      "local_step": 25,
+      "natural_history": true,
+      "rank_sha256": "013248a4ad2ead68ec93ab1850175f7eb432d1979f2149ad2bcae4cc78ae3815",
+      "split": "train",
+      "state_id": "coverage-004",
+      "step": 25,
+      "terrain_seed": 666010005,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "complete": true,
+      "dem_sha256": "3fb14c3ba7618767f46bd05cb98a68e6e92acb15bf0fa919c11c65ebac41e4ac",
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "goal": [
+        0.3880572021007538,
+        -0.025011710822582245
+      ],
+      "goal_distance_m": 0.38886241497544827,
+      "local_step": 15,
+      "natural_history": true,
+      "rank_sha256": "09d925bb03b328e4fbb238486278f6e2aa99dcbf25288c13a7661cef498f6d46",
+      "split": "train",
+      "state_id": "coverage-005",
+      "step": 15,
+      "terrain_seed": 389215172,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "complete": true,
+      "dem_sha256": "1d3878c319a12ca00f64a6195ef0190a270bce4ba7b9b61102f9a4535ce0d41c",
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "goal": [
+        0.7952149510383606,
+        -0.08736850321292877
+      ],
+      "goal_distance_m": 0.8000000460678798,
+      "local_step": 30,
+      "natural_history": true,
+      "rank_sha256": "0b2fe20ebfd63c52af1d06e0483aee275dfe6d3870e13f40decca536dd1c1f45",
+      "split": "train",
+      "state_id": "coverage-006",
+      "step": 30,
+      "terrain_seed": 441664754,
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    }
+  ],
+  "selected_prefix_steps": {
+    "count": 7,
+    "max": 36,
+    "min": 16,
+    "p50": 26.0,
+    "p90": 33.0
+  },
+  "selection_fields": [
+    "split",
+    "complete",
+    "natural_history",
+    "terrain_type",
+    "episode_key",
+    "view_index",
+    "step",
+    "local_step",
+    "goal",
+    "terrain_seed",
+    "dem_sha256"
+  ],
+  "source_sha256": {
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "reference_checkpoint": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992"
+  },
+  "support": {
+    "boxes": {
+      "complete_train": 3094,
+      "eligible": 11,
+      "goal_rejected": 1371,
+      "prefix_rejected": 1712
+    },
+    "hf_pyramid_slope": {
+      "complete_train": 5589,
+      "eligible": 25,
+      "goal_rejected": 2023,
+      "prefix_rejected": 3541
+    },
+    "k_rail_field": {
+      "complete_train": 7430,
+      "eligible": 49,
+      "goal_rejected": 4009,
+      "prefix_rejected": 3372
+    },
+    "k_rail_step_field": {
+      "complete_train": 7441,
+      "eligible": 24,
+      "goal_rejected": 3903,
+      "prefix_rejected": 3514
+    },
+    "pyramid_stairs": {
+      "complete_train": 7438,
+      "eligible": 44,
+      "goal_rejected": 2788,
+      "prefix_rejected": 4606
+    },
+    "pyramid_stairs_inv": {
+      "complete_train": 8673,
+      "eligible": 49,
+      "goal_rejected": 3955,
+      "prefix_rejected": 4669
+    },
+    "random_rough": {
+      "complete_train": 9933,
+      "eligible": 41,
+      "goal_rejected": 4153,
+      "prefix_rejected": 5739
+    }
+  }
+}

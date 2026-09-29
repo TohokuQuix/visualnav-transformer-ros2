@@ -40,3 +40,17 @@ def test_frozen_config_expands_to_exact_119_run_order():
     assert spec['approved_wall_clock_sec'] == 14400
     assert spec['max_full_prefix_steps'] == 40
     assert [row['seed'] for row in rows if row['kind'] == 'nomad'][:8] == spec['nomad_seeds_k32'][:8]
+
+
+def test_bind_schedule_attaches_frozen_state_without_reordering():
+    from visualnav_transformer.eat_nav.candidate_coverage_pilot import bind_schedule
+    order = build_schedule(['boxes', 'rail'], seeds=list(range(1001, 1009)))
+    selected = [{'terrain_type': 'boxes', 'state_id': 'coverage-000', 'view_index': 4,
+                 'episode_key': [0, 1, 0], 'step': 25, 'full_prefix_steps': 26},
+                {'terrain_type': 'rail', 'state_id': 'coverage-001', 'view_index': 8,
+                 'episode_key': [0, 2, 0], 'step': 15, 'full_prefix_steps': 16}]
+    bound = bind_schedule(order, selected)
+    assert bound[0]['state_id'] == 'coverage-000'
+    assert bound[16]['state_id'] == 'coverage-000'
+    assert bound[17]['state_id'] == 'coverage-001'
+    assert [r['run_id'] for r in bound] == [r['run_id'] for r in order]

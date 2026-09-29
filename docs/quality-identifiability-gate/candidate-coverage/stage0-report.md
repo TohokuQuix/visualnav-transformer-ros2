@@ -16,3 +16,11 @@ The selector verifies the manifest, reference config, and checkpoint SHA before 
 The 119 runs are **7 terrain × (1 anchor-only + 3 nominal duplicate + 8 NoMaD + 5 fixed bank)**. The additional seven anchor-only runs freeze each terrain state and its map-frame Path before a candidate is executed; they do not contribute an oracle candidate outcome. Terrain order, candidate seeds, bank names, and per-terrain run order are frozen in `pilot-config.yaml` before candidate outcomes. At 3 h elapsed, the runner must refresh its remaining-time estimate. It must stop starting new candidates whenever completion is forecast past 4 h; completed markers and outputs remain intact. Unexpected runtime (>2× pre-run estimate), duplicate gate failure, repeated follower timeout, or unexpected GPU memory also stop subsequent runs. Formal validation, retraining, and real robot control remain excluded.
 
 See `source-audit.json`, `full-prefix-cost.json`, `budget-options.json`, and `pilot-config.yaml` for machine-readable details.
+
+## Frozen pilot inputs (before candidate outcomes)
+
+- Selection SHA-256: `1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc`.
+- Run schedule SHA-256: `8982e628bbb71e50eeea11534ca345bebc15009b33ef27bd16d70cc54182e95d`.
+- Sorted terrain/state IDs and full-prefix steps: boxes `coverage-000` / 26; hf_pyramid_slope `coverage-001` / 21; k_rail_field `coverage-002` / 36; k_rail_step_field `coverage-003` / 16; pyramid_stairs `coverage-004` / 26; pyramid_stairs_inv `coverage-005` / 16; random_rough `coverage-006` / 31.
+- All selected states are in episode 0, use distinct environment/episode keys, and have a goal distance ≥0.30 m. No reward, Critic, termination, candidate outcome, Evaluator output, or held-out data was used for selection.
+- Predicted 119-run runtime: 7,912.67 s (2.20 h); with 20% reserve: 9,495.20 s (2.64 h), below the approved 14,400 s hard limit. The estimate is based on two prior runs and is updated from actual run times during the pilot.

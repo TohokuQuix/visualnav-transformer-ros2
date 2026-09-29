@@ -1,0 +1,2033 @@
+{
+  "candidate_outcomes_used": false,
+  "config_sha256": "80f5857adad7391231df285196e3417790fd2a233b30f2007e1fba38d32587bb",
+  "formal_validation_allowed": false,
+  "heldout_used": false,
+  "runs": [
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-000",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-001",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-002",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-003",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-004",
+      "seed": 1001,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-005",
+      "seed": 1002,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-006",
+      "seed": 1003,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-007",
+      "seed": 1004,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-008",
+      "seed": 1005,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-009",
+      "seed": 1006,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-010",
+      "seed": 1007,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-011",
+      "seed": 1008,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-012",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-013",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-014",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-015",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-016",
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain_type": "boxes",
+      "view_index": 17368
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-017",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-018",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-019",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-020",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-021",
+      "seed": 1001,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-022",
+      "seed": 1002,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-023",
+      "seed": 1003,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-024",
+      "seed": 1004,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-025",
+      "seed": 1005,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-026",
+      "seed": 1006,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-027",
+      "seed": 1007,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-028",
+      "seed": 1008,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-029",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-030",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-031",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-032",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 20,
+      "episode_key": [
+        0,
+        76,
+        0
+      ],
+      "full_prefix_steps": 21,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-033",
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 37836
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-034",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-035",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-036",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-037",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-038",
+      "seed": 1001,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-039",
+      "seed": 1002,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-040",
+      "seed": 1003,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-041",
+      "seed": 1004,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-042",
+      "seed": 1005,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-043",
+      "seed": 1006,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-044",
+      "seed": 1007,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-045",
+      "seed": 1008,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-046",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-047",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-048",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-049",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 35,
+      "episode_key": [
+        0,
+        45,
+        0
+      ],
+      "full_prefix_steps": 36,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-050",
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field",
+      "view_index": 22338
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-051",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-052",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-053",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-054",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-055",
+      "seed": 1001,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-056",
+      "seed": 1002,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-057",
+      "seed": 1003,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-058",
+      "seed": 1004,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-059",
+      "seed": 1005,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-060",
+      "seed": 1006,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-061",
+      "seed": 1007,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-062",
+      "seed": 1008,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-063",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-064",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-065",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-066",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        44,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-067",
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field",
+      "view_index": 21713
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-068",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-069",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-070",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-071",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-072",
+      "seed": 1001,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-073",
+      "seed": 1002,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-074",
+      "seed": 1003,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-075",
+      "seed": 1004,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-076",
+      "seed": 1005,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-077",
+      "seed": 1006,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-078",
+      "seed": 1007,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-079",
+      "seed": 1008,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-080",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-081",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-082",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-083",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 25,
+      "episode_key": [
+        0,
+        26,
+        0
+      ],
+      "full_prefix_steps": 26,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-084",
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs",
+      "view_index": 11779
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-085",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-086",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-087",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-088",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-089",
+      "seed": 1001,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-090",
+      "seed": 1002,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-091",
+      "seed": 1003,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-092",
+      "seed": 1004,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-093",
+      "seed": 1005,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-094",
+      "seed": 1006,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-095",
+      "seed": 1007,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-096",
+      "seed": 1008,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-097",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-098",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-099",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-100",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 15,
+      "episode_key": [
+        0,
+        62,
+        0
+      ],
+      "full_prefix_steps": 16,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-101",
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 31628
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "anchor",
+      "name": null,
+      "purpose": "freeze anchor state and map Path before candidate execution",
+      "run_id": "pilot-102",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "duplicate",
+      "name": 0,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-103",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "duplicate",
+      "name": 1,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-104",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "duplicate",
+      "name": 2,
+      "purpose": "measure nominal duplicate variation",
+      "run_id": "pilot-105",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-106",
+      "seed": 1001,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-107",
+      "seed": 1002,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-108",
+      "seed": 1003,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-109",
+      "seed": 1004,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-110",
+      "seed": 1005,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-111",
+      "seed": 1006,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-112",
+      "seed": 1007,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "nomad",
+      "name": null,
+      "purpose": "measure NoMaD proposal outcome",
+      "run_id": "pilot-113",
+      "seed": 1008,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "bank",
+      "name": "nominal",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-114",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "bank",
+      "name": "slight_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-115",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "bank",
+      "name": "slight_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-116",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "bank",
+      "name": "strong_left",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-117",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    },
+    {
+      "anchor_step": 30,
+      "episode_key": [
+        0,
+        13,
+        0
+      ],
+      "full_prefix_steps": 31,
+      "kind": "bank",
+      "name": "strong_right",
+      "purpose": "measure fixed maneuver bank outcome",
+      "run_id": "pilot-118",
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough",
+      "view_index": 5570
+    }
+  ],
+  "schema_version": 1,
+  "selection_sha256": "1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc"
+}

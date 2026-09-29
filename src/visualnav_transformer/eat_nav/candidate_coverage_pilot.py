@@ -25,3 +25,19 @@ def may_start_next(*, elapsed_sec, predicted_remaining_sec, approved_budget_sec)
     if min(elapsed_sec, predicted_remaining_sec) < 0 or approved_budget_sec <= 0:
         raise ValueError('invalid wall-clock budget')
     return elapsed_sec < approved_budget_sec and elapsed_sec + predicted_remaining_sec <= approved_budget_sec
+
+
+def bind_schedule(schedule, selected):
+    """Attach frozen state identity while preserving the predeclared run order."""
+    by_terrain = {row['terrain_type']: row for row in selected}
+    if len(by_terrain) != len(selected):
+        raise ValueError('duplicate selected terrain')
+    if {row['terrain_type'] for row in schedule} != set(by_terrain):
+        raise ValueError('schedule/selection terrain mismatch')
+    return [{**run,
+             'state_id': by_terrain[run['terrain_type']]['state_id'],
+             'view_index': by_terrain[run['terrain_type']]['view_index'],
+             'episode_key': by_terrain[run['terrain_type']]['episode_key'],
+             'anchor_step': by_terrain[run['terrain_type']]['step'],
+             'full_prefix_steps': by_terrain[run['terrain_type']]['full_prefix_steps']}
+            for run in schedule]
