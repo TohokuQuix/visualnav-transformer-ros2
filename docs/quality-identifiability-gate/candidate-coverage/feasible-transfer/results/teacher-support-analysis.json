@@ -1,0 +1,6103 @@
+{
+  "complete_only_train_window_count": 49598,
+  "elapsed_sec": 28.98031210899353,
+  "heldout_used": false,
+  "manifest_sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+  "selection_sha256": "1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc",
+  "states": [
+    {
+      "bank_candidate_id": "bank-strong_left",
+      "classification": "supported_but_not_generated",
+      "counts": {
+        "complete_train": 49598,
+        "dem_goal_match": 3543,
+        "distinct_support_episodes": 229,
+        "goal_direction_and_different_episode": 5432,
+        "goal_distance_only": 7667,
+        "trajectory_and_motion_match": 719,
+        "trajectory_match": 865
+      },
+      "generator": "bank",
+      "matched_teacher_total": 719,
+      "matched_teacher_windows": [
+        {
+          "dataset_index": 23,
+          "dem_rmse_m": 0.007413915824145079,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 0.8350922464132797,
+          "goal_distance_delta_m": 0.05048638032394487,
+          "initial_motion_direction_deg": 26.611512818117884,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.026500249281525612,
+          "view_index": 23
+        },
+        {
+          "dataset_index": 264,
+          "dem_rmse_m": 0.007799156010150909,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 7.048980459030231,
+          "goal_distance_delta_m": 0.02740537570434648,
+          "initial_motion_direction_deg": 23.727149171463196,
+          "mask_iou": 0.9685714285714285,
+          "path_rms_m": 0.0415966771543026,
+          "view_index": 240
+        },
+        {
+          "dataset_index": 265,
+          "dem_rmse_m": 0.008039205335080624,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 8.38130834788313,
+          "goal_distance_delta_m": 0.0055622403474434035,
+          "initial_motion_direction_deg": 21.578336519125912,
+          "mask_iou": 0.9685714285714285,
+          "path_rms_m": 0.04515666514635086,
+          "view_index": 241
+        },
+        {
+          "dataset_index": 266,
+          "dem_rmse_m": 0.008282840251922607,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 9.013728611961644,
+          "goal_distance_delta_m": 0.026386177077712236,
+          "initial_motion_direction_deg": 21.057668572324594,
+          "mask_iou": 0.9685714285714285,
+          "path_rms_m": 0.041619960218667984,
+          "view_index": 242
+        },
+        {
+          "dataset_index": 267,
+          "dem_rmse_m": 0.00848621129989624,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 8.933056308353883,
+          "goal_distance_delta_m": 0.05839866949600142,
+          "initial_motion_direction_deg": 22.655470129941396,
+          "mask_iou": 0.9630681818181818,
+          "path_rms_m": 0.040177714079618454,
+          "view_index": 243
+        },
+        {
+          "dataset_index": 314,
+          "dem_rmse_m": 0.0017574428347870708,
+          "episode_key": [
+            0,
+            0,
+            4
+          ],
+          "goal_direction_delta_deg": 7.421903841334606,
+          "goal_distance_delta_m": 0.08110696627181929,
+          "initial_motion_direction_deg": 23.8282072811247,
+          "mask_iou": 0.928374655647383,
+          "path_rms_m": 0.04011192545294762,
+          "view_index": 282
+        },
+        {
+          "dataset_index": 512,
+          "dem_rmse_m": 0.007717544678598642,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 8.073386611563393,
+          "goal_distance_delta_m": 0.09554935051483077,
+          "initial_motion_direction_deg": 11.13275089620177,
+          "mask_iou": 0.8131868131868132,
+          "path_rms_m": 0.048731327056884766,
+          "view_index": 464
+        },
+        {
+          "dataset_index": 513,
+          "dem_rmse_m": 0.007767887786030769,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 8.513836522918448,
+          "goal_distance_delta_m": 0.053187971845092,
+          "initial_motion_direction_deg": 28.943135833999836,
+          "mask_iou": 0.8204419889502762,
+          "path_rms_m": 0.03131228685379028,
+          "view_index": 465
+        },
+        {
+          "dataset_index": 514,
+          "dem_rmse_m": 0.007818689569830894,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 10.17987449812719,
+          "goal_distance_delta_m": 0.025675630107344805,
+          "initial_motion_direction_deg": 19.022082767333124,
+          "mask_iou": 0.8254847645429363,
+          "path_rms_m": 0.030885305255651474,
+          "view_index": 466
+        },
+        {
+          "dataset_index": 515,
+          "dem_rmse_m": 0.007871582172811031,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 9.546369155280608,
+          "goal_distance_delta_m": 0.026528065934600054,
+          "initial_motion_direction_deg": 25.176319403857796,
+          "mask_iou": 0.8305555555555556,
+          "path_rms_m": 0.02925489842891693,
+          "view_index": 467
+        },
+        {
+          "dataset_index": 516,
+          "dem_rmse_m": 0.007957745343446732,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 10.172688832966555,
+          "goal_distance_delta_m": 0.06610757662338179,
+          "initial_motion_direction_deg": 20.53683575621416,
+          "mask_iou": 0.8328690807799443,
+          "path_rms_m": 0.03290605545043945,
+          "view_index": 468
+        },
+        {
+          "dataset_index": 544,
+          "dem_rmse_m": 7.375575023615966e-06,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 4.310879673612436,
+          "goal_distance_delta_m": 0.016261434092940508,
+          "initial_motion_direction_deg": 26.405926363130703,
+          "mask_iou": 0.9678362573099415,
+          "path_rms_m": 0.04427971690893173,
+          "view_index": 488
+        },
+        {
+          "dataset_index": 545,
+          "dem_rmse_m": 1.0564383046585135e-05,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 6.85505280338607,
+          "goal_distance_delta_m": 0.040228003725586714,
+          "initial_motion_direction_deg": 25.463336659289997,
+          "mask_iou": 0.9824046920821115,
+          "path_rms_m": 0.03464163467288017,
+          "view_index": 489
+        },
+        {
+          "dataset_index": 678,
+          "dem_rmse_m": 0.00963110476732254,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 1.7189466383013836,
+          "goal_distance_delta_m": 0.03962645484489363,
+          "initial_motion_direction_deg": 26.941024395165474,
+          "mask_iou": 0.8443661971830986,
+          "path_rms_m": 0.03907405585050583,
+          "view_index": 614
+        },
+        {
+          "dataset_index": 679,
+          "dem_rmse_m": 0.009614001028239727,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 3.7988861312213635,
+          "goal_distance_delta_m": 0.039149409070433794,
+          "initial_motion_direction_deg": 24.290526253933212,
+          "mask_iou": 0.8469170800850461,
+          "path_rms_m": 0.041572295129299164,
+          "view_index": 615
+        },
+        {
+          "dataset_index": 680,
+          "dem_rmse_m": 0.009603265672922134,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 4.006218451696252,
+          "goal_distance_delta_m": 0.048760091796340166,
+          "initial_motion_direction_deg": 23.12106398883163,
+          "mask_iou": 0.8521677327647477,
+          "path_rms_m": 0.03844059631228447,
+          "view_index": 616
+        },
+        {
+          "dataset_index": 681,
+          "dem_rmse_m": 0.009554280899465084,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 2.622065383247275,
+          "goal_distance_delta_m": 0.05318418695014876,
+          "initial_motion_direction_deg": 25.747939696930292,
+          "mask_iou": 0.8540925266903915,
+          "path_rms_m": 0.035931527614593506,
+          "view_index": 617
+        },
+        {
+          "dataset_index": 682,
+          "dem_rmse_m": 0.00948821660131216,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 2.4794440863676868,
+          "goal_distance_delta_m": 0.044052069917144,
+          "initial_motion_direction_deg": 25.539105967774603,
+          "mask_iou": 0.8540925266903915,
+          "path_rms_m": 0.0354045070707798,
+          "view_index": 618
+        },
+        {
+          "dataset_index": 683,
+          "dem_rmse_m": 0.009478365071117878,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 3.2460864743751547,
+          "goal_distance_delta_m": 0.05566293551010054,
+          "initial_motion_direction_deg": 22.030490963479835,
+          "mask_iou": 0.863960113960114,
+          "path_rms_m": 0.0354776531457901,
+          "view_index": 619
+        },
+        {
+          "dataset_index": 684,
+          "dem_rmse_m": 0.009462222456932068,
+          "episode_key": [
+            0,
+            0,
+            8
+          ],
+          "goal_direction_delta_deg": 5.34078798812927,
+          "goal_distance_delta_m": 0.09036470009368819,
+          "initial_motion_direction_deg": 24.47146409788168,
+          "mask_iou": 0.8692857142857143,
+          "path_rms_m": 0.03701813891530037,
+          "view_index": 620
+        },
+        {
+          "dataset_index": 756,
+          "dem_rmse_m": 0.035609420388936996,
+          "episode_key": [
+            0,
+            2,
+            0
+          ],
+          "goal_direction_delta_deg": 2.0249308803386534,
+          "goal_distance_delta_m": 0.07469075368362504,
+          "initial_motion_direction_deg": 22.38680006085921,
+          "mask_iou": 0.9231301939058172,
+          "path_rms_m": 0.04929469898343086,
+          "view_index": 684
+        },
+        {
+          "dataset_index": 1491,
+          "dem_rmse_m": 0.025424860417842865,
+          "episode_key": [
+            0,
+            5,
+            1
+          ],
+          "goal_direction_delta_deg": 8.450188785213133,
+          "goal_distance_delta_m": 0.003800040021361528,
+          "initial_motion_direction_deg": 16.202944747055646,
+          "mask_iou": 0.9683908045977011,
+          "path_rms_m": 0.04646531119942665,
+          "view_index": 1339
+        },
+        {
+          "dataset_index": 1492,
+          "dem_rmse_m": 0.03079531528055668,
+          "episode_key": [
+            0,
+            5,
+            1
+          ],
+          "goal_direction_delta_deg": 7.286785706438343,
+          "goal_distance_delta_m": 0.05678343223053056,
+          "initial_motion_direction_deg": 29.04063835482068,
+          "mask_iou": 0.9519774011299436,
+          "path_rms_m": 0.04739522933959961,
+          "view_index": 1340
+        },
+        {
+          "dataset_index": 1654,
+          "dem_rmse_m": 0.013194577768445015,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 12.821348218149634,
+          "goal_distance_delta_m": 0.022405093446196733,
+          "initial_motion_direction_deg": 13.193426159160781,
+          "mask_iou": 0.8102981029810298,
+          "path_rms_m": 0.04803047329187393,
+          "view_index": 1486
+        },
+        {
+          "dataset_index": 1655,
+          "dem_rmse_m": 0.012885072268545628,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 11.802532146627234,
+          "goal_distance_delta_m": 0.026483660474242388,
+          "initial_motion_direction_deg": 20.352678893070248,
+          "mask_iou": 0.8081081081081081,
+          "path_rms_m": 0.044726818799972534,
+          "view_index": 1487
+        },
+        {
+          "dataset_index": 1656,
+          "dem_rmse_m": 0.013033200055360794,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 11.894322082384118,
+          "goal_distance_delta_m": 0.04929850055259627,
+          "initial_motion_direction_deg": 25.938183626544408,
+          "mask_iou": 0.8108108108108109,
+          "path_rms_m": 0.04289175942540169,
+          "view_index": 1488
+        },
+        {
+          "dataset_index": 1659,
+          "dem_rmse_m": 0.012689802795648575,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 13.241646167823802,
+          "goal_distance_delta_m": 0.08385137273353499,
+          "initial_motion_direction_deg": 26.95072370105339,
+          "mask_iou": 0.8174386920980926,
+          "path_rms_m": 0.04523984342813492,
+          "view_index": 1491
+        },
+        {
+          "dataset_index": 1660,
+          "dem_rmse_m": 0.012557209469377995,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 14.139051845109767,
+          "goal_distance_delta_m": 0.04481256557983321,
+          "initial_motion_direction_deg": 25.328666920990457,
+          "mask_iou": 0.8152173913043478,
+          "path_rms_m": 0.04154176265001297,
+          "view_index": 1492
+        },
+        {
+          "dataset_index": 1661,
+          "dem_rmse_m": 0.012651638127863407,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 16.135359967668084,
+          "goal_distance_delta_m": 0.03354275776428145,
+          "initial_motion_direction_deg": 6.937941390801101,
+          "mask_iou": 0.8130081300813008,
+          "path_rms_m": 0.04604661464691162,
+          "view_index": 1493
+        },
+        {
+          "dataset_index": 1662,
+          "dem_rmse_m": 0.013044443912804127,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 13.363422605517362,
+          "goal_distance_delta_m": 0.039989000096739946,
+          "initial_motion_direction_deg": 19.396116002406607,
+          "mask_iou": 0.8108108108108109,
+          "path_rms_m": 0.041281647980213165,
+          "view_index": 1494
+        },
+        {
+          "dataset_index": 1663,
+          "dem_rmse_m": 0.01292498130351305,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 15.171096628530071,
+          "goal_distance_delta_m": 0.04872993184608382,
+          "initial_motion_direction_deg": 21.47625905114353,
+          "mask_iou": 0.8108108108108109,
+          "path_rms_m": 0.04601454362273216,
+          "view_index": 1495
+        },
+        {
+          "dataset_index": 1666,
+          "dem_rmse_m": 0.01247031893581152,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 16.64449804574093,
+          "goal_distance_delta_m": 0.043215071692885576,
+          "initial_motion_direction_deg": 19.073253515133967,
+          "mask_iou": 0.8114754098360656,
+          "path_rms_m": 0.048970822244882584,
+          "view_index": 1498
+        },
+        {
+          "dataset_index": 1667,
+          "dem_rmse_m": 0.01298966258764267,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 17.327412899323683,
+          "goal_distance_delta_m": 0.0720715577749626,
+          "initial_motion_direction_deg": 10.486160244374345,
+          "mask_iou": 0.8114754098360656,
+          "path_rms_m": 0.04867052286863327,
+          "view_index": 1499
+        },
+        {
+          "dataset_index": 1694,
+          "dem_rmse_m": 0.012984111905097961,
+          "episode_key": [
+            0,
+            5,
+            4
+          ],
+          "goal_direction_delta_deg": 0.3711772196376578,
+          "goal_distance_delta_m": 0.06282746242004472,
+          "initial_motion_direction_deg": 21.6629030895715,
+          "mask_iou": 0.8142076502732241,
+          "path_rms_m": 0.0260405745357275,
+          "view_index": 1518
+        },
+        {
+          "dataset_index": 1726,
+          "dem_rmse_m": 0.013090747408568859,
+          "episode_key": [
+            0,
+            5,
+            4
+          ],
+          "goal_direction_delta_deg": 6.524262698748799,
+          "goal_distance_delta_m": 0.00898334933799666,
+          "initial_motion_direction_deg": 15.049430743104965,
+          "mask_iou": 0.825136612021858,
+          "path_rms_m": 0.02999172732234001,
+          "view_index": 1550
+        },
+        {
+          "dataset_index": 1739,
+          "dem_rmse_m": 0.013915878720581532,
+          "episode_key": [
+            0,
+            5,
+            4
+          ],
+          "goal_direction_delta_deg": 14.016517651846865,
+          "goal_distance_delta_m": 0.04032140420394975,
+          "initial_motion_direction_deg": 5.748047990014177,
+          "mask_iou": 0.9215116279069767,
+          "path_rms_m": 0.04161212965846062,
+          "view_index": 1563
+        },
+        {
+          "dataset_index": 1790,
+          "dem_rmse_m": 0.013615170493721962,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.2074112467887788,
+          "goal_distance_delta_m": 0.015186542734680952,
+          "initial_motion_direction_deg": 27.67051836310297,
+          "mask_iou": 0.8232189973614775,
+          "path_rms_m": 0.04807409271597862,
+          "view_index": 1606
+        },
+        {
+          "dataset_index": 1791,
+          "dem_rmse_m": 0.013905396685004234,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 7.768637796046178,
+          "goal_distance_delta_m": 0.030283367171706377,
+          "initial_motion_direction_deg": 24.070821038257634,
+          "mask_iou": 0.8179419525065963,
+          "path_rms_m": 0.038718074560165405,
+          "view_index": 1607
+        },
+        {
+          "dataset_index": 1870,
+          "dem_rmse_m": 0.013413622975349426,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 3.3029412272878114,
+          "goal_distance_delta_m": 0.01260369466262895,
+          "initial_motion_direction_deg": 25.058235535383766,
+          "mask_iou": 0.8607954545454546,
+          "path_rms_m": 0.04648150876164436,
+          "view_index": 1678
+        },
+        {
+          "dataset_index": 1871,
+          "dem_rmse_m": 0.013254794292151928,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 0.22881805443503056,
+          "goal_distance_delta_m": 0.00974008990806502,
+          "initial_motion_direction_deg": 28.464018281313354,
+          "mask_iou": 0.8714285714285714,
+          "path_rms_m": 0.035915352404117584,
+          "view_index": 1679
+        },
+        {
+          "dataset_index": 1873,
+          "dem_rmse_m": 0.013971603475511074,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 16.22165713539406,
+          "goal_distance_delta_m": 0.0894854719786064,
+          "initial_motion_direction_deg": 1.9836672041982528,
+          "mask_iou": 0.9046242774566474,
+          "path_rms_m": 0.04534868150949478,
+          "view_index": 1681
+        },
+        {
+          "dataset_index": 1877,
+          "dem_rmse_m": 0.01351741049438715,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 13.699858074826883,
+          "goal_distance_delta_m": 0.04939418481308061,
+          "initial_motion_direction_deg": 26.334336480740124,
+          "mask_iou": 0.9273255813953488,
+          "path_rms_m": 0.04289761930704117,
+          "view_index": 1685
+        },
+        {
+          "dataset_index": 1954,
+          "dem_rmse_m": 0.013342835009098053,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 3.580769762247025,
+          "goal_distance_delta_m": 0.016205375924529253,
+          "initial_motion_direction_deg": 1.3088063636165703,
+          "mask_iou": 0.8403361344537815,
+          "path_rms_m": 0.03440006077289581,
+          "view_index": 1754
+        },
+        {
+          "dataset_index": 1955,
+          "dem_rmse_m": 0.013681692071259022,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 3.792777053988225,
+          "goal_distance_delta_m": 0.0725982134194954,
+          "initial_motion_direction_deg": 10.935294982520466,
+          "mask_iou": 0.8531073446327684,
+          "path_rms_m": 0.032995566725730896,
+          "view_index": 1755
+        },
+        {
+          "dataset_index": 2028,
+          "dem_rmse_m": 0.013152753002941608,
+          "episode_key": [
+            0,
+            5,
+            8
+          ],
+          "goal_direction_delta_deg": 0.09079320336339733,
+          "goal_distance_delta_m": 0.06665295912307662,
+          "initial_motion_direction_deg": 20.658798593961304,
+          "mask_iou": 0.8201058201058201,
+          "path_rms_m": 0.03921561688184738,
+          "view_index": 1820
+        },
+        {
+          "dataset_index": 2603,
+          "dem_rmse_m": 0.01389753632247448,
+          "episode_key": [
+            0,
+            6,
+            6
+          ],
+          "goal_direction_delta_deg": 16.507946306830853,
+          "goal_distance_delta_m": 0.00040895296615522936,
+          "initial_motion_direction_deg": 16.452663894174943,
+          "mask_iou": 0.9129172714078374,
+          "path_rms_m": 0.04589269310235977,
+          "view_index": 2339
+        },
+        {
+          "dataset_index": 2605,
+          "dem_rmse_m": 0.017148509621620178,
+          "episode_key": [
+            0,
+            6,
+            6
+          ],
+          "goal_direction_delta_deg": 16.27457110050698,
+          "goal_distance_delta_m": 0.015450591311035933,
+          "initial_motion_direction_deg": 15.946675744608017,
+          "mask_iou": 0.9010115606936416,
+          "path_rms_m": 0.04888346046209335,
+          "view_index": 2341
+        },
+        {
+          "dataset_index": 3048,
+          "dem_rmse_m": 0.04172547161579132,
+          "episode_key": [
+            0,
+            7,
+            3
+          ],
+          "goal_direction_delta_deg": 1.8406473497623104,
+          "goal_distance_delta_m": 0.05387663291412431,
+          "initial_motion_direction_deg": 15.379318129184927,
+          "mask_iou": 0.8356545961002786,
+          "path_rms_m": 0.037946462631225586,
+          "view_index": 2736
+        },
+        {
+          "dataset_index": 3320,
+          "dem_rmse_m": 0.03975237160921097,
+          "episode_key": [
+            0,
+            7,
+            7
+          ],
+          "goal_direction_delta_deg": 11.590376904692699,
+          "goal_distance_delta_m": 0.011805480256499468,
+          "initial_motion_direction_deg": 15.129741461097458,
+          "mask_iou": 0.9788783685360525,
+          "path_rms_m": 0.04549195617437363,
+          "view_index": 2976
+        },
+        {
+          "dataset_index": 3321,
+          "dem_rmse_m": 0.0381774976849556,
+          "episode_key": [
+            0,
+            7,
+            7
+          ],
+          "goal_direction_delta_deg": 10.953301928706649,
+          "goal_distance_delta_m": 0.06142008854431075,
+          "initial_motion_direction_deg": 28.536805490346037,
+          "mask_iou": 0.9568965517241379,
+          "path_rms_m": 0.04167419299483299,
+          "view_index": 2977
+        },
+        {
+          "dataset_index": 3322,
+          "dem_rmse_m": 0.03838216885924339,
+          "episode_key": [
+            0,
+            7,
+            7
+          ],
+          "goal_direction_delta_deg": 12.287916629111141,
+          "goal_distance_delta_m": 0.09961739732307356,
+          "initial_motion_direction_deg": 8.012119928837937,
+          "mask_iou": 0.9570815450643777,
+          "path_rms_m": 0.049297820776700974,
+          "view_index": 2978
+        },
+        {
+          "dataset_index": 3723,
+          "dem_rmse_m": 0.029547933489084244,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 6.145974903249865,
+          "goal_distance_delta_m": 0.08766662524658281,
+          "initial_motion_direction_deg": 21.281452328776922,
+          "mask_iou": 0.8876080691642652,
+          "path_rms_m": 0.04875347018241882,
+          "view_index": 3339
+        },
+        {
+          "dataset_index": 4006,
+          "dem_rmse_m": 0.027836885303258896,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 14.691636367080342,
+          "goal_distance_delta_m": 0.030203336939392866,
+          "initial_motion_direction_deg": 21.596705824156835,
+          "mask_iou": 0.9186046511627907,
+          "path_rms_m": 0.047910477966070175,
+          "view_index": 3590
+        },
+        {
+          "dataset_index": 4008,
+          "dem_rmse_m": 0.029400741681456566,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 15.783048362492902,
+          "goal_distance_delta_m": 0.013195926413117232,
+          "initial_motion_direction_deg": 18.64096782177038,
+          "mask_iou": 0.9186046511627907,
+          "path_rms_m": 0.049112364649772644,
+          "view_index": 3592
+        },
+        {
+          "dataset_index": 4009,
+          "dem_rmse_m": 0.030541781336069107,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 12.499868542587988,
+          "goal_distance_delta_m": 0.006651485428391279,
+          "initial_motion_direction_deg": 22.154970372878104,
+          "mask_iou": 0.9212827988338192,
+          "path_rms_m": 0.037428613752126694,
+          "view_index": 3593
+        },
+        {
+          "dataset_index": 4010,
+          "dem_rmse_m": 0.03136943653225899,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 10.243101401971348,
+          "goal_distance_delta_m": 0.08888571904617387,
+          "initial_motion_direction_deg": 23.46722731257038,
+          "mask_iou": 0.9156976744186046,
+          "path_rms_m": 0.047934066504240036,
+          "view_index": 3594
+        },
+        {
+          "dataset_index": 4227,
+          "dem_rmse_m": 0.03454474359750748,
+          "episode_key": [
+            0,
+            9,
+            1
+          ],
+          "goal_direction_delta_deg": 6.821907567437637,
+          "goal_distance_delta_m": 0.060161506667555986,
+          "initial_motion_direction_deg": 12.937151705950793,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.03821990266442299,
+          "view_index": 3787
+        },
+        {
+          "dataset_index": 4228,
+          "dem_rmse_m": 0.03435314819216728,
+          "episode_key": [
+            0,
+            9,
+            1
+          ],
+          "goal_direction_delta_deg": 4.081029165117018,
+          "goal_distance_delta_m": 0.005306834444580855,
+          "initial_motion_direction_deg": 17.02906601789744,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.026041211560368538,
+          "view_index": 3788
+        },
+        {
+          "dataset_index": 4229,
+          "dem_rmse_m": 0.03417552262544632,
+          "episode_key": [
+            0,
+            9,
+            1
+          ],
+          "goal_direction_delta_deg": 5.58676339490416,
+          "goal_distance_delta_m": 0.09117483542877275,
+          "initial_motion_direction_deg": 23.363699105781375,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.03380461409687996,
+          "view_index": 3789
+        },
+        {
+          "dataset_index": 4383,
+          "dem_rmse_m": 0.03412747383117676,
+          "episode_key": [
+            0,
+            9,
+            3
+          ],
+          "goal_direction_delta_deg": 10.291111556706847,
+          "goal_distance_delta_m": 0.0037796850351707323,
+          "initial_motion_direction_deg": 23.72499332951978,
+          "mask_iou": 0.8179419525065963,
+          "path_rms_m": 0.04352022707462311,
+          "view_index": 3927
+        },
+        {
+          "dataset_index": 4743,
+          "dem_rmse_m": 0.04784597083926201,
+          "episode_key": [
+            0,
+            9,
+            7
+          ],
+          "goal_direction_delta_deg": 10.359536451956016,
+          "goal_distance_delta_m": 0.07263355897384721,
+          "initial_motion_direction_deg": 14.404694451564549,
+          "mask_iou": 0.97953216374269,
+          "path_rms_m": 0.048016078770160675,
+          "view_index": 4255
+        },
+        {
+          "dataset_index": 5187,
+          "dem_rmse_m": 0.03707382082939148,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 1.53419671159548,
+          "goal_distance_delta_m": 0.00875317500549394,
+          "initial_motion_direction_deg": 23.466472630430466,
+          "mask_iou": 0.8356545961002786,
+          "path_rms_m": 0.03174030780792236,
+          "view_index": 4651
+        },
+        {
+          "dataset_index": 5188,
+          "dem_rmse_m": 0.04246377944946289,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 1.9420857577051351,
+          "goal_distance_delta_m": 0.0073392932267768995,
+          "initial_motion_direction_deg": 20.667315241658176,
+          "mask_iou": 0.8328690807799443,
+          "path_rms_m": 0.02715275250375271,
+          "view_index": 4652
+        },
+        {
+          "dataset_index": 5189,
+          "dem_rmse_m": 0.0446496307849884,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.3504597058389947,
+          "goal_distance_delta_m": 0.021323556170044722,
+          "initial_motion_direction_deg": 25.619863544871794,
+          "mask_iou": 0.835195530726257,
+          "path_rms_m": 0.024240409955382347,
+          "view_index": 4653
+        },
+        {
+          "dataset_index": 5190,
+          "dem_rmse_m": 0.04364567995071411,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.7030633466546816,
+          "goal_distance_delta_m": 0.03889482663589555,
+          "initial_motion_direction_deg": 22.92948402135238,
+          "mask_iou": 0.8398876404494382,
+          "path_rms_m": 0.022931158542633057,
+          "view_index": 4654
+        },
+        {
+          "dataset_index": 5191,
+          "dem_rmse_m": 0.04200943931937218,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.9201222746114563,
+          "goal_distance_delta_m": 0.04010277436691362,
+          "initial_motion_direction_deg": 20.740111768658863,
+          "mask_iou": 0.847457627118644,
+          "path_rms_m": 0.02855324186384678,
+          "view_index": 4655
+        },
+        {
+          "dataset_index": 5192,
+          "dem_rmse_m": 0.038552701473236084,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.87879178251494,
+          "goal_distance_delta_m": 0.010752135977326216,
+          "initial_motion_direction_deg": 21.833690221546256,
+          "mask_iou": 0.8579545454545454,
+          "path_rms_m": 0.033681780099868774,
+          "view_index": 4656
+        },
+        {
+          "dataset_index": 5193,
+          "dem_rmse_m": 0.03398522362112999,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.051880648550945,
+          "goal_distance_delta_m": 0.009914154276429,
+          "initial_motion_direction_deg": 23.426931272729163,
+          "mask_iou": 0.8632478632478633,
+          "path_rms_m": 0.03987856209278107,
+          "view_index": 4657
+        },
+        {
+          "dataset_index": 5194,
+          "dem_rmse_m": 0.03018878400325775,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 3.1519807156978983,
+          "goal_distance_delta_m": 0.003814661964951338,
+          "initial_motion_direction_deg": 20.725380947608357,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.04137689992785454,
+          "view_index": 4658
+        },
+        {
+          "dataset_index": 5195,
+          "dem_rmse_m": 0.027136672288179398,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.5369200683463036,
+          "goal_distance_delta_m": 0.0309907848982231,
+          "initial_motion_direction_deg": 24.956591071073262,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.04000435024499893,
+          "view_index": 4659
+        },
+        {
+          "dataset_index": 5196,
+          "dem_rmse_m": 0.022582992911338806,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 4.00616716813402,
+          "goal_distance_delta_m": 0.06841311408561629,
+          "initial_motion_direction_deg": 22.22142747927534,
+          "mask_iou": 0.8714285714285714,
+          "path_rms_m": 0.038621172308921814,
+          "view_index": 4660
+        },
+        {
+          "dataset_index": 5197,
+          "dem_rmse_m": 0.02034338004887104,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.8647695956836388,
+          "goal_distance_delta_m": 0.0944843049196617,
+          "initial_motion_direction_deg": 22.483846169697333,
+          "mask_iou": 0.8767908309455588,
+          "path_rms_m": 0.04010520502924919,
+          "view_index": 4661
+        },
+        {
+          "dataset_index": 5565,
+          "dem_rmse_m": 0.011664933525025845,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 3.3640608312456064,
+          "goal_distance_delta_m": 0.04930043770355147,
+          "initial_motion_direction_deg": 28.182139770331073,
+          "mask_iou": 0.8015463917525774,
+          "path_rms_m": 0.034861933439970016,
+          "view_index": 4989
+        },
+        {
+          "dataset_index": 5566,
+          "dem_rmse_m": 0.011341976933181286,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 6.875269496249636,
+          "goal_distance_delta_m": 0.054526383146820845,
+          "initial_motion_direction_deg": 15.25296421357834,
+          "mask_iou": 0.8031088082901554,
+          "path_rms_m": 0.030635995790362358,
+          "view_index": 4990
+        },
+        {
+          "dataset_index": 5627,
+          "dem_rmse_m": 0.014773666858673096,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 10.448129776135794,
+          "goal_distance_delta_m": 0.011245226397933183,
+          "initial_motion_direction_deg": 26.497000257455035,
+          "mask_iou": 0.8541114058355438,
+          "path_rms_m": 0.04524798318743706,
+          "view_index": 5043
+        },
+        {
+          "dataset_index": 5628,
+          "dem_rmse_m": 0.014937186613678932,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 9.391724064136014,
+          "goal_distance_delta_m": 0.01925897048431474,
+          "initial_motion_direction_deg": 15.688692808233428,
+          "mask_iou": 0.8267716535433071,
+          "path_rms_m": 0.03819537162780762,
+          "view_index": 5044
+        },
+        {
+          "dataset_index": 5629,
+          "dem_rmse_m": 0.014424138702452183,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 9.424716716230845,
+          "goal_distance_delta_m": 0.09159725354629594,
+          "initial_motion_direction_deg": 15.730617991296274,
+          "mask_iou": 0.804177545691906,
+          "path_rms_m": 0.04969906434416771,
+          "view_index": 5045
+        },
+        {
+          "dataset_index": 5694,
+          "dem_rmse_m": 0.012897370383143425,
+          "episode_key": [
+            0,
+            11,
+            2
+          ],
+          "goal_direction_delta_deg": 14.874589899872708,
+          "goal_distance_delta_m": 0.04481849624198836,
+          "initial_motion_direction_deg": 13.879073969440627,
+          "mask_iou": 0.8125,
+          "path_rms_m": 0.044818729162216187,
+          "view_index": 5102
+        },
+        {
+          "dataset_index": 5696,
+          "dem_rmse_m": 0.013237060979008675,
+          "episode_key": [
+            0,
+            11,
+            2
+          ],
+          "goal_direction_delta_deg": 12.430138375077663,
+          "goal_distance_delta_m": 0.04583290769142073,
+          "initial_motion_direction_deg": 18.502074974459937,
+          "mask_iou": 0.8136986301369863,
+          "path_rms_m": 0.03729170933365822,
+          "view_index": 5104
+        },
+        {
+          "dataset_index": 5697,
+          "dem_rmse_m": 0.013669606298208237,
+          "episode_key": [
+            0,
+            11,
+            2
+          ],
+          "goal_direction_delta_deg": 8.76767259603214,
+          "goal_distance_delta_m": 0.08270103289169234,
+          "initial_motion_direction_deg": 22.04347943553688,
+          "mask_iou": 0.8142076502732241,
+          "path_rms_m": 0.03676261380314827,
+          "view_index": 5105
+        },
+        {
+          "dataset_index": 5953,
+          "dem_rmse_m": 0.01390641089528799,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 7.408672775864333,
+          "goal_distance_delta_m": 0.0629065985826866,
+          "initial_motion_direction_deg": 27.438641327330576,
+          "mask_iou": 0.9540229885057471,
+          "path_rms_m": 0.046648576855659485,
+          "view_index": 5337
+        },
+        {
+          "dataset_index": 5954,
+          "dem_rmse_m": 0.01375541090965271,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 0.5433341290286829,
+          "goal_distance_delta_m": 0.06591496421379012,
+          "initial_motion_direction_deg": 25.04767868566121,
+          "mask_iou": 0.9136490250696379,
+          "path_rms_m": 0.03234194219112396,
+          "view_index": 5338
+        },
+        {
+          "dataset_index": 5956,
+          "dem_rmse_m": 0.013440205715596676,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 6.33383810410587,
+          "goal_distance_delta_m": 0.06460053278488082,
+          "initial_motion_direction_deg": 22.07058889272643,
+          "mask_iou": 0.84,
+          "path_rms_m": 0.027941640466451645,
+          "view_index": 5340
+        },
+        {
+          "dataset_index": 5957,
+          "dem_rmse_m": 0.01345493458211422,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 10.496802086224678,
+          "goal_distance_delta_m": 0.052113151088179765,
+          "initial_motion_direction_deg": 11.906202441149551,
+          "mask_iou": 0.8191489361702128,
+          "path_rms_m": 0.03347935155034065,
+          "view_index": 5341
+        },
+        {
+          "dataset_index": 5958,
+          "dem_rmse_m": 0.013431684114038944,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 11.886122518359894,
+          "goal_distance_delta_m": 0.056675409808577715,
+          "initial_motion_direction_deg": 22.51872847641663,
+          "mask_iou": 0.8181818181818182,
+          "path_rms_m": 0.04071914777159691,
+          "view_index": 5342
+        },
+        {
+          "dataset_index": 6015,
+          "dem_rmse_m": 0.011426405049860477,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 3.109150181618706,
+          "goal_distance_delta_m": 0.0011902694554908888,
+          "initial_motion_direction_deg": 25.661675488439595,
+          "mask_iou": 0.9281767955801105,
+          "path_rms_m": 0.041305188089609146,
+          "view_index": 5391
+        },
+        {
+          "dataset_index": 6016,
+          "dem_rmse_m": 0.0112436693161726,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 0.6538190915403551,
+          "goal_distance_delta_m": 0.008943116202773271,
+          "initial_motion_direction_deg": 28.755304457632263,
+          "mask_iou": 0.9361111111111111,
+          "path_rms_m": 0.035195644944906235,
+          "view_index": 5392
+        },
+        {
+          "dataset_index": 6017,
+          "dem_rmse_m": 0.011476707644760609,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 3.2762369814255963,
+          "goal_distance_delta_m": 0.011820549234925093,
+          "initial_motion_direction_deg": 26.377976187783876,
+          "mask_iou": 0.9467787114845938,
+          "path_rms_m": 0.028746167197823524,
+          "view_index": 5393
+        },
+        {
+          "dataset_index": 6018,
+          "dem_rmse_m": 0.011499358341097832,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 3.8365092613421234,
+          "goal_distance_delta_m": 0.02943127797561723,
+          "initial_motion_direction_deg": 10.61144243897978,
+          "mask_iou": 0.9576271186440678,
+          "path_rms_m": 0.03414938226342201,
+          "view_index": 5394
+        },
+        {
+          "dataset_index": 6165,
+          "dem_rmse_m": 0.013524950481951237,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 11.357674773559035,
+          "goal_distance_delta_m": 0.08132571531814498,
+          "initial_motion_direction_deg": 27.125279369343744,
+          "mask_iou": 0.8106666666666666,
+          "path_rms_m": 0.04367217421531677,
+          "view_index": 5525
+        },
+        {
+          "dataset_index": 6166,
+          "dem_rmse_m": 0.013441918417811394,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 10.502067742452114,
+          "goal_distance_delta_m": 0.013816827997742476,
+          "initial_motion_direction_deg": 4.117799960989414,
+          "mask_iou": 0.8106666666666666,
+          "path_rms_m": 0.034439943730831146,
+          "view_index": 5526
+        },
+        {
+          "dataset_index": 6205,
+          "dem_rmse_m": 0.025902198627591133,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 15.558194541327918,
+          "goal_distance_delta_m": 0.03521138979476851,
+          "initial_motion_direction_deg": 11.833480478458831,
+          "mask_iou": 0.940225035161744,
+          "path_rms_m": 0.04903844743967056,
+          "view_index": 5565
+        },
+        {
+          "dataset_index": 6292,
+          "dem_rmse_m": 0.013740384951233864,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 8.355586387515508,
+          "goal_distance_delta_m": 0.050900871023712935,
+          "initial_motion_direction_deg": 28.02450089820201,
+          "mask_iou": 0.9281767955801105,
+          "path_rms_m": 0.030559735372662544,
+          "view_index": 5636
+        },
+        {
+          "dataset_index": 6448,
+          "dem_rmse_m": 0.013557665050029755,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 7.230860245367777,
+          "goal_distance_delta_m": 0.09037787272018355,
+          "initial_motion_direction_deg": 15.069935105884678,
+          "mask_iou": 0.9203296703296703,
+          "path_rms_m": 0.04092497006058693,
+          "view_index": 5776
+        },
+        {
+          "dataset_index": 6460,
+          "dem_rmse_m": 0.012762836180627346,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 9.391528921330364,
+          "goal_distance_delta_m": 0.027660185560761275,
+          "initial_motion_direction_deg": 21.077913711612414,
+          "mask_iou": 0.8147138964577657,
+          "path_rms_m": 0.045244816690683365,
+          "view_index": 5788
+        },
+        {
+          "dataset_index": 6820,
+          "dem_rmse_m": 0.013475663959980011,
+          "episode_key": [
+            0,
+            13,
+            7
+          ],
+          "goal_direction_delta_deg": 7.968984144959136,
+          "goal_distance_delta_m": 0.06808519913238448,
+          "initial_motion_direction_deg": 14.494885375548776,
+          "mask_iou": 0.8110661268556005,
+          "path_rms_m": 0.038678839802742004,
+          "view_index": 6116
+        },
+        {
+          "dataset_index": 6821,
+          "dem_rmse_m": 0.01317452173680067,
+          "episode_key": [
+            0,
+            13,
+            7
+          ],
+          "goal_direction_delta_deg": 5.906719427411737,
+          "goal_distance_delta_m": 0.06921107126754683,
+          "initial_motion_direction_deg": 19.415172460670224,
+          "mask_iou": 0.8143146522619852,
+          "path_rms_m": 0.034186359494924545,
+          "view_index": 6117
+        },
+        {
+          "dataset_index": 6822,
+          "dem_rmse_m": 0.013613348826766014,
+          "episode_key": [
+            0,
+            13,
+            7
+          ],
+          "goal_direction_delta_deg": 6.628369885479604,
+          "goal_distance_delta_m": 0.08088008119148177,
+          "initial_motion_direction_deg": 24.296527821809583,
+          "mask_iou": 0.8138117806364252,
+          "path_rms_m": 0.03163156285881996,
+          "view_index": 6118
+        },
+        {
+          "dataset_index": 7667,
+          "dem_rmse_m": 0.02395104058086872,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 10.535558809779106,
+          "goal_distance_delta_m": 0.07572460724395674,
+          "initial_motion_direction_deg": 21.45622312038463,
+          "mask_iou": 0.8127544097693351,
+          "path_rms_m": 0.04759666696190834,
+          "view_index": 6875
+        },
+        {
+          "dataset_index": 7694,
+          "dem_rmse_m": 0.008186489343643188,
+          "episode_key": [
+            0,
+            16,
+            1
+          ],
+          "goal_direction_delta_deg": 16.99455054543908,
+          "goal_distance_delta_m": 0.01272187186759871,
+          "initial_motion_direction_deg": 22.32192531811973,
+          "mask_iou": 0.8660968660968661,
+          "path_rms_m": 0.049917202442884445,
+          "view_index": 6894
+        }
+      ],
+      "nearest_nomad_candidate_id": "nomad-seed-1006",
+      "same_command_mode": false,
+      "same_realized_mode": true,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "bank_candidate_id": "bank-strong_right",
+      "classification": "same_mode_outcome_variation",
+      "counts": {
+        "complete_train": 49598,
+        "dem_goal_match": 2710,
+        "distinct_support_episodes": 196,
+        "goal_direction_and_different_episode": 4758,
+        "goal_distance_only": 6545,
+        "trajectory_and_motion_match": 617,
+        "trajectory_match": 682
+      },
+      "generator": "bank",
+      "matched_teacher_total": 617,
+      "matched_teacher_windows": [
+        {
+          "dataset_index": 55,
+          "dem_rmse_m": 0.036743707954883575,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 6.7964474866579465,
+          "goal_distance_delta_m": 0.071574903734267,
+          "initial_motion_direction_deg": 17.853840568560827,
+          "mask_iou": 0.8753541076487252,
+          "path_rms_m": 0.048065755516290665,
+          "view_index": 55
+        },
+        {
+          "dataset_index": 60,
+          "dem_rmse_m": 0.03699863702058792,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 8.746140768293973,
+          "goal_distance_delta_m": 0.032558299310744054,
+          "initial_motion_direction_deg": 17.214619714640143,
+          "mask_iou": 0.8619718309859155,
+          "path_rms_m": 0.04463577643036842,
+          "view_index": 60
+        },
+        {
+          "dataset_index": 61,
+          "dem_rmse_m": 0.036877214908599854,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 9.802348073512713,
+          "goal_distance_delta_m": 0.0010225999278423714,
+          "initial_motion_direction_deg": 12.250134477434987,
+          "mask_iou": 0.85273492286115,
+          "path_rms_m": 0.041080135852098465,
+          "view_index": 61
+        },
+        {
+          "dataset_index": 159,
+          "dem_rmse_m": 0.034457698464393616,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 7.422921167413607,
+          "goal_distance_delta_m": 0.007534884206712,
+          "initial_motion_direction_deg": 15.851869829067404,
+          "mask_iou": 0.8753541076487252,
+          "path_rms_m": 0.02800426073372364,
+          "view_index": 143
+        },
+        {
+          "dataset_index": 160,
+          "dem_rmse_m": 0.03443765267729759,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 7.897895979376926,
+          "goal_distance_delta_m": 0.07133797527128483,
+          "initial_motion_direction_deg": 15.935783300760514,
+          "mask_iou": 0.8781869688385269,
+          "path_rms_m": 0.04601573571562767,
+          "view_index": 144
+        },
+        {
+          "dataset_index": 261,
+          "dem_rmse_m": 0.03589245676994324,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 4.232318345102369,
+          "goal_distance_delta_m": 0.004512943037092931,
+          "initial_motion_direction_deg": 18.75686553078541,
+          "mask_iou": 0.8115183246073299,
+          "path_rms_m": 0.034106288105249405,
+          "view_index": 237
+        },
+        {
+          "dataset_index": 262,
+          "dem_rmse_m": 0.03603845089673996,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 4.658710904627571,
+          "goal_distance_delta_m": 0.005333222158491857,
+          "initial_motion_direction_deg": 16.363743868916814,
+          "mask_iou": 0.814621409921671,
+          "path_rms_m": 0.04115939512848854,
+          "view_index": 238
+        },
+        {
+          "dataset_index": 263,
+          "dem_rmse_m": 0.03607003763318062,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 7.216636786230421,
+          "goal_distance_delta_m": 0.0343937504214642,
+          "initial_motion_direction_deg": 17.30465232587591,
+          "mask_iou": 0.814621409921671,
+          "path_rms_m": 0.03126174584031105,
+          "view_index": 239
+        },
+        {
+          "dataset_index": 264,
+          "dem_rmse_m": 0.03613687679171562,
+          "episode_key": [
+            0,
+            0,
+            3
+          ],
+          "goal_direction_delta_deg": 8.110592797438018,
+          "goal_distance_delta_m": 0.09126415132707333,
+          "initial_motion_direction_deg": 14.52247585608115,
+          "mask_iou": 0.814621409921671,
+          "path_rms_m": 0.03812221810221672,
+          "view_index": 240
+        },
+        {
+          "dataset_index": 426,
+          "dem_rmse_m": 0.03486926481127739,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 4.481910175270899,
+          "goal_distance_delta_m": 0.04847952007478451,
+          "initial_motion_direction_deg": 27.87423968793072,
+          "mask_iou": 0.8310249307479224,
+          "path_rms_m": 0.04465292766690254,
+          "view_index": 386
+        },
+        {
+          "dataset_index": 427,
+          "dem_rmse_m": 0.03498142212629318,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 2.881777553438357,
+          "goal_distance_delta_m": 0.019908524759352453,
+          "initial_motion_direction_deg": 17.663991398017878,
+          "mask_iou": 0.841225626740947,
+          "path_rms_m": 0.03871113806962967,
+          "view_index": 387
+        },
+        {
+          "dataset_index": 428,
+          "dem_rmse_m": 0.03502069413661957,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 2.9414503648682246,
+          "goal_distance_delta_m": 0.020570851572096593,
+          "initial_motion_direction_deg": 19.70428178286309,
+          "mask_iou": 0.8463687150837989,
+          "path_rms_m": 0.04073289409279823,
+          "view_index": 388
+        },
+        {
+          "dataset_index": 429,
+          "dem_rmse_m": 0.034993890672922134,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 3.1824498365029066,
+          "goal_distance_delta_m": 0.02305433870130802,
+          "initial_motion_direction_deg": 21.053124877309404,
+          "mask_iou": 0.8515406162464986,
+          "path_rms_m": 0.04096559062600136,
+          "view_index": 389
+        },
+        {
+          "dataset_index": 430,
+          "dem_rmse_m": 0.03491052985191345,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 1.5433695230363318,
+          "goal_distance_delta_m": 0.010153375856339686,
+          "initial_motion_direction_deg": 16.677736709939417,
+          "mask_iou": 0.8515406162464986,
+          "path_rms_m": 0.03104448691010475,
+          "view_index": 390
+        },
+        {
+          "dataset_index": 546,
+          "dem_rmse_m": 0.033726681023836136,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 4.801774195700973,
+          "goal_distance_delta_m": 0.021914325944840662,
+          "initial_motion_direction_deg": 6.950934405784401,
+          "mask_iou": 0.8148148148148148,
+          "path_rms_m": 0.034754373133182526,
+          "view_index": 490
+        },
+        {
+          "dataset_index": 547,
+          "dem_rmse_m": 0.03379010036587715,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 1.9035725190354873,
+          "goal_distance_delta_m": 0.03952989698225284,
+          "initial_motion_direction_deg": 12.631277280085778,
+          "mask_iou": 0.8131578947368421,
+          "path_rms_m": 0.02334723435342312,
+          "view_index": 491
+        },
+        {
+          "dataset_index": 552,
+          "dem_rmse_m": 0.03386102616786957,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 0.5789263568088524,
+          "goal_distance_delta_m": 0.006320573099196203,
+          "initial_motion_direction_deg": 18.161497867957856,
+          "mask_iou": 0.8120104438642297,
+          "path_rms_m": 0.04790370538830757,
+          "view_index": 496
+        },
+        {
+          "dataset_index": 553,
+          "dem_rmse_m": 0.033823855221271515,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 1.2908048460002257,
+          "goal_distance_delta_m": 0.03283663868135189,
+          "initial_motion_direction_deg": 19.17985803370497,
+          "mask_iou": 0.8093994778067886,
+          "path_rms_m": 0.046473778784275055,
+          "view_index": 497
+        },
+        {
+          "dataset_index": 554,
+          "dem_rmse_m": 0.03381594270467758,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 0.1971486994470761,
+          "goal_distance_delta_m": 0.07987698196595883,
+          "initial_motion_direction_deg": 18.123111003318563,
+          "mask_iou": 0.8089005235602095,
+          "path_rms_m": 0.041681885719299316,
+          "view_index": 498
+        },
+        {
+          "dataset_index": 565,
+          "dem_rmse_m": 0.03577097877860069,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 0.7427041129503736,
+          "goal_distance_delta_m": 0.07687195419496273,
+          "initial_motion_direction_deg": 18.30838723484612,
+          "mask_iou": 0.8130081300813008,
+          "path_rms_m": 0.04549207538366318,
+          "view_index": 509
+        },
+        {
+          "dataset_index": 566,
+          "dem_rmse_m": 0.03592204302549362,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 0.2377403825872818,
+          "goal_distance_delta_m": 0.058465801469743006,
+          "initial_motion_direction_deg": 21.72711871475645,
+          "mask_iou": 0.8174386920980926,
+          "path_rms_m": 0.03729607164859772,
+          "view_index": 510
+        },
+        {
+          "dataset_index": 567,
+          "dem_rmse_m": 0.03604825586080551,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 4.469817566955581,
+          "goal_distance_delta_m": 0.027606450311600916,
+          "initial_motion_direction_deg": 17.705553090352492,
+          "mask_iou": 0.8142076502732241,
+          "path_rms_m": 0.023966442793607712,
+          "view_index": 511
+        },
+        {
+          "dataset_index": 568,
+          "dem_rmse_m": 0.036260128021240234,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 5.598529736699704,
+          "goal_distance_delta_m": 0.010586105577409022,
+          "initial_motion_direction_deg": 17.004058006003767,
+          "mask_iou": 0.8164383561643835,
+          "path_rms_m": 0.02339228242635727,
+          "view_index": 512
+        },
+        {
+          "dataset_index": 569,
+          "dem_rmse_m": 0.03632695972919464,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 5.684229427538164,
+          "goal_distance_delta_m": 0.009538077108323328,
+          "initial_motion_direction_deg": 16.770305344108035,
+          "mask_iou": 0.8186813186813187,
+          "path_rms_m": 0.02389625832438469,
+          "view_index": 513
+        },
+        {
+          "dataset_index": 570,
+          "dem_rmse_m": 0.03637048602104187,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 5.919868290850812,
+          "goal_distance_delta_m": 0.004990898363053553,
+          "initial_motion_direction_deg": 15.55586524295184,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.024628544226288795,
+          "view_index": 514
+        },
+        {
+          "dataset_index": 571,
+          "dem_rmse_m": 0.03636687248945236,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 5.949011207683934,
+          "goal_distance_delta_m": 0.01201012014573788,
+          "initial_motion_direction_deg": 17.499526245880613,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.028657807037234306,
+          "view_index": 515
+        },
+        {
+          "dataset_index": 572,
+          "dem_rmse_m": 0.03630130738019943,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 6.076684978176923,
+          "goal_distance_delta_m": 0.09945686935609555,
+          "initial_motion_direction_deg": 15.23619655594701,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.03514208272099495,
+          "view_index": 516
+        },
+        {
+          "dataset_index": 1079,
+          "dem_rmse_m": 0.03949955105781555,
+          "episode_key": [
+            0,
+            2,
+            5
+          ],
+          "goal_direction_delta_deg": 2.2737399320518668,
+          "goal_distance_delta_m": 0.009344793565809972,
+          "initial_motion_direction_deg": 17.172786393523666,
+          "mask_iou": 0.8781869688385269,
+          "path_rms_m": 0.04737573862075806,
+          "view_index": 967
+        },
+        {
+          "dataset_index": 1415,
+          "dem_rmse_m": 0.0363650768995285,
+          "episode_key": [
+            0,
+            5,
+            0
+          ],
+          "goal_direction_delta_deg": 0.6708395982367449,
+          "goal_distance_delta_m": 0.05588599323457455,
+          "initial_motion_direction_deg": 9.814579067164168,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.02995026670396328,
+          "view_index": 1271
+        },
+        {
+          "dataset_index": 1416,
+          "dem_rmse_m": 0.03592073544859886,
+          "episode_key": [
+            0,
+            5,
+            0
+          ],
+          "goal_direction_delta_deg": 3.4252175279819066,
+          "goal_distance_delta_m": 0.06144686817353939,
+          "initial_motion_direction_deg": 12.782852991854996,
+          "mask_iou": 0.8186813186813187,
+          "path_rms_m": 0.03393424302339554,
+          "view_index": 1272
+        },
+        {
+          "dataset_index": 1740,
+          "dem_rmse_m": 0.03536045178771019,
+          "episode_key": [
+            0,
+            5,
+            4
+          ],
+          "goal_direction_delta_deg": 2.3748569955959953,
+          "goal_distance_delta_m": 0.012287534483015783,
+          "initial_motion_direction_deg": 20.631803799973383,
+          "mask_iou": 0.8147138964577657,
+          "path_rms_m": 0.03151516988873482,
+          "view_index": 1564
+        },
+        {
+          "dataset_index": 1741,
+          "dem_rmse_m": 0.03505317494273186,
+          "episode_key": [
+            0,
+            5,
+            4
+          ],
+          "goal_direction_delta_deg": 1.7923298503106284,
+          "goal_distance_delta_m": 0.04966322303587223,
+          "initial_motion_direction_deg": 13.442947962973207,
+          "mask_iou": 0.819672131147541,
+          "path_rms_m": 0.027666334062814713,
+          "view_index": 1565
+        },
+        {
+          "dataset_index": 1789,
+          "dem_rmse_m": 0.037716370075941086,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 9.781747821033425,
+          "goal_distance_delta_m": 0.061406098596513026,
+          "initial_motion_direction_deg": 16.4975083389438,
+          "mask_iou": 0.9773371104815864,
+          "path_rms_m": 0.04800286144018173,
+          "view_index": 1605
+        },
+        {
+          "dataset_index": 1878,
+          "dem_rmse_m": 0.03529104217886925,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 3.219603772798575,
+          "goal_distance_delta_m": 0.026324964769423254,
+          "initial_motion_direction_deg": 10.758940924792853,
+          "mask_iou": 0.819672131147541,
+          "path_rms_m": 0.04899837076663971,
+          "view_index": 1686
+        },
+        {
+          "dataset_index": 1899,
+          "dem_rmse_m": 0.03747473284602165,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 11.305325776117456,
+          "goal_distance_delta_m": 0.04821339965635563,
+          "initial_motion_direction_deg": 16.85024971258063,
+          "mask_iou": 0.8186813186813187,
+          "path_rms_m": 0.048832498490810394,
+          "view_index": 1707
+        },
+        {
+          "dataset_index": 1900,
+          "dem_rmse_m": 0.03664437308907509,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 8.409208370764308,
+          "goal_distance_delta_m": 0.06452427030378605,
+          "initial_motion_direction_deg": 12.070681280117833,
+          "mask_iou": 0.8164383561643835,
+          "path_rms_m": 0.04599962383508682,
+          "view_index": 1708
+        },
+        {
+          "dataset_index": 1901,
+          "dem_rmse_m": 0.03643561527132988,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 2.5310517700026387,
+          "goal_distance_delta_m": 0.06133905769163395,
+          "initial_motion_direction_deg": 11.755237256338651,
+          "mask_iou": 0.8147138964577657,
+          "path_rms_m": 0.0391370914876461,
+          "view_index": 1709
+        },
+        {
+          "dataset_index": 1955,
+          "dem_rmse_m": 0.037407275289297104,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 11.366786791166277,
+          "goal_distance_delta_m": 0.0460713136119244,
+          "initial_motion_direction_deg": 27.31434680815407,
+          "mask_iou": 0.8647887323943662,
+          "path_rms_m": 0.04941004514694214,
+          "view_index": 1755
+        },
+        {
+          "dataset_index": 1956,
+          "dem_rmse_m": 0.037229496985673904,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 7.92507213265568,
+          "goal_distance_delta_m": 0.03599832177931095,
+          "initial_motion_direction_deg": 14.239109473266131,
+          "mask_iou": 0.8567415730337079,
+          "path_rms_m": 0.03246563300490379,
+          "view_index": 1756
+        },
+        {
+          "dataset_index": 2508,
+          "dem_rmse_m": 0.04313826560974121,
+          "episode_key": [
+            0,
+            6,
+            5
+          ],
+          "goal_direction_delta_deg": 3.961702992998857,
+          "goal_distance_delta_m": 0.02421506523317074,
+          "initial_motion_direction_deg": 10.5445633167722,
+          "mask_iou": 0.9368131868131868,
+          "path_rms_m": 0.03185862675309181,
+          "view_index": 2252
+        },
+        {
+          "dataset_index": 2509,
+          "dem_rmse_m": 0.04299881309270859,
+          "episode_key": [
+            0,
+            6,
+            5
+          ],
+          "goal_direction_delta_deg": 6.3475921912092,
+          "goal_distance_delta_m": 0.004499696485459559,
+          "initial_motion_direction_deg": 15.980922309344274,
+          "mask_iou": 0.9447513812154696,
+          "path_rms_m": 0.04632346332073212,
+          "view_index": 2253
+        },
+        {
+          "dataset_index": 2513,
+          "dem_rmse_m": 0.04436029493808746,
+          "episode_key": [
+            0,
+            6,
+            5
+          ],
+          "goal_direction_delta_deg": 1.6843077194838694,
+          "goal_distance_delta_m": 0.042627669580519445,
+          "initial_motion_direction_deg": 19.149075661911937,
+          "mask_iou": 0.8726790450928382,
+          "path_rms_m": 0.037103574723005295,
+          "view_index": 2257
+        },
+        {
+          "dataset_index": 2606,
+          "dem_rmse_m": 0.04088741913437843,
+          "episode_key": [
+            0,
+            6,
+            6
+          ],
+          "goal_direction_delta_deg": 1.5646516771888659,
+          "goal_distance_delta_m": 0.03144242643541073,
+          "initial_motion_direction_deg": 10.688371368649559,
+          "mask_iou": 0.8209876543209876,
+          "path_rms_m": 0.03596465662121773,
+          "view_index": 2342
+        },
+        {
+          "dataset_index": 2607,
+          "dem_rmse_m": 0.03944060951471329,
+          "episode_key": [
+            0,
+            6,
+            6
+          ],
+          "goal_direction_delta_deg": 2.8636328614831523,
+          "goal_distance_delta_m": 0.08287618280226017,
+          "initial_motion_direction_deg": 18.663210407765707,
+          "mask_iou": 0.8182441700960219,
+          "path_rms_m": 0.042420655488967896,
+          "view_index": 2343
+        },
+        {
+          "dataset_index": 3740,
+          "dem_rmse_m": 0.04276236146688461,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 6.219989462665946,
+          "goal_distance_delta_m": 0.09427259088331486,
+          "initial_motion_direction_deg": 8.175363689996257,
+          "mask_iou": 0.8073878627968337,
+          "path_rms_m": 0.04941132664680481,
+          "view_index": 3356
+        },
+        {
+          "dataset_index": 3898,
+          "dem_rmse_m": 0.044785454869270325,
+          "episode_key": [
+            0,
+            8,
+            5
+          ],
+          "goal_direction_delta_deg": 10.185954685776395,
+          "goal_distance_delta_m": 0.013189755670487635,
+          "initial_motion_direction_deg": 23.12262939780274,
+          "mask_iou": 0.8214285714285714,
+          "path_rms_m": 0.04960937052965164,
+          "view_index": 3498
+        },
+        {
+          "dataset_index": 3899,
+          "dem_rmse_m": 0.0445401556789875,
+          "episode_key": [
+            0,
+            8,
+            5
+          ],
+          "goal_direction_delta_deg": 7.0476543284850255,
+          "goal_distance_delta_m": 0.011714793451369054,
+          "initial_motion_direction_deg": 14.568871335819761,
+          "mask_iou": 0.8191780821917808,
+          "path_rms_m": 0.035679928958415985,
+          "view_index": 3499
+        },
+        {
+          "dataset_index": 4001,
+          "dem_rmse_m": 0.04593145102262497,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 7.47182366120434,
+          "goal_distance_delta_m": 0.029443181760847814,
+          "initial_motion_direction_deg": 16.935209636657582,
+          "mask_iou": 0.8214285714285714,
+          "path_rms_m": 0.04873694106936455,
+          "view_index": 3585
+        },
+        {
+          "dataset_index": 4002,
+          "dem_rmse_m": 0.04520252346992493,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 6.522469491835782,
+          "goal_distance_delta_m": 0.061112605325639,
+          "initial_motion_direction_deg": 6.151380587539721,
+          "mask_iou": 0.8191780821917808,
+          "path_rms_m": 0.029797080904245377,
+          "view_index": 3586
+        },
+        {
+          "dataset_index": 4003,
+          "dem_rmse_m": 0.04406634345650673,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 5.648657410750437,
+          "goal_distance_delta_m": 0.019196950189530604,
+          "initial_motion_direction_deg": 16.656661180818016,
+          "mask_iou": 0.8169398907103825,
+          "path_rms_m": 0.0371369794011116,
+          "view_index": 3587
+        },
+        {
+          "dataset_index": 4004,
+          "dem_rmse_m": 0.0418945848941803,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 5.453917445078147,
+          "goal_distance_delta_m": 0.07177724718278622,
+          "initial_motion_direction_deg": 16.232865979092168,
+          "mask_iou": 0.8119891008174387,
+          "path_rms_m": 0.033007197082042694,
+          "view_index": 3588
+        },
+        {
+          "dataset_index": 4005,
+          "dem_rmse_m": 0.039763905107975006,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 6.062004829066481,
+          "goal_distance_delta_m": 0.09318348049348568,
+          "initial_motion_direction_deg": 5.648612345597453,
+          "mask_iou": 0.8097826086956522,
+          "path_rms_m": 0.04185843840241432,
+          "view_index": 3589
+        },
+        {
+          "dataset_index": 4007,
+          "dem_rmse_m": 0.0385420061647892,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 1.885842935800545,
+          "goal_distance_delta_m": 0.059544287912308924,
+          "initial_motion_direction_deg": 10.21998507181418,
+          "mask_iou": 0.8097826086956522,
+          "path_rms_m": 0.030405359342694283,
+          "view_index": 3591
+        },
+        {
+          "dataset_index": 4010,
+          "dem_rmse_m": 0.03834692761301994,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 4.916477749904386,
+          "goal_distance_delta_m": 0.029783807985245936,
+          "initial_motion_direction_deg": 14.78240698788469,
+          "mask_iou": 0.8119891008174387,
+          "path_rms_m": 0.03154473751783371,
+          "view_index": 3594
+        },
+        {
+          "dataset_index": 4011,
+          "dem_rmse_m": 0.03933211788535118,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 4.079247446032737,
+          "goal_distance_delta_m": 0.01314840436750675,
+          "initial_motion_direction_deg": 24.630669270208525,
+          "mask_iou": 0.8169398907103825,
+          "path_rms_m": 0.02934855967760086,
+          "view_index": 3595
+        },
+        {
+          "dataset_index": 4012,
+          "dem_rmse_m": 0.03997364267706871,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 0.3700026700367133,
+          "goal_distance_delta_m": 0.08239851117903019,
+          "initial_motion_direction_deg": 15.626791211299992,
+          "mask_iou": 0.8169398907103825,
+          "path_rms_m": 0.033086810261011124,
+          "view_index": 3596
+        },
+        {
+          "dataset_index": 4850,
+          "dem_rmse_m": 0.03388489410281181,
+          "episode_key": [
+            0,
+            10,
+            0
+          ],
+          "goal_direction_delta_deg": 5.070607864773196,
+          "goal_distance_delta_m": 0.07356975198560978,
+          "initial_motion_direction_deg": 15.264824479652466,
+          "mask_iou": 0.8107416879795396,
+          "path_rms_m": 0.04903518781065941,
+          "view_index": 4346
+        },
+        {
+          "dataset_index": 4851,
+          "dem_rmse_m": 0.03389877453446388,
+          "episode_key": [
+            0,
+            10,
+            0
+          ],
+          "goal_direction_delta_deg": 4.9340987431168,
+          "goal_distance_delta_m": 0.05878695129579281,
+          "initial_motion_direction_deg": 16.93848033486393,
+          "mask_iou": 0.8081841432225064,
+          "path_rms_m": 0.04309052973985672,
+          "view_index": 4347
+        },
+        {
+          "dataset_index": 5935,
+          "dem_rmse_m": 0.038550104945898056,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 3.5451250815164026,
+          "goal_distance_delta_m": 0.03044680476957584,
+          "initial_motion_direction_deg": 20.432075919732632,
+          "mask_iou": 0.9607843137254902,
+          "path_rms_m": 0.03364545851945877,
+          "view_index": 5319
+        },
+        {
+          "dataset_index": 5936,
+          "dem_rmse_m": 0.03863567113876343,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 5.0332480263314645,
+          "goal_distance_delta_m": 0.07977143646055485,
+          "initial_motion_direction_deg": 21.69071419129483,
+          "mask_iou": 0.9527777777777777,
+          "path_rms_m": 0.047098737210035324,
+          "view_index": 5320
+        },
+        {
+          "dataset_index": 5937,
+          "dem_rmse_m": 0.038699425756931305,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 4.32967890599744,
+          "goal_distance_delta_m": 0.08575925947004581,
+          "initial_motion_direction_deg": 25.156973337576694,
+          "mask_iou": 0.9105691056910569,
+          "path_rms_m": 0.0491110123693943,
+          "view_index": 5321
+        },
+        {
+          "dataset_index": 5964,
+          "dem_rmse_m": 0.037759099155664444,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 2.878183915522645,
+          "goal_distance_delta_m": 0.013146423093735926,
+          "initial_motion_direction_deg": 28.28171745021825,
+          "mask_iou": 0.9626436781609196,
+          "path_rms_m": 0.04299994558095932,
+          "view_index": 5348
+        },
+        {
+          "dataset_index": 5965,
+          "dem_rmse_m": 0.03775516152381897,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 5.311120883124055,
+          "goal_distance_delta_m": 0.04591564060026432,
+          "initial_motion_direction_deg": 16.848329235230935,
+          "mask_iou": 0.9798270893371758,
+          "path_rms_m": 0.0419805534183979,
+          "view_index": 5349
+        },
+        {
+          "dataset_index": 6011,
+          "dem_rmse_m": 0.03761810064315796,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 0.43819770629323285,
+          "goal_distance_delta_m": 0.008261896379530675,
+          "initial_motion_direction_deg": 4.627280774985533,
+          "mask_iou": 0.9002695417789758,
+          "path_rms_m": 0.03545619919896126,
+          "view_index": 5387
+        },
+        {
+          "dataset_index": 6012,
+          "dem_rmse_m": 0.03703499585390091,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 1.9477465513674215,
+          "goal_distance_delta_m": 0.0018112289828655648,
+          "initial_motion_direction_deg": 21.647883174011447,
+          "mask_iou": 0.870026525198939,
+          "path_rms_m": 0.04524167254567146,
+          "view_index": 5388
+        },
+        {
+          "dataset_index": 6013,
+          "dem_rmse_m": 0.036240287125110626,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 4.735084192331179,
+          "goal_distance_delta_m": 0.07000818132585263,
+          "initial_motion_direction_deg": 18.022626332092095,
+          "mask_iou": 0.8359375,
+          "path_rms_m": 0.03164483606815338,
+          "view_index": 5389
+        },
+        {
+          "dataset_index": 6014,
+          "dem_rmse_m": 0.035765837877988815,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 7.386141006396842,
+          "goal_distance_delta_m": 0.09355481743043637,
+          "initial_motion_direction_deg": 16.166457892843205,
+          "mask_iou": 0.8359375,
+          "path_rms_m": 0.04024486988782883,
+          "view_index": 5390
+        },
+        {
+          "dataset_index": 6167,
+          "dem_rmse_m": 0.037090402096509933,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 4.985330773923183,
+          "goal_distance_delta_m": 0.019160188444197424,
+          "initial_motion_direction_deg": 11.46312042120093,
+          "mask_iou": 0.9826086956521739,
+          "path_rms_m": 0.04639405757188797,
+          "view_index": 5527
+        },
+        {
+          "dataset_index": 6201,
+          "dem_rmse_m": 0.04247022420167923,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 7.119155893111644,
+          "goal_distance_delta_m": 0.016844474069535487,
+          "initial_motion_direction_deg": 15.785445545194051,
+          "mask_iou": 0.8071808510638298,
+          "path_rms_m": 0.03724036365747452,
+          "view_index": 5561
+        },
+        {
+          "dataset_index": 6203,
+          "dem_rmse_m": 0.04254667088389397,
+          "episode_key": [
+            0,
+            11,
+            8
+          ],
+          "goal_direction_delta_deg": 4.459699782948272,
+          "goal_distance_delta_m": 0.0656904804629681,
+          "initial_motion_direction_deg": 0.3990945203347715,
+          "mask_iou": 0.8118421052631579,
+          "path_rms_m": 0.030698267742991447,
+          "view_index": 5563
+        },
+        {
+          "dataset_index": 6344,
+          "dem_rmse_m": 0.03619736433029175,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 2.1615121343523094,
+          "goal_distance_delta_m": 0.029571853868424647,
+          "initial_motion_direction_deg": 6.92648181151235,
+          "mask_iou": 0.8111702127659575,
+          "path_rms_m": 0.03500894457101822,
+          "view_index": 5688
+        },
+        {
+          "dataset_index": 6345,
+          "dem_rmse_m": 0.0363897942006588,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 1.1617846797329665,
+          "goal_distance_delta_m": 0.04321698070341373,
+          "initial_motion_direction_deg": 18.874177911381093,
+          "mask_iou": 0.8164893617021277,
+          "path_rms_m": 0.030014876276254654,
+          "view_index": 5689
+        },
+        {
+          "dataset_index": 6461,
+          "dem_rmse_m": 0.037309467792510986,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 4.242382603531531,
+          "goal_distance_delta_m": 0.014435924299299963,
+          "initial_motion_direction_deg": 27.487863221700216,
+          "mask_iou": 0.9140401146131805,
+          "path_rms_m": 0.03328651934862137,
+          "view_index": 5789
+        },
+        {
+          "dataset_index": 7634,
+          "dem_rmse_m": 0.04937269911170006,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 8.055037122400526,
+          "goal_distance_delta_m": 0.07347687362855648,
+          "initial_motion_direction_deg": 19.755005071536136,
+          "mask_iou": 0.9054441260744985,
+          "path_rms_m": 0.04515022784471512,
+          "view_index": 6842
+        },
+        {
+          "dataset_index": 7693,
+          "dem_rmse_m": 0.03420163318514824,
+          "episode_key": [
+            0,
+            16,
+            1
+          ],
+          "goal_direction_delta_deg": 2.7197059301382414,
+          "goal_distance_delta_m": 0.03987684129899716,
+          "initial_motion_direction_deg": 16.13279152294055,
+          "mask_iou": 0.8515406162464986,
+          "path_rms_m": 0.03469208627939224,
+          "view_index": 6893
+        },
+        {
+          "dataset_index": 8490,
+          "dem_rmse_m": 0.04565289616584778,
+          "episode_key": [
+            0,
+            17,
+            2
+          ],
+          "goal_direction_delta_deg": 3.358165625790126,
+          "goal_distance_delta_m": 0.06360896705812191,
+          "initial_motion_direction_deg": 17.332071209457734,
+          "mask_iou": 0.8209366391184573,
+          "path_rms_m": 0.0393952839076519,
+          "view_index": 7610
+        },
+        {
+          "dataset_index": 8491,
+          "dem_rmse_m": 0.04572072997689247,
+          "episode_key": [
+            0,
+            17,
+            2
+          ],
+          "goal_direction_delta_deg": 1.559413067794346,
+          "goal_distance_delta_m": 0.07958330988115048,
+          "initial_motion_direction_deg": 28.059413291427354,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.03577263280749321,
+          "view_index": 7611
+        },
+        {
+          "dataset_index": 8528,
+          "dem_rmse_m": 0.04417479410767555,
+          "episode_key": [
+            0,
+            17,
+            3
+          ],
+          "goal_direction_delta_deg": 4.3928049577130075,
+          "goal_distance_delta_m": 0.047008610971510656,
+          "initial_motion_direction_deg": 0.7238871364926079,
+          "mask_iou": 0.8097686375321337,
+          "path_rms_m": 0.03635939210653305,
+          "view_index": 7640
+        },
+        {
+          "dataset_index": 8659,
+          "dem_rmse_m": 0.044692929834127426,
+          "episode_key": [
+            0,
+            17,
+            4
+          ],
+          "goal_direction_delta_deg": 10.409940560714473,
+          "goal_distance_delta_m": 0.06644103647047306,
+          "initial_motion_direction_deg": 2.9618724175010835,
+          "mask_iou": 0.8361111111111111,
+          "path_rms_m": 0.04728926345705986,
+          "view_index": 7763
+        },
+        {
+          "dataset_index": 8660,
+          "dem_rmse_m": 0.04478459060192108,
+          "episode_key": [
+            0,
+            17,
+            4
+          ],
+          "goal_direction_delta_deg": 5.694026234308278,
+          "goal_distance_delta_m": 0.08086482406431461,
+          "initial_motion_direction_deg": 12.801161434201388,
+          "mask_iou": 0.8259668508287292,
+          "path_rms_m": 0.04960866644978523,
+          "view_index": 7764
+        },
+        {
+          "dataset_index": 8888,
+          "dem_rmse_m": 0.04456173628568649,
+          "episode_key": [
+            0,
+            17,
+            7
+          ],
+          "goal_direction_delta_deg": 0.6281840765798499,
+          "goal_distance_delta_m": 0.09265754342848087,
+          "initial_motion_direction_deg": 16.86232146699389,
+          "mask_iou": 0.8113207547169812,
+          "path_rms_m": 0.044086284935474396,
+          "view_index": 7968
+        },
+        {
+          "dataset_index": 8889,
+          "dem_rmse_m": 0.044253088533878326,
+          "episode_key": [
+            0,
+            17,
+            7
+          ],
+          "goal_direction_delta_deg": 0.8714460674104499,
+          "goal_distance_delta_m": 0.03178790927702213,
+          "initial_motion_direction_deg": 24.47162898219403,
+          "mask_iou": 0.8086253369272237,
+          "path_rms_m": 0.043965455144643784,
+          "view_index": 7969
+        },
+        {
+          "dataset_index": 8890,
+          "dem_rmse_m": 0.04505715146660805,
+          "episode_key": [
+            0,
+            17,
+            7
+          ],
+          "goal_direction_delta_deg": 1.9974652196508593,
+          "goal_distance_delta_m": 0.02691122173494076,
+          "initial_motion_direction_deg": 3.4825652562124745,
+          "mask_iou": 0.8059299191374663,
+          "path_rms_m": 0.04944049194455147,
+          "view_index": 7970
+        },
+        {
+          "dataset_index": 10688,
+          "dem_rmse_m": 0.03375899791717529,
+          "episode_key": [
+            0,
+            21,
+            4
+          ],
+          "goal_direction_delta_deg": 2.8294641154356692,
+          "goal_distance_delta_m": 0.0023400413913128304,
+          "initial_motion_direction_deg": 16.747944580563615,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.041214294731616974,
+          "view_index": 9576
+        },
+        {
+          "dataset_index": 10689,
+          "dem_rmse_m": 0.03375899791717529,
+          "episode_key": [
+            0,
+            21,
+            4
+          ],
+          "goal_direction_delta_deg": 1.7156181554569698,
+          "goal_distance_delta_m": 0.08771923900419498,
+          "initial_motion_direction_deg": 17.392942178986146,
+          "mask_iou": 0.8159340659340659,
+          "path_rms_m": 0.04057123884558678,
+          "view_index": 9577
+        },
+        {
+          "dataset_index": 11069,
+          "dem_rmse_m": 0.045141320675611496,
+          "episode_key": [
+            0,
+            22,
+            0
+          ],
+          "goal_direction_delta_deg": 5.7433838172525915,
+          "goal_distance_delta_m": 0.08655753015702938,
+          "initial_motion_direction_deg": 16.88732158288329,
+          "mask_iou": 0.9913294797687862,
+          "path_rms_m": 0.04184333607554436,
+          "view_index": 9917
+        },
+        {
+          "dataset_index": 11377,
+          "dem_rmse_m": 0.03613392263650894,
+          "episode_key": [
+            0,
+            22,
+            4
+          ],
+          "goal_direction_delta_deg": 4.249790580083493,
+          "goal_distance_delta_m": 0.0360722172183392,
+          "initial_motion_direction_deg": 16.901176748870217,
+          "mask_iou": 0.8725212464589235,
+          "path_rms_m": 0.035501085221767426,
+          "view_index": 10193
+        },
+        {
+          "dataset_index": 11378,
+          "dem_rmse_m": 0.03814978152513504,
+          "episode_key": [
+            0,
+            22,
+            4
+          ],
+          "goal_direction_delta_deg": 4.977434144295596,
+          "goal_distance_delta_m": 0.06466659187501644,
+          "initial_motion_direction_deg": 16.840527319432113,
+          "mask_iou": 0.8725212464589235,
+          "path_rms_m": 0.03281013295054436,
+          "view_index": 10194
+        },
+        {
+          "dataset_index": 11452,
+          "dem_rmse_m": 0.03615720942616463,
+          "episode_key": [
+            0,
+            22,
+            5
+          ],
+          "goal_direction_delta_deg": 9.654496139391027,
+          "goal_distance_delta_m": 0.08858975052064633,
+          "initial_motion_direction_deg": 16.64494532404938,
+          "mask_iou": 0.9283667621776505,
+          "path_rms_m": 0.04417042434215546,
+          "view_index": 10260
+        },
+        {
+          "dataset_index": 11455,
+          "dem_rmse_m": 0.0428520031273365,
+          "episode_key": [
+            0,
+            22,
+            5
+          ],
+          "goal_direction_delta_deg": 7.414815237397152,
+          "goal_distance_delta_m": 0.08702787040895199,
+          "initial_motion_direction_deg": 16.625906358820856,
+          "mask_iou": 0.9169054441260746,
+          "path_rms_m": 0.043649278581142426,
+          "view_index": 10263
+        },
+        {
+          "dataset_index": 11529,
+          "dem_rmse_m": 0.03372686728835106,
+          "episode_key": [
+            0,
+            22,
+            6
+          ],
+          "goal_direction_delta_deg": 1.7401923132741968,
+          "goal_distance_delta_m": 0.05472353816801334,
+          "initial_motion_direction_deg": 16.176022299497628,
+          "mask_iou": 0.8070652173913043,
+          "path_rms_m": 0.04724631831049919,
+          "view_index": 10329
+        },
+        {
+          "dataset_index": 11530,
+          "dem_rmse_m": 0.03552603721618652,
+          "episode_key": [
+            0,
+            22,
+            6
+          ],
+          "goal_direction_delta_deg": 3.12623228953058,
+          "goal_distance_delta_m": 0.02423987508589054,
+          "initial_motion_direction_deg": 16.903678669156264,
+          "mask_iou": 0.8070652173913043,
+          "path_rms_m": 0.036819856613874435,
+          "view_index": 10330
+        },
+        {
+          "dataset_index": 11531,
+          "dem_rmse_m": 0.03998614102602005,
+          "episode_key": [
+            0,
+            22,
+            6
+          ],
+          "goal_direction_delta_deg": 2.4518929254640227,
+          "goal_distance_delta_m": 0.013651825197279699,
+          "initial_motion_direction_deg": 16.72980253990426,
+          "mask_iou": 0.8070652173913043,
+          "path_rms_m": 0.03677123785018921,
+          "view_index": 10331
+        },
+        {
+          "dataset_index": 11532,
+          "dem_rmse_m": 0.04430831968784332,
+          "episode_key": [
+            0,
+            22,
+            6
+          ],
+          "goal_direction_delta_deg": 0.6605862538504027,
+          "goal_distance_delta_m": 0.024857543699204676,
+          "initial_motion_direction_deg": 19.653046942856122,
+          "mask_iou": 0.8070652173913043,
+          "path_rms_m": 0.030997546389698982,
+          "view_index": 10332
+        },
+        {
+          "dataset_index": 11605,
+          "dem_rmse_m": 0.034661851823329926,
+          "episode_key": [
+            0,
+            22,
+            7
+          ],
+          "goal_direction_delta_deg": 3.4474120144346725,
+          "goal_distance_delta_m": 0.057642601720750086,
+          "initial_motion_direction_deg": 15.439968176679525,
+          "mask_iou": 0.870026525198939,
+          "path_rms_m": 0.03570721298456192,
+          "view_index": 10397
+        },
+        {
+          "dataset_index": 11770,
+          "dem_rmse_m": 0.03464556857943535,
+          "episode_key": [
+            0,
+            23,
+            0
+          ],
+          "goal_direction_delta_deg": 1.1989698523857533,
+          "goal_distance_delta_m": 0.0786745178622601,
+          "initial_motion_direction_deg": 19.432825260302597,
+          "mask_iou": 0.9312320916905444,
+          "path_rms_m": 0.0448487289249897,
+          "view_index": 10546
+        },
+        {
+          "dataset_index": 11771,
+          "dem_rmse_m": 0.03459314629435539,
+          "episode_key": [
+            0,
+            23,
+            0
+          ],
+          "goal_direction_delta_deg": 0.6585887584723906,
+          "goal_distance_delta_m": 0.051912807218491785,
+          "initial_motion_direction_deg": 15.02295818034766,
+          "mask_iou": 0.9283667621776505,
+          "path_rms_m": 0.03489631786942482,
+          "view_index": 10547
+        },
+        {
+          "dataset_index": 11772,
+          "dem_rmse_m": 0.03455756977200508,
+          "episode_key": [
+            0,
+            23,
+            0
+          ],
+          "goal_direction_delta_deg": 0.4682420129586452,
+          "goal_distance_delta_m": 0.029236339322983973,
+          "initial_motion_direction_deg": 20.82936323436472,
+          "mask_iou": 0.9283667621776505,
+          "path_rms_m": 0.027893798425793648,
+          "view_index": 10548
+        },
+        {
+          "dataset_index": 11773,
+          "dem_rmse_m": 0.03462115675210953,
+          "episode_key": [
+            0,
+            23,
+            0
+          ],
+          "goal_direction_delta_deg": 1.2010468106819996,
+          "goal_distance_delta_m": 0.0004967081469890999,
+          "initial_motion_direction_deg": 14.669122610359535,
+          "mask_iou": 0.9283667621776505,
+          "path_rms_m": 0.02184365876019001,
+          "view_index": 10549
+        },
+        {
+          "dataset_index": 11774,
+          "dem_rmse_m": 0.034676048904657364,
+          "episode_key": [
+            0,
+            23,
+            0
+          ],
+          "goal_direction_delta_deg": 1.9785460153334853,
+          "goal_distance_delta_m": 0.008846498735487707,
+          "initial_motion_direction_deg": 17.15866948772748,
+          "mask_iou": 0.9283667621776505,
+          "path_rms_m": 0.026586920022964478,
+          "view_index": 10550
+        }
+      ],
+      "nearest_nomad_candidate_id": "nomad-seed-1007",
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "bank_candidate_id": "bank-nominal",
+      "classification": "same_mode_outcome_variation",
+      "counts": {
+        "complete_train": 49598,
+        "dem_goal_match": 4616,
+        "distinct_support_episodes": 174,
+        "goal_direction_and_different_episode": 9334,
+        "goal_distance_only": 12083,
+        "trajectory_and_motion_match": 540,
+        "trajectory_match": 546
+      },
+      "generator": "bank",
+      "matched_teacher_total": 540,
+      "matched_teacher_windows": [
+        {
+          "dataset_index": 57,
+          "dem_rmse_m": 0.0399368554353714,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 7.970182142460571,
+          "goal_distance_delta_m": 0.06699866625489392,
+          "initial_motion_direction_deg": 3.0109041645101007,
+          "mask_iou": 0.9690402476780186,
+          "path_rms_m": 0.04977439343929291,
+          "view_index": 57
+        },
+        {
+          "dataset_index": 173,
+          "dem_rmse_m": 0.039372652769088745,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 1.2029319977160566,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.24628834802245791,
+          "mask_iou": 0.9629629629629629,
+          "path_rms_m": 0.04449450224637985,
+          "view_index": 157
+        },
+        {
+          "dataset_index": 174,
+          "dem_rmse_m": 0.039874862879514694,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 1.9564386957843831,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 3.1064599941817135,
+          "mask_iou": 0.9629629629629629,
+          "path_rms_m": 0.01680128648877144,
+          "view_index": 158
+        },
+        {
+          "dataset_index": 308,
+          "dem_rmse_m": 0.043415311723947525,
+          "episode_key": [
+            0,
+            0,
+            4
+          ],
+          "goal_direction_delta_deg": 6.468616078559556,
+          "goal_distance_delta_m": 0.06491971584977307,
+          "initial_motion_direction_deg": 2.4150022447604846,
+          "mask_iou": 0.8361111111111111,
+          "path_rms_m": 0.040622513741254807,
+          "view_index": 276
+        },
+        {
+          "dataset_index": 385,
+          "dem_rmse_m": 0.042050622403621674,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 0.8432621757561968,
+          "goal_distance_delta_m": 0.02440560433091321,
+          "initial_motion_direction_deg": 1.3008578826274197,
+          "mask_iou": 0.8633720930232558,
+          "path_rms_m": 0.0121620399877429,
+          "view_index": 345
+        },
+        {
+          "dataset_index": 386,
+          "dem_rmse_m": 0.0421215258538723,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 1.2229963088534943,
+          "goal_distance_delta_m": 1.7312346300979442e-07,
+          "initial_motion_direction_deg": 0.5828266707249664,
+          "mask_iou": 0.8604651162790697,
+          "path_rms_m": 0.01022450253367424,
+          "view_index": 346
+        },
+        {
+          "dataset_index": 387,
+          "dem_rmse_m": 0.04245051369071007,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 0.9317836220422613,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.9970111607742826,
+          "mask_iou": 0.8658892128279884,
+          "path_rms_m": 0.010441440157592297,
+          "view_index": 347
+        },
+        {
+          "dataset_index": 388,
+          "dem_rmse_m": 0.042495209723711014,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 1.1575778272048622,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.4885892593545095,
+          "mask_iou": 0.8713450292397661,
+          "path_rms_m": 0.017002226784825325,
+          "view_index": 348
+        },
+        {
+          "dataset_index": 389,
+          "dem_rmse_m": 0.042284514755010605,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 0.7433123232056729,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.7406881305160211,
+          "mask_iou": 0.8768328445747801,
+          "path_rms_m": 0.02580087073147297,
+          "view_index": 349
+        },
+        {
+          "dataset_index": 390,
+          "dem_rmse_m": 0.04198889434337616,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 0.5000200353676834,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.752254766200361,
+          "mask_iou": 0.8823529411764706,
+          "path_rms_m": 0.03926398232579231,
+          "view_index": 350
+        },
+        {
+          "dataset_index": 483,
+          "dem_rmse_m": 0.04058688133955002,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 0.8827155027731292,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 1.563103796219852,
+          "mask_iou": 0.8194070080862533,
+          "path_rms_m": 0.023506632074713707,
+          "view_index": 435
+        },
+        {
+          "dataset_index": 484,
+          "dem_rmse_m": 0.04079594835639,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 1.0797731582173375,
+          "goal_distance_delta_m": 1.135188182344038e-07,
+          "initial_motion_direction_deg": 0.08392937202498843,
+          "mask_iou": 0.8252688172043011,
+          "path_rms_m": 0.03645578771829605,
+          "view_index": 436
+        },
+        {
+          "dataset_index": 485,
+          "dem_rmse_m": 0.040656883269548416,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 0.4273505855682806,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.2690288025280345,
+          "mask_iou": 0.8328840970350404,
+          "path_rms_m": 0.03365068882703781,
+          "view_index": 437
+        },
+        {
+          "dataset_index": 486,
+          "dem_rmse_m": 0.040586575865745544,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 0.6093793547593147,
+          "goal_distance_delta_m": 0.09499943825425305,
+          "initial_motion_direction_deg": 1.2954311054334617,
+          "mask_iou": 0.8478260869565217,
+          "path_rms_m": 0.037861134856939316,
+          "view_index": 438
+        },
+        {
+          "dataset_index": 549,
+          "dem_rmse_m": 0.04356865584850311,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 3.178145512543314,
+          "goal_distance_delta_m": 0.09296995970429578,
+          "initial_motion_direction_deg": 0.5366834181293965,
+          "mask_iou": 0.8260869565217391,
+          "path_rms_m": 0.043529462069272995,
+          "view_index": 493
+        },
+        {
+          "dataset_index": 550,
+          "dem_rmse_m": 0.043553490191698074,
+          "episode_key": [
+            0,
+            0,
+            7
+          ],
+          "goal_direction_delta_deg": 3.345035041117937,
+          "goal_distance_delta_m": 0.09407014223755994,
+          "initial_motion_direction_deg": 0.5031890923294566,
+          "mask_iou": 0.8260869565217391,
+          "path_rms_m": 0.04278281703591347,
+          "view_index": 494
+        },
+        {
+          "dataset_index": 693,
+          "dem_rmse_m": 0.04832043498754501,
+          "episode_key": [
+            0,
+            2,
+            0
+          ],
+          "goal_direction_delta_deg": 6.571747037312009,
+          "goal_distance_delta_m": 0.016835218397990848,
+          "initial_motion_direction_deg": 2.7709985879611865,
+          "mask_iou": 0.9875776397515528,
+          "path_rms_m": 0.043897271156311035,
+          "view_index": 621
+        },
+        {
+          "dataset_index": 1647,
+          "dem_rmse_m": 0.04529843106865883,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 2.634474783271007,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 5.417503702793867,
+          "mask_iou": 0.9575757575757575,
+          "path_rms_m": 0.03930738568305969,
+          "view_index": 1479
+        },
+        {
+          "dataset_index": 1651,
+          "dem_rmse_m": 0.044617488980293274,
+          "episode_key": [
+            0,
+            5,
+            3
+          ],
+          "goal_direction_delta_deg": 2.196360288734064,
+          "goal_distance_delta_m": 0.08580130907715955,
+          "initial_motion_direction_deg": 1.0905600596086231,
+          "mask_iou": 0.9575757575757575,
+          "path_rms_m": 0.041656024754047394,
+          "view_index": 1483
+        },
+        {
+          "dataset_index": 1781,
+          "dem_rmse_m": 0.045552413910627365,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.6284828862597727,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 4.217933173454878,
+          "mask_iou": 0.8351351351351352,
+          "path_rms_m": 0.03736117109656334,
+          "view_index": 1597
+        },
+        {
+          "dataset_index": 1783,
+          "dem_rmse_m": 0.044935356825590134,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 0.12957880027008975,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 2.039032702839412,
+          "mask_iou": 0.8543956043956044,
+          "path_rms_m": 0.03967427462339401,
+          "view_index": 1599
+        },
+        {
+          "dataset_index": 1784,
+          "dem_rmse_m": 0.044915299862623215,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.2742834566980186,
+          "goal_distance_delta_m": 0.006352370707408572,
+          "initial_motion_direction_deg": 6.547571303368717,
+          "mask_iou": 0.8642659279778393,
+          "path_rms_m": 0.027676871046423912,
+          "view_index": 1600
+        },
+        {
+          "dataset_index": 1785,
+          "dem_rmse_m": 0.04488068073987961,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.175750457308813,
+          "goal_distance_delta_m": 0.03680623146714368,
+          "initial_motion_direction_deg": 0.989327140466505,
+          "mask_iou": 0.8666666666666667,
+          "path_rms_m": 0.021335802972316742,
+          "view_index": 1601
+        },
+        {
+          "dataset_index": 1786,
+          "dem_rmse_m": 0.044749144464731216,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 4.32057110048112,
+          "goal_distance_delta_m": 0.09414160820664563,
+          "initial_motion_direction_deg": 5.751116028036359,
+          "mask_iou": 0.8666666666666667,
+          "path_rms_m": 0.03920750692486763,
+          "view_index": 1602
+        },
+        {
+          "dataset_index": 1959,
+          "dem_rmse_m": 0.043502695858478546,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 4.720570230251637,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 5.915727515100818,
+          "mask_iou": 0.9270516717325228,
+          "path_rms_m": 0.04837523773312569,
+          "view_index": 1759
+        },
+        {
+          "dataset_index": 1960,
+          "dem_rmse_m": 0.04374772310256958,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 4.986367845974637,
+          "goal_distance_delta_m": 0.03743827912034192,
+          "initial_motion_direction_deg": 4.433498290718629,
+          "mask_iou": 0.9212121212121213,
+          "path_rms_m": 0.04880954697728157,
+          "view_index": 1760
+        },
+        {
+          "dataset_index": 2404,
+          "dem_rmse_m": 0.046228718012571335,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 2.985119811213961,
+          "goal_distance_delta_m": 0.031315451590434695,
+          "initial_motion_direction_deg": 5.663408492321847,
+          "mask_iou": 0.9390243902439024,
+          "path_rms_m": 0.031379904597997665,
+          "view_index": 2156
+        },
+        {
+          "dataset_index": 2405,
+          "dem_rmse_m": 0.04611428827047348,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 2.7679481009759757,
+          "goal_distance_delta_m": 0.005667215315715457,
+          "initial_motion_direction_deg": 6.36679645627276,
+          "mask_iou": 0.9390243902439024,
+          "path_rms_m": 0.04452267661690712,
+          "view_index": 2157
+        },
+        {
+          "dataset_index": 2406,
+          "dem_rmse_m": 0.045285556465387344,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 3.0981124548134904,
+          "goal_distance_delta_m": 0.03588939282120862,
+          "initial_motion_direction_deg": 3.061901301783593,
+          "mask_iou": 0.9390243902439024,
+          "path_rms_m": 0.037568531930446625,
+          "view_index": 2158
+        },
+        {
+          "dataset_index": 2407,
+          "dem_rmse_m": 0.04422029107809067,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 2.9946710250621886,
+          "goal_distance_delta_m": 0.06696862551392713,
+          "initial_motion_direction_deg": 2.4186466073311945,
+          "mask_iou": 0.9390243902439024,
+          "path_rms_m": 0.033145807683467865,
+          "view_index": 2159
+        },
+        {
+          "dataset_index": 2667,
+          "dem_rmse_m": 0.041558101773262024,
+          "episode_key": [
+            0,
+            6,
+            7
+          ],
+          "goal_direction_delta_deg": 0.38298818312486865,
+          "goal_distance_delta_m": 1.135188182344038e-07,
+          "initial_motion_direction_deg": 2.2746024533685856,
+          "mask_iou": 0.8633720930232558,
+          "path_rms_m": 0.03713454306125641,
+          "view_index": 2395
+        },
+        {
+          "dataset_index": 3639,
+          "dem_rmse_m": 0.04936351627111435,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 1.0439488351608712,
+          "goal_distance_delta_m": 0.0748269614857594,
+          "initial_motion_direction_deg": 9.51836841338103,
+          "mask_iou": 0.8739495798319328,
+          "path_rms_m": 0.042277175933122635,
+          "view_index": 3263
+        },
+        {
+          "dataset_index": 3640,
+          "dem_rmse_m": 0.049133364111185074,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 1.598697258227581,
+          "goal_distance_delta_m": 0.025002068011180545,
+          "initial_motion_direction_deg": 1.5769393669133018,
+          "mask_iou": 0.8838526912181303,
+          "path_rms_m": 0.022240005433559418,
+          "view_index": 3264
+        },
+        {
+          "dataset_index": 3641,
+          "dem_rmse_m": 0.04876617342233658,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 3.318360856665293,
+          "goal_distance_delta_m": 0.02385861250580945,
+          "initial_motion_direction_deg": 3.663991229043199,
+          "mask_iou": 0.8888888888888888,
+          "path_rms_m": 0.026013929396867752,
+          "view_index": 3265
+        },
+        {
+          "dataset_index": 3642,
+          "dem_rmse_m": 0.04945363476872444,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 2.4058591889225274,
+          "goal_distance_delta_m": 0.0364392456692616,
+          "initial_motion_direction_deg": 2.5533597822587946,
+          "mask_iou": 0.8939828080229226,
+          "path_rms_m": 0.021973667666316032,
+          "view_index": 3266
+        },
+        {
+          "dataset_index": 3999,
+          "dem_rmse_m": 0.04818077012896538,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 3.544497027190412,
+          "goal_distance_delta_m": 0.058018988100902225,
+          "initial_motion_direction_deg": 3.358529539996502,
+          "mask_iou": 0.8928571428571429,
+          "path_rms_m": 0.04890691116452217,
+          "view_index": 3583
+        },
+        {
+          "dataset_index": 4039,
+          "dem_rmse_m": 0.04899315908551216,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 2.8410167586917074,
+          "goal_distance_delta_m": 0.012227183310405398,
+          "initial_motion_direction_deg": 0.5647526074797767,
+          "mask_iou": 0.9359756097560976,
+          "path_rms_m": 0.02850363217294216,
+          "view_index": 3623
+        },
+        {
+          "dataset_index": 4040,
+          "dem_rmse_m": 0.04838128015398979,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 4.640068555413209,
+          "goal_distance_delta_m": 0.05242854925812879,
+          "initial_motion_direction_deg": 3.432450097119409,
+          "mask_iou": 0.9359756097560976,
+          "path_rms_m": 0.034069955348968506,
+          "view_index": 3624
+        },
+        {
+          "dataset_index": 4891,
+          "dem_rmse_m": 0.04874352365732193,
+          "episode_key": [
+            0,
+            10,
+            0
+          ],
+          "goal_direction_delta_deg": 2.189803723244736,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.6317085681410477,
+          "mask_iou": 0.8279569892473119,
+          "path_rms_m": 0.04505082592368126,
+          "view_index": 4387
+        },
+        {
+          "dataset_index": 5053,
+          "dem_rmse_m": 0.049361612647771835,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 1.7476042399128537,
+          "goal_distance_delta_m": 0.05803263756455579,
+          "initial_motion_direction_deg": 1.2355891126760987,
+          "mask_iou": 0.9518072289156626,
+          "path_rms_m": 0.029443640261888504,
+          "view_index": 4533
+        },
+        {
+          "dataset_index": 5054,
+          "dem_rmse_m": 0.048738133162260056,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 1.7307029126198596,
+          "goal_distance_delta_m": 0.04873121353806653,
+          "initial_motion_direction_deg": 1.1400378863264997,
+          "mask_iou": 0.9518072289156626,
+          "path_rms_m": 0.026282962411642075,
+          "view_index": 4534
+        },
+        {
+          "dataset_index": 5055,
+          "dem_rmse_m": 0.04665438085794449,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 1.863734732079415,
+          "goal_distance_delta_m": 0.04956502291382947,
+          "initial_motion_direction_deg": 1.7090332150438678,
+          "mask_iou": 0.9436936936936937,
+          "path_rms_m": 0.02509944885969162,
+          "view_index": 4535
+        },
+        {
+          "dataset_index": 5056,
+          "dem_rmse_m": 0.04879705235362053,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 1.2437701727376549,
+          "goal_distance_delta_m": 0.04414827200593152,
+          "initial_motion_direction_deg": 0.607485005666862,
+          "mask_iou": 0.9436936936936937,
+          "path_rms_m": 0.019496586173772812,
+          "view_index": 4536
+        },
+        {
+          "dataset_index": 5057,
+          "dem_rmse_m": 0.04853470250964165,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 1.5920405775275137,
+          "goal_distance_delta_m": 0.043821698157207156,
+          "initial_motion_direction_deg": 1.919588574129498,
+          "mask_iou": 0.9363295880149812,
+          "path_rms_m": 0.02067854069173336,
+          "view_index": 4537
+        },
+        {
+          "dataset_index": 5148,
+          "dem_rmse_m": 0.04401693865656853,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.9109330384471934,
+          "goal_distance_delta_m": 0.0575004872960011,
+          "initial_motion_direction_deg": 0.8559228936879243,
+          "mask_iou": 0.9461077844311377,
+          "path_rms_m": 0.04879644140601158,
+          "view_index": 4612
+        },
+        {
+          "dataset_index": 5149,
+          "dem_rmse_m": 0.044016946107149124,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.4354466377888553,
+          "goal_distance_delta_m": 0.0162288603466908,
+          "initial_motion_direction_deg": 1.014328543134256,
+          "mask_iou": 0.948948948948949,
+          "path_rms_m": 0.02774965949356556,
+          "view_index": 4613
+        },
+        {
+          "dataset_index": 5150,
+          "dem_rmse_m": 0.04460955038666725,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 2.812503029612046,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.1859720984802329,
+          "mask_iou": 0.9518072289156626,
+          "path_rms_m": 0.020770873874425888,
+          "view_index": 4614
+        },
+        {
+          "dataset_index": 5151,
+          "dem_rmse_m": 0.04505911096930504,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 1.8994023025525812,
+          "goal_distance_delta_m": 0.09943664642991223,
+          "initial_motion_direction_deg": 1.0362765133768697,
+          "mask_iou": 0.9518072289156626,
+          "path_rms_m": 0.035531334578990936,
+          "view_index": 4615
+        },
+        {
+          "dataset_index": 5379,
+          "dem_rmse_m": 0.042431075125932693,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 1.8451707860330926,
+          "goal_distance_delta_m": 0.032738512484447146,
+          "initial_motion_direction_deg": 0.47601234192653774,
+          "mask_iou": 0.8591954022988506,
+          "path_rms_m": 0.012233530171215534,
+          "view_index": 4819
+        },
+        {
+          "dataset_index": 5380,
+          "dem_rmse_m": 0.042515870183706284,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 1.652563181121152,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.6975437149133012,
+          "mask_iou": 0.8587896253602305,
+          "path_rms_m": 0.012478113174438477,
+          "view_index": 4820
+        },
+        {
+          "dataset_index": 5381,
+          "dem_rmse_m": 0.0444653145968914,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 1.0066942581819596,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.7279305314491439,
+          "mask_iou": 0.8583815028901735,
+          "path_rms_m": 0.017491601407527924,
+          "view_index": 4821
+        },
+        {
+          "dataset_index": 5382,
+          "dem_rmse_m": 0.047319620847702026,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 1.213780567947589,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.2517882961682785,
+          "mask_iou": 0.8579710144927536,
+          "path_rms_m": 0.018027309328317642,
+          "view_index": 4822
+        },
+        {
+          "dataset_index": 5383,
+          "dem_rmse_m": 0.048858217895030975,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 0.45717791894403487,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 1.6165263003211963,
+          "mask_iou": 0.8604651162790697,
+          "path_rms_m": 0.021198036149144173,
+          "view_index": 4823
+        },
+        {
+          "dataset_index": 5469,
+          "dem_rmse_m": 0.0478944294154644,
+          "episode_key": [
+            0,
+            10,
+            8
+          ],
+          "goal_direction_delta_deg": 5.5072118512422366,
+          "goal_distance_delta_m": 0.03278816315354505,
+          "initial_motion_direction_deg": 17.227792777521973,
+          "mask_iou": 0.8123324396782842,
+          "path_rms_m": 0.04543440788984299,
+          "view_index": 4901
+        },
+        {
+          "dataset_index": 5571,
+          "dem_rmse_m": 0.044628869742155075,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 6.995749218103819,
+          "goal_distance_delta_m": 0.03635025593461194,
+          "initial_motion_direction_deg": 5.668942801820855,
+          "mask_iou": 0.9575757575757575,
+          "path_rms_m": 0.04933016747236252,
+          "view_index": 4995
+        },
+        {
+          "dataset_index": 5572,
+          "dem_rmse_m": 0.04448781907558441,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 1.275038126554058,
+          "goal_distance_delta_m": 0.043334847418681766,
+          "initial_motion_direction_deg": 7.161303434380237,
+          "mask_iou": 0.9692307692307692,
+          "path_rms_m": 0.03038325347006321,
+          "view_index": 4996
+        },
+        {
+          "dataset_index": 5573,
+          "dem_rmse_m": 0.04491488263010979,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 2.913983868604235,
+          "goal_distance_delta_m": 0.08878297182740369,
+          "initial_motion_direction_deg": 7.363165941565621,
+          "mask_iou": 0.9721362229102167,
+          "path_rms_m": 0.04551028087735176,
+          "view_index": 4997
+        },
+        {
+          "dataset_index": 5610,
+          "dem_rmse_m": 0.04372542351484299,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 3.8305875238564444,
+          "goal_distance_delta_m": 0.03440827700318494,
+          "initial_motion_direction_deg": 2.950217218089704,
+          "mask_iou": 0.9272727272727272,
+          "path_rms_m": 0.022594915702939034,
+          "view_index": 5026
+        },
+        {
+          "dataset_index": 5611,
+          "dem_rmse_m": 0.043837741017341614,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 4.516601970642084,
+          "goal_distance_delta_m": 0.057405775515453006,
+          "initial_motion_direction_deg": 1.7107499866268998,
+          "mask_iou": 0.9214501510574018,
+          "path_rms_m": 0.028407340869307518,
+          "view_index": 5027
+        },
+        {
+          "dataset_index": 5612,
+          "dem_rmse_m": 0.04323464632034302,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 5.180300095742182,
+          "goal_distance_delta_m": 0.04465568634690442,
+          "initial_motion_direction_deg": 2.2304627011191154,
+          "mask_iou": 0.9156626506024096,
+          "path_rms_m": 0.03208768740296364,
+          "view_index": 5028
+        },
+        {
+          "dataset_index": 5613,
+          "dem_rmse_m": 0.042852919548749924,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 8.049323773362245,
+          "goal_distance_delta_m": 0.05457842919053235,
+          "initial_motion_direction_deg": 1.0389167848437566,
+          "mask_iou": 0.9156626506024096,
+          "path_rms_m": 0.044333480298519135,
+          "view_index": 5029
+        },
+        {
+          "dataset_index": 5938,
+          "dem_rmse_m": 0.044649653136730194,
+          "episode_key": [
+            0,
+            11,
+            5
+          ],
+          "goal_direction_delta_deg": 9.930609541812595,
+          "goal_distance_delta_m": 0.04588121744813123,
+          "initial_motion_direction_deg": 7.41476230532631,
+          "mask_iou": 0.8085106382978723,
+          "path_rms_m": 0.049097608774900436,
+          "view_index": 5322
+        },
+        {
+          "dataset_index": 6023,
+          "dem_rmse_m": 0.044925231486558914,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 7.754489532190924,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 3.0484453433263785,
+          "mask_iou": 0.8230563002680965,
+          "path_rms_m": 0.04379532113671303,
+          "view_index": 5399
+        },
+        {
+          "dataset_index": 6296,
+          "dem_rmse_m": 0.0450967513024807,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 2.745544393284554,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 7.500826512786826,
+          "mask_iou": 0.8181818181818182,
+          "path_rms_m": 0.04408792406320572,
+          "view_index": 5640
+        },
+        {
+          "dataset_index": 6348,
+          "dem_rmse_m": 0.045344285666942596,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 2.6121255556493126,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 3.5402204452296466,
+          "mask_iou": 0.8575498575498576,
+          "path_rms_m": 0.030278880149126053,
+          "view_index": 5692
+        },
+        {
+          "dataset_index": 6349,
+          "dem_rmse_m": 0.04535701498389244,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 2.8462743428771424,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 1.7226058957613186,
+          "mask_iou": 0.8595988538681948,
+          "path_rms_m": 0.02354605495929718,
+          "view_index": 5693
+        },
+        {
+          "dataset_index": 6350,
+          "dem_rmse_m": 0.04564400762319565,
+          "episode_key": [
+            0,
+            13,
+            1
+          ],
+          "goal_direction_delta_deg": 2.325537313825098,
+          "goal_distance_delta_m": 0.058513229815379764,
+          "initial_motion_direction_deg": 8.251929495760466,
+          "mask_iou": 0.8620689655172413,
+          "path_rms_m": 0.028820045292377472,
+          "view_index": 5694
+        },
+        {
+          "dataset_index": 6463,
+          "dem_rmse_m": 0.04671807214617729,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 1.2872975416507049,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.231146644678189,
+          "mask_iou": 0.9753086419753086,
+          "path_rms_m": 0.036795567721128464,
+          "view_index": 5791
+        },
+        {
+          "dataset_index": 6464,
+          "dem_rmse_m": 0.0458972305059433,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 0.42899292001881845,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 11.414577375510929,
+          "mask_iou": 0.9753086419753086,
+          "path_rms_m": 0.04514124244451523,
+          "view_index": 5792
+        },
+        {
+          "dataset_index": 6465,
+          "dem_rmse_m": 0.045268479734659195,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 1.2606073564098417,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 6.530057424323685,
+          "mask_iou": 0.9753086419753086,
+          "path_rms_m": 0.041718482971191406,
+          "view_index": 5793
+        },
+        {
+          "dataset_index": 6523,
+          "dem_rmse_m": 0.045570407062768936,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 4.407697455845615,
+          "goal_distance_delta_m": 1.135188182344038e-07,
+          "initial_motion_direction_deg": 1.5006348364613356,
+          "mask_iou": 0.996875,
+          "path_rms_m": 0.049146611243486404,
+          "view_index": 5843
+        },
+        {
+          "dataset_index": 6524,
+          "dem_rmse_m": 0.045497167855501175,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 5.337122023435465,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 1.0975356352394015,
+          "mask_iou": 0.99375,
+          "path_rms_m": 0.04491173475980759,
+          "view_index": 5844
+        },
+        {
+          "dataset_index": 6525,
+          "dem_rmse_m": 0.04581389203667641,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 5.490679185431294,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 3.253414312277756,
+          "mask_iou": 0.990625,
+          "path_rms_m": 0.0459769107401371,
+          "view_index": 5845
+        },
+        {
+          "dataset_index": 6526,
+          "dem_rmse_m": 0.04586772993206978,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 7.679074208084513,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 12.026557307777137,
+          "mask_iou": 0.9875,
+          "path_rms_m": 0.047556836158037186,
+          "view_index": 5846
+        },
+        {
+          "dataset_index": 6527,
+          "dem_rmse_m": 0.04615260288119316,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 8.158498731856488,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 10.605543376020995,
+          "mask_iou": 0.9875,
+          "path_rms_m": 0.042017191648483276,
+          "view_index": 5847
+        },
+        {
+          "dataset_index": 6528,
+          "dem_rmse_m": 0.04541043937206268,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 4.994615515141624,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.8425588347632873,
+          "mask_iou": 0.9781931464174455,
+          "path_rms_m": 0.03285941109061241,
+          "view_index": 5848
+        },
+        {
+          "dataset_index": 6529,
+          "dem_rmse_m": 0.04473032429814339,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 5.9298883929490325,
+          "goal_distance_delta_m": 1.7312346300979442e-07,
+          "initial_motion_direction_deg": 5.146013023110681,
+          "mask_iou": 0.968944099378882,
+          "path_rms_m": 0.036852262914180756,
+          "view_index": 5849
+        },
+        {
+          "dataset_index": 6530,
+          "dem_rmse_m": 0.04346786439418793,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 4.944021870730357,
+          "goal_distance_delta_m": 5.6904713163774545e-09,
+          "initial_motion_direction_deg": 2.9429092989033885,
+          "mask_iou": 0.9567901234567902,
+          "path_rms_m": 0.030926227569580078,
+          "view_index": 5850
+        },
+        {
+          "dataset_index": 6531,
+          "dem_rmse_m": 0.042642075568437576,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 6.852491023054128,
+          "goal_distance_delta_m": 0.013617640463725711,
+          "initial_motion_direction_deg": 2.410134527662773,
+          "mask_iou": 0.9447852760736196,
+          "path_rms_m": 0.04764428734779358,
+          "view_index": 5851
+        },
+        {
+          "dataset_index": 6588,
+          "dem_rmse_m": 0.0449146032333374,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 6.834998335095963,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 6.470266277631867,
+          "mask_iou": 0.8469387755102041,
+          "path_rms_m": 0.03649785742163658,
+          "view_index": 5908
+        },
+        {
+          "dataset_index": 7631,
+          "dem_rmse_m": 0.04426952451467514,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 1.8644016727173371,
+          "goal_distance_delta_m": 0.004122203318492557,
+          "initial_motion_direction_deg": 1.0179873586974608,
+          "mask_iou": 0.9875389408099688,
+          "path_rms_m": 0.034397900104522705,
+          "view_index": 6839
+        },
+        {
+          "dataset_index": 7632,
+          "dem_rmse_m": 0.046799853444099426,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 1.4104646053412684,
+          "goal_distance_delta_m": 0.005731886355296756,
+          "initial_motion_direction_deg": 1.1649967344270555,
+          "mask_iou": 0.984472049689441,
+          "path_rms_m": 0.026743318885564804,
+          "view_index": 6840
+        },
+        {
+          "dataset_index": 8376,
+          "dem_rmse_m": 0.046359457075595856,
+          "episode_key": [
+            0,
+            17,
+            1
+          ],
+          "goal_direction_delta_deg": 5.5984272995098525,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 2.239919510346732,
+          "mask_iou": 0.8074866310160428,
+          "path_rms_m": 0.0337756983935833,
+          "view_index": 7504
+        },
+        {
+          "dataset_index": 8378,
+          "dem_rmse_m": 0.04626254737377167,
+          "episode_key": [
+            0,
+            17,
+            1
+          ],
+          "goal_direction_delta_deg": 1.632038415467015,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.7828470859564245,
+          "mask_iou": 0.8010610079575596,
+          "path_rms_m": 0.024038251489400864,
+          "view_index": 7506
+        },
+        {
+          "dataset_index": 8379,
+          "dem_rmse_m": 0.04647352546453476,
+          "episode_key": [
+            0,
+            17,
+            1
+          ],
+          "goal_direction_delta_deg": 1.6125546699715079,
+          "goal_distance_delta_m": 0.04852021309556165,
+          "initial_motion_direction_deg": 1.6887594316061791,
+          "mask_iou": 0.8101604278074866,
+          "path_rms_m": 0.02335372567176819,
+          "view_index": 7507
+        },
+        {
+          "dataset_index": 8463,
+          "dem_rmse_m": 0.047792740166187286,
+          "episode_key": [
+            0,
+            17,
+            2
+          ],
+          "goal_direction_delta_deg": 1.4055755960600234,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 0.4897892420813676,
+          "mask_iou": 0.984472049689441,
+          "path_rms_m": 0.04248476028442383,
+          "view_index": 7583
+        },
+        {
+          "dataset_index": 8549,
+          "dem_rmse_m": 0.04891546443104744,
+          "episode_key": [
+            0,
+            17,
+            3
+          ],
+          "goal_direction_delta_deg": 1.3346216737378052,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 18.65800176441417,
+          "mask_iou": 0.9604863221884499,
+          "path_rms_m": 0.045095596462488174,
+          "view_index": 7661
+        },
+        {
+          "dataset_index": 8661,
+          "dem_rmse_m": 0.04598383978009224,
+          "episode_key": [
+            0,
+            17,
+            4
+          ],
+          "goal_direction_delta_deg": 1.5329281205653196,
+          "goal_distance_delta_m": 0.07783234688462415,
+          "initial_motion_direction_deg": 4.734372609755619,
+          "mask_iou": 0.8958333333333334,
+          "path_rms_m": 0.02517177350819111,
+          "view_index": 7765
+        },
+        {
+          "dataset_index": 8662,
+          "dem_rmse_m": 0.04695047438144684,
+          "episode_key": [
+            0,
+            17,
+            4
+          ],
+          "goal_direction_delta_deg": 3.7996635513088437,
+          "goal_distance_delta_m": 0.09147906872452893,
+          "initial_motion_direction_deg": 1.7984181004894637,
+          "mask_iou": 0.8849557522123894,
+          "path_rms_m": 0.03289201110601425,
+          "view_index": 7766
+        },
+        {
+          "dataset_index": 9912,
+          "dem_rmse_m": 0.043009016662836075,
+          "episode_key": [
+            0,
+            20,
+            3
+          ],
+          "goal_direction_delta_deg": 0.25601355987332786,
+          "goal_distance_delta_m": 0.056329911677257205,
+          "initial_motion_direction_deg": 0.49018858354876255,
+          "mask_iou": 0.9390243902439024,
+          "path_rms_m": 0.030478792265057564,
+          "view_index": 8880
+        },
+        {
+          "dataset_index": 9913,
+          "dem_rmse_m": 0.04300903156399727,
+          "episode_key": [
+            0,
+            20,
+            3
+          ],
+          "goal_direction_delta_deg": 1.725079254832751,
+          "goal_distance_delta_m": 0.011806910960094119,
+          "initial_motion_direction_deg": 2.3353159626204776,
+          "mask_iou": 0.9418960244648318,
+          "path_rms_m": 0.038896121084690094,
+          "view_index": 8881
+        },
+        {
+          "dataset_index": 9914,
+          "dem_rmse_m": 0.04300902783870697,
+          "episode_key": [
+            0,
+            20,
+            3
+          ],
+          "goal_direction_delta_deg": 1.282068171176862,
+          "goal_distance_delta_m": 0.04381961199464002,
+          "initial_motion_direction_deg": 2.156674696343308,
+          "mask_iou": 0.9418960244648318,
+          "path_rms_m": 0.03500481694936752,
+          "view_index": 8882
+        },
+        {
+          "dataset_index": 9942,
+          "dem_rmse_m": 0.037618909031152725,
+          "episode_key": [
+            0,
+            20,
+            3
+          ],
+          "goal_direction_delta_deg": 0.0,
+          "goal_distance_delta_m": 0.05212540003480115,
+          "initial_motion_direction_deg": 0.606840453031715,
+          "mask_iou": 0.9753086419753086,
+          "path_rms_m": 0.04581418260931969,
+          "view_index": 8910
+        },
+        {
+          "dataset_index": 9943,
+          "dem_rmse_m": 0.04267739877104759,
+          "episode_key": [
+            0,
+            20,
+            3
+          ],
+          "goal_direction_delta_deg": 0.125170843985635,
+          "goal_distance_delta_m": 0.03466749760331311,
+          "initial_motion_direction_deg": 0.9295697445257182,
+          "mask_iou": 0.9753086419753086,
+          "path_rms_m": 0.04142199084162712,
+          "view_index": 8911
+        },
+        {
+          "dataset_index": 10528,
+          "dem_rmse_m": 0.0436493381857872,
+          "episode_key": [
+            0,
+            21,
+            2
+          ],
+          "goal_direction_delta_deg": 4.047321077766191,
+          "goal_distance_delta_m": 0.057565635172740603,
+          "initial_motion_direction_deg": 4.96455548855445,
+          "mask_iou": 0.8567493112947658,
+          "path_rms_m": 0.039398692548274994,
+          "view_index": 9432
+        },
+        {
+          "dataset_index": 10529,
+          "dem_rmse_m": 0.043579328805208206,
+          "episode_key": [
+            0,
+            21,
+            2
+          ],
+          "goal_direction_delta_deg": 4.0282782756540305,
+          "goal_distance_delta_m": 0.007262652842418338,
+          "initial_motion_direction_deg": 2.232830656479184,
+          "mask_iou": 0.8739495798319328,
+          "path_rms_m": 0.04873548448085785,
+          "view_index": 9433
+        },
+        {
+          "dataset_index": 10530,
+          "dem_rmse_m": 0.04542768746614456,
+          "episode_key": [
+            0,
+            21,
+            2
+          ],
+          "goal_direction_delta_deg": 3.389241566120387,
+          "goal_distance_delta_m": 5.391417345901317e-08,
+          "initial_motion_direction_deg": 1.8220937426548507,
+          "mask_iou": 0.8838526912181303,
+          "path_rms_m": 0.0426398403942585,
+          "view_index": 9434
+        },
+        {
+          "dataset_index": 10690,
+          "dem_rmse_m": 0.042410243302583694,
+          "episode_key": [
+            0,
+            21,
+            4
+          ],
+          "goal_direction_delta_deg": 1.9677886711994355,
+          "goal_distance_delta_m": 0.04946143004120984,
+          "initial_motion_direction_deg": 0.8460352933990731,
+          "mask_iou": 0.8928571428571429,
+          "path_rms_m": 0.021013660356402397,
+          "view_index": 9578
+        },
+        {
+          "dataset_index": 10691,
+          "dem_rmse_m": 0.042410243302583694,
+          "episode_key": [
+            0,
+            21,
+            4
+          ],
+          "goal_direction_delta_deg": 1.7535865321240112,
+          "goal_distance_delta_m": 0.07479066225709119,
+          "initial_motion_direction_deg": 0.4423476893491018,
+          "mask_iou": 0.8928571428571429,
+          "path_rms_m": 0.02387586049735546,
+          "view_index": 9579
+        },
+        {
+          "dataset_index": 10771,
+          "dem_rmse_m": 0.04297950491309166,
+          "episode_key": [
+            0,
+            21,
+            5
+          ],
+          "goal_direction_delta_deg": 1.903527029760535,
+          "goal_distance_delta_m": 0.025865083662883426,
+          "initial_motion_direction_deg": 1.2107922984683557,
+          "mask_iou": 0.8426966292134831,
+          "path_rms_m": 0.03781137987971306,
+          "view_index": 9651
+        }
+      ],
+      "nearest_nomad_candidate_id": "nomad-seed-1002",
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "bank_candidate_id": "bank-nominal",
+      "classification": "same_mode_outcome_variation",
+      "counts": {
+        "complete_train": 49598,
+        "dem_goal_match": 5630,
+        "distinct_support_episodes": 173,
+        "goal_direction_and_different_episode": 9320,
+        "goal_distance_only": 12083,
+        "trajectory_and_motion_match": 502,
+        "trajectory_match": 518
+      },
+      "generator": "bank",
+      "matched_teacher_total": 502,
+      "matched_teacher_windows": [
+        {
+          "dataset_index": 56,
+          "dem_rmse_m": 0.015301518142223358,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 1.322053760775501,
+          "goal_distance_delta_m": 0.09716436701361952,
+          "initial_motion_direction_deg": 0.42795846228472006,
+          "mask_iou": 0.926829268292683,
+          "path_rms_m": 0.03489231318235397,
+          "view_index": 56
+        },
+        {
+          "dataset_index": 57,
+          "dem_rmse_m": 0.015383990481495857,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 0.9310236269137753,
+          "goal_distance_delta_m": 0.0669987543160182,
+          "initial_motion_direction_deg": 1.921015380978076,
+          "mask_iou": 0.9327217125382263,
+          "path_rms_m": 0.025813108310103416,
+          "view_index": 57
+        },
+        {
+          "dataset_index": 58,
+          "dem_rmse_m": 0.015487994067370892,
+          "episode_key": [
+            0,
+            0,
+            0
+          ],
+          "goal_direction_delta_deg": 0.9762800272612157,
+          "goal_distance_delta_m": 0.0578812702233058,
+          "initial_motion_direction_deg": 2.4054197098741286,
+          "mask_iou": 0.9386503067484663,
+          "path_rms_m": 0.034032005816698074,
+          "view_index": 58
+        },
+        {
+          "dataset_index": 161,
+          "dem_rmse_m": 0.01342703402042389,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 1.8237481026274671,
+          "goal_distance_delta_m": 0.0604408724838954,
+          "initial_motion_direction_deg": 0.019782341029446364,
+          "mask_iou": 0.9096385542168675,
+          "path_rms_m": 0.048868328332901,
+          "view_index": 145
+        },
+        {
+          "dataset_index": 162,
+          "dem_rmse_m": 0.01342703402042389,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 2.365010836685729,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 1.2363807310835981,
+          "mask_iou": 0.9096385542168675,
+          "path_rms_m": 0.03922618180513382,
+          "view_index": 146
+        },
+        {
+          "dataset_index": 163,
+          "dem_rmse_m": 0.01342703402042389,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 2.5221033813335345,
+          "goal_distance_delta_m": 1.5335624037327023e-07,
+          "initial_motion_direction_deg": 0.6847131610207966,
+          "mask_iou": 0.9123867069486404,
+          "path_rms_m": 0.04226939380168915,
+          "view_index": 147
+        },
+        {
+          "dataset_index": 174,
+          "dem_rmse_m": 0.015393459238111973,
+          "episode_key": [
+            0,
+            0,
+            2
+          ],
+          "goal_direction_delta_deg": 5.082457696746356,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 2.0166418349372806,
+          "mask_iou": 0.9386503067484663,
+          "path_rms_m": 0.035324398428201675,
+          "view_index": 158
+        },
+        {
+          "dataset_index": 308,
+          "dem_rmse_m": 0.01338446419686079,
+          "episode_key": [
+            0,
+            0,
+            4
+          ],
+          "goal_direction_delta_deg": 0.5704398072311223,
+          "goal_distance_delta_m": 0.06491980391089736,
+          "initial_motion_direction_deg": 1.325151085662073,
+          "mask_iou": 0.8825214899713467,
+          "path_rms_m": 0.0184471532702446,
+          "view_index": 276
+        },
+        {
+          "dataset_index": 385,
+          "dem_rmse_m": 0.013376747258007526,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 7.882201344806558,
+          "goal_distance_delta_m": 0.024405692392037492,
+          "initial_motion_direction_deg": 0.2112177217315485,
+          "mask_iou": 0.9539877300613497,
+          "path_rms_m": 0.043362293392419815,
+          "view_index": 345
+        },
+        {
+          "dataset_index": 386,
+          "dem_rmse_m": 0.013375931419432163,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 8.26175672009997,
+          "goal_distance_delta_m": 8.506233872829227e-08,
+          "initial_motion_direction_deg": 0.5074485881219329,
+          "mask_iou": 0.950920245398773,
+          "path_rms_m": 0.046175066381692886,
+          "view_index": 346
+        },
+        {
+          "dataset_index": 387,
+          "dem_rmse_m": 0.013388325460255146,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 7.970837502290089,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.09278741380920028,
+          "mask_iou": 0.9569230769230769,
+          "path_rms_m": 0.04526635631918907,
+          "view_index": 347
+        },
+        {
+          "dataset_index": 388,
+          "dem_rmse_m": 0.013376164250075817,
+          "episode_key": [
+            0,
+            0,
+            5
+          ],
+          "goal_direction_delta_deg": 8.196325339456003,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 1.5781798603299477,
+          "mask_iou": 0.9629629629629629,
+          "path_rms_m": 0.049367912113666534,
+          "view_index": 348
+        },
+        {
+          "dataset_index": 466,
+          "dem_rmse_m": 0.013398134149610996,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 1.3072219696480833,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 7.692864904216636,
+          "mask_iou": 0.9843260188087775,
+          "path_rms_m": 0.047894399613142014,
+          "view_index": 418
+        },
+        {
+          "dataset_index": 483,
+          "dem_rmse_m": 0.01567762717604637,
+          "episode_key": [
+            0,
+            0,
+            6
+          ],
+          "goal_direction_delta_deg": 6.156022591298237,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 0.474365226033695,
+          "mask_iou": 0.8333333333333334,
+          "path_rms_m": 0.034424036741256714,
+          "view_index": 435
+        },
+        {
+          "dataset_index": 693,
+          "dem_rmse_m": 0.01533713098615408,
+          "episode_key": [
+            0,
+            2,
+            0
+          ],
+          "goal_direction_delta_deg": 0.4668282888302325,
+          "goal_distance_delta_m": 0.01683530645911513,
+          "initial_motion_direction_deg": 1.6813265543009357,
+          "mask_iou": 0.8928571428571429,
+          "path_rms_m": 0.02265341579914093,
+          "view_index": 621
+        },
+        {
+          "dataset_index": 694,
+          "dem_rmse_m": 0.022602248936891556,
+          "episode_key": [
+            0,
+            2,
+            0
+          ],
+          "goal_direction_delta_deg": 4.065149742889781,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.46309398878457175,
+          "mask_iou": 0.9011976047904192,
+          "path_rms_m": 0.028962543234229088,
+          "view_index": 622
+        },
+        {
+          "dataset_index": 1013,
+          "dem_rmse_m": 0.01486409641802311,
+          "episode_key": [
+            0,
+            2,
+            4
+          ],
+          "goal_direction_delta_deg": 0.700840140884217,
+          "goal_distance_delta_m": 0.02594325380866347,
+          "initial_motion_direction_deg": 0.05595291190411357,
+          "mask_iou": 0.9422492401215805,
+          "path_rms_m": 0.02769455313682556,
+          "view_index": 909
+        },
+        {
+          "dataset_index": 1234,
+          "dem_rmse_m": 0.03290124610066414,
+          "episode_key": [
+            0,
+            2,
+            7
+          ],
+          "goal_direction_delta_deg": 5.127896067160303,
+          "goal_distance_delta_m": 0.013395164781258684,
+          "initial_motion_direction_deg": 6.8511431795843105,
+          "mask_iou": 0.8953488372093024,
+          "path_rms_m": 0.030006524175405502,
+          "view_index": 1106
+        },
+        {
+          "dataset_index": 1784,
+          "dem_rmse_m": 0.019173109903931618,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.7645926155442297,
+          "goal_distance_delta_m": 0.006352458768532854,
+          "initial_motion_direction_deg": 5.457758804956679,
+          "mask_iou": 0.8130081300813008,
+          "path_rms_m": 0.03747766092419624,
+          "view_index": 1600
+        },
+        {
+          "dataset_index": 1785,
+          "dem_rmse_m": 0.018998663872480392,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 3.8630642276652685,
+          "goal_distance_delta_m": 0.03680631952826796,
+          "initial_motion_direction_deg": 0.10279207254188717,
+          "mask_iou": 0.8152173913043478,
+          "path_rms_m": 0.033927347511053085,
+          "view_index": 1601
+        },
+        {
+          "dataset_index": 1786,
+          "dem_rmse_m": 0.019060472026467323,
+          "episode_key": [
+            0,
+            5,
+            5
+          ],
+          "goal_direction_delta_deg": 2.7183558324405177,
+          "goal_distance_delta_m": 0.09414169626776991,
+          "initial_motion_direction_deg": 4.66140206610833,
+          "mask_iou": 0.8152173913043478,
+          "path_rms_m": 0.03308272361755371,
+          "view_index": 1602
+        },
+        {
+          "dataset_index": 1861,
+          "dem_rmse_m": 0.019019629806280136,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 3.538265129426885,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 3.559634954717433,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03367648646235466,
+          "view_index": 1669
+        },
+        {
+          "dataset_index": 1862,
+          "dem_rmse_m": 0.018788199871778488,
+          "episode_key": [
+            0,
+            5,
+            6
+          ],
+          "goal_direction_delta_deg": 6.554638677103618,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 3.146596228471085,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.045489903539419174,
+          "view_index": 1670
+        },
+        {
+          "dataset_index": 1958,
+          "dem_rmse_m": 0.01882442831993103,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 1.8043932048764033,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 2.6159883419852643,
+          "mask_iou": 0.96875,
+          "path_rms_m": 0.044925712049007416,
+          "view_index": 1758
+        },
+        {
+          "dataset_index": 1959,
+          "dem_rmse_m": 0.018193086609244347,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 2.31828911961327,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 7.005607216843069,
+          "mask_iou": 0.9749216300940439,
+          "path_rms_m": 0.037551552057266235,
+          "view_index": 1759
+        },
+        {
+          "dataset_index": 1960,
+          "dem_rmse_m": 0.017776617780327797,
+          "episode_key": [
+            0,
+            5,
+            7
+          ],
+          "goal_direction_delta_deg": 2.0523784911712486,
+          "goal_distance_delta_m": 0.0374383671814662,
+          "initial_motion_direction_deg": 5.523396599578398,
+          "mask_iou": 0.9811320754716981,
+          "path_rms_m": 0.037960950285196304,
+          "view_index": 1760
+        },
+        {
+          "dataset_index": 2404,
+          "dem_rmse_m": 0.02324955351650715,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 4.053826012700249,
+          "goal_distance_delta_m": 0.03131553965155898,
+          "initial_motion_direction_deg": 4.573631757611118,
+          "mask_iou": 0.9627329192546584,
+          "path_rms_m": 0.02791859768331051,
+          "view_index": 2156
+        },
+        {
+          "dataset_index": 2407,
+          "dem_rmse_m": 0.02394055388867855,
+          "episode_key": [
+            0,
+            6,
+            4
+          ],
+          "goal_direction_delta_deg": 4.044221254600288,
+          "goal_distance_delta_m": 0.06696871357505141,
+          "initial_motion_direction_deg": 3.508554643832951,
+          "mask_iou": 0.9627329192546584,
+          "path_rms_m": 0.043724242597818375,
+          "view_index": 2159
+        },
+        {
+          "dataset_index": 2736,
+          "dem_rmse_m": 0.025366518646478653,
+          "episode_key": [
+            0,
+            6,
+            8
+          ],
+          "goal_direction_delta_deg": 0.38852380810965864,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 14.632207043605764,
+          "mask_iou": 0.8333333333333334,
+          "path_rms_m": 0.03511572629213333,
+          "view_index": 2456
+        },
+        {
+          "dataset_index": 3051,
+          "dem_rmse_m": 0.04500947147607803,
+          "episode_key": [
+            0,
+            7,
+            3
+          ],
+          "goal_direction_delta_deg": 1.5163974763709493,
+          "goal_distance_delta_m": 0.06474963265006362,
+          "initial_motion_direction_deg": 3.8716104283831685,
+          "mask_iou": 0.9181818181818182,
+          "path_rms_m": 0.04814641550183296,
+          "view_index": 2739
+        },
+        {
+          "dataset_index": 3052,
+          "dem_rmse_m": 0.044906895607709885,
+          "episode_key": [
+            0,
+            7,
+            3
+          ],
+          "goal_direction_delta_deg": 0.22216860780510048,
+          "goal_distance_delta_m": 0.03782287674491225,
+          "initial_motion_direction_deg": 11.925686410699452,
+          "mask_iou": 0.926829268292683,
+          "path_rms_m": 0.018109586089849472,
+          "view_index": 2740
+        },
+        {
+          "dataset_index": 3053,
+          "dem_rmse_m": 0.04621538147330284,
+          "episode_key": [
+            0,
+            7,
+            3
+          ],
+          "goal_direction_delta_deg": 2.700170308497081,
+          "goal_distance_delta_m": 0.031388376527474504,
+          "initial_motion_direction_deg": 0.7217213972409583,
+          "mask_iou": 0.9386503067484663,
+          "path_rms_m": 0.0249889325350523,
+          "view_index": 2741
+        },
+        {
+          "dataset_index": 3054,
+          "dem_rmse_m": 0.04697737842798233,
+          "episode_key": [
+            0,
+            7,
+            3
+          ],
+          "goal_direction_delta_deg": 4.863903444738315,
+          "goal_distance_delta_m": 0.05101910667960463,
+          "initial_motion_direction_deg": 3.3382989042690174,
+          "mask_iou": 0.9506172839506173,
+          "path_rms_m": 0.043546609580516815,
+          "view_index": 2742
+        },
+        {
+          "dataset_index": 3555,
+          "dem_rmse_m": 0.031803444027900696,
+          "episode_key": [
+            0,
+            8,
+            1
+          ],
+          "goal_direction_delta_deg": 0.43082836302771627,
+          "goal_distance_delta_m": 0.05430004435126601,
+          "initial_motion_direction_deg": 5.975599085743643,
+          "mask_iou": 0.8985074626865671,
+          "path_rms_m": 0.046722881495952606,
+          "view_index": 3187
+        },
+        {
+          "dataset_index": 3556,
+          "dem_rmse_m": 0.03212357684969902,
+          "episode_key": [
+            0,
+            8,
+            1
+          ],
+          "goal_direction_delta_deg": 0.3152614504090678,
+          "goal_distance_delta_m": 0.015353415780709367,
+          "initial_motion_direction_deg": 3.4653191787744175,
+          "mask_iou": 0.8985074626865671,
+          "path_rms_m": 0.019555438309907913,
+          "view_index": 3188
+        },
+        {
+          "dataset_index": 3557,
+          "dem_rmse_m": 0.032010987401008606,
+          "episode_key": [
+            0,
+            8,
+            1
+          ],
+          "goal_direction_delta_deg": 0.017888621733380548,
+          "goal_distance_delta_m": 0.06499800520484267,
+          "initial_motion_direction_deg": 10.016160824578954,
+          "mask_iou": 0.9096385542168675,
+          "path_rms_m": 0.03848398104310036,
+          "view_index": 3189
+        },
+        {
+          "dataset_index": 3639,
+          "dem_rmse_m": 0.03648748621344566,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 5.994930269817026,
+          "goal_distance_delta_m": 0.07482704954688368,
+          "initial_motion_direction_deg": 10.608233602533451,
+          "mask_iou": 0.821917808219178,
+          "path_rms_m": 0.0452682301402092,
+          "view_index": 3263
+        },
+        {
+          "dataset_index": 3640,
+          "dem_rmse_m": 0.03630739450454712,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 5.440177517924742,
+          "goal_distance_delta_m": 0.025002156072304826,
+          "initial_motion_direction_deg": 0.4877876309017727,
+          "mask_iou": 0.8310249307479224,
+          "path_rms_m": 0.03222029656171799,
+          "view_index": 3264
+        },
+        {
+          "dataset_index": 3641,
+          "dem_rmse_m": 0.03615173324942589,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 3.7205136903392506,
+          "goal_distance_delta_m": 0.023858700566933733,
+          "initial_motion_direction_deg": 2.574202388120405,
+          "mask_iou": 0.8305555555555556,
+          "path_rms_m": 0.02377210557460785,
+          "view_index": 3265
+        },
+        {
+          "dataset_index": 3642,
+          "dem_rmse_m": 0.03672969713807106,
+          "episode_key": [
+            0,
+            8,
+            2
+          ],
+          "goal_direction_delta_deg": 4.633077831508628,
+          "goal_distance_delta_m": 0.03643933373038588,
+          "initial_motion_direction_deg": 1.4636656739628404,
+          "mask_iou": 0.83008356545961,
+          "path_rms_m": 0.029592832550406456,
+          "view_index": 3266
+        },
+        {
+          "dataset_index": 3725,
+          "dem_rmse_m": 0.030085545033216476,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 0.2330783607631062,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 0.9516217320178184,
+          "mask_iou": 0.9874213836477987,
+          "path_rms_m": 0.030009474605321884,
+          "view_index": 3341
+        },
+        {
+          "dataset_index": 3740,
+          "dem_rmse_m": 0.03038630448281765,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 3.952851670577443,
+          "goal_distance_delta_m": 0.09406266050879775,
+          "initial_motion_direction_deg": 8.711201538321681,
+          "mask_iou": 0.8904899135446686,
+          "path_rms_m": 0.04681631922721863,
+          "view_index": 3356
+        },
+        {
+          "dataset_index": 3741,
+          "dem_rmse_m": 0.030482878908514977,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 5.7792816889618965,
+          "goal_distance_delta_m": 0.03220943050925551,
+          "initial_motion_direction_deg": 0.8149336749070829,
+          "mask_iou": 0.875,
+          "path_rms_m": 0.034344181418418884,
+          "view_index": 3357
+        },
+        {
+          "dataset_index": 3742,
+          "dem_rmse_m": 0.030286692082881927,
+          "episode_key": [
+            0,
+            8,
+            3
+          ],
+          "goal_direction_delta_deg": 6.947074998708626,
+          "goal_distance_delta_m": 0.020115052037881,
+          "initial_motion_direction_deg": 11.916940701951399,
+          "mask_iou": 0.8676056338028169,
+          "path_rms_m": 0.03685581311583519,
+          "view_index": 3358
+        },
+        {
+          "dataset_index": 4000,
+          "dem_rmse_m": 0.029749726876616478,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 3.3373716642879816,
+          "goal_distance_delta_m": 0.08435461359565077,
+          "initial_motion_direction_deg": 1.675029416355286,
+          "mask_iou": 0.9843260188087775,
+          "path_rms_m": 0.04955924674868584,
+          "view_index": 3584
+        },
+        {
+          "dataset_index": 4037,
+          "dem_rmse_m": 0.03222864493727684,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 1.3601327394406446,
+          "goal_distance_delta_m": 0.003879342847512346,
+          "initial_motion_direction_deg": 2.9686721512165595,
+          "mask_iou": 0.9627329192546584,
+          "path_rms_m": 0.016703220084309578,
+          "view_index": 3621
+        },
+        {
+          "dataset_index": 4038,
+          "dem_rmse_m": 0.032025136053562164,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 1.0626924774598887,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 9.31595236810036,
+          "mask_iou": 0.9627329192546584,
+          "path_rms_m": 0.01777714118361473,
+          "view_index": 3622
+        },
+        {
+          "dataset_index": 4039,
+          "dem_rmse_m": 0.031872186809778214,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 4.197962404370317,
+          "goal_distance_delta_m": 0.01222727137152968,
+          "initial_motion_direction_deg": 0.5260038395658844,
+          "mask_iou": 0.9657320872274143,
+          "path_rms_m": 0.028618020936846733,
+          "view_index": 3623
+        },
+        {
+          "dataset_index": 4040,
+          "dem_rmse_m": 0.0312918983399868,
+          "episode_key": [
+            0,
+            8,
+            7
+          ],
+          "goal_direction_delta_deg": 2.3988545186375085,
+          "goal_distance_delta_m": 0.05242863731925307,
+          "initial_motion_direction_deg": 2.3427632555824087,
+          "mask_iou": 0.9657320872274143,
+          "path_rms_m": 0.0231720432639122,
+          "view_index": 3624
+        },
+        {
+          "dataset_index": 5048,
+          "dem_rmse_m": 0.047535065561532974,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.190156977853153,
+          "goal_distance_delta_m": 0.07811275559012709,
+          "initial_motion_direction_deg": 0.11703392759136522,
+          "mask_iou": 0.8563218390804598,
+          "path_rms_m": 0.03990437835454941,
+          "view_index": 4528
+        },
+        {
+          "dataset_index": 5049,
+          "dem_rmse_m": 0.04120207577943802,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.413573885156341,
+          "goal_distance_delta_m": 0.07895073729102431,
+          "initial_motion_direction_deg": 0.23490244801451995,
+          "mask_iou": 0.8587896253602305,
+          "path_rms_m": 0.041816551238298416,
+          "view_index": 4529
+        },
+        {
+          "dataset_index": 5050,
+          "dem_rmse_m": 0.036318354308605194,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.242486672727763,
+          "goal_distance_delta_m": 0.06788155870978652,
+          "initial_motion_direction_deg": 0.08846932694105811,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03940710797905922,
+          "view_index": 4530
+        },
+        {
+          "dataset_index": 5051,
+          "dem_rmse_m": 0.03013402223587036,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.205763389120191,
+          "goal_distance_delta_m": 0.06045619087760268,
+          "initial_motion_direction_deg": 0.2859902821318441,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03681065887212753,
+          "view_index": 4531
+        },
+        {
+          "dataset_index": 5052,
+          "dem_rmse_m": 0.025128809735178947,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.430770822487707,
+          "goal_distance_delta_m": 0.059711669259713274,
+          "initial_motion_direction_deg": 0.027976455118293345,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03722656890749931,
+          "view_index": 4532
+        },
+        {
+          "dataset_index": 5053,
+          "dem_rmse_m": 0.02073458954691887,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.291101477973024,
+          "goal_distance_delta_m": 0.05803272562568007,
+          "initial_motion_direction_deg": 0.145369962588823,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03585903346538544,
+          "view_index": 4533
+        },
+        {
+          "dataset_index": 5054,
+          "dem_rmse_m": 0.018690075725317,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.308090589828541,
+          "goal_distance_delta_m": 0.04873130159919081,
+          "initial_motion_direction_deg": 0.05233915627441309,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.03402801230549812,
+          "view_index": 4534
+        },
+        {
+          "dataset_index": 5055,
+          "dem_rmse_m": 0.01817343942821026,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.175256253938754,
+          "goal_distance_delta_m": 0.04956511097495375,
+          "initial_motion_direction_deg": 0.619919852461674,
+          "mask_iou": 0.8591040462427746,
+          "path_rms_m": 0.03267279267311096,
+          "view_index": 4535
+        },
+        {
+          "dataset_index": 5056,
+          "dem_rmse_m": 0.017962662503123283,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.79502103785172,
+          "goal_distance_delta_m": 0.0441483600670558,
+          "initial_motion_direction_deg": 0.482949919286626,
+          "mask_iou": 0.8591040462427746,
+          "path_rms_m": 0.03535304218530655,
+          "view_index": 4536
+        },
+        {
+          "dataset_index": 5057,
+          "dem_rmse_m": 0.01857314072549343,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 5.446988063985864,
+          "goal_distance_delta_m": 0.04382178621833144,
+          "initial_motion_direction_deg": 0.8299230235528615,
+          "mask_iou": 0.8589001447178003,
+          "path_rms_m": 0.033860646188259125,
+          "view_index": 4537
+        },
+        {
+          "dataset_index": 5058,
+          "dem_rmse_m": 0.020124701783061028,
+          "episode_key": [
+            0,
+            10,
+            2
+          ],
+          "goal_direction_delta_deg": 6.7861039615648755,
+          "goal_distance_delta_m": 0.09675816135947524,
+          "initial_motion_direction_deg": 0.13988230894202303,
+          "mask_iou": 0.8589001447178003,
+          "path_rms_m": 0.04289402812719345,
+          "view_index": 4538
+        },
+        {
+          "dataset_index": 5148,
+          "dem_rmse_m": 0.013382180593907833,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 4.127900362440396,
+          "goal_distance_delta_m": 0.05750057535712538,
+          "initial_motion_direction_deg": 0.23406797725889517,
+          "mask_iou": 0.8563218390804598,
+          "path_rms_m": 0.0438239611685276,
+          "view_index": 4612
+        },
+        {
+          "dataset_index": 5149,
+          "dem_rmse_m": 0.013382182456552982,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 4.603460645750668,
+          "goal_distance_delta_m": 0.01622894840781508,
+          "initial_motion_direction_deg": 0.07661668268387072,
+          "mask_iou": 0.8587896253602305,
+          "path_rms_m": 0.029026784002780914,
+          "view_index": 4613
+        },
+        {
+          "dataset_index": 5150,
+          "dem_rmse_m": 0.013598104007542133,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 4.226322939647097,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.09691329395132914,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.02716955356299877,
+          "view_index": 4614
+        },
+        {
+          "dataset_index": 5151,
+          "dem_rmse_m": 0.013723500072956085,
+          "episode_key": [
+            0,
+            10,
+            4
+          ],
+          "goal_direction_delta_deg": 5.139420269282704,
+          "goal_distance_delta_m": 0.09943673449103652,
+          "initial_motion_direction_deg": 0.059347025446578223,
+          "mask_iou": 0.861271676300578,
+          "path_rms_m": 0.044358834624290466,
+          "view_index": 4615
+        },
+        {
+          "dataset_index": 5379,
+          "dem_rmse_m": 0.013375984504818916,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 8.884083255388873,
+          "goal_distance_delta_m": 0.03273860054557143,
+          "initial_motion_direction_deg": 0.613574487790552,
+          "mask_iou": 0.9309309309309309,
+          "path_rms_m": 0.04903906211256981,
+          "view_index": 4819
+        },
+        {
+          "dataset_index": 5380,
+          "dem_rmse_m": 0.013578150421380997,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 8.69135714270987,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.608128875169976,
+          "mask_iou": 0.9365558912386707,
+          "path_rms_m": 0.04645406827330589,
+          "view_index": 4820
+        },
+        {
+          "dataset_index": 5381,
+          "dem_rmse_m": 0.014695242047309875,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 8.045658894787609,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.3631561135403902,
+          "mask_iou": 0.9422492401215805,
+          "path_rms_m": 0.048839766532182693,
+          "view_index": 4821
+        },
+        {
+          "dataset_index": 5382,
+          "dem_rmse_m": 0.01662828028202057,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 8.252777306232325,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.8381346217680783,
+          "mask_iou": 0.9480122324159022,
+          "path_rms_m": 0.04933144897222519,
+          "view_index": 4822
+        },
+        {
+          "dataset_index": 5385,
+          "dem_rmse_m": 0.02564377151429653,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 5.43846938572084,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.027976455118293345,
+          "mask_iou": 0.950920245398773,
+          "path_rms_m": 0.049437277019023895,
+          "view_index": 4825
+        },
+        {
+          "dataset_index": 5386,
+          "dem_rmse_m": 0.03101889230310917,
+          "episode_key": [
+            0,
+            10,
+            7
+          ],
+          "goal_direction_delta_deg": 5.100663131106998,
+          "goal_distance_delta_m": 0.04474941330497084,
+          "initial_motion_direction_deg": 3.711670611957288,
+          "mask_iou": 0.950920245398773,
+          "path_rms_m": 0.04633698612451553,
+          "view_index": 4826
+        },
+        {
+          "dataset_index": 5570,
+          "dem_rmse_m": 0.017978709191083908,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 2.5943192892707785,
+          "goal_distance_delta_m": 0.03910068111960707,
+          "initial_motion_direction_deg": 7.102935502666714,
+          "mask_iou": 0.8567335243553008,
+          "path_rms_m": 0.03494624048471451,
+          "view_index": 4994
+        },
+        {
+          "dataset_index": 5571,
+          "dem_rmse_m": 0.017701711505651474,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 0.042099714166956306,
+          "goal_distance_delta_m": 0.03635034399573622,
+          "initial_motion_direction_deg": 4.5791104381513135,
+          "mask_iou": 0.8771929824561403,
+          "path_rms_m": 0.019226577132940292,
+          "view_index": 4995
+        },
+        {
+          "dataset_index": 5572,
+          "dem_rmse_m": 0.01712646521627903,
+          "episode_key": [
+            0,
+            11,
+            0
+          ],
+          "goal_direction_delta_deg": 5.7638527955064625,
+          "goal_distance_delta_m": 0.04333493547980605,
+          "initial_motion_direction_deg": 8.251168044367688,
+          "mask_iou": 0.8985074626865671,
+          "path_rms_m": 0.048314955085515976,
+          "view_index": 4996
+        },
+        {
+          "dataset_index": 5610,
+          "dem_rmse_m": 0.01786327175796032,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 3.208236277412073,
+          "goal_distance_delta_m": 0.03440836506430922,
+          "initial_motion_direction_deg": 1.8606737635880968,
+          "mask_iou": 0.975,
+          "path_rms_m": 0.02551043964922428,
+          "view_index": 5026
+        },
+        {
+          "dataset_index": 5611,
+          "dem_rmse_m": 0.017720121890306473,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 2.52241916622456,
+          "goal_distance_delta_m": 0.05740586357657729,
+          "initial_motion_direction_deg": 0.6208660640232013,
+          "mask_iou": 0.9811912225705329,
+          "path_rms_m": 0.026640010997653008,
+          "view_index": 5027
+        },
+        {
+          "dataset_index": 5612,
+          "dem_rmse_m": 0.01759815774857998,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 1.8585773672505501,
+          "goal_distance_delta_m": 0.0446557744080287,
+          "initial_motion_direction_deg": 1.1405527093492276,
+          "mask_iou": 0.9874213836477987,
+          "path_rms_m": 0.02421860210597515,
+          "view_index": 5028
+        },
+        {
+          "dataset_index": 5613,
+          "dem_rmse_m": 0.01737193949520588,
+          "episode_key": [
+            0,
+            11,
+            1
+          ],
+          "goal_direction_delta_deg": 1.0105416984887499,
+          "goal_distance_delta_m": 0.05457851725165663,
+          "initial_motion_direction_deg": 2.1289082506262624,
+          "mask_iou": 0.9874213836477987,
+          "path_rms_m": 0.023016557097434998,
+          "view_index": 5029
+        },
+        {
+          "dataset_index": 6025,
+          "dem_rmse_m": 0.018692754209041595,
+          "episode_key": [
+            0,
+            11,
+            6
+          ],
+          "goal_direction_delta_deg": 2.854923808167442,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 2.945901091464512,
+          "mask_iou": 0.8016085790884718,
+          "path_rms_m": 0.03274528309702873,
+          "view_index": 5401
+        },
+        {
+          "dataset_index": 6463,
+          "dem_rmse_m": 0.018141310662031174,
+          "episode_key": [
+            0,
+            13,
+            3
+          ],
+          "goal_direction_delta_deg": 5.751586998743412,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.14265252599748507,
+          "mask_iou": 0.8816568047337278,
+          "path_rms_m": 0.045594412833452225,
+          "view_index": 5791
+        },
+        {
+          "dataset_index": 6524,
+          "dem_rmse_m": 0.017813818529248238,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 1.7017336828361,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 2.1873119496531737,
+          "mask_iou": 0.9096385542168675,
+          "path_rms_m": 0.043729111552238464,
+          "view_index": 5844
+        },
+        {
+          "dataset_index": 6525,
+          "dem_rmse_m": 0.018302705138921738,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 1.5482842078672507,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 2.1635606554360916,
+          "mask_iou": 0.9123867069486404,
+          "path_rms_m": 0.04577932879328728,
+          "view_index": 5845
+        },
+        {
+          "dataset_index": 6526,
+          "dem_rmse_m": 0.018339011818170547,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 0.6400495759660754,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 10.93671709484125,
+          "mask_iou": 0.9151515151515152,
+          "path_rms_m": 0.033440422266721725,
+          "view_index": 5846
+        },
+        {
+          "dataset_index": 6527,
+          "dem_rmse_m": 0.01812564954161644,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 1.1195566137025386,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 11.695361244496501,
+          "mask_iou": 0.9151515151515152,
+          "path_rms_m": 0.01853049546480179,
+          "view_index": 5847
+        },
+        {
+          "dataset_index": 6528,
+          "dem_rmse_m": 0.0182427316904068,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 2.0441992482139777,
+          "goal_distance_delta_m": 3.4146950822488975e-08,
+          "initial_motion_direction_deg": 0.24787221470538592,
+          "mask_iou": 0.9237804878048781,
+          "path_rms_m": 0.025849048048257828,
+          "view_index": 5848
+        },
+        {
+          "dataset_index": 6529,
+          "dem_rmse_m": 0.018331995233893394,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 1.1091572495008435,
+          "goal_distance_delta_m": 8.506233872829227e-08,
+          "initial_motion_direction_deg": 4.05622689010279,
+          "mask_iou": 0.9325153374233128,
+          "path_rms_m": 0.014478984288871288,
+          "view_index": 5849
+        },
+        {
+          "dataset_index": 6530,
+          "dem_rmse_m": 0.01808309555053711,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 2.0948543480502213,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 4.032840413746714,
+          "mask_iou": 0.9444444444444444,
+          "path_rms_m": 0.027237793430685997,
+          "view_index": 5850
+        },
+        {
+          "dataset_index": 6531,
+          "dem_rmse_m": 0.018027080222964287,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 0.18521959686327139,
+          "goal_distance_delta_m": 0.013617728524849992,
+          "initial_motion_direction_deg": 1.3204171215512246,
+          "mask_iou": 0.9565217391304348,
+          "path_rms_m": 0.032687876373529434,
+          "view_index": 5851
+        },
+        {
+          "dataset_index": 6568,
+          "dem_rmse_m": 0.017673170194029808,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 8.611271911656138,
+          "goal_distance_delta_m": 0.05028841333930312,
+          "initial_motion_direction_deg": 9.901885821421768,
+          "mask_iou": 0.9811912225705329,
+          "path_rms_m": 0.045064929872751236,
+          "view_index": 5888
+        },
+        {
+          "dataset_index": 6570,
+          "dem_rmse_m": 0.018208876252174377,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 8.027359988901624,
+          "goal_distance_delta_m": 0.09441194372718154,
+          "initial_motion_direction_deg": 4.514273535727499,
+          "mask_iou": 0.9719626168224299,
+          "path_rms_m": 0.04730570688843727,
+          "view_index": 5890
+        },
+        {
+          "dataset_index": 6589,
+          "dem_rmse_m": 0.019712897017598152,
+          "episode_key": [
+            0,
+            13,
+            4
+          ],
+          "goal_direction_delta_deg": 0.4861884999220132,
+          "goal_distance_delta_m": 9.37515955978796e-08,
+          "initial_motion_direction_deg": 2.9810433606794935,
+          "mask_iou": 0.8012048192771084,
+          "path_rms_m": 0.04256099835038185,
+          "view_index": 5909
+        },
+        {
+          "dataset_index": 7632,
+          "dem_rmse_m": 0.01488733384758234,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 5.628442291860896,
+          "goal_distance_delta_m": 0.005731974416421037,
+          "initial_motion_direction_deg": 0.07401874722002606,
+          "mask_iou": 0.8955223880597015,
+          "path_rms_m": 0.04319954290986061,
+          "view_index": 6840
+        },
+        {
+          "dataset_index": 7633,
+          "dem_rmse_m": 0.02328796684741974,
+          "episode_key": [
+            0,
+            16,
+            0
+          ],
+          "goal_direction_delta_deg": 6.654950441131377,
+          "goal_distance_delta_m": 0.06247333126609145,
+          "initial_motion_direction_deg": 1.5196837509178576,
+          "mask_iou": 0.887240356083086,
+          "path_rms_m": 0.044817518442869186,
+          "view_index": 6841
+        },
+        {
+          "dataset_index": 7846,
+          "dem_rmse_m": 0.04330210015177727,
+          "episode_key": [
+            0,
+            16,
+            3
+          ],
+          "goal_direction_delta_deg": 0.42389869792378443,
+          "goal_distance_delta_m": 0.07534733849112807,
+          "initial_motion_direction_deg": 0.20935673428581142,
+          "mask_iou": 0.8651685393258427,
+          "path_rms_m": 0.044121526181697845,
+          "view_index": 7030
+        },
+        {
+          "dataset_index": 8302,
+          "dem_rmse_m": 0.02508397027850151,
+          "episode_key": [
+            0,
+            17,
+            0
+          ],
+          "goal_direction_delta_deg": 0.7153771565319416,
+          "goal_distance_delta_m": 0.08421251612250624,
+          "initial_motion_direction_deg": 10.762416249714367,
+          "mask_iou": 0.850415512465374,
+          "path_rms_m": 0.02829812280833721,
+          "view_index": 7438
+        },
+        {
+          "dataset_index": 8420,
+          "dem_rmse_m": 0.026137011125683784,
+          "episode_key": [
+            0,
+            17,
+            1
+          ],
+          "goal_direction_delta_deg": 2.58990338569535,
+          "goal_distance_delta_m": 1.5335624037327023e-07,
+          "initial_motion_direction_deg": 13.176103040414082,
+          "mask_iou": 0.9657320872274143,
+          "path_rms_m": 0.03711114451289177,
+          "view_index": 7548
+        },
+        {
+          "dataset_index": 8468,
+          "dem_rmse_m": 0.02862223982810974,
+          "episode_key": [
+            0,
+            17,
+            2
+          ],
+          "goal_direction_delta_deg": 1.5561567749559355,
+          "goal_distance_delta_m": 0.0782617075974208,
+          "initial_motion_direction_deg": 6.154216401328656,
+          "mask_iou": 0.9096385542168675,
+          "path_rms_m": 0.0472504161298275,
+          "view_index": 7588
+        },
+        {
+          "dataset_index": 8529,
+          "dem_rmse_m": 0.026694053784012794,
+          "episode_key": [
+            0,
+            17,
+            3
+          ],
+          "goal_direction_delta_deg": 5.950190560677201,
+          "goal_distance_delta_m": 0.03220668869559584,
+          "initial_motion_direction_deg": 2.95545449360885,
+          "mask_iou": 0.8172043010752689,
+          "path_rms_m": 0.03777751699090004,
+          "view_index": 7641
+        },
+        {
+          "dataset_index": 8530,
+          "dem_rmse_m": 0.02787625789642334,
+          "episode_key": [
+            0,
+            17,
+            3
+          ],
+          "goal_direction_delta_deg": 7.087195647226505,
+          "goal_distance_delta_m": 0.03371242123191176,
+          "initial_motion_direction_deg": 2.937782948580515,
+          "mask_iou": 0.8172043010752689,
+          "path_rms_m": 0.046638816595077515,
+          "view_index": 7642
+        },
+        {
+          "dataset_index": 8531,
+          "dem_rmse_m": 0.029370618984103203,
+          "episode_key": [
+            0,
+            17,
+            3
+          ],
+          "goal_direction_delta_deg": 4.996495252631659,
+          "goal_distance_delta_m": 0.09984425144736586,
+          "initial_motion_direction_deg": 1.9167317753015862,
+          "mask_iou": 0.8172043010752689,
+          "path_rms_m": 0.048037879168987274,
+          "view_index": 7643
+        },
+        {
+          "dataset_index": 8661,
+          "dem_rmse_m": 0.028510427102446556,
+          "episode_key": [
+            0,
+            17,
+            4
+          ],
+          "goal_direction_delta_deg": 8.571914141698182,
+          "goal_distance_delta_m": 0.07783243494574843,
+          "initial_motion_direction_deg": 3.6445946535605445,
+          "mask_iou": 0.978125,
+          "path_rms_m": 0.04355860501527786,
+          "view_index": 7765
+        }
+      ],
+      "nearest_nomad_candidate_id": "nomad-seed-1002",
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ],
+  "threshold_source_sha256": "d5ffa3a742008a8b6821b438743033790721705524e499d3f8cd819eb9e55558",
+  "validation_used": false
+}

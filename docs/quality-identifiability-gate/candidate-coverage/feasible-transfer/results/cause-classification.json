@@ -1,0 +1,79 @@
+{
+  "Evaluator": {
+    "candidate_ood": {
+      "counterevidence": "Most P candidates are below the frozen threshold, so OOD alone cannot explain all misrankings",
+      "evidence": "Frozen train action p95 exceeded by P 8/91, C 0/91, R 2/91",
+      "status": "partial"
+    },
+    "counterfactual_training_required": {
+      "counterevidence": "GT(C) improves without retraining; this diagnostic cannot prove which future training change is needed",
+      "evidence": "GT(P) top-1 0/7 despite exact Phase B reproduction and substantial outcome signal",
+      "status": "plausible_unverified"
+    },
+    "goal_endpoint_distribution_shift": {
+      "counterevidence": "Replacing goal by each planned endpoint barely changed score spread in most states",
+      "evidence": "Phase B exact goal-endpoint fraction 0.802; pilot bank 35/35 exact, NoMaD 0/56 exact",
+      "status": "present_but_sensitivity_small"
+    },
+    "implementation_mismatch": {
+      "counterevidence": "An unobserved implementation issue outside audited 91 inputs cannot be excluded",
+      "evidence": "Original Phase B held-out metrics reproduced exactly and input/label audit passed",
+      "status": "refuted_in_audited_path"
+    },
+    "insufficient_candidate_effect": {
+      "counterevidence": "Some state/mode pairs remain near-ties and are excluded from ordering",
+      "evidence": "Duplicate XY RMS was zero; true Delta V varies above epsilon across candidates",
+      "status": "refuted_for_observed_40_steps"
+    },
+    "insufficient_state_count": {
+      "counterevidence": "No narrow candidate-level CI is claimed",
+      "evidence": "Only seven independent train states, one per terrain",
+      "status": "supported"
+    },
+    "planned_realized_mismatch": {
+      "counterevidence": "GT(C) is stronger at 0.669; R is privileged and remains weak",
+      "evidence": "GT(R) pairwise 0.534 versus GT(P) 0.467",
+      "status": "not_primary_by_R_probe"
+    },
+    "trajectory_representation_mismatch": {
+      "counterevidence": "P increment/base-frame transformation itself matches training code",
+      "evidence": "GT(C) pairwise 0.669 versus GT(P) 0.467",
+      "status": "supported_semantic"
+    }
+  },
+  "NoMaD": {
+    "dataset_support_limited": {
+      "counterevidence": "Train-only matching is observational and does not prove dynamic support",
+      "evidence": "Every bank winner has independent-episode teacher trajectory/direction matches",
+      "status": "contradicted_for_bank_winners"
+    },
+    "feasibility_concentration_supported": {
+      "counterevidence": "Bank short-horizon precision 1.000; bank candidates also ran without catastrophic failure",
+      "evidence": "NoMaD short-horizon precision 1.000",
+      "status": "not_established"
+    },
+    "feasible_mode_undercoverage": {
+      "counterevidence": "Constraint-valid, better, distinct bank winners: 0/4 bank-winning states",
+      "evidence": "K8 joint-screen command-mode Recall@8 state macro 0.869",
+      "status": "not_established_for_useful_constraint_valid_bank_mode"
+    },
+    "insufficient_horizon": {
+      "counterevidence": "No long-horizon rollout was performed",
+      "evidence": "All 91 observations cover only 40 control steps (2 s)",
+      "status": "supported"
+    },
+    "model_collapse": {
+      "counterevidence": "K32 forms two planned modes in two terrains; bank winners mostly share realized modes with NoMaD",
+      "evidence": "K8 planned paths form one mode in all seven terrains",
+      "status": "inconclusive"
+    },
+    "sampling_limited": {
+      "counterevidence": "K32 modes were not rolled out and are not known to be feasible or better",
+      "evidence": "K32 adds a path cluster in 2/7 states",
+      "status": "possible_unverified"
+    }
+  },
+  "candidate_count": 91,
+  "state_count": 7,
+  "statistical_unit": "state"
+}

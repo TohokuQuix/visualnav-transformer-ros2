@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "item": "trajectory representation",
+      "judgment": "match after conversion",
+      "phase_b_training": "raw base-frame XY increments, 8 points",
+      "pilot_scoring": "P/C/R cumulative base waypoints converted by first difference"
+    },
+    {
+      "item": "waypoint order",
+      "judgment": "match",
+      "phase_b_training": "temporal future 1..8",
+      "pilot_scoring": "temporal future 1..8"
+    },
+    {
+      "item": "trajectory frame",
+      "judgment": "match",
+      "phase_b_training": "robot-local base",
+      "pilot_scoring": "P base; C integrated base; R map XY rotated into anchor base"
+    },
+    {
+      "item": "x/y axis and units",
+      "judgment": "match",
+      "phase_b_training": "x forward, y left, meters",
+      "pilot_scoring": "x forward, y left, meters"
+    },
+    {
+      "item": "trajectory normalization",
+      "judgment": "match",
+      "phase_b_training": "no action normalization in GT tensors",
+      "pilot_scoring": "raw increments, no action normalization"
+    },
+    {
+      "item": "trajectory clipping",
+      "judgment": "match",
+      "phase_b_training": "none at GT input",
+      "pilot_scoring": "none"
+    },
+    {
+      "item": "trajectory interval",
+      "judgment": "match",
+      "phase_b_training": "0.25 s",
+      "pilot_scoring": "P 0.25 s; C/R sampled every 5 of 0.05 s control steps"
+    },
+    {
+      "item": "DEM channel and mask",
+      "judgment": "match",
+      "phase_b_training": "4 frames \u00d7 [height,valid mask]",
+      "pilot_scoring": "same EATDataset tensor, selected DEM SHA verified"
+    },
+    {
+      "item": "height normalization",
+      "judgment": "match",
+      "phase_b_training": "robot-relative scalar offset",
+      "pilot_scoring": "same EATDataset tensor"
+    },
+    {
+      "item": "context frame order",
+      "judgment": "match",
+      "phase_b_training": "oldest to current",
+      "pilot_scoring": "same selected EATDataset tensor"
+    },
+    {
+      "item": "relative goal",
+      "judgment": "match",
+      "phase_b_training": "robot-local meters, clipped at 0.8 m",
+      "pilot_scoring": "same selected EATDataset goal, SHA/values checked"
+    },
+    {
+      "item": "Evaluator output heads",
+      "judgment": "match",
+      "phase_b_training": [
+        "delta_v",
+        "advantage_h",
+        "drawdown",
+        "recovery"
+      ],
+      "pilot_scoring": [
+        "delta_v",
+        "advantage_h",
+        "drawdown",
+        "recovery"
+      ]
+    },
+    {
+      "item": "Delta V sign",
+      "judgment": "match",
+      "phase_b_training": "V_end minus V_start; larger better",
+      "pilot_scoring": "V_end minus V_start; larger better"
+    },
+    {
+      "item": "score direction",
+      "judgment": "match",
+      "phase_b_training": "descending for best",
+      "pilot_scoring": "descending"
+    },
+    {
+      "item": "target standardization",
+      "judgment": "match",
+      "phase_b_training": "train-only z-score",
+      "pilot_scoring": "frozen train-only inverse scaler SHA verified"
+    },
+    {
+      "item": "gamma",
+      "judgment": "match",
+      "phase_b_training": "0.99 per 0.05 s control step",
+      "pilot_scoring": "0.99 per 0.05 s control step"
+    },
+    {
+      "item": "horizon",
+      "judgment": "match",
+      "phase_b_training": "40 control steps / 2.0 s",
+      "pilot_scoring": "40 control steps / 2.0 s"
+    },
+    {
+      "item": "terminal bootstrap",
+      "judgment": "compatible for observed 91",
+      "phase_b_training": "true terminal zero; timeout PPO preterminal; complete labels endpoint",
+      "pilot_scoring": "pilot has no terminal/timeout; endpoint Critic"
+    },
+    {
+      "item": "checkpoint and ensemble",
+      "judgment": "match",
+      "phase_b_training": [
+        11,
+        29,
+        47
+      ],
+      "pilot_scoring": "same three SHA-verified GT checkpoints, arithmetic mean"
+    },
+    {
+      "item": "goal endpoint coupling",
+      "judgment": "distribution shift to evaluate",
+      "phase_b_training": "logged trajectory endpoint, clipped at 0.8 m",
+      "pilot_scoring": "one fixed logged goal with 13 alternative candidates"
+    }
+  ],
+  "heldout_used_for_model_selection": false,
+  "phase_b_reproduction_sha256": "8ecb985650b4c676cc53c993e29e03f666752e87ce0457319fedd921c4fa229f",
+  "pilot_candidate_count": 91,
+  "selected_state_sample_sha256": {
+    "coverage-000": "1e6eca89cbbababd617a7fd487e517ae373f014ea3720e901126e2d7d84486b3",
+    "coverage-001": "45996fe1387318793f49a13fc7015b59b867dafd2a04f0eb117e201d163f5be0",
+    "coverage-002": "94e8d3dd57c6d1eb8f083bc82b8a780779838a726e58f9d6a16b7bfca7e913e2",
+    "coverage-003": "e5f294eac94176905fecef680e8e27fec1aa4e64aa23273587ce2e17692f47e6",
+    "coverage-004": "ddaa06f5e8053aceabbd4b49e1c6b4bf42505ef17043b20a490a807e5d6ed09c",
+    "coverage-005": "3fb14c3ba7618767f46bd05cb98a68e6e92acb15bf0fa919c11c65ebac41e4ac",
+    "coverage-006": "1d3878c319a12ca00f64a6195ef0190a270bce4ba7b9b61102f9a4535ce0d41c"
+  },
+  "status": "pass_for_input_and_label_compatibility_with_known_goal_endpoint_shift"
+}

@@ -1,0 +1,5178 @@
+{
+  "state_count": 7,
+  "states": [
+    {
+      "bank_only_command_modes": [],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 3,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": true,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "joint_observed_screen": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 7,
+              "precision": 0.875
+            },
+            "joint_observed_screen": {
+              "count": 7,
+              "precision": 0.875
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 3,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 3,
+              "k": 8,
+              "numerator": 3,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 3,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 3,
+              "k": 8,
+              "numerator": 3,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 3,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 3,
+              "k": 8,
+              "numerator": 3,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 3,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 3,
+              "k": 8,
+              "numerator": 3,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 3,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 3,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 3,
+              "k": 8,
+              "numerator": 3,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "bank_only_command_modes": [
+        5
+      ],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 6,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 5,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 4,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 4,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": true,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "joint_observed_screen": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 4,
+              "precision": 0.8
+            },
+            "joint_observed_screen": {
+              "count": 4,
+              "precision": 0.8
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 6,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.16666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 6,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "denominator": 6,
+              "k": 4,
+              "numerator": 4,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "denominator": 6,
+              "k": 8,
+              "numerator": 5,
+              "recall": 0.8333333333333334
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 6,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.16666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 6,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "denominator": 6,
+              "k": 4,
+              "numerator": 4,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "denominator": 6,
+              "k": 8,
+              "numerator": 5,
+              "recall": 0.8333333333333334
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 6,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.16666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 6,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "denominator": 6,
+              "k": 4,
+              "numerator": 4,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "denominator": 6,
+              "k": 8,
+              "numerator": 5,
+              "recall": 0.8333333333333334
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 6,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.16666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 6,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "denominator": 6,
+              "k": 4,
+              "numerator": 4,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "denominator": 6,
+              "k": 8,
+              "numerator": 5,
+              "recall": 0.8333333333333334
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 6,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.16666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 6,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.3333333333333333
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "denominator": 6,
+              "k": 4,
+              "numerator": 4,
+              "recall": 0.6666666666666666
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "denominator": 6,
+              "k": 8,
+              "numerator": 5,
+              "recall": 0.8333333333333334
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "bank_only_command_modes": [
+        3
+      ],
+      "bank_only_realized_modes": [
+        1
+      ],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 4,
+        "planned": 2,
+        "realized": 2
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 3,
+          "planned": 1,
+          "realized": 1
+        },
+        "bank-slight_left": {
+          "command": 3,
+          "planned": 1,
+          "realized": 1
+        },
+        "bank-slight_right": {
+          "command": 3,
+          "planned": 1,
+          "realized": 1
+        },
+        "bank-strong_left": {
+          "command": 3,
+          "planned": 1,
+          "realized": 1
+        },
+        "bank-strong_right": {
+          "command": 3,
+          "planned": 1,
+          "realized": 1
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": false,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "joint_observed_screen": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "joint_observed_screen": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 3,
+              "recall": 0.75
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 3,
+              "recall": 0.75
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 4,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 8,
+              "numerator": 1,
+              "recall": 0.5
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 3,
+              "recall": 0.75
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 3,
+              "recall": 0.75
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 4,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 8,
+              "numerator": 1,
+              "recall": 0.5
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 3,
+              "recall": 0.75
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 3,
+              "recall": 0.75
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 4,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 8,
+              "numerator": 1,
+              "recall": 0.5
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 3,
+              "recall": 0.75
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 3,
+              "recall": 0.75
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 4,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 8,
+              "numerator": 1,
+              "recall": 0.5
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 3,
+              "recall": 0.75
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1,
+                2
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 3,
+              "recall": 0.75
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 4,
+              "numerator": 1,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 2,
+              "k": 8,
+              "numerator": 1,
+              "recall": 0.5
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "bank_only_command_modes": [],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 1,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": false,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "joint_observed_screen": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "joint_observed_screen": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "bank_only_command_modes": [],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 1,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": false,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "joint_observed_screen": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 4,
+              "precision": 0.8
+            },
+            "joint_observed_screen": {
+              "count": 4,
+              "precision": 0.8
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "bank_only_command_modes": [
+        2,
+        3
+      ],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 4,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 2,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 3,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 1,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": true,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "joint_observed_screen": {
+              "count": 12,
+              "precision": 0.9230769230769231
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 7,
+              "precision": 0.875
+            },
+            "joint_observed_screen": {
+              "count": 7,
+              "precision": 0.875
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 2,
+              "recall": 0.5
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 2,
+              "recall": 0.5
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 2,
+              "recall": 0.5
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 2,
+              "recall": 0.5
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 1,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 4,
+              "k": 2,
+              "numerator": 1,
+              "recall": 0.25
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 4,
+              "numerator": 2,
+              "recall": 0.5
+            },
+            {
+              "all_mode_ids": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "covered_mode_ids": [
+                0,
+                1
+              ],
+              "denominator": 4,
+              "k": 8,
+              "numerator": 2,
+              "recall": 0.5
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "bank_only_command_modes": [],
+      "bank_only_realized_modes": [],
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "cluster_count": {
+        "command": 1,
+        "planned": 1,
+        "realized": 1
+      },
+      "command_same_realized_multi": false,
+      "mode_id_by_candidate": {
+        "bank-nominal": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-slight_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_left": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "bank-strong_right": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1001": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1002": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1003": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1004": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1005": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1006": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1007": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        },
+        "nomad-seed-1008": {
+          "command": 0,
+          "planned": 0,
+          "realized": 0
+        }
+      },
+      "path_same_command_multi": false,
+      "precision": {
+        "all": {
+          "candidate_count": 13,
+          "condition": {
+            "constraint_valid": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "joint_observed_screen": {
+              "count": 11,
+              "precision": 0.8461538461538461
+            },
+            "progress_producing": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 13,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 13,
+              "precision": 1.0
+            }
+          }
+        },
+        "bank": {
+          "candidate_count": 5,
+          "condition": {
+            "constraint_valid": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "joint_observed_screen": {
+              "count": 3,
+              "precision": 0.6
+            },
+            "progress_producing": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 5,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 5,
+              "precision": 1.0
+            }
+          }
+        },
+        "nomad": {
+          "candidate_count": 8,
+          "condition": {
+            "constraint_valid": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "joint_observed_screen": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "progress_producing": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "short_horizon_noncatastrophic": {
+              "count": 8,
+              "precision": 1.0
+            },
+            "trackable": {
+              "count": 8,
+              "precision": 1.0
+            }
+          }
+        }
+      },
+      "recall": {
+        "constraint_valid": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "joint_observed_screen": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "progress_producing": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "short_horizon_noncatastrophic": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        },
+        "trackable": {
+          "command": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ],
+          "realized": [
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 1,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 2,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 4,
+              "numerator": 1,
+              "recall": 1.0
+            },
+            {
+              "all_mode_ids": [
+                0
+              ],
+              "covered_mode_ids": [
+                0
+              ],
+              "denominator": 1,
+              "k": 8,
+              "numerator": 1,
+              "recall": 1.0
+            }
+          ]
+        }
+      },
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ],
+  "unit": "state"
+}

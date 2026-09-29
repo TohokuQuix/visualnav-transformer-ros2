@@ -1,0 +1,1107 @@
+{
+  "comparison": "same EATDataset window representation; P/C/R differ in semantic source, not coordinate/unit conversion",
+  "heldout_used_for_selection": false,
+  "phase_b_heldout_example": {
+    "action_increment_shape": [
+      8,
+      2
+    ],
+    "dem_sha256": "0c1ee4adec9f9ac607f69270bea1111c74c70da91be9ec3c2a5cf6ea938b22a0",
+    "dem_shape": [
+      4,
+      2,
+      20,
+      20
+    ],
+    "endpoint_distance_to_goal_m": 7.450580596923828e-09,
+    "goal": [
+      0.14183658361434937,
+      0.10821102559566498
+    ],
+    "increment_cumulative_roundtrip_max_abs_m": 3.725290298461914e-09,
+    "index": 0,
+    "mask_fraction": 0.81
+  },
+  "pilot_states": [
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.14240460097789764,
+            0.12733764946460724,
+            0.12808172404766083,
+            0.1422336995601654,
+            0.1280568540096283,
+            0.12777245044708252,
+            0.12779290974140167,
+            0.11229646950960159,
+            0.11297619342803955,
+            0.11285242438316345,
+            0.11285242438316345,
+            0.11285242438316345,
+            0.11285242438316345
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 1.1641532182693481e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.007679647300392389,
+            0.00875244103372097,
+            0.010895367711782455,
+            0.01620331034064293,
+            0.009750052355229855,
+            0.0038488819263875484,
+            0.010772611945867538,
+            0.006574655417352915,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 9.313225746154785e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.20778249204158783,
+            0.19140495359897614,
+            0.20461143553256989,
+            0.21396461129188538,
+            0.20526042580604553,
+            0.20838813483715057,
+            0.22669996321201324,
+            0.1896904557943344,
+            0.18911674618721008,
+            0.18167929351329803,
+            0.18167929351329803,
+            0.18167929351329803,
+            0.18167929351329803
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "1e6eca89cbbababd617a7fd487e517ae373f014ea3720e901126e2d7d84486b3",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.4108489751815796,
+        -0.00956703070551157
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.0,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.83,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.1638767570257187,
+            0.15204188227653503,
+            0.17730189859867096,
+            0.1403232365846634,
+            0.1651703119277954,
+            0.19076067209243774,
+            0.19212761521339417,
+            0.1514824777841568,
+            0.12750354409217834,
+            0.15249232947826385,
+            0.1531563252210617,
+            0.16697920858860016,
+            0.14136186242103577
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 9.313225746154785e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.02819802798330784,
+            0.03069327212870121,
+            0.03183997422456741,
+            0.01653354801237583,
+            0.028740499168634415,
+            0.025262361392378807,
+            0.0258901659399271,
+            0.02102828212082386,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 7.450580596923828e-09,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.20217260718345642,
+            0.19513075053691864,
+            0.1933613419532776,
+            0.19532719254493713,
+            0.22982355952262878,
+            0.20057488977909088,
+            0.21572962403297424,
+            0.20103982090950012,
+            0.18755024671554565,
+            0.184026300907135,
+            0.19121870398521423,
+            0.1962810903787613,
+            0.19560998678207397
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "45996fe1387318793f49a13fc7015b59b867dafd2a04f0eb117e201d163f5be0",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.4835115671157837,
+        -0.0962335616350174
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.0,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.8475,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.561445951461792,
+            0.5783210396766663,
+            0.5606202483177185,
+            0.5926169753074646,
+            0.5907814502716064,
+            0.5907164812088013,
+            0.5900476574897766,
+            0.5674368739128113,
+            0.23288105428218842,
+            0.22811761498451233,
+            0.22935745120048523,
+            0.22911898791790009,
+            0.22820276021957397
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 1.1641532182693481e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.33260461688041687,
+            0.332494854927063,
+            0.3355385959148407,
+            0.3328836262226105,
+            0.3332931697368622,
+            0.3329073190689087,
+            0.3327728509902954,
+            0.3320233225822449,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.397672176361084,
+            0.44305509328842163,
+            0.4108600914478302,
+            0.4524778425693512,
+            0.445225328207016,
+            0.43682095408439636,
+            0.4494735598564148,
+            0.4170919358730316,
+            0.214427188038826,
+            0.19141869246959686,
+            0.2293633371591568,
+            0.203169047832489,
+            0.2507624328136444
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 9.313225746154785e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "94e8d3dd57c6d1eb8f083bc82b8a780779838a726e58f9d6a16b7bfca7e913e2",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        -0.7894229292869568,
+        0.12965913116931915
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.26367634534835815,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.8875,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.03771550580859184,
+            0.038314323872327805,
+            0.034940894693136215,
+            0.036710675805807114,
+            0.0320783369243145,
+            0.04260166734457016,
+            0.03577587008476257,
+            0.03240581601858139,
+            0.037827268242836,
+            0.03751254081726074,
+            0.040013253688812256,
+            0.02914847992360592,
+            0.04227323830127716
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 5.820766091346741e-11,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.007711626123636961,
+            0.021344568580389023,
+            0.023162171244621277,
+            0.013300973922014236,
+            0.01470409519970417,
+            0.01086460892111063,
+            0.014697469770908356,
+            0.01235106773674488,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 1.862645149230957e-09,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.3148474097251892,
+            0.3616276681423187,
+            0.27674251794815063,
+            0.2613375186920166,
+            0.3351438343524933,
+            0.3431057631969452,
+            0.3539612889289856,
+            0.32397088408470154,
+            0.3713999092578888,
+            0.3742738366127014,
+            0.2952706515789032,
+            0.33945712447166443,
+            0.2864655554294586
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 7.450580596923828e-09,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "e5f294eac94176905fecef680e8e27fec1aa4e64aa23273587ce2e17692f47e6",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.6102461218833923,
+        0.04163522273302078
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.0,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.8625,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.21115168929100037,
+            0.2089075893163681,
+            0.20817668735980988,
+            0.20829108357429504,
+            0.21094663441181183,
+            0.21061618626117706,
+            0.20739257335662842,
+            0.20995648205280304,
+            0.21851250529289246,
+            0.21118320524692535,
+            0.21083636581897736,
+            0.21312734484672546,
+            0.21221384406089783
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 9.313225746154785e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.08935284614562988,
+            0.023254068568348885,
+            0.01927080564200878,
+            0.05360722541809082,
+            0.054457858204841614,
+            0.05955004319548607,
+            0.07505445182323456,
+            0.09226243197917938,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.3057596683502197,
+            0.2880832850933075,
+            0.2932402789592743,
+            0.29662540555000305,
+            0.3025338649749756,
+            0.2865510880947113,
+            0.30155056715011597,
+            0.3119505047798157,
+            0.2417505830526352,
+            0.2949732840061188,
+            0.29590895771980286,
+            0.2962161600589752,
+            0.31784772872924805
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 9.313225746154785e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "ddaa06f5e8053aceabbd4b49e1c6b4bf42505ef17043b20a490a807e5d6ed09c",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.7999278903007507,
+        0.010737929493188858
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.6815430521965027,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.8,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.16874264180660248,
+            0.1684838980436325,
+            0.18296222388744354,
+            0.18305005133152008,
+            0.1685311496257782,
+            0.16872841119766235,
+            0.16854868829250336,
+            0.16856913268566132,
+            0.13943666219711304,
+            0.12452840805053711,
+            0.12452840805053711,
+            0.12452840805053711,
+            0.12452840805053711
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 2.3283064365386963e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.011955071240663528,
+            0.015488466247916222,
+            0.01886044256389141,
+            0.008342768996953964,
+            0.0132841095328331,
+            0.004179864656180143,
+            0.013445116579532623,
+            0.0027137761935591698,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.22024956345558167,
+            0.20577335357666016,
+            0.22240565717220306,
+            0.19189612567424774,
+            0.21306149661540985,
+            0.1997661590576172,
+            0.19418470561504364,
+            0.19470155239105225,
+            0.22665844857692719,
+            0.18763594329357147,
+            0.18763594329357147,
+            0.18763594329357147,
+            0.18763594329357147
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 0.0,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "3fb14c3ba7618767f46bd05cb98a68e6e92acb15bf0fa919c11c65ebac41e4ac",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.3880572021007538,
+        -0.025011710822582245
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.0,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.7925,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_conversion": {
+        "C": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.2202824503183365,
+            0.2178201526403427,
+            0.21753735840320587,
+            0.22107480466365814,
+            0.22067423164844513,
+            0.2186662256717682,
+            0.2164992094039917,
+            0.2168700098991394,
+            0.21572190523147583,
+            0.2204063981771469,
+            0.21807990968227386,
+            0.2177099734544754,
+            0.22467370331287384
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 4.656612873077393e-10,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "P": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.038270507007837296,
+            0.009159991517663002,
+            0.01751752570271492,
+            0.010014062747359276,
+            0.05068875104188919,
+            0.045365843921899796,
+            0.011725387535989285,
+            0.02470443956553936,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 1.862645149230957e-09,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        },
+        "R": {
+          "endpoint_distance_to_fixed_goal_m": [
+            0.46165311336517334,
+            0.45803067088127136,
+            0.4569622278213501,
+            0.46137043833732605,
+            0.4677174985408783,
+            0.45859500765800476,
+            0.4670826494693756,
+            0.45642513036727905,
+            0.43525800108909607,
+            0.4472791254520416,
+            0.4453541934490204,
+            0.4595649242401123,
+            0.4715921878814697
+          ],
+          "increment_cumulative_roundtrip_max_abs_m": 1.862645149230957e-09,
+          "increment_shape": [
+            13,
+            8,
+            2
+          ],
+          "shape": [
+            13,
+            8,
+            2
+          ]
+        }
+      },
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "dem_sha256": "1d3878c319a12ca00f64a6195ef0190a270bce4ba7b9b61102f9a4535ce0d41c",
+      "dem_shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "goal": [
+        0.7952149510383606,
+        -0.08736850321292877
+      ],
+      "logged_teacher_endpoint_distance_to_goal_m": 0.45453882217407227,
+      "logged_teacher_increment_cumulative_roundtrip_max_abs_m": 0.0,
+      "logged_teacher_increment_shape": [
+        8,
+        2
+      ],
+      "mask_fraction": 0.79,
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "selected_goal_max_abs_diff_m": 0.0,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ],
+  "source": "frozen Phase B split and complete-only train pilot view",
+  "validation_used_for_selection": false
+}

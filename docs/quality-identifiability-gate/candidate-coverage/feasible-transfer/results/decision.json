@@ -1,0 +1,42 @@
+{
+  "Gate_E": {
+    "reason": "Phase B reproduced, but GT(P) top-1 0/7 and state-macro pairwise below chance and below simple baselines; GT(C) is a diagnostic, not a validated online selector.",
+    "scope": "frozen GT(P) counterfactual transfer on seven train states",
+    "status": "fail"
+  },
+  "Gate_N": {
+    "reason": "High short-horizon precision and multi-command modes coexist with one planned mode per terrain; useful constraint-valid bank mode undercoverage is not demonstrated, and long-horizon feasibility is unknown.",
+    "scope": "train pilot, 7 states, 40 steps",
+    "status": "inconclusive"
+  },
+  "additional_rollout_started": false,
+  "formal_validation_approved": false,
+  "next_experiment_proposal": {
+    "candidate_rule": "for each of four frozen bank-winning states: nominal three duplicates, fixed NoMaD K8 oracle winner, fixed bank winner",
+    "control_steps": 120,
+    "decision_criterion": "compare long-horizon progress, stack, tilt, contact and termination for the frozen three candidate identities per state; no candidate replacement",
+    "estimated_storage_mb": 100,
+    "estimated_wall_clock_min": 45,
+    "fresh_process": true,
+    "full_prefix_step_cap": 40,
+    "physical_horizon_sec": 6.0,
+    "priority": "small long-horizon feasibility confirmation before proposal redesign; counterfactual Evaluator data design separately",
+    "requires_separate_approval": true,
+    "run_count": 20,
+    "state_ids": [
+      "coverage-001",
+      "coverage-003",
+      "coverage-004",
+      "coverage-006"
+    ],
+    "stop_conditions": [
+      "anchor or duplicate gate failure",
+      "repeated follower timeout",
+      "unexpected GPU memory",
+      "forecast exceeds 90 minutes"
+    ],
+    "storage_cap_mb": 250,
+    "wall_clock_cap_min": 90
+  },
+  "retraining_approved": false
+}

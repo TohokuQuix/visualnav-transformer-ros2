@@ -1,0 +1,579 @@
+{
+  "bank_winner_comparisons": [
+    {
+      "bank": {
+        "condition": {
+          "constraint_valid": false,
+          "joint_observed_screen": false,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 804.9062500550378,
+        "delta_v": 1.0183372497558594,
+        "drawdown": -0.035003662109375,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.39402422308921814,
+          "ood_over_train_p95": true
+        },
+        "progress_m": 0.29671417651891063,
+        "recovery": 1.0533409118652344,
+        "tilt_rad": 0.06280511007737918
+      },
+      "bank_candidate_id": "bank-strong_left",
+      "command_distance": {
+        "angular_rms_radps": 0.028127643913685572,
+        "linear_rms_mps": 0.0624814286099952
+      },
+      "nearest_nomad": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 303.8063659843559,
+        "delta_v": 0.9809799194335938,
+        "drawdown": -0.02169036865234375,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.1531277596950531,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.2949687926025524,
+        "recovery": 1.0026702880859375,
+        "tilt_rad": 0.0727201448790869
+      },
+      "nearest_nomad_candidate_id": "nomad-seed-1006",
+      "path_rms_m": 0.03328940686505547,
+      "realized_xy_rms_m": 0.009995976245174626,
+      "same_command_mode": false,
+      "same_realized_mode": true,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "bank": {
+        "condition": {
+          "constraint_valid": false,
+          "joint_observed_screen": false,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 788.4289712900318,
+        "delta_v": 0.2816200256347656,
+        "drawdown": -0.01739501953125,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.36562371253967285,
+          "ood_over_train_p95": true
+        },
+        "progress_m": 0.3251992177203782,
+        "recovery": 0.2990150451660156,
+        "tilt_rad": 0.26620327410759254
+      },
+      "bank_candidate_id": "bank-strong_right",
+      "command_distance": {
+        "angular_rms_radps": 0.0308631902542747,
+        "linear_rms_mps": 0.003974708182158637
+      },
+      "nearest_nomad": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 1714.4676358224474,
+        "delta_v": 0.05991363525390625,
+        "drawdown": -0.088958740234375,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.25412389636039734,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.2575502332196458,
+        "recovery": 0.14887237548828125,
+        "tilt_rad": 0.2774424563894586
+      },
+      "nearest_nomad_candidate_id": "nomad-seed-1007",
+      "path_rms_m": 0.03420937426894182,
+      "realized_xy_rms_m": 0.052711159135760806,
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "bank": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 2163.7751116634245,
+        "delta_v": 0.14386367797851562,
+        "drawdown": -1.2975425720214844,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.1563195139169693,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.5582493935105954,
+        "recovery": 1.44140625,
+        "tilt_rad": 0.20304411131463024
+      },
+      "bank_candidate_id": "bank-nominal",
+      "command_distance": {
+        "angular_rms_radps": 0.035744861473729926,
+        "linear_rms_mps": 0.006826766071636467
+      },
+      "nearest_nomad": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 1441.7606475230941,
+        "delta_v": -0.08690643310546875,
+        "drawdown": -0.08690643310546875,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.07266496121883392,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.5119248681160365,
+        "recovery": 0.0,
+        "tilt_rad": 0.12850986512480736
+      },
+      "nearest_nomad_candidate_id": "nomad-seed-1002",
+      "path_rms_m": 0.012636113841068846,
+      "realized_xy_rms_m": 0.04084465746487532,
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "bank": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 2448.2712918048433,
+        "delta_v": 0.028102874755859375,
+        "drawdown": -0.11114120483398438,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.17047187685966492,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.3647420689678047,
+        "recovery": 0.13924407958984375,
+        "tilt_rad": 0.09848241306516115
+      },
+      "bank_candidate_id": "bank-nominal",
+      "command_distance": {
+        "angular_rms_radps": 0.013781569220272367,
+        "linear_rms_mps": 0.0025476567446827084
+      },
+      "nearest_nomad": {
+        "condition": {
+          "constraint_valid": true,
+          "joint_observed_screen": true,
+          "progress_producing": true,
+          "short_horizon_noncatastrophic": true,
+          "trackable": true
+        },
+        "contact_max_n": 2135.2767825028873,
+        "delta_v": -0.08675765991210938,
+        "drawdown": -0.14539337158203125,
+        "ood": {
+          "constraint_reasons": [],
+          "constraint_valid": true,
+          "ood_distance": 0.18295909464359283,
+          "ood_over_train_p95": false
+        },
+        "progress_m": 0.3421492405248228,
+        "recovery": 0.058635711669921875,
+        "tilt_rad": 0.10361460518263046
+      },
+      "nearest_nomad_candidate_id": "nomad-seed-1002",
+      "path_rms_m": 0.0070203865433835656,
+      "realized_xy_rms_m": 0.008982803240992288,
+      "same_command_mode": true,
+      "same_realized_mode": true,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ],
+  "states": [
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1007",
+        "bank-slight_left"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.19573211669921875,
+          "2": 0.08732986450195312,
+          "4": 0.032012939453125,
+          "8": 0.0
+        },
+        "command_mode_representatives": {
+          "1": 0.10330581665039062,
+          "2": 0.10330581665039062,
+          "4": 0.10330581665039062,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.19573211669921875,
+          "2": 0.08732986450195312,
+          "4": 0.032012939453125,
+          "8": 0.0
+        },
+        "progress_producing": {
+          "1": 0.19573211669921875,
+          "2": 0.08732986450195312,
+          "4": 0.032012939453125,
+          "8": 0.0
+        }
+      },
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1005",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "bank-strong_right",
+        "nomad-seed-1006",
+        "bank-nominal"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.06886672973632812,
+          "2": 0.019680023193359375,
+          "4": 0.019680023193359375,
+          "8": 0.019680023193359375
+        },
+        "command_mode_representatives": {
+          "1": null,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.04918670654296875,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "progress_producing": {
+          "1": 0.06886672973632812,
+          "2": 0.019680023193359375,
+          "4": 0.019680023193359375,
+          "8": 0.019680023193359375
+        }
+      },
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1006",
+        "bank-slight_left"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.22697067260742188,
+          "2": 0.09151840209960938,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "command_mode_representatives": {
+          "1": 0.1354522705078125,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.22697067260742188,
+          "2": 0.09151840209960938,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "progress_producing": {
+          "1": 0.22697067260742188,
+          "2": 0.09151840209960938,
+          "4": 0.0,
+          "8": 0.0
+        }
+      },
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1004"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.043354034423828125,
+          "2": 0.043354034423828125,
+          "4": 0.0148162841796875,
+          "8": 0.0148162841796875
+        },
+        "command_mode_representatives": {
+          "1": null,
+          "2": null,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.028537750244140625,
+          "2": 0.028537750244140625,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "progress_producing": {
+          "1": 0.043354034423828125,
+          "2": 0.043354034423828125,
+          "4": 0.0148162841796875,
+          "8": 0.0148162841796875
+        }
+      },
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1006"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.23978424072265625,
+          "2": 0.23077011108398438,
+          "4": 0.09413909912109375,
+          "8": 0.09413909912109375
+        },
+        "command_mode_representatives": {
+          "1": null,
+          "2": null,
+          "4": null,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.23978424072265625,
+          "2": 0.23077011108398438,
+          "4": 0.09413909912109375,
+          "8": 0.09413909912109375
+        },
+        "progress_producing": {
+          "1": 0.23978424072265625,
+          "2": 0.23077011108398438,
+          "4": 0.09413909912109375,
+          "8": 0.09413909912109375
+        }
+      },
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1008",
+        "nomad-seed-1003",
+        "bank-nominal",
+        "bank-slight_left"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "command_mode_representatives": {
+          "1": null,
+          "2": null,
+          "4": 0.08983993530273438,
+          "8": 0.08983993530273438
+        },
+        "constraint_valid": {
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "progress_producing": {
+          "1": 0.0,
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        }
+      },
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "command_mode_representative_ids": [
+        "nomad-seed-1003"
+      ],
+      "regret": {
+        "all": {
+          "1": 0.04004669189453125,
+          "2": 0.04004669189453125,
+          "4": 0.04004669189453125,
+          "8": 0.04004669189453125
+        },
+        "command_mode_representatives": {
+          "1": null,
+          "2": null,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "constraint_valid": {
+          "1": 0.04004669189453125,
+          "2": 0.04004669189453125,
+          "4": 0.04004669189453125,
+          "8": 0.04004669189453125
+        },
+        "progress_producing": {
+          "1": 0.04004669189453125,
+          "2": 0.04004669189453125,
+          "4": 0.04004669189453125,
+          "8": 0.04004669189453125
+        }
+      },
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ]
+}
