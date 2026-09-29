@@ -1,0 +1,19 @@
+{
+  "amendments": [
+    {
+      "new_sha256": "09d5c15412560362712a844fce78d5cf073bc96bc7ec054bd48b83bd2f9f9d1a",
+      "old_sha256": "50ae6b22396de9e4d3ed5fa6755186dd8593f89d4ba8b28831720f5fb6607ad6",
+      "reason": "numpy.int64 anchor index could not be JSON serialized at first follower progress write; no result artifact was produced",
+      "stage": "teacher_audit",
+      "test": "test_numpy_anchor_index_serializes_as_json_integer",
+      "time_unix": 1790661781.2381225
+    },
+    {
+      "new_sha256": "23f3146f698efeff76e5bff9b2cc4e837bbc040777e699b56990c4a54497e1de",
+      "old_sha256": "7fe4bd1cfa282e32215ce4afb0f1907074429a717f94cf3939c67405eab78d99",
+      "reason": "Stage 0 had already frozen inputs when the ephemeral bridge process exited; runner now skips an existing freeze marker on restart",
+      "stage": "runner_resume",
+      "time_unix": 1790662676.5956361
+    }
+  ]
+}

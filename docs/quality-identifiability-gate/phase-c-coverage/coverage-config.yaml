@@ -1,0 +1,73 @@
+schema_version: 1
+reference:
+  checkpoint_sha256: 191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0
+  manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+  config_sha256: caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992
+  complete_train_windows: 49598
+  complete_validation_windows: 6171
+  heldout_forbidden: true
+states:
+  train_count: 32
+  validation_count: 32
+  selection: stable_sha256_one_per_episode_terrain_round_robin
+  train_source: phase_c_remediation_candidate_states
+  validation_selection_seed: 20260929
+  diffusion_seeds: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032]
+matching:
+  split: complete_only_train
+  anchor_count: 1000
+  max_neighbors_per_anchor: 12
+  min_neighborhood_size: 3
+  same_terrain: true
+  cross_episode: true
+  duplicate_window_forbidden: true
+  goal_distance_m: 0.1
+  goal_direction_deg: 30.0
+  min_mask_iou: 0.8
+  max_dem_rmse_m: 0.05
+  roughness_max_abs_difference_m: 0.05
+  source: relative-quality-followup/followup-config.yaml; roughness bound fixed before results
+  data_multimodal_min_fraction: 0.20
+clusters:
+  path_rms_m: 0.05
+  command_linear_mps: 0.03
+  command_angular_radps: 0.05
+sampling:
+  baseline_k: [8, 32]
+  initial_noise_scales_diagnostic: [0.5, 1.0, 1.5, 2.0]
+  official_scheduler_variance_parameter_audit: true
+  adopt_nonunit_initial_noise: false
+  scheduler_step_count: 10
+  change_scheduler_variance_type: false
+  no_custom_scheduler_math: true
+structured:
+  conditional_on_sampling_failure: true
+  basis: global_complete_train_residual_pca
+  components: 3
+  coefficient_absolute_quantile: 0.75
+  candidates: [baseline_seed_1001, farthest_raw_seed_by_path_rms, plus_pc1, minus_pc1, plus_pc2, minus_pc2, plus_pc3, minus_pc3]
+  invalid_candidate_rule: retain_invalid_and_count_failure_no_replacement
+  endpoint_tolerance_m: 0.000001
+  increment_p99_train_multiplier: 1.0
+  length_p99_train_multiplier: 1.0
+  curvature_p99_train_multiplier: 1.0
+  self_intersection_forbidden: true
+  dem_bounds_required: true
+coverage:
+  min_fraction_two_command_clusters: 0.75
+  min_fraction_three_path_clusters: 0.50
+  min_terrain_count_with_two_command_clusters: 2
+  max_nonfinite: 0
+  max_train_p95_ood_fraction: 0.05
+  shape_not_endpoint_only: true
+  evaluator_input_plausibility_required: true
+serial:
+  only_if_offline_coverage_pass: true
+  train_states: 8
+  steps: 40
+  same_prefix_goal: true
+  duplicate_per_state: true
+  candidate_order_seed: 20260929
+  max_duplicate_candidate_rms_ratio: 0.25
+  descriptive_only: true
+formal_phase_c_allowed: false
