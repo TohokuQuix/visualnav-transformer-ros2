@@ -75,3 +75,13 @@ def test_duplicate_gate_measures_relative_xy_and_rejects_changed_anchor():
     summaries[1]['anchor']['actor_action']=1
     with pytest.raises(ValueError,match='anchor'):
         duplicate_gate(summaries,[trace(0.)]*3,xy_rms_limit_m=.0105)
+
+
+def test_startup_crash_retry_is_counted_across_resume():
+    from scripts.eat_nav_candidate_coverage_pilot import startup_crash_count
+    failed = ("RUN_BEGIN_UNIX 1 id=pilot-013\n"
+              "UptimeSeconds = '1'\nappState = 'startup'\n"
+              "Segmentation fault (core dumped)\nRUN_EXIT_UNIX 2 id=pilot-013 code=1\n")
+    assert startup_crash_count(failed) == 1
+    assert startup_crash_count(failed + "RUN_BEGIN_UNIX 3 id=pilot-013\nRUN_EXIT_UNIX 4 id=pilot-013 code=0\n") == 1
+    assert startup_crash_count("RUN_BEGIN_UNIX 1\nSegmentation fault\nRUN_EXIT_UNIX 2") == 0

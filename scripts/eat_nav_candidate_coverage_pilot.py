@@ -67,6 +67,14 @@ def gpu_sampler(stop_event,path,values):
             stop_event.wait(2.)
 
 
+def startup_crash_count(log):
+    """Count Isaac Kit crashes before simulation starts across resumed attempts."""
+    attempts=log.split('RUN_BEGIN_UNIX ')[1:]
+    return sum("Segmentation fault" in attempt and
+               ("appState = 'startup'" in attempt or "UptimeSeconds = '1'" in attempt)
+               for attempt in attempts)
+
+
 def run_case(run,*,deadline,config):
     if verified_case(run):
         print('PILOT_RESUME_SKIP',run['run_id'],flush=True)
@@ -77,7 +85,8 @@ def run_case(run,*,deadline,config):
     index=int(run['state_id'].rsplit('-',1)[1])
     if stage=='live':
         with socket.create_connection(('127.0.0.1',47819),timeout=2.):pass
-    errors=0
+    prior_log=ROOT/'pilot/runs'/run['run_id']/'runner.log'
+    errors=startup_crash_count(prior_log.read_text(errors='replace')) if prior_log.exists() else 0
     while True:
         remaining=deadline-time.time()
         if remaining<=0:raise TimeoutError('four-hour wall-clock deadline reached')
@@ -103,8 +112,9 @@ def run_case(run,*,deadline,config):
         if elapsed>config['runtime_over_estimate_stop_ratio']*expected_seconds(run) or timed_out:
             raise RuntimeError(f'unexpected runtime {elapsed:.1f}s for {run["run_id"]}, expected {expected_seconds(run):.1f}s')
         if code==0 and verified_case(run):return elapsed,peak
-        log=(ROOT/'pilot/runs'/run['run_id']/'runner.log').read_text(errors='replace')
-        infra=any(term in log for term in ('infrastructure_invalid','follower command timeout',
+        log=(ROOT/'pilot/runs'/run['run_id']/'runner.log').read_text(errors='replace').rsplit('RUN_BEGIN_UNIX ',1)[-1]
+        startup_crash=startup_crash_count('RUN_BEGIN_UNIX '+log)>0
+        infra=startup_crash or any(term in log for term in ('infrastructure_invalid','follower command timeout',
                                           'ConnectionRefusedError','stale follower command'))
         errors+=1
         if not infra or errors>config['infrastructure_retry_max_per_run']:
@@ -165,7 +175,19 @@ def main():
         raise ValueError('budget input SHA mismatch')
     previous_status=json.loads((ROOT/'pilot/status.json').read_text())
     if previous_status.get('state') in ('stopped','budget_stop'):
-        raise ValueError('pilot was stopped by a gate; resume requires review')
+        review_path=ROOT/'pilot/reviewed-startup-crash.json'
+        if previous_status.get('state')!='stopped' or not review_path.exists():
+            raise ValueError('pilot was stopped by a gate; resume requires review')
+        review=json.loads(review_path.read_text())
+        crash_log=ROOT/'pilot/runs/pilot-013/runner.log'
+        allowed=(review.get('run_id')=='pilot-013' and
+                 review.get('status_sha256')==digest(ROOT/'pilot/status-at-kit-startup-crash.json') and
+                 review.get('crash_log_sha256')==digest(crash_log) and
+                 previous_status['next_run_id']=='pilot-013' and
+                 startup_crash_count(crash_log.read_text(errors='replace'))==1 and
+                 all((ROOT/'pilot/completed'/f'pilot-{i:03d}.json').exists() for i in range(13)))
+        if not allowed:
+            raise ValueError('stopped pilot review does not match one pre-simulation Kit crash')
     config=yaml.safe_load(config_path.read_text());schedule=json.loads(schedule_path.read_text())['runs']
     freeze=json.loads((HOST_INPUT/'input-freeze.json').read_text())
     if len(schedule)!=119 or freeze['schedule_sha256']!=digest(schedule_path):raise ValueError('frozen schedule/input mismatch')
