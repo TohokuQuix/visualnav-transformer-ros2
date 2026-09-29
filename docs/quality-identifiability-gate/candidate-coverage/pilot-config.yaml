@@ -1,0 +1,67 @@
+schema_version: 1
+stage: candidate_coverage_train_pilot
+approved_wall_clock_sec: 14400
+forecast_refresh_sec: 10800
+max_full_prefix_steps: 40
+budget_includes:
+  - simulator_startup
+  - follower_startup
+  - full_prefix_replay
+  - anchor_verification
+  - nominal_duplicates
+  - candidate_rollouts
+  - allowed_infrastructure_retries
+run_count:
+  per_terrain: 17
+  terrain_count: 7
+  total: 119
+  breakdown_per_terrain:
+    anchor_only: 1
+    nominal_duplicate: 3
+    nomad_k8: 8
+    fixed_maneuver_bank: 5
+  extra_seven_run_purpose: freeze anchor state and map Path before candidate execution
+terrain_order:
+  - boxes
+  - hf_pyramid_slope
+  - k_rail_field
+  - k_rail_step_field
+  - pyramid_stairs
+  - pyramid_stairs_inv
+  - random_rough
+per_terrain_order:
+  - anchor_only
+  - nominal_duplicate_0
+  - nominal_duplicate_1
+  - nominal_duplicate_2
+  - nomad_seed_1001
+  - nomad_seed_1002
+  - nomad_seed_1003
+  - nomad_seed_1004
+  - nomad_seed_1005
+  - nomad_seed_1006
+  - nomad_seed_1007
+  - nomad_seed_1008
+  - bank_nominal
+  - bank_slight_left
+  - bank_slight_right
+  - bank_strong_left
+  - bank_strong_right
+nomad_seeds_k32: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032]
+nomad_seeds_pilot: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008]
+bank_names: [nominal, slight_left, slight_right, strong_left, strong_right]
+selection_seed: 20260930
+minimum_goal_distance_m: 0.30
+duplicate_xy_rms_max_m: 0.0105
+control_steps: 40
+infrastructure_retry_max_per_run: 1
+repeated_follower_timeout_stop_count: 2
+runtime_over_estimate_stop_ratio: 2.0
+gpu_memory_unexpected_mib: 12000
+execution: detached_host_tmux
+atomic_marker_per_run: true
+resume_completed_runs_only: true
+persistent_log: true
+stop_before_formal_validation: true
+stop_before_retraining: true
+stop_before_real_robot: true

@@ -1,0 +1,42 @@
+"""Pilot order and deadline checks are frozen before candidate outcomes."""
+
+from visualnav_transformer.eat_nav.candidate_coverage_pilot import (
+    build_schedule, may_start_next,
+)
+
+
+def test_schedule_counts_include_one_anchor_freeze_per_terrain():
+    schedule = build_schedule(["boxes", "rail"], seeds=list(range(1001, 1009)))
+    assert len(schedule) == 34
+    assert [row["kind"] for row in schedule[:4]] == ["anchor", "duplicate", "duplicate", "duplicate"]
+    assert [row["kind"] for row in schedule[4:12]] == ["nomad"] * 8
+    assert [row["kind"] for row in schedule[12:17]] == ["bank"] * 5
+    assert schedule[0]["purpose"] == "freeze anchor state and map Path before candidate execution"
+    assert schedule[4]["seed"] == 1001
+    assert schedule[11]["seed"] == 1008
+    assert schedule[17]["terrain_type"] == "rail"
+    assert len({row["run_id"] for row in schedule}) == 34
+
+
+def test_budget_gate_stops_before_next_candidate_when_forecast_exceeds_four_hours():
+    assert may_start_next(elapsed_sec=100, predicted_remaining_sec=100,
+                          approved_budget_sec=14400)
+    assert not may_start_next(elapsed_sec=11000, predicted_remaining_sec=3500,
+                              approved_budget_sec=14400)
+    assert not may_start_next(elapsed_sec=14400, predicted_remaining_sec=0,
+                              approved_budget_sec=14400)
+
+
+def test_frozen_config_expands_to_exact_119_run_order():
+    from pathlib import Path
+    from collections import Counter
+    import yaml
+    path = Path(__file__).parents[2] / 'docs/quality-identifiability-gate/candidate-coverage/pilot-config.yaml'
+    spec = yaml.safe_load(path.read_text())
+    rows = build_schedule(spec['terrain_order'], seeds=spec['nomad_seeds_pilot'])
+    assert len(rows) == spec['run_count']['total'] == 119
+    assert Counter(row['kind'] for row in rows) == {
+        'anchor': 7, 'duplicate': 21, 'nomad': 56, 'bank': 35}
+    assert spec['approved_wall_clock_sec'] == 14400
+    assert spec['max_full_prefix_steps'] == 40
+    assert [row['seed'] for row in rows if row['kind'] == 'nomad'][:8] == spec['nomad_seeds_k32'][:8]
