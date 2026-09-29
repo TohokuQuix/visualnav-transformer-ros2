@@ -1,0 +1,93 @@
+{
+  "conditions": {
+    "baseline_k32": {
+      "checks": {
+        "command_fraction": false,
+        "evaluator_input": true,
+        "nonfinite": true,
+        "ood_fraction": true,
+        "path_fraction": false,
+        "shape": true,
+        "terrain_count": true
+      },
+      "command_fraction": 0.046875,
+      "nonfinite_count": 0,
+      "ood_fraction": 0.00390625,
+      "pass": false,
+      "path_fraction": 0.0625,
+      "terrain_count": 2
+    },
+    "baseline_k8": {
+      "checks": {
+        "command_fraction": false,
+        "evaluator_input": true,
+        "nonfinite": true,
+        "ood_fraction": true,
+        "path_fraction": false,
+        "shape": true,
+        "terrain_count": false
+      },
+      "command_fraction": 0.015625,
+      "nonfinite_count": 0,
+      "ood_fraction": 0.0,
+      "pass": false,
+      "path_fraction": 0.0,
+      "terrain_count": 1
+    },
+    "noise_scale_0.5": {
+      "checks": {
+        "command_fraction": false,
+        "evaluator_input": true,
+        "nonfinite": true,
+        "ood_fraction": true,
+        "path_fraction": false,
+        "shape": true,
+        "terrain_count": false
+      },
+      "command_fraction": 0.015625,
+      "nonfinite_count": 0,
+      "ood_fraction": 0.0,
+      "pass": false,
+      "path_fraction": 0.0,
+      "terrain_count": 1
+    },
+    "noise_scale_1.5": {
+      "checks": {
+        "command_fraction": false,
+        "evaluator_input": true,
+        "nonfinite": true,
+        "ood_fraction": true,
+        "path_fraction": false,
+        "shape": true,
+        "terrain_count": false
+      },
+      "command_fraction": 0.015625,
+      "nonfinite_count": 0,
+      "ood_fraction": 0.0,
+      "pass": false,
+      "path_fraction": 0.0,
+      "terrain_count": 1
+    },
+    "noise_scale_2.0": {
+      "checks": {
+        "command_fraction": false,
+        "evaluator_input": true,
+        "nonfinite": true,
+        "ood_fraction": true,
+        "path_fraction": false,
+        "shape": true,
+        "terrain_count": false
+      },
+      "command_fraction": 0.015625,
+      "nonfinite_count": 0,
+      "ood_fraction": 0.0,
+      "pass": false,
+      "path_fraction": 0.0,
+      "terrain_count": 1
+    }
+  },
+  "decision": "fail",
+  "heldout_used": false,
+  "noise_scale_nonunit_diagnostic_only": true,
+  "selected": null
+}
