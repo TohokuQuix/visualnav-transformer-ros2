@@ -63,6 +63,10 @@ def run(output):
                 measure['predicted_top1_candidate_id']=top
                 measure['top1_proposal_valid']=None if top is None else bool(candidates[top]['constraints']['valid']
                     and not candidates[top].get('ood_over_train_p95',False))
+                measure['top1_ood']=None if top is None else bool(candidates[top].get('ood_over_train_p95',False))
+                measure['top1_constraint_failure']=None if top is None else not bool(candidates[top]['constraints']['valid'])
+                measure['nomad_only']=ranking_diagnostics(predictions[:,:8,head_index:head_index+1],values[:8],epsilon=epsilon[head])
+                measure['fixed_bank_only']=ranking_diagnostics(predictions[:,8:,head_index:head_index+1],values[8:],epsilon=epsilon[head])
                 heads[head]=measure
             states.append({'state_id':state['state_id'],'terrain_type':state['terrain_type'],
                 'candidate_ids':ids,'prediction_by_seed_head':predictions.tolist(),
@@ -78,7 +82,11 @@ def run(output):
             'pairwise_support':sum(r['pairwise_support'] for r in rows),
             'calibration_rmse_mean':float(np.mean([r['calibration_rmse'] for r in support])) if support else None,
             'ensemble_spread_mean':float(np.mean([r['ensemble_spread_mean'] for r in rows])),
-            'top1_invalid_proposal_count':sum(r['top1_proposal_valid'] is False for r in rows)}
+            'top1_invalid_proposal_count':sum(r['top1_proposal_valid'] is False for r in rows),
+            'top1_ood_count':sum(r['top1_ood'] is True for r in rows),
+            'top1_constraint_failure_count':sum(r['top1_constraint_failure'] is True for r in rows),
+            'nomad_only_pairwise_accuracy':float(np.mean([r['nomad_only']['pairwise_accuracy'] for r in rows if r['nomad_only']['pairwise_accuracy'] is not None])) if any(r['nomad_only']['pairwise_accuracy'] is not None for r in rows) else None,
+            'fixed_bank_only_pairwise_accuracy':float(np.mean([r['fixed_bank_only']['pairwise_accuracy'] for r in rows if r['fixed_bank_only']['pairwise_accuracy'] is not None])) if any(r['fixed_bank_only']['pairwise_accuracy'] is not None for r in rows) else None}
     result={'status':'secondary_evaluator_after_complete_oracle','candidate_selection_used':False,
         'reference_no_nomad_retraining':True,'validation_used':False,'heldout_used':False,
         'evaluator_seeds':list(SEEDS),'evaluator_checkpoint_sha256':evaluator.checkpoint_sha256,
@@ -91,11 +99,11 @@ def run(output):
     atomic_once(output/'evaluator-ranking.json',result)
     lines=['# Secondary Phase B GT Evaluator ranking', '',
         'The Evaluator was run after all 119 simulator oracle runs. It did not select or filter rollout candidates.',
-        '', '| Head | top-1 recall | top-3 recall | pairwise accuracy | state support | invalid top-1 proposals |',
-        '|---|---:|---:|---:|---:|---:|']
+        '', '| Head | top-1 recall | top-3 recall | all pairwise | NoMaD pairwise | bank pairwise | state support | OOD top-1 | constraint top-1 |',
+        '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
     fmt=lambda v:'NA' if v is None else f'{v:.3f}'
     for name,row in aggregate.items():
-        lines.append(f"| {name} | {fmt(row['top1_recall'])} | {fmt(row['top3_recall'])} | {fmt(row['pairwise_accuracy'])} | {row['state_support_count']} | {row['top1_invalid_proposal_count']} |")
+        lines.append(f"| {name} | {fmt(row['top1_recall'])} | {fmt(row['top3_recall'])} | {fmt(row['pairwise_accuracy'])} | {fmt(row['nomad_only_pairwise_accuracy'])} | {fmt(row['fixed_bank_only_pairwise_accuracy'])} | {row['state_support_count']} | {row['top1_ood_count']} | {row['top1_constraint_failure_count']} |")
     report=output/'evaluator-report.md';text='\n'.join(lines)+'\n'
     if report.exists():
         if report.read_text()!=text:raise FileExistsError('Evaluator report differs')
