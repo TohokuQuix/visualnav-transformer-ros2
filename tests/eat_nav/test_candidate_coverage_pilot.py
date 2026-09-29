@@ -54,3 +54,24 @@ def test_bind_schedule_attaches_frozen_state_without_reordering():
     assert bound[16]['state_id'] == 'coverage-000'
     assert bound[17]['state_id'] == 'coverage-001'
     assert [r['run_id'] for r in bound] == [r['run_id'] for r in order]
+
+
+def test_duplicate_gate_measures_relative_xy_and_rejects_changed_anchor():
+    import pytest
+    from visualnav_transformer.eat_nav.candidate_coverage_pilot import duplicate_gate
+    critical=('root_state','joint_position','joint_velocity','command_manager','policy_pre_noise',
+              'policy_post_noise_pre_delay','policy_actor_input','actor_latent','actor_action',
+              'critic_observation','critic_value','action_manager_action','latency_substeps',
+              'latency_seconds','latency_policy_obs_prev','action_delay_buffers','dem_history_sha256')
+    anchor={name:0 for name in critical}
+    summaries=[{'fixed_map_path_sha256':'same','anchor':dict(anchor)} for _ in range(3)]
+    def trace(offset):
+        return [{'root_state':[10.,20.], 'post_root_state':[10.+.01*k,20.+offset],
+                 'command':[.1,0.,0.], 'terminal':None} for k in range(40)]
+    result=duplicate_gate(summaries,[trace(0.),trace(0.),trace(0.)],xy_rms_limit_m=.0105)
+    assert result['duplicate_xy_rms_m']==0
+    with pytest.raises(ValueError,match='XY RMS'):
+        duplicate_gate(summaries,[trace(0.),trace(.03),trace(0.)],xy_rms_limit_m=.0105)
+    summaries[1]['anchor']['actor_action']=1
+    with pytest.raises(ValueError,match='anchor'):
+        duplicate_gate(summaries,[trace(0.)]*3,xy_rms_limit_m=.0105)
