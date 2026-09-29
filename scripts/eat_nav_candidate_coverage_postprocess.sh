@@ -35,7 +35,7 @@ done
 docker cp "$ROOT/pilot/status.json" "$CONTAINER:$ROOT/pilot/status.json"
 docker cp "$ROOT/pilot/oracle-epsilon.json" "$CONTAINER:$ROOT/pilot/oracle-epsilon.json"
 if [[ ! -f "$ROOT/analysis/evaluator-ranking.json" ]]; then
-  docker exec "$CONTAINER" bash -lc "export PYTHONPATH=$ROOT/baseline-worktree-8e8f4fd/src:$ROOT/baseline-worktree-8e8f4fd/scripts:/tmp/eatnav-train:/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src:/tmp/eatnav-extended/isaac-source:\$PYTHONPATH; /isaac-sim/python.sh $ROOT/baseline-worktree-8e8f4fd/scripts/eat_nav_candidate_coverage_evaluator.py"
+  docker exec "$CONTAINER" bash -lc "export PYTHONPATH=$ROOT/baseline-worktree-8e8f4fd:$ROOT/baseline-worktree-8e8f4fd/src:$ROOT/baseline-worktree-8e8f4fd/scripts:/tmp/eatnav-train:/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src:/tmp/eatnav-extended/isaac-source:\$PYTHONPATH; /isaac-sim/python.sh $ROOT/baseline-worktree-8e8f4fd/scripts/eat_nav_candidate_coverage_evaluator.py"
   docker cp "$CONTAINER:$ROOT/analysis/evaluator-ranking.json" "$ROOT/analysis/evaluator-ranking.json"
   docker cp "$CONTAINER:$ROOT/analysis/evaluator-report.md" "$ROOT/analysis/evaluator-report.md"
 fi

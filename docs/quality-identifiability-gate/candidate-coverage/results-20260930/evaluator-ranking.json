@@ -1,0 +1,3698 @@
+{
+  "candidate_selection_used": false,
+  "evaluator_checkpoint_sha256": {
+    "11": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35",
+    "29": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2",
+    "47": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f"
+  },
+  "evaluator_scaler_sha256": "8cf50f7b633f5e659c211da842eb52ba124c0063535e1af4d812d1c8fc541c21",
+  "evaluator_seeds": [
+    11,
+    29,
+    47
+  ],
+  "heads": {
+    "advantage_h": {
+      "calibration_rmse_mean": 1.4307204904715483,
+      "ensemble_spread_mean": 0.10674861493690717,
+      "fixed_bank_only_pairwise_accuracy": 0.4571428571428572,
+      "nomad_only_pairwise_accuracy": 0.4871358799930229,
+      "pairwise_accuracy": 0.4420849420849421,
+      "pairwise_support": 518,
+      "state_support_count": 7,
+      "top1_constraint_failure_count": 0,
+      "top1_invalid_proposal_count": 1,
+      "top1_ood_count": 1,
+      "top1_recall": 0.0,
+      "top3_recall": 0.0
+    },
+    "delta_v": {
+      "calibration_rmse_mean": 1.2107765494416216,
+      "ensemble_spread_mean": 0.1391000099661,
+      "fixed_bank_only_pairwise_accuracy": 0.5619047619047619,
+      "nomad_only_pairwise_accuracy": 0.4960753532182104,
+      "pairwise_accuracy": 0.46611909650924027,
+      "pairwise_support": 487,
+      "state_support_count": 7,
+      "top1_constraint_failure_count": 0,
+      "top1_invalid_proposal_count": 1,
+      "top1_ood_count": 1,
+      "top1_recall": 0.0,
+      "top3_recall": 0.2857142857142857
+    },
+    "drawdown": {
+      "calibration_rmse_mean": 1.0995362661892678,
+      "ensemble_spread_mean": 0.12635587461251235,
+      "fixed_bank_only_pairwise_accuracy": 0.592063492063492,
+      "nomad_only_pairwise_accuracy": 0.6497798216276477,
+      "pairwise_accuracy": 0.5725190839694656,
+      "pairwise_support": 393,
+      "state_support_count": 7,
+      "top1_constraint_failure_count": 0,
+      "top1_invalid_proposal_count": 1,
+      "top1_ood_count": 1,
+      "top1_recall": 0.0,
+      "top3_recall": 0.7142857142857143
+    },
+    "recovery": {
+      "calibration_rmse_mean": 0.5784281696855521,
+      "ensemble_spread_mean": 0.0635173289051495,
+      "fixed_bank_only_pairwise_accuracy": 0.6310185185185185,
+      "nomad_only_pairwise_accuracy": 0.4034920634920635,
+      "pairwise_accuracy": 0.44242424242424244,
+      "pairwise_support": 495,
+      "state_support_count": 7,
+      "top1_constraint_failure_count": 0,
+      "top1_invalid_proposal_count": 1,
+      "top1_ood_count": 1,
+      "top1_recall": 0.0,
+      "top3_recall": 0.14285714285714285
+    }
+  },
+  "heldout_used": false,
+  "reference_no_nomad_retraining": true,
+  "source_sha256": {
+    "epsilon": "ac70ce1b6acae03bfd8fa83e3cd68a903ddba38f4c82dde48bdc36c4a9620fb4",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "oracle_outcomes": "a5455e56e87cd8b9869599747391b1b2c711b2c528ca7a6bea651bc6c4ca7d0c",
+    "oracle_summary": "f4cfcc87b692bf3343f8d695e069b83fb4624ec825b01482c6d60ac813611941",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992",
+    "selection": "1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc"
+  },
+  "states": [
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 1.8475635104683497,
+          "ensemble_spread_mean": 0.11590669128532,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.5850966020681672,
+            "ensemble_spread_mean": 0.12373242492614611,
+            "oracle_best": 2.569376232597726,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.9941390948960738,
+            "ensemble_spread_mean": 0.11101560775980365,
+            "oracle_best": 2.739383198133453,
+            "pairwise_accuracy": 0.5555555555555556,
+            "pairwise_support": 27,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 2.739383198133453,
+          "pairwise_accuracy": 0.49295774647887325,
+          "pairwise_support": 71,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 1.406547164681487,
+          "ensemble_spread_mean": 0.12092715360794418,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.1460734985574355,
+            "ensemble_spread_mean": 0.13232643946678416,
+            "oracle_best": 0.8125877380371094,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.5472334876998,
+            "ensemble_spread_mean": 0.11380259994616915,
+            "oracle_best": 0.9468650817871094,
+            "pairwise_accuracy": 0.5238095238095238,
+            "pairwise_support": 21,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": 0.9468650817871094,
+          "pairwise_accuracy": 0.47540983606557374,
+          "pairwise_support": 61,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "drawdown": {
+          "calibration_rmse": 0.8683623759710857,
+          "ensemble_spread_mean": 0.1351784603712494,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5814466509726701,
+            "ensemble_spread_mean": 0.12899719204572202,
+            "oracle_best": -0.13480377197265625,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.0069937169858154,
+            "ensemble_spread_mean": 0.13904175307470396,
+            "oracle_best": -0.12001800537109375,
+            "pairwise_accuracy": 0.52,
+            "pairwise_support": 25,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": -0.12001800537109375,
+          "pairwise_accuracy": 0.6176470588235294,
+          "pairwise_support": 68,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "recovery": {
+          "calibration_rmse": 0.5534872760140669,
+          "ensemble_spread_mean": 0.026544783802882346,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5266591132479659,
+            "ensemble_spread_mean": 0.013607617947607559,
+            "oracle_best": 0.9473915100097656,
+            "pairwise_accuracy": null,
+            "pairwise_support": 0,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.5696135788176342,
+            "ensemble_spread_mean": 0.03463051246242908,
+            "oracle_best": 1.1060638427734375,
+            "pairwise_accuracy": 0.32,
+            "pairwise_support": 25,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              4,
+              2,
+              1,
+              7
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.1060638427734375,
+          "pairwise_accuracy": 0.35384615384615387,
+          "pairwise_support": 65,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            10,
+            8,
+            9,
+            11,
+            0,
+            4,
+            2,
+            1,
+            7
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "54894dae72e196b7cc86a5d1380dad3769d4d77ba8fe1659661bd0c5c7040202",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.26606645880440416,
+            0.9926721905594308,
+            -0.646949962366368,
+            0.4240253646974442
+          ],
+          [
+            -0.5083074782180335,
+            0.7979866703775842,
+            -0.8540274182628381,
+            0.3724561599440305
+          ],
+          [
+            -1.4019674191320202,
+            -0.02429954442818283,
+            -1.7988913571233198,
+            0.37454464776194735
+          ],
+          [
+            0.798126633117645,
+            1.7559615891582048,
+            -0.24927611601070576,
+            1.0502084430108407
+          ],
+          [
+            -1.3398262102181242,
+            0.03548480045863078,
+            -1.7584750881691282,
+            0.4003901128319119
+          ],
+          [
+            0.3120943886365632,
+            1.4054117606333398,
+            -0.3458513590477219,
+            0.6895910460431485
+          ],
+          [
+            -0.12049669438302937,
+            1.1019426438805393,
+            -0.54498001495736,
+            0.46561550268382934
+          ],
+          [
+            -1.2286630097193554,
+            0.14607119756339826,
+            -1.5979627422342952,
+            0.3494343648655539
+          ],
+          [
+            -0.26116278377382107,
+            0.9967413328248513,
+            -0.6431813247039007,
+            0.42489186669818374
+          ],
+          [
+            -0.30075941647856685,
+            0.9648473870250519,
+            -0.6740053048184198,
+            0.4162213967874242
+          ],
+          [
+            -0.22156597108467335,
+            1.0286354484238487,
+            -0.6123570624494088,
+            0.43356243451139886
+          ],
+          [
+            -0.32901287936444884,
+            0.9420660229411448,
+            -0.6961000740256922,
+            0.4100524651549371
+          ],
+          [
+            -0.19320316767461887,
+            1.0514808586427102,
+            -0.5902781048364417,
+            0.43977310522414154
+          ]
+        ],
+        [
+          [
+            -0.5604513249664399,
+            0.7243187153000734,
+            -0.934900266919826,
+            0.41045021019806055
+          ],
+          [
+            -0.7867319318502654,
+            0.5140308562215724,
+            -1.1689248293213077,
+            0.39341237637921056
+          ],
+          [
+            -1.5322750976470507,
+            -0.2000155651693878,
+            -2.024885381236702,
+            0.4620129860235537
+          ],
+          [
+            0.6662365831649606,
+            1.6555682803526623,
+            -0.5051335747014338,
+            1.170270581024467
+          ],
+          [
+            -1.4150578389567343,
+            -0.09601236786647194,
+            -1.9251742934727325,
+            0.4819860007308684
+          ],
+          [
+            0.12237978567367123,
+            1.2652763340392046,
+            -0.572226977474227,
+            0.7358424015280509
+          ],
+          [
+            -0.3719898634019857,
+            0.8883490066680886,
+            -0.7986289289648542,
+            0.47814721281097566
+          ],
+          [
+            -1.275212632711088,
+            0.06307606642120989,
+            -1.7126502899842806,
+            0.4146540111067403
+          ],
+          [
+            -0.5590875574409588,
+            0.7247706783150609,
+            -0.9339477506160433,
+            0.4109380581345269
+          ],
+          [
+            -0.5811641356370049,
+            0.7039873838425424,
+            -0.9521463313815082,
+            0.40328022595662927
+          ],
+          [
+            -0.5367013032253636,
+            0.7464367588174173,
+            -0.9165617329720528,
+            0.4208763322117044
+          ],
+          [
+            -0.5952390187161614,
+            0.6902987243559247,
+            -0.9666559143697259,
+            0.3995241003434506
+          ],
+          [
+            -0.5183293696863003,
+            0.7632580012561356,
+            -0.9042614764299102,
+            0.4301206410491363
+          ]
+        ],
+        [
+          [
+            -0.33401217753657164,
+            0.9584266107684334,
+            -0.7050637197386165,
+            0.4048355696352691
+          ],
+          [
+            -0.5194538093813293,
+            0.7980037988716715,
+            -0.8554730329481347,
+            0.3530975157800241
+          ],
+          [
+            -1.1647592906935311,
+            0.2115432212823839,
+            -1.5221046141851875,
+            0.34147277400194953
+          ],
+          [
+            0.586851480095069,
+            1.656695747026662,
+            -0.37313434143444124,
+            0.9909440399756259
+          ],
+          [
+            -1.1413530905842557,
+            0.23395433821528866,
+            -1.4972877702768084,
+            0.3391509846322367
+          ],
+          [
+            0.20325216413685399,
+            1.391607382993359,
+            -0.4493261000013073,
+            0.6859130629066484
+          ],
+          [
+            -0.19399358203172318,
+            1.0817482156794207,
+            -0.6057952625685379,
+            0.4598076026735997
+          ],
+          [
+            -1.0052787118313877,
+            0.35840084954674467,
+            -1.346165136681225,
+            0.3239629850785991
+          ],
+          [
+            -0.3311034239049233,
+            0.9594506909558166,
+            -0.7033238800850871,
+            0.4071330465618308
+          ],
+          [
+            -0.29887166293495265,
+            0.9848942093140657,
+            -0.6788784734508124,
+            0.42049297882956044
+          ],
+          [
+            -0.36342173166016495,
+            0.9339877305894089,
+            -0.7278650497284406,
+            0.39379426122451994
+          ],
+          [
+            -0.2769506812543751,
+            1.0028542737481423,
+            -0.6626573529750802,
+            0.43034555562389887
+          ],
+          [
+            -0.3866699568886605,
+            0.9163205060969959,
+            -0.7451393516990605,
+            0.38535454740170966
+          ]
+        ]
+      ],
+      "state_id": "coverage-000",
+      "terrain_type": "boxes"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 2.193678200143301,
+          "ensemble_spread_mean": 0.10837401197011051,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.991365919163146,
+            "ensemble_spread_mean": 0.10562030092253331,
+            "oracle_best": 2.6629278222333923,
+            "pairwise_accuracy": 0.6666666666666666,
+            "pairwise_support": 9,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 2.311147482181983,
+            "ensemble_spread_mean": 0.11009508137484628,
+            "oracle_best": 2.727229389187656,
+            "pairwise_accuracy": 0.37037037037037035,
+            "pairwise_support": 27,
+            "predicted_order": [
+              3,
+              5,
+              0,
+              6,
+              1,
+              2,
+              4,
+              7
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 2.727229389187656,
+          "pairwise_accuracy": 0.42105263157894735,
+          "pairwise_support": 76,
+          "predicted_order": [
+            3,
+            5,
+            11,
+            9,
+            0,
+            8,
+            10,
+            12,
+            6,
+            1,
+            2,
+            4,
+            7
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 1.817595562825548,
+          "ensemble_spread_mean": 0.11027643615095525,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.6449539717333952,
+            "ensemble_spread_mean": 0.11039493436722621,
+            "oracle_best": 1.0183372497558594,
+            "pairwise_accuracy": 0.8888888888888888,
+            "pairwise_support": 9,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.9176199227308186,
+            "ensemble_spread_mean": 0.11020237476578588,
+            "oracle_best": 0.9986572265625,
+            "pairwise_accuracy": 0.56,
+            "pairwise_support": 25,
+            "predicted_order": [
+              3,
+              5,
+              0,
+              6,
+              1,
+              2,
+              4,
+              7
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.0183372497558594,
+          "pairwise_accuracy": 0.6285714285714286,
+          "pairwise_support": 70,
+          "predicted_order": [
+            3,
+            5,
+            11,
+            9,
+            8,
+            0,
+            10,
+            12,
+            6,
+            1,
+            2,
+            4,
+            7
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "drawdown": {
+          "calibration_rmse": 1.285794778563302,
+          "ensemble_spread_mean": 0.13840606470953748,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.0648877922804787,
+            "ensemble_spread_mean": 0.12831854274395466,
+            "oracle_best": -0.035003662109375,
+            "pairwise_accuracy": 0.7777777777777778,
+            "pairwise_support": 9,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.4063497392544508,
+            "ensemble_spread_mean": 0.14471076593802673,
+            "oracle_best": -0.02169036865234375,
+            "pairwise_accuracy": 0.9333333333333333,
+            "pairwise_support": 15,
+            "predicted_order": [
+              3,
+              5,
+              0,
+              6,
+              1,
+              2,
+              4,
+              7
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": -0.02169036865234375,
+          "pairwise_accuracy": 0.6140350877192983,
+          "pairwise_support": 57,
+          "predicted_order": [
+            3,
+            5,
+            11,
+            9,
+            8,
+            0,
+            10,
+            12,
+            6,
+            1,
+            2,
+            4,
+            7
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "recovery": {
+          "calibration_rmse": 0.5333725278054061,
+          "ensemble_spread_mean": 0.03349577870406622,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5550315376864694,
+            "ensemble_spread_mean": 0.027314432631959075,
+            "oracle_best": 1.0533409118652344,
+            "pairwise_accuracy": 0.875,
+            "pairwise_support": 8,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.5193771817396823,
+            "ensemble_spread_mean": 0.03735911999913318,
+            "oracle_best": 1.04132080078125,
+            "pairwise_accuracy": 0.6153846153846154,
+            "pairwise_support": 26,
+            "predicted_order": [
+              3,
+              5,
+              7,
+              4,
+              0,
+              2,
+              6,
+              1
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.0533409118652344,
+          "pairwise_accuracy": 0.6619718309859155,
+          "pairwise_support": 71,
+          "predicted_order": [
+            3,
+            5,
+            11,
+            7,
+            9,
+            4,
+            8,
+            0,
+            10,
+            12,
+            2,
+            6,
+            1
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        }
+      },
+      "offline_sha256": "67cdbaa4af97be0b95d5fcbe6f53e723fa290df95416bac14e1c371c55034449",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.6266406402003161,
+            0.621825499814207,
+            -1.068534689422128,
+            0.4610115091706351
+          ],
+          [
+            -0.955574939332004,
+            0.3402955006739722,
+            -1.3800055222675736,
+            0.41085288299811795
+          ],
+          [
+            -1.334543822293823,
+            -0.0077054933162434835,
+            -1.784355129541427,
+            0.42881977848686303
+          ],
+          [
+            -0.08906507978389594,
+            1.0656931788556254,
+            -0.6044957963891177,
+            0.5693777629550865
+          ],
+          [
+            -1.4184226216387585,
+            -0.08196021074696791,
+            -1.8886188279054346,
+            0.4464316470372966
+          ],
+          [
+            -0.4142995167012809,
+            0.808932881794157,
+            -0.861953153306899,
+            0.48610713933283406
+          ],
+          [
+            -0.8774013884076756,
+            0.399145610373987,
+            -1.3170367237561806,
+            0.4317171690274498
+          ],
+          [
+            -1.4756496392905871,
+            -0.13814498243768036,
+            -1.9570598722579926,
+            0.4588353007524626
+          ],
+          [
+            -0.620014900124124,
+            0.6275183999717141,
+            -1.0625636906441622,
+            0.46186518594968545
+          ],
+          [
+            -0.6025004636999702,
+            0.6407960604998356,
+            -1.0488466329614385,
+            0.46660033611928875
+          ],
+          [
+            -0.6375291822759332,
+            0.6142409092427905,
+            -1.0762806072568996,
+            0.45713000314593033
+          ],
+          [
+            -0.5894705700584194,
+            0.6506859723312253,
+            -1.0386045287412307,
+            0.47011917881414195
+          ],
+          [
+            -0.6500747636039479,
+            0.6047301590202925,
+            -1.0861061200515336,
+            0.45373823783850104
+          ]
+        ],
+        [
+          [
+            -0.8549898335275804,
+            0.4052529054739483,
+            -1.3123379176269374,
+            0.4876336996895151
+          ],
+          [
+            -1.1997780844153305,
+            0.08709178577418897,
+            -1.6779373395089232,
+            0.47846402515743464
+          ],
+          [
+            -1.4544325637499291,
+            -0.1509840091878487,
+            -1.9684171347204322,
+            0.4981051505401214
+          ],
+          [
+            -0.38906302949672195,
+            0.8108148512039872,
+            -0.9222437498829456,
+            0.5920175263345702
+          ],
+          [
+            -1.4414497231734542,
+            -0.14797185631685283,
+            -1.9899536312124892,
+            0.5312624278755913
+          ],
+          [
+            -0.7128862344306311,
+            0.5338730386397774,
+            -1.163183163317846,
+            0.4890390241719588
+          ],
+          [
+            -1.012319290241971,
+            0.26413317415453574,
+            -1.4798104685958062,
+            0.4848740252698654
+          ],
+          [
+            -1.5288668101638745,
+            -0.23481098660050748,
+            -2.090693965596993,
+            0.5417125033567157
+          ],
+          [
+            -0.8509619368847313,
+            0.4074204771346319,
+            -1.30900419873244,
+            0.48840810811364693
+          ],
+          [
+            -0.8450850347687977,
+            0.41212217447444754,
+            -1.302209797955714,
+            0.48721056527622836
+          ],
+          [
+            -0.8692189375271334,
+            0.39092325401529004,
+            -1.3294876077762665,
+            0.4900706549812153
+          ],
+          [
+            -0.8402606814353509,
+            0.41618593622778477,
+            -1.296504457473742,
+            0.48620533549584344
+          ],
+          [
+            -0.8848594792066217,
+            0.37666406922375684,
+            -1.3469941109444468,
+            0.49135797437045803
+          ]
+        ],
+        [
+          [
+            -0.6409358241874348,
+            0.617508779705811,
+            -1.0288529601311174,
+            0.41750662759094653
+          ],
+          [
+            -0.8801083538127029,
+            0.3993695330662065,
+            -1.2611979550307448,
+            0.382416886317702
+          ],
+          [
+            -1.1815387736684324,
+            0.13842437558595444,
+            -1.577823779073848,
+            0.3897696870779696
+          ],
+          [
+            -0.19982427958047555,
+            1.0002706303779254,
+            -0.6998376998028232,
+            0.5551830980334732
+          ],
+          [
+            -1.236169490610363,
+            0.09156285335346848,
+            -1.6377067656801192,
+            0.3950301165562466
+          ],
+          [
+            -0.4904203712336549,
+            0.7492076907029086,
+            -0.8992323666834209,
+            0.45371098832168055
+          ],
+          [
+            -0.8186232651800142,
+            0.45530979391195503,
+            -1.198875727290201,
+            0.38778246303333896
+          ],
+          [
+            -1.283017476316381,
+            0.050784896783038436,
+            -1.6889121612383216,
+            0.40075607221110343
+          ],
+          [
+            -0.6487206638120562,
+            0.606248503447838,
+            -1.0381030837188567,
+            0.4196500386864788
+          ],
+          [
+            -0.5778888823389122,
+            0.6668594308299876,
+            -0.9755620564294574,
+            0.4366689773313898
+          ],
+          [
+            -0.7154066845711442,
+            0.5462072948244139,
+            -1.0999868659417718,
+            0.4060117371032058
+          ],
+          [
+            -0.5234112549868516,
+            0.7129646249852655,
+            -0.9312907326903163,
+            0.4521154393679235
+          ],
+          [
+            -0.7628881125237259,
+            0.5035134090045753,
+            -1.1440930790177024,
+            0.3964974459272639
+          ]
+        ]
+      ],
+      "state_id": "coverage-001",
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 1.80851943643691,
+          "ensemble_spread_mean": 0.06839621301057851,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.0151640134077868,
+            "ensemble_spread_mean": 0.07258790322174305,
+            "oracle_best": 2.356447201978142,
+            "pairwise_accuracy": 0.2,
+            "pairwise_support": 10,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "nomad_only": {
+            "calibration_rmse": 2.1612167668069526,
+            "ensemble_spread_mean": 0.06577640662860068,
+            "oracle_best": 3.034386590553652,
+            "pairwise_accuracy": 0.39285714285714285,
+            "pairwise_support": 28,
+            "predicted_order": [
+              2,
+              0,
+              3,
+              5,
+              1,
+              6,
+              7,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": 3.034386590553652,
+          "pairwise_accuracy": 0.1794871794871795,
+          "pairwise_support": 78,
+          "predicted_order": [
+            12,
+            10,
+            8,
+            9,
+            11,
+            2,
+            0,
+            3,
+            5,
+            1,
+            6,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "bank-strong_right",
+          "top1_constraint_failure": false,
+          "top1_ood": true,
+          "top1_proposal_valid": false,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 1.7076343321260101,
+          "ensemble_spread_mean": 0.09400023403252697,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.9791556790072458,
+            "ensemble_spread_mean": 0.06507276046327612,
+            "oracle_best": 1.4720191955566406,
+            "pairwise_accuracy": 0.1111111111111111,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "nomad_only": {
+            "calibration_rmse": 2.03452899772466,
+            "ensemble_spread_mean": 0.11207990501330875,
+            "oracle_best": 1.5799179077148438,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 26,
+            "predicted_order": [
+              2,
+              0,
+              3,
+              5,
+              1,
+              6,
+              7,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "oracle_best": 1.5799179077148438,
+          "pairwise_accuracy": 0.2328767123287671,
+          "pairwise_support": 73,
+          "predicted_order": [
+            12,
+            10,
+            8,
+            9,
+            11,
+            2,
+            0,
+            3,
+            5,
+            1,
+            6,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "bank-strong_right",
+          "top1_constraint_failure": false,
+          "top1_ood": true,
+          "top1_proposal_valid": false,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "drawdown": {
+          "calibration_rmse": 1.3387105389942648,
+          "ensemble_spread_mean": 0.1355710611660068,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.221641371889879,
+            "ensemble_spread_mean": 0.12701046745568584,
+            "oracle_best": 0.0,
+            "pairwise_accuracy": 0.0,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.406940767508585,
+            "ensemble_spread_mean": 0.14092143223495743,
+            "oracle_best": 0.0,
+            "pairwise_accuracy": null,
+            "pairwise_support": 0,
+            "predicted_order": [
+              2,
+              0,
+              3,
+              5,
+              1,
+              6,
+              7,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "oracle_best": 0.0,
+          "pairwise_accuracy": 0.0,
+          "pairwise_support": 12,
+          "predicted_order": [
+            12,
+            10,
+            8,
+            9,
+            11,
+            2,
+            0,
+            3,
+            5,
+            1,
+            6,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "bank-strong_right",
+          "top1_constraint_failure": false,
+          "top1_ood": true,
+          "top1_proposal_valid": false,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "recovery": {
+          "calibration_rmse": 0.6214755727299202,
+          "ensemble_spread_mean": 0.11286417869737332,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.6489641328664375,
+            "ensemble_spread_mean": 0.0685997285832575,
+            "oracle_best": 1.4720191955566406,
+            "pairwise_accuracy": 0.4444444444444444,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.603659911370253,
+            "ensemble_spread_mean": 0.1405294600186957,
+            "oracle_best": 1.5799179077148438,
+            "pairwise_accuracy": 0.46153846153846156,
+            "pairwise_support": 26,
+            "predicted_order": [
+              2,
+              0,
+              3,
+              5,
+              1,
+              7,
+              6,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "oracle_best": 1.5799179077148438,
+          "pairwise_accuracy": 0.2602739726027397,
+          "pairwise_support": 73,
+          "predicted_order": [
+            12,
+            10,
+            8,
+            9,
+            11,
+            2,
+            0,
+            3,
+            5,
+            1,
+            7,
+            6,
+            4
+          ],
+          "predicted_top1_candidate_id": "bank-strong_right",
+          "top1_constraint_failure": false,
+          "top1_ood": true,
+          "top1_proposal_valid": false,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "cf2800a4d150fbc9ae32b717116da23e62f3702a033a82422a7b6bc841b408d1",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.5249180329756948,
+            0.5625815833244823,
+            -1.1988521450908132,
+            0.7509200731727175
+          ],
+          [
+            -0.5417542367492615,
+            0.5484907968874579,
+            -1.208065755063748,
+            0.7434517719904056
+          ],
+          [
+            -0.5216433967669802,
+            0.566232435878347,
+            -1.1949951270818868,
+            0.7509140195375436
+          ],
+          [
+            -0.5241387519394527,
+            0.5633048430079011,
+            -1.1985360542746935,
+            0.7511061938994317
+          ],
+          [
+            -0.5608088768369026,
+            0.5328394709222121,
+            -1.218110126186398,
+            0.7347408683654657
+          ],
+          [
+            -0.5534744610341399,
+            0.5386273312811399,
+            -1.2143465200201113,
+            0.7385188833360185
+          ],
+          [
+            -0.5596406752201472,
+            0.5326322310011855,
+            -1.2193765584773442,
+            0.7371246626237522
+          ],
+          [
+            -0.5437704734437963,
+            0.5464718844245283,
+            -1.2098810436483194,
+            0.7430190839291557
+          ],
+          [
+            -0.38122301179688034,
+            0.6716186051982894,
+            -1.1431026971784124,
+            0.8340061598444389
+          ],
+          [
+            -0.3968572283102436,
+            0.6603342174542159,
+            -1.1487400184152912,
+            0.8240320779441103
+          ],
+          [
+            -0.364170723892768,
+            0.6839997259615439,
+            -1.136635813886702,
+            0.8448117354590771
+          ],
+          [
+            -0.407831597233524,
+            0.652424716117634,
+            -1.1526467400827474,
+            0.8170192924122889
+          ],
+          [
+            -0.3519561853040175,
+            0.6928682956176164,
+            -1.132003686837682,
+            0.8525517067774415
+          ]
+        ],
+        [
+          [
+            -0.4218292927163099,
+            0.5795843411057466,
+            -1.5053214708837688,
+            1.075746510687164
+          ],
+          [
+            -0.4460723174463301,
+            0.5602034606584132,
+            -1.515746542876295,
+            1.0620521436309596
+          ],
+          [
+            -0.3880676643299341,
+            0.6059610758556073,
+            -1.4919192578989522,
+            1.09596940509543
+          ],
+          [
+            -0.44398784095140637,
+            0.5624415838858208,
+            -1.5135164144851467,
+            1.0620318778226416
+          ],
+          [
+            -0.4478719557691708,
+            0.5586096404874048,
+            -1.5159115947603445,
+            1.0607253042837892
+          ],
+          [
+            -0.4282226986416678,
+            0.5744628152491443,
+            -1.506374793448643,
+            1.0709053647922517
+          ],
+          [
+            -0.4535799296678643,
+            0.5548733789370008,
+            -1.5163565294973462,
+            1.0554628514880957
+          ],
+          [
+            -0.45452536201914523,
+            0.5534448582851398,
+            -1.52085144247296,
+            1.0583577618331395
+          ],
+          [
+            -0.4854467336948358,
+            0.5430509399846087,
+            -1.450066990530201,
+            0.9821108072323608
+          ],
+          [
+            -0.5079184547892905,
+            0.5249841355297575,
+            -1.459727463196618,
+            0.9700471034773374
+          ],
+          [
+            -0.46422497855972766,
+            0.5599654021829694,
+            -1.4422080756363496,
+            0.9946240464295425
+          ],
+          [
+            -0.5260070414556011,
+            0.5101803198109873,
+            -1.4689878613816976,
+            0.9615933324936045
+          ],
+          [
+            -0.4482223082635563,
+            0.5727391411415484,
+            -1.4361835878218865,
+            1.0041350089219927
+          ]
+        ],
+        [
+          [
+            -0.7137709863264042,
+            0.4160802786768968,
+            -1.5052998871758545,
+            0.8023344329547256
+          ],
+          [
+            -0.7075034152100529,
+            0.4205945177022402,
+            -1.5024510258245005,
+            0.8051187685950247
+          ],
+          [
+            -0.7075909390535058,
+            0.420865517222075,
+            -1.5020226432992325,
+            0.8047602477628275
+          ],
+          [
+            -0.7092663367148999,
+            0.4191727890182948,
+            -1.503256629493314,
+            0.8044743358789307
+          ],
+          [
+            -0.7122019337344933,
+            0.4169430708511829,
+            -1.5049147661130724,
+            0.8034170342299509
+          ],
+          [
+            -0.703320731981544,
+            0.42400867017424415,
+            -1.5002202391067492,
+            0.8066601530151976
+          ],
+          [
+            -0.6936774248467082,
+            0.4312670764865112,
+            -1.4951910940927635,
+            0.8105557508746114
+          ],
+          [
+            -0.7117634917313918,
+            0.41709317334211893,
+            -1.5048412216268465,
+            0.8036994155065412
+          ],
+          [
+            -0.33558812095987084,
+            0.7088947292359044,
+            -1.3195575503659025,
+            0.9728228012655605
+          ],
+          [
+            -0.3139338375948674,
+            0.7259917255719983,
+            -1.3085039645607823,
+            0.9824657689023685
+          ],
+          [
+            -0.35724214720430003,
+            0.6917980512733064,
+            -1.33061085403105,
+            0.9631798499458285
+          ],
+          [
+            -0.2984231932294579,
+            0.7382379620974278,
+            -1.300586552645917,
+            0.9893729503187034
+          ],
+          [
+            -0.37275289441793924,
+            0.6795516237237793,
+            -1.3385283599925728,
+            0.9562726848465694
+          ]
+        ]
+      ],
+      "state_id": "coverage-002",
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 0.8796193215156834,
+          "ensemble_spread_mean": 0.16345290254539407,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.663229072837183,
+            "ensemble_spread_mean": 0.19026093546558345,
+            "oracle_best": 1.3651705221918675,
+            "pairwise_accuracy": 0.9,
+            "pairwise_support": 10,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.9911563918540995,
+            "ensemble_spread_mean": 0.14669788197027572,
+            "oracle_best": 1.3902728560952085,
+            "pairwise_accuracy": 0.5185185185185185,
+            "pairwise_support": 27,
+            "predicted_order": [
+              5,
+              3,
+              6,
+              0,
+              1,
+              2,
+              7,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.3902728560952085,
+          "pairwise_accuracy": 0.5657894736842105,
+          "pairwise_support": 76,
+          "predicted_order": [
+            5,
+            3,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            2,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 1.0291866488818084,
+          "ensemble_spread_mean": 0.2510656246163245,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.7910896030011437,
+            "ensemble_spread_mean": 0.2950112070198828,
+            "oracle_best": 0.2816200256347656,
+            "pairwise_accuracy": 0.8,
+            "pairwise_support": 10,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.153300332588656,
+            "ensemble_spread_mean": 0.2235996356141006,
+            "oracle_best": 0.2668037414550781,
+            "pairwise_accuracy": 0.44,
+            "pairwise_support": 25,
+            "predicted_order": [
+              5,
+              3,
+              6,
+              0,
+              1,
+              2,
+              7,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 0.2816200256347656,
+          "pairwise_accuracy": 0.5066666666666667,
+          "pairwise_support": 75,
+          "predicted_order": [
+            5,
+            3,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            2,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "drawdown": {
+          "calibration_rmse": 1.4568183127114382,
+          "ensemble_spread_mean": 0.1841931330796086,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.3250883792150945,
+            "ensemble_spread_mean": 0.20745497945752592,
+            "oracle_best": -0.01739501953125,
+            "pairwise_accuracy": 0.7777777777777778,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.5334136219401875,
+            "ensemble_spread_mean": 0.16965447909341033,
+            "oracle_best": -0.0038909912109375,
+            "pairwise_accuracy": 0.5384615384615384,
+            "pairwise_support": 26,
+            "predicted_order": [
+              5,
+              3,
+              6,
+              0,
+              1,
+              2,
+              7,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": -0.0038909912109375,
+          "pairwise_accuracy": 0.5616438356164384,
+          "pairwise_support": 73,
+          "predicted_order": [
+            5,
+            3,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            2,
+            7,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "recovery": {
+          "calibration_rmse": 0.6609010514284173,
+          "ensemble_spread_mean": 0.08769549517423716,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.608119013910859,
+            "ensemble_spread_mean": 0.08754992048412094,
+            "oracle_best": 0.2990150451660156,
+            "pairwise_accuracy": 1.0,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.6918479711730261,
+            "ensemble_spread_mean": 0.08778647935555982,
+            "oracle_best": 0.3412933349609375,
+            "pairwise_accuracy": 0.4074074074074074,
+            "pairwise_support": 27,
+            "predicted_order": [
+              5,
+              3,
+              6,
+              0,
+              1,
+              4,
+              2,
+              7
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 0.3412933349609375,
+          "pairwise_accuracy": 0.4931506849315068,
+          "pairwise_support": 73,
+          "predicted_order": [
+            5,
+            3,
+            6,
+            12,
+            10,
+            8,
+            0,
+            9,
+            11,
+            1,
+            4,
+            2,
+            7
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "cb7e493fcb971055c59fa5114b64689308adce9d1a1a97f39822e0e1844f26a8",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.3615071604406632,
+            0.6165904631938144,
+            -1.1916801469839116,
+            0.895629170711409
+          ],
+          [
+            -0.5593409754788763,
+            0.4474010991215631,
+            -1.315238175476658,
+            0.8043486739978446
+          ],
+          [
+            -1.2016739886811465,
+            -0.09723908217163912,
+            -1.878431411816608,
+            0.67919850457179
+          ],
+          [
+            0.6246564323587451,
+            1.4293743965120782,
+            -0.8264693846701996,
+            1.4869617568775373
+          ],
+          [
+            -1.5172755061348928,
+            -0.3693234490817672,
+            -2.1932707490640233,
+            0.6610060581423207
+          ],
+          [
+            0.8185616507198595,
+            1.5664745987692041,
+            -0.8211378796521003,
+            1.6587780210662098
+          ],
+          [
+            -0.2644700614394285,
+            0.709271471206226,
+            -1.1194269919014208,
+            0.927301496233846
+          ],
+          [
+            -1.2321076026276068,
+            -0.11910055910096906,
+            -1.900806616400946,
+            0.6680691165851145
+          ],
+          [
+            -0.35427908970738364,
+            0.6229973265286556,
+            -1.1872417795611665,
+            0.898952567470648
+          ],
+          [
+            -0.4157480825921284,
+            0.5661348013395594,
+            -1.2296325816028737,
+            0.8742074933679528
+          ],
+          [
+            -0.2909393389489784,
+            0.681297286827502,
+            -1.1446264881478208,
+            0.9252915914536581
+          ],
+          [
+            -0.458243762626847,
+            0.5273289775530399,
+            -1.2612317412924798,
+            0.8582554630504815
+          ],
+          [
+            -0.2408326842219029,
+            0.726281339328902,
+            -1.115054833325611,
+            0.9482368268118223
+          ]
+        ],
+        [
+          [
+            -1.0686087434320888,
+            0.1715268141144971,
+            -1.680725587789468,
+            0.6890686711739922
+          ],
+          [
+            -1.2636236941913888,
+            0.0034085433825452593,
+            -1.8408804623788466,
+            0.6398200320095958
+          ],
+          [
+            -1.661466667173656,
+            -0.36419644720103306,
+            -2.261938257768029,
+            0.6270080271519451
+          ],
+          [
+            0.11437294814529798,
+            1.1027095101204665,
+            -1.0627734734697223,
+            1.2469289217438553
+          ],
+          [
+            -1.7663714500485146,
+            -0.4713649562514428,
+            -2.4084230744918083,
+            0.6645654650879618
+          ],
+          [
+            0.22573005612508912,
+            1.1842249261526296,
+            -1.0486842614071301,
+            1.338561704126973
+          ],
+          [
+            -0.9357025015461077,
+            0.2755497930239672,
+            -1.5800728578664982,
+            0.7244130812099767
+          ],
+          [
+            -1.6207276606138317,
+            -0.32461846156210195,
+            -2.2124512827370926,
+            0.6196544758061843
+          ],
+          [
+            -1.0654181856511329,
+            0.1736090616782403,
+            -1.678357022718365,
+            0.6899169143667545
+          ],
+          [
+            -1.1099367618032576,
+            0.13985034924984707,
+            -1.7086563165302562,
+            0.67290659113794
+          ],
+          [
+            -1.0159299830411463,
+            0.2100949190239686,
+            -1.6483831773650226,
+            0.7113073934610126
+          ],
+          [
+            -1.1386244242027672,
+            0.11557390322850558,
+            -1.7304920694867265,
+            0.6635119041286414
+          ],
+          [
+            -0.9788377690091132,
+            0.23786787012829136,
+            -1.6254305733264842,
+            0.726769552524601
+          ]
+        ],
+        [
+          [
+            -0.6264183851759899,
+            0.4794492119805981,
+            -1.333492255525926,
+            0.7627000148185992
+          ],
+          [
+            -0.8201116333357457,
+            0.3222899937295598,
+            -1.4574693559248404,
+            0.6874062385259554
+          ],
+          [
+            -1.2895737424134281,
+            -0.04863975004833265,
+            -1.8172199221253895,
+            0.5767290135931398
+          ],
+          [
+            0.28890684386357546,
+            1.243219057409806,
+            -0.8070632800889292,
+            1.1207047542208648
+          ],
+          [
+            -1.5728777274543269,
+            -0.27455444155778364,
+            -2.099591155590506,
+            0.5706537582936265
+          ],
+          [
+            0.4764127425261259,
+            1.393223616658489,
+            -0.7274469300446808,
+            1.2158039035826116
+          ],
+          [
+            -0.4536202461738967,
+            0.621680066801213,
+            -1.221584562392297,
+            0.8241332795085444
+          ],
+          [
+            -1.3470760847760948,
+            -0.09102621442038883,
+            -1.868622345431218,
+            0.567872137406837
+          ],
+          [
+            -0.6222393016355195,
+            0.48169777785867607,
+            -1.331724836690062,
+            0.7652502554892847
+          ],
+          [
+            -0.6133831948506109,
+            0.4871847964887397,
+            -1.327142131159599,
+            0.7696857180836284
+          ],
+          [
+            -0.6310956141168876,
+            0.476210631879214,
+            -1.3363076362671824,
+            0.7608146745961404
+          ],
+          [
+            -0.6070397731648747,
+            0.4911150536227348,
+            -1.3238596206701525,
+            0.7728627588302199
+          ],
+          [
+            -0.6374391900749683,
+            0.47228020494602097,
+            -1.3395902408032865,
+            0.757637617532473
+          ]
+        ]
+      ],
+      "state_id": "coverage-003",
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 0.38460490498084315,
+          "ensemble_spread_mean": 0.07461540914781846,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.335830862178085,
+            "ensemble_spread_mean": 0.08234560469209805,
+            "oracle_best": 1.3858694799764208,
+            "pairwise_accuracy": 0.3333333333333333,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.41216809195442705,
+            "ensemble_spread_mean": 0.06978403693264372,
+            "oracle_best": 1.417261994728129,
+            "pairwise_accuracy": 0.46153846153846156,
+            "pairwise_support": 26,
+            "predicted_order": [
+              5,
+              6,
+              3,
+              0,
+              7,
+              1,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.417261994728129,
+          "pairwise_accuracy": 0.4647887323943662,
+          "pairwise_support": 71,
+          "predicted_order": [
+            5,
+            6,
+            3,
+            12,
+            0,
+            10,
+            8,
+            7,
+            9,
+            11,
+            1,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 0.23879757496253223,
+          "ensemble_spread_mean": 0.11789753952857704,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.22070922524853911,
+            "ensemble_spread_mean": 0.126597324332634,
+            "oracle_best": 0.14386367797851562,
+            "pairwise_accuracy": 0.3333333333333333,
+            "pairwise_support": 9,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.24943758060754617,
+            "ensemble_spread_mean": 0.11246017402604142,
+            "oracle_best": 0.049724578857421875,
+            "pairwise_accuracy": 0.6153846153846154,
+            "pairwise_support": 26,
+            "predicted_order": [
+              5,
+              6,
+              3,
+              0,
+              7,
+              1,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": 0.14386367797851562,
+          "pairwise_accuracy": 0.5217391304347826,
+          "pairwise_support": 69,
+          "predicted_order": [
+            5,
+            6,
+            3,
+            0,
+            12,
+            10,
+            7,
+            8,
+            9,
+            11,
+            1,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "drawdown": {
+          "calibration_rmse": 0.5544024388088222,
+          "ensemble_spread_mean": 0.04823692266384267,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5580460858140182,
+            "ensemble_spread_mean": 0.0528276410791582,
+            "oracle_best": -0.074462890625,
+            "pairwise_accuracy": 0.7,
+            "pairwise_support": 10,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.55211294865515,
+            "ensemble_spread_mean": 0.045367723654270456,
+            "oracle_best": -0.08690643310546875,
+            "pairwise_accuracy": 0.5416666666666666,
+            "pairwise_support": 24,
+            "predicted_order": [
+              5,
+              6,
+              3,
+              0,
+              7,
+              1,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": -0.074462890625,
+          "pairwise_accuracy": 0.5,
+          "pairwise_support": 70,
+          "predicted_order": [
+            5,
+            6,
+            3,
+            12,
+            0,
+            10,
+            8,
+            7,
+            9,
+            11,
+            1,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "recovery": {
+          "calibration_rmse": 0.4783460012518995,
+          "ensemble_spread_mean": 0.08685444535975964,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5706213593713075,
+            "ensemble_spread_mean": 0.09131616887724085,
+            "oracle_best": 1.44140625,
+            "pairwise_accuracy": 0.3,
+            "pairwise_support": 10,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.4102666786713361,
+            "ensemble_spread_mean": 0.08406586816133388,
+            "oracle_best": 0.8856773376464844,
+            "pairwise_accuracy": 0.56,
+            "pairwise_support": 25,
+            "predicted_order": [
+              5,
+              6,
+              3,
+              0,
+              7,
+              1,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.44140625,
+          "pairwise_accuracy": 0.5492957746478874,
+          "pairwise_support": 71,
+          "predicted_order": [
+            5,
+            6,
+            3,
+            0,
+            7,
+            12,
+            10,
+            8,
+            9,
+            11,
+            1,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1006",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "4d4aeb862687bcb04c2c4ded61e81c2f7fcc7c2c381d557cddb5b03fae66a081",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.027304756432570028,
+            1.0605665590230864,
+            -0.5682000406667216,
+            0.5992924130572224
+          ],
+          [
+            -0.14366544364204412,
+            0.9691567951554888,
+            -0.6526549736850386,
+            0.568005496868498
+          ],
+          [
+            -0.4200175183023676,
+            0.7404736656862654,
+            -0.8925260523573492,
+            0.5123467270550632
+          ],
+          [
+            0.020251313622697872,
+            1.0980016469472775,
+            -0.5347678645975906,
+            0.6135287681078634
+          ],
+          [
+            -0.3861023632211455,
+            0.767507374757668,
+            -0.8638821795679789,
+            0.519431699330845
+          ],
+          [
+            0.091739343937336,
+            1.1476529700011204,
+            -0.4963549775431264,
+            0.6500932467046021
+          ],
+          [
+            0.01942603371573394,
+            1.0938698806151845,
+            -0.5398287503585091,
+            0.6186885212275879
+          ],
+          [
+            -0.049323379651194585,
+            1.0434556922150147,
+            -0.58390136526602,
+            0.5930876491259701
+          ],
+          [
+            -0.061518197091904994,
+            1.0352896561277685,
+            -0.5902239809850056,
+            0.5883662379343086
+          ],
+          [
+            -0.09561449361764095,
+            1.0065564905593694,
+            -0.6181241915854097,
+            0.5810224441999602
+          ],
+          [
+            -0.027971521505548456,
+            1.0632353036287967,
+            -0.5633722025232815,
+            0.5960152262570466
+          ],
+          [
+            -0.11939580693259577,
+            0.9862767462206478,
+            -0.6378305871443266,
+            0.5761956573318756
+          ],
+          [
+            -0.00585213273390052,
+            1.0810578731623808,
+            -0.5471200466505485,
+            0.6022433562410455
+          ]
+        ],
+        [
+          [
+            -0.3380332861962623,
+            0.8953692165430635,
+            -0.6851725460092231,
+            0.377495460409163
+          ],
+          [
+            -0.4216130543134197,
+            0.8234275780731657,
+            -0.770828595914798,
+            0.3639054573706736
+          ],
+          [
+            -0.6238976779149027,
+            0.6426324812748314,
+            -0.9952352300065849,
+            0.36646896790336764
+          ],
+          [
+            -0.27215039440667205,
+            0.9598095509481104,
+            -0.6188136006087854,
+            0.3888904251238447
+          ],
+          [
+            -0.6008877520345625,
+            0.6605364058491052,
+            -0.9740491748723281,
+            0.3709750263267676
+          ],
+          [
+            -0.20052326186139946,
+            1.0189053176376748,
+            -0.5661039287626222,
+            0.42196115668852663
+          ],
+          [
+            -0.26672430179345835,
+            0.9615750274957372,
+            -0.6210046055903812,
+            0.3994354986210942
+          ],
+          [
+            -0.3493734348483793,
+            0.8851966739467834,
+            -0.6968977660194369,
+            0.37612231320047373
+          ],
+          [
+            -0.3634554144553833,
+            0.8788882835342693,
+            -0.7044696505143604,
+            0.3678131033510349
+          ],
+          [
+            -0.3835823501856086,
+            0.8597675566830054,
+            -0.7249274788673259,
+            0.36175020007800857
+          ],
+          [
+            -0.34332292492075556,
+            0.8980581884782225,
+            -0.6844794221428728,
+            0.3741786557486039
+          ],
+          [
+            -0.3982781280273088,
+            0.8461740059721066,
+            -0.7414781388312117,
+            0.3584220060984431
+          ],
+          [
+            -0.32636692867167577,
+            0.9131802927934403,
+            -0.6703272340872,
+            0.38097311880434265
+          ]
+        ],
+        [
+          [
+            -0.16325498451619253,
+            1.0634429998851676,
+            -0.612264520538352,
+            0.5267829989201261
+          ],
+          [
+            -0.2552852517124808,
+            0.992747549565945,
+            -0.671570013643765,
+            0.47663272709049054
+          ],
+          [
+            -0.4634907450480829,
+            0.8082268142795248,
+            -0.8496422753703662,
+            0.41355933111605003
+          ],
+          [
+            -0.15041073192920382,
+            1.080211278239706,
+            -0.5995313789872099,
+            0.5267544114030785
+          ],
+          [
+            -0.4563354908614128,
+            0.8104458350971695,
+            -0.8457216876988332,
+            0.4189351223212257
+          ],
+          [
+            -0.023815578816754848,
+            1.1704696310932892,
+            -0.5451630532646714,
+            0.5998883289876421
+          ],
+          [
+            -0.08130347100315231,
+            1.1274608738858605,
+            -0.5698273299827945,
+            0.5703861256140519
+          ],
+          [
+            -0.1900299269643344,
+            1.0413361976053466,
+            -0.6296750020691451,
+            0.5136623402539866
+          ],
+          [
+            -0.1804978759019488,
+            1.0607479417100092,
+            -0.6148455370089239,
+            0.5053399135730361
+          ],
+          [
+            -0.16367724720716342,
+            1.073181347360652,
+            -0.6050821067641237,
+            0.5153905796692912
+          ],
+          [
+            -0.19800867406997785,
+            1.0470695152781766,
+            -0.6255924131520176,
+            0.49593194446392197
+          ],
+          [
+            -0.15186659361634391,
+            1.081664929172855,
+            -0.5986493153857854,
+            0.5229253484604462
+          ],
+          [
+            -0.2105874496641198,
+            1.0373417643338858,
+            -0.6336586303908358,
+            0.48927637235858806
+          ]
+        ]
+      ],
+      "state_id": "coverage-004",
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 2.4075256261479234,
+          "ensemble_spread_mean": 0.12087127657801859,
+          "fixed_bank_only": {
+            "calibration_rmse": 2.243610272427319,
+            "ensemble_spread_mean": 0.1085197170038702,
+            "oracle_best": 2.9301344189056806,
+            "pairwise_accuracy": 0.0,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "nomad_only": {
+            "calibration_rmse": 2.5045308955610683,
+            "ensemble_spread_mean": 0.12859100131186135,
+            "oracle_best": 3.0477968094437315,
+            "pairwise_accuracy": 0.5555555555555556,
+            "pairwise_support": 27,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 3.0477968094437315,
+          "pairwise_accuracy": 0.4507042253521127,
+          "pairwise_support": 71,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            11,
+            10,
+            9,
+            8,
+            0,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 1.6952389262558858,
+          "ensemble_spread_mean": 0.12575929776351652,
+          "fixed_bank_only": {
+            "calibration_rmse": 1.512703345598339,
+            "ensemble_spread_mean": 0.11580425603890003,
+            "oracle_best": 0.9747123718261719,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.7999478521366135,
+            "ensemble_spread_mean": 0.13198119884140186,
+            "oracle_best": 1.00787353515625,
+            "pairwise_accuracy": 0.5833333333333334,
+            "pairwise_support": 24,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.00787353515625,
+          "pairwise_accuracy": 0.47058823529411764,
+          "pairwise_support": 68,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            11,
+            9,
+            8,
+            10,
+            12,
+            0,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "drawdown": {
+          "calibration_rmse": 1.1312234932164218,
+          "ensemble_spread_mean": 0.14045279937336186,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.9137717737690315,
+            "ensemble_spread_mean": 0.11876805956703147,
+            "oracle_best": -0.13113784790039062,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              4,
+              2,
+              0,
+              1,
+              3
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.2480370296077417,
+            "ensemble_spread_mean": 0.15400576175231837,
+            "oracle_best": -0.12787628173828125,
+            "pairwise_accuracy": 0.5652173913043478,
+            "pairwise_support": 23,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              4,
+              2
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": -0.12787628173828125,
+          "pairwise_accuracy": 0.45614035087719296,
+          "pairwise_support": 57,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            12,
+            10,
+            8,
+            9,
+            11,
+            0,
+            1,
+            7,
+            4,
+            2
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "recovery": {
+          "calibration_rmse": 0.574027615239594,
+          "ensemble_spread_mean": 0.03941226772940255,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.5740654572959458,
+            "ensemble_spread_mean": 0.030705524339687106,
+            "oracle_best": 1.1058502197265625,
+            "pairwise_accuracy": 0.5,
+            "pairwise_support": 4,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.5740039626874869,
+            "ensemble_spread_mean": 0.044853982347974705,
+            "oracle_best": 1.1358261108398438,
+            "pairwise_accuracy": 0.4230769230769231,
+            "pairwise_support": 26,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              4,
+              7,
+              2,
+              0,
+              1
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.1358261108398438,
+          "pairwise_accuracy": 0.5571428571428572,
+          "pairwise_support": 70,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            4,
+            7,
+            11,
+            2,
+            9,
+            8,
+            0,
+            10,
+            12,
+            1
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "93ca109dfcab5d540b2c210148b00c09c090c1cb38e91d0d46b3186cb2a49b01",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.5962087232496454,
+            0.6452765943843976,
+            -1.0434162261270639,
+            0.4733614470718052
+          ],
+          [
+            -1.1487472612084593,
+            0.16877309562269205,
+            -1.5708200774606824,
+            0.4079860053895398
+          ],
+          [
+            -1.4883775191056994,
+            -0.15595734279449114,
+            -1.9582618825884974,
+            0.4509981765441317
+          ],
+          [
+            0.29368836090936296,
+            1.3582961763510089,
+            -0.46292345980059846,
+            0.8025935766755422
+          ],
+          [
+            -1.4334404172875688,
+            -0.09898308973318248,
+            -1.9128857810069548,
+            0.4611858734441343
+          ],
+          [
+            -0.1262513485219663,
+            1.035651752917272,
+            -0.6360168033062765,
+            0.5695034370739795
+          ],
+          [
+            -0.32829587293127455,
+            0.8691541200171455,
+            -0.8053873451392242,
+            0.5208974296284202
+          ],
+          [
+            -1.415305806038479,
+            -0.07954023257861875,
+            -1.8914292241738393,
+            0.4573226099103309
+          ],
+          [
+            -0.5868569394218214,
+            0.6537190954031608,
+            -1.0342183101901126,
+            0.4742001121409904
+          ],
+          [
+            -0.6139511741989871,
+            0.6282048556789899,
+            -1.0632093444601,
+            0.47264081972997296
+          ],
+          [
+            -0.559762293251737,
+            0.6792335898261286,
+            -1.0052269820243203,
+            0.4757595677227673
+          ],
+          [
+            -0.6333586351385259,
+            0.6099292406605317,
+            -1.0839754224891098,
+            0.47152381797939624
+          ],
+          [
+            -0.5399086766918711,
+            0.6977990308504878,
+            -0.98414930390709,
+            0.47706607599331596
+          ]
+        ],
+        [
+          [
+            -0.8341774143465759,
+            0.44889626595859655,
+            -1.2503254325531268,
+            0.440333498880239
+          ],
+          [
+            -1.3840834490186467,
+            -0.06784200173948429,
+            -1.8536726887426123,
+            0.45186569020357953
+          ],
+          [
+            -1.6148844412931165,
+            -0.3001669525677344,
+            -2.141954096309906,
+            0.5042442545577894
+          ],
+          [
+            0.044526542704634756,
+            1.1821148102955323,
+            -0.676023992811668,
+            0.7612079813946081
+          ],
+          [
+            -1.4900844911736035,
+            -0.18862424638044217,
+            -2.0286649283114486,
+            0.517365990150941
+          ],
+          [
+            -0.46521792679311813,
+            0.7777024369725685,
+            -0.9196973425823624,
+            0.5037643693543821
+          ],
+          [
+            -0.5955278679692017,
+            0.6680521428457769,
+            -1.0256733484408935,
+            0.47384550944665343
+          ],
+          [
+            -1.3819557248431449,
+            -0.08678242306748696,
+            -1.91619359004729,
+            0.5136547691307503
+          ],
+          [
+            -0.8312784312967467,
+            0.45025856492327987,
+            -1.2485002455578453,
+            0.4415882493859047
+          ],
+          [
+            -0.8410195985221175,
+            0.44111721285579475,
+            -1.2580932632591142,
+            0.43959681553568136
+          ],
+          [
+            -0.8215373669196055,
+            0.459399916990765,
+            -1.2389072748799053,
+            0.44357971587027983
+          ],
+          [
+            -0.8479968738473364,
+            0.43456958598590145,
+            -1.2649644531317525,
+            0.43817037675697074
+          ],
+          [
+            -0.8145599373220422,
+            0.4659477136598562,
+            -1.2320359439372806,
+            0.4450061872831424
+          ]
+        ],
+        [
+          [
+            -0.6163227001029318,
+            0.6843195852005719,
+            -0.9867432988164075,
+            0.395345166658504
+          ],
+          [
+            -1.00849570160737,
+            0.32533805913090974,
+            -1.3759591178019495,
+            0.3532564440996837
+          ],
+          [
+            -1.19265769577852,
+            0.16031964255566478,
+            -1.5776917375666086,
+            0.37339328224944013
+          ],
+          [
+            0.10577878294534097,
+            1.2958336099407524,
+            -0.5382294869463945,
+            0.6765527886105082
+          ],
+          [
+            -1.1721818474291246,
+            0.17942256171604976,
+            -1.5559940451034628,
+            0.3707701491212598
+          ],
+          [
+            -0.2677265835036918,
+            0.9837718260035532,
+            -0.7243372538001983,
+            0.5000294885740777
+          ],
+          [
+            -0.3972080436216626,
+            0.8752184559200402,
+            -0.8095879390999475,
+            0.4536381815288344
+          ],
+          [
+            -1.1468867367336515,
+            0.2020274195337487,
+            -1.529255922027422,
+            0.36824876927864386
+          ],
+          [
+            -0.6128900375893226,
+            0.6851496910292639,
+            -0.9844708494293493,
+            0.39784073288698224
+          ],
+          [
+            -0.5692611500479953,
+            0.7203904745315532,
+            -0.9489430552010711,
+            0.4099879474366687
+          ],
+          [
+            -0.6517329341868716,
+            0.6515212145856535,
+            -1.0200921377910923,
+            0.3890224629023545
+          ],
+          [
+            -0.5373296030604438,
+            0.7460145743367599,
+            -0.9236442927075977,
+            0.41907078249059426
+          ],
+          [
+            -0.6795558486712796,
+            0.627433288123771,
+            -1.0456074897369678,
+            0.38270589436675856
+          ]
+        ]
+      ],
+      "state_id": "coverage-005",
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "heads": {
+        "advantage_h": {
+          "calibration_rmse": 0.49353243360782645,
+          "ensemble_spread_mean": 0.0956238000211101,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.42590095534723466,
+            "ensemble_spread_mean": 0.10776704683597908,
+            "oracle_best": 1.1050450513930343,
+            "pairwise_accuracy": 0.6,
+            "pairwise_support": 10,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.5314493508873624,
+            "ensemble_spread_mean": 0.08803427076181697,
+            "oracle_best": 1.049250806337426,
+            "pairwise_accuracy": 0.5555555555555556,
+            "pairwise_support": 27,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 1.1050450513930343,
+          "pairwise_accuracy": 0.5333333333333333,
+          "pairwise_support": 75,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            11,
+            9,
+            0,
+            8,
+            10,
+            1,
+            12,
+            7,
+            2,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "delta_v": {
+          "calibration_rmse": 0.5804356363580792,
+          "ensemble_spread_mean": 0.1537737840628556,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.4663214521844989,
+            "ensemble_spread_mean": 0.17445528762346402,
+            "oracle_best": 0.028102874755859375,
+            "pairwise_accuracy": 0.8,
+            "pairwise_support": 10,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.6415307260344207,
+            "ensemble_spread_mean": 0.14084784433747535,
+            "oracle_best": -0.011943817138671875,
+            "pairwise_accuracy": 0.25,
+            "pairwise_support": 24,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 0.028102874755859375,
+          "pairwise_accuracy": 0.43661971830985913,
+          "pairwise_support": 71,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            11,
+            9,
+            0,
+            8,
+            10,
+            1,
+            12,
+            7,
+            2,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        },
+        "drawdown": {
+          "calibration_rmse": 1.0614419250595406,
+          "ensemble_spread_mean": 0.10245268092397966,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.9935261859271293,
+            "ensemble_spread_mean": 0.11037037862101032,
+            "oracle_best": -0.08338546752929688,
+            "pairwise_accuracy": 0.8888888888888888,
+            "pairwise_support": 9,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": true,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 1.1017653489371502,
+            "ensemble_spread_mean": 0.09750411986333551,
+            "oracle_best": -0.08156967163085938,
+            "pairwise_accuracy": 0.8,
+            "pairwise_support": 20,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "oracle_best": -0.08156967163085938,
+          "pairwise_accuracy": 0.8214285714285714,
+          "pairwise_support": 56,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            11,
+            9,
+            0,
+            8,
+            10,
+            1,
+            12,
+            7,
+            2,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": true
+        },
+        "recovery": {
+          "calibration_rmse": 0.6273871433295607,
+          "ensemble_spread_mean": 0.057754352868325184,
+          "fixed_bank_only": {
+            "calibration_rmse": 0.581386586451033,
+            "ensemble_spread_mean": 0.06446784999866109,
+            "oracle_best": 0.13924407958984375,
+            "pairwise_accuracy": 0.6666666666666666,
+            "pairwise_support": 9,
+            "predicted_order": [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": true
+          },
+          "nomad_only": {
+            "calibration_rmse": 0.6544977410648589,
+            "ensemble_spread_mean": 0.05355841716186523,
+            "oracle_best": 0.10996246337890625,
+            "pairwise_accuracy": 0.037037037037037035,
+            "pairwise_support": 27,
+            "predicted_order": [
+              3,
+              5,
+              6,
+              0,
+              1,
+              7,
+              2,
+              4
+            ],
+            "top1_recall": false,
+            "top3_recall": false
+          },
+          "oracle_best": 0.13924407958984375,
+          "pairwise_accuracy": 0.2222222222222222,
+          "pairwise_support": 72,
+          "predicted_order": [
+            3,
+            5,
+            6,
+            11,
+            0,
+            9,
+            8,
+            1,
+            10,
+            12,
+            7,
+            2,
+            4
+          ],
+          "predicted_top1_candidate_id": "nomad-seed-1004",
+          "top1_constraint_failure": false,
+          "top1_ood": false,
+          "top1_proposal_valid": true,
+          "top1_recall": false,
+          "top3_recall": false
+        }
+      },
+      "offline_sha256": "73c830ffab98c280f1d108341ecc64c6debad4e402d93c213accb28804e5b2d4",
+      "prediction_by_seed_head": [
+        [
+          [
+            -0.26310535542385166,
+            0.7520661116251135,
+            -0.9502254166446443,
+            0.7328894105511973
+          ],
+          [
+            -0.31330003537949963,
+            0.7090278518070512,
+            -0.9939702201713347,
+            0.7200616760323401
+          ],
+          [
+            -0.9249099168687765,
+            0.1912517926363575,
+            -1.552023113080545,
+            0.6205991692348303
+          ],
+          [
+            0.2651663870078588,
+            1.2121849216858798,
+            -0.6432670482322831,
+            0.9869282444159315
+          ],
+          [
+            -1.2368018015264006,
+            -0.0821652432784219,
+            -1.8575265326768453,
+            0.5836085375657558
+          ],
+          [
+            0.050463958147702895,
+            1.0368748908268333,
+            -0.7221888049311567,
+            0.8567978912908765
+          ],
+          [
+            -0.06927791603642836,
+            0.9280030411227752,
+            -0.8040505894600742,
+            0.8125145556720401
+          ],
+          [
+            -0.31850518428331553,
+            0.7070094911915148,
+            -0.9958771807353803,
+            0.7155158039436456
+          ],
+          [
+            -0.28498833468356455,
+            0.732755867644103,
+            -0.9687965985116012,
+            0.7257884801751457
+          ],
+          [
+            -0.2909192835441919,
+            0.7254385834599671,
+            -0.9778853380349365,
+            0.7270010347224296
+          ],
+          [
+            -0.27906772207001945,
+            0.7401382698206302,
+            -0.9597240585250336,
+            0.7246624713986499
+          ],
+          [
+            -0.2953543049042067,
+            0.7200688324009472,
+            -0.9845445467413939,
+            0.7279467071756319
+          ],
+          [
+            -0.27486808173964294,
+            0.7455009954378373,
+            -0.9532649928617345,
+            0.7241084087680174
+          ]
+        ],
+        [
+          [
+            -0.682469641866182,
+            0.5075251697535583,
+            -1.2116118077993925,
+            0.5780997785087417
+          ],
+          [
+            -0.7386829873663407,
+            0.4609233129444479,
+            -1.2609814596250004,
+            0.570080229391397
+          ],
+          [
+            -1.1828495743556313,
+            0.057899652973889215,
+            -1.7209634502342341,
+            0.5601750137100747
+          ],
+          [
+            -0.01596555912657746,
+            1.0339198859983778,
+            -0.8129733483886166,
+            0.860932467004879
+          ],
+          [
+            -1.3954223634920075,
+            -0.13385228891578582,
+            -1.9499535187180803,
+            0.5599121782508267
+          ],
+          [
+            -0.35083943351415664,
+            0.7781414952485163,
+            -0.9587984278094861,
+            0.6748761601064032
+          ],
+          [
+            -0.40932171380916,
+            0.7298683473843595,
+            -1.0214657832716771,
+            0.6742010247722927
+          ],
+          [
+            -0.7229218047134447,
+            0.4748736329950165,
+            -1.2399529561538511,
+            0.5646433796880523
+          ],
+          [
+            -0.696904956566232,
+            0.4980214237479733,
+            -1.2223113314503957,
+            0.5743556296293033
+          ],
+          [
+            -0.6944443640953895,
+            0.5016019794339109,
+            -1.2145687522719681,
+            0.5689478895894363
+          ],
+          [
+            -0.6989378032498592,
+            0.494426350230616,
+            -1.230071591400448,
+            0.5801362801227123
+          ],
+          [
+            -0.692354436644293,
+            0.5041552924224045,
+            -1.2090365046632685,
+            0.5653598624925957
+          ],
+          [
+            -0.7003937742132433,
+            0.4918512180451933,
+            -1.2356301485616052,
+            0.5842770644841103
+          ]
+        ],
+        [
+          [
+            -0.5368462163809746,
+            0.5368060226347564,
+            -1.1575884452168501,
+            0.6853986181363992
+          ],
+          [
+            -0.5491656858760503,
+            0.5324566161807662,
+            -1.1614650014188883,
+            0.6755783165182709
+          ],
+          [
+            -1.0186103107546882,
+            0.14205213544890583,
+            -1.5319963475825884,
+            0.5502846792020102
+          ],
+          [
+            0.057143474991985896,
+            1.0522618818907619,
+            -0.7865036814966321,
+            0.9081271616011244
+          ],
+          [
+            -1.2368123948940573,
+            -0.02451850049386395,
+            -1.738415500387677,
+            0.5354618231737671
+          ],
+          [
+            -0.22360646710538257,
+            0.8040201877260615,
+            -0.9523417603359553,
+            0.8015921895665412
+          ],
+          [
+            -0.254957731525083,
+            0.7815668120177817,
+            -0.9714267896282541,
+            0.7881517447668527
+          ],
+          [
+            -0.6229219567599826,
+            0.46864497391836235,
+            -1.2078106064817387,
+            0.6467118753745469
+          ],
+          [
+            -0.5556218292215094,
+            0.5267715267863622,
+            -1.1651311282245957,
+            0.6728187400010768
+          ],
+          [
+            -0.494414482233056,
+            0.5768842367106757,
+            -1.1265396230557263,
+            0.6975302009273348
+          ],
+          [
+            -0.6168296390269964,
+            0.47665856216325164,
+            -1.203722750951787,
+            0.6481069527333001
+          ],
+          [
+            -0.4505719274945803,
+            0.6127797022453354,
+            -1.098896724110456,
+            0.7152309485904158
+          ],
+          [
+            -0.658985688495273,
+            0.4419174764754573,
+            -1.2319224061099197,
+            0.6312268724046419
+          ]
+        ]
+      ],
+      "state_id": "coverage-006",
+      "terrain_type": "random_rough"
+    }
+  ],
+  "status": "secondary_evaluator_after_complete_oracle",
+  "validation_used": false
+}
