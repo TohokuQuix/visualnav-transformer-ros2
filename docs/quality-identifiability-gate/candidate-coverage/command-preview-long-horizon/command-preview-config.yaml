@@ -1,0 +1,85 @@
+no_future_preview_inputs:
+- recorded_command
+- realized_trajectory
+- future_pose
+- future_dem
+- Actor_observation
+- Critic_value
+- reward
+- termination
+- delta_v
+production_follower_parameters:
+  angular_direction_sign: 0.5
+  angular_gain: 1.0
+  angular_stuck_boost_duration_sec: 2.0
+  angular_stuck_boost_speed: 0.1
+  angular_stuck_ratio_threshold: 0.25
+  backtrack_history_max_length: 5.0
+  backtrack_history_min_points: 2
+  backtrack_history_min_spacing: 0.2
+  carrot_marker_topic: /teaching_playback/carrot_marker
+  carrot_marker_z_offset: 0.5
+  carrot_search_distance: 2.0
+  cmd_vel_frame_id: ''
+  cmd_vel_topic: /cmd_vel_auto
+  cmd_vel_use_stamped: true
+  control_rate_hz: 20.0
+  debug_control_log: true
+  debug_control_log_period_sec: 0.5
+  flipper_cmd_topic: /flipper_joint_velocity_controller/commands
+  flipper_joint_count: 4
+  goal_tolerance: 0.2
+  linear_speed: 0.3
+  linear_stuck_ratio_threshold: 0.25
+  linear_stuck_recovery_distance: 0.3
+  lookahead_distance: 0.5
+  max_angular_speed: 1.6
+  max_carrot_distance: 0.6
+  min_carrot_distance: 0.3
+  min_linear_speed_scale: 0.0
+  path_tangent_sample_distance: 0.5
+  path_topic: /teaching_playback/path
+  progress_path_reset_goal_distance: 0.3
+  progress_path_reset_length_distance: 0.5
+  progress_path_reset_length_ratio: 0.2
+  progress_path_reset_shape_distance: 0.5
+  progress_stall_min_improvement_distance: 0.1
+  progress_stall_timeout_sec: 20.0
+  publish_subcrawler_commands: false
+  recovery_path_topic: /llm_recovery_path
+  robot_frame: chassis/body
+  stuck_window_sec: 20.0
+  travel_direction_forward_angle_threshold: 1.3962634015954636
+  travel_direction_reverse_angle_threshold: 1.7453292519943295
+  turn_in_place_heading_threshold: 0.6
+stage_a:
+  command_cluster_threshold:
+    angular_rms_radps: 0.05
+    linear_rms_mps: 0.03
+  control_dt_sec: 0.05
+  gate:
+    closed_not_worse_states_min: 5
+    oracle_regret_max: 0.1
+    pairwise_min: 0.6
+    same_cluster_macro_min: 0.75
+  primary: actual_production_follower_closed_loop_unicycle
+  secondary: actual_production_follower_fixed_initial_pose
+  steps: 40
+  trajectory_interval_sec: 0.25
+  trajectory_points: 8
+stage_b:
+  dt_sec: 0.05
+  duplicate_xy_rms_max_m: 0.0105
+  estimated_storage_bytes: 100000000
+  estimated_wall_sec: 2700
+  full_prefix_cap: 40
+  repeat_nominal: 3
+  retry_pre_sim_infrastructure_max: 1
+  state_ids:
+  - coverage-001
+  - coverage-003
+  - coverage-004
+  - coverage-006
+  steps: 120
+  storage_cap_bytes: 250000000
+  wall_clock_cap_sec: 5400

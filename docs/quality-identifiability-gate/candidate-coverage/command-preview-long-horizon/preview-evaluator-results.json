@@ -1,0 +1,4267 @@
+{
+  "aggregate": {
+    "constraint_valid_pairwise_state_macro": 0.47981956551057575,
+    "state_macro_oracle_regret": 0.12031609671456474,
+    "state_macro_pairwise_accuracy": 0.48794259770390375,
+    "state_macro_spearman": 0.01726881136457826,
+    "top1_recall_count": 0,
+    "top3_recall_count": 0
+  },
+  "candidate_count": 91,
+  "candidate_rows": [
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": 0.7511329650878906,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8085423818814494,
+        0.642185678927972,
+        0.5755286613696521
+      ],
+      "gt_c_hat_mean": 0.6754189073930245,
+      "seed": 1001,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": 0.8595352172851562,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8081008544314577,
+        0.6417860621315725,
+        0.5751142344281795
+      ],
+      "gt_c_hat_mean": 0.6750003836637366,
+      "seed": 1002,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": 0.9148521423339844,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8081821045329004,
+        0.641859804312249,
+        0.5751907020869423
+      ],
+      "gt_c_hat_mean": 0.675077536977364,
+      "seed": 1003,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 0.871002197265625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8088777699584173,
+        0.6424890297813963,
+        0.5758336577947513
+      ],
+      "gt_c_hat_mean": 0.675733485844855,
+      "seed": 1004,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": false,
+      "delta_v": 0.8615646362304688,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.808064137613464,
+        0.6417529450016174,
+        0.5750797288471238
+      ],
+      "gt_c_hat_mean": 0.674965603820735,
+      "seed": 1005,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 0.9468650817871094,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8078748968708633,
+        0.6415819083956691,
+        0.5749020585303615
+      ],
+      "gt_c_hat_mean": 0.674786287932298,
+      "seed": 1006,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": 0.8544387817382812,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8088898032012892,
+        0.6425000345419715,
+        0.5758445597070967
+      ],
+      "gt_c_hat_mean": 0.6757447991501192,
+      "seed": 1007,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 0.8535537719726562,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8085508154362827,
+        0.6421931868487383,
+        0.5755361692904183
+      ],
+      "gt_c_hat_mean": 0.6754267238584797,
+      "seed": 1008,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.8125877380371094,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8247681299877844,
+        0.6485154217991614,
+        0.6053212223005525
+      ],
+      "gt_c_hat_mean": 0.6928682580291662,
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": 0.74957275390625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8247681299877844,
+        0.6485154217991614,
+        0.6053212223005525
+      ],
+      "gt_c_hat_mean": 0.6928682580291662,
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": 0.74957275390625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8247681299877844,
+        0.6485154217991614,
+        0.6053212223005525
+      ],
+      "gt_c_hat_mean": 0.6928682580291662,
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": true,
+      "delta_v": 0.74957275390625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8247681299877844,
+        0.6485154217991614,
+        0.6053212223005525
+      ],
+      "gt_c_hat_mean": 0.6928682580291662,
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": true,
+      "delta_v": 0.74957275390625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8247681299877844,
+        0.6485154217991614,
+        0.6053212223005525
+      ],
+      "gt_c_hat_mean": 0.6928682580291662,
+      "seed": null,
+      "state_id": "coverage-000",
+      "terrain": "boxes"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": 0.9494705200195312,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8554755259216376,
+        0.6527781723744718,
+        0.5579592011426225
+      ],
+      "gt_c_hat_mean": 0.6887376331462439,
+      "seed": 1001,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": 0.9986572265625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8556125197635638,
+        0.6528944422981185,
+        0.5580717685300011
+      ],
+      "gt_c_hat_mean": 0.6888595768638944,
+      "seed": 1002,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": 0.9072952270507812,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8567113502494039,
+        0.6538269157724605,
+        0.5589744674418523
+      ],
+      "gt_c_hat_mean": 0.689837577821239,
+      "seed": 1003,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 0.9522666931152344,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8230397654881079,
+        0.6348644791227224,
+        0.5440339108135274
+      ],
+      "gt_c_hat_mean": 0.6673127184747859,
+      "seed": 1004,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": true,
+      "delta_v": 0.909088134765625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8514735984567813,
+        0.6493746159098605,
+        0.554669086275342
+      ],
+      "gt_c_hat_mean": 0.6851724335473279,
+      "seed": 1005,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 0.9809799194335938,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8549834999908758,
+        0.6523601971690755,
+        0.5575549561758878
+      ],
+      "gt_c_hat_mean": 0.6882995511119464,
+      "seed": 1006,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": 0.8494873046875,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8501374971050825,
+        0.6482357260385622,
+        0.5535698443965832
+      ],
+      "gt_c_hat_mean": 0.6839810225134092,
+      "seed": 1007,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 0.9606513977050781,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.8553358580257399,
+        0.6526596397897722,
+        0.557844422518306
+      ],
+      "gt_c_hat_mean": 0.6886133067779393,
+      "seed": 1008,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.9493789672851562,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.7921199879599773,
+        0.6171559680891732,
+        0.5311591123023254
+      ],
+      "gt_c_hat_mean": 0.646811689450492,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": 0.9500465393066406,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.7921069262348086,
+        0.617157305116159,
+        0.5311467705147644
+      ],
+      "gt_c_hat_mean": 0.6468036672885774,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": 0.8725929260253906,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.7921199879599773,
+        0.6171559680891732,
+        0.5311591123023254
+      ],
+      "gt_c_hat_mean": 0.646811689450492,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": false,
+      "delta_v": 1.0183372497558594,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.7920335954470509,
+        0.6172100662579819,
+        0.5310737482716957
+      ],
+      "gt_c_hat_mean": 0.6467724699922428,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": true,
+      "delta_v": 0.8942718505859375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.79212862721127,
+        0.6171530883387424,
+        0.5311671344642399
+      ],
+      "gt_c_hat_mean": 0.646816283338084,
+      "seed": null,
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": 1.3529472351074219,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.46210866216714025,
+        0.7839825846040325,
+        -0.2460342591497376
+      ],
+      "gt_c_hat_mean": 0.333352329207145,
+      "seed": 1001,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": 1.4883995056152344,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.4610992582170019,
+        0.7831539364175467,
+        -0.24694730716469981
+      ],
+      "gt_c_hat_mean": 0.3324352958232829,
+      "seed": 1002,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": 1.5799179077148438,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.4605574537430777,
+        0.7827092206724351,
+        -0.24743757181952847
+      ],
+      "gt_c_hat_mean": 0.3319430341986614,
+      "seed": 1003,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 1.4759864807128906,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.46449957496237854,
+        0.7859454430673664,
+        -0.24387055094987858
+      ],
+      "gt_c_hat_mean": 0.3355248223599554,
+      "seed": 1004,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": true,
+      "delta_v": 1.4801712036132812,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.46766246656955196,
+        0.7885412295361158,
+        -0.24100786046909561
+      ],
+      "gt_c_hat_mean": 0.3383986118788574,
+      "seed": 1005,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 1.4565620422363281,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.4646927753618217,
+        0.7861038293410648,
+        -0.24369586323177678
+      ],
+      "gt_c_hat_mean": 0.33570024715703656,
+      "seed": 1006,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": 1.545684814453125,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.46357723203865947,
+        0.7851882744005042,
+        -0.24470539574220224
+      ],
+      "gt_c_hat_mean": 0.3346867035656538,
+      "seed": 1007,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 1.3966903686523438,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.42993963861727086,
+        0.7636094816360818,
+        -0.26048524534878426
+      ],
+      "gt_c_hat_mean": 0.3110212916348561,
+      "seed": 1008,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.13779449462890625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.46062400491825656,
+        -0.4610268100097759,
+        -0.5566785947814128
+      ],
+      "gt_c_hat_mean": -0.49277646990314844,
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": 1.4720191955566406,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.4318350370125179,
+        -0.43197851029291356,
+        -0.5402902950480776
+      ],
+      "gt_c_hat_mean": -0.46803461411783637,
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": false,
+      "delta_v": 0.14703369140625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.4896427871932024,
+        -0.4909965784404051,
+        -0.5737235804612183
+      ],
+      "gt_c_hat_mean": -0.5181209820316086,
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": true,
+      "delta_v": 0.2641639709472656,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.4110262689436669,
+        -0.41080144271359886,
+        -0.5282880094933174
+      ],
+      "gt_c_hat_mean": -0.45003857371686107,
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": false,
+      "delta_v": 0.08473968505859375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.5117737206786314,
+        -0.5140697045578801,
+        -0.587001389760399
+      ],
+      "gt_c_hat_mean": -0.5376149383323034,
+      "seed": null,
+      "state_id": "coverage-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": 0.2382659912109375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9187057947395546,
+        0.5344748363787949,
+        0.5232991934700418
+      ],
+      "gt_c_hat_mean": 0.6588266081961304,
+      "seed": 1001,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": 0.1862640380859375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9608520736260121,
+        0.5502009477853721,
+        0.5675850755025286
+      ],
+      "gt_c_hat_mean": 0.6928793656379709,
+      "seed": 1002,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": 0.2668037414550781,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9602431092581106,
+        0.5498642226814184,
+        0.5677403249052219
+      ],
+      "gt_c_hat_mean": 0.6926158856149169,
+      "seed": 1003,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 0.177337646484375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9217523649989665,
+        0.5394093915903376,
+        0.526870803941941
+      ],
+      "gt_c_hat_mean": 0.6626775201770817,
+      "seed": 1004,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": true,
+      "delta_v": 0.08790969848632812,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9212256792148045,
+        0.5374588749145648,
+        0.5253844927508029
+      ],
+      "gt_c_hat_mean": 0.6613563489600575,
+      "seed": 1005,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 0.15839767456054688,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9183187768512903,
+        0.5339353459900383,
+        0.5234511517293856
+      ],
+      "gt_c_hat_mean": 0.6585684248569047,
+      "seed": 1006,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": 0.05991363525390625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9258356454134952,
+        0.5442672220225435,
+        0.5304848393085807
+      ],
+      "gt_c_hat_mean": 0.6668625689148732,
+      "seed": 1007,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 0.1770782470703125,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9185211821672893,
+        0.5349193464274471,
+        0.5237230310245296
+      ],
+      "gt_c_hat_mean": 0.6590545198730887,
+      "seed": 1008,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.020595550537109375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8748786672355301,
+        0.5194209410013688,
+        0.4789425518555393
+      ],
+      "gt_c_hat_mean": 0.624414053364146,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": -0.012477874755859375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8672556593003012,
+        0.5118814458286355,
+        0.47384919897737937
+      ],
+      "gt_c_hat_mean": 0.6176621013687721,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": 0.21588516235351562,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8823887478145765,
+        0.5268224138498792,
+        0.4839285311819192
+      ],
+      "gt_c_hat_mean": 0.6310465642821249,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": false,
+      "delta_v": 0.0351715087890625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8605895512939621,
+        0.5052419755137819,
+        0.4691668276249979
+      ],
+      "gt_c_hat_mean": 0.6116661181442473,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": false,
+      "delta_v": 0.2816200256347656,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.8888985265118108,
+        0.5333801712462565,
+        0.48841070845523965
+      ],
+      "gt_c_hat_mean": 0.636896468737769,
+      "seed": null,
+      "state_id": "coverage-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": -0.09592056274414062,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.123825634457012,
+        -0.37386931195105366,
+        -0.20003870528331774
+      ],
+      "gt_c_hat_mean": -0.23257788389712783,
+      "seed": 1001,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": -0.08690643310546875,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.12063517952428582,
+        -0.3706412145662667,
+        -0.19737088648571016
+      ],
+      "gt_c_hat_mean": -0.22954909352542088,
+      "seed": 1002,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": -0.046993255615234375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.12004426502069218,
+        -0.37023326706326365,
+        -0.19705822786750032
+      ],
+      "gt_c_hat_mean": -0.22911191998381875,
+      "seed": 1003,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 0.049724578857421875,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.1176872407171316,
+        -0.3679705545863144,
+        -0.19535713100471624
+      ],
+      "gt_c_hat_mean": -0.22700497543605405,
+      "seed": 1004,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": true,
+      "delta_v": -0.07088851928710938,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.11472258907265531,
+        -0.3652792221121975,
+        -0.19218895556974325
+      ],
+      "gt_c_hat_mean": -0.2240635889181987,
+      "seed": 1005,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 0.01958465576171875,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.12625933211579476,
+        -0.3756733727477704,
+        -0.20237662552821634
+      ],
+      "gt_c_hat_mean": -0.2347697767972605,
+      "seed": 1006,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": -0.07404327392578125,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.11357958527217007,
+        -0.3638845486936993,
+        -0.1907768236642578
+      ],
+      "gt_c_hat_mean": -0.22274698587670905,
+      "seed": 1007,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 0.007778167724609375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.1202271805971679,
+        -0.3703191453350417,
+        -0.19709815869267133
+      ],
+      "gt_c_hat_mean": -0.22921482820829364,
+      "seed": 1008,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.14386367797851562,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.12342707185496671,
+        -0.37339924411732733,
+        -0.19981846865549896
+      ],
+      "gt_c_hat_mean": -0.23221492820926434,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": 0.0508270263671875,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.13218953532675698,
+        -0.38106585970193807,
+        -0.20637114792053612
+      ],
+      "gt_c_hat_mean": -0.2398755143164104,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": -0.068389892578125,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.1148553404251074,
+        -0.3635927682661133,
+        -0.19132485045607728
+      ],
+      "gt_c_hat_mean": -0.2232576530490993,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": false,
+      "delta_v": -0.056728363037109375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.13619639950663773,
+        -0.3852001528383852,
+        -0.20916761699743752
+      ],
+      "gt_c_hat_mean": -0.24352138978082016,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": true,
+      "delta_v": -0.074462890625,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.11890321533657075,
+        -0.36347829818648586,
+        -0.19355769837833486
+      ],
+      "gt_c_hat_mean": -0.22531307063379713,
+      "seed": null,
+      "state_id": "coverage-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": 1.00787353515625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9362169400203588,
+        0.6978118124608055,
+        0.6086697035381732
+      ],
+      "gt_c_hat_mean": 0.7475661520064459,
+      "seed": 1001,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": 0.8981475830078125,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9197113418810802,
+        0.6831993416851414,
+        0.5704981487598232
+      ],
+      "gt_c_hat_mean": 0.7244696107753482,
+      "seed": 1002,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": 0.8848724365234375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9196712310715072,
+        0.6831548598258073,
+        0.5704680142285286
+      ],
+      "gt_c_hat_mean": 0.724431368375281,
+      "seed": 1003,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": 0.8848724365234375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9368742430562073,
+        0.698492410620675,
+        0.6092750167939213
+      ],
+      "gt_c_hat_mean": 0.7482138901569345,
+      "seed": 1004,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": false,
+      "delta_v": 0.8530311584472656,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9355169549691956,
+        0.69708724668275,
+        0.6080254108033787
+      ],
+      "gt_c_hat_mean": 0.746876537485108,
+      "seed": 1005,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": 0.8575019836425781,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9357174061688308,
+        0.6972949486825772,
+        0.6082098176791846
+      ],
+      "gt_c_hat_mean": 0.7470740575101976,
+      "seed": 1006,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": 0.9233970642089844,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9204794124602877,
+        0.6840539076255051,
+        0.5710788298645642
+      ],
+      "gt_c_hat_mean": 0.7252040499834523,
+      "seed": 1007,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": 0.8628349304199219,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.9359943764513436,
+        0.6975813295781054,
+        0.6084649327128917
+      ],
+      "gt_c_hat_mean": 0.7473468795807804,
+      "seed": 1008,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.9747123718261719,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.9362705239480191,
+        0.6978673505048295,
+        0.6087191221125318
+      ],
+      "gt_c_hat_mean": 0.7476189988551268,
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": 0.8000717163085938,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.9362705239480191,
+        0.6978673505048295,
+        0.6087191221125318
+      ],
+      "gt_c_hat_mean": 0.7476189988551268,
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": 0.8000717163085938,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.9362705239480191,
+        0.6978673505048295,
+        0.6087191221125318
+      ],
+      "gt_c_hat_mean": 0.7476189988551268,
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": true,
+      "delta_v": 0.8000717163085938,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.9362705239480191,
+        0.6978673505048295,
+        0.6087191221125318
+      ],
+      "gt_c_hat_mean": 0.7476189988551268,
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": true,
+      "delta_v": 0.8000717163085938,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.9362705239480191,
+        0.6978673505048295,
+        0.6087191221125318
+      ],
+      "gt_c_hat_mean": 0.7476189988551268,
+      "seed": null,
+      "state_id": "coverage-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "constraint_valid": true,
+      "delta_v": -0.011943817138671875,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.026896166128131484,
+        -0.41513716410786317,
+        -0.2559825755657012
+      ],
+      "gt_c_hat_mean": -0.2326719686005653,
+      "seed": 1001,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "constraint_valid": true,
+      "delta_v": -0.08675765991210938,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.0308357418537478,
+        -0.41789087403327746,
+        -0.2592955484520269
+      ],
+      "gt_c_hat_mean": -0.23600738811301739,
+      "seed": 1002,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "constraint_valid": true,
+      "delta_v": -0.06476593017578125,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.03570887096011766,
+        -0.42248952692670405,
+        -0.26416008973121896
+      ],
+      "gt_c_hat_mean": -0.2407861625393469,
+      "seed": 1003,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "constraint_valid": true,
+      "delta_v": -0.09659957885742188,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.039132662813917404,
+        -0.4254280551208431,
+        -0.26728024789896276
+      ],
+      "gt_c_hat_mean": -0.2439469886112411,
+      "seed": 1004,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "constraint_valid": true,
+      "delta_v": -0.032779693603515625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        0.0709563393500184,
+        -0.25573501987687514,
+        -0.13266049022646428
+      ],
+      "gt_c_hat_mean": -0.10581305691777369,
+      "seed": 1005,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "constraint_valid": true,
+      "delta_v": -0.1441802978515625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.023843707807570773,
+        -0.41321040537314496,
+        -0.2532959226860345
+      ],
+      "gt_c_hat_mean": -0.23011667862225008,
+      "seed": 1006,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "constraint_valid": true,
+      "delta_v": -0.05657958984375,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.0381688463415822,
+        -0.4249374690652967,
+        -0.2669027691840007
+      ],
+      "gt_c_hat_mean": -0.24333636153029317,
+      "seed": 1007,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "constraint_valid": true,
+      "delta_v": -0.05533599853515625,
+      "generator": "nomad",
+      "gt_c_hat_by_seed": [
+        -0.030294965862120375,
+        -0.41748014962807317,
+        -0.2589295630267309
+      ],
+      "gt_c_hat_mean": -0.23556822617230813,
+      "seed": 1008,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "constraint_valid": true,
+      "delta_v": 0.028102874755859375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.03224558538612299,
+        -0.41765879700301745,
+        -0.2601399324176528
+      ],
+      "gt_c_hat_mean": -0.23668143826893107,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "constraint_valid": true,
+      "delta_v": -0.04055023193359375,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.005932020096300027,
+        -0.39311823234454957,
+        -0.23366493397532734
+      ],
+      "gt_c_hat_mean": -0.21090506213872562,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "constraint_valid": true,
+      "delta_v": -0.08224868774414062,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.05824942323228183,
+        -0.44204452365171065,
+        -0.28520256754597606
+      ],
+      "gt_c_hat_mean": -0.26183217147665616,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "constraint_valid": false,
+      "delta_v": -0.01629638671875,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        0.013234570289341593,
+        -0.37555977687809516,
+        -0.2142605841947362
+      ],
+      "gt_c_hat_mean": -0.19219526359449657,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "constraint_valid": false,
+      "delta_v": -0.12802505493164062,
+      "generator": "bank",
+      "gt_c_hat_by_seed": [
+        -0.07767156575660664,
+        -0.4598333077285206,
+        -0.30374476632926506
+      ],
+      "gt_c_hat_mean": -0.2804165466047974,
+      "seed": null,
+      "state_id": "coverage-006",
+      "terrain": "random_rough"
+    }
+  ],
+  "checkpoint_sha256": {
+    "11": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35",
+    "29": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2",
+    "47": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f"
+  },
+  "elapsed_sec": 28.575351240113378,
+  "gpu_peak_bytes": 10329600,
+  "heldout_used_for_selection": false,
+  "prior_aggregate": {
+    "C": {
+      "state_count": 7,
+      "state_macro_oracle_regret": 0.03458513532366071,
+      "state_macro_pairwise_accuracy": 0.6693991377447431,
+      "state_macro_spearman": 0.4003935032331412,
+      "top1_recall_count": 3,
+      "top3_recall_count": 3
+    },
+    "P": {
+      "state_count": 7,
+      "state_macro_oracle_regret": 0.3046166556222098,
+      "state_macro_pairwise_accuracy": 0.4674959610958851,
+      "state_macro_spearman": -0.07475908441706591,
+      "top1_recall_count": 0,
+      "top3_recall_count": 2
+    },
+    "R": {
+      "state_count": 7,
+      "state_macro_oracle_regret": 0.1004011971609933,
+      "state_macro_pairwise_accuracy": 0.5335747250915074,
+      "state_macro_spearman": 0.1447600130746875,
+      "top1_recall_count": 1,
+      "top3_recall_count": 1
+    }
+  },
+  "privileged_recorded_C_R_only_for_comparison": true,
+  "scaler_sha256": "8cf50f7b633f5e659c211da842eb52ba124c0063535e1af4d812d1c8fc541c21",
+  "state_count": 7,
+  "states": [
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.09680474857072531,
+      "generator_bias": {
+        "bank": -0.06930749270325569,
+        "nomad": -0.18884888313256998
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.13427734375,
+        "pairwise_accuracy": 0.13114754098360656,
+        "predicted_score_spread": 0.018081970096868183,
+        "spearman": -0.8310308488329393,
+        "supported_pairs": 61,
+        "top1_candidate_id": "bank-nominal",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.19729232788085938
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            0.8085423818814494,
+            1.7666157247295047,
+            -0.23543860807128902,
+            1.0480209758102694
+          ],
+          [
+            0.8081008544314577,
+            1.76629879452664,
+            -0.23550246575178446,
+            1.0476879116561737
+          ],
+          [
+            0.8081821045329004,
+            1.7663572054507148,
+            -0.2354907099195872,
+            1.047749198593406
+          ],
+          [
+            0.8088777699584173,
+            1.7668562452933179,
+            -0.2353901740426363,
+            1.0482739883898013
+          ],
+          [
+            0.808064137613464,
+            1.766272475650967,
+            -0.23550773236460887,
+            1.0476601726270751
+          ],
+          [
+            0.8078748968708633,
+            1.7661368060918516,
+            -0.2355350999419641,
+            1.0475175613833558
+          ],
+          [
+            0.8088898032012892,
+            1.7668650748516082,
+            -0.2353883871561423,
+            1.0482829627815686
+          ],
+          [
+            0.8085508154362827,
+            1.7666216677014308,
+            -0.23543738546474047,
+            1.0480271762991267
+          ],
+          [
+            0.8247681299877844,
+            1.7755919046272406,
+            -0.23850894930123945,
+            1.0658269522960901
+          ],
+          [
+            0.8247681299877844,
+            1.7755919046272406,
+            -0.23850894930123945,
+            1.0658269522960901
+          ],
+          [
+            0.8247681299877844,
+            1.7755919046272406,
+            -0.23850894930123945,
+            1.0658269522960901
+          ],
+          [
+            0.8247681299877844,
+            1.7755919046272406,
+            -0.23850894930123945,
+            1.0658269522960901
+          ],
+          [
+            0.8247681299877844,
+            1.7755919046272406,
+            -0.23850894930123945,
+            1.0658269522960901
+          ]
+        ],
+        [
+          [
+            0.642185678927972,
+            1.6615752665764691,
+            -0.500384359563729,
+            1.145142349344539
+          ],
+          [
+            0.6417860621315725,
+            1.6613265107515582,
+            -0.5004082944380825,
+            1.1447991033350564
+          ],
+          [
+            0.641859804312249,
+            1.6613723565349887,
+            -0.5004038742451764,
+            1.1448623483214015
+          ],
+          [
+            0.6424890297813963,
+            1.6617639983849255,
+            -0.5003661615354875,
+            1.1454029004131554
+          ],
+          [
+            0.6417529450016174,
+            1.6613058801490144,
+            -0.5004102694178917,
+            1.144770483183857
+          ],
+          [
+            0.6415819083956691,
+            1.6611995009515352,
+            -0.5004204264569101,
+            1.1446235968662415
+          ],
+          [
+            0.6425000345419715,
+            1.66177087525244,
+            -0.5003655032088845,
+            1.1454124622196564
+          ],
+          [
+            0.6421931868487383,
+            1.661579851154812,
+            -0.5003839363537699,
+            1.145148908809067
+          ],
+          [
+            0.6485154217991614,
+            1.6621378113190837,
+            -0.507120968669373,
+            1.1576385861485907
+          ],
+          [
+            0.6485154217991614,
+            1.6621378113190837,
+            -0.507120968669373,
+            1.1576385861485907
+          ],
+          [
+            0.6485154217991614,
+            1.6621378113190837,
+            -0.507120968669373,
+            1.1576385861485907
+          ],
+          [
+            0.6485154217991614,
+            1.6621378113190837,
+            -0.507120968669373,
+            1.1576385861485907
+          ],
+          [
+            0.6485154217991614,
+            1.6621378113190837,
+            -0.507120968669373,
+            1.1576385861485907
+          ]
+        ],
+        [
+          [
+            0.5755286613696521,
+            1.6772777869998794,
+            -0.35481866082445956,
+            0.954792236546496
+          ],
+          [
+            0.5751142344281795,
+            1.6770106079619973,
+            -0.354867376993085,
+            0.9544309275339474
+          ],
+          [
+            0.5751907020869423,
+            1.677059892179185,
+            -0.3548583485139575,
+            0.9544975501550121
+          ],
+          [
+            0.5758336577947513,
+            1.6774728862782569,
+            -0.35478771947411636,
+            0.9550599997626781
+          ],
+          [
+            0.5750797288471238,
+            1.6769883218172739,
+            -0.35487151504601844,
+            0.9544008225288374
+          ],
+          [
+            0.5749020585303615,
+            1.6768737498084967,
+            -0.3548923934040008,
+            0.9542459897952389
+          ],
+          [
+            0.5758445597070967,
+            1.6774798480453703,
+            -0.3547865909142255,
+            0.9550695615691792
+          ],
+          [
+            0.5755361692904183,
+            1.6772826262770193,
+            -0.354817908451199,
+            0.9547988286451758
+          ],
+          [
+            0.6053212223005525,
+            1.6944044981956043,
+            -0.3536976246661293,
+            0.9832906297253081
+          ],
+          [
+            0.6053212223005525,
+            1.6944044132960054,
+            -0.35369753061947173,
+            0.9832905970911562
+          ],
+          [
+            0.6053212223005525,
+            1.6944044132960054,
+            -0.35369753061947173,
+            0.9832905970911562
+          ],
+          [
+            0.6053212223005525,
+            1.6944044132960054,
+            -0.35369753061947173,
+            0.9832905970911562
+          ],
+          [
+            0.6053212223005525,
+            1.6944044132960054,
+            -0.35369753061947173,
+            0.9832905970911562
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.15553977922603543,
+          "ensemble_disagreement_mean": 0.1079221589079259,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1006"
+          ],
+          "oracle_regret": 0.07586288452148438,
+          "pairwise_accuracy": 0.7540983606557377,
+          "pairwise_support": 61,
+          "predicted_spread": 0.008794226433388008,
+          "spearman": 0.6836158192090395,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.19729232788085938
+        },
+        "P": {
+          "calibration_rmse": 1.406547164681487,
+          "ensemble_disagreement_mean": 0.12092715360794418,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1006"
+          ],
+          "oracle_regret": 0.07586288452148438,
+          "pairwise_accuracy": 0.47540983606557374,
+          "pairwise_support": 61,
+          "predicted_spread": 2.050072167950092,
+          "spearman": -0.016714713138843835,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.19729232788085938
+        },
+        "R": {
+          "calibration_rmse": 0.4717083990920161,
+          "ensemble_disagreement_mean": 0.08585585673487703,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1006"
+          ],
+          "oracle_regret": 0.07586288452148438,
+          "pairwise_accuracy": 0.6885245901639344,
+          "pairwise_support": 61,
+          "predicted_spread": 0.12439901343749932,
+          "spearman": 0.6214689265536724,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.19729232788085938
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-000",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.0,
+          "predicted_score_spread": 0.0,
+          "spearman": null,
+          "supported_pairs": 4,
+          "top1_candidate_id": "bank-nominal",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.06301498413085938
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.13427734375,
+          "pairwise_accuracy": 0.1320754716981132,
+          "predicted_score_spread": 0.018081970096868183,
+          "spearman": -0.8340903176210721,
+          "supported_pairs": 53,
+          "top1_candidate_id": "bank-nominal",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.19729232788085938
+        },
+        "nomad_only": {
+          "oracle_regret": 0.09242630004882812,
+          "pairwise_accuracy": 0.3333333333333333,
+          "predicted_score_spread": 0.0009585112178212007,
+          "spearman": -0.5000000000000001,
+          "supported_pairs": 21,
+          "top1_candidate_id": "nomad-seed-1007",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.19573211669921875
+        }
+      },
+      "terrain": "boxes",
+      "true_delta_v": [
+        0.7511329650878906,
+        0.8595352172851562,
+        0.9148521423339844,
+        0.871002197265625,
+        0.8615646362304688,
+        0.9468650817871094,
+        0.8544387817382812,
+        0.8535537719726562,
+        0.8125877380371094,
+        0.74957275390625,
+        0.74957275390625,
+        0.74957275390625,
+        0.74957275390625
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.11746746975876794,
+      "generator_bias": {
+        "bank": -0.2901223466878193,
+        "nomad": -0.2533853253853822
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.11104202270507812,
+        "pairwise_accuracy": 0.5142857142857142,
+        "predicted_score_spread": 0.043065107828996196,
+        "spearman": 0.04401654783045836,
+        "supported_pairs": 70,
+        "top1_candidate_id": "nomad-seed-1003",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.16884994506835938
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            0.8554755259216376,
+            1.7564190281973244,
+            -0.392275328487999,
+            1.259341092972662
+          ],
+          [
+            0.8556125197635638,
+            1.7565227755072361,
+            -0.39226921545525645,
+            1.259463764749582
+          ],
+          [
+            0.8567113502494039,
+            1.757355300974498,
+            -0.39222002905334313,
+            1.260448206575219
+          ],
+          [
+            0.8230397654881079,
+            1.7311281168681802,
+            -0.3966973082806611,
+            1.2332529277151598
+          ],
+          [
+            0.8514735984567813,
+            1.7533870088201753,
+            -0.39245429927737,
+            1.255755154461542
+          ],
+          [
+            0.8549834999908758,
+            1.7560463189579525,
+            -0.3922974294525299,
+            1.2589002382149042
+          ],
+          [
+            0.8501374971050825,
+            1.752374920701143,
+            -0.392513595694973,
+            1.2545578074290347
+          ],
+          [
+            0.8553358580257399,
+            1.7563131583974392,
+            -0.392281582590728,
+            1.2592158757318954
+          ],
+          [
+            0.7921199879599773,
+            1.7070322522937964,
+            -0.4012072687214874,
+            1.208686297154949
+          ],
+          [
+            0.7921069262348086,
+            1.7070263093218703,
+            -0.40119541884263255,
+            1.2086615604678232
+          ],
+          [
+            0.7921199879599773,
+            1.7070322522937964,
+            -0.4012072687214874,
+            1.208686297154949
+          ],
+          [
+            0.7920335954470509,
+            1.7070038958277485,
+            -0.4010906978894194,
+            1.2084809957054667
+          ],
+          [
+            0.79212862721127,
+            1.7070357331773531,
+            -0.40121657934058763,
+            1.2087042459384834
+          ]
+        ],
+        [
+          [
+            0.6527781723744718,
+            1.6175184874947546,
+            -0.6250373262673277,
+            1.2874914429216653
+          ],
+          [
+            0.6528944422981185,
+            1.6175875108686975,
+            -0.625034363797614,
+            1.2875959701101394
+          ],
+          [
+            0.6538269157724605,
+            1.6181418203502143,
+            -0.6250105229699179,
+            1.288434602545173
+          ],
+          [
+            0.6348644791227224,
+            1.6027583950694415,
+            -0.6347447282158758,
+            1.2805216365678709
+          ],
+          [
+            0.6493746159098605,
+            1.6154933773611018,
+            -0.6251254009621495,
+            1.28443150167056
+          ],
+          [
+            0.6523601971690755,
+            1.6172699014690415,
+            -0.6250480475862916,
+            1.28711553012615
+          ],
+          [
+            0.6482357260385622,
+            1.6148151144651244,
+            -0.6251553548225881,
+            1.2834079641309701
+          ],
+          [
+            0.6526596397897722,
+            1.6174479359280307,
+            -0.6250402887370414,
+            1.287384696610863
+          ],
+          [
+            0.6171559680891732,
+            1.588072589793206,
+            -0.6440999254317942,
+            1.2733607898889663
+          ],
+          [
+            0.617157305116159,
+            1.5880806977049053,
+            -0.644086805923062,
+            1.273349335301656
+          ],
+          [
+            0.6171559680891732,
+            1.588072589793206,
+            -0.6440999254317942,
+            1.2733607898889663
+          ],
+          [
+            0.6172100662579819,
+            1.588176719151313,
+            -0.6439689889727811,
+            1.2732845238760206
+          ],
+          [
+            0.6171530883387424,
+            1.5880651186284989,
+            -0.6441104116341141,
+            1.2733680999389876
+          ]
+        ],
+        [
+          [
+            0.5579592011426225,
+            1.617945192879056,
+            -0.4177841206795086,
+            0.9959469533614113
+          ],
+          [
+            0.5580717685300011,
+            1.618015574646582,
+            -0.4177692613076113,
+            0.9960460795977493
+          ],
+          [
+            0.5589744674418523,
+            1.6185801569795712,
+            -0.41765057442574777,
+            0.9968417002206037
+          ],
+          [
+            0.5440339108135274,
+            1.6071879891946361,
+            -0.4210087924745446,
+            0.9855569899880514
+          ],
+          [
+            0.554669086275342,
+            1.6158876086488063,
+            -0.41821654721105245,
+            0.9930471968448131
+          ],
+          [
+            0.5575549561758878,
+            1.617692319423596,
+            -0.4178372570410402,
+            0.9955906373741006
+          ],
+          [
+            0.5535698443965832,
+            1.6152001341463433,
+            -0.41836090883043475,
+            0.9920782236071679
+          ],
+          [
+            0.557844422518306,
+            1.6178733678183477,
+            -0.41779926219137864,
+            0.9958457874905807
+          ],
+          [
+            0.5311591123023254,
+            1.5970833662775126,
+            -0.42408806813696487,
+            0.9760955171869286
+          ],
+          [
+            0.5311467705147644,
+            1.5970802249923515,
+            -0.4240861872038133,
+            0.9760798364769498
+          ],
+          [
+            0.5311591123023254,
+            1.5970833662775126,
+            -0.42408806813696487,
+            0.9760955171869286
+          ],
+          [
+            0.5310737482716957,
+            1.5970750036670163,
+            -0.4240657790791189,
+            0.975973824434565
+          ],
+          [
+            0.5311671344642399,
+            1.5970847671208952,
+            -0.4240896669301437,
+            0.976106351725353
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.3384556010428179,
+          "ensemble_disagreement_mean": 0.09085818327003627,
+          "oracle_best_candidate_ids": [
+            "bank-strong_left"
+          ],
+          "oracle_regret": 0.037357330322265625,
+          "pairwise_accuracy": 0.5142857142857142,
+          "pairwise_support": 70,
+          "predicted_spread": 0.10942388266263214,
+          "spearman": 0.03296703296703297,
+          "top1_candidate_id": "nomad-seed-1006",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.16884994506835938
+        },
+        "P": {
+          "calibration_rmse": 1.817595562825548,
+          "ensemble_disagreement_mean": 0.11027643615095525,
+          "oracle_best_candidate_ids": [
+            "bank-strong_left"
+          ],
+          "oracle_regret": 0.066070556640625,
+          "pairwise_accuracy": 0.6285714285714286,
+          "pairwise_support": 70,
+          "predicted_spread": 1.2031938456365832,
+          "spearman": 0.34065934065934067,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.16884994506835938
+        },
+        "R": {
+          "calibration_rmse": 0.6362186514086631,
+          "ensemble_disagreement_mean": 0.09128189634069533,
+          "oracle_best_candidate_ids": [
+            "bank-strong_left"
+          ],
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.45714285714285713,
+          "pairwise_support": 70,
+          "predicted_spread": 0.1959111488059673,
+          "spearman": 0.016483516483516484,
+          "top1_candidate_id": "bank-strong_left",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.16884994506835938
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-001",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.12406539916992188,
+          "pairwise_accuracy": 0.1111111111111111,
+          "predicted_score_spread": 4.3813345841248186e-05,
+          "spearman": -0.8207826816681233,
+          "supported_pairs": 9,
+          "top1_candidate_id": "bank-strong_right",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.14574432373046875
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.09136199951171875,
+          "pairwise_accuracy": 0.6206896551724138,
+          "predicted_score_spread": 0.04303391053266159,
+          "spearman": 0.32924744011902274,
+          "supported_pairs": 58,
+          "top1_candidate_id": "nomad-seed-1003",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.149169921875
+        },
+        "nomad_only": {
+          "oracle_regret": 0.09136199951171875,
+          "pairwise_accuracy": 0.6,
+          "predicted_score_spread": 0.022524859346453097,
+          "spearman": 0.19047619047619052,
+          "supported_pairs": 25,
+          "top1_candidate_id": "nomad-seed-1003",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.149169921875
+        }
+      },
+      "terrain": "hf_pyramid_slope",
+      "true_delta_v": [
+        0.9494705200195312,
+        0.9986572265625,
+        0.9072952270507812,
+        0.9522666931152344,
+        0.909088134765625,
+        0.9809799194335938,
+        0.8494873046875,
+        0.9606513977050781,
+        0.9493789672851562,
+        0.9500465393066406,
+        0.8725929260253906,
+        1.0183372497558594,
+        0.8942718505859375
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.281835002645967,
+      "generator_bias": {
+        "bank": -0.914467323139883,
+        "nomad": -1.1404121527850024
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.0997467041015625,
+        "pairwise_accuracy": 0.7534246575342466,
+        "predicted_score_spread": 0.8760135502111608,
+        "spearman": 0.6648351648351648,
+        "supported_pairs": 73,
+        "top1_candidate_id": "nomad-seed-1005",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 1.49517822265625
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            0.46210866216714025,
+            1.3789707993368767,
+            -0.8024903554108545,
+            1.293261454681561
+          ],
+          [
+            0.4610992582170019,
+            1.3781503720624646,
+            -0.8027896588985965,
+            1.2926346505263862
+          ],
+          [
+            0.4605574537430777,
+            1.377709912943134,
+            -0.8029500789847603,
+            1.2922979966155839
+          ],
+          [
+            0.46449957496237854,
+            1.3809142785061432,
+            -0.8017813846827024,
+            1.2947463412262903
+          ],
+          [
+            0.46766246656955196,
+            1.383485293061017,
+            -0.8008436454599918,
+            1.2967104602913895
+          ],
+          [
+            0.4646927753618217,
+            1.3810713427641927,
+            -0.8017240867565729,
+            1.2948662391003005
+          ],
+          [
+            0.46357723203865947,
+            1.3801646150474522,
+            -0.8020548723629394,
+            1.2941735465924782
+          ],
+          [
+            0.42993963861727086,
+            1.35242303434494,
+            -0.8127270284365875,
+            1.2738763115862275
+          ],
+          [
+            -0.46062400491825656,
+            0.6133166497588677,
+            -1.1704042067566747,
+            0.7854920817849107
+          ],
+          [
+            -0.4318350370125179,
+            0.6372425453361622,
+            -1.1549203650530255,
+            0.7985981611436974
+          ],
+          [
+            -0.4896427871932024,
+            0.5887626669485726,
+            -1.1867125084839818,
+            0.7729003737695316
+          ],
+          [
+            -0.4110262689436669,
+            0.6544850595848493,
+            -1.1438125143264828,
+            0.8081549256683123
+          ],
+          [
+            -0.5117737206786314,
+            0.5699195405609615,
+            -1.1993452787398238,
+            0.7634646248386288
+          ]
+        ],
+        [
+          [
+            0.7839825846040325,
+            1.53470826767907,
+            -1.0185565204544935,
+            1.7917058634344065
+          ],
+          [
+            0.7831539364175467,
+            1.5339873427346222,
+            -1.0189884532410851,
+            1.791277377020211
+          ],
+          [
+            0.7827092206724351,
+            1.5336002430132292,
+            -1.0192203487870082,
+            1.7910475673226665
+          ],
+          [
+            0.7859454430673664,
+            1.5364161929110614,
+            -1.017532975412575,
+            1.7927203939480774
+          ],
+          [
+            0.7885412295361158,
+            1.538675328789208,
+            -1.0161784214034786,
+            1.7940612007122527
+          ],
+          [
+            0.7861038293410648,
+            1.5365540698597493,
+            -1.0174502613772352,
+            1.7928022404009945
+          ],
+          [
+            0.7851882744005042,
+            1.5357572871236436,
+            -1.017927865571913,
+            1.7923291104670263
+          ],
+          [
+            0.7636094816360818,
+            1.5195782677011505,
+            -1.0226931391763994,
+            1.7753715566618031
+          ],
+          [
+            -0.4610268100097759,
+            0.5572457284303416,
+            -1.4796911233873398,
+            1.0211162224873294
+          ],
+          [
+            -0.43197851029291356,
+            0.5802412517525892,
+            -1.4657159311412287,
+            1.0366649925900093
+          ],
+          [
+            -0.4909965784404051,
+            0.5335094561072923,
+            -1.4941151533067418,
+            1.0050830310341303
+          ],
+          [
+            -0.41080144271359886,
+            0.5970056114600139,
+            -1.455522543089646,
+            1.047997528172143
+          ],
+          [
+            -0.5140697045578801,
+            0.5152000510484537,
+            -1.5052900593001377,
+            0.9928067810479072
+          ]
+        ],
+        [
+          [
+            -0.2460342591497376,
+            0.7934417825970214,
+            -1.2453613913378494,
+            0.993829257977561
+          ],
+          [
+            -0.24694730716469981,
+            0.7927209001023732,
+            -1.2458349632820835,
+            0.9934313334466023
+          ],
+          [
+            -0.24743757181952847,
+            0.7923337579311805,
+            -1.2460893594908322,
+            0.9932177592396183
+          ],
+          [
+            -0.24387055094987858,
+            0.7951500686523083,
+            -1.2442390855496417,
+            0.9947721728449296
+          ],
+          [
+            -0.24100786046909561,
+            0.7974102870003416,
+            -1.2427540888264845,
+            0.9960196785688777
+          ],
+          [
+            -0.24369586323177678,
+            0.7952879880507957,
+            -1.2441484245717365,
+            0.9948483083212676
+          ],
+          [
+            -0.24470539574220224,
+            0.794491035515492,
+            -1.2446720293378024,
+            0.9944083020514585
+          ],
+          [
+            -0.26048524534878426,
+            0.7818133392282203,
+            -1.2531381094529779,
+            0.987697300839155
+          ],
+          [
+            -0.5566785947814128,
+            0.538732097386239,
+            -1.4256041852642747,
+            0.870902114739821
+          ],
+          [
+            -0.5402902950480776,
+            0.5517916932944683,
+            -1.4169630843193464,
+            0.8779416113249568
+          ],
+          [
+            -0.5737235804612183,
+            0.5250976887433474,
+            -1.434570217411135,
+            0.8636120857706961
+          ],
+          [
+            -0.5282880094933174,
+            0.5613558878145026,
+            -1.410635343057523,
+            0.8830978562733542
+          ],
+          [
+            -0.587001389760399,
+            0.5144089990352767,
+            -1.4415260962989223,
+            0.8579742912771453
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 1.1007388582998974,
+          "ensemble_disagreement_mean": 0.30942329878866076,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1003"
+          ],
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.8082191780821918,
+          "pairwise_support": 73,
+          "predicted_spread": 0.8705290183767778,
+          "spearman": 0.7197802197802198,
+          "top1_candidate_id": "nomad-seed-1003",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 1.49517822265625
+        },
+        "P": {
+          "calibration_rmse": 1.7076343321260101,
+          "ensemble_disagreement_mean": 0.09400023403252697,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1003"
+          ],
+          "oracle_regret": 1.49517822265625,
+          "pairwise_accuracy": 0.2328767123287671,
+          "pairwise_support": 73,
+          "predicted_spread": 0.1826504594516845,
+          "spearman": -0.6593406593406593,
+          "top1_candidate_id": "bank-strong_right",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 1.49517822265625
+        },
+        "R": {
+          "calibration_rmse": 0.7571756113906928,
+          "ensemble_disagreement_mean": 0.4599295385518711,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1003"
+          ],
+          "oracle_regret": 0.03423309326171875,
+          "pairwise_accuracy": 0.7945205479452054,
+          "pairwise_support": 73,
+          "predicted_spread": 0.5219931461994053,
+          "spearman": 0.6978021978021978,
+          "top1_candidate_id": "nomad-seed-1007",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 1.49517822265625
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-002",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 1.207855224609375,
+          "pairwise_accuracy": 0.8888888888888888,
+          "predicted_score_spread": 0.08757636461544238,
+          "spearman": 0.7999999999999999,
+          "supported_pairs": 9,
+          "top1_candidate_id": "bank-strong_left",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 1.3872795104980469
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.0997467041015625,
+          "pairwise_accuracy": 0.6470588235294118,
+          "predicted_score_spread": 0.8311750817820058,
+          "spearman": 0.45454545454545453,
+          "supported_pairs": 51,
+          "top1_candidate_id": "nomad-seed-1005",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 1.4421234130859375
+        },
+        "nomad_only": {
+          "oracle_regret": 0.0997467041015625,
+          "pairwise_accuracy": 0.46153846153846156,
+          "predicted_score_spread": 0.027377320244001302,
+          "spearman": -0.04761904761904763,
+          "supported_pairs": 26,
+          "top1_candidate_id": "nomad-seed-1005",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.22697067260742188
+        }
+      },
+      "terrain": "k_rail_field",
+      "true_delta_v": [
+        1.3529472351074219,
+        1.4883995056152344,
+        1.5799179077148438,
+        1.4759864807128906,
+        1.4801712036132812,
+        1.4565620422363281,
+        1.545684814453125,
+        1.3966903686523438,
+        0.13779449462890625,
+        1.4720191955566406,
+        0.14703369140625,
+        0.2641639709472656,
+        0.08473968505859375
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.18228923515497092,
+      "generator_bias": {
+        "bank": 0.5161781866676931,
+        "nomad": 0.5001088212029503
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.09535598754882812,
+        "pairwise_accuracy": 0.6266666666666667,
+        "predicted_score_spread": 0.0812132474937236,
+        "spearman": 0.42857142857142855,
+        "supported_pairs": 75,
+        "top1_candidate_id": "nomad-seed-1002",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.294097900390625
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            0.9187057947395546,
+            1.6267100152252167,
+            -0.8482267614934108,
+            1.7793629745100423
+          ],
+          [
+            0.9608520736260121,
+            1.6578239353472521,
+            -0.8425213857439421,
+            1.8121596444672292
+          ],
+          [
+            0.9602431092581106,
+            1.6572919544602582,
+            -0.8428332091929743,
+            1.8119141051084782
+          ],
+          [
+            0.9217523649989665,
+            1.6289675804607828,
+            -0.8478844199039944,
+            1.7817558410625518
+          ],
+          [
+            0.9212256792148045,
+            1.6286443676875964,
+            -0.8477298071989362,
+            1.7811454518857728
+          ],
+          [
+            0.9183187768512903,
+            1.6263744071105841,
+            -0.8484101407198558,
+            1.7791962792622353
+          ],
+          [
+            0.9258356454134952,
+            1.6320708306014473,
+            -0.8471679019315718,
+            1.7847315535676525
+          ],
+          [
+            0.9185211821672893,
+            1.6265194156255833,
+            -0.8484157012284851,
+            1.779374070121682
+          ],
+          [
+            0.8748786672355301,
+            1.5938948769395065,
+            -0.8549277856949937,
+            1.7459987966516481
+          ],
+          [
+            0.8672556593003012,
+            1.587877787663425,
+            -0.8567894157700867,
+            1.740940503110121
+          ],
+          [
+            0.8823887478145765,
+            1.5998248592270694,
+            -0.8530880214677876,
+            1.7509773975942824
+          ],
+          [
+            0.8605895512939621,
+            1.5826248796774542,
+            -0.8583848702925695,
+            1.7364867245980342
+          ],
+          [
+            0.8888985265118108,
+            1.604958907774516,
+            -0.8515157729580624,
+            1.7553131710131682
+          ]
+        ],
+        [
+          [
+            0.5344748363787949,
+            1.4358577968353692,
+            -1.010784575207237,
+            1.5817499354060116
+          ],
+          [
+            0.5502009477853721,
+            1.4503476113874383,
+            -1.0036275892980515,
+            1.5896827103135052
+          ],
+          [
+            0.5498642226814184,
+            1.4500045321080988,
+            -1.0039771724801012,
+            1.589689106607274
+          ],
+          [
+            0.5394093915903376,
+            1.4395611173413823,
+            -1.0091540060139812,
+            1.5850324742070958
+          ],
+          [
+            0.5374588749145648,
+            1.4382037001036383,
+            -1.0095505655014911,
+            1.5834927949213586
+          ],
+          [
+            0.5339353459900383,
+            1.435415682173859,
+            -1.0110648577584842,
+            1.5814906897034704
+          ],
+          [
+            0.5442672220225435,
+            1.4433544738720774,
+            -1.007222158353174,
+            1.5879438321646875
+          ],
+          [
+            0.5349193464274471,
+            1.4361125805318053,
+            -1.0108259439807392,
+            1.5822288742190147
+          ],
+          [
+            0.5194209410013688,
+            1.4219745899177672,
+            -1.0174670251939486,
+            1.5740178605325852
+          ],
+          [
+            0.5118814458286355,
+            1.4159502841757754,
+            -1.0207865783106485,
+            1.5698154302582843
+          ],
+          [
+            0.5268224138498792,
+            1.4278928136108762,
+            -1.014199526902218,
+            1.5781347893289581
+          ],
+          [
+            0.5052419755137819,
+            1.4106953385994299,
+            -1.0236357923369686,
+            1.5660549316687535
+          ],
+          [
+            0.5333801712462565,
+            1.4331158793878176,
+            -1.0113467273470778,
+            1.5818247981504263
+          ]
+        ],
+        [
+          [
+            0.5232991934700418,
+            1.4694954424356657,
+            -0.6864905158685217,
+            1.203951897570839
+          ],
+          [
+            0.5675850755025286,
+            1.5081473856990961,
+            -0.665318638267895,
+            1.221490796157667
+          ],
+          [
+            0.5677403249052219,
+            1.508168568149033,
+            -0.6653553399760147,
+            1.2216997852663118
+          ],
+          [
+            0.526870803941941,
+            1.4721473663083349,
+            -0.6851514325345968,
+            1.2059052473658174
+          ],
+          [
+            0.5253844927508029,
+            1.4711796806795512,
+            -0.6855889375856499,
+            1.2049271691997974
+          ],
+          [
+            0.5234511517293856,
+            1.469593671271646,
+            -0.6864625604995567,
+            1.2040657254925993
+          ],
+          [
+            0.5304848393085807,
+            1.4750261419093869,
+            -0.6836313799198273,
+            1.207649836491214
+          ],
+          [
+            0.5237230310245296,
+            1.4697109176177898,
+            -0.686420921341914,
+            1.2043056844113789
+          ],
+          [
+            0.4789425518555393,
+            1.4308923588914286,
+            -0.7075859217807055,
+            1.1862406906620802
+          ],
+          [
+            0.47384919897737937,
+            1.4266456809521628,
+            -0.7099092151420169,
+            1.1840232000417785
+          ],
+          [
+            0.4839285311819192,
+            1.4350549013281393,
+            -0.7053065717201474,
+            1.1884045633708418
+          ],
+          [
+            0.4691668276249979,
+            1.4227751931358255,
+            -0.7120109463339066,
+            1.1819404232004407
+          ],
+          [
+            0.48841070845523965,
+            1.4387691738824164,
+            -0.7032845685822194,
+            1.1903854890241594
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.4134422520939974,
+          "ensemble_disagreement_mean": 0.2636338727619686,
+          "oracle_best_candidate_ids": [
+            "bank-strong_right"
+          ],
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.8933333333333333,
+          "pairwise_support": 75,
+          "predicted_spread": 0.040835619615574525,
+          "spearman": 0.8901098901098902,
+          "top1_candidate_id": "bank-strong_right",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.294097900390625
+        },
+        "P": {
+          "calibration_rmse": 1.0291866488818084,
+          "ensemble_disagreement_mean": 0.2510656246163245,
+          "oracle_best_candidate_ids": [
+            "bank-strong_right"
+          ],
+          "oracle_regret": 0.12322235107421875,
+          "pairwise_accuracy": 0.5066666666666667,
+          "pairwise_support": 75,
+          "predicted_spread": 2.1257430443362697,
+          "spearman": 0.03296703296703297,
+          "top1_candidate_id": "nomad-seed-1006",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.294097900390625
+        },
+        "R": {
+          "calibration_rmse": 0.8935731059983621,
+          "ensemble_disagreement_mean": 0.18957708881867735,
+          "oracle_best_candidate_ids": [
+            "bank-strong_right"
+          ],
+          "oracle_regret": 0.09535598754882812,
+          "pairwise_accuracy": 0.3333333333333333,
+          "pairwise_support": 75,
+          "predicted_spread": 0.6147964453306469,
+          "spearman": -0.4175824175824176,
+          "top1_candidate_id": "nomad-seed-1002",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.294097900390625
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-003",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.8,
+          "predicted_score_spread": 0.025230350593521633,
+          "spearman": 0.7,
+          "supported_pairs": 10,
+          "top1_candidate_id": "bank-strong_right",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.294097900390625
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.08053970336914062,
+          "pairwise_accuracy": 0.6538461538461539,
+          "predicted_score_spread": 0.07521726426919884,
+          "spearman": 0.46363636363636374,
+          "supported_pairs": 52,
+          "top1_candidate_id": "nomad-seed-1002",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.2792816162109375
+        },
+        "nomad_only": {
+          "oracle_regret": 0.08053970336914062,
+          "pairwise_accuracy": 0.52,
+          "predicted_score_spread": 0.034310940781066224,
+          "spearman": 0.2380952380952381,
+          "supported_pairs": 25,
+          "top1_candidate_id": "nomad-seed-1002",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.20689010620117188
+        }
+      },
+      "terrain": "k_rail_step_field",
+      "true_delta_v": [
+        0.2382659912109375,
+        0.1862640380859375,
+        0.2668037414550781,
+        0.177337646484375,
+        0.08790969848632812,
+        0.15839767456054688,
+        0.05991363525390625,
+        0.1770782470703125,
+        0.020595550537109375,
+        -0.012477874755859375,
+        0.21588516235351562,
+        0.0351715087890625,
+        0.2816200256347656
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.10435393565951305,
+      "generator_bias": {
+        "bank": -0.23185842281897204,
+        "nomad": -0.19142180128861236
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.21790695190429688,
+        "pairwise_accuracy": 0.36231884057971014,
+        "predicted_score_spread": 0.020774403904111116,
+        "spearman": -0.32967032967032966,
+        "supported_pairs": 69,
+        "top1_candidate_id": "nomad-seed-1007",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.23978424072265625
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            -0.123825634457012,
+            0.9856220535758276,
+            -0.6347699797434355,
+            0.5743150653785154
+          ],
+          [
+            -0.12063517952428582,
+            0.9880426472662692,
+            -0.6325344906928054,
+            0.5753021995216825
+          ],
+          [
+            -0.12004426502069218,
+            0.988558465392114,
+            -0.6320404636005479,
+            0.5753946520739608
+          ],
+          [
+            -0.1176872407171316,
+            0.9903052640279727,
+            -0.6304326419425937,
+            0.5761805803537066
+          ],
+          [
+            -0.11472258907265531,
+            0.9926117102076318,
+            -0.6282816538137974,
+            0.5770240915944461
+          ],
+          [
+            -0.12625933211579476,
+            0.9837294611036793,
+            -0.6365389503491498,
+            0.5736241187978188
+          ],
+          [
+            -0.11357958527217007,
+            0.993425939811321,
+            -0.6275465851381674,
+            0.5774468017637584
+          ],
+          [
+            -0.1202271805971679,
+            0.9883817999391578,
+            -0.6322144028937385,
+            0.575387472560547
+          ],
+          [
+            -0.12342707185496671,
+            0.9859205499532709,
+            -0.634491037357059,
+            0.5744514434992254
+          ],
+          [
+            -0.13218953532675698,
+            0.9788329191842833,
+            -0.641124054069381,
+            0.5723719137559998
+          ],
+          [
+            -0.1148553404251074,
+            0.9923042038602504,
+            -0.6285890453140913,
+            0.5773003396901173
+          ],
+          [
+            -0.13619639950663773,
+            0.9755056614518003,
+            -0.644228111026073,
+            0.5715571368859913
+          ],
+          [
+            -0.11890321533657075,
+            0.9888312902533261,
+            -0.6318893306218201,
+            0.5766249922340196
+          ]
+        ],
+        [
+          [
+            -0.37386931195105366,
+            0.8874842193532273,
+            -0.7020750345191082,
+            0.35745734056884604
+          ],
+          [
+            -0.3706412145662667,
+            0.8906403301066855,
+            -0.6985980825651191,
+            0.35789578039936487
+          ],
+          [
+            -0.37023326706326365,
+            0.8909978317053961,
+            -0.6981589316975585,
+            0.35793510455238126
+          ],
+          [
+            -0.3679705545863144,
+            0.8932705302944743,
+            -0.6956940628490955,
+            0.35823158582221853
+          ],
+          [
+            -0.3652792221121975,
+            0.8958261143472398,
+            -0.6928502800172507,
+            0.35864528896561165
+          ],
+          [
+            -0.3756733727477704,
+            0.8857700433882634,
+            -0.7039972541533459,
+            0.35719349345088963
+          ],
+          [
+            -0.3638845486936993,
+            0.8972068895871437,
+            -0.6913578536081446,
+            0.35884256241373125
+          ],
+          [
+            -0.3703191453350417,
+            0.8909323847270588,
+            -0.6982505331420394,
+            0.35792844718539757
+          ],
+          [
+            -0.37339924411732733,
+            0.8879761806917682,
+            -0.7015687578497012,
+            0.3575397418023451
+          ],
+          [
+            -0.38106585970193807,
+            0.8810250154156359,
+            -0.7096833620938432,
+            0.35650550026093814
+          ],
+          [
+            -0.3635927682661133,
+            0.8978170311674172,
+            -0.6909920826451592,
+            0.3589244741349521
+          ],
+          [
+            -0.3852001528383852,
+            0.8774569930329927,
+            -0.7139661528332898,
+            0.3558944257669698
+          ],
+          [
+            -0.36347829818648586,
+            0.8985203606699834,
+            -0.6906759683173751,
+            0.35881635718977095
+          ]
+        ],
+        [
+          [
+            -0.20003870528331774,
+            1.0721704955920293,
+            -0.6127409609056425,
+            0.4674581248014761
+          ],
+          [
+            -0.19737088648571016,
+            1.0744268457020856,
+            -0.6108501763667002,
+            0.46864871656454404
+          ],
+          [
+            -0.19705822786750032,
+            1.0746802338613641,
+            -0.6106302247462896,
+            0.4687975282971206
+          ],
+          [
+            -0.19535713100471624,
+            1.0761777407435935,
+            -0.6093938168507753,
+            0.4694922441223595
+          ],
+          [
+            -0.19218895556974325,
+            1.0788463208563308,
+            -0.6071644643445522,
+            0.47092609085354714
+          ],
+          [
+            -0.20237662552821634,
+            1.0701734421227158,
+            -0.6144022010651009,
+            0.46643181335897616
+          ],
+          [
+            -0.1907768236642578,
+            1.0800250456631937,
+            -0.6061784086515108,
+            0.47157861072040413
+          ],
+          [
+            -0.19709815869267133,
+            1.0746428302818036,
+            -0.6106629529831267,
+            0.46878558419753225
+          ],
+          [
+            -0.19981846865549896,
+            1.0724125496548487,
+            -0.6125537610337333,
+            0.4674924232951028
+          ],
+          [
+            -0.20637114792053612,
+            1.0673623394613607,
+            -0.6169611400828063,
+            0.46403770670869543
+          ],
+          [
+            -0.19132485045607728,
+            1.0799229273643367,
+            -0.6064139485054151,
+            0.47096965744630803
+          ],
+          [
+            -0.20916761699743752,
+            1.0655546598537207,
+            -0.6186711904575479,
+            0.46218633863834463
+          ],
+          [
+            -0.19355769837833486,
+            1.07839059042164,
+            -0.6078699788580384,
+            0.46963811878126677
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.19823694163370265,
+          "ensemble_disagreement_mean": 0.10621861564188663,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.42028985507246375,
+          "pairwise_support": 69,
+          "predicted_spread": 0.059743064602508694,
+          "spearman": -0.21978021978021978,
+          "top1_candidate_id": "bank-nominal",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.23978424072265625
+        },
+        "P": {
+          "calibration_rmse": 0.23879757496253223,
+          "ensemble_disagreement_mean": 0.11789753952857704,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.12427902221679688,
+          "pairwise_accuracy": 0.5217391304347826,
+          "pairwise_support": 69,
+          "predicted_spread": 0.4582688148415116,
+          "spearman": 0.0,
+          "top1_candidate_id": "nomad-seed-1006",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.23978424072265625
+        },
+        "R": {
+          "calibration_rmse": 0.16437586619999617,
+          "ensemble_disagreement_mean": 0.10251027826026984,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.19085693359375,
+          "pairwise_accuracy": 0.43478260869565216,
+          "pairwise_support": 69,
+          "predicted_spread": 0.18764728498095226,
+          "spearman": -0.06593406593406594,
+          "top1_candidate_id": "nomad-seed-1003",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.23978424072265625
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-004",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.21225357055664062,
+          "pairwise_accuracy": 0.3333333333333333,
+          "predicted_score_spread": 0.020263736731720855,
+          "spearman": -0.49999999999999994,
+          "supported_pairs": 9,
+          "top1_candidate_id": "bank-slight_right",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.21832656860351562
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.21790695190429688,
+          "pairwise_accuracy": 0.3448275862068966,
+          "predicted_score_spread": 0.017128528439701363,
+          "spearman": -0.3426573426573427,
+          "supported_pairs": 58,
+          "top1_candidate_id": "nomad-seed-1007",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.23978424072265625
+        },
+        "nomad_only": {
+          "oracle_regret": 0.12376785278320312,
+          "pairwise_accuracy": 0.5,
+          "predicted_score_spread": 0.012022790920551446,
+          "spearman": 0.04761904761904763,
+          "supported_pairs": 26,
+          "top1_candidate_id": "nomad-seed-1007",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.1456451416015625
+        }
+      },
+      "terrain": "pyramid_stairs",
+      "true_delta_v": [
+        -0.09592056274414062,
+        -0.08690643310546875,
+        -0.046993255615234375,
+        0.049724578857421875,
+        -0.07088851928710938,
+        0.01958465576171875,
+        -0.07404327392578125,
+        0.007778167724609375,
+        0.14386367797851562,
+        0.0508270263671875,
+        -0.068389892578125,
+        -0.056728363037109375,
+        -0.074462890625
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.13994780868153583,
+      "generator_bias": {
+        "bank": -0.08738084855698254,
+        "nomad": -0.15766857275701746
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.1230010986328125,
+        "pairwise_accuracy": 0.3235294117647059,
+        "predicted_score_spread": 0.02378252178165352,
+        "spearman": -0.35584028318173494,
+        "supported_pairs": 68,
+        "top1_candidate_id": "nomad-seed-1004",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.20780181884765625
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            0.9362169400203588,
+            1.8415987958195845,
+            -0.3544640579020616,
+            1.2905947875947719
+          ],
+          [
+            0.9197113418810802,
+            1.831128807478398,
+            -0.3494056643775689,
+            1.2694800344497548
+          ],
+          [
+            0.9196712310715072,
+            1.8310979889239807,
+            -0.3494089089872553,
+            1.2694459643951912
+          ],
+          [
+            0.9368742430562073,
+            1.8421053068268949,
+            -0.3544154828034225,
+            1.2911646777890666
+          ],
+          [
+            0.9355169549691956,
+            1.8410595135670813,
+            -0.35451592463371584,
+            1.2899880860771555
+          ],
+          [
+            0.9357174061688308,
+            1.8412138610379647,
+            -0.35450115930847614,
+            1.2901618629359208
+          ],
+          [
+            0.9204794124602877,
+            1.831723444269414,
+            -0.3493407721838401,
+            1.2701371883661787
+          ],
+          [
+            0.9359943764513436,
+            1.8414272986297142,
+            -0.3544805630904665,
+            1.2904018544888525
+          ],
+          [
+            0.9362705239480191,
+            1.8416401419242712,
+            -0.3544602019891009,
+            1.2906411933587463
+          ],
+          [
+            0.9362705239480191,
+            1.8416401419242712,
+            -0.3544602019891009,
+            1.2906411933587463
+          ],
+          [
+            0.9362705239480191,
+            1.8416401419242712,
+            -0.3544602019891009,
+            1.2906411933587463
+          ],
+          [
+            0.9362705239480191,
+            1.8416401419242712,
+            -0.3544602019891009,
+            1.2906411933587463
+          ],
+          [
+            0.9362705239480191,
+            1.8416401419242712,
+            -0.3544602019891009,
+            1.2906411933587463
+          ]
+        ],
+        [
+          [
+            0.6978118124608055,
+            1.6863280842474953,
+            -0.5363219856140677,
+            1.2363754286354205
+          ],
+          [
+            0.6831993416851414,
+            1.6792974635591995,
+            -0.5324671071666014,
+            1.2191790254725816
+          ],
+          [
+            0.6831548598258073,
+            1.6792680882979645,
+            -0.5324726088960696,
+            1.2191436500519428
+          ],
+          [
+            0.698492410620675,
+            1.686782382001454,
+            -0.5362323121260671,
+            1.2369158501905668
+          ],
+          [
+            0.69708724668275,
+            1.6858441565335045,
+            -0.5364176310648247,
+            1.2358001538060654
+          ],
+          [
+            0.6972949486825772,
+            1.6859828824781817,
+            -0.5363901694408119,
+            1.2359649889072153
+          ],
+          [
+            0.6840539076255051,
+            1.6798624703901837,
+            -0.5323636558432655,
+            1.2198614055884096
+          ],
+          [
+            0.6975813295781054,
+            1.6861740763750075,
+            -0.5363525037544519,
+            1.2361924815799767
+          ],
+          [
+            0.6978673505048295,
+            1.6863651004726354,
+            -0.5363147440214343,
+            1.2364195500087634
+          ],
+          [
+            0.6978673505048295,
+            1.6863651004726354,
+            -0.5363147440214343,
+            1.2364195500087634
+          ],
+          [
+            0.6978673505048295,
+            1.6863651004726354,
+            -0.5363147440214343,
+            1.2364195500087634
+          ],
+          [
+            0.6978673505048295,
+            1.6863651004726354,
+            -0.5363147440214343,
+            1.2364195500087634
+          ],
+          [
+            0.6978673505048295,
+            1.6863651004726354,
+            -0.5363147440214343,
+            1.2364195500087634
+          ]
+        ],
+        [
+          [
+            0.6086697035381732,
+            1.6827870068750674,
+            -0.39184351325972944,
+            1.018291018690703
+          ],
+          [
+            0.5704981487598232,
+            1.6594760390929368,
+            -0.3951518865800099,
+            0.9834250171627533
+          ],
+          [
+            0.5704680142285286,
+            1.6594573611811687,
+            -0.3951550841663675,
+            0.9833980287191478
+          ],
+          [
+            0.6092750167939213,
+            1.6831687154719275,
+            -0.39178012581252186,
+            1.0188288947820026
+          ],
+          [
+            0.6080254108033787,
+            1.682380762294112,
+            -0.3919107566198977,
+            1.0177185993496374
+          ],
+          [
+            0.6082098176791846,
+            1.6824969898450688,
+            -0.39189147705509425,
+            1.017882422792079
+          ],
+          [
+            0.5710788298645642,
+            1.6598362680912637,
+            -0.39509028601929624,
+            0.9839442591533291
+          ],
+          [
+            0.6084649327128917,
+            1.6826579594846698,
+            -0.39186486185099967,
+            1.0181091322451952
+          ],
+          [
+            0.6087191221125318,
+            1.6828181650278804,
+            -0.3918382466469051,
+            1.0183349442591345
+          ],
+          [
+            0.6087191221125318,
+            1.6828181650278804,
+            -0.3918382466469051,
+            1.0183349442591345
+          ],
+          [
+            0.6087191221125318,
+            1.6828181650278804,
+            -0.3918382466469051,
+            1.0183349442591345
+          ],
+          [
+            0.6087191221125318,
+            1.6828181650278804,
+            -0.3918382466469051,
+            1.0183349442591345
+          ],
+          [
+            0.6087191221125318,
+            1.6828181650278804,
+            -0.3918382466469051,
+            1.0183349442591345
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.11083391699137647,
+          "ensemble_disagreement_mean": 0.13329439448376043,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1001"
+          ],
+          "oracle_regret": 0.08447647094726562,
+          "pairwise_accuracy": 0.6617647058823529,
+          "pairwise_support": 68,
+          "predicted_spread": 0.01778340168612369,
+          "spearman": 0.4158420001262463,
+          "top1_candidate_id": "nomad-seed-1007",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.20780181884765625
+        },
+        "P": {
+          "calibration_rmse": 1.6952389262558858,
+          "ensemble_disagreement_mean": 0.12575929776351652,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1001"
+          ],
+          "oracle_regret": 0.1230010986328125,
+          "pairwise_accuracy": 0.47058823529411764,
+          "pairwise_support": 68,
+          "predicted_spread": 1.5799711142455584,
+          "spearman": -0.07253294371468348,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.20780181884765625
+        },
+        "R": {
+          "calibration_rmse": 0.2582233250894722,
+          "ensemble_disagreement_mean": 0.14445695970604805,
+          "oracle_best_candidate_ids": [
+            "nomad-seed-1001"
+          ],
+          "oracle_regret": 0.15037155151367188,
+          "pairwise_accuracy": 0.6323529411764706,
+          "pairwise_support": 68,
+          "predicted_spread": 0.19966903884852105,
+          "spearman": 0.4413017144196899,
+          "top1_candidate_id": "nomad-seed-1006",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.20780181884765625
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-005",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.0,
+          "pairwise_accuracy": 0.0,
+          "predicted_score_spread": 0.0,
+          "spearman": null,
+          "supported_pairs": 4,
+          "top1_candidate_id": "bank-nominal",
+          "top1_recall": true,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.17464065551757812
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.1230010986328125,
+          "pairwise_accuracy": 0.3275862068965517,
+          "predicted_score_spread": 0.02378252178165352,
+          "spearman": -0.37343430265650046,
+          "supported_pairs": 58,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.20780181884765625
+        },
+        "nomad_only": {
+          "oracle_regret": 0.1230010986328125,
+          "pairwise_accuracy": 0.5,
+          "predicted_score_spread": 0.02378252178165352,
+          "spearman": -0.01197626261913259,
+          "supported_pairs": 24,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.15484237670898438
+        }
+      },
+      "terrain": "pyramid_stairs_inv",
+      "true_delta_v": [
+        1.00787353515625,
+        0.8981475830078125,
+        0.8848724365234375,
+        0.8848724365234375,
+        0.8530311584472656,
+        0.8575019836425781,
+        0.9233970642089844,
+        0.8628349304199219,
+        0.9747123718261719,
+        0.8000717163085938,
+        0.8000717163085938,
+        0.8000717163085938,
+        0.8000717163085938
+      ]
+    },
+    {
+      "candidate_ids": [
+        "nomad-seed-1001",
+        "nomad-seed-1002",
+        "nomad-seed-1003",
+        "nomad-seed-1004",
+        "nomad-seed-1005",
+        "nomad-seed-1006",
+        "nomad-seed-1007",
+        "nomad-seed-1008",
+        "bank-nominal",
+        "bank-slight_left",
+        "bank-slight_right",
+        "bank-strong_left",
+        "bank-strong_right"
+      ],
+      "ensemble_disagreement": 0.15683108724164158,
+      "generator_bias": {
+        "bank": -0.18860259910226823,
+        "nomad": -0.15241303314860338
+      },
+      "generators": [
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "nomad",
+        "bank",
+        "bank",
+        "bank",
+        "bank",
+        "bank"
+      ],
+      "gt_c_hat": {
+        "oracle_regret": 0.060882568359375,
+        "pairwise_accuracy": 0.704225352112676,
+        "predicted_score_spread": 0.17460348968702372,
+        "spearman": 0.5,
+        "supported_pairs": 71,
+        "top1_candidate_id": "nomad-seed-1005",
+        "top1_recall": false,
+        "top3_recall": false,
+        "true_delta_v_spread": 0.17228317260742188
+      },
+      "gt_c_hat_by_seed_candidate_head": [
+        [
+          [
+            -0.026896166128131484,
+            0.9706233720525772,
+            -0.7682168379430303,
+            0.8271253223472097
+          ],
+          [
+            -0.0308357418537478,
+            0.9670766700817193,
+            -0.7707543108111435,
+            0.8253466958014013
+          ],
+          [
+            -0.03570887096011766,
+            0.962710188195891,
+            -0.7738627644490774,
+            0.823124962741355
+          ],
+          [
+            -0.039132662813917404,
+            0.9596731491299542,
+            -0.7759917691716648,
+            0.8215062435397625
+          ],
+          [
+            0.0709563393500184,
+            1.0529749854596566,
+            -0.7211760870106919,
+            0.8821654944748503
+          ],
+          [
+            -0.023843707807570773,
+            0.9733747451929614,
+            -0.7662378141276155,
+            0.8284884182371197
+          ],
+          [
+            -0.0381688463415822,
+            0.9605376074588696,
+            -0.775369650531786,
+            0.8219375691251714
+          ],
+          [
+            -0.030294965862120375,
+            0.9675587724543326,
+            -0.7704187993602338,
+            0.8256054519916642
+          ],
+          [
+            -0.03224558538612299,
+            0.9657603018000656,
+            -0.7717591993473649,
+            0.8248079385880008
+          ],
+          [
+            -0.005932020096300027,
+            0.9890925793815315,
+            -0.7555855724337096,
+            0.8373154994427553
+          ],
+          [
+            -0.05824942323228183,
+            0.9425787103942784,
+            -0.7880747191556411,
+            0.8126482577922959
+          ],
+          [
+            0.013234570289341593,
+            1.0059785683768958,
+            -0.7440932589709878,
+            0.846619201416793
+          ],
+          [
+            -0.07767156575660664,
+            0.9252666952114045,
+            -0.8002563475950812,
+            0.8035424799097808
+          ]
+        ],
+        [
+          [
+            -0.41513716410786317,
+            0.7362814508397233,
+            -1.024079163548288,
+            0.6693837670765573
+          ],
+          [
+            -0.41789087403327746,
+            0.7343796361486394,
+            -1.0254379261453113,
+            0.6680159066004727
+          ],
+          [
+            -0.42248952692670405,
+            0.7307655663460181,
+            -1.0284046632261072,
+            0.6663697747113004
+          ],
+          [
+            -0.4254280551208431,
+            0.7284348813308599,
+            -1.0303227683190759,
+            0.6653380133654364
+          ],
+          [
+            -0.25573501987687514,
+            0.8612085575759114,
+            -0.9401433798356341,
+            0.7413397223148308
+          ],
+          [
+            -0.41321040537314496,
+            0.7376330524549395,
+            -1.0230377849089263,
+            0.6702634532746568
+          ],
+          [
+            -0.4249374690652967,
+            0.728750304565843,
+            -1.0300997484264616,
+            0.6656005551173176
+          ],
+          [
+            -0.41748014962807317,
+            0.7346439498250573,
+            -1.0252954101915839,
+            0.6682722804976484
+          ],
+          [
+            -0.41765879700301745,
+            0.7348701223566487,
+            -1.0249317317667295,
+            0.6677612949474986
+          ],
+          [
+            -0.39311823234454957,
+            0.7539852246094825,
+            -1.0097141126390194,
+            0.6770814781880534
+          ],
+          [
+            -0.44204452365171065,
+            0.7158858503857904,
+            -1.0400183439004336,
+            0.6584691933946373
+          ],
+          [
+            -0.37555977687809516,
+            0.7676472680718308,
+            -0.9988725197559123,
+            0.683790505034168
+          ],
+          [
+            -0.4598333077285206,
+            0.7016131665580249,
+            -1.0515142899153043,
+            0.6519675076324973
+          ]
+        ],
+        [
+          [
+            -0.2559825755657012,
+            0.8205351124117836,
+            -0.9358607301661739,
+            0.7474316455074171
+          ],
+          [
+            -0.2592955484520269,
+            0.8178210844824856,
+            -0.9378430221029396,
+            0.7461122059541857
+          ],
+          [
+            -0.26416008973121896,
+            0.8136759676884586,
+            -0.940875344971564,
+            0.7443347052866172
+          ],
+          [
+            -0.26728024789896276,
+            0.8109934587352693,
+            -0.942937341450627,
+            0.743196719776381
+          ],
+          [
+            -0.13266049022646428,
+            0.9263068850976877,
+            -0.8607443892507968,
+            0.7936425020098354
+          ],
+          [
+            -0.2532959226860345,
+            0.8227479355587053,
+            -0.9342484177803203,
+            0.7484909745530824
+          ],
+          [
+            -0.2669027691840007,
+            0.811292814721152,
+            -0.9426969464380254,
+            0.7433533963395609
+          ],
+          [
+            -0.2589295630267309,
+            0.8181121415325714,
+            -0.9376330982073932,
+            0.7462694046637957
+          ],
+          [
+            -0.2601399324176528,
+            0.8172486064867945,
+            -0.9382679366577094,
+            0.7456688220496569
+          ],
+          [
+            -0.23366493397532734,
+            0.8396718428374487,
+            -0.9221854762227437,
+            0.7557109379981193
+          ],
+          [
+            -0.28520256754597606,
+            0.7958720548417428,
+            -0.9545732641594705,
+            0.7363356259410397
+          ],
+          [
+            -0.2142605841947362,
+            0.8560970074221853,
+            -0.9104627131814591,
+            0.7631215216035608
+          ],
+          [
+            -0.30374476632926506,
+            0.7800570424497295,
+            -0.9667509896626212,
+            0.7294016763616245
+          ]
+        ]
+      ],
+      "old_gt": {
+        "C": {
+          "calibration_rmse": 0.20142437949665962,
+          "ensemble_disagreement_mean": 0.15940243378745936,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.044399261474609375,
+          "pairwise_accuracy": 0.6338028169014085,
+          "pairwise_support": 71,
+          "predicted_spread": 0.0730804508813997,
+          "spearman": 0.2802197802197803,
+          "top1_candidate_id": "bank-strong_left",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.17228317260742188
+        },
+        "P": {
+          "calibration_rmse": 0.5804356363580792,
+          "ensemble_disagreement_mean": 0.1537737840628556,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.12470245361328125,
+          "pairwise_accuracy": 0.43661971830985913,
+          "pairwise_support": 71,
+          "predicted_spread": 1.3917936209285773,
+          "spearman": -0.14835164835164835,
+          "top1_candidate_id": "nomad-seed-1004",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.17228317260742188
+        },
+        "R": {
+          "calibration_rmse": 0.40564578800847767,
+          "ensemble_disagreement_mean": 0.10636732085378713,
+          "oracle_best_candidate_ids": [
+            "bank-nominal"
+          ],
+          "oracle_regret": 0.1561279296875,
+          "pairwise_accuracy": 0.39436619718309857,
+          "pairwise_support": 71,
+          "predicted_spread": 0.3039463703861943,
+          "spearman": -0.2802197802197803,
+          "top1_candidate_id": "bank-strong_right",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.17228317260742188
+        }
+      },
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "state_id": "coverage-006",
+      "strata": {
+        "bank_only": {
+          "oracle_regret": 0.044399261474609375,
+          "pairwise_accuracy": 0.8,
+          "predicted_score_spread": 0.08822128301030085,
+          "spearman": 0.7,
+          "supported_pairs": 10,
+          "top1_candidate_id": "bank-strong_left",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.1561279296875
+        },
+        "constraint_valid": {
+          "oracle_regret": 0.060882568359375,
+          "pairwise_accuracy": 0.6326530612244898,
+          "predicted_score_spread": 0.15601911455888245,
+          "spearman": 0.36363636363636365,
+          "supported_pairs": 49,
+          "top1_candidate_id": "nomad-seed-1005",
+          "top1_recall": false,
+          "top3_recall": false,
+          "true_delta_v_spread": 0.17228317260742188
+        },
+        "nomad_only": {
+          "oracle_regret": 0.02083587646484375,
+          "pairwise_accuracy": 0.625,
+          "predicted_score_spread": 0.13813393169346738,
+          "spearman": 0.3571428571428572,
+          "supported_pairs": 24,
+          "top1_candidate_id": "nomad-seed-1005",
+          "top1_recall": false,
+          "top3_recall": true,
+          "true_delta_v_spread": 0.13223648071289062
+        }
+      },
+      "terrain": "random_rough",
+      "true_delta_v": [
+        -0.011943817138671875,
+        -0.08675765991210938,
+        -0.06476593017578125,
+        -0.09659957885742188,
+        -0.032779693603515625,
+        -0.1441802978515625,
+        -0.05657958984375,
+        -0.05533599853515625,
+        0.028102874755859375,
+        -0.04055023193359375,
+        -0.08224868774414062,
+        -0.01629638671875,
+        -0.12802505493164062
+      ]
+    }
+  ],
+  "statistical_unit": "state"
+}

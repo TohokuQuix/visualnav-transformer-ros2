@@ -1,0 +1,671 @@
+{
+  "all_terrain_generalization_claim": false,
+  "completed_run_count": 8,
+  "invalid_states": [
+    {
+      "completed_nominal_runs": [
+        "long-005",
+        "long-006",
+        "long-007"
+      ],
+      "diagnostic_sha256": "7403c69e3c81b1e20e9d8f28be8f42a3a9725389d7047082cf40081cbc6a13bf",
+      "reason": "duplicate XY RMS 0.035261 m > 0.0105 m",
+      "state_id": "coverage-003"
+    }
+  ],
+  "no_formal_coverage_conclusion": true,
+  "not_started_run_ids": [
+    "long-008",
+    "long-009",
+    "long-010",
+    "long-011",
+    "long-012",
+    "long-013",
+    "long-014",
+    "long-015",
+    "long-016",
+    "long-017",
+    "long-018",
+    "long-019"
+  ],
+  "planned_run_count": 20,
+  "planned_state_count": 4,
+  "runs": [
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08",
+      "metric_120": {
+        "advantage_h": 5.1875664020910435,
+        "delta_v": 1.0242233276367188,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.31080467975321313,
+        "maximum_contact_n": 830.4964555896254,
+        "maximum_tilt_rad": 0.08609799376616258,
+        "path_length_m": 0.44540993245628047,
+        "recovery": 1.0830726623535156,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.04180754741093857
+      },
+      "metric_40": {
+        "advantage_h": 2.516476890422929,
+        "delta_v": 0.9493789672851562,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.3054450281743454,
+        "maximum_contact_n": 763.5973510892452,
+        "maximum_tilt_rad": 0.07483420814680743,
+        "path_length_m": 0.3307988410830831,
+        "recovery": 1.0082283020019531,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.03282226907431605
+      },
+      "preview_sha256": "4379c4984729a3bd4446bbbd18d300fbba687a55f760d537e4c8df51942177dc",
+      "repeat": 0,
+      "run_id": "long-000",
+      "seed": null,
+      "source_run_id": "pilot-018",
+      "state_duplicate_valid": true,
+      "state_id": "coverage-001",
+      "summary_sha256": "7def6db48eb14c4053583385bc613aa7aed0e3c66665ab4794550a6db8cc8595",
+      "terrain": "hf_pyramid_slope",
+      "trace_sha256": "c0c88b164183a65007b7fc000b16f1820ac59fd51631ad2ba0351226f99bbda6"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08",
+      "metric_120": {
+        "advantage_h": 5.1875664020910435,
+        "delta_v": 1.0242233276367188,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.31080467975321313,
+        "maximum_contact_n": 830.4964555896254,
+        "maximum_tilt_rad": 0.08609799376616258,
+        "path_length_m": 0.44540993245628047,
+        "recovery": 1.0830726623535156,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.04180754741093857
+      },
+      "metric_40": {
+        "advantage_h": 2.516476890422929,
+        "delta_v": 0.9493789672851562,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.3054450281743454,
+        "maximum_contact_n": 763.5973510892452,
+        "maximum_tilt_rad": 0.07483420814680743,
+        "path_length_m": 0.3307988410830831,
+        "recovery": 1.0082283020019531,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.03282226907431605
+      },
+      "preview_sha256": "4379c4984729a3bd4446bbbd18d300fbba687a55f760d537e4c8df51942177dc",
+      "repeat": 1,
+      "run_id": "long-001",
+      "seed": null,
+      "source_run_id": "pilot-019",
+      "state_duplicate_valid": true,
+      "state_id": "coverage-001",
+      "summary_sha256": "bfad91048046918fe7ccd805d7d6939698aedd3f7bdf114d74be7f3bbbf2aa04",
+      "terrain": "hf_pyramid_slope",
+      "trace_sha256": "48d76a472e6c7f7e46502bce8b3fc9d4f8d08f92b519b173841be978072e7a52"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08",
+      "metric_120": {
+        "advantage_h": 5.1875664020910435,
+        "delta_v": 1.0242233276367188,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.31080467975321313,
+        "maximum_contact_n": 830.4964555896254,
+        "maximum_tilt_rad": 0.08609799376616258,
+        "path_length_m": 0.44540993245628047,
+        "recovery": 1.0830726623535156,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.04180754741093857
+      },
+      "metric_40": {
+        "advantage_h": 2.516476890422929,
+        "delta_v": 0.9493789672851562,
+        "drawdown": -0.058849334716796875,
+        "forward_goal_progress_m": 0.3054450281743454,
+        "maximum_contact_n": 763.5973510892452,
+        "maximum_tilt_rad": 0.07483420814680743,
+        "path_length_m": 0.3307988410830831,
+        "recovery": 1.0082283020019531,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.03282226907431605
+      },
+      "preview_sha256": "4379c4984729a3bd4446bbbd18d300fbba687a55f760d537e4c8df51942177dc",
+      "repeat": 2,
+      "run_id": "long-002",
+      "seed": null,
+      "source_run_id": "pilot-020",
+      "state_duplicate_valid": true,
+      "state_id": "coverage-001",
+      "summary_sha256": "19e302319d976a1f9d9524467316e7b9198648c2c1e9bbea979629fc5428e3dd",
+      "terrain": "hf_pyramid_slope",
+      "trace_sha256": "c555604045beb5fdde47b54751158bf923e3fbfec560266c96cd82557956abb9"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "nomad-seed-1002",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nomad_oracle",
+      "map_path_sha256": "1a5107d42cce34c0ddab9c5979384ab7d83c4ab5232a25ed74fbcbb6dfb4b186",
+      "metric_120": {
+        "advantage_h": 5.439181129668341,
+        "delta_v": 0.950103759765625,
+        "drawdown": -0.04266357421875,
+        "forward_goal_progress_m": 0.3182930585468282,
+        "maximum_contact_n": 804.8726196816609,
+        "maximum_tilt_rad": 0.08313549804082065,
+        "path_length_m": 0.4340377033644928,
+        "recovery": 0.992767333984375,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.048823677855651594
+      },
+      "metric_40": {
+        "advantage_h": 2.7045100371479123,
+        "delta_v": 0.9986572265625,
+        "drawdown": -0.04266357421875,
+        "forward_goal_progress_m": 0.3006670213376764,
+        "maximum_contact_n": 793.2044067941818,
+        "maximum_tilt_rad": 0.06281789709269296,
+        "path_length_m": 0.3146142140961451,
+        "recovery": 1.04132080078125,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.037879576910323
+      },
+      "preview_sha256": "781889a3698a285a1c0c9ba19faeab0dac7a8bf1309f31d07ce99cd491733c4b",
+      "repeat": 0,
+      "run_id": "long-003",
+      "seed": 1002,
+      "source_run_id": "pilot-022",
+      "state_duplicate_valid": true,
+      "state_id": "coverage-001",
+      "summary_sha256": "2cdd1bf3a9f5712f151c6ee083953621493ce07fc2e0bebf171ac99ca49adf57",
+      "terrain": "hf_pyramid_slope",
+      "trace_sha256": "1812fcd2cab4f365edba7e533ce88f23f7dcac7ed61cdad26caddd27030385ad"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-strong_left",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "bank_winner",
+      "map_path_sha256": "349f8013a220f9b6905b9b2fd28e317f8f1393653a53a4148ad240ec4baf594a",
+      "metric_120": {
+        "advantage_h": 5.372541210427606,
+        "delta_v": 1.0419845581054688,
+        "drawdown": -0.035003662109375,
+        "forward_goal_progress_m": 0.3083117467832325,
+        "maximum_contact_n": 804.9062500550378,
+        "maximum_tilt_rad": 0.07121374409036317,
+        "path_length_m": 0.4639651278764624,
+        "recovery": 1.0769882202148438,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.028892526991150264
+      },
+      "metric_40": {
+        "advantage_h": 2.6629278222333923,
+        "delta_v": 1.0183372497558594,
+        "drawdown": -0.035003662109375,
+        "forward_goal_progress_m": 0.29671417651891063,
+        "maximum_contact_n": 804.9062500550378,
+        "maximum_tilt_rad": 0.06280511007737918,
+        "path_length_m": 0.3411159159853395,
+        "recovery": 1.0533409118652344,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.02974144397113042
+      },
+      "preview_sha256": "0d4fbac1f1dd2c54240116d63a90e426e3d1237771bd9943130371ffc7a9c0c4",
+      "repeat": 0,
+      "run_id": "long-004",
+      "seed": null,
+      "source_run_id": "pilot-032",
+      "state_duplicate_valid": true,
+      "state_id": "coverage-001",
+      "summary_sha256": "fc584c130a76962723edcf5318f963934fb8f6b3d9e179f8873694483c335838",
+      "terrain": "hf_pyramid_slope",
+      "trace_sha256": "77710751778e580410f08addc823fcc97bc4ee94ca4c23af0f7c0f03f886cb38"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "metric_120": {
+        "advantage_h": 3.5901386461448155,
+        "delta_v": 1.0644912719726562,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.33603185737033275,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.6237769432138986,
+        "recovery": 1.1591911315917969,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.031838879373364194
+      },
+      "metric_40": {
+        "advantage_h": 0.969847077241397,
+        "delta_v": 0.020595550537109375,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.24026487549757441,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.2677779414541335,
+        "recovery": 0.11529541015625,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.027642834208425095
+      },
+      "preview_sha256": "22d640cdaca975998433ba16f3043aba8d935523af80641c619a43ddc5dad2f2",
+      "repeat": 0,
+      "run_id": "long-005",
+      "seed": null,
+      "source_run_id": "pilot-052",
+      "state_duplicate_valid": false,
+      "state_id": "coverage-003",
+      "summary_sha256": "e778960bd4f542efc73ef49b38ce2860dd9a78395cd932e4dc246ab05ef585a9",
+      "terrain": "k_rail_step_field",
+      "trace_sha256": "3f22cd406abbd335b4df0f3cd550ef237ae7fd88e7594948c2abb02aa7039fb7"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "metric_120": {
+        "advantage_h": 3.2082502644078446,
+        "delta_v": 1.0804939270019531,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.37252108847586274,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.7750796786468526,
+        "recovery": 1.1751937866210938,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.026628054506267346
+      },
+      "metric_40": {
+        "advantage_h": 1.1826728034650884,
+        "delta_v": 0.30999755859375,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.23990302696628912,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.267984457819711,
+        "recovery": 0.4046974182128906,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.027627634323620493
+      },
+      "preview_sha256": "22d640cdaca975998433ba16f3043aba8d935523af80641c619a43ddc5dad2f2",
+      "repeat": 1,
+      "run_id": "long-006",
+      "seed": null,
+      "source_run_id": "pilot-053",
+      "state_duplicate_valid": false,
+      "state_id": "coverage-003",
+      "summary_sha256": "00a128ca9f1ed75780ffc36b63c18aa5c459930c390a543388c46022a7f32f38",
+      "terrain": "k_rail_step_field",
+      "trace_sha256": "47b3acb45ed3a3723bfed45bba7eaf81150d5398289b422195c5cf992e131afc"
+    },
+    {
+      "actor_action_shape": [
+        6
+      ],
+      "actor_input_shape": [
+        22
+      ],
+      "actor_latent_shape": [
+        256
+      ],
+      "candidate_id": "bank-nominal",
+      "critic_observation_shape": [
+        267
+      ],
+      "kind": "nominal",
+      "map_path_sha256": "c15ccddd1be40f576289a0eb1a9a302c1088157503b87e06ad2a9291a6eeed43",
+      "metric_120": {
+        "advantage_h": 3.5901386461448155,
+        "delta_v": 1.0644912719726562,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.33603185737033275,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.6237769432138986,
+        "recovery": 1.1591911315917969,
+        "stack": false,
+        "step_count": 120,
+        "termination": null,
+        "tracking_error_rms_m": 0.031838879373364194
+      },
+      "metric_40": {
+        "advantage_h": 0.969847077241397,
+        "delta_v": 0.020595550537109375,
+        "drawdown": -0.09469985961914062,
+        "forward_goal_progress_m": 0.24026487549757441,
+        "maximum_contact_n": 1667.2397823711635,
+        "maximum_tilt_rad": 0.2568259876272042,
+        "path_length_m": 0.2677779414541335,
+        "recovery": 0.11529541015625,
+        "stack": false,
+        "step_count": 40,
+        "termination": null,
+        "tracking_error_rms_m": 0.027642834208425095
+      },
+      "preview_sha256": "22d640cdaca975998433ba16f3043aba8d935523af80641c619a43ddc5dad2f2",
+      "repeat": 2,
+      "run_id": "long-007",
+      "seed": null,
+      "source_run_id": "pilot-054",
+      "state_duplicate_valid": false,
+      "state_id": "coverage-003",
+      "summary_sha256": "da9c747ec57997698e569b3fbaadae7abbc8588f212a46dfae9d2311356ff715",
+      "terrain": "k_rail_step_field",
+      "trace_sha256": "b891ef41a9bf8f7d95ddee95e012b4e7615d065bb80bba3fd6faef8fec0f9efc"
+    }
+  ],
+  "states": [
+    {
+      "120": {
+        "bank": {
+          "advantage_h": 5.372541210427606,
+          "delta_v": 1.0419845581054688,
+          "drawdown": -0.035003662109375,
+          "forward_goal_progress_m": 0.3083117467832325,
+          "maximum_contact_n": 804.9062500550378,
+          "maximum_tilt_rad": 0.07121374409036317,
+          "path_length_m": 0.4639651278764624,
+          "recovery": 1.0769882202148438,
+          "stack": false,
+          "step_count": 120,
+          "termination": null,
+          "tracking_error_rms_m": 0.028892526991150264
+        },
+        "bank_minus_nomad_delta_v": 0.09188079833984375,
+        "bank_minus_nomad_progress_m": -0.009981311763595735,
+        "nomad": {
+          "advantage_h": 5.439181129668341,
+          "delta_v": 0.950103759765625,
+          "drawdown": -0.04266357421875,
+          "forward_goal_progress_m": 0.3182930585468282,
+          "maximum_contact_n": 804.8726196816609,
+          "maximum_tilt_rad": 0.08313549804082065,
+          "path_length_m": 0.4340377033644928,
+          "recovery": 0.992767333984375,
+          "stack": false,
+          "step_count": 120,
+          "termination": null,
+          "tracking_error_rms_m": 0.048823677855651594
+        },
+        "nominal": [
+          {
+            "advantage_h": 5.1875664020910435,
+            "delta_v": 1.0242233276367188,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.31080467975321313,
+            "maximum_contact_n": 830.4964555896254,
+            "maximum_tilt_rad": 0.08609799376616258,
+            "path_length_m": 0.44540993245628047,
+            "recovery": 1.0830726623535156,
+            "stack": false,
+            "step_count": 120,
+            "termination": null,
+            "tracking_error_rms_m": 0.04180754741093857
+          },
+          {
+            "advantage_h": 5.1875664020910435,
+            "delta_v": 1.0242233276367188,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.31080467975321313,
+            "maximum_contact_n": 830.4964555896254,
+            "maximum_tilt_rad": 0.08609799376616258,
+            "path_length_m": 0.44540993245628047,
+            "recovery": 1.0830726623535156,
+            "stack": false,
+            "step_count": 120,
+            "termination": null,
+            "tracking_error_rms_m": 0.04180754741093857
+          },
+          {
+            "advantage_h": 5.1875664020910435,
+            "delta_v": 1.0242233276367188,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.31080467975321313,
+            "maximum_contact_n": 830.4964555896254,
+            "maximum_tilt_rad": 0.08609799376616258,
+            "path_length_m": 0.44540993245628047,
+            "recovery": 1.0830726623535156,
+            "stack": false,
+            "step_count": 120,
+            "termination": null,
+            "tracking_error_rms_m": 0.04180754741093857
+          }
+        ]
+      },
+      "40": {
+        "bank": {
+          "advantage_h": 2.6629278222333923,
+          "delta_v": 1.0183372497558594,
+          "drawdown": -0.035003662109375,
+          "forward_goal_progress_m": 0.29671417651891063,
+          "maximum_contact_n": 804.9062500550378,
+          "maximum_tilt_rad": 0.06280511007737918,
+          "path_length_m": 0.3411159159853395,
+          "recovery": 1.0533409118652344,
+          "stack": false,
+          "step_count": 40,
+          "termination": null,
+          "tracking_error_rms_m": 0.02974144397113042
+        },
+        "bank_minus_nomad_delta_v": 0.019680023193359375,
+        "bank_minus_nomad_progress_m": -0.003952844818765788,
+        "nomad": {
+          "advantage_h": 2.7045100371479123,
+          "delta_v": 0.9986572265625,
+          "drawdown": -0.04266357421875,
+          "forward_goal_progress_m": 0.3006670213376764,
+          "maximum_contact_n": 793.2044067941818,
+          "maximum_tilt_rad": 0.06281789709269296,
+          "path_length_m": 0.3146142140961451,
+          "recovery": 1.04132080078125,
+          "stack": false,
+          "step_count": 40,
+          "termination": null,
+          "tracking_error_rms_m": 0.037879576910323
+        },
+        "nominal": [
+          {
+            "advantage_h": 2.516476890422929,
+            "delta_v": 0.9493789672851562,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.3054450281743454,
+            "maximum_contact_n": 763.5973510892452,
+            "maximum_tilt_rad": 0.07483420814680743,
+            "path_length_m": 0.3307988410830831,
+            "recovery": 1.0082283020019531,
+            "stack": false,
+            "step_count": 40,
+            "termination": null,
+            "tracking_error_rms_m": 0.03282226907431605
+          },
+          {
+            "advantage_h": 2.516476890422929,
+            "delta_v": 0.9493789672851562,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.3054450281743454,
+            "maximum_contact_n": 763.5973510892452,
+            "maximum_tilt_rad": 0.07483420814680743,
+            "path_length_m": 0.3307988410830831,
+            "recovery": 1.0082283020019531,
+            "stack": false,
+            "step_count": 40,
+            "termination": null,
+            "tracking_error_rms_m": 0.03282226907431605
+          },
+          {
+            "advantage_h": 2.516476890422929,
+            "delta_v": 0.9493789672851562,
+            "drawdown": -0.058849334716796875,
+            "forward_goal_progress_m": 0.3054450281743454,
+            "maximum_contact_n": 763.5973510892452,
+            "maximum_tilt_rad": 0.07483420814680743,
+            "path_length_m": 0.3307988410830831,
+            "recovery": 1.0082283020019531,
+            "stack": false,
+            "step_count": 40,
+            "termination": null,
+            "tracking_error_rms_m": 0.03282226907431605
+          }
+        ]
+      },
+      "bank_run_id": "long-004",
+      "classification": "inconclusive",
+      "duplicate": {
+        "dem_sha_equal": true,
+        "pass": true,
+        "signal_rms": {
+          "actor_action": 0.0,
+          "actor_input": 0.0,
+          "actor_latent": 0.0,
+          "command": 0.0,
+          "critic_observation": 0.0,
+          "critic_value": 0.0,
+          "reward": 0.0
+        },
+        "source_run_ids": [
+          "long-000",
+          "long-001",
+          "long-002"
+        ],
+        "source_run_marker_sha256": [
+          "705c3b776acfc2073e4c3f97cd3851711a27011254f970ebce5713c21ee3d2a7",
+          "7197915c546a15105f1aac07dab08c77a16626786e276291735d0945a304773a",
+          "95617d5defd6966546f26aec55d165f3b0755b8bc48c6788d1adcf9986417068"
+        ],
+        "state_id": "coverage-001",
+        "step_count": 120,
+        "xy_rms_limit_m": 0.0105,
+        "xy_rms_m": 0.0
+      },
+      "nomad_run_id": "long-003",
+      "nominal_run_ids": [
+        "long-000",
+        "long-001",
+        "long-002"
+      ],
+      "state_id": "coverage-001",
+      "terrain": "hf_pyramid_slope"
+    }
+  ],
+  "statistical_unit": "state",
+  "status": "partial_stopped_by_duplicate_gate",
+  "valid_state_count": 1
+}

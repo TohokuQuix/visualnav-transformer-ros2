@@ -1,0 +1,74 @@
+{
+  "control_period_sec": 0.05,
+  "estimated_stage_a_execution_sec": 1200,
+  "estimated_stage_b_execution_sec": 2700,
+  "estimated_stage_b_storage_bytes": 100000000,
+  "follower_sha256": {
+    "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219",
+    "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+    "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/path_geometry.hpp": "0ae1c31673493b96cac55a4e3e87bfd5dba535657367abf6c2882f4ef7cda1f9",
+    "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/path_geometry.cpp": "bbe1b2cfde291495646b4883de0463478d892006459acb9b261a0c778663fca3",
+    "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+  },
+  "frames": {
+    "GT_input": "anchor body frame, x forward/y left",
+    "bridge_pose": "map position plus body yaw",
+    "planned_path": "map"
+  },
+  "git": {
+    "branch": "exp/eatnav-candidate-coverage",
+    "head": "cb6d1beab003c473cd578afbf2e8b65f8476792f",
+    "status": "?? scripts/eat_nav_command_preview_stage0.py"
+  },
+  "initial_pose_source": "source pilot live summary anchor root_state and frozen map Path origin",
+  "long_horizon_config_sha256": "dac1f7d64f1b70576b2d4029ba3f84dc19cf879a6ee8ce07b6d9085d88031a47",
+  "pilot_schedule_sha256": "8982e628bbb71e50eeea11534ca345bebc15009b33ef27bd16d70cc54182e95d",
+  "pilot_selection_sha256": "1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc",
+  "preview_config_sha256": "f584b58434fce83ff1911e82cee2a954c138593e336add1db82416d33dcf7f3f",
+  "prior_checkpoint_sha256": {
+    "evaluator_GT_11": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-11/best.pt",
+      "sha256": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35"
+    },
+    "evaluator_GT_29": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-29/best.pt",
+      "sha256": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2"
+    },
+    "evaluator_GT_47": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-47/best.pt",
+      "sha256": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f"
+    },
+    "evaluator_train_scalers": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/relative-quality/output/relative-quality-extraction.json",
+      "sha256": "8cf50f7b633f5e659c211da842eb52ba124c0063535e1af4d812d1c8fc541c21"
+    },
+    "nomad_reference_best_ema": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/phase-c-remediation/reference/best.pt",
+      "sha256": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0"
+    },
+    "phase_b_config": {
+      "path": "/tmp/eatnav-train/forward-evaluator-config.yaml",
+      "sha256": "275105988bca24a417d9b8084519a349cc5b7fc3859b02cac3546036365f2351"
+    },
+    "phase_b_heldout_results": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/heldout-results.json",
+      "sha256": "1d315b1906716f9780e1e8baa71776ca0a3a11b1ab136cf12bc4ac413219e1b2"
+    },
+    "phase_b_test_split": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/relative-quality/splits/test.npz",
+      "sha256": "2e76591744be9f32430556df6adf9fe5fafde0b4d0dc93dfc279f3a98debd609"
+    }
+  },
+  "source_sha256": {
+    "candidate-identity-table.jsonl.gz": "5ac18b592af3f21d72dabfd1a603f168bfc5a0c624788d069a06468a6b42aa48",
+    "decision.json": "fb0356040c108b83e62a38d9b3d8c8f684cd384e70ab1e2927f98431639b3d67",
+    "evaluator-counterfactual-results.json": "1f6600809401cc7879060edec4141aa28653ff8f5cc17916de132f9ed61b474e",
+    "feasibility-by-candidate.json": "4cead942a30f758f01d3675153029667b3b7f502e3972d99e17a59c51507ded8",
+    "planned-command-realized-comparison.json": "108b3517dfa0c92c4443fc4d50a7ba442953990e2dbe8e7c9564ac4e2cdeb2d8",
+    "source-provenance.json": "c75493cf93e69aaa484ecb25ce48f1a50149005a340f225134c9a357d39d62aa",
+    "stage-3-complete.json": "d7d81b84ce6e94368712f8ad6be943c28221312409039d4f5f2806742669529c"
+  },
+  "stage_b_storage_cap_bytes": 250000000,
+  "stage_b_wall_cap_sec": 5400,
+  "trajectory_interval_sec": 0.25
+}

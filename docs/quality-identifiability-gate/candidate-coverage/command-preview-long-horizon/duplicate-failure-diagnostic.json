@@ -1,0 +1,87 @@
+{
+  "anchor_root_equal": true,
+  "candidate_comparison_valid_for_state": false,
+  "comparisons": [
+    {
+      "command_at_step_39": [
+        -0.2964303195476532,
+        0.0,
+        0.018690725788474083
+      ],
+      "compare_to": "long-005",
+      "first_changed_step_by_signal": {
+        "actor_action": 39,
+        "actor_input": 39,
+        "actor_latent": 39,
+        "command": 39,
+        "critic_observation": 39,
+        "critic_value": 39,
+        "post_root_state": 39,
+        "reward": 39,
+        "root_state": 40
+      },
+      "reference_command_at_step_39": [
+        0.2930123805999756,
+        0.0,
+        -0.03658715635538101
+      ],
+      "relative_xy_rms_120_m": 0.049866238586557046,
+      "relative_xy_rms_40_m": 4.093980942193218e-05,
+      "run_id": "long-006",
+      "trace_sha256": "47b3acb45ed3a3723bfed45bba7eaf81150d5398289b422195c5cf992e131afc"
+    },
+    {
+      "command_at_step_39": [
+        0.2930123805999756,
+        0.0,
+        -0.03658715635538101
+      ],
+      "compare_to": "long-005",
+      "first_changed_step_by_signal": {
+        "actor_action": null,
+        "actor_input": null,
+        "actor_latent": null,
+        "command": null,
+        "critic_observation": null,
+        "critic_value": null,
+        "post_root_state": null,
+        "reward": null,
+        "root_state": null
+      },
+      "reference_command_at_step_39": [
+        0.2930123805999756,
+        0.0,
+        -0.03658715635538101
+      ],
+      "relative_xy_rms_120_m": 0.0,
+      "relative_xy_rms_40_m": 0.0,
+      "run_id": "long-007",
+      "trace_sha256": "b891ef41a9bf8f7d95ddee95e012b4e7615d065bb80bba3fd6faef8fec0f9efc"
+    }
+  ],
+  "completed_run_ids": [
+    "long-005",
+    "long-006",
+    "long-007"
+  ],
+  "duplicate_xy_rms_m": 0.035260755456820767,
+  "follower_event": {
+    "actual_distance_m": 0.165,
+    "actual_to_commanded_ratio": 0.028,
+    "commanded_distance_m": 5.929,
+    "line": "[WARN] [1790719188.333337407] [eat_nav_follower_0]: Linear stuck detected: commanded=5.929m actual=0.165m ratio=0.028. Reversing travel direction for up to 0.300m or until path start is reached.",
+    "log_path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon/follower-logs/reset-0002-branch-0.log",
+    "log_sha256": "b280380a4de3c07b8c8087d1de9e2bf9cf588811fe59c6a388863d878d8d8efd",
+    "parameter_ratio_threshold": 0.25,
+    "parameter_stuck_window_sec": 20.0,
+    "run_id": "long-006"
+  },
+  "frozen_xy_rms_limit_m": 0.0105,
+  "interpretation": "One repeat entered production linear-stuck reversal at step 39 while the same anchor, Path and prior 39 steps matched. The controller uses ROS elapsed time for commanded distance; simulator advances 0.05 s per slow wall-clock step. A wall-time scheduling boundary is the leading explanation. Exact scheduler causality remains unproven.",
+  "new_runs_started_after_failure": false,
+  "path_sha_equal": true,
+  "production_follower_parameter_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "production_follower_source_sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be",
+  "state_id": "coverage-003",
+  "status": "measurement_invalid"
+}

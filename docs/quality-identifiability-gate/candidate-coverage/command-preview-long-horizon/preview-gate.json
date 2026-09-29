@@ -1,0 +1,39 @@
+{
+  "conditions": {
+    "closed_not_worse_min_5_states": true,
+    "constraint_valid_improves_over_p": true,
+    "gt_c_hat_pairwise_above_gt_p": true,
+    "gt_c_hat_pairwise_min_060": false,
+    "gt_c_hat_regret_max_010": false,
+    "improves_multiple_states": true,
+    "same_cluster_macro_min_075": false
+  },
+  "fidelity_sha256": "dcb7b58a873690ab6c492e61bcb6e0006ce9f4f1dd932671a39e3b67b63a4ec1",
+  "formal_validation_pass": false,
+  "reason": "Closed-loop command cluster agreement 0.275 < 0.75; frozen GT(C-hat) pairwise 0.488 < 0.60 and regret 0.120 > 0.10. Initial command fixtures pass, but kinematic pose prediction diverges as motion proceeds.",
+  "score_results_sha256": "7ef61a854c8abc9ddaac1ab2728501bd6d642254308d234ee859cf45dfef8071",
+  "status": "fail",
+  "values": {
+    "fidelity": {
+      "closed_not_worse_state_count": 5,
+      "same_cluster_state_macro": 0.27472527472527475
+    },
+    "gt_c_hat": {
+      "constraint_valid_pairwise_state_macro": 0.47981956551057575,
+      "state_macro_oracle_regret": 0.12031609671456474,
+      "state_macro_pairwise_accuracy": 0.48794259770390375,
+      "state_macro_spearman": 0.01726881136457826,
+      "top1_recall_count": 0,
+      "top3_recall_count": 0
+    },
+    "gt_p": {
+      "state_count": 7,
+      "state_macro_oracle_regret": 0.3046166556222098,
+      "state_macro_pairwise_accuracy": 0.4674959610958851,
+      "state_macro_spearman": -0.07475908441706591,
+      "top1_recall_count": 0,
+      "top3_recall_count": 2
+    },
+    "state_pairwise_improvement_count": 3
+  }
+}

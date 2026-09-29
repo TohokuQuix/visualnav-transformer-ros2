@@ -1,0 +1,25 @@
+{
+  "approval_required_before_execution": true,
+  "estimated_storage_mb": 10,
+  "estimated_wall_min": 8,
+  "formal_validation_started": false,
+  "full_collection_started": false,
+  "model_retraining_started": false,
+  "new_simulator_run_count_proposed": 3,
+  "offline_ablation_compute_hours_estimate": 2,
+  "offline_ablation_inputs": "reuse frozen 91 pilot traces and the 8 completed long-horizon traces; state/episode are statistical units",
+  "offline_ablation_storage_mb_estimate": 100,
+  "priority_1": "restore duplicate reproducibility without changing follower control law or candidate identities",
+  "priority_2": "Stage A failed, so separately design a small offline candidate-time state ablation using current body velocity/yaw rate, roll/pitch, controller state and Actor latent; future poses and commands are targets only",
+  "proposed_preflight": [
+    "audit ROS clock and simulator clock per control step",
+    "log follower motion-window sample times and travel-direction state without changing rule",
+    "synchronize simulated TF/clock delivery in a separate diagnostic runner",
+    "repeat only the frozen coverage-003 nominal triplet under a newly approved protocol, then compare with old traces"
+  ],
+  "real_robot_started": false,
+  "root_cause_candidate": "production linear-stuck detector uses ROS elapsed time while simulator advances more slowly; one repeat reversed at step 39",
+  "run_horizon_steps": 120,
+  "status": "proposal_only",
+  "stop_rule": "duplicate XY RMS <= 0.0105 m and identical anchor/Path/command; stop on first anomaly"
+}
