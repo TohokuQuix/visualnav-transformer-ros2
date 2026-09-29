@@ -1,0 +1,45 @@
+{
+  "candidate_outcomes_used": false,
+  "critic_unit_floor_note": "0.01 is a declared practical numeric resolution, not a physical Critic unit",
+  "duplicate_max_pairwise_abs": {
+    "advantage_h": 0.0,
+    "delta_v": 0.0,
+    "drawdown": 0.0,
+    "progress_m": 0.0,
+    "recovery": 0.0
+  },
+  "epsilon": {
+    "advantage_h": 0.01,
+    "delta_v": 0.01,
+    "drawdown": 0.01,
+    "progress_m": 0.01,
+    "recovery": 0.01
+  },
+  "formula": "max(train duplicate maximum pairwise absolute difference, predeclared practical metric resolution)",
+  "frozen_unix_sec": 1790703999.0897648,
+  "heldout_used": false,
+  "practical_resolution_floor": {
+    "advantage_h": 0.01,
+    "delta_v": 0.01,
+    "drawdown": 0.01,
+    "progress_m": 0.01,
+    "recovery": 0.01
+  },
+  "progress_floor_note": "0.01 m is the physical minimum meaningful progress difference",
+  "source": "complete-only train boxes coverage-000 nominal duplicate 3",
+  "source_sha256": {
+    "pilot-001": {
+      "summary_sha256": "20868476c9e43398287428262eb0ff8cfbe91fc79938fda5cee0429ae313ae34",
+      "trace_sha256": "9b49ce245379c368580a7b59b1a66e054586d7b6543968806c48b64cba8c0bc2"
+    },
+    "pilot-002": {
+      "summary_sha256": "2a2f0f80ddef3b9325c0dff7012a2430aa01e36c5a6dfaebd3a654816d5caa63",
+      "trace_sha256": "e0bd79320d04e06a7aac374652ebdee391ea8025c471d1e6bcb3783e5ea4dc09"
+    },
+    "pilot-003": {
+      "summary_sha256": "5d61d5996269ee684323b21107f3a02450f89290243f1d1004e6e0428b9a31de",
+      "trace_sha256": "e9fb58d9040b8d924deb5f74ccab7a1de664a2f7d56f15f40c6b845880aeb181"
+    }
+  },
+  "status": "frozen_before_candidate_outcomes_inspected"
+}

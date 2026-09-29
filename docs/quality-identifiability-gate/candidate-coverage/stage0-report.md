@@ -24,3 +24,7 @@ See `source-audit.json`, `full-prefix-cost.json`, `budget-options.json`, and `pi
 - Sorted terrain/state IDs and full-prefix steps: boxes `coverage-000` / 26; hf_pyramid_slope `coverage-001` / 21; k_rail_field `coverage-002` / 36; k_rail_step_field `coverage-003` / 16; pyramid_stairs `coverage-004` / 26; pyramid_stairs_inv `coverage-005` / 16; random_rough `coverage-006` / 31.
 - All selected states are in episode 0, use distinct environment/episode keys, and have a goal distance ≥0.30 m. No reward, Critic, termination, candidate outcome, Evaluator output, or held-out data was used for selection.
 - Predicted 119-run runtime: 7,912.67 s (2.20 h); with 20% reserve: 9,495.20 s (2.64 h), below the approved 14,400 s hard limit. The estimate is based on two prior runs and is updated from actual run times during the pilot.
+
+## Oracle tolerance freeze
+
+Before inspecting any candidate outcome, the three boxes `coverage-000` nominal duplicates produced identical ΔV, advantage, drawdown, recovery, and progress values. `oracle-epsilon.json` fixes each metric's Recall@K tolerance at `0.01`, the predeclared practical floor above the zero observed duplicate variation. For Critic-derived metrics, `0.01` is a numerical/practical resolution rather than a physical unit. The tolerance will not be changed after candidate results are inspected. The three duplicate source SHA values are saved in that JSON.
