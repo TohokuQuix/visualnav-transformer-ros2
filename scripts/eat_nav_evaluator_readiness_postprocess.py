@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib, json, os, subprocess, time
 from pathlib import Path
 
-ROOT=Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot')
+ROOT=Path(os.environ.get('EAT_READINESS_ROOT', '/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot'))
 REPO=Path('/tmp/eatnav-vnt-candidate-coverage')
 CONTAINER=Path('/tmp/eatnav-candidate-coverage/evaluator-readiness/postprocess')
 CODE=Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-code')

@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import os
 import numpy as np
 from scipy.stats import spearmanr
 
@@ -17,7 +18,7 @@ from eat_nav_exact_stamp_analyze import metrics_at
 
 REPO = Path('/tmp/eatnav-vnt-candidate-coverage')
 DOC = REPO / 'docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot'
-ROOT = Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot')
+ROOT = Path(os.environ.get('EAT_READINESS_ROOT', '/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot'))
 INPUT = Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-inputs')
 OUT = ROOT / 'analysis'
 

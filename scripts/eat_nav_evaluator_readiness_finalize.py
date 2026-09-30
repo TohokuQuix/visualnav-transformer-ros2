@@ -4,11 +4,12 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import os
 from statistics import median
 
 REPO=Path('/tmp/eatnav-vnt-candidate-coverage')
 DOC=REPO/'docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot'
-ROOT=Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot')
+ROOT=Path(os.environ.get('EAT_READINESS_ROOT', '/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot'))
 AN=ROOT/'analysis'
 
 def sha(path):
@@ -92,8 +93,13 @@ def main():
     runtime={'run_count':119,'rollout_count':112,'wall_elapsed_sec':read(ROOT/'status.json')['elapsed_sec'],
              'median_process_sec':median(durations),'max_process_sec':max(durations),
              'gpu_peak_mib':max(gpu) if gpu else None,
-             'raw_root_bytes':read(ROOT/'status.json')['size_bytes'],
-             'wall_cap_sec':25200,'storage_cap_bytes':1000000000}
+             'raw_root_bytes':read(ROOT/'status.json')['size_bytes']}
+    if os.environ.get('EAT_READINESS_ROOT'):
+        runtime.update({'additional_wall_cap_sec':16200,'storage_cap_bytes':1500000000,
+                        'old_elapsed_sec':read(ROOT/'status.json')['old_elapsed_sec'],
+                        'fresh_elapsed_sec':read(ROOT/'status.json')['fresh_elapsed_sec']})
+    else:
+        runtime.update({'wall_cap_sec':25200,'storage_cap_bytes':1000000000})
     once(DOC/'runtime-storage.json',runtime)
     decision={'candidate_coverage':candidate,'relative_outcome_dataset':relative,
               'safety_dataset':safety,'evaluator_input_schema':inputs,'next_action':next_action,
@@ -121,6 +127,8 @@ Train-only, seven-terrain, fresh-process, exact-stamp diagnostic. Each of 7 stat
 '''
     report+='\n'.join(f'- **{key}:** `{value}`' for key,value in decision.items() if key not in ('evidence','formal_validation_started','retraining_started','full_collection_started','real_robot_test_started'))+'\n'
     report+='\n## State-level evidence\n\n| Terrain | NoMaD valid precision | NoMaD realized modes | valid 6s ΔV range | feasible-union Recall@8 |\n|---|---:|---:|---:|---|\n'+'\n'.join(rows)+'\n'
+    if os.environ.get('EAT_READINESS_ROOT'):
+        report+='\n## Measurement protocol\n\nThe first 100 runs use the frozen original protocol. The remaining 19 use a fresh bridge and eight fresh followers per run after three outcome-blind equivalence replays passed. The old command-delivery failure remains mechanistically inconclusive; its observed boundary is between follower publish return and bridge adoption. Failure attempt 0, fault injection, diagnostic replay, and equivalence replays are excluded from all outcome estimates.\n'
     report+=f'''\nThe feasible union contains nominal, constraint-valid NoMaD K=8, and constraint-valid bank candidates. Recall@K compares NoMaD prefixes against this union with ε=0.01. Seven terrain states are descriptive support, not formal generalization.
 
 P/C/R two-second OOD counts over frozen train P95: {ood_counts}. The Phase B GT(P) model is frozen; its results are secondary and never selected candidates. Its macro metrics are in `final-decision.json` and raw score artifact `{AN/'frozen-evaluator.json'}`.

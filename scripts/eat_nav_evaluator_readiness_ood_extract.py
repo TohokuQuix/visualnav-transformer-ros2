@@ -5,11 +5,12 @@ import gzip
 import json
 import math
 from pathlib import Path
+import os
 import numpy as np
 from visualnav_transformer.eat_nav.command_preview_long_horizon import post_root
 from visualnav_transformer.eat_nav.feasible_transfer import integrate_commands, map_xy_to_base
 
-ROOT = Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot')
+ROOT = Path(os.environ.get('EAT_READINESS_ROOT', '/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot'))
 DOC = Path('/tmp/eatnav-vnt-candidate-coverage/docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot')
 INPUT = Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-inputs')
 
