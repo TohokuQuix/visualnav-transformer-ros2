@@ -1,0 +1,63 @@
+{
+  "branch": "exp/eatnav-candidate-coverage",
+  "expected_shas_checked": {
+    "exact_follower_binary": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d",
+    "production_follower_binary": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219",
+    "production_follower_params": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+    "production_follower_source": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+  },
+  "files": {
+    "config": {
+      "path": "docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot/pilot-config.json",
+      "sha256": "0b0c8f98a57f14797335e03d0b9eb7d7874c0c88bf84fba627eb263efa23d3f2"
+    },
+    "exact_follower_binary": {
+      "path": "/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node",
+      "sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d"
+    },
+    "manifest": {
+      "path": "/tmp/eatnav-candidate-coverage/evaluator-readiness-inputs/input-freeze.json",
+      "sha256": "40680d3d935fa60389eb030a2412184b231a0033edf687f0d5e8a1b8d9db218f"
+    },
+    "preparer_code": {
+      "path": "scripts/eat_nav_evaluator_readiness_prepare.py",
+      "sha256": "849fdcbd91c901ab4e51d979f38b18aa6b839fb6f8343fb6ba85321aa165612c"
+    },
+    "production_follower_binary": {
+      "path": "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node",
+      "sha256": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219"
+    },
+    "production_follower_params": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "production_follower_source": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "schedule": {
+      "path": "docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot/schedule.json",
+      "sha256": "a970e99c71f7d2647214257cf5113ad15af991d3526fc102c3e4cdc2e313a071"
+    },
+    "schema": {
+      "path": "docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot/input-target-schema.json",
+      "sha256": "091ac73df948e96b393e80b61f46efce28b92f0697aa263a39e10887e373eeeb"
+    },
+    "selection": {
+      "path": "docs/quality-identifiability-gate/candidate-coverage/evaluator-readiness-pilot/selection.json",
+      "sha256": "38eace0b9e70108363118b65384c9009571d11944ccb906de8047c09af745c7d"
+    },
+    "selection_code": {
+      "path": "scripts/eat_nav_evaluator_readiness_select.py",
+      "sha256": "d545fe18f719003a13677e4dacbfdf2d678ec93ae2702372df30257131c954de"
+    },
+    "simulator_copy_in_container_source": {
+      "path": "scripts/eat_nav_evaluator_readiness_sim.py",
+      "sha256": "e47c8f89b8b44c1dc19e33d94b3c6b920b6fc6af3813a841d17c588531415efc"
+    }
+  },
+  "git_base_head": "7dd605d550c21d220b3d08e47bcc305ec053c7a5",
+  "production_follower_changed": false,
+  "retraining": false,
+  "validation_or_heldout_used": false
+}

@@ -1,0 +1,295 @@
+{
+  "candidate_outcomes_used": false,
+  "complete_only_train_windows": 49598,
+  "dem_history_frames": 4,
+  "episode_cap": 1,
+  "episode_zero_replay_subset": true,
+  "heldout_used": false,
+  "input_fields": [
+    "split",
+    "complete",
+    "terrain_type",
+    "episode_key",
+    "step",
+    "local_step",
+    "view_index",
+    "goal",
+    "dem_sha256",
+    "dem_finite",
+    "goal_finite",
+    "boundary_clean",
+    "terrain_seed"
+  ],
+  "max_episode_local_prefix_steps": 80,
+  "minimum_goal_distance_m": 0.3,
+  "outcome_fields_used": [],
+  "prior_episodes_excluded": [
+    [
+      0,
+      13,
+      0
+    ],
+    [
+      0,
+      26,
+      0
+    ],
+    [
+      0,
+      36,
+      0
+    ],
+    [
+      0,
+      44,
+      0
+    ],
+    [
+      0,
+      45,
+      0
+    ],
+    [
+      0,
+      62,
+      0
+    ],
+    [
+      0,
+      76,
+      0
+    ]
+  ],
+  "prior_selection_sha256": "1bb7865e81d2f0f52fff550037bb2e07b560b73f5de553b6183203bdaa969ddc",
+  "seed": 20260930,
+  "selected": [
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "486ba9dc8aa80e1e652978db5dcd2244515d91f0ff232d55a1bc16fe820d9c50",
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "episode_local_prefix_steps": 76,
+      "goal": [
+        -0.549089252948761,
+        0.006448974367231131
+      ],
+      "goal_distance_m": 0.5491271227814354,
+      "goal_finite": true,
+      "local_step": 75,
+      "rank_sha256": "07ae05cd343fa101fb94b782dbe063ef3acf961023c63cc6e3c359982022e418",
+      "split": "train",
+      "state_id": "readiness-000",
+      "step": 75,
+      "terrain_seed": 3455129400,
+      "terrain_type": "boxes",
+      "view_index": 26683
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "9023ed728116d7e124d9c252cc5f72a772c3a36247e0ca448f440e1385600731",
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "episode_local_prefix_steps": 51,
+      "goal": [
+        0.7981627583503723,
+        -0.05418753623962402
+      ],
+      "goal_distance_m": 0.8000000486882456,
+      "goal_finite": true,
+      "local_step": 50,
+      "rank_sha256": "015d75264b7e4d266c0b8ee2e9c6bc2130bab547adf5b39d366a176b18888696",
+      "split": "train",
+      "state_id": "readiness-001",
+      "step": 50,
+      "terrain_seed": 1740388444,
+      "terrain_type": "hf_pyramid_slope",
+      "view_index": 29783
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "59c91942bdb6412068aa1d00d6a6bbe516555c4c7b1cddfdfa54150a3fd2eadf",
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "episode_local_prefix_steps": 56,
+      "goal": [
+        0.7104747295379639,
+        -0.0870484858751297
+      ],
+      "goal_distance_m": 0.7157875244827864,
+      "goal_finite": true,
+      "local_step": 55,
+      "rank_sha256": "060f31c2137f7721d31c2aca1c63856de0cf5d31db08c215ec56b71b1bcce5f6",
+      "split": "train",
+      "state_id": "readiness-002",
+      "step": 55,
+      "terrain_seed": 1654312519,
+      "terrain_type": "k_rail_field",
+      "view_index": 7438
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "c253d80971588b798b9c43223c7cde0cd7ff3b94e49be6df267451c2382141d4",
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "episode_local_prefix_steps": 51,
+      "goal": [
+        0.6578065156936646,
+        0.09543046355247498
+      ],
+      "goal_distance_m": 0.6646927000222581,
+      "goal_finite": true,
+      "local_step": 50,
+      "rank_sha256": "05407a61769ab4037dfef31eede021a044e372c084d1b0b73e74f7f1907d027a",
+      "split": "train",
+      "state_id": "readiness-003",
+      "step": 50,
+      "terrain_seed": 1023818687,
+      "terrain_type": "k_rail_step_field",
+      "view_index": 47121
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "4bb3b978597f4e0cc14fe52d05c2b4cfdbe8d4eab3bea8a31b4f1cd089b2af54",
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "episode_local_prefix_steps": 56,
+      "goal": [
+        0.7969995141029358,
+        -0.06922263652086258
+      ],
+      "goal_distance_m": 0.7999999993045095,
+      "goal_finite": true,
+      "local_step": 55,
+      "rank_sha256": "0114bbdb0f4f5580b2db0976b05af6dc258102586d80499e7cf39c1734a20d24",
+      "split": "train",
+      "state_id": "readiness-004",
+      "step": 55,
+      "terrain_seed": 3488754881,
+      "terrain_type": "pyramid_stairs",
+      "view_index": 36604
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "d2174ea0382f2f75d50ff67afdfd25058923a59730ed37b2ab4c74c6158f5fa3",
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "episode_local_prefix_steps": 41,
+      "goal": [
+        -0.7348703742027283,
+        0.11905353516340256
+      ],
+      "goal_distance_m": 0.7444516177131738,
+      "goal_finite": true,
+      "local_step": 40,
+      "rank_sha256": "05507eb13d4e3dabf954be9b5e5872fc76fc90ebfb54e62d9501db3311afa3e3",
+      "split": "train",
+      "state_id": "readiness-005",
+      "step": 40,
+      "terrain_seed": 993084048,
+      "terrain_type": "pyramid_stairs_inv",
+      "view_index": 13024
+    },
+    {
+      "boundary_clean": true,
+      "complete": true,
+      "dem_finite": true,
+      "dem_sha256": "3f7093f4dac0f0697f1950de75aa2c327c5cf286dee1003827449225380244f2",
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "episode_local_prefix_steps": 76,
+      "goal": [
+        0.6336087584495544,
+        0.1109662875533104
+      ],
+      "goal_distance_m": 0.6432523422089886,
+      "goal_finite": true,
+      "local_step": 75,
+      "rank_sha256": "025821650936f60eb9bc17229b2cb03fb493b495fe8feffd6d5ea2b997c23acb",
+      "split": "train",
+      "state_id": "readiness-006",
+      "step": 75,
+      "terrain_seed": 3230004213,
+      "terrain_type": "random_rough",
+      "view_index": 14273
+    }
+  ],
+  "source_sha256": {
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475",
+    "reference_checkpoint": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0",
+    "reference_config": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992"
+  },
+  "support": {
+    "boxes": {
+      "complete_train": 3094,
+      "eligible": 25
+    },
+    "hf_pyramid_slope": {
+      "complete_train": 5589,
+      "eligible": 66
+    },
+    "k_rail_field": {
+      "complete_train": 7430,
+      "eligible": 89
+    },
+    "k_rail_step_field": {
+      "complete_train": 7441,
+      "eligible": 74
+    },
+    "pyramid_stairs": {
+      "complete_train": 7438,
+      "eligible": 104
+    },
+    "pyramid_stairs_inv": {
+      "complete_train": 8673,
+      "eligible": 112
+    },
+    "random_rough": {
+      "complete_train": 9933,
+      "eligible": 98
+    }
+  },
+  "teacher_trajectory_points": 8,
+  "terrain_order": [
+    "boxes",
+    "hf_pyramid_slope",
+    "k_rail_field",
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "validation_used": false
+}

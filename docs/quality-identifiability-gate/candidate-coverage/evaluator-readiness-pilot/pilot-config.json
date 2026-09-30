@@ -1,0 +1,56 @@
+{
+  "bank_order": [
+    "nominal",
+    "slight_left",
+    "slight_right",
+    "strong_left",
+    "strong_right"
+  ],
+  "control_interval_sec": 0.05,
+  "control_steps": 120,
+  "duplicate_xy_rms_max_m": 0.0105,
+  "exact_stamp_protocol": true,
+  "fresh_process_per_run": true,
+  "gpu_memory_alert_mib": 12000,
+  "initialization_only_retry_max": 1,
+  "input_freeze_sha256": "40680d3d935fa60389eb030a2412184b231a0033edf687f0d5e8a1b8d9db218f",
+  "max_episode_local_prefix_steps": 80,
+  "minimum_goal_distance_m": 0.3,
+  "no_candidate_replacement": true,
+  "no_formal_validation": true,
+  "no_production_follower_edit": true,
+  "no_retraining": true,
+  "nomad_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008
+  ],
+  "run_count": {
+    "all_processes": 119,
+    "anchor": 7,
+    "fixed_bank": 35,
+    "nomad": 56,
+    "nominal": 21,
+    "rollout_total": 112
+  },
+  "schema_version": 1,
+  "selection_seed": 20260930,
+  "source_selection_sha256": "38eace0b9e70108363118b65384c9009571d11944ccb906de8047c09af745c7d",
+  "stage": "train_only_counterfactual_evaluator_readiness",
+  "storage_cap_bytes": 1000000000,
+  "terrain_order": [
+    "boxes",
+    "hf_pyramid_slope",
+    "k_rail_field",
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough"
+  ],
+  "wall_clock_cap_sec": 25200
+}

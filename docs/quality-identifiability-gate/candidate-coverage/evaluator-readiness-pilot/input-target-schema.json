@@ -1,0 +1,67 @@
+{
+  "composite_score_defined": false,
+  "metadata_only": [
+    "candidate_generator",
+    "diffusion_seed",
+    "state_id",
+    "episode_key",
+    "terrain_type",
+    "path_sha256"
+  ],
+  "online_input": {
+    "actor_latent": "256-D at same anchor control step",
+    "actor_observation_post_delay": "22-D exact Actor input at anchor control step",
+    "actor_observation_post_noise_pre_delay": "22-D at anchor control step",
+    "actor_observation_pre_noise": "22-D at anchor control step",
+    "angular_velocity": "3-D current body state",
+    "controller_latency_state": "only fields available on robot at inference; simulator-only buffers diagnostic until mapped",
+    "dem_history": "4 frames of 2-channel transformed height/mask",
+    "dem_mask": "mask channel in each DEM frame",
+    "joint_effort": "current effort where device exposes it",
+    "joint_flipper_position": "current joint state",
+    "mean_track_velocity": "current joint state",
+    "planned_waypoints": "8x2 cumulative base-frame future XY",
+    "planned_xy_delta": "8x2 base-frame differences from candidate Path",
+    "previous_action": "current ActionManager history",
+    "projected_gravity_or_roll_pitch": "current body state",
+    "relative_goal": "2-D base-frame current goal",
+    "root_relative_linear_velocity": "3-D current body state"
+  },
+  "primary_target_candidates": [
+    "delta_critic",
+    "h_step_advantage",
+    "critic_drawdown",
+    "recovery"
+  ],
+  "schema_version": 1,
+  "targets_2s_6s": [
+    "delta_critic",
+    "h_step_advantage",
+    "critic_drawdown",
+    "recovery",
+    "discounted_return",
+    "progress",
+    "path_length",
+    "max_roll_pitch_tilt",
+    "contact_peak",
+    "contact_integral",
+    "commanded_realized_motion_ratio",
+    "stack",
+    "termination_reason",
+    "trajectory_cluster",
+    "command_cluster"
+  ],
+  "teacher_only": [
+    "future_critic",
+    "reward",
+    "future_command",
+    "realized_trajectory",
+    "future_pose",
+    "future_dem",
+    "contact",
+    "termination",
+    "stack_tilt",
+    "future_actor_latent",
+    "simulator_only_critic_observation"
+  ]
+}

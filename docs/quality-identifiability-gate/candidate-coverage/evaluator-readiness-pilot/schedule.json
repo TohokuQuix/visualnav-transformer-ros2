@@ -1,0 +1,2285 @@
+{
+  "anchor_count": 7,
+  "bank_order": [
+    "nominal",
+    "slight_left",
+    "slight_right",
+    "strong_left",
+    "strong_right"
+  ],
+  "candidate_outcomes_used": false,
+  "nomad_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008
+  ],
+  "rollout_count": 112,
+  "runs": [
+    {
+      "base_path_sha256": "04705bffd186a4edd72bcfd6af679dcc8d63cfba15451034b0af4991fa759de2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1000000000000,
+      "order": 0,
+      "repeat": null,
+      "run_id": "readiness-000",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "04705bffd186a4edd72bcfd6af679dcc8d63cfba15451034b0af4991fa759de2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1010000000000,
+      "order": 1,
+      "repeat": 0,
+      "run_id": "readiness-001",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "04705bffd186a4edd72bcfd6af679dcc8d63cfba15451034b0af4991fa759de2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1020000000000,
+      "order": 2,
+      "repeat": 1,
+      "run_id": "readiness-002",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "04705bffd186a4edd72bcfd6af679dcc8d63cfba15451034b0af4991fa759de2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1030000000000,
+      "order": 3,
+      "repeat": 2,
+      "run_id": "readiness-003",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "84b133393d9f418e3de0b4fabbcd85cc9add781007c26247bf9966f2126fd451",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1040000000000,
+      "order": 4,
+      "repeat": null,
+      "run_id": "readiness-004",
+      "seed": 1001,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "9760ec0df1043a1b0540a8b0f84ac1179d8c8db870bb64d10061b2ad47969713",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1050000000000,
+      "order": 5,
+      "repeat": null,
+      "run_id": "readiness-005",
+      "seed": 1002,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "89ffbd9ddf7bb316abe642f7c1f0086897e31935666f1107250796d74c37ada5",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1060000000000,
+      "order": 6,
+      "repeat": null,
+      "run_id": "readiness-006",
+      "seed": 1003,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "edd7a23b633c401120dc5726fcff5d6729e2758f468c81513ce0abff6c81174b",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1070000000000,
+      "order": 7,
+      "repeat": null,
+      "run_id": "readiness-007",
+      "seed": 1004,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "c06d6dfc33c4105d33732543e93cc3eefedda41c7eb5a3fc88a61a43aa16e7ec",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1080000000000,
+      "order": 8,
+      "repeat": null,
+      "run_id": "readiness-008",
+      "seed": 1005,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "5e87cfbea8333acf55c4285827ee412a7375df7d55e8135c0ad6e077f11a2e53",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1090000000000,
+      "order": 9,
+      "repeat": null,
+      "run_id": "readiness-009",
+      "seed": 1006,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "232165964a0b51794ead79265b0cf2e798c9932f868d19a0db1c9276af304bed",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1100000000000,
+      "order": 10,
+      "repeat": null,
+      "run_id": "readiness-010",
+      "seed": 1007,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "7e1dc5f8477ef6f0fb5050f0691f99b94ed4cace4130460be222d01d69a8e74e",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1110000000000,
+      "order": 11,
+      "repeat": null,
+      "run_id": "readiness-011",
+      "seed": 1008,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "04705bffd186a4edd72bcfd6af679dcc8d63cfba15451034b0af4991fa759de2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1120000000000,
+      "order": 12,
+      "repeat": null,
+      "run_id": "readiness-012",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "2cf29edc5000ce4131fb6070dc6948a59baff7f7d03f9acfda66e3d1aedb417e",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1130000000000,
+      "order": 13,
+      "repeat": null,
+      "run_id": "readiness-013",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "6fece9a3badc1f5e16bdc45d169856938a67a07245c5e853c4b3baa288d0ef97",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1140000000000,
+      "order": 14,
+      "repeat": null,
+      "run_id": "readiness-014",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "026a888873c5757ca2ecba905d857db3c720130eec1ce1b92b82b3669ba09bbf",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1150000000000,
+      "order": 15,
+      "repeat": null,
+      "run_id": "readiness-015",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "d2267bed042fc36fe2c23f7e2bdea92739a03ddf338c2b15909b99bb64edd532",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        52,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1160000000000,
+      "order": 16,
+      "repeat": null,
+      "run_id": "readiness-016",
+      "seed": null,
+      "state_id": "readiness-000",
+      "state_index": 0,
+      "terrain_type": "boxes"
+    },
+    {
+      "base_path_sha256": "88f8b64f08a72375dfd79d8266e0cdbe025866765dcac51154d3c7bc74cf52d2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1170000000000,
+      "order": 17,
+      "repeat": null,
+      "run_id": "readiness-017",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "88f8b64f08a72375dfd79d8266e0cdbe025866765dcac51154d3c7bc74cf52d2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1180000000000,
+      "order": 18,
+      "repeat": 0,
+      "run_id": "readiness-018",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "88f8b64f08a72375dfd79d8266e0cdbe025866765dcac51154d3c7bc74cf52d2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1190000000000,
+      "order": 19,
+      "repeat": 1,
+      "run_id": "readiness-019",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "88f8b64f08a72375dfd79d8266e0cdbe025866765dcac51154d3c7bc74cf52d2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1200000000000,
+      "order": 20,
+      "repeat": 2,
+      "run_id": "readiness-020",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "2dd57e58189142e8d12da587d56bc0549fa51c2297bf977cc1d808721c9bac8a",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1210000000000,
+      "order": 21,
+      "repeat": null,
+      "run_id": "readiness-021",
+      "seed": 1001,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "ff37a9fdb07cd2ad940d0baef5f7867acccdd35b6ad1d169c67ddd8772fefaa6",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1220000000000,
+      "order": 22,
+      "repeat": null,
+      "run_id": "readiness-022",
+      "seed": 1002,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "ab3ed7b79e31e6f56f3379dff3f48eb0c7cbc052a7763fbae50f7d6c1cdc329b",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1230000000000,
+      "order": 23,
+      "repeat": null,
+      "run_id": "readiness-023",
+      "seed": 1003,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "0529968f339f50e75ca73ec8802e5d95b987e475bd5d2ce0f03d0c3b89783de0",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1240000000000,
+      "order": 24,
+      "repeat": null,
+      "run_id": "readiness-024",
+      "seed": 1004,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "923aa3411e24e6208fef97c0809805282f9e65e2a90024f258c2314c0197ad2b",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1250000000000,
+      "order": 25,
+      "repeat": null,
+      "run_id": "readiness-025",
+      "seed": 1005,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "bbe277ea33a15372b72fa02584625a60e95cdb82d1791698b2d62274015969f2",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1260000000000,
+      "order": 26,
+      "repeat": null,
+      "run_id": "readiness-026",
+      "seed": 1006,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "ede3ef464a633a96219b3cd8306b33fd5460f51bda8591ab8b8f461173a36f31",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1270000000000,
+      "order": 27,
+      "repeat": null,
+      "run_id": "readiness-027",
+      "seed": 1007,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "2e91d852444b8bd2d5ada89374030c28497ebf594736c688142882c0045b4835",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1280000000000,
+      "order": 28,
+      "repeat": null,
+      "run_id": "readiness-028",
+      "seed": 1008,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "88f8b64f08a72375dfd79d8266e0cdbe025866765dcac51154d3c7bc74cf52d2",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1290000000000,
+      "order": 29,
+      "repeat": null,
+      "run_id": "readiness-029",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "788cab882cee82c9918864c87b9b21fb32c032c3d28a093d1fac719db649ddda",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1300000000000,
+      "order": 30,
+      "repeat": null,
+      "run_id": "readiness-030",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "659af11741e92cc59f8c277bf68bf655d47a1e4e56e0b8c8ac4567253e0f2b9b",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1310000000000,
+      "order": 31,
+      "repeat": null,
+      "run_id": "readiness-031",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "2bd8ad407fcaacfcca6b1862da1a939e992c3c541e4097658a5021bf0043a0b4",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1320000000000,
+      "order": 32,
+      "repeat": null,
+      "run_id": "readiness-032",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "280010f01ee67143612f54c31be8cc47abc2ee4ada1dd5ce92ef60286508402f",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        58,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1330000000000,
+      "order": 33,
+      "repeat": null,
+      "run_id": "readiness-033",
+      "seed": null,
+      "state_id": "readiness-001",
+      "state_index": 1,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    {
+      "base_path_sha256": "eb0f38fdae631d582128d8278edddd4987c3eb61124095cf2202d61b723ad957",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1340000000000,
+      "order": 34,
+      "repeat": null,
+      "run_id": "readiness-034",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "eb0f38fdae631d582128d8278edddd4987c3eb61124095cf2202d61b723ad957",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1350000000000,
+      "order": 35,
+      "repeat": 0,
+      "run_id": "readiness-035",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "eb0f38fdae631d582128d8278edddd4987c3eb61124095cf2202d61b723ad957",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1360000000000,
+      "order": 36,
+      "repeat": 1,
+      "run_id": "readiness-036",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "eb0f38fdae631d582128d8278edddd4987c3eb61124095cf2202d61b723ad957",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1370000000000,
+      "order": 37,
+      "repeat": 2,
+      "run_id": "readiness-037",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "60e19b15732c2d9790b56d58f9cd42dc09b6e969fe0be8807a9bb5b7e40bc28d",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1380000000000,
+      "order": 38,
+      "repeat": null,
+      "run_id": "readiness-038",
+      "seed": 1001,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "972366cb32d3de9b3a6af9135c54238dec52847cb9f69af143d864969090fc67",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1390000000000,
+      "order": 39,
+      "repeat": null,
+      "run_id": "readiness-039",
+      "seed": 1002,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "0c75e4f7b19f09baf3e5752dbe5171d7bbaa691f2b9fedf4a2de8ba280bce53f",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1400000000000,
+      "order": 40,
+      "repeat": null,
+      "run_id": "readiness-040",
+      "seed": 1003,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "6e846619f26fe82877458b4328f39762e92ed003e2322b92bb1047d5e8ab9283",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1410000000000,
+      "order": 41,
+      "repeat": null,
+      "run_id": "readiness-041",
+      "seed": 1004,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "9a3aa37f771958021c562c83cda5874a131b302b4c3673bc7d3ea1d257734df2",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1420000000000,
+      "order": 42,
+      "repeat": null,
+      "run_id": "readiness-042",
+      "seed": 1005,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "8ecc85d1bac611ba579e069d2faf5b49c3d060b05a92cec210441eba76df4abf",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1430000000000,
+      "order": 43,
+      "repeat": null,
+      "run_id": "readiness-043",
+      "seed": 1006,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "52da12c157cb580405e726844a7e54eb984de43d6d1c1fc43a395b79c372f457",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1440000000000,
+      "order": 44,
+      "repeat": null,
+      "run_id": "readiness-044",
+      "seed": 1007,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "906c6d0855bbe7a20f410b16118aa0c35efdbc8fa81061e9ad1c898de22c0176",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1450000000000,
+      "order": 45,
+      "repeat": null,
+      "run_id": "readiness-045",
+      "seed": 1008,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "eb0f38fdae631d582128d8278edddd4987c3eb61124095cf2202d61b723ad957",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1460000000000,
+      "order": 46,
+      "repeat": null,
+      "run_id": "readiness-046",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "5c2e82d27e71cfb87a89d28beefa319f40c9dfdfe6b9f63ae7a891a965e5b2f3",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1470000000000,
+      "order": 47,
+      "repeat": null,
+      "run_id": "readiness-047",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "3f4df1387ef54751d83d3d0ef351fbd47c6df33f5d1b55800d1624cb1ef5de21",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1480000000000,
+      "order": 48,
+      "repeat": null,
+      "run_id": "readiness-048",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "dca2e5396e591c842a55235563ef16553bcb1ff0ba2fcdade764cc5901d7ab20",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1490000000000,
+      "order": 49,
+      "repeat": null,
+      "run_id": "readiness-049",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "4afdc7618a17aad13d664096c4ed7a384f9f6f20dc9f7a470ce953a725276087",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        17,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1500000000000,
+      "order": 50,
+      "repeat": null,
+      "run_id": "readiness-050",
+      "seed": null,
+      "state_id": "readiness-002",
+      "state_index": 2,
+      "terrain_type": "k_rail_field"
+    },
+    {
+      "base_path_sha256": "208526323131d222a2a47e3751c46d31a68ce4177e25232bb1d4656e8399965d",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1510000000000,
+      "order": 51,
+      "repeat": null,
+      "run_id": "readiness-051",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "208526323131d222a2a47e3751c46d31a68ce4177e25232bb1d4656e8399965d",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1520000000000,
+      "order": 52,
+      "repeat": 0,
+      "run_id": "readiness-052",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "208526323131d222a2a47e3751c46d31a68ce4177e25232bb1d4656e8399965d",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1530000000000,
+      "order": 53,
+      "repeat": 1,
+      "run_id": "readiness-053",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "208526323131d222a2a47e3751c46d31a68ce4177e25232bb1d4656e8399965d",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1540000000000,
+      "order": 54,
+      "repeat": 2,
+      "run_id": "readiness-054",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "56e5d7d24a65ee70e3d34e8095d7c2b624aac961b6421d90129296ad20a67d57",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1550000000000,
+      "order": 55,
+      "repeat": null,
+      "run_id": "readiness-055",
+      "seed": 1001,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "6a92460e8bd46691bc147b47efc9a5b8d148e58763e8c7bac1a56c721d7ea593",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1560000000000,
+      "order": 56,
+      "repeat": null,
+      "run_id": "readiness-056",
+      "seed": 1002,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "1cdeba878129168fb48b3cd4b9751789e5e63e379c471f830c70b6a58b291184",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1570000000000,
+      "order": 57,
+      "repeat": null,
+      "run_id": "readiness-057",
+      "seed": 1003,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "17356c9c5687929c799a748398f01575aea56518619c229499998881b193cfea",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1580000000000,
+      "order": 58,
+      "repeat": null,
+      "run_id": "readiness-058",
+      "seed": 1004,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "3ff15d0b463c23be2fad11bfb866f487d1f868da19c9c2b119dd8c08c35e5af7",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1590000000000,
+      "order": 59,
+      "repeat": null,
+      "run_id": "readiness-059",
+      "seed": 1005,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "2621c502922675591063fc55a41a65050568f37a2722cb0efda1b010673ace51",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1600000000000,
+      "order": 60,
+      "repeat": null,
+      "run_id": "readiness-060",
+      "seed": 1006,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "6bc4fabce07e69f44a788e839268a517bd6857ba5e67de0778f42f8a8ff30152",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1610000000000,
+      "order": 61,
+      "repeat": null,
+      "run_id": "readiness-061",
+      "seed": 1007,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "6c8424482d499afe1eac88bbeede9350f56971ce7586189b6cb55469f8fe9558",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1620000000000,
+      "order": 62,
+      "repeat": null,
+      "run_id": "readiness-062",
+      "seed": 1008,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "208526323131d222a2a47e3751c46d31a68ce4177e25232bb1d4656e8399965d",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1630000000000,
+      "order": 63,
+      "repeat": null,
+      "run_id": "readiness-063",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "60aa17d18bc94b644e5d83927706facd7cefc2447c31bc6894c6ee2c49dec142",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1640000000000,
+      "order": 64,
+      "repeat": null,
+      "run_id": "readiness-064",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "6afd6cde890bdb46cb14a5711fdd4ac05a462b22a4258a1e032e3bf80c190b0d",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1650000000000,
+      "order": 65,
+      "repeat": null,
+      "run_id": "readiness-065",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "6eb704fb98c6f12399e50773e315ad37e5bcd97b76645287f58323b86947bc64",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1660000000000,
+      "order": 66,
+      "repeat": null,
+      "run_id": "readiness-066",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "59cdef284d00e57c84217f6574bc9ed955ea3bca2044fa802063795c1674cee6",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        94,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1670000000000,
+      "order": 67,
+      "repeat": null,
+      "run_id": "readiness-067",
+      "seed": null,
+      "state_id": "readiness-003",
+      "state_index": 3,
+      "terrain_type": "k_rail_step_field"
+    },
+    {
+      "base_path_sha256": "fea372558fd53723ae688a69526c3c5ed374ebe1c660fada98b422f484c5edbc",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1680000000000,
+      "order": 68,
+      "repeat": null,
+      "run_id": "readiness-068",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "fea372558fd53723ae688a69526c3c5ed374ebe1c660fada98b422f484c5edbc",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1690000000000,
+      "order": 69,
+      "repeat": 0,
+      "run_id": "readiness-069",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "fea372558fd53723ae688a69526c3c5ed374ebe1c660fada98b422f484c5edbc",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1700000000000,
+      "order": 70,
+      "repeat": 1,
+      "run_id": "readiness-070",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "fea372558fd53723ae688a69526c3c5ed374ebe1c660fada98b422f484c5edbc",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1710000000000,
+      "order": 71,
+      "repeat": 2,
+      "run_id": "readiness-071",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "d4ac450f32c7955dee8bbeb7cf5725d0a671fb42749f18e603108213eee010f9",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1720000000000,
+      "order": 72,
+      "repeat": null,
+      "run_id": "readiness-072",
+      "seed": 1001,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "c4866e9465c51ce8bd91deb9031c3b5f25a50e1bd8d930a31021e1fede4eedd8",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1730000000000,
+      "order": 73,
+      "repeat": null,
+      "run_id": "readiness-073",
+      "seed": 1002,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "f1ea6194d9e1c98a70755a28e82835f7da8aa495aa918c938b199ea5160d4e1c",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1740000000000,
+      "order": 74,
+      "repeat": null,
+      "run_id": "readiness-074",
+      "seed": 1003,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "7a4f62ca67d7d7d421da82aa4c597a0368d43bd40324db6d678c4e7a3a9e8a8c",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1750000000000,
+      "order": 75,
+      "repeat": null,
+      "run_id": "readiness-075",
+      "seed": 1004,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "350487ae676634118e2b164e35bdc8138552588a1687b6af6110980cac58e37f",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1760000000000,
+      "order": 76,
+      "repeat": null,
+      "run_id": "readiness-076",
+      "seed": 1005,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "f4488c1c5c7200b65a6cbb7c2ee23fbc47a56c27bf883b1d5284b591d1140662",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1770000000000,
+      "order": 77,
+      "repeat": null,
+      "run_id": "readiness-077",
+      "seed": 1006,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "63420f11fc4e64035fc158148864de422a8998fdb7253c404c58e000543723e3",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1780000000000,
+      "order": 78,
+      "repeat": null,
+      "run_id": "readiness-078",
+      "seed": 1007,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "131d9fbe6013f5853be5c5a05c06c69939043b185cd39ce0ced90dc3946a5821",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1790000000000,
+      "order": 79,
+      "repeat": null,
+      "run_id": "readiness-079",
+      "seed": 1008,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "fea372558fd53723ae688a69526c3c5ed374ebe1c660fada98b422f484c5edbc",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1800000000000,
+      "order": 80,
+      "repeat": null,
+      "run_id": "readiness-080",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "0d44bd5f4891f3a75d15be59c649e7caf2aa907de01ae3982ff236ba1468f91b",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1810000000000,
+      "order": 81,
+      "repeat": null,
+      "run_id": "readiness-081",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "6ad2967fd8f28949cdf369876b6e08c7990ff69e6f13348fd26dcb519d4c1a26",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1820000000000,
+      "order": 82,
+      "repeat": null,
+      "run_id": "readiness-082",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "d60713b5c7fe76862354e8ad655487e5c9bb6118c75e093267fb399ed236527f",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1830000000000,
+      "order": 83,
+      "repeat": null,
+      "run_id": "readiness-083",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "e93fcdbcaacded5bc303869ec6f51e240e2b813b0c5044dd3e41e52d2891aa9e",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        74,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1840000000000,
+      "order": 84,
+      "repeat": null,
+      "run_id": "readiness-084",
+      "seed": null,
+      "state_id": "readiness-004",
+      "state_index": 4,
+      "terrain_type": "pyramid_stairs"
+    },
+    {
+      "base_path_sha256": "40b22b3eed5ca2eb7c9e90519aeed089cc86d8a1858993dc0163fba7368f977e",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 1850000000000,
+      "order": 85,
+      "repeat": null,
+      "run_id": "readiness-085",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "40b22b3eed5ca2eb7c9e90519aeed089cc86d8a1858993dc0163fba7368f977e",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1860000000000,
+      "order": 86,
+      "repeat": 0,
+      "run_id": "readiness-086",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "40b22b3eed5ca2eb7c9e90519aeed089cc86d8a1858993dc0163fba7368f977e",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1870000000000,
+      "order": 87,
+      "repeat": 1,
+      "run_id": "readiness-087",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "40b22b3eed5ca2eb7c9e90519aeed089cc86d8a1858993dc0163fba7368f977e",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 1880000000000,
+      "order": 88,
+      "repeat": 2,
+      "run_id": "readiness-088",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "6bfd1eded2f3583be483721cb19f9f08147af5fd7fd137bfde9dcfddbfd82cdb",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1890000000000,
+      "order": 89,
+      "repeat": null,
+      "run_id": "readiness-089",
+      "seed": 1001,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "5642a2e7857041248d6461190ef1e3d508edf1d7e5e2e1174602cfce2fef3812",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1900000000000,
+      "order": 90,
+      "repeat": null,
+      "run_id": "readiness-090",
+      "seed": 1002,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "16224dae026ef7e8852da17da9a1ccef491d4eeb830d97c18b853a64234f6c6a",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1910000000000,
+      "order": 91,
+      "repeat": null,
+      "run_id": "readiness-091",
+      "seed": 1003,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "3581837bf78ef3102a190c4df680e45f7538a0304b61b974255896ef4d9d0bac",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1920000000000,
+      "order": 92,
+      "repeat": null,
+      "run_id": "readiness-092",
+      "seed": 1004,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "34b11067f64a8198dbfe33655c0914488e5333fbcd42b879ef2f5825dcd2ca99",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1930000000000,
+      "order": 93,
+      "repeat": null,
+      "run_id": "readiness-093",
+      "seed": 1005,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "34e5598244cfc53b192c2d369e2bb37d4e2f307ac6b081e60399cffbe7523516",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1940000000000,
+      "order": 94,
+      "repeat": null,
+      "run_id": "readiness-094",
+      "seed": 1006,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "9fd50e146d3fbdc41f15d1057a7a0f20710a5a944a6b2ff67a27229cda7bb1fb",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1950000000000,
+      "order": 95,
+      "repeat": null,
+      "run_id": "readiness-095",
+      "seed": 1007,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "cf33b57eb5472e71dfefad4f897d0ef53778d96479b7601d6a58c332090f4e26",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 1960000000000,
+      "order": 96,
+      "repeat": null,
+      "run_id": "readiness-096",
+      "seed": 1008,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "40b22b3eed5ca2eb7c9e90519aeed089cc86d8a1858993dc0163fba7368f977e",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1970000000000,
+      "order": 97,
+      "repeat": null,
+      "run_id": "readiness-097",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "9d678d18d5b6fae20f52126738e346c6b1b6e0c09ef139e1e7794c886386dbd7",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1980000000000,
+      "order": 98,
+      "repeat": null,
+      "run_id": "readiness-098",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "66c6c6f3d0ba756739c38fefb225875dfa3b5142aa7d697a37abc7b035f74465",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 1990000000000,
+      "order": 99,
+      "repeat": null,
+      "run_id": "readiness-099",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "32b14748eb6f0704730981a9136a1400962b62f55a08808c61c219f1e3dca23d",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2000000000000,
+      "order": 100,
+      "repeat": null,
+      "run_id": "readiness-100",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "0f7ffc09b605c2872a4e2dbba3e2c9d202663ec529155bee1c32b51f2d516437",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        29,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2010000000000,
+      "order": 101,
+      "repeat": null,
+      "run_id": "readiness-101",
+      "seed": null,
+      "state_id": "readiness-005",
+      "state_index": 5,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    {
+      "base_path_sha256": "9c9f63e9a27fc401ef1936f71bb5977d2d60c7e0192a82540f410e8f191d01a4",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "anchor",
+      "logical_t0_ns": 2020000000000,
+      "order": 102,
+      "repeat": null,
+      "run_id": "readiness-102",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "9c9f63e9a27fc401ef1936f71bb5977d2d60c7e0192a82540f410e8f191d01a4",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 2030000000000,
+      "order": 103,
+      "repeat": 0,
+      "run_id": "readiness-103",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "9c9f63e9a27fc401ef1936f71bb5977d2d60c7e0192a82540f410e8f191d01a4",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 2040000000000,
+      "order": 104,
+      "repeat": 1,
+      "run_id": "readiness-104",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "9c9f63e9a27fc401ef1936f71bb5977d2d60c7e0192a82540f410e8f191d01a4",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nominal",
+      "logical_t0_ns": 2050000000000,
+      "order": 105,
+      "repeat": 2,
+      "run_id": "readiness-105",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "c3d0d97c544f38beb3d8a3128d562e0d931b29ea2efad24c056b20caf5a92cda",
+      "candidate_id": "nomad-seed-1001",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2060000000000,
+      "order": 106,
+      "repeat": null,
+      "run_id": "readiness-106",
+      "seed": 1001,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "43c3bd8b9a13fbe0e2f43a467681949c02d6217ecafd27cbc9967e2871c663de",
+      "candidate_id": "nomad-seed-1002",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2070000000000,
+      "order": 107,
+      "repeat": null,
+      "run_id": "readiness-107",
+      "seed": 1002,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "f51d7f57b7f4898507e57ab5ed750ef6e537fc6a7900e1fe12364ea7c24c2da0",
+      "candidate_id": "nomad-seed-1003",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2080000000000,
+      "order": 108,
+      "repeat": null,
+      "run_id": "readiness-108",
+      "seed": 1003,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "afcd14a203cc08c1b1b0699fae228665425d5591026b87c6fa438ce3506f8101",
+      "candidate_id": "nomad-seed-1004",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2090000000000,
+      "order": 109,
+      "repeat": null,
+      "run_id": "readiness-109",
+      "seed": 1004,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "f14cefbc4a51b5c254deaa3397e030c5933f2fdf152219e276aa6d7e6b28c47e",
+      "candidate_id": "nomad-seed-1005",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2100000000000,
+      "order": 110,
+      "repeat": null,
+      "run_id": "readiness-110",
+      "seed": 1005,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "f597bd59d72b8053374c11bb4f921792c486f21f01017a2a3abb0c0d27b5e756",
+      "candidate_id": "nomad-seed-1006",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2110000000000,
+      "order": 111,
+      "repeat": null,
+      "run_id": "readiness-111",
+      "seed": 1006,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "f80e4cb5802a7cab64b70c455f865f960ee08ace22bb12be2a32fb8a515c9c6c",
+      "candidate_id": "nomad-seed-1007",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2120000000000,
+      "order": 112,
+      "repeat": null,
+      "run_id": "readiness-112",
+      "seed": 1007,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "246906a9933dcc28ceba674910cd16ed648f357c5e0d3518092206053c81fb10",
+      "candidate_id": "nomad-seed-1008",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "nomad",
+      "logical_t0_ns": 2130000000000,
+      "order": 113,
+      "repeat": null,
+      "run_id": "readiness-113",
+      "seed": 1008,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "9c9f63e9a27fc401ef1936f71bb5977d2d60c7e0192a82540f410e8f191d01a4",
+      "candidate_id": "bank-nominal",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2140000000000,
+      "order": 114,
+      "repeat": null,
+      "run_id": "readiness-114",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "be404ab4b893ec00287fca955c5d3fc0aff8d877b1786318f3fc6599aaf54c9f",
+      "candidate_id": "bank-slight_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2150000000000,
+      "order": 115,
+      "repeat": null,
+      "run_id": "readiness-115",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "d18a5928517313df985584ff171be8d47db06a25c2e9b0da6d74f5bf987b30f9",
+      "candidate_id": "bank-slight_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2160000000000,
+      "order": 116,
+      "repeat": null,
+      "run_id": "readiness-116",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "c6199caf799ca10392f6ac915f772f724000d9d80a30b281de76f091686694dd",
+      "candidate_id": "bank-strong_left",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2170000000000,
+      "order": 117,
+      "repeat": null,
+      "run_id": "readiness-117",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    },
+    {
+      "base_path_sha256": "a4fb485a28a9f20522f84cac00a4d0f96c31e79974da25c719a56e44981b2b89",
+      "candidate_id": "bank-strong_right",
+      "control_steps": 120,
+      "episode_key": [
+        0,
+        31,
+        0
+      ],
+      "kind": "bank",
+      "logical_t0_ns": 2180000000000,
+      "order": 118,
+      "repeat": null,
+      "run_id": "readiness-118",
+      "seed": null,
+      "state_id": "readiness-006",
+      "state_index": 6,
+      "terrain_type": "random_rough"
+    }
+  ]
+}

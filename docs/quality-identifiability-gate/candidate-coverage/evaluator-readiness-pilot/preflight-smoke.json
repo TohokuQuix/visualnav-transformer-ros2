@@ -1,0 +1,29 @@
+{
+  "base_commit": "7dd605d550c21d220b3d08e47bcc305ec053c7a5",
+  "budget_deadline_unix": 1790763977.1832438,
+  "budget_started_unix": 1790738777.1832438,
+  "candidate_outcomes_seen": false,
+  "current_output_bytes": 70527399,
+  "estimated_final_storage_bytes": 500000000,
+  "forecast_112_rollout_sec": 20391.387700535357,
+  "forecast_7_anchor_sec": 530.7829410166014,
+  "forecast_from_status_remaining_sec": 21301.71750859497,
+  "full_pilot_authorized_by_attached_instruction": true,
+  "path_serialization": "bank nominal maximum transform difference 8.4e-10 m, below established 1e-6 m tolerance; frozen Path bytes retained",
+  "schedule_sha256": "a970e99c71f7d2647214257cf5113ad15af991d3526fc102c3e4cdc2e313a071",
+  "selection_sha256": "38eace0b9e70108363118b65384c9009571d11944ccb906de8047c09af745c7d",
+  "smoke_anchor_elapsed_sec": 75.82613443094306,
+  "smoke_docker_memory_sample": "4.417GiB / 94.02GiB",
+  "smoke_gpu_peak_mib": 5550,
+  "smoke_nominal_120_step_elapsed_sec": 182.06596161192283,
+  "stage": "preflight_smoke_pass",
+  "stage0_tests": {
+    "cpp_build": "pass",
+    "docker_ml": 11,
+    "host_ros": 12,
+    "host_targeted": 17,
+    "python_syntax": "pass"
+  },
+  "startup_retry": "one pre-simulation script path typo; prior log preserved and retry recorded",
+  "storage_strategy": "verified gzip for closed follower callback logs; preserve raw trace gzip and SHA ledger"
+}
