@@ -1,0 +1,79 @@
+{
+  "failed_simulator_run": {
+    "branch": 4,
+    "candidate_id": "bank-nominal",
+    "first_violation_control_step": 12,
+    "first_violation_stamp_ns": 1600000000,
+    "rule": "same simulation stamp must have identical command",
+    "state_id": "coverage-001",
+    "values_not_captured": true
+  },
+  "one_branch_smoke": [
+    {
+      "callbacks": 1,
+      "clock_now_ns": 1000000000,
+      "command": [
+        0.28123915293019697,
+        0.0,
+        -0.09823156554935797
+      ],
+      "path_stamp_ns": 1000000000,
+      "rejected": 0,
+      "stamp_ns": 1000000000,
+      "tf_stamp_ns": 1000000000
+    },
+    {
+      "callbacks": 1,
+      "clock_now_ns": 1050000000,
+      "command": [
+        0.28123915293019697,
+        0.0,
+        -0.09823156554935797
+      ],
+      "path_stamp_ns": 1000000000,
+      "rejected": 0,
+      "stamp_ns": 1050000000,
+      "tf_stamp_ns": 1050000000
+    },
+    {
+      "callbacks": 1,
+      "clock_now_ns": 1100000000,
+      "command": [
+        0.28123915293019697,
+        0.0,
+        -0.09823156554935797
+      ],
+      "path_stamp_ns": 1000000000,
+      "rejected": 0,
+      "stamp_ns": 1100000000,
+      "tf_stamp_ns": 1100000000
+    },
+    {
+      "callbacks": 1,
+      "clock_now_ns": 1150000000,
+      "command": [
+        0.28123915293019697,
+        0.0,
+        -0.09823156554935797
+      ],
+      "path_stamp_ns": 1000000000,
+      "rejected": 0,
+      "stamp_ns": 1150000000,
+      "tf_stamp_ns": 1150000000
+    },
+    {
+      "callbacks": 1,
+      "clock_now_ns": 1200000000,
+      "command": [
+        0.28123915293019697,
+        0.0,
+        -0.09823156554935797
+      ],
+      "path_stamp_ns": 1000000000,
+      "rejected": 0,
+      "stamp_ns": 1200000000,
+      "tf_stamp_ns": 1200000000
+    }
+  ],
+  "runner_log_sha256": "ab0ef251cec02c7e459a5a06c09508956466202e6257312867ef5e2ccf504124"
+}

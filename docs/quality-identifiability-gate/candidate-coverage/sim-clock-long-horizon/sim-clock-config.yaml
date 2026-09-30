@@ -1,0 +1,44 @@
+authority: simulator runner only
+clock_start_schedule: T4 smoke 1s; parity 11/21/31/41s; duplicate 51/61/71s; T5 run
+  n 81+10n seconds
+clock_topic: /clock
+control_period_sec: 0.05
+control_rate_hz: 20
+duplicate_candidate: bank-nominal
+duplicate_repeats: 3
+duplicate_state: coverage-003
+duplicate_steps: 120
+duplicate_xy_rms_limit_m: 0.0105
+gpu_memory_abort_mib: 14000
+motion_window_sec: 20.0
+new_root: /tmp/eatnav-candidate-coverage/sim-clock-long-horizon
+old_stage_b_root: /tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon
+parity_states:
+- coverage-001
+- coverage-003
+- coverage-004
+- coverage-006
+parity_steps: 40
+production_follower_binary_sha256: 0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219
+production_follower_params_sha256: ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90
+production_follower_source_sha256: 75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be
+schema_version: 1
+sim_step_ns: 50000000
+smoke_candidate: bank-nominal
+smoke_state: coverage-001
+smoke_steps: 40
+stage_b_run_count: 20
+stage_b_startup_retry_limit: 1
+stage_b_steps: 120
+stage_b_storage_limit_bytes: 250000000
+stage_b_wall_limit_sec: 5400
+step_order:
+- clock t_k
+- TF t_k
+- Path t_k when needed
+- fresh stamped follower command
+- Actor action
+- physics
+- clock t_k+1
+stuck_ratio_threshold: 0.25
+use_sim_time: true

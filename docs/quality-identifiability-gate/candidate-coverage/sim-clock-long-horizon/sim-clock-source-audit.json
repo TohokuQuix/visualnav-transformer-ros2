@@ -1,0 +1,65 @@
+{
+  "estimated_cpu_rss_peak_mib": 5500,
+  "estimated_gpu_peak_mib": 5500,
+  "estimated_t4_wall_min": 20,
+  "estimated_t5_storage_mb": 100,
+  "estimated_t5_wall_min": 55,
+  "git": {
+    "branch": "exp/eatnav-candidate-coverage",
+    "head": "aa633b7df44f3275f406d86fcb978fe43a9a22cb",
+    "status_at_t0": "?? scripts/eat_nav_sim_clock_stage0.py\n",
+    "status_before_implementation": ""
+  },
+  "old_completed_runs_retained": 8,
+  "old_runs_reused": 0,
+  "source": {
+    "bridge": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_phase_c_ros_bridge.py",
+      "sha256": "d3bd9bc49593c491cf158c294d32c36ea6b49a7c4365c81853f2e1751b3f6197"
+    },
+    "clock_diagnostic_alignment": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/clock-alignment.json",
+      "sha256": "ba5d98e80b1101ecf5518b51c867be7a69ce7dd3190ac45e837b3a4acd916c66"
+    },
+    "clock_diagnostic_decision": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/clock-hypothesis-decision.json",
+      "sha256": "0f69ac2a166f187d1f43a794d3bd731e5f8f36534c841f3f7497aae414513d70"
+    },
+    "clock_diagnostic_motion": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/follower-motion-window-trace.json",
+      "sha256": "972206d6a68834dfa9e880b2c359ed91cf3a13925e37e949f28cd012d83b903f"
+    },
+    "clock_diagnostic_report": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/clock-diagnostic-report.md",
+      "sha256": "53ecf86ccf16bc9d3e446ec9ffc224e1ecf621bdb9a206186ceed1679d7302bd"
+    },
+    "host_runner": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_command_preview_long_horizon_run.py",
+      "sha256": "777ab0642071e1b84446a25a7147b6e4c5bc1e5f4c6a1af45dc01c69d6bb6c5c"
+    },
+    "old_run_identities": {
+      "path": "/tmp/eatnav-candidate-coverage/command-preview-long-horizon/long-horizon-run-identities.json",
+      "sha256": "1148d8a48002f221a9414ad1c1941b7a3ad22fda0662bd6049cfe2a816c9d9ab"
+    },
+    "production_follower_binary": {
+      "path": "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node",
+      "sha256": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219"
+    },
+    "production_follower_cpp": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "production_follower_header": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "7c58d3a4375245863a1ba6aae237ce578da72c62506537d26704d592e19d4b1f"
+    },
+    "production_follower_params": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "simulator_runner": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_command_preview_long_horizon_sim.py",
+      "sha256": "729adc4421948be2e8d4b011b8e9a442e15ecfc7e9aaf432a4601df4e2f10b3e"
+    }
+  }
+}

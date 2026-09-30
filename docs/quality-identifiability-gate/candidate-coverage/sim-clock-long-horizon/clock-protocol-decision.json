@@ -1,0 +1,24 @@
+{
+  "branch": 4,
+  "candidate_id": "bank-nominal",
+  "cause_candidates": [
+    "Follower uses latest TF (tf2::TimePointZero), so a callback stamped with new ROS time may use the previous TF and a later callback may use the newly delivered TF.",
+    "Asynchronous /clock and TF delivery to separate follower processes leaves a callback order race."
+  ],
+  "cause_confirmed": false,
+  "command_values_captured": false,
+  "decision": "clock_protocol_fail",
+  "evidence": {
+    "branch0_follower_log_sha256": "73188759d3e260ce151864fe5cc0c4e54bcd6f6759664dda0851f9a7eb590b7c",
+    "branch4_follower_log_sha256": "ffb8c2029dec93b6438e3ebdb5ed636f18eb60803b811868c6b8e7f0bdfc95a6",
+    "simulator_runner_log_sha256": "ab0ef251cec02c7e459a5a06c09508956466202e6257312867ef5e2ccf504124"
+  },
+  "first_violation_control_step": 12,
+  "follow_on": "T4-B parity, T4-C duplicate, T5 20-run rerun and T6 Gate N not started",
+  "gate_rule": "\u540c\u4e00simulation stamp\u5185\u306ecommand\u304c\u7570\u306a\u308b\u5834\u5408\u306fgate fail",
+  "logical_time_sec": 1.6,
+  "primary_failure": "same-stamp follower command mismatch",
+  "secondary_cleanup_error": "Manual interruption during Isaac shutdown caused docker cp missing-output error in status.json; the first gate failure is recorded in simulator runner.log.",
+  "stage": "T4-A",
+  "state_id": "coverage-001"
+}
