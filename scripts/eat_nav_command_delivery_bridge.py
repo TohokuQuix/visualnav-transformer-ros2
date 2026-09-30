@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
+import socket
 import sys
 import threading
 import time
@@ -38,16 +40,22 @@ class DiagnosticNode(ExactNode):
         self.journal = journal
         super().__init__(branches)
         self.heartbeat_count = 0
-        self.create_timer(0.5, self.heartbeat)
+        self.last_heartbeat_ns = 0
+        self.drop_stamp_ns = None
+        self.heartbeat_guard = self.create_guard_condition(self.heartbeat)
 
     def heartbeat(self):
         self.heartbeat_count += 1
+        self.last_heartbeat_ns = time.monotonic_ns()
         self.journal.emit("executor_heartbeat", count=self.heartbeat_count)
 
     def on_command(self, branch, msg):
         stamp = msg.header.stamp.sec * 1_000_000_000 + msg.header.stamp.nanosec
         self.journal.emit("subscriber_entry", branch=branch, stamp_ns=stamp,
                           vx=float(msg.twist.linear.x), wz=float(msg.twist.angular.z))
+        if stamp == self.drop_stamp_ns:
+            self.journal.emit("fault_drop", branch=branch, stamp_ns=stamp)
+            return
         try:
             super().on_command(branch, msg)
             with self.cv:
@@ -72,6 +80,25 @@ class DiagnosticNode(ExactNode):
         super().poses(poses, ns)
         self.journal.emit("tf_publish_return", stamp_ns=ns)
 
+    def path(self, paths, ns):
+        if any(self.command_count) or any(self.sequence):
+            raise RuntimeError("pre-Path command or previous command state")
+        subscribers = [publisher.get_subscription_count() for publisher in self.paths]
+        tf_ready = [bool(self.tf_buffer.can_transform(
+            "map", f"branch_{i}/chassis/body", rclpy.time.Time()))
+            for i in range(self.branches)]
+        clock_publishers = self.count_publishers("/clock")
+        age_ns = time.monotonic_ns() - self.last_heartbeat_ns
+        self.journal.emit("prepath_check", stamp_ns=ns, subscribers=subscribers,
+                          tf_ready=tf_ready, clock_publishers=clock_publishers,
+                          heartbeat_age_ns=age_ns, command_count=self.command_count,
+                          sequence=self.sequence)
+        if (subscribers != [1] * self.branches or not all(tf_ready)
+                or clock_publishers != 1 or self.heartbeat_count == 0
+                or age_ns > 2_000_000_000):
+            raise RuntimeError("fresh bridge pre-Path readiness failed")
+        super().path(paths, ns)
+
 
 class DiagnosticServer(ExactServer):
     def __init__(self, args):
@@ -81,11 +108,13 @@ class DiagnosticServer(ExactServer):
         self.journal = EventJournal(self.log_dir / "bridge-events.jsonl")
         rclpy.init()
         self.node = DiagnosticNode(args.branches, self.journal)
+        self.node.drop_stamp_ns = args.fault_drop_stamp_ns
         self.spin = threading.Thread(target=self._spin, daemon=True, name="ros-executor")
         self.spin.start()
         self.followers = []
         self.logs = []
         self.reset_number = 0
+        self.stop_monitor = threading.Event()
         self.monitor = threading.Thread(target=self._monitor, daemon=True, name="resource-monitor")
         self.monitor.start()
 
@@ -98,8 +127,9 @@ class DiagnosticServer(ExactServer):
             raise
 
     def _monitor(self):
-        while True:
+        while not self.stop_monitor.wait(0.5):
             try:
+                self.node.heartbeat_guard.trigger()
                 self.journal.emit("resource", executor_alive=self.spin.is_alive(),
                                   followers_alive=sum(p.poll() is None for p in self.followers),
                                   **resource_counts())
@@ -129,13 +159,16 @@ class DiagnosticServer(ExactServer):
             raise
         self.journal.emit("waiter_wake", stamp_ns=ns,
                           sequence=response["sequence"], callback_count=response["callback_count"])
+        for branch, (command, sequence) in enumerate(zip(response["commands"], response["sequence"])):
+            self.journal.emit("command_adopted", branch=branch, stamp_ns=ns,
+                              command=command, sequence=sequence)
         return response
 
     def handle(self, request):
         self.journal.emit("tcp_request_entry", action=request.get("action"),
                           stamp_ns=request.get("stamp_ns"))
         try:
-            result = super().handle(request)
+            result = {"shutdown": True} if request.get("action") == "shutdown" else super().handle(request)
             self.journal.emit("tcp_response", action=request.get("action"),
                               stamp_ns=request.get("stamp_ns"))
             return result
@@ -143,6 +176,54 @@ class DiagnosticServer(ExactServer):
             self.journal.emit("tcp_error", action=request.get("action"),
                               stamp_ns=request.get("stamp_ns"), error=repr(exc))
             raise
+
+    def shutdown_lifecycle(self):
+        self.journal.emit("shutdown_entry", follower_count=len(self.followers))
+        for process in self.followers:
+            self.journal.emit("follower_sigterm", pid=process.pid)
+            if process.poll() is None:
+                process.terminate()
+        for process in self.followers:
+            try:
+                process.wait(timeout=3)
+            except Exception:
+                self.journal.emit("follower_sigkill", pid=process.pid)
+                process.kill()
+                process.wait(timeout=3)
+            self.journal.emit("follower_exit", pid=process.pid, returncode=process.returncode)
+        for stream in self.logs:
+            stream.flush()
+            stream.close()
+        self.stop_monitor.set()
+        self.monitor.join(timeout=2)
+        self.node.destroy_node()
+        rclpy.shutdown()
+        self.spin.join(timeout=5)
+        self.journal.emit("shutdown_return", executor_alive=self.spin.is_alive())
+        self.journal.close()
+
+    def serve(self):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                sock.bind((self.args.host, self.args.port))
+                sock.listen(1)
+                print(json.dumps({"stage": "listening", "port": self.args.port}), flush=True)
+                while True:
+                    conn, _ = sock.accept()
+                    with conn, conn.makefile("rwb") as stream:
+                        for line in stream:
+                            request = json.loads(line)
+                            try:
+                                response = {"ok": True, **self.handle(request)}
+                            except BaseException as exc:
+                                response = {"ok": False, "error": repr(exc)}
+                            stream.write((json.dumps(response) + "\n").encode())
+                            stream.flush()
+                            if request.get("action") == "shutdown":
+                                return
+        finally:
+            self.shutdown_lifecycle()
 
 
 def main():
@@ -153,6 +234,7 @@ def main():
     parser.add_argument("--follower", type=Path, required=True)
     parser.add_argument("--params", type=Path, required=True)
     parser.add_argument("--diagnostic-dir", type=Path, required=True)
+    parser.add_argument("--fault-drop-stamp-ns", type=int)
     DiagnosticServer(parser.parse_args()).serve()
 
 

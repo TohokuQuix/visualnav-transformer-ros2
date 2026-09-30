@@ -1,0 +1,282 @@
+--- a/include/simple_trajectory_follower/simple_trajectory_follower.hpp
++++ b/include/simple_trajectory_follower/simple_trajectory_follower.hpp
+@@ -212,6 +212,31 @@
+   rclcpp::TimerBase::SharedPtr status_timer_;
+   tf2_ros::Buffer tf_buffer_;
+   tf2_ros::TransformListener tf_listener_;
++  // Logging-only callback state; no controller branch reads these fields.
++  mutable uint64_t diag_callback_seq_{0};
++  mutable uint64_t diag_path_seq_{0};
++  mutable uint64_t diag_publish_seq_{0};
++  mutable int64_t diag_callback_steady_ns_{0};
++  mutable int64_t diag_path_received_steady_ns_{0};
++  mutable int64_t diag_path_stamp_ns_{0};
++  mutable int64_t diag_tf_start_steady_ns_{0};
++  mutable int64_t diag_tf_end_steady_ns_{0};
++  mutable int64_t diag_tf_stamp_ns_{0};
++  mutable int64_t diag_command_stamp_ns_{0};
++  mutable bool diag_tf_success_{false};
++  mutable double diag_tf_x_{0.0};
++  mutable double diag_tf_y_{0.0};
++  mutable double diag_tf_z_{0.0};
++  mutable double diag_tf_yaw_{0.0};
++  mutable double diag_command_vx_{0.0};
++  mutable double diag_command_wz_{0.0};
++  mutable double diag_carrot_x_{0.0};
++  mutable double diag_carrot_y_{0.0};
++  mutable double diag_goal_distance_{0.0};
++  mutable double diag_heading_error_{0.0};
++  mutable bool diag_turn_in_place_{false};
++  void diagEmit(const char * phase) const;
++  mutable int64_t last_emitted_stamp_ns_{-1};
+   FollowerStatus status_{FollowerStatus::Idle};
+ };
+ 
+--- a/src/simple_trajectory_follower.cpp
++++ b/src/simple_trajectory_follower.cpp
+@@ -1,6 +1,9 @@
+ #include "simple_trajectory_follower/simple_trajectory_follower.hpp"
+ 
+ #include <algorithm>
++#include <chrono>
++#include <cstdio>
++#include <unistd.h>
+ #include <cmath>
+ #include <limits>
+ 
+@@ -9,6 +12,48 @@
+ 
+ namespace simple_trajectory_follower
+ {
++namespace {
++int64_t diagSteadyNs() {
++  return std::chrono::duration_cast<std::chrono::nanoseconds>(
++    std::chrono::steady_clock::now().time_since_epoch()).count();
++}
++int64_t diagSystemNs() {
++  return std::chrono::duration_cast<std::chrono::nanoseconds>(
++    std::chrono::system_clock::now().time_since_epoch()).count();
++}
++}  // namespace
++
++void SimpleTrajectoryFollower::diagEmit(const char * phase) const
++{
++  const int64_t ros_ns = this->get_clock()->now().nanoseconds();
++  const auto & p = current_path_;
++  const auto & goal = p && !p->poses.empty() ? p->poses.back().pose.position : current_pose_.position;
++  const int64_t oldest = motion_history_.empty() ? 0 : motion_history_.front().stamp.nanoseconds();
++  const int64_t newest = motion_history_.empty() ? 0 : motion_history_.back().stamp.nanoseconds();
++  const double ratio = summed_commanded_linear_distance_ > 1e-9 ?
++    summed_actual_linear_distance_ / summed_commanded_linear_distance_ : 0.0;
++  std::fprintf(stderr,
++    "TF_RACE_JSON {\"phase\":\"%s\",\"pid\":%d,\"callback_seq\":%lu,\"wall_steady_ns\":%ld,\"wall_system_ns\":%ld,\"ros_clock_ns\":%ld,\"use_sim_time\":%s,"
++    "\"path_seq\":%lu,\"path_stamp_ns\":%ld,\"path_received_steady_ns\":%ld,\"path_points\":%zu,\"goal_x\":%.17g,\"goal_y\":%.17g,\"goal_reached\":%s,\"mode\":\"%s\","
++    "\"tf_request\":\"exact_stamp\",\"tf_start_steady_ns\":%ld,\"tf_end_steady_ns\":%ld,\"tf_success\":%s,\"tf_stamp_ns\":%ld,\"tf_parent\":\"map\",\"tf_child\":\"%s\",\"tf_x\":%.17g,\"tf_y\":%.17g,\"tf_z\":%.17g,\"tf_yaw\":%.17g,\"tf_age_ns\":%ld,"
++    "\"carrot_x\":%.17g,\"carrot_y\":%.17g,\"goal_distance\":%.17g,\"heading_error\":%.17g,\"turn_in_place\":%s,\"vx\":%.17g,\"wz\":%.17g,\"command_stamp_ns\":%ld,\"publish_seq\":%lu,\"linear_recovery\":%s,\"angular_recovery\":%s,"
++    "\"motion_oldest_ns\":%ld,\"motion_newest_ns\":%ld,\"motion_elapsed_sec\":%.17g,\"motion_samples\":%zu,\"commanded_distance\":%.17g,\"actual_distance\":%.17g,\"motion_ratio\":%.17g,\"motion_ready\":%s}\n",
++    phase, getpid(), diag_callback_seq_, diag_callback_steady_ns_, diagSystemNs(), ros_ns,
++    this->get_parameter("use_sim_time").as_bool() ? "true" : "false",
++    diag_path_seq_, diag_path_stamp_ns_, diag_path_received_steady_ns_, p ? p->poses.size() : 0,
++    goal.x, goal.y, goal_reached_ ? "true" : "false", pathSourceName(active_path_source_),
++    diag_tf_start_steady_ns_, diag_tf_end_steady_ns_, diag_tf_success_ ? "true" : "false",
++    diag_tf_stamp_ns_, robot_frame_.c_str(), diag_tf_x_, diag_tf_y_, diag_tf_z_, diag_tf_yaw_,
++    diag_tf_success_ ? ros_ns-diag_tf_stamp_ns_ : 0,
++    diag_carrot_x_, diag_carrot_y_, diag_goal_distance_, diag_heading_error_,
++    diag_turn_in_place_ ? "true" : "false", diag_command_vx_, diag_command_wz_,
++    diag_command_stamp_ns_, diag_publish_seq_, linear_stuck_recovery_active_ ? "true" : "false",
++    ros_ns < angular_stuck_boost_until_.nanoseconds() ? "true" : "false",
++    oldest, newest, motion_history_.empty() ? 0.0 : (newest-oldest)*1e-9, motion_history_.size(),
++    summed_commanded_linear_distance_, summed_actual_linear_distance_, ratio,
++    isMotionWindowReady() ? "true" : "false");
++  std::fflush(stderr);
++}
+ 
+ SimpleTrajectoryFollower::SimpleTrajectoryFollower(const rclcpp::NodeOptions & options)
+ : Node("simple_trajectory_follower", options),
+@@ -152,7 +197,7 @@
+ 
+   const auto period = std::chrono::duration<double>(1.0 / control_rate_hz_);
+   control_timer_ = this->create_wall_timer(
+-    period, std::bind(&SimpleTrajectoryFollower::controlLoop, this));
++    period, [this]() { diagEmit("callback_entry"); controlLoop(); diagEmit("callback_exit"); });
+   status_timer_ = this->create_wall_timer(
+     std::chrono::seconds(1), std::bind(&SimpleTrajectoryFollower::publishStatus, this));
+   publishStatus();
+@@ -201,6 +246,12 @@
+ 
+ void SimpleTrajectoryFollower::pathCallback(const nav_msgs::msg::Path::SharedPtr path)
+ {
++  ++diag_path_seq_;
++  diag_path_stamp_ns_ = rclcpp::Time(path->header.stamp).nanoseconds();
++  diag_path_received_steady_ns_ = diagSteadyNs();
++  std::fprintf(stderr, "TF_RACE_PATH {\"pid\":%d,\"path_seq\":%lu,\"stamp_ns\":%ld,\"received_steady_ns\":%ld,\"points\":%zu}\n",
++    getpid(), diag_path_seq_, diag_path_stamp_ns_, diag_path_received_steady_ns_, path->poses.size());
++  std::fflush(stderr);
+   if (path->poses.empty()) {
+     RCLCPP_WARN(this->get_logger(), "Received empty path, ignoring.");
+     return;
+@@ -243,6 +294,7 @@
+   const nav_msgs::msg::Path::SharedPtr & path,
+   PathSource source)
+ {
++  last_emitted_stamp_ns_ = -1;
+   current_path_ = path;
+   active_path_source_ = source;
+   goal_reached_ = false;
+@@ -266,6 +318,7 @@
+   const nav_msgs::msg::Path::SharedPtr & path,
+   PathSource source)
+ {
++  last_emitted_stamp_ns_ = -1;
+   const bool reset_progress = shouldResetProgressForPathUpdate(*path);
+   const bool reset_carrot_history = shouldResetCarrotHistoryForPathUpdate(*path);
+   current_path_ = path;
+@@ -316,6 +369,19 @@
+ 
+ void SimpleTrajectoryFollower::controlLoop()
+ {
++  ++diag_callback_seq_;
++  diag_callback_steady_ns_ = diagSteadyNs();
++  diag_tf_start_steady_ns_ = 0;
++  diag_tf_end_steady_ns_ = 0;
++  diag_tf_stamp_ns_ = 0;
++  diag_tf_success_ = false;
++  diag_command_stamp_ns_ = 0;
++  const int64_t logical_stamp_ns = this->get_clock()->now().nanoseconds();
++  if (logical_stamp_ns < last_emitted_stamp_ns_) last_emitted_stamp_ns_ = -1;
++  if (last_emitted_stamp_ns_ == logical_stamp_ns) {
++    diagEmit("stamp_latched");
++    return;
++  }
+   if (!current_path_ || current_path_->poses.empty()) {
+     goal_reached_ = false;
+     path_travel_direction_ = 1.0;
+@@ -332,10 +398,12 @@
+       publishSubcrawlerCommand();
+     }
+     clearCarrotMarker();
++    diagEmit("no_path");
+     return;
+   }
+ 
+   if (!updateRobotPoseInPathFrame()) {
++    diagEmit("tf_failure");
+     return;
+   }
+ 
+@@ -351,6 +419,7 @@
+         publishSubcrawlerCommand();
+       }
+       clearCarrotMarker();
++      diagEmit("recovery_path_done");
+       return;
+     }
+     setStatus(FollowerStatus::Goal);
+@@ -362,6 +431,7 @@
+       publishSubcrawlerCommand();
+     }
+     clearCarrotMarker();
++    diagEmit("goal_hold");
+     return;
+   }
+ 
+@@ -406,6 +476,7 @@
+         publishSubcrawlerCommand();
+       }
+       clearCarrotMarker();
++      diagEmit("recovery_goal");
+       return;
+     }
+     goal_reached_ = true;
+@@ -423,6 +494,7 @@
+       publishSubcrawlerCommand();
+     }
+     clearCarrotMarker();
++    diagEmit("goal_reached");
+     return;
+   }
+ 
+@@ -443,6 +515,8 @@
+   const double control_yaw =
+     active_travel_direction < 0.0 ? normalizeAngle(robot_yaw + M_PI) : robot_yaw;
+   const double heading_error = normalizeAngle(desired_motion_yaw - control_yaw);
++  diag_carrot_x_ = carrot.x; diag_carrot_y_ = carrot.y;
++  diag_goal_distance_ = distance_to_goal; diag_heading_error_ = heading_error;
+ 
+   // P control for angular velocity
+   double angular_z = angular_direction_sign_ * angular_gain_ * heading_error;
+@@ -451,6 +525,7 @@
+   // Reduce linear speed proportionally to heading error to avoid overshooting curves
+   const double abs_heading_error = std::abs(heading_error);
+   double linear_x = 0.0;
++  diag_turn_in_place_ = !(abs_heading_error < turn_in_place_heading_threshold_);
+   if (abs_heading_error < turn_in_place_heading_threshold_) {
+     const double speed_scale =
+       std::max(min_linear_speed_scale_, 1.0 - abs_heading_error / M_PI);
+@@ -535,6 +610,7 @@
+   if (publish_subcrawler_commands_) {
+     publishSubcrawlerCommand();
+   }
++  diagEmit("tracking");
+ }
+ 
+ void SimpleTrajectoryFollower::publishStatus()
+@@ -669,9 +745,27 @@
+   }
+ 
+   try {
+-    const auto transform =
+-      tf_buffer_.lookupTransform(target_frame, robot_frame_, tf2::TimePointZero,
+-        tf2::durationFromSec(0.05));
++    diag_tf_start_steady_ns_ = diagSteadyNs();
++    const int64_t request_ns = this->get_clock()->now().nanoseconds();
++    const auto request_time = tf2::TimePoint(std::chrono::nanoseconds(request_ns));
++    if (!tf_buffer_.canTransform(target_frame, robot_frame_, request_time, tf2::durationFromSec(0.0))) {
++      diag_tf_end_steady_ns_ = diagSteadyNs();
++      return false;
++    }
++    const auto transform = tf_buffer_.lookupTransform(
++      target_frame, robot_frame_, request_time, tf2::durationFromSec(0.0));
++    diag_tf_end_steady_ns_ = diagSteadyNs();
++    diag_tf_stamp_ns_ = rclcpp::Time(transform.header.stamp).nanoseconds();
++    if (diag_tf_stamp_ns_ != request_ns) {
++      RCLCPP_ERROR(this->get_logger(), "Exact TF mismatch request=%ld returned=%ld",
++        request_ns, diag_tf_stamp_ns_);
++      return false;
++    }
++    diag_tf_success_ = true;
++    diag_tf_x_ = transform.transform.translation.x;
++    diag_tf_y_ = transform.transform.translation.y;
++    diag_tf_z_ = transform.transform.translation.z;
++    diag_tf_yaw_ = quaternionToYaw(transform.transform.rotation);
+     current_pose_.position.x = transform.transform.translation.x;
+     current_pose_.position.y = transform.transform.translation.y;
+     current_pose_.position.z = transform.transform.translation.z;
+@@ -679,6 +773,7 @@
+     has_robot_pose_ = true;
+     return true;
+   } catch (const tf2::TransformException & ex) {
++    diag_tf_end_steady_ns_ = diagSteadyNs();
+     RCLCPP_WARN_THROTTLE(
+       this->get_logger(), *this->get_clock(), 2000,
+       "Failed to lookup robot pose from %s to %s: %s",
+@@ -692,9 +787,19 @@
+   if (cmd_vel_use_stamped_) {
+     geometry_msgs::msg::TwistStamped stamped;
+     stamped.header.stamp = this->get_clock()->now();
++    diag_command_stamp_ns_ = rclcpp::Time(stamped.header.stamp).nanoseconds();
++    diag_command_vx_ = cmd.linear.x; diag_command_wz_ = cmd.angular.z;
++    ++diag_publish_seq_;
++    diagEmit("command_pre_publish");
+     stamped.header.frame_id = cmd_vel_frame_id_;
+     stamped.twist = cmd;
++    const int64_t stamp_ns = rclcpp::Time(stamped.header.stamp).nanoseconds();
++    if (last_emitted_stamp_ns_ == stamp_ns) { diagEmit("publish_suppressed_duplicate"); return; }
+     cmd_vel_stamped_pub_->publish(stamped);
++    diagEmit("command_post_publish");
++    fprintf(stderr, "FOLLOWER_PUBLISH_JSON {\"stamp_ns\":%ld,\"subscription_count\":%zu}\n", stamp_ns, cmd_vel_stamped_pub_->get_subscription_count());
++    fflush(stderr);
++    last_emitted_stamp_ns_ = stamp_ns;
+   } else {
+     cmd_vel_pub_->publish(cmd);
+   }

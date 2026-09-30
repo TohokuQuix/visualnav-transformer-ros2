@@ -65,3 +65,40 @@ def test_stopped_executor_is_reported_on_command_timeout(tmp_path):
         node.destroy_node()
         journal.close()
         rclpy.shutdown()
+
+
+def test_diagnostic_fault_drops_only_configured_stamp(tmp_path):
+    rclpy.init()
+    journal = EventJournal(tmp_path / "events.jsonl")
+    node = DiagnosticNode(1, journal)
+    try:
+        node.drop_stamp_ns = 2_000_000_050_000
+        node.protocol.advance(node.drop_stamp_ns, reset=True)
+        node.protocol.set_tf(node.drop_stamp_ns)
+        node.protocol.set_path(node.drop_stamp_ns)
+        node.tf_published_steady_ns = time.monotonic_ns() - 1
+        node.path_published_steady_ns = time.monotonic_ns() - 1
+        message = TwistStamped()
+        message.header.stamp.sec, message.header.stamp.nanosec = divmod(node.drop_stamp_ns, 1_000_000_000)
+        node.on_command(0, message)
+        assert node.sequence == [0]
+        events = [json.loads(x)["event"] for x in (tmp_path / "events.jsonl").read_text().splitlines()]
+        assert "fault_drop" in events
+    finally:
+        node.destroy_node()
+        journal.close()
+        rclpy.shutdown()
+
+
+def test_prepath_rejects_previous_command_state(tmp_path):
+    rclpy.init()
+    journal = EventJournal(tmp_path / "events.jsonl")
+    node = DiagnosticNode(1, journal)
+    try:
+        node.command_count = [1]
+        with pytest.raises(RuntimeError, match="pre-Path command"):
+            node.path([[[0.0, 0.0], [1.0, 0.0]]], 1)
+    finally:
+        node.destroy_node()
+        journal.close()
+        rclpy.shutdown()
