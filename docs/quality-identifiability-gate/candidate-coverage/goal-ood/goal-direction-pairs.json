@@ -1,0 +1,1454 @@
+{
+  "predeclared_pairs": [
+    "near_left_vs_right",
+    "far_left_vs_right",
+    "ID_long_vs_short"
+  ],
+  "same_goal_radius_angle_pairs": "near left/right both 0.1m; far left/right both 0.3m; ID short/long both 0deg",
+  "states": [
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20075058937072754,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2381972372531891,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17485836148262024,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-000",
+      "terrain": "boxes"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19630490243434906,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383386492729187,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17564839124679565,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19625218212604523,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23844373226165771,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17356568574905396,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19964128732681274,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.238324373960495,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17609047889709473,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19666145741939545,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23792913556098938,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16493777930736542,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1967896670103073,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23860469460487366,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17696915566921234,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19597618281841278,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383635938167572,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17442642152309418,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-006",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.196673184633255,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23804323375225067,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16585612297058105,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-007",
+      "terrain": "boxes"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19661442935466766,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23787733912467957,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16476905345916748,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-008",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1974640190601349,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383621633052826,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1752699911594391,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-009",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19742673635482788,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23831574618816376,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17597877979278564,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-010",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20686712861061096,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23769381642341614,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16515398025512695,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-011",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19668245315551758,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23796170949935913,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16503672301769257,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-012",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19685447216033936,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23845010995864868,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17348414659500122,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-013",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19631505012512207,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23840957880020142,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17493264377117157,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-014",
+      "terrain": "boxes"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19666671752929688,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23791943490505219,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16489921510219574,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-015",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19736161828041077,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383744716644287,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17500343918800354,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-016",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19795894622802734,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23828589916229248,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17519204318523407,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-017",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19367265701293945,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23853334784507751,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16960418224334717,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-018",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19949302077293396,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383691668510437,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17532223463058472,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-019",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19616807997226715,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23844581842422485,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17239683866500854,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-020",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1966591477394104,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23791438341140747,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1648937463760376,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-021",
+      "terrain": "boxes"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19730043411254883,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.237630233168602,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16462892293930054,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-022",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19731959700584412,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23836050927639008,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17563258111476898,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-023",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20026610791683197,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23815292119979858,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.173887699842453,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-024",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19358953833580017,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2384149432182312,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17451512813568115,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-025",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20367056131362915,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23597916960716248,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16179543733596802,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-026",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19629491865634918,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23840582370758057,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17388460040092468,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-027",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19777128100395203,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23836036026477814,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17534099519252777,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-028",
+      "terrain": "boxes"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19667240977287292,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2379607856273651,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16503937542438507,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-029",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19864168763160706,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383182942867279,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17552241683006287,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-030",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19771945476531982,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2383335530757904,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1755501627922058,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-031",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19726435840129852,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23754478991031647,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1646551787853241,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-032",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1964379996061325,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23854562640190125,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17573535442352295,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-033",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19825705885887146,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23825082182884216,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.175030916929245,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-034",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19658979773521423,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23787972331047058,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16472932696342468,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-035",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19577652215957642,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23843537271022797,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17560964822769165,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-036",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1965613067150116,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.238407701253891,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17404934763908386,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-037",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1932276487350464,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23862028121948242,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17399582266807556,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-038",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1970919668674469,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2381839156150818,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17402447760105133,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-039",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19672107696533203,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23822173476219177,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17438086867332458,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-040",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19980359077453613,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23830094933509827,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17332643270492554,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-041",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19755949079990387,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2382383644580841,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16705353558063507,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-042",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19651921093463898,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23845574259757996,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1732349693775177,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-043",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19666901230812073,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23793204128742218,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16495934128761292,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-044",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19666320085525513,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23829185962677002,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17471222579479218,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-045",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.199812114238739,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23818852007389069,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17511799931526184,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-046",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19705018401145935,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23843063414096832,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1740853190422058,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-047",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19639933109283447,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23838192224502563,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.1765873283147812,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-048",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19618888199329376,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23833179473876953,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17473630607128143,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-049",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19646909832954407,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23793625831604004,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16480746865272522,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-050",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1983882188796997,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2382693588733673,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17452189326286316,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-051",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19757182896137238,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23835289478302002,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17651793360710144,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-052",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20446252822875977,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23852038383483887,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17573204636573792,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-053",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19700710475444794,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23856154084205627,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17107942700386047,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-054",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.1961817443370819,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23837719857692719,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17455849051475525,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-055",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19390152394771576,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23766039311885834,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16630813479423523,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-056",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19568118453025818,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23831535875797272,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17474640905857086,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-057",
+      "terrain": "k_rail_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.20143455266952515,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23824521899223328,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17543157935142517,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-058",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19773167371749878,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2376154661178589,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16778235137462616,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-059",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19812697172164917,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23825931549072266,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.16736367344856262,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-060",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19639582931995392,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23839184641838074,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17379888892173767,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-061",
+      "terrain": "random_rough"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.19589537382125854,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.23853519558906555,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17243409156799316,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-062",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "pairs": {
+        "ID_long_vs_short": {
+          "endpoint_difference_median_m": 0.2017481029033661,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "far_left_vs_right": {
+          "endpoint_difference_median_m": 0.2381805181503296,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        },
+        "near_left_vs_right": {
+          "endpoint_difference_median_m": 0.17468152940273285,
+          "same_seed_count": 8,
+          "success_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-063",
+      "terrain": "k_rail_field"
+    }
+  ],
+  "summary": {
+    "train": {
+      "ID_long_vs_short": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.19682206958532333,
+        "states": 32
+      },
+      "far_left_vs_right": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.2383289635181427,
+        "states": 32
+      },
+      "near_left_vs_right": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.1741570606827736,
+        "states": 32
+      }
+    },
+    "val": {
+      "ID_long_vs_short": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.19669504463672638,
+        "states": 32
+      },
+      "far_left_vs_right": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.23829640448093414,
+        "states": 32
+      },
+      "near_left_vs_right": {
+        "state_macro_success_fraction": 1.0,
+        "state_median_endpoint_difference_m": 0.17406733334064484,
+        "states": 32
+      }
+    }
+  }
+}

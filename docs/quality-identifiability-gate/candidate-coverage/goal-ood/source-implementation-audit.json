@@ -1,0 +1,21 @@
+{
+  "axes": "local x forward y left; world displacement rotated by current yaw",
+  "diffusion": "10-step squaredcos DDPM epsilon prediction; model.sample initializes torch.Generator(device=context.device).manual_seed(seed) and uses same generator in scheduler.step",
+  "existing_path_cluster_rms_m": 0.05,
+  "goal_mlp_input": "goal.float() raw robot-local meters, no additional scale; 2->128 GELU->256 token",
+  "goal_token": "DEM CNN frame tokens + goal MLP token, positional encoding then 4-layer Transformer; no Quality token in reference",
+  "heldout_used": false,
+  "path": "normalized action deltas denormalized with complete-only train mean/std then cumulative sum to 8x2 base-frame future XY",
+  "prior_input_sha256": {
+    "candidate_source": "b4c7e36204135fe59e7a31bdf80bed20210152c195633b044f956b82d4c2b0db",
+    "path_audit_ledger": "65990b8479580c0849d9cb5a058dd3f0c54960a41e3aa69ca4ff41a2bc40738b"
+  },
+  "source_sha256": {
+    "candidate_sampling": "e6f410561da31a8cf087b669b7577e3a1509b6db6dfe2cd1bb81bf1228c26e4a",
+    "dataset": "6ceb12edb028cdfa83dfa55f9927cf3b01d9e5eb798a0c0e04530812a377815b",
+    "existing_cluster_thresholds": "3d4d38f717656ef5c7ef9a2d3af30aa8ccfb9fe7a5a25eb18109b3919e026526",
+    "model": "7b488a54234d148ae2b696b67b859cd82db3261be7e8da46a56c50117e3577ad",
+    "prior_candidate_source": "b4c7e36204135fe59e7a31bdf80bed20210152c195633b044f956b82d4c2b0db",
+    "prior_path_audit_ledger": "65990b8479580c0849d9cb5a058dd3f0c54960a41e3aa69ca4ff41a2bc40738b"
+  }
+}

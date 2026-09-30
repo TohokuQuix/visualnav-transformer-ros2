@@ -1,0 +1,4873 @@
+{
+  "macro": {
+    "train:ID": {
+      "state_macro_angle_error_median_rad": 0.002619054977938143,
+      "state_macro_constraint_invalid_rate": 0.091796875,
+      "state_macro_error_median_m": 0.006458026257640505,
+      "state_macro_trajectory_ood_rate": 0.001953125,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "train:far_ood": {
+      "state_macro_angle_error_median_rad": 0.2861980239718471,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.16895234693684613,
+      "state_macro_trajectory_ood_rate": 0.0576171875,
+      "state_macro_within_0p2m": 0.7431640625,
+      "states": 32
+    },
+    "train:logged": {
+      "state_macro_angle_error_median_rad": 0.03379077813004857,
+      "state_macro_constraint_invalid_rate": 0.09375,
+      "state_macro_error_median_m": 0.03557987931130152,
+      "state_macro_trajectory_ood_rate": 0.0,
+      "state_macro_within_0p2m": 0.9375,
+      "states": 32
+    },
+    "train:near_ood": {
+      "state_macro_angle_error_median_rad": 0.07963960931527118,
+      "state_macro_constraint_invalid_rate": 0.0009765625,
+      "state_macro_error_median_m": 0.04510655959720597,
+      "state_macro_trajectory_ood_rate": 0.01171875,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "val:ID": {
+      "state_macro_angle_error_median_rad": 0.0026153913612835533,
+      "state_macro_constraint_invalid_rate": 0.0947265625,
+      "state_macro_error_median_m": 0.005899139973126357,
+      "state_macro_trajectory_ood_rate": 0.0009765625,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "val:far_ood": {
+      "state_macro_angle_error_median_rad": 0.283719904748548,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.16944032448934448,
+      "state_macro_trajectory_ood_rate": 0.056640625,
+      "state_macro_within_0p2m": 0.7451171875,
+      "states": 32
+    },
+    "val:logged": {
+      "state_macro_angle_error_median_rad": 0.013046576043042359,
+      "state_macro_constraint_invalid_rate": 0.0390625,
+      "state_macro_error_median_m": 0.02659490937686819,
+      "state_macro_trajectory_ood_rate": 0.00390625,
+      "state_macro_within_0p2m": 0.99609375,
+      "states": 32
+    },
+    "val:near_ood": {
+      "state_macro_angle_error_median_rad": 0.08359522765374583,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.04374171332336501,
+      "state_macro_trajectory_ood_rate": 0.0068359375,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    }
+  },
+  "paths": 6656,
+  "state_count": 64,
+  "state_unit": true,
+  "states": [
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0030503584500591874,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.004595486925946282,
+            "n": 32,
+            "p75": 0.007086069040609705,
+            "p95": 0.013783365461661284
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26568393724433936,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16948807368630697,
+            "n": 32,
+            "p75": 0.25926483304138803,
+            "p95": 0.517252642369677
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6508580508421486,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.02875645861938092,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.34051934722224764,
+            "n": 8,
+            "p75": 0.3405894104516312,
+            "p95": 0.34766984552711727
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 0.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.09720742561430873,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0361793350812192,
+            "n": 32,
+            "p75": 0.07736770169122777,
+            "p95": 0.1020511866129686
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-000",
+      "terrain": "boxes"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0022362834285076794,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006133125546212849,
+            "n": 32,
+            "p75": 0.010295501907390248,
+            "p95": 0.01756430771208224
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26074487140430724,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17018818147541298,
+            "n": 32,
+            "p75": 0.2586131514715165,
+            "p95": 0.516115108528043
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0054202782708343555,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.004599983525177593,
+            "n": 8,
+            "p75": 0.0053228336174319015,
+            "p95": 0.0062910260081131975
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0727052153113279,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04169730756568082,
+            "n": 32,
+            "p75": 0.07749369789124136,
+            "p95": 0.09938225758161887
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0020986506294553564,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006210029322864669,
+            "n": 32,
+            "p75": 0.008529860724305215,
+            "p95": 0.0156305594647558
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2831059390275108,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1669916831201765,
+            "n": 32,
+            "p75": 0.262180733975405,
+            "p95": 0.5171123465105942
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0017252540115060278,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.02917440536125645,
+            "n": 8,
+            "p75": 0.05213860061418047,
+            "p95": 0.06907025214223307
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0711720090839143,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0442559905091432,
+            "n": 32,
+            "p75": 0.07544833044525258,
+            "p95": 0.10150224228538329
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0016735692637166455,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.0053466114815959,
+            "n": 32,
+            "p75": 0.007829688247084585,
+            "p95": 0.013829868197222851
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27466945094082496,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1689320937535356,
+            "n": 32,
+            "p75": 0.2594075887283473,
+            "p95": 0.5170694194177952
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6448035573459426,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.001234816052926746,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.006822486099260728,
+            "n": 8,
+            "p75": 0.008536045976184525,
+            "p95": 0.013689499074307927
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06890051790570961,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03996508516918863,
+            "n": 32,
+            "p75": 0.0731630599525302,
+            "p95": 0.1007829487693062
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002554199148119052,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.007875759867501421,
+            "n": 32,
+            "p75": 0.011027004542915983,
+            "p95": 0.020187803285009426
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.34170436181071207,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16654527637923633,
+            "n": 32,
+            "p75": 0.27003777864718603,
+            "p95": 0.5152269751631585
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.007639977513043128,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.07162314322373112,
+            "n": 8,
+            "p75": 0.07623279919206802,
+            "p95": 0.10881530808839027
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07231046314436518,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.054436699325448916,
+            "n": 32,
+            "p75": 0.07866358378585661,
+            "p95": 0.10179526332827972
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.004377605486052927,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.004446928835413069,
+            "n": 32,
+            "p75": 0.008545512883966459,
+            "p95": 0.015582232995674284
+          },
+          "geometry_screen_valid_rate": 0.25,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2567579526214647,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17550195374809002,
+            "n": 32,
+            "p75": 0.2608203593344276,
+            "p95": 0.525137418791581
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6387490638497366,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.010293594793679972,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.0032075120129590063,
+            "n": 8,
+            "p75": 0.006709731712086258,
+            "p95": 0.008698288460741312
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.09892491622492017,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03571460106462064,
+            "n": 32,
+            "p75": 0.07163155835577911,
+            "p95": 0.09280535688630052
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0020180995287528702,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.005202381646845412,
+            "n": 32,
+            "p75": 0.008132304074665631,
+            "p95": 0.016342475863880813
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.277311530995479,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16713365536387564,
+            "n": 32,
+            "p75": 0.2612780364158246,
+            "p95": 0.5177096908974101
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0005848930759211335,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.008965499704986146,
+            "n": 8,
+            "p75": 0.009699676467992802,
+            "p95": 0.011118367244678493
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07074866347929798,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04250669433132924,
+            "n": 32,
+            "p75": 0.07433492408661606,
+            "p95": 0.10114688983869052
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-006",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0019150400575738136,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008406760656908482,
+            "n": 32,
+            "p75": 0.011226209166324486,
+            "p95": 0.019261549464918218
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2986263637486868,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1671997016538751,
+            "n": 32,
+            "p75": 0.2657647806958468,
+            "p95": 0.5114010627126464
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.006202957462808412,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.012003748265445702,
+            "n": 8,
+            "p75": 0.05177746421158519,
+            "p95": 0.06983867561694412
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07590026683037077,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05767462588021193,
+            "n": 32,
+            "p75": 0.08028360436535224,
+            "p95": 0.10394789143141883
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-007",
+      "terrain": "boxes"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002856092600029614,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008243271418789888,
+            "n": 32,
+            "p75": 0.011213590096274378,
+            "p95": 0.02083795116841275
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.34714647512860597,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16645240664919564,
+            "n": 32,
+            "p75": 0.2703914993406531,
+            "p95": 0.5150273727819809
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6266400768573245,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.003329369156571227,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.015475194282037853,
+            "n": 8,
+            "p75": 0.02045656334698366,
+            "p95": 0.026679716611030392
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0769076132288613,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.054995970357508986,
+            "n": 32,
+            "p75": 0.0790314728542778,
+            "p95": 0.10165283935388388
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-008",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0020522524685224752,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006112057277456482,
+            "n": 32,
+            "p75": 0.008677148654067109,
+            "p95": 0.014976933408851385
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27238688259516675,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16874811578221735,
+            "n": 32,
+            "p75": 0.26032651272986496,
+            "p95": 0.5167086642251739
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6448035573459426,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.014950684774130751,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.005391563275627537,
+            "n": 8,
+            "p75": 0.007662464185213009,
+            "p95": 0.009928343893578365
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08179613281877884,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04043205023257851,
+            "n": 32,
+            "p75": 0.07688443435675851,
+            "p95": 0.09993066508193113
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-009",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0019494496473217993,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006171566502107785,
+            "n": 32,
+            "p75": 0.00951686478324734,
+            "p95": 0.013130020225407376
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2663846195058892,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16983825820524578,
+            "n": 32,
+            "p75": 0.25910087307832774,
+            "p95": 0.5159114697527927
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.014605520167352948,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.020389121020361254,
+            "n": 8,
+            "p75": 0.02105661454526035,
+            "p95": 0.027304985939883994
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06926538622993639,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04019278995006263,
+            "n": 32,
+            "p75": 0.07469419804162061,
+            "p95": 0.10068703885243585
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-010",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.004100377284653067,
+          "constraint_invalid_rate": 0.1875,
+          "error": {
+            "median": 0.008797282829548699,
+            "n": 32,
+            "p75": 0.012729044073775234,
+            "p95": 0.03638229858440416
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.23924292080156184,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17618820451742156,
+            "n": 32,
+            "p75": 0.26115525994984595,
+            "p95": 0.5235106833796914
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.11335508037152997,
+          "constraint_invalid_rate": 0.75,
+          "error": {
+            "median": 0.006343553906662516,
+            "n": 8,
+            "p75": 0.007237297061028958,
+            "p95": 0.011537689866067371
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.13559123645513727,
+          "constraint_invalid_rate": 0.03125,
+          "error": {
+            "median": 0.03804802372678855,
+            "n": 32,
+            "p75": 0.06717045797575655,
+            "p95": 0.09825931264054275
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-011",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0025177641820368635,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.007505753168561915,
+            "n": 32,
+            "p75": 0.010802990347823947,
+            "p95": 0.019384178497459964
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3369433223256766,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1666290212617514,
+            "n": 32,
+            "p75": 0.26979747218724937,
+            "p95": 0.5154015513529618
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.003948395979087138,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.004368579946172202,
+            "n": 8,
+            "p75": 0.02170946321327967,
+            "p95": 0.03802372925249787
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06986455200339692,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05411822190386192,
+            "n": 32,
+            "p75": 0.07843768186850796,
+            "p95": 0.10188533617030483
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-012",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0021962611145425193,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.0050864116893203914,
+            "n": 32,
+            "p75": 0.007257706839578401,
+            "p95": 0.015584005044357939
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2921241542791182,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16630333922397905,
+            "n": 32,
+            "p75": 0.2630434425655137,
+            "p95": 0.5167993890052442
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0003535702080270653,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.008625778752928626,
+            "n": 8,
+            "p75": 0.010420467222918752,
+            "p95": 0.013858333370430194
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07225284069670534,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.045593921714652305,
+            "n": 32,
+            "p75": 0.07622742166347578,
+            "p95": 0.10047852910284275
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-013",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0020286637066293522,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.007099450060341764,
+            "n": 32,
+            "p75": 0.010288419452487535,
+            "p95": 0.016400756880931986
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27688302587323066,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1679028295854439,
+            "n": 32,
+            "p75": 0.26095455913620164,
+            "p95": 0.5163224468946798
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6357218171016336,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0008455943814809075,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.007226314440352871,
+            "n": 8,
+            "p75": 0.009707680977930585,
+            "p95": 0.011375278701771355
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06945073367158527,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04354127730361334,
+            "n": 32,
+            "p75": 0.07554720044166142,
+            "p95": 0.10124182565132908
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-014",
+      "terrain": "boxes"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002539215550045437,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008046192488328417,
+            "n": 32,
+            "p75": 0.011082031796679976,
+            "p95": 0.02019960215646473
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.34311640555264256,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16652772428602786,
+            "n": 32,
+            "p75": 0.27011046661360394,
+            "p95": 0.5151787492536902
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.44588130247070423,
+          "constraint_invalid_rate": 0.25,
+          "error": {
+            "median": 0.0038577159395779648,
+            "n": 8,
+            "p75": 0.005000984604312709,
+            "p95": 0.006319936982326652
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07315462947259954,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05457250633082933,
+            "n": 32,
+            "p75": 0.07874797826158961,
+            "p95": 0.10176058602840343
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-015",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0022497281919191536,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.00535009264581115,
+            "n": 32,
+            "p75": 0.008067408699657296,
+            "p95": 0.015269605804706153
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27761422746441133,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1680199832889106,
+            "n": 32,
+            "p75": 0.26064317175707197,
+            "p95": 0.5170044052886114
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0013803697100061019,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.029306432235839446,
+            "n": 8,
+            "p75": 0.03779327744030658,
+            "p95": 0.06466551533194821
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06780509748061725,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.040950699020968234,
+            "n": 32,
+            "p75": 0.07541794024548105,
+            "p95": 0.10056499424413859
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-016",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002238081842630635,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.00552820783809491,
+            "n": 32,
+            "p75": 0.008448881111314326,
+            "p95": 0.012548684107582074
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2635948029445865,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1708948965064818,
+            "n": 32,
+            "p75": 0.25924842894396183,
+            "p95": 0.5175742641372985
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.005722339521396336,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.00923132386970774,
+            "n": 8,
+            "p75": 0.011731217764733088,
+            "p95": 0.013816982766208031
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06558482296161694,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03750954642737342,
+            "n": 32,
+            "p75": 0.07785318277132924,
+            "p95": 0.09977971696283065
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-017",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0018714796406076317,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.006828342783460294,
+            "n": 32,
+            "p75": 0.009755212580879587,
+            "p95": 0.021784400870147866
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2815710408365757,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16958885853713296,
+            "n": 32,
+            "p75": 0.26175234780265777,
+            "p95": 0.5109253550090026
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6720487780788699,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.004185665536359906,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.003736181980861412,
+            "n": 8,
+            "p75": 0.007445595286381,
+            "p95": 0.007705066749390675
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08963499590099211,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.054933125525901634,
+            "n": 32,
+            "p75": 0.07871473474444012,
+            "p95": 0.10219212229232927
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-018",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002389288725756833,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.005268818501592136,
+            "n": 32,
+            "p75": 0.008438824281079895,
+            "p95": 0.017911923204565562
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2788574170825493,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1676401133043458,
+            "n": 32,
+            "p75": 0.260605347968929,
+            "p95": 0.5150719168267038
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0026954001605119515,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.005343735451364295,
+            "n": 8,
+            "p75": 0.00796979171876052,
+            "p95": 0.010590891592352858
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07962982934450213,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04374965772619935,
+            "n": 32,
+            "p75": 0.07216701223117081,
+            "p95": 0.09978330738029395
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-019",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.00204692374342752,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006052941024482137,
+            "n": 32,
+            "p75": 0.008505066104889786,
+            "p95": 0.016059624666375824
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.28940383590803886,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16668306081033898,
+            "n": 32,
+            "p75": 0.262591040775143,
+            "p95": 0.5172338541530693
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.008702112784577443,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.026707387803501834,
+            "n": 8,
+            "p75": 0.04092247142299041,
+            "p95": 0.07587973080973026
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07156964834885993,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04459811709165425,
+            "n": 32,
+            "p75": 0.07536782935562308,
+            "p95": 0.10231003820513421
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-020",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0025799159415116346,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.00807379515692592,
+            "n": 32,
+            "p75": 0.01125902275712765,
+            "p95": 0.02029374891858682
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3416053814886739,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16651091092023135,
+            "n": 32,
+            "p75": 0.26997892899442716,
+            "p95": 0.5151128179109892
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.021505520000803635,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.34132767406422254,
+            "n": 8,
+            "p75": 0.34135044467821013,
+            "p95": 0.3438707062895842
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 0.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07581331837215521,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.054652174181199706,
+            "n": 32,
+            "p75": 0.07878738093473059,
+            "p95": 0.10189941835210771
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-021",
+      "terrain": "boxes"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0017761584882733938,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.007882505448173873,
+            "n": 32,
+            "p75": 0.010956985824517682,
+            "p95": 0.01947727854181674
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.35441598963907683,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1661526018466526,
+            "n": 32,
+            "p75": 0.27050008817628063,
+            "p95": 0.5145195401137818
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.125,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.02789142407824108,
+          "constraint_invalid_rate": 0.25,
+          "error": {
+            "median": 0.002644571988775068,
+            "n": 8,
+            "p75": 0.003652975056205361,
+            "p95": 0.005788247390783823
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06646417052930076,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.06012820835231339,
+            "n": 32,
+            "p75": 0.08131128580783094,
+            "p95": 0.10046862340444686
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-022",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0022342285481922186,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.00665503844295828,
+            "n": 32,
+            "p75": 0.00945353975877665,
+            "p95": 0.016150949136069227
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2649305674330875,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16991751186066367,
+            "n": 32,
+            "p75": 0.25925123733866684,
+            "p95": 0.5155541639381495
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0009221591378456573,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.01112155917973532,
+            "n": 8,
+            "p75": 0.01321690009637405,
+            "p95": 0.018442229274155387
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0713672475549827,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.042108214395347586,
+            "n": 32,
+            "p75": 0.07720513452430133,
+            "p95": 0.10058075408387847
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-023",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.003093195124119319,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.004423708086856757,
+            "n": 32,
+            "p75": 0.006636946205816248,
+            "p95": 0.011082102609696888
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2437873007182716,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1749715275374491,
+            "n": 32,
+            "p75": 0.25904792688483125,
+            "p95": 0.5187912997037913
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6750760248269728,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0663908135940503,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.007704743599683092,
+            "n": 8,
+            "p75": 0.009526351094318137,
+            "p95": 0.012646059955989603
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.11034740598996162,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.038529126649101825,
+            "n": 32,
+            "p75": 0.08170297753236636,
+            "p95": 0.09900800658386379
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-024",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.005270876061899132,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006156939688404465,
+            "n": 32,
+            "p75": 0.011289034157594498,
+            "p95": 0.019743549382187742
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26835115108448027,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17092757061901387,
+            "n": 32,
+            "p75": 0.2573276713752054,
+            "p95": 0.5160802656877725
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6690215313307668,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.009470245742367878,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.08388079370285699,
+            "n": 8,
+            "p75": 0.09026704175921756,
+            "p95": 0.10277862793483246
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06755523417083342,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.046089683073313875,
+            "n": 32,
+            "p75": 0.07760435383094177,
+            "p95": 0.0989337590268764
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-025",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.00715776346267738,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008175973425004982,
+            "n": 32,
+            "p75": 0.011676577151913135,
+            "p95": 0.03621777187961884
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.22605166616872485,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17509843089293964,
+            "n": 32,
+            "p75": 0.2610177572846353,
+            "p95": 0.5232722295726736
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.05973606285615496,
+          "constraint_invalid_rate": 0.375,
+          "error": {
+            "median": 0.013506015625773807,
+            "n": 8,
+            "p75": 0.02073020406771474,
+            "p95": 0.02717935714464152
+          },
+          "geometry_screen_valid_rate": 0.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.149567392941518,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03890430223914597,
+            "n": 32,
+            "p75": 0.06496409845947539,
+            "p95": 0.10132982377004444
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-026",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.001825348512560554,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006165218806753271,
+            "n": 32,
+            "p75": 0.009112190786654747,
+            "p95": 0.016038666000318752
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2761993014581241,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16737293270283626,
+            "n": 32,
+            "p75": 0.26144632248318317,
+            "p95": 0.517163502496145
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0037910376448646588,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.001432450644007046,
+            "n": 8,
+            "p75": 0.002223201883468789,
+            "p95": 0.0030185084996645333
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0704821617363629,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.043803137230981365,
+            "n": 32,
+            "p75": 0.0749797675825177,
+            "p95": 0.10198289108515558
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-027",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0021102700212749514,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006219442184053651,
+            "n": 32,
+            "p75": 0.00842437498160886,
+            "p95": 0.015250557669372302
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27697941152010763,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.167789126290903,
+            "n": 32,
+            "p75": 0.26045769899299764,
+            "p95": 0.5168060677206076
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.007387191155703521,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.02230178239351959,
+            "n": 8,
+            "p75": 0.03121943935585397,
+            "p95": 0.04131237020006232
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07135876494872861,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04058888432354139,
+            "n": 32,
+            "p75": 0.0753488855314984,
+            "p95": 0.10074638461592332
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-028",
+      "terrain": "boxes"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002522636585842619,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.007512468997832507,
+            "n": 32,
+            "p75": 0.010797283146092063,
+            "p95": 0.019396799510861228
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.33693207980782014,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1666294560061526,
+            "n": 32,
+            "p75": 0.26979995113941574,
+            "p95": 0.515401561405615
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.18975405479872465,
+          "constraint_invalid_rate": 0.25,
+          "error": {
+            "median": 0.0019040269468299713,
+            "n": 8,
+            "p75": 0.003667243942028265,
+            "p95": 0.004091458721418418
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06993236712871975,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05411348977993306,
+            "n": 32,
+            "p75": 0.0784609271008,
+            "p95": 0.10188308206935323
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-029",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0020859023318215986,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006100139426271171,
+            "n": 32,
+            "p75": 0.0088763893662394,
+            "p95": 0.013376028572784924
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2821637303544058,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16834635079947963,
+            "n": 32,
+            "p75": 0.26024077198372064,
+            "p95": 0.5175337066655482
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6357218171016336,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.002006454976260841,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.005913647623802807,
+            "n": 8,
+            "p75": 0.024672812723564978,
+            "p95": 0.0467181262768251
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06936732709209692,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.038883915314086276,
+            "n": 32,
+            "p75": 0.07483809951297847,
+            "p95": 0.10033043139104512
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-030",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0021940795254873358,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.004984138070077244,
+            "n": 32,
+            "p75": 0.008089879589683156,
+            "p95": 0.013206071309852182
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2630466493349566,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1693612513637528,
+            "n": 32,
+            "p75": 0.2593969828291469,
+            "p95": 0.5161777537737332
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.010636301154700378,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.02389986387238261,
+            "n": 8,
+            "p75": 0.03021078675595068,
+            "p95": 0.033528085944025086
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07583511141621413,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03994252533279169,
+            "n": 32,
+            "p75": 0.07622803780398683,
+            "p95": 0.10134570524427483
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "train",
+      "state_id": "train-031",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0022264026438099105,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.007801264116711855,
+            "n": 32,
+            "p75": 0.010934951630964203,
+            "p95": 0.02073796151379441
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3499685651992168,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16606325002566583,
+            "n": 32,
+            "p75": 0.2697727397745069,
+            "p95": 0.5142904762186424
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6357218171016336,
+          "trajectory_ood_rate": 0.125,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0006909927334772803,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.010234953687789098,
+            "n": 8,
+            "p75": 0.012789604727218112,
+            "p95": 0.0167989041992121
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06734984259222454,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.06087178623455633,
+            "n": 32,
+            "p75": 0.08168713941105549,
+            "p95": 0.10088476754822323
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-032",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.003418756655326538,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.007242877308848121,
+            "n": 32,
+            "p75": 0.01106444452060527,
+            "p95": 0.015949594913058678
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.25954614343564897,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1697792657616509,
+            "n": 32,
+            "p75": 0.2606946315363122,
+            "p95": 0.5159772058423967
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6659942845826639,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.024289082698791153,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.013816869234393615,
+            "n": 8,
+            "p75": 0.015115289391929465,
+            "p95": 0.015652701789066862
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07824078238867971,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04330626444973268,
+            "n": 32,
+            "p75": 0.07885439559203114,
+            "p95": 0.09982616877206847
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-033",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002737845852871734,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.005442515376651597,
+            "n": 32,
+            "p75": 0.008544342603724062,
+            "p95": 0.012744829502202785
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27772698477913793,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17277859377245422,
+            "n": 32,
+            "p75": 0.25823564999271564,
+            "p95": 0.5173299422260144
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6659942845826639,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.002316398576953649,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.002084802851261571,
+            "n": 8,
+            "p75": 0.0038067488151201073,
+            "p95": 0.00921040995706122
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06285296440072652,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0378508852038048,
+            "n": 32,
+            "p75": 0.07802117476278235,
+            "p95": 0.09822024737628658
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-034",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002895580281204957,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008219944181294413,
+            "n": 32,
+            "p75": 0.011217733780476231,
+            "p95": 0.020913001834727687
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3478706196859813,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1664383012951415,
+            "n": 32,
+            "p75": 0.27043249710941697,
+            "p95": 0.5150298244849311
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6266400768573245,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.012049768151700668,
+          "constraint_invalid_rate": 0.25,
+          "error": {
+            "median": 0.003309407411843104,
+            "n": 8,
+            "p75": 0.00427255449794622,
+            "p95": 0.005254834755917542
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.25,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07702896441958162,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.054986922336728535,
+            "n": 32,
+            "p75": 0.07900463292529242,
+            "p95": 0.10156393350009807
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-035",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0021047535566460773,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.005727489579639005,
+            "n": 32,
+            "p75": 0.008505230043022626,
+            "p95": 0.0189786016911132
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26248440246007565,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1703023046499908,
+            "n": 32,
+            "p75": 0.25877172681496585,
+            "p95": 0.5137802250925934
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6538852975902517,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0041743662179909435,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.003623254652816996,
+            "n": 8,
+            "p75": 0.005996454237289715,
+            "p95": 0.0077837409124894875
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.070714177380095,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04680363144435078,
+            "n": 32,
+            "p75": 0.07520332872257499,
+            "p95": 0.09750301206238679
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-036",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0022641077686051947,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006087775764872176,
+            "n": 32,
+            "p75": 0.008868051466032222,
+            "p95": 0.01611025223061761
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2807034041159995,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1670490385334787,
+            "n": 32,
+            "p75": 0.26182091102381405,
+            "p95": 0.5175922207958755
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.03209412338411077,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.009615764115781628,
+            "n": 8,
+            "p75": 0.01158368357140645,
+            "p95": 0.01567892158214788
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07057167021127753,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0435052217531144,
+            "n": 32,
+            "p75": 0.07498874855998361,
+            "p95": 0.1015094825982279
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-037",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0024209253473379544,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.005237850509707591,
+            "n": 32,
+            "p75": 0.008353397647423386,
+            "p95": 0.03813339316257874
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26985379715583924,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16981442388710277,
+            "n": 32,
+            "p75": 0.260182488973142,
+            "p95": 0.5153127752183022
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6690215313307668,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.01363122788981408,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.14441157690034248,
+            "n": 8,
+            "p75": 0.16188636028969605,
+            "p95": 0.19743466648622954
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 0.875
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0999896797068498,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04390591071903324,
+            "n": 32,
+            "p75": 0.07603249624369204,
+            "p95": 0.09609041953442785
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-038",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.00308903937007754,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.004486743437048316,
+            "n": 32,
+            "p75": 0.00784145123339448,
+            "p95": 0.01611201468775638
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2613404782078077,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17108710712434297,
+            "n": 32,
+            "p75": 0.2584106586636982,
+            "p95": 0.518175245834407
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.008595460303772562,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.001438579006285263,
+            "n": 8,
+            "p75": 0.0023158211698739613,
+            "p95": 0.0036265901366969167
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.09978330443579253,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.038002223137136,
+            "n": 32,
+            "p75": 0.08020954920166672,
+            "p95": 0.10228215072934813
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-039",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0033894674430305916,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.0046647560306306264,
+            "n": 32,
+            "p75": 0.008399482939518609,
+            "p95": 0.01450840306632406
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26047238176873244,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1722629382193655,
+            "n": 32,
+            "p75": 0.2579293557981183,
+            "p95": 0.5177956471139171
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6629670378345608,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.022379021493347473,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03789990284308152,
+            "n": 8,
+            "p75": 0.041459678596118696,
+            "p95": 0.04518556896361456
+          },
+          "geometry_screen_valid_rate": 0.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08439023844522131,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.037253791630263156,
+            "n": 32,
+            "p75": 0.08048286969738427,
+            "p95": 0.10209218505812874
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-040",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0023335357965590386,
+          "constraint_invalid_rate": 0.03125,
+          "error": {
+            "median": 0.006311874356296597,
+            "n": 32,
+            "p75": 0.008667675740513303,
+            "p95": 0.032634263584284645
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2712297652921678,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1726933181617643,
+            "n": 32,
+            "p75": 0.2573932107435606,
+            "p95": 0.5188878728229702
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6720487780788699,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0012072131116591667,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.048702168895792444,
+            "n": 8,
+            "p75": 0.08737132871020976,
+            "p95": 0.09339487689507354
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08120708348307559,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.043886840624344725,
+            "n": 32,
+            "p75": 0.07560089935258005,
+            "p95": 0.09717411635797277
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-041",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002156011205703745,
+          "constraint_invalid_rate": 0.15625,
+          "error": {
+            "median": 0.006068239609624404,
+            "n": 32,
+            "p75": 0.010010071623343076,
+            "p95": 0.01671141269346836
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3153228979672349,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16706320354362486,
+            "n": 32,
+            "p75": 0.2687988048110188,
+            "p95": 0.5159635797595491
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6236128301092214,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.009806987174812543,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0030257915475668156,
+            "n": 8,
+            "p75": 0.004114703633689057,
+            "p95": 0.004450104025466389
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08721652744730402,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05069347637633987,
+            "n": 32,
+            "p75": 0.07710679762379852,
+            "p95": 0.10160082403143028
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-042",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002215444019457724,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.006059991752547988,
+            "n": 32,
+            "p75": 0.008590827031978672,
+            "p95": 0.01555074594302106
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2849036190387271,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16697288373016517,
+            "n": 32,
+            "p75": 0.26230843936687925,
+            "p95": 0.5170256799029018
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.019006392974877828,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.015636817162130764,
+            "n": 8,
+            "p75": 0.07573878157178562,
+            "p95": 0.09533067310601837
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07235645841203486,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04444036046965877,
+            "n": 32,
+            "p75": 0.07556532177162945,
+            "p95": 0.10202807501934852
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-043",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002546213021806576,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.00781904182387632,
+            "n": 32,
+            "p75": 0.011045159990066035,
+            "p95": 0.020134530515295092
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.34044965247678016,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.166565331074721,
+            "n": 32,
+            "p75": 0.2699440603479149,
+            "p95": 0.5152417669241212
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.04839745754812208,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.003322374733856645,
+            "n": 8,
+            "p75": 0.0043900239574734285,
+            "p95": 0.005221228021295772
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0719222437431899,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05439980425700997,
+            "n": 32,
+            "p75": 0.07860989375259367,
+            "p95": 0.1018927160114197
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-044",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002109576030484339,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006043938607781277,
+            "n": 32,
+            "p75": 0.009507420112171563,
+            "p95": 0.014286035364473678
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2582159651227278,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17015498337382917,
+            "n": 32,
+            "p75": 0.2589858965471858,
+            "p95": 0.516037887774399
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0077726536313968975,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.007488560932113502,
+            "n": 8,
+            "p75": 0.008839392119790635,
+            "p95": 0.01439031243546992
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.09313904654552485,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0383945381379952,
+            "n": 32,
+            "p75": 0.07892733412926753,
+            "p95": 0.10051239014221885
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-045",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002579897033530232,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.0042034462255482186,
+            "n": 32,
+            "p75": 0.006882997286116741,
+            "p95": 0.013109596151267573
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2702697094856734,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17121266181902944,
+            "n": 32,
+            "p75": 0.26003915693892565,
+            "p95": 0.5191822163478168
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6538852975902517,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.011106587340726781,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03096958381043438,
+            "n": 8,
+            "p75": 0.03630519377002489,
+            "p95": 0.04265431950654033
+          },
+          "geometry_screen_valid_rate": 0.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08582946309856987,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03564461949883441,
+            "n": 32,
+            "p75": 0.07758789175534195,
+            "p95": 0.09995736746621302
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-046",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002572457200040734,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.0052656039163044045,
+            "n": 32,
+            "p75": 0.00713929354350213,
+            "p95": 0.03148360240498698
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2568595578090087,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17192530962454605,
+            "n": 32,
+            "p75": 0.2591345753132226,
+            "p95": 0.5163421530440866
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6720487780788699,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.01000831306142591,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0013272770421701094,
+            "n": 8,
+            "p75": 0.0026202863640760517,
+            "p95": 0.006301484685850108
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0971112455015839,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.042322344886991006,
+            "n": 32,
+            "p75": 0.07450382509699281,
+            "p95": 0.09668489057689361
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-047",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.001485046956936742,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.004993815311708734,
+            "n": 32,
+            "p75": 0.007520294337765649,
+            "p95": 0.0185715834535295
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.25696065502742393,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17027287318548273,
+            "n": 32,
+            "p75": 0.2592906583393791,
+            "p95": 0.5143658485184099
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.003972832969359796,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.007907085897078966,
+            "n": 8,
+            "p75": 0.009299417253862342,
+            "p95": 0.010179920505188093
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07562881354090667,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04363627058455441,
+            "n": 32,
+            "p75": 0.07596129686501267,
+            "p95": 0.09776509224455557
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-048",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0021324568305243208,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.00570242044470871,
+            "n": 32,
+            "p75": 0.008844449309908943,
+            "p95": 0.01713384237386604
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27921084795577,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1676134610403826,
+            "n": 32,
+            "p75": 0.2605996535636298,
+            "p95": 0.5181142804689753
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.08366713075140542,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.11040895460332743,
+            "n": 8,
+            "p75": 0.12111376422026413,
+            "p95": 0.13173054245767668
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07077260112905948,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0415173149809097,
+            "n": 32,
+            "p75": 0.07407837851648151,
+            "p95": 0.10161635476770563
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-049",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0026920709449196334,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.008148857769249807,
+            "n": 32,
+            "p75": 0.010975731395633672,
+            "p95": 0.020447792605433206
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.3464644204899687,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16657988579866848,
+            "n": 32,
+            "p75": 0.27041495004404115,
+            "p95": 0.5152054806628737
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6236128301092214,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.71875
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0013251516768506555,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.06162489355401474,
+            "n": 8,
+            "p75": 0.08224556272979504,
+            "p95": 0.09380179101821104
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0711668066845752,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05463738600834274,
+            "n": 32,
+            "p75": 0.07889329328171595,
+            "p95": 0.10143972729598098
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-050",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002748275479859341,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.005026064695572948,
+            "n": 32,
+            "p75": 0.008547983790496877,
+            "p95": 0.014888968410645227
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.25615714606321416,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16987995447620524,
+            "n": 32,
+            "p75": 0.2589388401574606,
+            "p95": 0.5168607489122681
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.014019416124767314,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.0015445103252103897,
+            "n": 8,
+            "p75": 0.001936009362037635,
+            "p95": 0.0032177866431938366
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.10062683752683066,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03690219120391343,
+            "n": 32,
+            "p75": 0.07830198306709105,
+            "p95": 0.10099848337339941
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-051",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002948741259170884,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.006060917442352329,
+            "n": 32,
+            "p75": 0.009778946116024964,
+            "p95": 0.017961108392674164
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2784317252386579,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1715574654846994,
+            "n": 32,
+            "p75": 0.2579700181407597,
+            "p95": 0.5172730152155348
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6629670378345608,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.014114029127936467,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0075701515424049445,
+            "n": 8,
+            "p75": 0.010050984808833666,
+            "p95": 0.010496541949855703
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06417866352695212,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.040741240094348645,
+            "n": 32,
+            "p75": 0.07651698428406788,
+            "p95": 0.09586787398301372
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-052",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.003382018689920274,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.00526852625552459,
+            "n": 32,
+            "p75": 0.00889570886414754,
+            "p95": 0.013274235851553975
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.27605406563002166,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1730869699987213,
+            "n": 32,
+            "p75": 0.2616928925274079,
+            "p95": 0.5280630422051187
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6145310898649124,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0012947480442870862,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1191987841091347,
+            "n": 8,
+            "p75": 0.14188243808779433,
+            "p95": 0.15812905400049554
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08335389918550651,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.038746811212086577,
+            "n": 32,
+            "p75": 0.07431153934112711,
+            "p95": 0.09017975786199
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-053",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002374792827265493,
+          "constraint_invalid_rate": 0.15625,
+          "error": {
+            "median": 0.005083448298346794,
+            "n": 32,
+            "p75": 0.007830034189765476,
+            "p95": 0.01469187048747969
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.31433205364721273,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1665945000684475,
+            "n": 32,
+            "p75": 0.26568655732027696,
+            "p95": 0.5167548508127403
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6236128301092214,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.009684376165367992,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.013737476152094318,
+            "n": 8,
+            "p75": 0.016359965767950596,
+            "p95": 0.018006745953587963
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08439662366334288,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.046106831613038135,
+            "n": 32,
+            "p75": 0.07665490699950048,
+            "p95": 0.10033290763942304
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-054",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.001892319350354832,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.005172077955261039,
+            "n": 32,
+            "p75": 0.008153108566713663,
+            "p95": 0.016061807325604752
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2762402006709084,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16708057103240115,
+            "n": 32,
+            "p75": 0.26152274316000546,
+            "p95": 0.5176510369883274
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.026735883146217443,
+          "constraint_invalid_rate": 0.25,
+          "error": {
+            "median": 0.0011454938498840878,
+            "n": 8,
+            "p75": 0.0017424513679452256,
+            "p95": 0.0019593861259715618
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07040691877982819,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.042827301399768314,
+            "n": 32,
+            "p75": 0.07487107505815438,
+            "p95": 0.10096833946780859
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-055",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0034068035169438904,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.004895018250286466,
+            "n": 32,
+            "p75": 0.0075075512551884376,
+            "p95": 0.02957743357523405
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.34334960465613973,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16689084604303273,
+            "n": 32,
+            "p75": 0.2671323857893475,
+            "p95": 0.5139134948799139
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0013812841801417175,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.010540521693868047,
+            "n": 8,
+            "p75": 0.013543128063115233,
+            "p95": 0.014461284482714316
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.1026932955196409,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.047333986641126854,
+            "n": 32,
+            "p75": 0.07946730037515791,
+            "p95": 0.09731438280247946
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-056",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.0025094205211244613,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.004239165703959763,
+            "n": 32,
+            "p75": 0.007368856975221435,
+            "p95": 0.016885104023121312
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.26238156047672634,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17079149705079066,
+            "n": 32,
+            "p75": 0.25794336944734414,
+            "p95": 0.5167380301078754
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6599397910864578,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0007164735194868932,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.021357049875417623,
+            "n": 8,
+            "p75": 0.026171681534008145,
+            "p95": 0.029320624062210435
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.07189285511575871,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.041234323527673186,
+            "n": 32,
+            "p75": 0.07853907329540392,
+            "p95": 0.09884861956915988
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-057",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002435539434416212,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.0054543220801013806,
+            "n": 32,
+            "p75": 0.00743052080192955,
+            "p95": 0.011396438470822959
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2751716698378617,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17151082334777795,
+            "n": 32,
+            "p75": 0.25921520618473,
+            "p95": 0.5181396792034798
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6569125443383547,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.012080865036756983,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.00152762927186155,
+            "n": 8,
+            "p75": 0.0021952647418054866,
+            "p95": 0.0031291637329411747
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.06703184141259522,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.036378775452805955,
+            "n": 32,
+            "p75": 0.07862553613991115,
+            "p95": 0.09835583088177381
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-058",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.004939602085277439,
+          "constraint_invalid_rate": 0.1875,
+          "error": {
+            "median": 0.008604596513496916,
+            "n": 32,
+            "p75": 0.011206521822499937,
+            "p95": 0.05481860996124041
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.23295383312875373,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17294467908323885,
+            "n": 32,
+            "p75": 0.2580286565284354,
+            "p95": 0.5152220914397577
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6750760248269728,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0018427166568011355,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.008461052791401523,
+            "n": 8,
+            "p75": 0.015674270983055107,
+            "p95": 0.018628834297306066
+          },
+          "geometry_screen_valid_rate": 0.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.125,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.14111743172006053,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.0394629415681253,
+            "n": 32,
+            "p75": 0.06076250056584956,
+            "p95": 0.09713488477408103
+          },
+          "geometry_screen_valid_rate": 0.5,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-059",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.001879590536711273,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.006622298514293013,
+            "n": 32,
+            "p75": 0.010230828419568924,
+            "p95": 0.016685672397023215
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.31089870728749625,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16690389511279607,
+            "n": 32,
+            "p75": 0.26812866515413275,
+            "p95": 0.5156511669071099
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6296673236054275,
+          "trajectory_ood_rate": 0.09375,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0004906525807282236,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.039063106398285655,
+            "n": 8,
+            "p75": 0.0618444861985734,
+            "p95": 0.08354549017199375
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.5,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.08581145586003291,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05084416694367006,
+            "n": 32,
+            "p75": 0.0768554607119357,
+            "p95": 0.1020220524004057
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-060",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.001903426361408611,
+          "constraint_invalid_rate": 0.09375,
+          "error": {
+            "median": 0.00604153455930973,
+            "n": 32,
+            "p75": 0.00871660978812661,
+            "p95": 0.01631425496001917
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2770006526256017,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.16719275174742318,
+            "n": 32,
+            "p75": 0.26156781417958075,
+            "p95": 0.5175659064830523
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6326945703535306,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.006615788284212165,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05215267161300384,
+            "n": 8,
+            "p75": 0.07687966800963197,
+            "p95": 0.09959206214123267
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.625,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.0706952843322588,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04354215158655998,
+            "n": 32,
+            "p75": 0.07489691668352295,
+            "p95": 0.10213289020363961
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-061",
+      "terrain": "random_rough"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.002626842414362285,
+          "constraint_invalid_rate": 0.125,
+          "error": {
+            "median": 0.005785051354445138,
+            "n": 32,
+            "p75": 0.009667571717899533,
+            "p95": 0.04199772354442942
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.75,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2601387062846887,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.1709081614506251,
+            "n": 32,
+            "p75": 0.259516631319188,
+            "p95": 0.5167262571300298
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6690215313307668,
+          "trajectory_ood_rate": 0.0625,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.006570517905812423,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.004027145308442347,
+            "n": 8,
+            "p75": 0.005743757181959727,
+            "p95": 0.009651173355069742
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.375,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.1095240615902009,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.04221616189349152,
+            "n": 32,
+            "p75": 0.07460830954089137,
+            "p95": 0.0961544614541813
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.9375,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-062",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "classes": {
+        "ID": {
+          "angle_error_median_rad": 0.003275563125385128,
+          "constraint_invalid_rate": 0.0625,
+          "error": {
+            "median": 0.00499101139404314,
+            "n": 32,
+            "p75": 0.0067979372242910905,
+            "p95": 0.013675286940582813
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "far_ood": {
+          "angle_error_median_rad": 0.2660731589323311,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.17011913414145696,
+            "n": 32,
+            "p75": 0.25901140373547715,
+            "p95": 0.5173062934836832
+          },
+          "geometry_screen_valid_rate": 0.75,
+          "goals": 4,
+          "initial_direction_match_fraction": 1.0,
+          "paths": 32,
+          "radial_spearman": 0.6508580508421486,
+          "trajectory_ood_rate": 0.03125,
+          "within_0p2m_fraction": 0.75
+        },
+        "logged": {
+          "angle_error_median_rad": 0.0054525209142439746,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.05386288824669193,
+            "n": 8,
+            "p75": 0.0584033317546404,
+            "p95": 0.06680202814880637
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 1,
+          "initial_direction_match_fraction": 0.875,
+          "paths": 8,
+          "radial_spearman": null,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        },
+        "near_ood": {
+          "angle_error_median_rad": 0.1060462031205851,
+          "constraint_invalid_rate": 0.0,
+          "error": {
+            "median": 0.03733835047737162,
+            "n": 32,
+            "p75": 0.07884023597437903,
+            "p95": 0.1016924962987065
+          },
+          "geometry_screen_valid_rate": 1.0,
+          "goals": 4,
+          "initial_direction_match_fraction": 0.96875,
+          "paths": 32,
+          "radial_spearman": 0.9190074972809802,
+          "trajectory_ood_rate": 0.0,
+          "within_0p2m_fraction": 1.0
+        }
+      },
+      "split": "val",
+      "state_id": "val-063",
+      "terrain": "k_rail_field"
+    }
+  ]
+}

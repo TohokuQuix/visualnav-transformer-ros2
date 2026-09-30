@@ -1,0 +1,4233 @@
+{
+  "ID_multi_mode_states": 64,
+  "ID_plus_near_multi_mode_states": 64,
+  "all_multi_mode_states": 64,
+  "existing_path_cluster_rms_m": 0.05,
+  "state_unit": true,
+  "states": [
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-000",
+      "terrain": "boxes"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-001",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-002",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-003",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-004",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-005",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-006",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-007",
+      "terrain": "boxes"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 6,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-008",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-009",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-010",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 6,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-011",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-012",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-013",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-014",
+      "terrain": "boxes"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-015",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-016",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-017",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-018",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-019",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-020",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-021",
+      "terrain": "boxes"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 8,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-022",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-023",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-024",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-025",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 5,
+      "all_sweep_goal_seed": 4,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-026",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-027",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-028",
+      "terrain": "boxes"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-029",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-030",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "train",
+      "state_id": "train-031",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-032",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 8,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-033",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-034",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 6,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-035",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-036",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-037",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-038",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-039",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-040",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-041",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-042",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-043",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-044",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-045",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-046",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-047",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-048",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-049",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-050",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-051",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-052",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            3,
+            3,
+            4,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-053",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-054",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-055",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 6,
+      "all_sweep_goal_seed": 7,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-056",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-057",
+      "terrain": "k_rail_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-058",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 5,
+      "all_sweep_goal_seed": 5,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 3,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-059",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 8,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-060",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-061",
+      "terrain": "random_rough"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 9,
+      "all_sweep_goal_seed": 10,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            3,
+            3,
+            4,
+            3,
+            4,
+            4,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            2,
+            2
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 6,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            2,
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-062",
+      "terrain": "hf_pyramid_slope"
+    },
+    {
+      "ID_plus_near_all_goal_seed": 7,
+      "all_sweep_goal_seed": 9,
+      "classes": {
+        "ID": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            3,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "same_goal_different_seed": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "far_ood": {
+          "all_goal_seed": 5,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        "near_ood": {
+          "all_goal_seed": 4,
+          "different_goal_same_seed": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "same_goal_different_seed": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "split": "val",
+      "state_id": "val-063",
+      "terrain": "k_rail_field"
+    }
+  ]
+}

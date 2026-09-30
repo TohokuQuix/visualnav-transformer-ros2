@@ -1,0 +1,72 @@
+{
+  "macro": {
+    "train:ID": {
+      "state_macro_angle_error_median_rad": 0.002619054977938143,
+      "state_macro_constraint_invalid_rate": 0.091796875,
+      "state_macro_error_median_m": 0.006458026257640505,
+      "state_macro_trajectory_ood_rate": 0.001953125,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "train:far_ood": {
+      "state_macro_angle_error_median_rad": 0.2861980239718471,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.16895234693684613,
+      "state_macro_trajectory_ood_rate": 0.0576171875,
+      "state_macro_within_0p2m": 0.7431640625,
+      "states": 32
+    },
+    "train:logged": {
+      "state_macro_angle_error_median_rad": 0.03379077813004857,
+      "state_macro_constraint_invalid_rate": 0.09375,
+      "state_macro_error_median_m": 0.03557987931130152,
+      "state_macro_trajectory_ood_rate": 0.0,
+      "state_macro_within_0p2m": 0.9375,
+      "states": 32
+    },
+    "train:near_ood": {
+      "state_macro_angle_error_median_rad": 0.07963960931527118,
+      "state_macro_constraint_invalid_rate": 0.0009765625,
+      "state_macro_error_median_m": 0.04510655959720597,
+      "state_macro_trajectory_ood_rate": 0.01171875,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "val:ID": {
+      "state_macro_angle_error_median_rad": 0.0026153913612835533,
+      "state_macro_constraint_invalid_rate": 0.0947265625,
+      "state_macro_error_median_m": 0.005899139973126357,
+      "state_macro_trajectory_ood_rate": 0.0009765625,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    },
+    "val:far_ood": {
+      "state_macro_angle_error_median_rad": 0.283719904748548,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.16944032448934448,
+      "state_macro_trajectory_ood_rate": 0.056640625,
+      "state_macro_within_0p2m": 0.7451171875,
+      "states": 32
+    },
+    "val:logged": {
+      "state_macro_angle_error_median_rad": 0.013046576043042359,
+      "state_macro_constraint_invalid_rate": 0.0390625,
+      "state_macro_error_median_m": 0.02659490937686819,
+      "state_macro_trajectory_ood_rate": 0.00390625,
+      "state_macro_within_0p2m": 0.99609375,
+      "states": 32
+    },
+    "val:near_ood": {
+      "state_macro_angle_error_median_rad": 0.08359522765374583,
+      "state_macro_constraint_invalid_rate": 0.0,
+      "state_macro_error_median_m": 0.04374171332336501,
+      "state_macro_trajectory_ood_rate": 0.0068359375,
+      "state_macro_within_0p2m": 1.0,
+      "states": 32
+    }
+  },
+  "nonfinite_count": 0,
+  "raw_per_path_sha256": "63d93b5a89a142a75416683bb2b209e6102d4b2f7a4a113c04965857740b38e2",
+  "source_trajectory_ood_threshold_sha256": "868072be9b2acc9e6c7536b5205ef0585741261f9b1751a2e47039c452a897d2",
+  "trajectory_ood_threshold": 0.3605285808444023
+}

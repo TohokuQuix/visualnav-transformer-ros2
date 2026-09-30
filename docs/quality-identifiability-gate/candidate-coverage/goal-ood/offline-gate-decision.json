@@ -1,0 +1,57 @@
+{
+  "design": {
+    "D2_retraining": "not indicated by ID/near offline evidence; no model/loss change",
+    "D4_maneuver_conditioning": "not priority from this offline result",
+    "primary": "D1 local subgoal proposal with D3 train-support guard",
+    "simulator_pilot": "proposal only; requires separate review and approval"
+  },
+  "evidence": {
+    "ID_endpoint_error_median_m": {
+      "train": 0.006458026257640505,
+      "validation": 0.005899139973126357
+    },
+    "ID_goal_effect_exceeds_sampling_states": 64,
+    "ID_goal_effect_over_sampling_state_median": {
+      "train": 4.984962731513537,
+      "validation": 4.945490215993916
+    },
+    "ID_multiple_path_modes_states": 64,
+    "ID_radial_monotonicity": 1.0,
+    "ID_same_goal_sampling_collapse_states": 7,
+    "far_endpoint_error_median_m": {
+      "train": 0.16895234693684613,
+      "validation": 0.16944032448934448
+    },
+    "far_within_0p2m": {
+      "train": 0.7431640625,
+      "validation": 0.7451171875
+    },
+    "near_endpoint_error_median_m": {
+      "train": 0.04510655959720597,
+      "validation": 0.04374171332336501
+    },
+    "near_left_right_consistency": 1.0
+  },
+  "gates": {
+    "G4_internal": "not_triggered: zero goal-conditioning collapse states",
+    "G_Diversity": "pass: goal sweep yields multiple frozen-threshold Path modes in 64/64 states",
+    "G_ID": "pass: strong ID endpoint, direction, radius and mode response in both splits",
+    "G_OOD": "near_ood_only: near-OOD retains response; far-OOD endpoint error and 0.2m miss rate degrade; physical execution unverified"
+  },
+  "limits": [
+    "Offline geometry_screen_valid is not physically feasible",
+    "Goal support threshold fitted only on complete-only train; held-out never used",
+    "Validation is evaluation only; 32 states/split and fixed 12 sweep goals do not establish arbitrary-goal planning",
+    "No new simulator rollout or model training performed",
+    "Validation selection has no boxes terrain; do not claim validation generalization over all seven terrains"
+  ],
+  "scope": {
+    "complete_only_train_states": 32,
+    "diffusion_seeds": 8,
+    "goals_per_state": 13,
+    "heldout_used": false,
+    "sampled_paths": 6656,
+    "simulator_rollouts_started": false,
+    "validation_states": 32
+  }
+}

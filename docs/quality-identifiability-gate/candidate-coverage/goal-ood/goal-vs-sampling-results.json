@@ -1,0 +1,55 @@
+{
+  "id_goal_effect_exceeds_sampling_states": 64,
+  "macro": {
+    "train:ID": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.1388407088816166,
+      "ratio_state_median": 4.984962731513537,
+      "sampling_collapse_states": 4,
+      "sampling_effect_state_median_m": 0.027763594407588243,
+      "states": 32
+    },
+    "train:far_ood": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.16638467460870743,
+      "ratio_state_median": 5.075244490581041,
+      "sampling_collapse_states": 11,
+      "sampling_effect_state_median_m": 0.03248600568622351,
+      "states": 32
+    },
+    "train:near_ood": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.15433262288570404,
+      "ratio_state_median": 7.231860198134983,
+      "sampling_collapse_states": 17,
+      "sampling_effect_state_median_m": 0.021519606467336416,
+      "states": 32
+    },
+    "val:ID": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.14030535519123077,
+      "ratio_state_median": 4.945490215993916,
+      "sampling_collapse_states": 3,
+      "sampling_effect_state_median_m": 0.028253306169062853,
+      "states": 32
+    },
+    "val:far_ood": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.1630537137389183,
+      "ratio_state_median": 5.091547359948809,
+      "sampling_collapse_states": 18,
+      "sampling_effect_state_median_m": 0.032088289968669415,
+      "states": 32
+    },
+    "val:near_ood": {
+      "goal_collapse_states": 0,
+      "goal_effect_state_median_m": 0.15497904643416405,
+      "ratio_state_median": 7.174070411145211,
+      "sampling_collapse_states": 12,
+      "sampling_effect_state_median_m": 0.021842312533408403,
+      "states": 32
+    }
+  },
+  "ratio_rule": "no epsilon added; null if sampling median <=1e-9",
+  "state_unit": true
+}

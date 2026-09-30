@@ -1,0 +1,37 @@
+schema_version: 1
+reference_checkpoint_sha256: 191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0
+manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+complete_ids_sha256: 904b22816531c4bf026181de5b70aaad386f0557ea44d9266223c89d48cddf4e
+split_hash: ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f
+train_state_count: 32
+validation_state_count: 32
+selection_seed: 20261001
+diffusion_seeds: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008]
+goals_per_class: 4
+polar_radius_edges_m: [0.0, 0.2, 0.4, 0.6, 0.8, 1.1]
+polar_angle_bins: 12
+minimum_independent_episodes_per_bin: 5
+knn_k: 16
+knn_near_quantile: 0.95
+knn_far_quantile: 0.99
+state_min_local_step: 20
+state_future_clearance_steps: 40
+goal_grid_radii_m: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+goal_grid_angles_deg: [-180, -135, -90, -60, -30, -15, 0, 15, 30, 60, 90, 135]
+path_cluster_rms_m: 0.05
+endpoint_tolerance_m: 0.2
+goal_slots:
+  - {id: id_forward_short, class: ID, radius_m: 0.2, angle_deg: 0}
+  - {id: id_forward_long, class: ID, radius_m: 0.4, angle_deg: 0}
+  - {id: id_backward, class: ID, radius_m: 0.2, angle_deg: -180}
+  - {id: id_diag_left, class: ID, radius_m: 0.1, angle_deg: 30}
+  - {id: near_right_lateral, class: near_ood, radius_m: 0.1, angle_deg: -90}
+  - {id: near_left_lateral, class: near_ood, radius_m: 0.1, angle_deg: 90}
+  - {id: near_diag_right, class: near_ood, radius_m: 0.4, angle_deg: -30}
+  - {id: near_forward_left, class: near_ood, radius_m: 0.6, angle_deg: 15}
+  - {id: far_diag_right, class: far_ood, radius_m: 0.3, angle_deg: -60}
+  - {id: far_left_lateral, class: far_ood, radius_m: 0.3, angle_deg: 90}
+  - {id: far_diag_left, class: far_ood, radius_m: 0.5, angle_deg: 30}
+  - {id: far_backward_right, class: far_ood, radius_m: 0.8, angle_deg: -135}
+goal_footprint_radius_m: 0.2
+max_local_height_jump_m: 0.15
