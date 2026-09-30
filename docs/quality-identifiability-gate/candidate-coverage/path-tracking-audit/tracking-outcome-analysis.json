@@ -1,0 +1,619 @@
+{
+  "candidate_count": 98,
+  "nominal_repeats_excluded_from_oracle_association": 14,
+  "pairwise_R_cluster_differences_are_descriptive_not_independent": true,
+  "source_oracle_sha256": "1e24078e2e0b30698f33918d33c4651016e580af250e9a1a030cf3e12bf6aa43",
+  "state_count": 7,
+  "state_macro_loso": {
+    "advantage_h": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.2848751835535977,
+          "readiness-001": -0.4941262848751835,
+          "readiness-002": -0.30837004405286345,
+          "readiness-003": -0.3597650513950074,
+          "readiness-004": -0.328928046989721,
+          "readiness-005": -0.34581497797356836,
+          "readiness-006": -0.32745961820851693
+        },
+        "macro_mean": -0.34990560100692264,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.43979441997063146,
+          "readiness-001": 0.17767988252569752,
+          "readiness-002": 0.15491923641703378,
+          "readiness-003": 0.28120411160058745,
+          "readiness-004": 0.3318649045521293,
+          "readiness-005": 0.13729809104258447,
+          "readiness-006": 0.2569750367107196
+        },
+        "macro_mean": 0.2542479546884834,
+        "state_support": 7
+      }
+    },
+    "delta_v": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.17914831130690165,
+          "readiness-001": -0.2936857562408223,
+          "readiness-002": -0.2195301027900147,
+          "readiness-003": -0.1930983847283407,
+          "readiness-004": -0.2797356828193833,
+          "readiness-005": -0.22246696035242294,
+          "readiness-006": -0.2775330396475771
+        },
+        "macro_mean": -0.2378854625550661,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.2966226138032306,
+          "readiness-001": 0.20044052863436124,
+          "readiness-002": 0.10425844346549192,
+          "readiness-003": 0.24155653450807638,
+          "readiness-004": 0.21512481644640236,
+          "readiness-005": 0.07709251101321589,
+          "readiness-006": 0.18208516886930984
+        },
+        "macro_mean": 0.18816865953429832,
+        "state_support": 7
+      }
+    },
+    "drawdown": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.037924844255749844,
+          "readiness-001": -0.1204111600587371,
+          "readiness-002": -0.05774863280200535,
+          "readiness-003": -0.11061206892535334,
+          "readiness-004": -0.12015685600318006,
+          "readiness-005": -0.09152249476969988,
+          "readiness-006": -0.23102322898409047
+        },
+        "macro_mean": -0.10991418368554515,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.2015435989804544,
+          "readiness-001": 0.07121879588839941,
+          "readiness-002": -0.03267079162160145,
+          "readiness-003": 0.15381966359132074,
+          "readiness-004": 0.07966401014051312,
+          "readiness-005": -0.004770644778723296,
+          "readiness-006": 0.08847458282773779
+        },
+        "macro_mean": 0.07961131643258582,
+        "state_support": 7
+      }
+    },
+    "forward_goal_progress_m": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.21732745961820854,
+          "readiness-001": -0.0022026431718061615,
+          "readiness-002": -0.02422907488986782,
+          "readiness-003": -0.08810572687224667,
+          "readiness-004": -0.018355359765051385,
+          "readiness-005": -0.14904552129221732,
+          "readiness-006": -0.06901615271659324
+        },
+        "macro_mean": -0.08118313404657017,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.3061674008810573,
+          "readiness-001": -0.032305433186490456,
+          "readiness-002": -0.2760646108663731,
+          "readiness-003": -0.1563876651982379,
+          "readiness-004": -0.06975036710719533,
+          "readiness-005": -0.024229074889867874,
+          "readiness-006": -0.14831130690161531
+        },
+        "macro_mean": -0.14474512271869105,
+        "state_support": 7
+      }
+    },
+    "maximum_contact_n": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.17732525585606965,
+          "readiness-001": 0.1413487507165689,
+          "readiness-002": 0.13400660681054835,
+          "readiness-003": 0.2250491912452033,
+          "readiness-004": 0.23606240710423412,
+          "readiness-005": 0.15162775218499772,
+          "readiness-006": 0.17914831130690165
+        },
+        "macro_mean": 0.17779546788921768,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.01181206004687422,
+          "readiness-001": 0.035911875342259404,
+          "readiness-002": 0.07996473877838277,
+          "readiness-003": 0.0410513760764738,
+          "readiness-004": 0.031506588998647084,
+          "readiness-005": 0.14163874758895548,
+          "readiness-006": -0.0367107195301028
+        },
+        "macro_mean": 0.040221506743963076,
+        "state_support": 7
+      }
+    },
+    "maximum_tilt_rad": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.1130690161527166,
+          "readiness-001": 0.08590308370044054,
+          "readiness-002": 0.024229074889867835,
+          "readiness-003": 0.12408223201174741,
+          "readiness-004": 0.08223201174743024,
+          "readiness-005": 0.1791483113069016,
+          "readiness-006": 0.171071953010279
+        },
+        "macro_mean": 0.11139081183134046,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.14904552129221735,
+          "readiness-001": 0.03524229074889868,
+          "readiness-002": 0.1666666666666667,
+          "readiness-003": 0.1116005873715125,
+          "readiness-004": 0.1417033773861968,
+          "readiness-005": -0.010279001468428778,
+          "readiness-006": 0.07121879588839942
+        },
+        "macro_mean": 0.09502831969792323,
+        "state_support": 7
+      }
+    },
+    "nomad_minus_bank_mean_cross_track_p95_m": {
+      "leave_one_state_out": {
+        "readiness-000": -0.015173496343997337,
+        "readiness-001": -0.016849416299120856,
+        "readiness-002": -0.015380164312575087,
+        "readiness-003": -0.020184710579302174,
+        "readiness-004": -0.016631763101200462,
+        "readiness-005": -0.018065163546368602,
+        "readiness-006": -0.018141279971161453
+      },
+      "macro_mean": -0.01720371345053228,
+      "state_support": 7
+    },
+    "nomad_minus_bank_mean_delta_v": {
+      "leave_one_state_out": {
+        "readiness-000": 0.13266483942667642,
+        "readiness-001": 0.13902282714843747,
+        "readiness-002": 0.14069878260294597,
+        "readiness-003": 0.14705883661905925,
+        "readiness-004": 0.13748974800109862,
+        "readiness-005": 0.020272159576416,
+        "readiness-006": 0.14239869117736814
+      },
+      "macro_mean": 0.12280084065028597,
+      "state_support": 7
+    },
+    "recovery": {
+      "cross_track_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": -0.2613803230543319,
+          "readiness-001": -0.28634361233480177,
+          "readiness-002": -0.223201174743025,
+          "readiness-003": -0.184287812041116,
+          "readiness-004": -0.2525697503671072,
+          "readiness-005": -0.22834067547723935,
+          "readiness-006": -0.1762114537444934
+        },
+        "macro_mean": -0.23033354310887352,
+        "state_support": 7
+      },
+      "progress_spearman": {
+        "leave_one_state_out": {
+          "readiness-000": 0.1747430249632893,
+          "readiness-001": 0.17327459618208518,
+          "readiness-002": 0.09251101321585904,
+          "readiness-003": 0.20778267254038182,
+          "readiness-004": 0.1828193832599119,
+          "readiness-005": 0.10205580029368576,
+          "readiness-006": 0.18135095447870783
+        },
+        "macro_mean": 0.15921963499056013,
+        "state_support": 7
+      }
+    }
+  },
+  "states": [
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "p95": null
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.7400881057268722,
+          "progress_spearman": -0.8590308370044053
+        },
+        "delta_v": {
+          "cross_track_spearman": -0.5903083700440529,
+          "progress_spearman": -0.4625550660792952
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.5418502202643172,
+          "progress_spearman": -0.6519823788546256
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": 0.73568281938326,
+          "progress_spearman": 0.8237885462555066
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": 0.18061674008810574,
+          "progress_spearman": 0.3524229074889868
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": 0.10132158590308371,
+          "progress_spearman": -0.2290748898678414
+        },
+        "recovery": {
+          "cross_track_spearman": -0.04405286343612335,
+          "progress_spearman": 0.06607929515418502
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.029385016089741953,
+      "nomad_minus_bank_mean_delta_v": 0.06361684799194334,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-000",
+      "termination_count": 0,
+      "terrain": "boxes",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.17431640625,
+        "median": 0.03417205810546875,
+        "min": 0.0,
+        "n": 91,
+        "p95": 0.1482219696044922
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "p95": null
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": 0.5154185022026432,
+          "progress_spearman": 0.7136563876651983
+        },
+        "delta_v": {
+          "cross_track_spearman": 0.09691629955947138,
+          "progress_spearman": 0.1145374449339207
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.04693232544639321,
+          "progress_spearman": 0.12996643969770427
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": -0.5550660792951542,
+          "progress_spearman": -0.8193832599118943
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": 0.39647577092511016,
+          "progress_spearman": 0.06607929515418502
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": 0.2643171806167401,
+          "progress_spearman": 0.4537444933920705
+        },
+        "recovery": {
+          "cross_track_spearman": 0.10572687224669604,
+          "progress_spearman": 0.07488986784140969
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.01932949635900083,
+      "nomad_minus_bank_mean_delta_v": 0.025468921661377042,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-001",
+      "termination_count": 0,
+      "terrain": "hf_pyramid_slope",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.1878509521484375,
+        "median": 0.053180694580078125,
+        "min": 0.0,
+        "n": 91,
+        "p95": 0.1295757293701172
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": 0.23925018310546875,
+        "median": 0.13496017456054688,
+        "min": 0.01396942138671875,
+        "n": 45,
+        "p95": 0.22274932861328126
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.5991189427312775,
+          "progress_spearman": 0.8502202643171807
+        },
+        "delta_v": {
+          "cross_track_spearman": -0.3480176211453745,
+          "progress_spearman": 0.6916299559471367
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.42290748898678415,
+          "progress_spearman": 0.7533039647577093
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": -0.42290748898678415,
+          "progress_spearman": 0.6431718061674009
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": 0.4405286343612335,
+          "progress_spearman": -0.19823788546255508
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": 0.6343612334801763,
+          "progress_spearman": -0.3348017621145375
+        },
+        "recovery": {
+          "cross_track_spearman": -0.27312775330396477,
+          "progress_spearman": 0.5594713656387665
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.028145008278275443,
+      "nomad_minus_bank_mean_delta_v": 0.015413188934326083,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-002",
+      "termination_count": 0,
+      "terrain": "k_rail_field",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.14443206787109375,
+        "median": 0.050567626953125,
+        "min": 0.0,
+        "n": 46,
+        "p95": 0.12563037872314453
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "p95": null
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.29074889867841414,
+          "progress_spearman": 0.09251101321585903
+        },
+        "delta_v": {
+          "cross_track_spearman": -0.5066079295154186,
+          "progress_spearman": -0.13215859030837004
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.10572687224669604,
+          "progress_spearman": -0.3656387665198238
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": -0.039647577092511016,
+          "progress_spearman": -0.07488986784140969
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": -0.10572687224669604,
+          "progress_spearman": 0.03524229074889868
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": 0.03524229074889868,
+          "progress_spearman": -0.004405286343612335
+        },
+        "recovery": {
+          "cross_track_spearman": -0.5066079295154186,
+          "progress_spearman": -0.13215859030837004
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": 0.0006822693220870646,
+      "nomad_minus_bank_mean_delta_v": -0.022747135162353604,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-003",
+      "termination_count": 0,
+      "terrain": "k_rail_step_field",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.3431053161621094,
+        "median": 0.08452224731445312,
+        "min": 0.0,
+        "n": 91,
+        "p95": 0.23804092407226562
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "p95": null
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.4757709251101322,
+          "progress_spearman": -0.21145374449339208
+        },
+        "delta_v": {
+          "cross_track_spearman": 0.013215859030837005,
+          "progress_spearman": 0.02643171806167401
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.04845814977973569,
+          "progress_spearman": 0.07929515418502203
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": -0.4581497797356828,
+          "progress_spearman": -0.5947136563876653
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": -0.17180616740088106,
+          "progress_spearman": 0.09251101321585903
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": 0.28634361233480177,
+          "progress_spearman": -0.18502202643171806
+        },
+        "recovery": {
+          "cross_track_spearman": -0.09691629955947138,
+          "progress_spearman": 0.01762114537444934
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.020635415546523206,
+      "nomad_minus_bank_mean_delta_v": 0.03466739654541018,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-004",
+      "termination_count": 0,
+      "terrain": "pyramid_stairs",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.34039306640625,
+        "median": 0.07767868041992188,
+        "min": 0.0,
+        "n": 91,
+        "p95": 0.25998687744140625
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": 1.0276603698730469,
+        "median": 0.7004814147949219,
+        "min": 0.3656349182128906,
+        "n": 48,
+        "p95": 1.0080905914306642
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.37444933920704854,
+          "progress_spearman": 0.9559471365638768
+        },
+        "delta_v": {
+          "cross_track_spearman": -0.3303964757709251,
+          "progress_spearman": 0.8546255506607929
+        },
+        "drawdown": {
+          "cross_track_spearman": -0.22026431718061676,
+          "progress_spearman": 0.5859030837004405
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": 0.3259911894273128,
+          "progress_spearman": -0.86784140969163
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": 0.3348017621145375,
+          "progress_spearman": -0.5682819383259913
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": -0.29515418502202645,
+          "progress_spearman": 0.7268722466960353
+        },
+        "recovery": {
+          "cross_track_spearman": -0.2422907488986784,
+          "progress_spearman": 0.5022026431718063
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.01203501287551435,
+      "nomad_minus_bank_mean_delta_v": 0.7379729270935058,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-005",
+      "termination_count": 0,
+      "terrain": "pyramid_stairs_inv",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.33484649658203125,
+        "median": 0.14028549194335938,
+        "min": 0.0,
+        "n": 43,
+        "p95": 0.32648353576660155
+      }
+    },
+    {
+      "between_R_cluster_abs_delta_v": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "p95": null
+      },
+      "correlations": {
+        "advantage_h": {
+          "cross_track_spearman": -0.4845814977973568,
+          "progress_spearman": 0.2378854625550661
+        },
+        "delta_v": {
+          "cross_track_spearman": 0.0,
+          "progress_spearman": 0.2246696035242291
+        },
+        "drawdown": {
+          "cross_track_spearman": 0.6167400881057269,
+          "progress_spearman": 0.02643171806167401
+        },
+        "forward_goal_progress_m": {
+          "cross_track_spearman": -0.15418502202643172,
+          "progress_spearman": -0.12334801762114539
+        },
+        "maximum_contact_n": {
+          "cross_track_spearman": 0.16967840738311393,
+          "progress_spearman": 0.5018148643883583
+        },
+        "maximum_tilt_rad": {
+          "cross_track_spearman": -0.24669603524229078,
+          "progress_spearman": 0.2378854625550661
+        },
+        "recovery": {
+          "cross_track_spearman": -0.5550660792951542,
+          "progress_spearman": 0.02643171806167401
+        }
+      },
+      "n": 14,
+      "nomad_minus_bank_mean_cross_track_p95_m": -0.011578314326757252,
+      "nomad_minus_bank_mean_delta_v": 0.005213737487792969,
+      "reached_count": 14,
+      "reached_vs_not_delta_v": "NA: all reached",
+      "stack_count": 0,
+      "state_id": "readiness-006",
+      "termination_count": 0,
+      "terrain": "random_rough",
+      "within_R_cluster_abs_delta_v": {
+        "max": 0.11051559448242188,
+        "median": 0.043437957763671875,
+        "min": 0.0,
+        "n": 91,
+        "p95": 0.1033477783203125
+      }
+    }
+  ],
+  "statistical_unit": "state"
+}

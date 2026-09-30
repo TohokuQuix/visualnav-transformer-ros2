@@ -1,0 +1,4304 @@
+{
+  "control_period_sec": 0.05,
+  "coordinate_rule": "map_path is env-local; root_state is world; world XY = env-local XY + verified env origin",
+  "env_origins_world_xy": {
+    "readiness-000": [
+      4.0,
+      -20.0
+    ],
+    "readiness-001": [
+      4.0,
+      28.0
+    ],
+    "readiness-002": [
+      -28.0,
+      20.0
+    ],
+    "readiness-003": [
+      35.849998474121094,
+      -3.8499999046325684
+    ],
+    "readiness-004": [
+      20.0,
+      -4.0
+    ],
+    "readiness-005": [
+      -20.0,
+      36.0
+    ],
+    "readiness-006": [
+      -12.0,
+      -28.0
+    ]
+  },
+  "excluded_anchors": 7,
+  "included_live_runs": 112,
+  "max_anchor_root_first_step_error": 0.0,
+  "max_command_recording_error": 1.4897801492441687e-08,
+  "max_increment_roundtrip_error_m": 0.0,
+  "max_map_base_roundtrip_error_m": 8.533584811010186e-10,
+  "path_coordinate_frame": "simulation env-local map",
+  "path_horizon_sec": 2.0,
+  "path_sampling_interval_sec": 0.25,
+  "root_coordinate_frame": "simulation world",
+  "runs": [
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4155950300853704e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.533584811010186e-10,
+      "path_endpoint_local_xy": [
+        -0.0020084371414260333,
+        0.5856742795304776
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562858574,
+        -19.414325720469524
+      ],
+      "path_length_m": 0.5491778239811947,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-001",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4155950300853704e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.533584811010186e-10,
+      "path_endpoint_local_xy": [
+        -0.0020084371414260333,
+        0.5856742795304776
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562858574,
+        -19.414325720469524
+      ],
+      "path_length_m": 0.5491778239811947,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-002",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4155950300853704e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.533584811010186e-10,
+      "path_endpoint_local_xy": [
+        -0.0020084371414260333,
+        0.5856742795304776
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562858574,
+        -19.414325720469524
+      ],
+      "path_length_m": 0.5491778239811947,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-003",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.3328822212610447e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.013660506726208946,
+        0.49426829838358766
+      ],
+      "path_endpoint_world_xy": [
+        4.013660506726209,
+        -19.505731701616412
+      ],
+      "path_length_m": 0.45644920056707544,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-004",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4313973895063725e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.023145945961470158,
+        0.4412706903340292
+      ],
+      "path_endpoint_world_xy": [
+        4.0231459459614705,
+        -19.55872930966597
+      ],
+      "path_length_m": 0.40277771299489784,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-005",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.3770948936731031e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.025720754737331545,
+        0.4224825993186036
+      ],
+      "path_endpoint_world_xy": [
+        4.025720754737332,
+        -19.577517400681398
+      ],
+      "path_length_m": 0.41671297936026486,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-006",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4485690036369903e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.014222113644493961,
+        0.49613936458115193
+      ],
+      "path_endpoint_world_xy": [
+        4.014222113644494,
+        -19.50386063541885
+      ],
+      "path_length_m": 0.45849704090873356,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-007",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.40867109643672e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.018566543679031603,
+        0.4684361957716353
+      ],
+      "path_endpoint_world_xy": [
+        4.018566543679031,
+        -19.531563804228366
+      ],
+      "path_length_m": 0.4304904554198949,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-008",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.3900363249330638e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.011780953117701314,
+        0.49569561156771463
+      ],
+      "path_endpoint_world_xy": [
+        4.011780953117701,
+        -19.504304388432285
+      ],
+      "path_length_m": 0.4581422850904242,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-009",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4100656753335272e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.013879207473633831,
+        0.49607703125854763
+      ],
+      "path_endpoint_world_xy": [
+        4.013879207473634,
+        -19.503922968741453
+      ],
+      "path_length_m": 0.45825359580354674,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-010",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.429659296503516e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.018816043766662235,
+        0.4621684808371265
+      ],
+      "path_endpoint_world_xy": [
+        4.0188160437666625,
+        -19.537831519162875
+      ],
+      "path_length_m": 0.4238875038602333,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-011",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4155950300853704e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.533584811010186e-10,
+      "path_endpoint_local_xy": [
+        -0.0020084371414260333,
+        0.5856742795304776
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562858574,
+        -19.414325720469524
+      ],
+      "path_length_m": 0.5491778239811947,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-012",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4565029293756027e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        -0.0020084379828180015,
+        0.5856742793877167
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562017182,
+        -19.414325720612283
+      ],
+      "path_length_m": 0.5524501634338972,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-013",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4525933456077667e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        -0.0020084379828180015,
+        0.5856742793877167
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562017182,
+        -19.414325720612283
+      ],
+      "path_length_m": 0.5536266250628916,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-014",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4402810000202493e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        -0.0020084379828180015,
+        0.5856742793877167
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562017182,
+        -19.414325720612283
+      ],
+      "path_length_m": 0.5594496790516248,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-015",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -1.390980242128727,
+      "command_max_abs": 1.4462304298579198e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        -20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        -0.0020084379828180015,
+        0.5856742793877167
+      ],
+      "path_endpoint_world_xy": [
+        3.997991562017182,
+        -19.414325720612283
+      ],
+      "path_length_m": 0.561423026183004,
+      "path_start_local_xy": [
+        0.08985042572021484,
+        0.044284820556640625
+      ],
+      "path_start_world_xy": [
+        4.089850425720215,
+        -19.95571517944336
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-016",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.458998216685714e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8008102928332324,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-018",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.458998216685714e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8008102928332324,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-019",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.458998216685714e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8008102928332324,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-020",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4882801657734035e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.2731443494232586,
+        0.5542043004461717
+      ],
+      "path_endpoint_world_xy": [
+        4.273144349423259,
+        28.554204300446173
+      ],
+      "path_length_m": 0.8716239347138324,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-021",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4867607311952469e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23991344639008333,
+        0.5024966539957355
+      ],
+      "path_endpoint_world_xy": [
+        4.239913446390084,
+        28.502496653995735
+      ],
+      "path_length_m": 0.8100678878900778,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-022",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4556016558753271e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.21055157548458742,
+        0.4555023422608379
+      ],
+      "path_endpoint_world_xy": [
+        4.210551575484588,
+        28.45550234226084
+      ],
+      "path_length_m": 0.7798875282125582,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-023",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4372024015329998e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.2437712053400003,
+        0.5138453300030039
+      ],
+      "path_endpoint_world_xy": [
+        4.24377120534,
+        28.513845330003004
+      ],
+      "path_length_m": 0.8217753410533472,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-024",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4872992837311472e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.1928680491260803,
+        0.4270556031685784
+      ],
+      "path_endpoint_world_xy": [
+        4.19286804912608,
+        28.42705560316858
+      ],
+      "path_length_m": 0.7223830203786368,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-025",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4854701579913865e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.28611921144185914,
+        0.5701250510920112
+      ],
+      "path_endpoint_world_xy": [
+        4.286119211441859,
+        28.57012505109201
+      ],
+      "path_length_m": 0.892253407225061,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-026",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4395180103488059e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.24818304320481377,
+        0.5192012889359873
+      ],
+      "path_endpoint_world_xy": [
+        4.248183043204814,
+        28.51920128893599
+      ],
+      "path_length_m": 0.8280967148448408,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-027",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4712366325220216e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.326672684688674e-17,
+      "path_endpoint_local_xy": [
+        0.27648108569075724,
+        0.5523903560844667
+      ],
+      "path_endpoint_world_xy": [
+        4.276481085690757,
+        28.552390356084466
+      ],
+      "path_length_m": 0.871974605517872,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-028",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.458998216685714e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8008102928332324,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-029",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4884422416816534e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8065875005166596,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-030",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4822519156520997e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8006904608134193,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-031",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4847697737963017e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8140864754187825,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-032",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.0228675743509938,
+      "command_max_abs": 1.4780343671194629e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        4.0,
+        28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 5.551115123125783e-17,
+      "path_endpoint_local_xy": [
+        0.23434112527278825,
+        0.49484158384861154
+      ],
+      "path_endpoint_world_xy": [
+        4.234341125272788,
+        28.49484158384861
+      ],
+      "path_length_m": 0.8040901122623187,
+      "path_start_local_xy": [
+        -0.2276928424835205,
+        -0.1582469940185547
+      ],
+      "path_start_world_xy": [
+        3.7723071575164795,
+        27.841753005981445
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-033",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4457046060289969e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7164925326923233,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-035",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4457046060289969e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7164925326923233,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-036",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4457046060289969e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7164925326923233,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-037",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.473176070021509e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.07224065941569541,
+        0.5088602726151751
+      ],
+      "path_endpoint_world_xy": [
+        -27.927759340584306,
+        20.508860272615173
+      ],
+      "path_length_m": 0.6991597950733472,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-038",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4573041440257839e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.07641027598389456,
+        0.49722697787397185
+      ],
+      "path_endpoint_world_xy": [
+        -27.923589724016104,
+        20.49722697787397
+      ],
+      "path_length_m": 0.687324272798596,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-039",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4842344797649787e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.07407232851938636,
+        0.4975648376264376
+      ],
+      "path_endpoint_world_xy": [
+        -27.925927671480615,
+        20.497564837626438
+      ],
+      "path_length_m": 0.6872640713819755,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-040",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.3474398707913338e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.0705296777550357,
+        0.5023466306575334
+      ],
+      "path_endpoint_world_xy": [
+        -27.929470322244963,
+        20.502346630657534
+      ],
+      "path_length_m": 0.6946695936191116,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-041",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4890200239481288e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.07448589421344204,
+        0.4993334644955355
+      ],
+      "path_endpoint_world_xy": [
+        -27.925514105786558,
+        20.499333464495535
+      ],
+      "path_length_m": 0.6939677343397187,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-042",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4414110571792094e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.07269270445260902,
+        0.5073800637939492
+      ],
+      "path_endpoint_world_xy": [
+        -27.92730729554739,
+        20.50738006379395
+      ],
+      "path_length_m": 0.6978605960904599,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-043",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.472675398295209e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.07060371508311064,
+        0.5074597129471305
+      ],
+      "path_endpoint_world_xy": [
+        -27.92939628491689,
+        20.50745971294713
+      ],
+      "path_length_m": 0.6977181793619434,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-044",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4730286768127598e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.07734671673337248,
+        0.4914330807230382
+      ],
+      "path_endpoint_world_xy": [
+        -27.922653283266627,
+        20.491433080723038
+      ],
+      "path_length_m": 0.6823495799345557,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-045",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4457046060289969e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7164925326923233,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-046",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4739023057597223e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7228717896376349,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-047",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4856097574345029e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7174576368426924,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-048",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4856140595487233e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7316037568955793,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-049",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.6398690156648377,
+      "command_max_abs": 1.4744414411627105e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -28.0,
+        20.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.08372494438611192,
+        0.5258197874618659
+      ],
+      "path_endpoint_world_xy": [
+        -27.916275055613887,
+        20.525819787461867
+      ],
+      "path_length_m": 0.7226368371477236,
+      "path_start_local_xy": [
+        0.04591941833496094,
+        -0.18896865844726562
+      ],
+      "path_start_world_xy": [
+        -27.95408058166504,
+        19.811031341552734
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-050",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4824055649675927e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6661530197743825,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-052",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4824055649675927e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6661530197743825,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-053",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4824055649675927e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6661530197743825,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-054",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4853129781666752e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1056132458961532,
+        1.2436343736321362
+      ],
+      "path_endpoint_world_xy": [
+        34.74438522822494,
+        -2.6063655310004323
+      ],
+      "path_length_m": 0.6508119613116297,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-055",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4399114178775818e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 8.326672684688674e-17,
+      "path_endpoint_local_xy": [
+        -1.0916045038029456,
+        1.223693929016205
+      ],
+      "path_endpoint_world_xy": [
+        34.758393970318146,
+        -2.626305975616363
+      ],
+      "path_length_m": 0.6262640316532491,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-056",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4383149393726313e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.0925081786394724,
+        1.2259901920883887
+      ],
+      "path_endpoint_world_xy": [
+        34.757490295481624,
+        -2.6240097125441797
+      ],
+      "path_length_m": 0.6286687109039427,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-057",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4713954776812699e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.0971844452817345,
+        1.242778378355241
+      ],
+      "path_endpoint_world_xy": [
+        34.75281402883936,
+        -2.6072215262773275
+      ],
+      "path_length_m": 0.6440872564080333,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-058",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4268782877469022e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.0921223459251508,
+        1.238539292874155
+      ],
+      "path_endpoint_world_xy": [
+        34.757876128195946,
+        -2.6114606117584134
+      ],
+      "path_length_m": 0.6450553384414646,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-059",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4297122319373301e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.097924295924,
+        1.2404641458451766
+      ],
+      "path_endpoint_world_xy": [
+        34.75207417819709,
+        -2.6095357587873917
+      ],
+      "path_length_m": 0.6431699396607009,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-060",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.3863724446228076e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.097957170732851,
+        1.2412530484054183
+      ],
+      "path_endpoint_world_xy": [
+        34.75204130338824,
+        -2.60874685622715
+      ],
+      "path_length_m": 0.6436766777482649,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-061",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4829281969053199e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.08895882550016,
+        1.218593958703854
+      ],
+      "path_endpoint_world_xy": [
+        34.76103964862094,
+        -2.6314059459287145
+      ],
+      "path_length_m": 0.6215641563669703,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-062",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4824055649675927e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6661530197743825,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-063",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.486343026435577e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6705599545161353,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-064",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4602527242946195e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6689858991011017,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-065",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4850704443958307e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6779508186630745,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-066",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.2319901629998076,
+      "command_max_abs": 1.4556793492825904e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        35.849998474121094,
+        -3.8499999046325684
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -1.1248320754158707,
+        1.245871386971497
+      ],
+      "path_endpoint_world_xy": [
+        34.72516639870522,
+        -2.6041285176610716
+      ],
+      "path_length_m": 0.6754081907156779,
+      "path_start_local_xy": [
+        -0.6455802917480469,
+        0.7852911949157715
+      ],
+      "path_start_world_xy": [
+        35.20441818237305,
+        -3.064708709716797
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-067",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4327992070573004e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.801130479549766,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-069",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4327992070573004e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.801130479549766,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-070",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4327992070573004e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.801130479549766,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-071",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.47469074174289e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.738217706031699,
+        -0.6508245135806128
+      ],
+      "path_endpoint_world_xy": [
+        17.261782293968302,
+        -4.650824513580613
+      ],
+      "path_length_m": 0.8955277813050817,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-072",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4436144890606073e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.6663060149916165,
+        -0.6324806773166931
+      ],
+      "path_endpoint_world_xy": [
+        17.333693985008384,
+        -4.632480677316693
+      ],
+      "path_length_m": 0.8211448574370273,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-073",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4699603700929487e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -2.663747249632931,
+        -0.6317327120232746
+      ],
+      "path_endpoint_world_xy": [
+        17.33625275036707,
+        -4.6317327120232745
+      ],
+      "path_length_m": 0.8182048359935381,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-074",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4791942393177493e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.663328387001896,
+        -0.6334845546052689
+      ],
+      "path_endpoint_world_xy": [
+        17.336671612998103,
+        -4.6334845546052685
+      ],
+      "path_length_m": 0.8196694245335902,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-075",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4867592434963939e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.62722846743673,
+        -0.6197731103652689
+      ],
+      "path_endpoint_world_xy": [
+        17.37277153256327,
+        -4.619773110365269
+      ],
+      "path_length_m": 0.7809695154018073,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-076",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4838769823999343e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.7270893645184016,
+        -0.6465358579606713
+      ],
+      "path_endpoint_world_xy": [
+        17.272910635481598,
+        -4.6465358579606715
+      ],
+      "path_length_m": 0.8835987032489252,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-077",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.2583440012203795e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.7009970510179113,
+        -0.6399213052850031
+      ],
+      "path_endpoint_world_xy": [
+        17.29900294898209,
+        -4.639921305285003
+      ],
+      "path_length_m": 0.8564636312903884,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-078",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.3766512263480024e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.732400223963854,
+        -0.6440635195523771
+      ],
+      "path_endpoint_world_xy": [
+        17.267599776036146,
+        -4.644063519552377
+      ],
+      "path_length_m": 0.8886089373852963,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-079",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4327992070573004e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.801130479549766,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-080",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4552956228985892e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.8070319035553648,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-081",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4666649172934143e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.8005179116739289,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-082",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4763781086557515e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.8144190253963397,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-083",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": -2.8526372468916614,
+      "command_max_abs": 1.4518467927882028e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        20.0,
+        -4.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 4.440892098500626e-16,
+      "path_endpoint_local_xy": [
+        -2.647112642432406,
+        -0.6247628370214561
+      ],
+      "path_endpoint_world_xy": [
+        17.352887357567596,
+        -4.624762837021456
+      ],
+      "path_length_m": 0.8033482922233105,
+      "path_start_local_xy": [
+        -1.8634300231933594,
+        -0.46400976181030273
+      ],
+      "path_start_world_xy": [
+        18.13656997680664,
+        -4.464009761810303
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-084",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4884831922579167e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7450436105570103,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-086",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4884831922579167e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7450436105570103,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-087",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4884831922579167e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7450436105570103,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-088",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.475911953763287e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1918014563151793,
+        -0.8949664017822253
+      ],
+      "path_endpoint_world_xy": [
+        -18.80819854368482,
+        35.10503359821777
+      ],
+      "path_length_m": 0.4685475646023399,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-089",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.473672089913336e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.190265729112123,
+        -0.8979149857697157
+      ],
+      "path_endpoint_world_xy": [
+        -18.809734270887876,
+        35.10208501423028
+      ],
+      "path_length_m": 0.4692096547229042,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-090",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4735982267755077e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1809745068799389,
+        -0.8930121194830986
+      ],
+      "path_endpoint_world_xy": [
+        -18.819025493120062,
+        35.106987880516904
+      ],
+      "path_length_m": 0.45861092563528133,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-091",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.460874876624274e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1933012935659626,
+        -0.8920867262169941
+      ],
+      "path_endpoint_world_xy": [
+        -18.806698706434037,
+        35.107913273783005
+      ],
+      "path_length_m": 0.4682208157139754,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-092",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.381164477232133e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1939402783926811,
+        -0.8904838803869282
+      ],
+      "path_endpoint_world_xy": [
+        -18.80605972160732,
+        35.10951611961307
+      ],
+      "path_length_m": 0.46873287510514494,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-093",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4188902663914149e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1919280589134102,
+        -0.8947233258028616
+      ],
+      "path_endpoint_world_xy": [
+        -18.808071941086588,
+        35.105276674197135
+      ],
+      "path_length_m": 0.4692475120173932,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-094",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.465859822413762e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1929049381216221,
+        -0.892847725510496
+      ],
+      "path_endpoint_world_xy": [
+        -18.80709506187838,
+        35.1071522744895
+      ],
+      "path_length_m": 0.4686005741768965,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-095",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.3736617676674001e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.1880198158837916,
+        -0.9022271212643355
+      ],
+      "path_endpoint_world_xy": [
+        -18.81198018411621,
+        35.09777287873566
+      ],
+      "path_length_m": 0.46972143800068034,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-096",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4884831922579167e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7450436105570103,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-097",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4823932359409042e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7482543836412292,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-098",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4804584780314656e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7475246143671943,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-099",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.485082717911368e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7539986909128938,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-100",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 2.6614159229493173,
+      "command_max_abs": 1.4325261477043938e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -20.0,
+        36.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        1.425645790302901,
+        -1.0451508477146423
+      ],
+      "path_endpoint_world_xy": [
+        -18.5743542096971,
+        34.954849152285355
+      ],
+      "path_length_m": 0.7527631364420744,
+      "path_start_local_xy": [
+        0.8288745880126953,
+        -0.60009765625
+      ],
+      "path_start_world_xy": [
+        -19.171125411987305,
+        35.39990234375
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-101",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4793802072254891e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6441887256207959,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-103",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4793802072254891e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6441887256207959,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-104",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4793802072254891e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6441887256207959,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-105",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4897801492441687e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.01913497461802964,
+        1.0660193936122544
+      ],
+      "path_endpoint_world_xy": [
+        -11.98086502538197,
+        -26.933980606387745
+      ],
+      "path_length_m": 0.624235360305748,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-106",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4651350188632506e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.018026176613573586,
+        1.0436948834305309
+      ],
+      "path_endpoint_world_xy": [
+        -11.981973823386426,
+        -26.956305116569467
+      ],
+      "path_length_m": 0.6019999884597951,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-107",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4777426615708578e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.01798495143092141,
+        1.0487723541533855
+      ],
+      "path_endpoint_world_xy": [
+        -11.982015048569078,
+        -26.951227645846615
+      ],
+      "path_length_m": 0.6071836114900377,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-108",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4660675062838635e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.022053083976229917,
+        1.0646866108848527
+      ],
+      "path_endpoint_world_xy": [
+        -11.97794691602377,
+        -26.935313389115148
+      ],
+      "path_length_m": 0.622439639711809,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-109",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4674765902444875e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 1.1102230246251565e-16,
+      "path_endpoint_local_xy": [
+        0.028456741793163112,
+        1.0603126345285028
+      ],
+      "path_endpoint_world_xy": [
+        -11.971543258206838,
+        -26.939687365471496
+      ],
+      "path_length_m": 0.6201776691338678,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-110",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4702791539811244e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.0200627188936177,
+        1.065673010347794
+      ],
+      "path_endpoint_world_xy": [
+        -11.979937281106382,
+        -26.934326989652206
+      ],
+      "path_length_m": 0.6242019194789138,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-111",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4433578776618106e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.022740416582784723,
+        1.0642441645854344
+      ],
+      "path_endpoint_world_xy": [
+        -11.977259583417215,
+        -26.935755835414565
+      ],
+      "path_length_m": 0.6221089721713468,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-112",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4785836666142416e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        0.015474395780160966,
+        1.0509884719886167
+      ],
+      "path_endpoint_world_xy": [
+        -11.984525604219838,
+        -26.949011528011383
+      ],
+      "path_length_m": 0.6108704538834382,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-113",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4793802072254891e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6441887256207959,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-114",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.3731280390505418e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6477276406430594,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-115",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4845927875928311e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6477345238255814,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-116",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4896464672897736e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6544819868428691,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-117",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    },
+    {
+      "anchor_map_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "anchor_root_first_step_max_abs": 0.0,
+      "anchor_yaw_rad": 1.5610261863248869,
+      "command_max_abs": 1.4623031008298426e-08,
+      "command_relation": "trace[k].command and Actor use pre-step root[k]; trace[k].post_root_state is root[k+1]",
+      "control_period_sec": 0.05,
+      "env_origin_world_xy": [
+        -12.0,
+        -28.0
+      ],
+      "increment_roundtrip_max_abs_m": 0.0,
+      "map_base_roundtrip_max_abs_m": 2.220446049250313e-16,
+      "path_endpoint_local_xy": [
+        -0.00017450532764709537,
+        1.0832252789629
+      ],
+      "path_endpoint_world_xy": [
+        -12.000174505327648,
+        -26.9167747210371
+      ],
+      "path_length_m": 0.6545487728993803,
+      "path_start_local_xy": [
+        0.10459613800048828,
+        0.4485626220703125
+      ],
+      "path_start_world_xy": [
+        -11.895403861999512,
+        -27.551437377929688
+      ],
+      "root_step_max_abs": 0.0,
+      "run_id": "readiness-118",
+      "stamp_mismatch_count": 0,
+      "step_count": 120
+    }
+  ],
+  "stamp_mismatch_count": 0,
+  "step_rule": "trace[k] Actor and command use pre-step root[k]; post_root_state[k] equals root_state[k+1]"
+}

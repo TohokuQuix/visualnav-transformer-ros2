@@ -1,0 +1,231 @@
+{
+  "actor_observation": "post-delay actual Actor input; pre-noise and post-noise/pre-delay also in every trace",
+  "actor_observation_provenance_sha256": "42725722425be7851eb0042ffe2f7a1249fc7307645aef81895d1afef0259429",
+  "availability_count": {
+    "actor_latent": 112,
+    "actor_observation": 112,
+    "body_velocity": 112,
+    "dem_history": 112,
+    "first_follower_command": 112,
+    "joint_effort_raw": 0,
+    "joint_position": 112,
+    "joint_velocity": 112,
+    "path_geometry": 112,
+    "planned_path": 112,
+    "previous_action": 112,
+    "relative_goal": 112,
+    "roll_pitch_quaternion": 112
+  },
+  "body_velocity": "root_state[7:13] at same pre-step time; rotate from world to body for a future evaluator",
+  "first_follower_command": "trace[0] real response; candidate-conditioned preview available only if follower invoked; no new preview computed here",
+  "joint_effort": {
+    "actor_dim": 22,
+    "actor_observation_contains": "joint_effort_with_track_sum",
+    "exact_raw_recovery_from_actor": "unavailable: scaled/clipped/noisy and track-summed observation is not invertible",
+    "field_order": [
+      "base_ang_vel",
+      "projected_gravity",
+      "velocity_commands",
+      "flipper_fold_mode",
+      "joint_pos_rel",
+      "track_mean_velocity",
+      "joint_effort_with_track_sum"
+    ],
+    "raw_separate_field": false,
+    "same_step_online_capture": "requires explicit robot.data.applied_torque or measured joint effort capture at Actor observation step; not demonstrated for this dataset",
+    "scale_and_clip": "checkpoint/config chain potentially defines scale and clip; raw effort was not serialized and cannot be reconstructed exactly"
+  },
+  "live_rollouts": 112,
+  "missing_run_ids": {
+    "joint_effort_raw": [
+      "readiness-001",
+      "readiness-002",
+      "readiness-003",
+      "readiness-004",
+      "readiness-005",
+      "readiness-006",
+      "readiness-007",
+      "readiness-008",
+      "readiness-009",
+      "readiness-010",
+      "readiness-011",
+      "readiness-012",
+      "readiness-013",
+      "readiness-014",
+      "readiness-015",
+      "readiness-016",
+      "readiness-018",
+      "readiness-019",
+      "readiness-020",
+      "readiness-021",
+      "readiness-022",
+      "readiness-023",
+      "readiness-024",
+      "readiness-025",
+      "readiness-026",
+      "readiness-027",
+      "readiness-028",
+      "readiness-029",
+      "readiness-030",
+      "readiness-031",
+      "readiness-032",
+      "readiness-033",
+      "readiness-035",
+      "readiness-036",
+      "readiness-037",
+      "readiness-038",
+      "readiness-039",
+      "readiness-040",
+      "readiness-041",
+      "readiness-042",
+      "readiness-043",
+      "readiness-044",
+      "readiness-045",
+      "readiness-046",
+      "readiness-047",
+      "readiness-048",
+      "readiness-049",
+      "readiness-050",
+      "readiness-052",
+      "readiness-053",
+      "readiness-054",
+      "readiness-055",
+      "readiness-056",
+      "readiness-057",
+      "readiness-058",
+      "readiness-059",
+      "readiness-060",
+      "readiness-061",
+      "readiness-062",
+      "readiness-063",
+      "readiness-064",
+      "readiness-065",
+      "readiness-066",
+      "readiness-067",
+      "readiness-069",
+      "readiness-070",
+      "readiness-071",
+      "readiness-072",
+      "readiness-073",
+      "readiness-074",
+      "readiness-075",
+      "readiness-076",
+      "readiness-077",
+      "readiness-078",
+      "readiness-079",
+      "readiness-080",
+      "readiness-081",
+      "readiness-082",
+      "readiness-083",
+      "readiness-084",
+      "readiness-086",
+      "readiness-087",
+      "readiness-088",
+      "readiness-089",
+      "readiness-090",
+      "readiness-091",
+      "readiness-092",
+      "readiness-093",
+      "readiness-094",
+      "readiness-095",
+      "readiness-096",
+      "readiness-097",
+      "readiness-098",
+      "readiness-099",
+      "readiness-100",
+      "readiness-101",
+      "readiness-103",
+      "readiness-104",
+      "readiness-105",
+      "readiness-106",
+      "readiness-107",
+      "readiness-108",
+      "readiness-109",
+      "readiness-110",
+      "readiness-111",
+      "readiness-112",
+      "readiness-113",
+      "readiness-114",
+      "readiness-115",
+      "readiness-116",
+      "readiness-117",
+      "readiness-118"
+    ]
+  },
+  "missing_training_teacher": "candidate-specific counterfactual failure-positive labels and verified same-step joint effort stream",
+  "online_schema_complete": false,
+  "relative_goal": "frozen state goal at anchor; same-step online goal capture requires explicit interface validation",
+  "roll_pitch": "root_state[3:7] quaternion at same pre-step time; Euler/projected gravity derivable",
+  "saved_training_toggles": {
+    "use_height_scan_obs": false,
+    "use_joint_effort_obs": true,
+    "use_last_action_obs": false
+  },
+  "shapes": {
+    "actor_latent": [
+      [
+        256
+      ]
+    ],
+    "actor_observation": [
+      [
+        22
+      ]
+    ],
+    "body_velocity": [
+      [
+        6
+      ]
+    ],
+    "dem_history": [
+      [
+        4,
+        2,
+        20,
+        20
+      ]
+    ],
+    "first_follower_command": [
+      [
+        3
+      ]
+    ],
+    "joint_position": [
+      [
+        52
+      ]
+    ],
+    "joint_velocity": [
+      [
+        52
+      ]
+    ],
+    "path_geometry": [
+      [
+        9,
+        2
+      ]
+    ],
+    "planned_path": [
+      [
+        9,
+        2
+      ]
+    ],
+    "previous_action": [
+      [
+        6
+      ]
+    ],
+    "relative_goal": [
+      [
+        2
+      ]
+    ],
+    "roll_pitch_quaternion": [
+      [
+        4
+      ]
+    ]
+  }
+}

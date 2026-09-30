@@ -1,0 +1,97 @@
+{
+  "answers": {
+    "1_nomad_K8_diverse": "No: planned Path one cluster in 6/7 states; two in 1/7 under frozen threshold.",
+    "2_nomad_endpoint_reach": "28/56 by 2 s and 56/56 by 6 s entered 0.2 m; 22/56 later left; this does not establish shape tracking.",
+    "3_path_to_command": "NoMaD command modes range 2\u20135; only the sole multi-Path state retained multiple command modes. No dominant follower collapse.",
+    "4_command_to_realized": "NoMaD realized modes: [1, 1, 2, 1, 1, 1, 1]; multiple realized modes in only 1/7 states despite multiple command modes in all seven.",
+    "5_primary_loss_stage": "Planned Path is one mode in 6/7 states. C-to-R compression is additional: NoMaD realized trajectories have multiple modes in only one state.",
+    "6_tracking_vs_outcome": "Within-state Spearman cross-track P95 vs \u0394V macro -0.238; progress ratio vs \u0394V 0.188. Descriptive, weak association; it does not explain ranking causally.",
+    "7_priority": "Improve NoMaD planned candidate diversity first; investigate command-to-realization compression and same-step embodiment input before Evaluator redesign or more collection.",
+    "8_missing_input_teacher": "Raw same-step joint effort is absent in 112/112; scaled/noisy Actor observation is not invertible to raw effort. Need verified online joint effort and candidate-specific, failure-positive counterfactual teachers with state-level splits."
+  },
+  "decisions": {
+    "N1_nomad_improvement": "priority",
+    "N2_follower_interface": "secondary diagnosis; not dominant P-to-C collapse",
+    "N3_embodiment_aware_evaluator": "research candidate after input/teacher remediation; not ready to train at scale",
+    "N4_scaled_counterfactual_collection": "not approved",
+    "new_rollouts_or_training_started": false,
+    "safety_head": "not ready; zero failure-positive termination in this set"
+  },
+  "evidence": {
+    "delta_v_cross_track_state_macro_spearman": {
+      "leave_one_state_out": {
+        "readiness-000": -0.17914831130690165,
+        "readiness-001": -0.2936857562408223,
+        "readiness-002": -0.2195301027900147,
+        "readiness-003": -0.1930983847283407,
+        "readiness-004": -0.2797356828193833,
+        "readiness-005": -0.22246696035242294,
+        "readiness-006": -0.2775330396475771
+      },
+      "macro_mean": -0.2378854625550661,
+      "state_support": 7
+    },
+    "delta_v_progress_state_macro_spearman": {
+      "leave_one_state_out": {
+        "readiness-000": 0.2966226138032306,
+        "readiness-001": 0.20044052863436124,
+        "readiness-002": 0.10425844346549192,
+        "readiness-003": 0.24155653450807638,
+        "readiness-004": 0.21512481644640236,
+        "readiness-005": 0.07709251101321589,
+        "readiness-006": 0.18208516886930984
+      },
+      "macro_mean": 0.18816865953429832,
+      "state_support": 7
+    },
+    "frozen_evaluator_oracle_regret_state_macro": 0.24358149937220983,
+    "frozen_evaluator_pairwise_accuracy_state_macro": 0.4111111111111111,
+    "frozen_evaluator_top1_state_macro": 0.0,
+    "frozen_evaluator_top3_state_macro": 0.14285714285714285,
+    "nomad_command_modes_by_state": [
+      4,
+      4,
+      3,
+      5,
+      4,
+      4,
+      2
+    ],
+    "nomad_cross_track_p95_median_m": 0.022893646465857558,
+    "nomad_endpoint_escape": 22,
+    "nomad_endpoint_reached": 56,
+    "nomad_endpoint_reached_by_2s": 28,
+    "nomad_planned_one_mode_states": 6,
+    "nomad_realized_modes_by_state": [
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "nomad_realized_multiple_mode_states": 1,
+    "raw_joint_effort_available_runs": 0,
+    "termination_count": 0
+  },
+  "limitations": [
+    "7 train states only",
+    "candidate pairs are descriptive, not independent observations",
+    "2 s Path and 6 s execution have different horizons",
+    "all candidates enter tolerance, so reached/not reached strata lack contrast",
+    "raw joint effort absent",
+    "failure-positive support zero; safety head not ready",
+    "no new rollout, training, candidate regeneration, threshold adjustment, or online selector approval"
+  ],
+  "scope": {
+    "bank": 35,
+    "excluded_anchors": 7,
+    "live_runs": 112,
+    "nomad": 56,
+    "nominal": 21,
+    "states": 7,
+    "train_only": true,
+    "validation_or_heldout_generalization": false
+  }
+}
