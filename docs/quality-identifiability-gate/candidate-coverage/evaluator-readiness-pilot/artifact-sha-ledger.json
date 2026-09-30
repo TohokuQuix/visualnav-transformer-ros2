@@ -1,0 +1,971 @@
+{
+  "analysis_sha256": {
+    "analysis.done.json": "2f1f943b460dfdfc0465151708c94ec3a2ee388ac6dd2e94e2913fa6653d837f",
+    "frozen-evaluator.json": "ea194e5d18c89e1d6107d403894e109ac416fc229bd29992cb6aaac534ce7025",
+    "label-correlations.json": "5637d859a5f86366943eccabf238f4c6094876b1807cb44e6dc14f4f001df22b",
+    "label-variance.json": "5bf6a3ac7270f7508019c27cfbecbe066c3a9bbc7b7580f9f1c49fb4bad3a5cb",
+    "ood-paths.json": "5a981d6dd7ca3e81d3e4c908ed3a33d580f8f2b9f748f95ac56aa835171534d5",
+    "ood-results.json": "2baaa18c732ba5f118a3a944492dc32a49ed3ea382e8bcf1ea1748987047fbb3",
+    "oracle-coverage.json": "a823fb1388e2e1a66ae28cd0ec61687f74567d4083317f89e48c912848f5a3e6",
+    "per-candidate-outcomes.json": "1e24078e2e0b30698f33918d33c4651016e580af250e9a1a030cf3e12bf6aa43",
+    "readiness.json": "5ebde8e327ff1400360f55a411d6f51e75821e99a7a8465e0f0d371e662729b4",
+    "three-space-diversity.json": "5153e5275a7de2cd91fda32672c2724d6423032d9d3098ab7179c678ecbc6f45"
+  },
+  "raw_root": "/tmp/eatnav-candidate-coverage/evaluator-readiness-fresh-protocol/unified",
+  "raw_status_sha256": "b5b12c0417e9e503f4e1d008024b631162f217b2870df26adc5c0e9b0e7594cc",
+  "raw_traces_in_git": false,
+  "runs": [
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "7abb8b8cc8c714464b8e97db47712a707c37015e243701af47f5aa1fa863cce7",
+      "run_id": "readiness-000",
+      "state_id": "readiness-000",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "b3792fa955ee50629d51a4d06f28f9fd6e77b36f49fcf9a32eee84fcd472b46c",
+      "run_id": "readiness-001",
+      "state_id": "readiness-000",
+      "trace_sha256": "613c31339653a8aae21aa0cfa073271826b9c14f30866396201b53b5a28e4a17"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "bdc0613f9ef12705488f1ebabcb3959c8754f1a72211f4428a5b25b4515d1d13",
+      "run_id": "readiness-002",
+      "state_id": "readiness-000",
+      "trace_sha256": "f44bb023a8d95ca95d55938b66bb3390ff3f34a257e2b86b20fa3d65c49d7ea1"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "1e6b4ec938fcdccb733d4437e986d46ab3ac78f04a08f8332f874858570113a8",
+      "run_id": "readiness-003",
+      "state_id": "readiness-000",
+      "trace_sha256": "4e1785f2fe8ecc08738f6bfd2b136d71dc234bc12dc5eb022db8720e91789d5b"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "f38e19132896a0708f875de44fdc17d64964f932c672adff555392be2b7be962",
+      "run_id": "readiness-004",
+      "state_id": "readiness-000",
+      "trace_sha256": "5a02d61e167f7580710def443954e31ca08f332a98de602c3a18d3c96901b3da"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "9814afa2b4b72d3dfe8c981587294973bc94974121e2a93a8ef162bbb5cc845b",
+      "run_id": "readiness-005",
+      "state_id": "readiness-000",
+      "trace_sha256": "01bf8b86c09435ede9f5a671e13570af06db72800ac056a20f50e8822ada7f40"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "ee9af53fcff624bbd80d3503d913b54777a11ac6ed6de56c3549a173c6ef40ba",
+      "run_id": "readiness-006",
+      "state_id": "readiness-000",
+      "trace_sha256": "4ff43476bdb89c66051f9a3477cc8417753440d702693982967c3f53b99b9830"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "0f9b0919e02c09650c825ba5773a134769ea472d6c37463749c4f4f537102495",
+      "run_id": "readiness-007",
+      "state_id": "readiness-000",
+      "trace_sha256": "3245732b23ff89bd7c039af60afd278a8928ff246e05b3baf7bb2a82b8a2f4c7"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "8809f418c7e42d9a15f82b7ca24d5bdeabd014ab7a72ac76923a8cea5c6f1a9e",
+      "run_id": "readiness-008",
+      "state_id": "readiness-000",
+      "trace_sha256": "6580e536281827cdc208306682ad2eeeb3ff49c2ee00026bc236a52ba369be29"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "cd222f3a7ace00e0246e6a909a22b34c501729303c2515f54762be8d4e699c94",
+      "run_id": "readiness-009",
+      "state_id": "readiness-000",
+      "trace_sha256": "8991d67ab43ef733b6e10bccb613826c98cbe3b7e6f2b55d3a8e881fc313ab59"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "aa8c03a5a2c3e8f0817ad3515b1aff310b87078fcdd40cdab6b49459f98c1b9b",
+      "run_id": "readiness-010",
+      "state_id": "readiness-000",
+      "trace_sha256": "04008f52e996e15932f6a32ab152773a83ad2aefc0f11d0cdbef8952096770c3"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "4228f3595e7aa7178c6275752f4b10d03b82db294a77814a16bd23db95f27ba2",
+      "run_id": "readiness-011",
+      "state_id": "readiness-000",
+      "trace_sha256": "ee5ed051226af28a467ba1306924684aa645a6dfdff0d7c09e53d848f3e38e6c"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "6d0e81d53026f2c2ce310bb2e4bd42b5ecb159580312e217448585352dcd77ee",
+      "run_id": "readiness-012",
+      "state_id": "readiness-000",
+      "trace_sha256": "f38687a5c02842d68a6671061276dd2c4fba1053e3c425bd3f245955759c1b7d"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "d7588f1a852a5ca2aceb42ee7155d10cbfb27279a0a855964cd3a3d542ebde35",
+      "run_id": "readiness-013",
+      "state_id": "readiness-000",
+      "trace_sha256": "e2cd436b1e3a722d4d770929dd249e9c4f822a57ed2a43e9f91423fc548ca210"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "a8f83643442b2de5c91dfa808ada9a22dbabdb734ec86e71906292088ed9a5a2",
+      "run_id": "readiness-014",
+      "state_id": "readiness-000",
+      "trace_sha256": "a38928340e5b0c9736734ac6d89b684c88df3fd38052019f0f82b33d24dabcac"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "f91f9a43520f0cd4823479c1c935dd5ea21338177c472a987e14fde4d3ae4a77",
+      "run_id": "readiness-015",
+      "state_id": "readiness-000",
+      "trace_sha256": "dbfbbf40e5906ad65f6737e316f62936854c7708c360a41e40eefa0e34167b18"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "0a3f9ad03aa45bec66a3c8771017b8dc401a6ad70845b6a320da591d303affc8",
+      "run_id": "readiness-016",
+      "state_id": "readiness-000",
+      "trace_sha256": "4911a6336bca8edbb4709c5233315c5a58bf40b365f15eadaa58eb5d067e6350"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "51d52a7144a7a44e4affce9b581073f3d0f14660cc463c641753316cf96e29c0",
+      "run_id": "readiness-017",
+      "state_id": "readiness-001",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "7adb288af8bbc1f69019597715fc509f20a8c457e3f9adbbd62839e1db0ea480",
+      "run_id": "readiness-018",
+      "state_id": "readiness-001",
+      "trace_sha256": "41e974ac1338e47054f9345aa5dd73d2c32431e1bd4a1b0d78972cdf77352ba7"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "501fe97b3884f628fee02f7b52f50770cb5713463ce1010d167f791ec20a8fef",
+      "run_id": "readiness-019",
+      "state_id": "readiness-001",
+      "trace_sha256": "a370c983ab55e8d044f8fcb325c78addbe0fe9c17e845a27d70316ad6ac148da"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "891e134432ff91ed61ea5f9bb0ce0c93f66728dcdebc73c58ac4605afce5289b",
+      "run_id": "readiness-020",
+      "state_id": "readiness-001",
+      "trace_sha256": "e8652bce69c40cbf4f0bc4fb061a28a85935289d07ae4f45ea4f2aa7bff301f3"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "87b8228c8944a5dc6e84e1f32c3e8ca7c6b327e506587828d2530de8ed4c52e9",
+      "run_id": "readiness-021",
+      "state_id": "readiness-001",
+      "trace_sha256": "577b8bc9bae216fa06419da11de304fddfa3baf4b42a1764d42407a45804944b"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "741446717a7b8f667254a3677947043fce384436fdacf264f28fa70969e1e2e9",
+      "run_id": "readiness-022",
+      "state_id": "readiness-001",
+      "trace_sha256": "a5785bbd3aa2db1863f3e0291e27a9234908bc214d93b93e2c499b727122f10f"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "9f0d3cb348801bb90ce92eeb396169bd879f6972a9b5cefa899c670a666a4aed",
+      "run_id": "readiness-023",
+      "state_id": "readiness-001",
+      "trace_sha256": "5f15561396268f5638d8d097c61ff4b275fedebcdd2f3a79e81fd16a2bfc0410"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "fafae510a4e0488a0e026b119ae27286dfcf135acd0089a54ca47dd34976deb7",
+      "run_id": "readiness-024",
+      "state_id": "readiness-001",
+      "trace_sha256": "2900c173e28dbaba2315d944eb5da7e73522385bed7567b7fbc8f98bc47af15f"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "b8002d6859c782fc8814e63d4626cd0d3f2cc47fb928c2dc910a934063d5f861",
+      "run_id": "readiness-025",
+      "state_id": "readiness-001",
+      "trace_sha256": "0710972582e34c222f002d3c4488d7a1937d91c4c2445c0c923583ced2cd441f"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "d00dda6f6c7c52053247ce89fa8888d076fdb6d1c924184d4cbfb04d98bed506",
+      "run_id": "readiness-026",
+      "state_id": "readiness-001",
+      "trace_sha256": "ed3b6b2058f24f5273c966e5413b82e78d2f397656641d8fe5245c82d82b4306"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "c6d56988808811497ac8ee55796b10b197c8332c4ed17d22d5b16e341bf74747",
+      "run_id": "readiness-027",
+      "state_id": "readiness-001",
+      "trace_sha256": "b37475b0ec6140a30fbe9e6c9be4e3b3ac76d7583dcfc53b328aa28e24c1016e"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "88081c83f6209c01772eef3226a44e49e12f665610e1cdb1231007bd9dc44bf8",
+      "run_id": "readiness-028",
+      "state_id": "readiness-001",
+      "trace_sha256": "b5fa31043ecafe7e1577162a9dcfda75fc0a8549c11c1eee2fa0a1da864d980a"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "a3e625019e14ddd46f4c4a07987c11d973a6dcc2173a762e531752ea3c66950d",
+      "run_id": "readiness-029",
+      "state_id": "readiness-001",
+      "trace_sha256": "f63c1c403d844870c6958df2ba25db7666db43eb76061c34b98279b5b8694b85"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "73b295bf660a3d9b44a3e26687d25f3fc9d07e3c3b28a59dcd21e1fb3d8edc20",
+      "run_id": "readiness-030",
+      "state_id": "readiness-001",
+      "trace_sha256": "aa74495af91b346fb9bba6ab2d4b32623a931fcc0d8b91005fdc3c839e8dd11f"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "3a78de67299ced61cab6758f9a987117cccac15f5b0120e8195139510aab8a0d",
+      "run_id": "readiness-031",
+      "state_id": "readiness-001",
+      "trace_sha256": "256bdd2c60b0cee21c17bfd88b0fae6ee160d1007a89a92385c2ef1d3c4ff73a"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "9a984e7caea5f7a918083464ffa01d446a67e5a1cf8f14f1300437c10c26d5f3",
+      "run_id": "readiness-032",
+      "state_id": "readiness-001",
+      "trace_sha256": "5b29481649f44a5a64b5a3b4172f2140fe1f670586ca1f3707fab8197d30428c"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "c21cb10cb4ccf506aad4834d981ff9ec70020c2d186a26fe0e4e358ce308ed51",
+      "run_id": "readiness-033",
+      "state_id": "readiness-001",
+      "trace_sha256": "920cdfaf1751a31ea1e0ebeab84e6821342364978b26502c7e4d461b4f949469"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "d4af37134be5ab2ae5b6c314ffed2fb8ef346482e2d2b36471fabc930423f628",
+      "run_id": "readiness-034",
+      "state_id": "readiness-002",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "c9bee40f0189966880669de14d841e1f4314b1ccc9bd267de2098074ff2e790d",
+      "run_id": "readiness-035",
+      "state_id": "readiness-002",
+      "trace_sha256": "02a776568dc9195283f1978cf0adc9a7a356f16c2508165760095d1dab232cc1"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "47d2e07741de7953f2b44161d6013d21c2e7712730a6e0c4ee1458eb2b3ac172",
+      "run_id": "readiness-036",
+      "state_id": "readiness-002",
+      "trace_sha256": "8cd921574145937456ee65f25d48e82412a5a33eee66a6ccf06a6548cd3a969e"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "6e0e753cb2340c63fb41876b13b70c3071be9cc3755e04a3c74f73f473cd1cc7",
+      "run_id": "readiness-037",
+      "state_id": "readiness-002",
+      "trace_sha256": "3c1e10bedf9076ba544af541ea1bab4df3cf4379aa06f4b6f4151dd87671736f"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "9021edd998c270ea2a40bc445ee5f8e371a5e092dbd9a319eca0989f5006897c",
+      "run_id": "readiness-038",
+      "state_id": "readiness-002",
+      "trace_sha256": "81d46b7bf4689a662c46ffbf340c98dc4df4574c060fd7370a02d89fa5a77988"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "132e793d8ab63e2569e9067aed270557fcff4d6c43c784acd49249d6bd61b243",
+      "run_id": "readiness-039",
+      "state_id": "readiness-002",
+      "trace_sha256": "4765ec618c0af7a433487291b6b912193fea862ef335e8ffc533b71c37cb5c64"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "104d30196a805639643373435395c5fa119be7d9cf2c20c8769331149fc795ca",
+      "run_id": "readiness-040",
+      "state_id": "readiness-002",
+      "trace_sha256": "7fe8ac2b7b3759303e51b92e31e4c1459e3b602aafa458fd56efcc50d2c298e4"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "723b55a064c8ab0fe63d87074a9b0321c8fb418d528648d5bd7b8c3be76edd6d",
+      "run_id": "readiness-041",
+      "state_id": "readiness-002",
+      "trace_sha256": "3249f6c940a8c05b81499de0c8275c978d48b46e6f3ca009c3a547a449f33492"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "3bb867c51aa9c43a7150127634427ec0376dd499e4de6142cc82bec7bf4109e7",
+      "run_id": "readiness-042",
+      "state_id": "readiness-002",
+      "trace_sha256": "59dc977b1d8880dff435eef9988809e9b7702455f2fe14eda4876a64687ff8f2"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "c6ea16f11b04494fcc0268fd2f72cd1b7d39f0097883459199bae795b088dc7c",
+      "run_id": "readiness-043",
+      "state_id": "readiness-002",
+      "trace_sha256": "8096a3afd7703bd2df9f7be32ceaf88a6fd30aa3d8de5e1d0690bfd69278a44c"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "62763236d519e25ad48b5cb84c1a5477d38a14e62439eb49a0b35d796260b95a",
+      "run_id": "readiness-044",
+      "state_id": "readiness-002",
+      "trace_sha256": "5d0eda8215700b66235e185688e5657e27afb8a5c5e23689d6972089c1865afc"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "10f78223b0e28a31849afb0523c33afe13e3bd2dd52187bb4f504919193502f3",
+      "run_id": "readiness-045",
+      "state_id": "readiness-002",
+      "trace_sha256": "d9b291d10bdda5915306f11709f68291f8c8dcedadacf669c0e6f482b90ded15"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "dd6888a1af4329e181b2b69be9e03aa13bdf435fafecc26ab7220e9a7458c78e",
+      "run_id": "readiness-046",
+      "state_id": "readiness-002",
+      "trace_sha256": "95e03e2ac51b967644ac5c7b6ef5dd751c56b85e1636a3e85b26c9c898e6caa2"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "024d15af0ba8a2fb9fbbe904f802c0e3b73219d2d3b41ba2f287c4e1b3b3968b",
+      "run_id": "readiness-047",
+      "state_id": "readiness-002",
+      "trace_sha256": "3cd9a825046ff57e5b0ba8b3311229ff75d0d7833b83538e6117af3c3f032bc8"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "5d6470f62f60a45a519b38219dd6f789528dac7825868ea733b7de8a60c16e5b",
+      "run_id": "readiness-048",
+      "state_id": "readiness-002",
+      "trace_sha256": "749c245395e787216d8bbfe01acd39196404e0063df3b89fe326cc43d21d407f"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "ab5084488014bc0d539211c6dac9c29f70663d177d43db2dbfb6ce56537e38e9",
+      "run_id": "readiness-049",
+      "state_id": "readiness-002",
+      "trace_sha256": "2c7a153d238952a1d0338dba202ea7bd6ca8ef3487d3da8bd3db0aea28b7c8c5"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "6dd2bb47b00ca6bcc71a6df98bb5ff11285b7961efe517e71a91ff6a3c4a6d54",
+      "run_id": "readiness-050",
+      "state_id": "readiness-002",
+      "trace_sha256": "cbe97e2ec1f87848d42f0fd02d70a9aaee83a96bd257f7acd0985ce233040150"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "6534ad4e4397cc4696820df283902feb0a842016cadc788520e6aba32328dfe4",
+      "run_id": "readiness-051",
+      "state_id": "readiness-003",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "a49ec1c6e9c160142ebc5a5d2b4840d5bbc408302c7e65797c776faaada636a3",
+      "run_id": "readiness-052",
+      "state_id": "readiness-003",
+      "trace_sha256": "8e564f5a8b3b0c6c2bbd3269233b16709cd0a116bd60df2548ef4d840a3ea11e"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "b06c8c41fb3e7b3e35e7a1fa66b46aa1c6e8f2ceef06b6d8084e33e6f540a6ec",
+      "run_id": "readiness-053",
+      "state_id": "readiness-003",
+      "trace_sha256": "3e52fb7fbea7de51b3384527a5fa9a7a264674e38ad067147817e7d3caa1c5ab"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "3d058f2802635a9789a9ba863778e7dee79d686affce345aaf142f61fa8148a6",
+      "run_id": "readiness-054",
+      "state_id": "readiness-003",
+      "trace_sha256": "c12f9760813faa7f71669697412dbab59b09365275c7f74457b5b275af5cfbc1"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "ae661e1a61d821cb3e07a75ccf9ced16cb91f81773d52b146bd49c074db148bd",
+      "run_id": "readiness-055",
+      "state_id": "readiness-003",
+      "trace_sha256": "0cb3c59a368368a8ae972cf99786d75fdc033a0208e9a6b1c0184842b24cbe90"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "90977ecad2007f5c97c71ab174b8e04efdadc45f7d7041f7eb4c1abe03429c17",
+      "run_id": "readiness-056",
+      "state_id": "readiness-003",
+      "trace_sha256": "658f6c0e3cb499b256424111049ff7bdf8117ed210d2c981677703c98d35adec"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "e6aef8ad826fdbd83ff5789ce944edb016b6ff0e6bcc4bb3b618f43b700e434e",
+      "run_id": "readiness-057",
+      "state_id": "readiness-003",
+      "trace_sha256": "eff284cf3289bb4c95b02fb7e54743bb6692215e4785d946696e403269b4d169"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "1d13becf291a7abcb9943aae42ff2e720df0ac271c235f8c12b8ac485448bde7",
+      "run_id": "readiness-058",
+      "state_id": "readiness-003",
+      "trace_sha256": "be9e4a03a34a7a3afe8cf3fb470335b9f7e4ce631f862a4e05cf5a0349eac068"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "aa8717b232e09abbbf9e4291a7e14c03ba010891627e2ed6140f97e93f5db7a2",
+      "run_id": "readiness-059",
+      "state_id": "readiness-003",
+      "trace_sha256": "b2a04a1611826eb39185d78d6760cb36de62c28867c29f207203a5dcd80fa6e8"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "1bb06044682f60fcb5316d8cd3864d4cbdb2f8ad5302e64490f4a1d450b86836",
+      "run_id": "readiness-060",
+      "state_id": "readiness-003",
+      "trace_sha256": "8aeda84783c4ec6b584aee337ab65b50429931da77826b0b0b432695d4f7de22"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "db53b8cbf55c01c7951c2e4bcbe5008c7d8f34f9e9633a67044591e66a7009ca",
+      "run_id": "readiness-061",
+      "state_id": "readiness-003",
+      "trace_sha256": "4cc41638a12f9a9e5fcdeba9632b384234e78047d8817a3a3e0ef51ef013de27"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "047f98fa06b9e7af9cebd3bca396b6776b1c99240a2612bd9807775dd8eacf46",
+      "run_id": "readiness-062",
+      "state_id": "readiness-003",
+      "trace_sha256": "808a61df9c491c028e17a12cc3b31ddaf96731c76bbeccb65fa7dec75fa1636f"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "72cded3c1df64017e107bbe297c84a76ea807dacf3e68281993d50477e8c525e",
+      "run_id": "readiness-063",
+      "state_id": "readiness-003",
+      "trace_sha256": "d2cdc76dd044c03660385923fcc580a4f402e17e283e51bff0eb7c7f69e3f9da"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "3e8373f7b9c9b17153cc258cffa929aab052a3eab5af88b4e25c91c924d8633f",
+      "run_id": "readiness-064",
+      "state_id": "readiness-003",
+      "trace_sha256": "d71cb42b74137024ce7e099dd350bc9ecc5ff5c38c2466287b05475a7759075f"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "a9217e5f52e916d155b9666160a0480e26720d77dea8102044861ac0d44ad001",
+      "run_id": "readiness-065",
+      "state_id": "readiness-003",
+      "trace_sha256": "da1a202ad28cf7a30dbd6e92d2442c82a857a15185d95791a38609f4da48ffad"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "363868636331d43281b20d483a71987fbc937521328ac57bb5d3a364e2639c30",
+      "run_id": "readiness-066",
+      "state_id": "readiness-003",
+      "trace_sha256": "09db97a7126829de3fde02dfa4e59cdf1a40ec555c6939eed7b486ea8e3d6a05"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "dd6d1eb22d683ecd731e9708ea23b1509f3c4a7d7ea26662444b9722a4f505d1",
+      "run_id": "readiness-067",
+      "state_id": "readiness-003",
+      "trace_sha256": "402d181c3d09c3f363af1c3b8e73884d21ee7614dea7ecf25c420304f524951a"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "2a4e0a1ecfa4bbaff8192cf4dcf0f641a75b15f91d708053be374e810b00024e",
+      "run_id": "readiness-068",
+      "state_id": "readiness-004",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "acb29aea2e867c675d82d2b6fa1f5fb04d839e52682573c2e961f26afc43b689",
+      "run_id": "readiness-069",
+      "state_id": "readiness-004",
+      "trace_sha256": "b813e34da5a73ea0cdced45805424f646e7b541ace3d282ce7059abccbb60e7d"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "9021c8878a914944ae7ae2970aeb14dda765dbc8a8e0c9c9201b106f7b3d05f1",
+      "run_id": "readiness-070",
+      "state_id": "readiness-004",
+      "trace_sha256": "ee2bdd26b81e345f18117aa8c6ed777123c449819c5236287a4ebd9c50c82954"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "0c4b27bd1dfdaa1684668e8e3b3ca09d34fef7ad8cda03e9d07015174e51a1c2",
+      "run_id": "readiness-071",
+      "state_id": "readiness-004",
+      "trace_sha256": "877837c5da4a444b51b6eaff7288ba09e2e213965146c75b67d7205ef8b054d3"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "62f3f8dbfe21122cfc194f4158aa9401e553ddec69587a85778fa0123d140156",
+      "run_id": "readiness-072",
+      "state_id": "readiness-004",
+      "trace_sha256": "32e5d56d604f20f9a5bc06bbdbae1a35b7c73cd74917e8ad01b9d8713501091e"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "09b46b426ad2597b0544754d2347ccd1b3bc67cd48e524def9d1a41fc44323ac",
+      "run_id": "readiness-073",
+      "state_id": "readiness-004",
+      "trace_sha256": "7025e7eeb42468966a733b7114d84085081e693fddb895611ef1c49d5d2e94b4"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "ea16d4a185224fc167b25cf167eb68b0ac79800595516d297a97912a0f54b635",
+      "run_id": "readiness-074",
+      "state_id": "readiness-004",
+      "trace_sha256": "adb69573518aee615287e33ef6581cba6ab23e46715f346890445f8b436b97fc"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "0cc29d995d8e14d97ecb3bc468181c59d9a9a088502a890b6e46b046d48167bd",
+      "run_id": "readiness-075",
+      "state_id": "readiness-004",
+      "trace_sha256": "6ca1d489fd223f59359ffb752279647bf447eb0f2811a02efaafd42f60b3f79e"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "627d659aaaff475af679e7cfc685a4cb70843b17d1517e5f2a47b4355cee9176",
+      "run_id": "readiness-076",
+      "state_id": "readiness-004",
+      "trace_sha256": "8da1fcb9989d4e6081229087f6a658fcf02850651db3d7cd60d858c8a1e8f992"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "aeb79d499b1970aec0b0921b0151649419f42f8851cb3c0ca01f5b91f4df99d5",
+      "run_id": "readiness-077",
+      "state_id": "readiness-004",
+      "trace_sha256": "356e77e3dcbc534c1c9055933e65229f648c6fba286cfe62f097223a4ba4f22a"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "01a7130253596c1b4affe46d3fae92d86d7816d9b3ae2f2276a444847e035567",
+      "run_id": "readiness-078",
+      "state_id": "readiness-004",
+      "trace_sha256": "c6dea21501831a0d9bd189679e17ecc0a68f94e9d884975d1ba126ffed175fa7"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "ad5fd3e9473e75567bce3e7fb431f591616abd932c3cdd1b2408e3d923c84d60",
+      "run_id": "readiness-079",
+      "state_id": "readiness-004",
+      "trace_sha256": "1c7f918b02cfde20e4fe69a351bda84ebd77f9304fd44695395504588a401df0"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "ac8a72d783e2fa269fb223e78a3658ebf4f544f3f60848c841b81ac0e6584a04",
+      "run_id": "readiness-080",
+      "state_id": "readiness-004",
+      "trace_sha256": "8cc18618a2de884ea212440d745b45694f18eaebcf7d2c8a36ca1c4b04cff363"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "fa2b13ab06dc1518141f05afecf70cc486b69432d1cd0602e37809c0886c68ff",
+      "run_id": "readiness-081",
+      "state_id": "readiness-004",
+      "trace_sha256": "f9f45865d158237548a55822b0bd088c42fdd5dcc6a11b6de28062a6fe92a01f"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "4900f083db45e289d559aaaf42325d23eebeb44e13e61cce48c840b4fccec261",
+      "run_id": "readiness-082",
+      "state_id": "readiness-004",
+      "trace_sha256": "6580445485a3a11a4b919e27a5179a1ba3cefa8ab97bfcec8ff0c66d8dbf58d7"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "bf0d25c25a7c2d6521f4c00fa1c22bf2c5e1ab6cec3d4113ed546b1cefcdb747",
+      "run_id": "readiness-083",
+      "state_id": "readiness-004",
+      "trace_sha256": "43b1ead9b6b93bbafb6ada372c3fdb5e0f444d5536c55a50abb0f04ba40def8b"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "4f5c2e404bd4dc3bb0975a3f7bb9593ec148219356a7d66b8d87ecbbe23bbcd1",
+      "run_id": "readiness-084",
+      "state_id": "readiness-004",
+      "trace_sha256": "d131a4a0a1fcf4a2f8997d2b941de61b35258fc8b75542d70fd82d06d1990963"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "b60348b6e3ca160e282d4bec9a0f1322382734d391d63528ab8b412cab533f69",
+      "run_id": "readiness-085",
+      "state_id": "readiness-005",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "7815b93db23ad58b5ba6436f8a2f4b2b2715b12596ae7f8d0def17dde68f7963",
+      "run_id": "readiness-086",
+      "state_id": "readiness-005",
+      "trace_sha256": "5d490cf2818f4e670740b7c8976f258a0faf36f61348f33549f8f7c7d95e5be7"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "51e812263bc5ce90bbe899553f0c712827ce6bca24e3038080fd4c7682cf1f32",
+      "run_id": "readiness-087",
+      "state_id": "readiness-005",
+      "trace_sha256": "14f6ce8229f93864ef8744b58379e8ad3589616ec85d95b255c6aacde6b6ce10"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "ab14c314c0f92846ae2135c001e7ce28830502c445272272532498e41575e06c",
+      "run_id": "readiness-088",
+      "state_id": "readiness-005",
+      "trace_sha256": "c520b73d6b4a4e31bece70514a023dbe8304a08a3190e9621daab42f8995a644"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "93cc61c45a5024c8c3e72df2c751c51a246de392a7a4b9299fe273b40ff3634d",
+      "run_id": "readiness-089",
+      "state_id": "readiness-005",
+      "trace_sha256": "c65c616795ad072fdb771639f5fa76aae1dcda897026a09d7b1328f2eab29e1b"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "403b0236d83a71303c5dcc2820c2339dbf4543a26dfddabfe51fd2d984e66b87",
+      "run_id": "readiness-090",
+      "state_id": "readiness-005",
+      "trace_sha256": "69f0ba0cfed28896eeaa70c605e03cebb64e090113bcf21c84c8af328ed4847d"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "ba07972bfd81554e9b9be4ab47792cf09d724f6da7a8750a51b1790441a0637d",
+      "run_id": "readiness-091",
+      "state_id": "readiness-005",
+      "trace_sha256": "98fc1ce9eab6c0f6fea72e5bbc4e798d83133260d1b6b382679131928591ba93"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "80aade6e55febf6dd2ccf558e6426109169a07aa61062bc0c749d87025270a29",
+      "run_id": "readiness-092",
+      "state_id": "readiness-005",
+      "trace_sha256": "12fa576bf6d59fdbe51a5a37e00dc10d2614748db9efc799da5b735c3cf8751c"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "abc5d484b04df38d8218143b8bcce674d4628d97f2bc3ac90706ecfb98dde468",
+      "run_id": "readiness-093",
+      "state_id": "readiness-005",
+      "trace_sha256": "01ab77ac1300448a2c8e3e222ec16661613a1a6f7797d4616e0aad7078bc3e03"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "53817b7e85417a88bf17b00a1187bfc6e7da5d931003703096d0e9c4483adfd1",
+      "run_id": "readiness-094",
+      "state_id": "readiness-005",
+      "trace_sha256": "a9bc92d613fa84278615b9549f2599f2932282594cb2b0ba44538cde8422d2ab"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "75f6907eea4754b6fd050d377e5efc3a2f88c83c1e488ff09789860b84ee2a31",
+      "run_id": "readiness-095",
+      "state_id": "readiness-005",
+      "trace_sha256": "991d098a67782a27cfbaba58a4f2742f3df056803a3a495210898ca448211a1f"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "cace5686b61303ca1f9c267f778bf0c4314e9770ed958288cde2dc9db9c4ac2a",
+      "run_id": "readiness-096",
+      "state_id": "readiness-005",
+      "trace_sha256": "1ffb437695d7594ad9f6de738f604361027a37b517a1e0c8d9ed52684c0ad893"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "9056e571a2291db1de7290babbafb9d9ee9089d570b759007b473cfee482020a",
+      "run_id": "readiness-097",
+      "state_id": "readiness-005",
+      "trace_sha256": "50edb6ade95813ae3abdaea22c61e3efedf105724beda97f9544e28b254e5480"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "5858cff83efc11ee4fc529bd4a8eac5b20fa669632ad870b5c3cc8662ccb7df9",
+      "run_id": "readiness-098",
+      "state_id": "readiness-005",
+      "trace_sha256": "d06e1000754c1feffc965a3ca58aa6c21fa4f2c60dd26bd2dcf1112efaa6ad7d"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "010a41069573142cb586f946dcef98dbfee9facbf54ab4330bc836f02fb6671e",
+      "run_id": "readiness-099",
+      "state_id": "readiness-005",
+      "trace_sha256": "ea5861ab995472dc2fce7d4ceaba0c6ba497113788e8c28fa2432fdc6996a328"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "8ecae41e58c8f7be3b8455499bce3fef5922f1bb06f7e04e818b7f7400cdb1d7",
+      "run_id": "readiness-100",
+      "state_id": "readiness-005",
+      "trace_sha256": "0ecc56165736add8f16cbc89ab5f80906d705e4f7d0008a92f15e24de7edbc90"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "28130b21d9b2a0e4819fb7099fea6c1f66884b896e69f6e531389efdba96138c",
+      "run_id": "readiness-101",
+      "state_id": "readiness-005",
+      "trace_sha256": "dc2d319e8f3fe073fd3a03eb7a98cb17879b165e3f407d10daf95c577f9023e5"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "anchor",
+      "marker_sha256": "c5614d6b02aa77a989f19691c4ef62577635161709ad27a9c04a677f9c3dcf3a",
+      "run_id": "readiness-102",
+      "state_id": "readiness-006",
+      "trace_sha256": null
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "acd3cab5ee694b012bef684827d5c1bdce12aeaf1e4caa1b8ba88f06c711a81e",
+      "run_id": "readiness-103",
+      "state_id": "readiness-006",
+      "trace_sha256": "dfdbfa68380b11040614158b1f17876e7a60f33e2afdd93c8e4a1d3f9c2c7408"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "c4963e95f3b58986f1903b700aee3b4e2608f5e4fff2866ec09bbb75cd6e90f2",
+      "run_id": "readiness-104",
+      "state_id": "readiness-006",
+      "trace_sha256": "92d4d6aecdd1bd6a1e9bcdd94bd71d99b34e0949077ed0c389dee0c426a90684"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "nominal",
+      "marker_sha256": "9989170002d7d8a4b0de40725117195b3ecd99b84d1960709a64576e87cf6ddc",
+      "run_id": "readiness-105",
+      "state_id": "readiness-006",
+      "trace_sha256": "0f717c49ec9dcdaf6483bace559dbeddab6d57fdf454e87fba4c5744323a06a5"
+    },
+    {
+      "candidate_id": "nomad-seed-1001",
+      "kind": "nomad",
+      "marker_sha256": "2c74264addd1a13f05799bdd9b2e88e552312af25dc7a6aadca99e0657e74f9f",
+      "run_id": "readiness-106",
+      "state_id": "readiness-006",
+      "trace_sha256": "ffc192a20acad48e2b3f293dc23a407b02f6127541ba9ebbe888cf8bc3d977d3"
+    },
+    {
+      "candidate_id": "nomad-seed-1002",
+      "kind": "nomad",
+      "marker_sha256": "f0d908736f4bdbfe1b9e3f34dadf980be7249af563067d1d1a119e72523a129f",
+      "run_id": "readiness-107",
+      "state_id": "readiness-006",
+      "trace_sha256": "8bbadc4b790e4640a3fbf25e9077e4108a7d4e709a72fa5b4e23fb950f366761"
+    },
+    {
+      "candidate_id": "nomad-seed-1003",
+      "kind": "nomad",
+      "marker_sha256": "3bd7e1ce93a247dc97c3194af5aa38cb7bbd52ce045d61a3794094ff97a77d29",
+      "run_id": "readiness-108",
+      "state_id": "readiness-006",
+      "trace_sha256": "f05210ee9b189d1307a5bf724c7ffd422de50f289baeaf1205684f5034a0b456"
+    },
+    {
+      "candidate_id": "nomad-seed-1004",
+      "kind": "nomad",
+      "marker_sha256": "d2363f1773cc02b27828146f474c7ed3585ea14d9f7dd36524434b300fb534d4",
+      "run_id": "readiness-109",
+      "state_id": "readiness-006",
+      "trace_sha256": "b9557086185b10ce0d780991279e6c4da9b6efa8537f3e268af3ff768a72f6c5"
+    },
+    {
+      "candidate_id": "nomad-seed-1005",
+      "kind": "nomad",
+      "marker_sha256": "019e425d53bb946e50f752e3e9c6d6f0e353bbe436a01979bebb406d6a495124",
+      "run_id": "readiness-110",
+      "state_id": "readiness-006",
+      "trace_sha256": "88326be7e318dc8c597fd426d59bf3053590708671d1ea67a9698dfd7e67c63c"
+    },
+    {
+      "candidate_id": "nomad-seed-1006",
+      "kind": "nomad",
+      "marker_sha256": "1b1574d413d61adcac385441a2bd9f3e014a5304ae1806bbeb3df84b2629748b",
+      "run_id": "readiness-111",
+      "state_id": "readiness-006",
+      "trace_sha256": "64e1515a4484b0a2f598ad41413958378a0eb9a36416dfa639afc5457f5629c9"
+    },
+    {
+      "candidate_id": "nomad-seed-1007",
+      "kind": "nomad",
+      "marker_sha256": "c741b2fe9a3eaa813ca8317cb8137d5090a36e2d5b715a24d5eb166e58b1215d",
+      "run_id": "readiness-112",
+      "state_id": "readiness-006",
+      "trace_sha256": "156819f736af9e34c027a57a332271bbc44af618f2a1c5481987cfc7e1c17e07"
+    },
+    {
+      "candidate_id": "nomad-seed-1008",
+      "kind": "nomad",
+      "marker_sha256": "0a5679e3f5664f48066832ea4b73818a61a06950ddb18f1aec0388363a2cc408",
+      "run_id": "readiness-113",
+      "state_id": "readiness-006",
+      "trace_sha256": "c17eb9497be30269c07fe88a7aa7823d1b691c56ad388b55d5176e7f83520aca"
+    },
+    {
+      "candidate_id": "bank-nominal",
+      "kind": "bank",
+      "marker_sha256": "330ed9eafb72b5e4c2ae2e64cd7b59751898fc808f777dc0b3e1c7d3de6e1a6c",
+      "run_id": "readiness-114",
+      "state_id": "readiness-006",
+      "trace_sha256": "e37fbe88795f9b569f2256e0e28e0a2c4cab73972911432bfb65564f48977878"
+    },
+    {
+      "candidate_id": "bank-slight_left",
+      "kind": "bank",
+      "marker_sha256": "22b55a7a7b24517f17162a831c8709e170c5343048e15ff2c688c80eb26592b6",
+      "run_id": "readiness-115",
+      "state_id": "readiness-006",
+      "trace_sha256": "420ffdeda92e8f0cff6500718d431d9798be379b62301afddf4e4f99dbfde90f"
+    },
+    {
+      "candidate_id": "bank-slight_right",
+      "kind": "bank",
+      "marker_sha256": "01945046592779aae60116f0b728395fca331b69af64a504b322940b4d821f4e",
+      "run_id": "readiness-116",
+      "state_id": "readiness-006",
+      "trace_sha256": "58e63aec0d516e0cb3eb1e722d9f8d1bc1cf3cea97c3a65260b5b1070737a13d"
+    },
+    {
+      "candidate_id": "bank-strong_left",
+      "kind": "bank",
+      "marker_sha256": "d95716679ac2de80610be73e6d6388d339e572e34964d267d5aef20dbb62278f",
+      "run_id": "readiness-117",
+      "state_id": "readiness-006",
+      "trace_sha256": "d97f99c95670584519b7182e37b6d15d343dbad19cf733adfde0c3d0bf31e5d7"
+    },
+    {
+      "candidate_id": "bank-strong_right",
+      "kind": "bank",
+      "marker_sha256": "f74b06daa3d3209dd2d4050b1b3a7bcd1dc38b1970fb9f06b4814acb4731da0d",
+      "run_id": "readiness-118",
+      "state_id": "readiness-006",
+      "trace_sha256": "2d508fd0cba436e23c0c69e904928596ea431782f0a2cf3a3958257ac61203ec"
+    }
+  ]
+}

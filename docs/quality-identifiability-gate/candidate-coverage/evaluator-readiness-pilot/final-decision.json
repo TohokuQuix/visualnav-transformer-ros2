@@ -1,0 +1,199 @@
+{
+  "candidate_coverage": "insufficient",
+  "evaluator_input_schema": "incomplete",
+  "evidence": {
+    "frozen_evaluator": {
+      "six_second": {
+        "all": {
+          "macro_oracle_regret": 0.24358149937220983,
+          "macro_pairwise_accuracy": 0.41351245969297923,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 3
+        },
+        "bank_only": {
+          "macro_oracle_regret": 0.07242093767438616,
+          "macro_pairwise_accuracy": 0.5071428571428572,
+          "supported_states": 7,
+          "top1_recall_count": 3,
+          "top3_recall_count": 6
+        },
+        "constraint_valid": {
+          "macro_oracle_regret": 0.24358149937220983,
+          "macro_pairwise_accuracy": 0.41351245969297923,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 3
+        },
+        "nomad_only": {
+          "macro_oracle_regret": 0.09706224714006696,
+          "macro_pairwise_accuracy": 0.3977228327228327,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 2
+        }
+      },
+      "two_second": {
+        "all": {
+          "macro_oracle_regret": 0.40720912388392855,
+          "macro_pairwise_accuracy": 0.46178042672314606,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 2
+        },
+        "bank_only": {
+          "macro_oracle_regret": 0.05900846208844866,
+          "macro_pairwise_accuracy": 0.6698412698412699,
+          "supported_states": 7,
+          "top1_recall_count": 2,
+          "top3_recall_count": 7
+        },
+        "constraint_valid": {
+          "macro_oracle_regret": 0.40720912388392855,
+          "macro_pairwise_accuracy": 0.46178042672314606,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 2
+        },
+        "nomad_only": {
+          "macro_oracle_regret": 0.4044216700962612,
+          "macro_pairwise_accuracy": 0.40982033839176696,
+          "supported_states": 7,
+          "top1_recall_count": 1,
+          "top3_recall_count": 4
+        }
+      }
+    },
+    "input_readiness": {
+      "deployable": false,
+      "finite_and_same_step": true,
+      "joint_effort_captured": false,
+      "online_future_or_critic_leakage": false,
+      "previous_action_captured": true
+    },
+    "k8_recall_count": 6,
+    "k8_recall_supported_states": 7,
+    "nomad_multiple_realized_modes_states": 1,
+    "ood_over_train_p95_by_variant": {
+      "C": 0,
+      "P": 12,
+      "R": 8
+    },
+    "relative_outcome": {
+      "advantage_or_drawdown_support_states": [
+        "readiness-000",
+        "readiness-001",
+        "readiness-002",
+        "readiness-003",
+        "readiness-004",
+        "readiness-005",
+        "readiness-006"
+      ],
+      "delta_v_support_states": [
+        "readiness-000",
+        "readiness-001",
+        "readiness-002",
+        "readiness-003",
+        "readiness-004",
+        "readiness-005",
+        "readiness-006"
+      ],
+      "minimum_states": 4,
+      "nomad_multiple_rank_states": [
+        "readiness-000",
+        "readiness-001",
+        "readiness-002",
+        "readiness-003",
+        "readiness-004",
+        "readiness-005",
+        "readiness-006"
+      ],
+      "ready": true
+    },
+    "safety_support": {
+      "excessive_tilt": {
+        "negative_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ],
+        "positive_states": []
+      },
+      "large_contact": {
+        "negative_states": [],
+        "positive_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ]
+      },
+      "recovery": {
+        "negative_states": [],
+        "positive_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ]
+      },
+      "stack": {
+        "negative_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ],
+        "positive_states": []
+      },
+      "termination": {
+        "negative_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ],
+        "positive_states": []
+      },
+      "tracking_failure": {
+        "negative_states": [
+          "readiness-000",
+          "readiness-001",
+          "readiness-002",
+          "readiness-003",
+          "readiness-004",
+          "readiness-005",
+          "readiness-006"
+        ],
+        "positive_states": [
+          "readiness-002",
+          "readiness-003",
+          "readiness-006"
+        ]
+      }
+    }
+  },
+  "formal_validation_started": false,
+  "full_collection_started": false,
+  "next_action": "measurement_remediation",
+  "real_robot_test_started": false,
+  "relative_outcome_dataset": "ready_for_scaled_collection",
+  "retraining_started": false,
+  "safety_dataset": "insufficient_failure_coverage"
+}

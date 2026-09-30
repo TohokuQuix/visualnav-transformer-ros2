@@ -1,0 +1,30 @@
+{
+  "additional_wall_cap_sec": 16200,
+  "control_steps": 120,
+  "diagnostic_equivalence_runs_excluded": true,
+  "equivalence_numeric_limit": 1e-05,
+  "equivalence_xy_rms_limit_m": 0.0105,
+  "exact_stamp_timeout_sec": 3.0,
+  "input_freeze_sha256": "40680d3d935fa60389eb030a2412184b231a0033edf687f0d5e8a1b8d9db218f",
+  "measurement_start_order": 100,
+  "measurement_stop_order": 118,
+  "new_measurement_runs": 19,
+  "nomad_retraining": false,
+  "old_completed_runs": 100,
+  "phase_b_evaluator_retraining": false,
+  "postprocessing_wall_cap_sec": 3600,
+  "production_follower_binary_sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d",
+  "production_follower_control_changes": false,
+  "production_follower_parameter_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "protocol": "fresh_bridge_per_measurement_run",
+  "r4_outcome_blind_selected_run_ids": [
+    "readiness-002",
+    "readiness-026",
+    "readiness-084"
+  ],
+  "resume_wall_cap_sec": 7200,
+  "schedule_sha256": "a970e99c71f7d2647214257cf5113ad15af991d3526fc102c3e4cdc2e313a071",
+  "single_measurement_attempt_per_run": true,
+  "storage_cap_bytes": 1500000000,
+  "validation_or_heldout_used": false
+}
