@@ -1,0 +1,166 @@
+{
+  "command_recalculation": {
+    "A_to_B_command_vx": -0.0002473708876438163,
+    "A_to_B_command_wz": -0.0012952309388896133,
+    "A_to_B_heading_error_rad": -0.0025904618777792265,
+    "A_to_B_tf_translation_m": 0.012102162095809058,
+    "absolute_residual": [
+      0.0,
+      0.0
+    ],
+    "factor": 0.5,
+    "recomputed_wz": [
+      -0.09667924994842747,
+      -0.09797448088731708
+    ]
+  },
+  "timeline": {
+    "A_before_current_tf_publish": true,
+    "A_callback": {
+      "callback_seq": 302,
+      "command_stamp_ns": 1700000000,
+      "tf_end_steady_ns": 1349934414135022,
+      "tf_stamp_ns": 1650000000,
+      "tf_start_steady_ns": 1349934414123145,
+      "tf_x": -0.09086990356445312,
+      "tf_y": 0.1385517120361328,
+      "tf_yaw": 1.7559245824813845,
+      "vx": 0.2815356233715491,
+      "wall_steady_ns": 1349934414122694,
+      "wz": -0.09667924994842747
+    },
+    "A_receive": {
+      "accepted": true,
+      "branch": 4,
+      "command": [
+        0.2815356233715491,
+        0.0,
+        -0.09667924994842747
+      ],
+      "path_stamp_ns": 1000000000,
+      "stamp_ns": 1700000000,
+      "steady_ns": 1349934415271397,
+      "tf_stamp_ns": 1700000000
+    },
+    "B_after_current_tf_publish": true,
+    "B_callback": {
+      "callback_seq": 303,
+      "command_stamp_ns": 1700000000,
+      "tf_end_steady_ns": 1349934464084342,
+      "tf_stamp_ns": 1700000000,
+      "tf_start_steady_ns": 1349934464075986,
+      "tf_x": -0.09313392639160156,
+      "tf_y": 0.15044021606445312,
+      "tf_yaw": 1.754773139953613,
+      "vx": 0.28128825248390527,
+      "wall_steady_ns": 1349934464075543,
+      "wz": -0.09797448088731708
+    },
+    "B_receive": {
+      "accepted": false,
+      "branch": 4,
+      "command": [
+        0.28128825248390527,
+        0.0,
+        -0.09797448088731708
+      ],
+      "header_stamp_ns": 1700000000,
+      "kind": "bridge-command",
+      "logical_stamp_ns": 1700000000,
+      "receive_seq": 1943,
+      "reject_reason": "different commands at same stamp 1700000000 branch 4",
+      "same_stamp_commands": [
+        [
+          0.2815356233715491,
+          0.0,
+          -0.09667924994842747
+        ],
+        [
+          0.28128825248390527,
+          0.0,
+          -0.09797448088731708
+        ]
+      ],
+      "steady_ns": 1349934464400673,
+      "system_ns": 1790729766200653917
+    },
+    "clock_before_A": true,
+    "clock_publish": {
+      "clock_now_ns": 1700000000,
+      "kind": "clock-publish",
+      "publish_lower_steady_ns": 1349934413919755,
+      "publish_upper_steady_ns": 1349934414599164,
+      "reset": false,
+      "sequence": 15,
+      "stamp_ns": 1700000000,
+      "steady_ns": 1349934414601964,
+      "system_ns": 1790729766150855227
+    },
+    "current_tf_publish": {
+      "branch": 4,
+      "kind": "tf-publish",
+      "pose": [
+        -0.09313392639160156,
+        0.15044021606445312,
+        1.7547731399536133
+      ],
+      "publish_lower_steady_ns": 1349934414667323,
+      "publish_steady_ns": 1349934414723688,
+      "publish_upper_steady_ns": 1349934415105305,
+      "sequence": 44,
+      "steady_ns": 1349934415105465,
+      "system_ns": 1790729766151358606,
+      "tf_stamp_ns": 1700000000
+    },
+    "path_event": {
+      "branch": 4,
+      "kind": "path-publish",
+      "path_sha256": "6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08",
+      "path_stamp_ns": 1000000000,
+      "points": [
+        [
+          -0.06631278991699219,
+          0.013734817504882812
+        ],
+        [
+          -0.07116693360899208,
+          0.04961138548480382
+        ],
+        [
+          -0.07788246704322734,
+          0.10748844906499823
+        ],
+        [
+          -0.08220800438941729,
+          0.16102424097324775
+        ],
+        [
+          -0.08534210028745887,
+          0.22412274897361073
+        ],
+        [
+          -0.08580870040886017,
+          0.29117027774902293
+        ],
+        [
+          -0.08434205671756018,
+          0.36149009950971545
+        ],
+        [
+          -0.08300392925939411,
+          0.43236092936968934
+        ],
+        [
+          -0.082420354892748,
+          0.5064668747837588
+        ]
+      ],
+      "publish_lower_steady_ns": 1349922316683170,
+      "publish_steady_ns": 1349922316689906,
+      "publish_upper_steady_ns": 1349922317402650,
+      "sequence": 1,
+      "steady_ns": 1349922317402861,
+      "system_ns": 1790729754053656001
+    }
+  }
+}

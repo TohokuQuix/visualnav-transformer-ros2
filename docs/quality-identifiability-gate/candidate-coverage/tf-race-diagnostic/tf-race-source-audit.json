@@ -1,0 +1,121 @@
+{
+  "git": {
+    "branch": "exp/eatnav-candidate-coverage",
+    "head": "cfc6abac6f959eb9bb1c44232086a2859dc34c19",
+    "status_at_R0": "?? scripts/eat_nav_tf_race_stage0.py\n"
+  },
+  "prior_branch4_command_values_present": false,
+  "prior_branch4_raw_log_sha256": "ffb8c2029dec93b6438e3ebdb5ed636f18eb60803b811868c6b8e7f0bdfc95a6",
+  "rl_checkpoint_sha256_from_collection_manifest": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "sources": {
+    "bridge": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_sim_clock_bridge.py",
+      "sha256": "2d2f6d4be90d0c62cadc68f1a907276fe02564e2d90b0be89f37580f8851e538",
+      "size_bytes": 11852
+    },
+    "clock_publisher": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_sim_clock_bridge.py",
+      "sha256": "2d2f6d4be90d0c62cadc68f1a907276fe02564e2d90b0be89f37580f8851e538",
+      "size_bytes": 11852
+    },
+    "diagnostic_follower_cpp": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/diagnostic-follower-source/src/simple_trajectory_follower.cpp",
+      "sha256": "7ad147f9f9ea793563038d7ba3505309574d4b3402667ee494e90531defe87f3",
+      "size_bytes": 56346
+    },
+    "diagnostic_follower_header": {
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/diagnostic-follower-source/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "65ade812b8c6223c465d9f3103ab6b8ee00856cd1bb155c58c88c31750252776",
+      "size_bytes": 8723
+    },
+    "host_runner": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_sim_clock_run.py",
+      "sha256": "b789fd7222d9bcf6270c3a3b1e3081cb42ded7d57a49f1e26a0c637c56d9312c",
+      "size_bytes": 10032
+    },
+    "nomad_reference_checkpoint": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/phase-c-remediation/reference/best.pt",
+      "sha256": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0",
+      "size_bytes": 114123777
+    },
+    "nominal_path": {
+      "path": "/tmp/eatnav-candidate-coverage/pilot-inputs/state-001/bank-nominal-map-path.json",
+      "sha256": "6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08",
+      "size_bytes": 532
+    },
+    "production_follower_binary": {
+      "path": "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node",
+      "sha256": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219",
+      "size_bytes": 8525040
+    },
+    "production_follower_cpp": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be",
+      "size_bytes": 52614
+    },
+    "production_follower_header": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "7c58d3a4375245863a1ba6aae237ce578da72c62506537d26704d592e19d4b1f",
+      "size_bytes": 8582
+    },
+    "production_follower_params": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+      "size_bytes": 1623
+    },
+    "simulator_runner": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_sim_clock_long_horizon_sim.py",
+      "sha256": "45f0de30f04f763d56251d95837d5f208c23ab2dd4afb390798e386bce50667c",
+      "size_bytes": 26221
+    },
+    "t4_decision": {
+      "path": "/tmp/eatnav-candidate-coverage/sim-clock-long-horizon/clock-protocol-decision.json",
+      "sha256": "7b266221bf9c62333901911e67ac29c7b15efbea1ee077d2b88b9ff4d6b2d42a",
+      "size_bytes": 1353
+    },
+    "t4_failure_log": {
+      "path": "/tmp/eatnav-candidate-coverage/sim-clock-long-horizon/t4/runs/t4-00/runner.log",
+      "sha256": "ab0ef251cec02c7e459a5a06c09508956466202e6257312867ef5e2ccf504124",
+      "size_bytes": 1111832
+    },
+    "t4_source_audit": {
+      "path": "/tmp/eatnav-candidate-coverage/sim-clock-long-horizon/sim-clock-source-audit.json",
+      "sha256": "8c164838ad305cbec11ca9bbd3bf6da1a812e7fec7cf88c2f81572b918a80c2a",
+      "size_bytes": 3247
+    },
+    "t4_status": {
+      "path": "/tmp/eatnav-candidate-coverage/sim-clock-long-horizon/status.json",
+      "sha256": "f019399339e1045a21f2e92c95bb3019127ac3a5105116a8932a7ff5ef569782",
+      "size_bytes": 316
+    },
+    "tf_publisher": {
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_sim_clock_bridge.py",
+      "sha256": "2d2f6d4be90d0c62cadc68f1a907276fe02564e2d90b0be89f37580f8851e538",
+      "size_bytes": 11852
+    }
+  },
+  "state": {
+    "complete": true,
+    "dem_sha256": "45996fe1387318793f49a13fc7015b59b867dafd2a04f0eb117e201d163f5be0",
+    "episode_key": [
+      0,
+      76,
+      0
+    ],
+    "full_prefix_steps": 21,
+    "goal": [
+      0.4835115671157837,
+      -0.0962335616350174
+    ],
+    "goal_distance_m": 0.49299526764434737,
+    "local_step": 20,
+    "natural_history": true,
+    "rank_sha256": "16086187ad0eb19ece413baadd524877cf83cf2572939996f08b474d69b9558f",
+    "split": "train",
+    "state_id": "coverage-001",
+    "step": 20,
+    "terrain_seed": 1453387328,
+    "terrain_type": "hf_pyramid_slope",
+    "view_index": 37836
+  }
+}

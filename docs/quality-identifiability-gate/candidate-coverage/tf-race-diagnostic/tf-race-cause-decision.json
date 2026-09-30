@@ -1,0 +1,27 @@
+{
+  "classification": "R1 TF delivery race supported",
+  "controller_motion_history_equal": false,
+  "criteria": {
+    "A_lookup_before_new_TF_publish": true,
+    "A_previous_step_TF_B_current_step_TF": true,
+    "B_lookup_after_new_TF_publish": true,
+    "command_recomputed_from_heading": true,
+    "same_controller_mode": true,
+    "same_path": true,
+    "same_ros_stamp": true
+  },
+  "duplicate_started": false,
+  "first_conflict_branch": 4,
+  "first_conflict_stamp_ns": 1700000000,
+  "logging_perturbation_caveat": "Diagnostic logging can change callback timing; mechanism is observed in this run, recurrence probability is not estimated.",
+  "motion_history_did_not_trigger_recovery": "window ready=false for A and B; command equations match their respective heading errors exactly",
+  "other_hypotheses": {
+    "R2_same_stamp_TF_overwrite": false,
+    "R3_controller_state_only": false,
+    "R4_bridge_attribution_error": false,
+    "R5_clock_propagation_race": false
+  },
+  "parity_started": false,
+  "repeat_count": 1,
+  "stage_B_started": false
+}

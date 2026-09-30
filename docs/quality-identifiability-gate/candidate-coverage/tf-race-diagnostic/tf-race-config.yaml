@@ -1,0 +1,28 @@
+branch_count: 8
+branch_frame_ids:
+- branch_0/chassis/body
+- branch_1/chassis/body
+- branch_2/chassis/body
+- branch_3/chassis/body
+- branch_4/chassis/body
+- branch_5/chassis/body
+- branch_6/chassis/body
+- branch_7/chassis/body
+candidate_id: bank-nominal
+clock_protocol_unchanged: true
+control_period_sec: 0.05
+control_steps: 20
+duplicate_xy_rms_limit_m: 0.0105
+follower_control_rate_hz: 20
+logical_t0_ns:
+- 1000000000
+- 11000000000
+- 21000000000
+nomad_checkpoint_sha256: 191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0
+output_root: /tmp/eatnav-candidate-coverage/tf-race-diagnostic
+path_sha256: 6790f278bcd6250239984fbb756ca4f63b77d44b376d24061a6ea20c1fa8fa08
+repeat_count_max: 3
+rl_checkpoint_sha256: b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d
+same_stamp_command_abs_tolerance: 1.0e-09
+schema_version: 1
+state_id: coverage-001

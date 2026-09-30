@@ -1,0 +1,57 @@
+{
+  "A": [
+    0.2815356233715491,
+    0.0,
+    -0.09667924994842747
+  ],
+  "A_receive": {
+    "accepted": true,
+    "branch": 4,
+    "command": [
+      0.2815356233715491,
+      0.0,
+      -0.09667924994842747
+    ],
+    "path_stamp_ns": 1000000000,
+    "stamp_ns": 1700000000,
+    "steady_ns": 1349934415271397,
+    "tf_stamp_ns": 1700000000
+  },
+  "B": [
+    0.28128825248390527,
+    0.0,
+    -0.09797448088731708
+  ],
+  "B_receive": {
+    "accepted": false,
+    "branch": 4,
+    "command": [
+      0.28128825248390527,
+      0.0,
+      -0.09797448088731708
+    ],
+    "header_stamp_ns": 1700000000,
+    "kind": "bridge-command",
+    "logical_stamp_ns": 1700000000,
+    "receive_seq": 1943,
+    "reject_reason": "different commands at same stamp 1700000000 branch 4",
+    "same_stamp_commands": [
+      [
+        0.2815356233715491,
+        0.0,
+        -0.09667924994842747
+      ],
+      [
+        0.28128825248390527,
+        0.0,
+        -0.09797448088731708
+      ]
+    ],
+    "steady_ns": 1349934464400673,
+    "system_ns": 1790729766200653917
+  },
+  "branch": 4,
+  "raw_path": "/tmp/eatnav-candidate-coverage/tf-race-diagnostic/same-stamp-command-conflict-first.json",
+  "raw_sha256": "e7454e5a2556f6e63b59d42daaf685de7e49c291016ecd6c372eb97b98b978e1",
+  "stamp_ns": 1700000000
+}
