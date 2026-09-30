@@ -1,0 +1,120 @@
+{
+  "container_cuda": "12.8",
+  "container_python": "3.11.13",
+  "container_torch": "2.7.0+cu128",
+  "docker_image_id": "sha256:e211f8c944c196fca39fb0b27f83f5715514b28fb119610e2dd13b956100d71b",
+  "files": {
+    "bridge": {
+      "bytes": 3837,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_bridge.py",
+      "sha256": "24d0131b80e33f4f7f025c4b1ad8a59b051119204eb59fb2dcbe90122b3970e4"
+    },
+    "evaluator_GT_11": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-11/best.pt",
+      "sha256": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35"
+    },
+    "evaluator_GT_29": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-29/best.pt",
+      "sha256": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2"
+    },
+    "evaluator_GT_47": {
+      "path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-47/best.pt",
+      "sha256": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f"
+    },
+    "exact_binary": {
+      "bytes": 7928000,
+      "path": "/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node",
+      "sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d"
+    },
+    "exact_cpp": {
+      "bytes": 58535,
+      "path": "/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-source/src/simple_trajectory_follower.cpp",
+      "sha256": "d4699d0d52528ef15b269be74b175b6d1e8ddd561c6624495a5eccc4d0d204f2"
+    },
+    "exact_header": {
+      "bytes": 9648,
+      "path": "/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-source/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "e3de785ec0a5f5839e969286d4560cd7b3de815d66f2067fb9bbb461ce0d4101"
+    },
+    "exact_protocol": {
+      "bytes": 1522,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/src/visualnav_transformer/eat_nav/exact_stamp_protocol.py",
+      "sha256": "ba3847dd564dca955acec285ebfeb094718758bc8332965e2ecb9f53c49d0fea"
+    },
+    "follower_builder": {
+      "bytes": 5088,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_build.py",
+      "sha256": "2e46795cad19bbd2945ba5b1ba0f9b36dff270ab26b4734bd68bf7f07fe63fe6"
+    },
+    "frozen20": {
+      "bytes": 13378,
+      "path": "/tmp/eatnav-candidate-coverage/sim-clock-long-horizon/clock-corrected-run-identities.json",
+      "sha256": "b678cc6b0ee0f326c86a189e838deeb4e305b3d3fa358ebe53e8c1c347c69eb3"
+    },
+    "nomad": {
+      "bytes": 114123777,
+      "path": "/tmp/eatnav-quality-identifiability-gate/phase-c-remediation/reference/best.pt",
+      "sha256": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0"
+    },
+    "postrun_analyzer": {
+      "bytes": 7987,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_analyze.py",
+      "sha256": "87ea6ca4f8e989153162e1eefeae86661774de053c7f54cf1b6d51b72e6c1530"
+    },
+    "production_binary": {
+      "bytes": 8525040,
+      "path": "/home/kojima/onix/build/simple_trajectory_follower/simple_trajectory_follower_node",
+      "sha256": "0cc5e9845dbe5ae1ccb58d4747fbfa97e134ea174438ce85af494d0a12e85219"
+    },
+    "production_cpp": {
+      "bytes": 52614,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "production_fixture7": {
+      "bytes": 2656,
+      "path": "/tmp/eatnav-candidate-coverage/clock-domain-diagnostic/diagnostic-fixture-exact-parity.json",
+      "sha256": "62a3a4a7c36fa9899df2fe0a5799f0a5768dd9634e692771b8604aa27916782b"
+    },
+    "production_header": {
+      "bytes": 8582,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "7c58d3a4375245863a1ba6aae237ce578da72c62506537d26704d592e19d4b1f"
+    },
+    "production_params": {
+      "bytes": 1623,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "race_evidence": {
+      "bytes": 130447,
+      "path": "/tmp/eatnav-candidate-coverage/tf-race-diagnostic/same-stamp-command-conflict-first.json",
+      "sha256": "e7454e5a2556f6e63b59d42daaf685de7e49c291016ecd6c372eb97b98b978e1"
+    },
+    "regression_tests": {
+      "bytes": 2836,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/tests/test_exact_stamp_protocol.py",
+      "sha256": "546ad963cf78c7600f0fe8e5c8293d884526941dfaaf94e33b9092f9285ee827"
+    },
+    "runner": {
+      "bytes": 10597,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_run.py",
+      "sha256": "43511eac979e2485f85595235ad9a3a318e82b75406e8dbaa9bb3f5d90682e9f"
+    },
+    "simulator": {
+      "bytes": 26224,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_sim.py",
+      "sha256": "9365c4a92372eb4f03c9d0e74870599527b27b379436f5e46f8da5d2462dea7f"
+    },
+    "stage_b_runner": {
+      "bytes": 5232,
+      "path": "/tmp/eatnav-vnt-candidate-coverage/scripts/eat_nav_exact_stamp_stage_b.py",
+      "sha256": "e8bb6e148e316a3b8c9a86a9b0ff7fc7ca81b6aadf336a247d5a96db9179218f"
+    }
+  },
+  "git_branch": "exp/eatnav-candidate-coverage",
+  "git_head": "4adc4fc101300b30c214dafce31ee0307f220baa",
+  "isaac_sim": "5.1.0-rc.19+release.26219.9c81211b.gl",
+  "rl_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "ros_distro": "jazzy"
+}
