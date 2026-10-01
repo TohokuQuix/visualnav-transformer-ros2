@@ -1,0 +1,37 @@
+schema_version: 1
+selection_salt: goal-subgoal-cost-aware-v2-20261001
+source_split: train
+complete_only: true
+episode_number: 0
+max_global_prefix_steps: 80
+min_goal_distance_m: 0.30
+max_states_per_episode: 1
+terrain_order:
+  - k_rail_step_field
+  - pyramid_stairs
+  - pyramid_stairs_inv
+  - boxes
+selection_rank_fields:
+  - terrain_seed
+  - env_id
+  - episode_id
+  - global_step
+  - local_step
+  - terrain_name
+goal_ids:
+  - logged
+  - id_forward_long
+  - near_left_lateral
+  - far_diag_right
+diffusion_seeds: [1001, 1002]
+control_hz: 20
+control_steps: 120
+nominal_repeats: 3
+duplicate_xy_rms_limit_m: 0.0105
+pilot_wall_limit_sec: 14400
+storage_limit_bytes: 800000000
+resource_config_sha256: fa312f532881044d4675222c209ab4c251865928825a66f364122271b115b2e7
+reference_checkpoint_sha256: 191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0
+manifest_sha256: 55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475
+complete_window_ids_sha256: 904b22816531c4bf026181de5b70aaad386f0557ea44d9266223c89d48cddf4e
+split_hash: ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f
