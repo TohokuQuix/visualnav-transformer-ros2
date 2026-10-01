@@ -16,7 +16,7 @@
 
 最初のtrain-003 anchorは、episode 4より前の正常resetを旧診断assertionが拒否し、344.9秒で停止した。診断assertionだけを修正し同じstateで再試行したが、258.7秒時点でruntime forecastにより終了した。anchorの一致は**未確認**であり、duplicateとcandidateは各0件。前回試行のログは保持した。
 
-最初のresetは遅くとも400 stepまでに生じる。測定344.9秒から起動固定費を過大な200秒控除しても、44 live runのprefixだけで**約6.3時間**となる。120-step suffix、follower、残る4 anchorはこの値に含まない。固定上限4時間を超えるため、新規runを開始しなかった。
+最初のresetは遅くとも400 stepまでに生じる。測定344.9秒から起動固定費として200秒を控除した外挿では、44 live runのprefixだけで**約6.3時間**となる。この値に120-step suffix、follower、残る4 anchorは含まない。ただし、両anchor試行にはstep単位の時刻記録がなく、実行中の停滞を除外できないため、この外挿は実測下限でも確定的な4時間超過判定でもない。固定上限を超えるおそれがあるとして、新規runを開始せず停止した。
 
 GPU peak 5550 MiB、cgroup anonymous CPU memory peak 2.49 GB、raw保存量 27.5 MB。二度目のanchorはoperator SIGTERMを受け、Isaac native closeがrecursion abortでexit 1となったが、processは終了し残留0。これは候補outcomeではない。
 
@@ -25,3 +25,7 @@ GPU peak 5550 MiB、cgroup anonymous CPU memory peak 2.49 GB、raw保存量 27.5
 同じ固定state・Pathを使用するには、対象episode開始状態からのepisode-local replayがfull-prefixと一致することを別gateで立証する必要がある。過去の同一process snapshot restoreや未検証の短縮方式へ切り替えて44 runを続行しない。短縮方式が成立しなければ、4時間上限と固定stateの組合せは実行不能である。新しいstate、goal、seed、Pathをこの結果を見て選び直していない。
 
 成果物のNA JSONは未実行を明示する。performance図はデータがないため作成していない。raw log・failure marker・statusは`/tmp/eatnav-candidate-coverage/goal-ood-simulator/`に保存した。
+
+## SSH切断後の実行時間再評価（2026-10-01）
+
+pilotはdetached tmux内のDocker processで実行した。開始markerは14:24:49 JST、最初のanchorは14:30:34 JSTに診断assertionで終了した。再試行は258.7秒後にruntime forecastを受けてoperatorがSIGTERMで停止した。SSH切断が直接これらの終了を引き起こした記録はない。一方、step進捗のheartbeatがなく、VS Codeのオフライン期間にhostやcontainerの計算が停滞した可能性は検証できない。`status.json`の`conservative_44_live_prefix_hours`は停止当時の外挿値を残す履歴markerであり、完走時間の実測値ではない。4時間以内に実行可能かは未判定で、判断には同一固定stateでのstep進捗と単調時計を記録した短時間timing probeが必要である。
