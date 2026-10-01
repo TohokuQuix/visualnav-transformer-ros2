@@ -86,7 +86,7 @@ def run():
 
 def analyze():
     new = PARITY / 'runs' / NAME / 'live-0.trace.json.gz'
-    old = OLD / 'parity/runs/logging-parity-readiness-002-router/live-0.trace.json.gz'
+    old = OLD / 'parity/runs/logging-parity-readiness-002-effort-clip/live-0.trace.json.gz'
     prior = json.loads((REPO / 'docs/quality-identifiability-gate/candidate-coverage/goal-ood-simulator/parity-smoke.json').read_text())
     if sha(old) != prior['logging_trace_sha256']:
         raise ValueError('prior logging trace SHA changed')
