@@ -94,6 +94,16 @@ class ResourceMonitorTest(unittest.TestCase):
             self.assertTrue(monitor.heartbeat_stale(path, now, 90))
             self.assertFalse(monitor.heartbeat_stale(path, now, 95))
 
+    def test_live_suffix_progress_uses_existing_step_return_log(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'simulator.log'
+            self.assertIsNone(monitor.completed_suffix_step(path, 60))
+            path.write_text('DIAG_ENV_STEP_ENTRY 0 111\nDIAG_ENV_STEP_RETURN 0 222\n'
+                            'DIAG_ENV_STEP_ENTRY 1 333\nDIAG_ENV_STEP_RETURN 1 444\n')
+            self.assertEqual(monitor.completed_suffix_step(path, 60), 62)
+            path.write_text(path.read_text() + 'DIAG_ENV_STEP_ENTRY 2 555\n')
+            self.assertEqual(monitor.completed_suffix_step(path, 60), 62)
+
     def test_atomic_heartbeat_and_failure_marker(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'timing-heartbeat.json'

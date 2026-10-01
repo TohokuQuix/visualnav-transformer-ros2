@@ -5,6 +5,7 @@ import argparse
 import json
 import math
 import os
+import re
 from pathlib import Path
 import re
 import subprocess
@@ -56,6 +57,17 @@ def parse_pairs(raw: str, *, wanted: tuple[str, ...] | None = None) -> dict[str,
 
 def anon_shmem(stat: dict[str, int]) -> int:
     return stat['anon'] + stat['shmem']
+
+
+def completed_suffix_step(log_path: Path, anchor_step: int) -> int | None:
+    """Read the existing simulator step marker without changing its control path."""
+    if not log_path.exists():
+        return None
+    tail = log_path.read_text(errors='replace')[-65536:]
+    matches = re.findall(r'^DIAG_ENV_STEP_RETURN (\d+) \d+$', tail, re.MULTILINE)
+    if not matches:
+        return None
+    return anchor_step + 1 + int(matches[-1])
 
 
 def event_delta(events: dict[str, int], baseline: dict[str, int]) -> dict[str, int]:
@@ -227,6 +239,10 @@ def main():
         if progress and progress.get('last_completed_step', -1) > last_step:
             last_step = progress['last_completed_step']
             last_advance_ns = cycle_ns
+        suffix_step = completed_suffix_step(args.run / 'simulator.log', args.target_step)
+        if suffix_step is not None and suffix_step > last_step:
+            last_step = suffix_step
+            last_advance_ns = cycle_ns
         pid = progress.get('pid') if progress else None
         stat = parse_pairs(remote('cat', '/sys/fs/cgroup/memory.stat'), wanted=STAT_KEYS)
         events = parse_pairs(remote('cat', '/sys/fs/cgroup/memory.events'), wanted=EVENT_KEYS)
@@ -278,6 +294,7 @@ def main():
                      'process_started_monotonic_ns': progress.get('process_started_monotonic_ns') if progress else None,
                      'monotonic_ns': cycle_ns, 'wall_ns': time.time_ns(),
                      'global_step': last_step, 'episode': progress.get('current_episode') if progress else None,
+                     'suffix_control_step': (last_step - args.target_step - 1) if suffix_step is not None else None,
                      'episode_local_step': progress.get('episode_local_step') if progress else None,
                      'target_global_step': args.target_step, 'target_episode': args.target_episode,
                      'last_progress_monotonic_ns': last_advance_ns,
