@@ -1,0 +1,13 @@
+{
+  "actor_effort_count": 6,
+  "capture_phase": "pre env.step, after prior physics and before Actor action",
+  "field_order": "robot.joint_names, 52 elements; four flippers then right/left track sums form 6 Actor effort terms",
+  "finite_check": "per step in diagnostic capture",
+  "observation_processing": "clip raw grouped effort to [-100,100], then scale by 0.01; noise and policy delay follow",
+  "online_real_robot_equivalent": "not yet verified; motor/driver telemetry must expose ordered joint effort or torque",
+  "parity_sha256": "ad8fc373b7847d6733ec53ce82ccb4902cb9c3218055e33fee04c6a9d6d3bd88",
+  "raw_joint_count": 52,
+  "raw_to_pre_noise_max_abs": 3.337860107421875e-06,
+  "same_control_step": "pre-step raw tensor and captured Actor input share step identity",
+  "source_tensor": "robot.data.applied_torque"
+}

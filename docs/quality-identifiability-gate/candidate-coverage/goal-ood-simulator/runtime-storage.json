@@ -1,0 +1,33 @@
+{
+  "anchor_verified": false,
+  "candidate_runs_complete": 0,
+  "conservative_44_live_prefix_hours": 6.330838472573386,
+  "conservative_prefix_sec_per_step": 0.36228549971012397,
+  "cpu_anon_peak_bytes": 2489192448,
+  "duplicate_runs_complete": 0,
+  "elapsed_wall_sec_including_failed_and_revised_anchor": 854.4167094230652,
+  "first_anchor_elapsed_sec": 344.9141998840496,
+  "first_anchor_result": "failed diagnostic assertion on an expected prior-episode reset",
+  "first_target_episode": 4,
+  "first_target_state": "train-003",
+  "fixed_wall_cap_hours": 4,
+  "forecast_assumption": "first reset observed no later than 400 steps; subtract 200 s launch/initialization from 344.9 s elapsed as a generous allowance; ignore 120-step suffix, followers and four anchors",
+  "gpu_peak_mib": 5550,
+  "live_runs_per_state": 11,
+  "original_started_unix": 1790832289.9714067,
+  "prefix_steps_by_state": {
+    "train-003": 1621,
+    "train-004": 421,
+    "train-019": 436,
+    "train-021": 3241
+  },
+  "raw_storage_bytes": 27525715,
+  "residual_simulator_bridge_follower_router_processes": 0,
+  "revised_anchor_elapsed_sec": 258.7193450180348,
+  "revised_anchor_result": "operator-stopped before target anchor because runtime forecast exceeded cap",
+  "simulator_close_after_operator_term": "Isaac native SIGTERM ended with recursion abort; process exited and no residual process",
+  "status": "stopped_before_duplicate_and_candidate",
+  "stop_reason": "conservative full-prefix forecast exceeds fixed 4 h wall cap",
+  "stop_unix": 1790833144.388116,
+  "total_full_prefix_steps_live_runs": 62909
+}

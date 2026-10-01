@@ -1,0 +1,30 @@
+{
+  "control_or_model_change": false,
+  "parity_sha256": "ad8fc373b7847d6733ec53ce82ccb4902cb9c3218055e33fee04c6a9d6d3bd88",
+  "post_step_fields": [
+    "reward",
+    "post root state",
+    "termination reason"
+  ],
+  "pre_step_fields": [
+    "DEM history",
+    "mission goal",
+    "local goal",
+    "planned Path",
+    "follower command",
+    "pre-noise Actor observation",
+    "post-noise pre-delay observation",
+    "post-delay Actor observation",
+    "latent",
+    "action",
+    "previous action",
+    "root/joint",
+    "raw effort",
+    "scaled/clipped effort",
+    "Critic observation/value",
+    "contact",
+    "DEM/TF/command stamps"
+  ],
+  "status": "parity_pass",
+  "step_identity": "state_id, run_id, control_step, logical_stamp_ns"
+}
