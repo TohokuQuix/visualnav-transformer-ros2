@@ -1,0 +1,108 @@
+{
+  "GS1": "NA",
+  "GS2": "NA",
+  "GS3": "NA",
+  "GS4": "NA",
+  "anchor_gate": "pass",
+  "anchors": [
+    {
+      "frame_mask_iou": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "frame_rms_m": [
+        6.721484040108963e-08,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "raw_history_sha_match": false,
+      "result_sha256": "f70aa3531b10f92bd18e0bb14e3d1704f31752477df7a54375a7250b55329456",
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "frame_mask_iou": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "frame_rms_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "raw_history_sha_match": true,
+      "result_sha256": "e6974fd35cb85499e7428999fe7a4ecd9eb23d0dc2f9fe50b1251ec2c6f03712",
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "frame_mask_iou": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "frame_rms_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "raw_history_sha_match": true,
+      "result_sha256": "46ce9aaaf8dadc79692f352cfbde998fe65d6194745cb37d62a09c792ff07e26",
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "frame_mask_iou": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "frame_rms_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "raw_history_sha_match": true,
+      "result_sha256": "e849b8f3d70ab627e4b2b76b1755f1347b445c3e62946aeb2a6e0afe33c8b44b",
+      "state_id": "v2-train-003",
+      "terrain": "boxes"
+    }
+  ],
+  "candidate_outcome_count": 0,
+  "completed_anchor_count": 4,
+  "completed_live_count": 0,
+  "decision": "v2_pilot_incomplete",
+  "duplicate_gate": "NA",
+  "first_anchor_offline_gate_sha256": "4000ac13716f7fbe6f46fc738af5ffc45685c33316f7149ab032db1c37c820b7",
+  "interpretation": "monitor projected partial run output over a 3600 s timing-probe horizon; this 120-step live run had a much shorter expected horizon. Real output was below cap, but the monitor terminated after control steps began, so the frozen no-retry rule applies.",
+  "last_completed_control_step": 38,
+  "model_or_control_changed": false,
+  "next_run_started": false,
+  "projection_horizon_sec": 3600,
+  "raw_sha_is_diagnostic_only": true,
+  "resource_at_stop": {
+    "anonymous_plus_shmem_bytes": 3972685824,
+    "gpu_used_mib": 5550,
+    "mem_available_bytes": 91146104832,
+    "output_bytes": 21272558,
+    "projected_output_bytes": 808506380,
+    "seconds_since_progress": 0.0
+  },
+  "resource_failure_sha256": "5649a8e40c1c556e7655119b7dc62d66e9ecca42ef19d19ab09ea4ad344462aa",
+  "retry_performed": false,
+  "schedule_sha256": "4ebc78fd13cf1e69af754368d8a47d9327e54b188244199e9de7f10833695b86",
+  "stop_during_control_step": 39,
+  "stop_reason": "probe output reached or is projected above storage cap",
+  "stop_run_id": "v2-train-000-nominal-00",
+  "storage_cap_bytes": 800000000
+}
