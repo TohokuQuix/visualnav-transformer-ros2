@@ -87,7 +87,7 @@ def greedy_modes(rows, separation):
     return len(representatives)
 
 
-def run_metrics(entry, summary, rows):
+def run_metrics(entry, summary, rows, frozen_goal=None):
     if not rows or not all(np.isfinite(row['root_state']).all() for row in rows):
         raise ValueError('empty or nonfinite trace')
     anchor_xy = np.asarray(summary['map_path'][0], dtype=float)
@@ -106,7 +106,9 @@ def run_metrics(entry, summary, rows):
     progress = float((initial_distance - distance[primary - 1]) / initial_distance) if initial_distance else None
     common = {'state_id': entry['state_id'], 'terrain': entry['terrain'], 'run_id': entry['run_id'],
               'goal_class': entry['goal_class'], 'goal_id': entry['goal_id'], 'seed': entry['seed'],
-              'train_support_class': entry['goal_class'], 'control_steps': len(rows),
+              'train_support_class': frozen_goal['actual_train_support_class'] if frozen_goal else None,
+              'train_knn_distance_m': frozen_goal['train_knn_distance_m'] if frozen_goal else None,
+              'control_steps': len(rows),
               'terminated_early': bool(rows[-1]['terminal']),
               'catastrophic_termination': bool(rows[-1]['terminal'] and rows[-1]['terminal'].get('terminated')),
               'goal_xy_map': target.tolist(), 'goal_initial_distance_m': initial_distance,
@@ -136,6 +138,8 @@ def main():
     if marker['status'] != 'pass' or marker['schedule_sha256'] != sha(OUT / 'run-schedule-v2.json'):
         raise ValueError('44-run completion marker missing or schedule changed')
     entries = [row for row in schedule if row['kind'] != 'anchor']
+    goals = {(goal['state_id'], goal['goal_id']): goal
+             for goal in read(OUT / 'goals-v2.json')['goals']}
     if len(entries) != 44:
         raise ValueError('frozen live count differs')
     for entry in entries:
@@ -159,7 +163,11 @@ def main():
         if gate['status'] != 'pass' or len(duplicates) != 3 or len(candidates) != 8:
             raise ValueError('state duplicate gate or candidate count missing')
         for entry in candidates:
-            execution.append(run_metrics(entry, summaries[entry['run_id']], traces[entry['run_id']]))
+            frozen_goal = goals[(entry['state_id'], entry['goal_id'])]
+            if entry['goal_xy'] != frozen_goal['goal_xy'] or entry['goal_class'] != frozen_goal['declared_class']:
+                raise ValueError('frozen goal support or geometry differs')
+            execution.append(run_metrics(entry, summaries[entry['run_id']],
+                                         traces[entry['run_id']], frozen_goal))
         by_run = {e['run_id']: e for e in candidates}
         distance_rows = []
         for entry in candidates:
@@ -244,6 +252,10 @@ def main():
                        'candidate_schema_complete': all(all(
                            key in traces[e['run_id']][0] and traces[e['run_id']][0][key] is not None
                            for key in required_fields) for e in candidates),
+                       'train_support_metadata_complete': all(
+                           goals[(e['state_id'], e['goal_id'])]['train_knn_distance_m'] is not None
+                           and goals[(e['state_id'], e['goal_id'])]['actual_train_support_class']
+                           for e in candidates),
                        'raw_joint_effort_widths': sorted({len(traces[e['run_id']][0]['raw_joint_effort'])
                                                           for e in candidates}),
                        'real_robot_equivalent_effort': 'NA / not verified'})
@@ -257,7 +269,8 @@ def main():
                not any(row['catastrophic_termination'] for row in execution))
     gs2 = sum((row['core_mode_count'] or 0) >= 2 for row in diversity) >= 3
     gs3 = sum(row['pass'] for row in relative) >= 3
-    gs4 = all(row['candidate_schema_complete'] and row['raw_joint_effort_widths'] == [52] for row in schema)
+    gs4 = all(row['candidate_schema_complete'] and row['train_support_metadata_complete']
+              and row['raw_joint_effort_widths'] == [52] for row in schema)
     atomic(OUT / 'goal-execution-results-v2.json', {'runs': execution, 'core_primary_reach_rate': reach_rate,
         'state_core_primary_reach_rate': by_state_reach, 'GS1_pass': gs1})
     atomic(OUT / 'pcr-diversity-results-v2.json', {'states': diversity, 'GS2_pass': gs2})
