@@ -3,7 +3,7 @@
 The original completed runs and readiness-100 attempt-0 are never written here.
 """
 from __future__ import annotations
-import argparse, gzip, hashlib, json, os, pathlib, socket, subprocess, time
+import argparse, gzip, hashlib, json, os, pathlib, socket, subprocess, sys, time
 from visualnav_transformer.eat_nav.readiness_recovery import terminate_tree
 
 REPO=pathlib.Path('/tmp/eatnav-vnt-goal-ood-simulator')
@@ -14,6 +14,7 @@ OLD=pathlib.Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-pilot')
 SIM=ROOT/'sim.py'
 REMOTE_CODE='/tmp/eatnav-candidate-coverage/goal-ood-simulator/sim.py'
 REMOTE_ROOT='/tmp/eatnav-candidate-coverage/goal-ood-simulator/runs'
+REMOTE_INPUT_ROOT=ROOT
 ENV='PYTHONPATH=/tmp/eatnav-candidate-coverage/evaluator-readiness-code/src:/tmp/eatnav-train:/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src:/tmp/eatnav-extended/isaac-source'
 FOLL=pathlib.Path('/tmp/eatnav-candidate-coverage/evaluator-readiness-recovery/follower-build/simple_trajectory_follower_node')
 PROD=pathlib.Path('/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node')
@@ -95,7 +96,7 @@ def archive_logs(folder):
  atomic(folder/'archived-log-sha.json',ledger)
  return ledger
 
-def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600):
+def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,timing_telemetry=False):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
@@ -110,7 +111,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
         'base_path':state/f"{entry['candidate_id']}-base-path.json",
         'map_path':state/f"{entry['candidate_id']}-map-path.json",'config':state/'config-120.yaml',
         'anchor':state/'logged-anchor.json'}.items() if p.exists()}})
- bridge=None;sim=None;error=None;peak_gpu=0;peak_cpu_anon=0;fault_seen=None;baseline=active_processes()
+ bridge=None;sim=None;monitor=None;monitor_log=None;error=None;peak_gpu=0;peak_cpu_anon=0;fault_seen=None;baseline=active_processes()
  try:
   if entry['kind']!='anchor':
    args=['bash','-lc','source /opt/ros/jazzy/setup.bash; exec /usr/bin/python3 '+
@@ -131,22 +132,35 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
       '--headless','--stage','anchor' if entry['kind']=='anchor' else 'live','--repeat-id','0',
       '--logical-t0-ns',str(entry['logical_t0_ns']),'--control-steps','120',
       '--manifest','/tmp/eatnav-extended/output/manifest.json',
-      '--prefix',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/prefix-actions.npz',
-      '--other-env-actions',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/suffix-actions-120.npz',
-      '--logged-anchor',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/logged-anchor.json',
-      '--state',str(ROOT/'inputs/selected-states.json'),
-      '--base-path',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-base-path.json',
+      '--prefix',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/prefix-actions.npz',
+      '--other-env-actions',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/suffix-actions-120.npz',
+      '--logged-anchor',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/logged-anchor.json',
+      '--state',f'{REMOTE_INPUT_ROOT}/inputs/selected-states.json',
+      '--base-path',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-base-path.json',
       '--fixed-map-path',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-map-path.json',
-      '--config',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/config-120.yaml',
+      '--config',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/config-120.yaml',
       '--reference-config','/tmp/eatnav-candidate-coverage/baseline-worktree-8e8f4fd/docs/quality-identifiability-gate/phase-c/reference-eat.yaml',
       '--rl-checkpoint','/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
       '--output',remote]
-  if entry['kind']!='anchor':cmd.extend(['--goal-metadata',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["run_id"]}-goal-metadata.json'])
+  if entry['kind']!='anchor':cmd.extend(['--goal-metadata',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["run_id"]}-goal-metadata.json'])
+  if timing_telemetry:cmd.append('--timing-telemetry')
   sim_log=(target/'simulator.log').open('x')
+  if timing_telemetry:atomic(target/'docker-exec-start.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),'command':cmd})
   sim=subprocess.Popen(cmd,stdout=sim_log,stderr=subprocess.STDOUT,start_new_session=True)
+  if timing_telemetry:
+   monitor_log=(target/'timing-monitor.log').open('x')
+   monitor=subprocess.Popen([sys.executable,str(REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py'),
+       '--run',str(target),'--remote-progress',f'{remote}/timing-progress.json',
+       '--sim-host-pid',str(sim.pid),'--run-id',run_name,'--target-step',str(entry['anchor_step']),
+       '--target-episode',str(entry['episode_key'][2])],stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
   while sim.poll() is None:
    elapsed=time.monotonic()-started
    if elapsed>timeout_sec:raise TimeoutError('simulator wall limit')
+   if monitor is not None:
+    if monitor.poll() is not None:raise RuntimeError('timing monitor exited before simulator: '+str(monitor.returncode))
+    heartbeat=target/'timing-heartbeat.json'
+    if heartbeat.exists() and time.time()-heartbeat.stat().st_mtime>90:raise TimeoutError('external heartbeat older than 90 seconds')
+    if (target/'timing-stall.failure.json').exists():raise RuntimeError('external timing monitor detected stall')
    if expected_failure and 'RECOVERY_FATAL' in (target/'simulator.log').read_text(errors='replace'):
     if fault_seen is None:fault_seen=time.monotonic()
     if time.monotonic()-fault_seen>60:raise TimeoutError('exception cleanup >60 sec')
@@ -163,6 +177,13 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
           'bridge_pid':bridge.pid if bridge else None,'sim_host_pid':sim.pid,'fault_seen':fault_seen is not None})
    time.sleep(2)
   sim_log.close()
+  if monitor is not None:
+   atomic(target/'monitor.stop',{'simulator_exit_code':sim.returncode,'monotonic_ns':time.monotonic_ns()})
+   monitor.wait(timeout=20)
+   monitor_log.close()
+   if monitor.returncode:raise RuntimeError('timing monitor failed: '+str(monitor.returncode))
+   atomic(target/'docker-exec-return.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),
+                                           'exit_code':sim.returncode})
   code=sim.returncode
   if expected_failure:
    for name in ('failure-0.marker.json','failure-0.trace.json.gz','status.json'):
@@ -178,6 +199,9 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    stage='anchor' if entry['kind']=='anchor' else 'live'
    names=['anchor-0.json','anchor-0.marker.json'] if stage=='anchor' else ['live-0.json','live-0.trace.json.gz','live-0.clock.json.gz','live-0.marker.json']
    for name in names:subprocess.run(['docker','cp',f'isaac-lab-onix:{remote}/{name}',str(target/name)],check=True)
+   if timing_telemetry:
+    for name in ('timing-events.jsonl','timing-progress.json','timing-step-durations.json'):
+     subprocess.run(['docker','cp',f'isaac-lab-onix:{remote}/{name}',str(target/name)],check=True)
    summary=read(target/names[0])
    if summary['state']['state_id']!=entry['state_id'] or summary['requested_control_steps']!=120:raise ValueError('result identity')
    if stage=='live':
@@ -197,6 +221,11 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    killed=_terminate_docker_sim(run_name)
    atomic(target/'forced-sim-cleanup.json',{'error':error,'docker_pids_killed':killed})
  finally:
+  if monitor is not None and monitor.poll() is None:
+   atomic(target/'monitor.stop',{'cleanup':True,'monotonic_ns':time.monotonic_ns()})
+   try:monitor.wait(timeout=20)
+   except subprocess.TimeoutExpired:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
+  if monitor_log is not None and not monitor_log.closed:monitor_log.close()
   if bridge is not None:
    try:
     response=bridge_request('shutdown')

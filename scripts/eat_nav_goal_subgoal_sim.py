@@ -9,8 +9,10 @@ import gzip
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import random
+import statistics
 import time
 
 from isaaclab.app import AppLauncher
@@ -33,8 +35,40 @@ parser.add_argument('--reference-config',type=Path,required=True)
 parser.add_argument('--rl-checkpoint',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
 parser.add_argument('--goal-metadata',type=Path,default=None)
+parser.add_argument('--timing-telemetry',action='store_true')
 AppLauncher.add_app_launcher_args(parser)
 args=parser.parse_args()
+TIMING_DURATIONS_NS=[]
+TIMING_STARTED_NS=time.monotonic_ns()
+
+
+def timing_event(name, **fields):
+    if not args.timing_telemetry:return
+    args.output.mkdir(parents=True,exist_ok=True)
+    row={'event':name,'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),
+         'process_cpu_ns':time.process_time_ns(),'pid':os.getpid(),**fields}
+    with (args.output/'timing-events.jsonl').open('a') as stream:
+        stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+'\n')
+        stream.flush()
+
+
+def timing_progress(step,episode,local_step,last_reset_ns,logical_time):
+    if not args.timing_telemetry:return
+    recent=TIMING_DURATIONS_NS[-25:]
+    ordered=sorted(recent)
+    p95=ordered[min(len(ordered)-1,math.ceil(.95*len(ordered))-1)] if ordered else None
+    atomic(args.output/'timing-progress.json',{
+        'pid':os.getpid(),'process_started_monotonic_ns':TIMING_STARTED_NS,
+        'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),
+        'process_cpu_ns':time.process_time_ns(),'last_completed_step':step,
+        'current_episode':episode,'episode_local_step':local_step,
+        'last_reset_monotonic_ns':last_reset_ns,'simulator_logical_time_sec':logical_time,
+        'rolling_step_median_ns':statistics.median(recent) if recent else None,
+        'rolling_step_p95_ns':p95,'rolling_step_max_ns':max(recent) if recent else None,
+        'completed_step_count':len(TIMING_DURATIONS_NS)})
+
+
+timing_event('isaac_start')
 simulation_app=AppLauncher(args).app
 
 import gymnasium as gym
@@ -297,19 +331,25 @@ def main():
     if toggles!=manifest['metadata']['observation_toggles']:raise ValueError('observation toggles mismatch')
     env_cfg=make_collection_cfg(OnixRoughEnvCfg(**toggles),cfg,manifest['metadata']['base_seed'],100)
     env=RslRlVecEnvWrapper(gym.make('Isaac-Velocity-Rough-Onix-v0',cfg=env_cfg))
+    timing_event('scene_construction_complete')
     ACTIVE_ENV = env
     bare=env.unwrapped
     runner=OnPolicyRunner(env,OnixRoughPPORunnerCfg().to_dict(),log_dir=None,device=bare.device)
     weights=torch.load(args.rl_checkpoint,map_location='cpu',weights_only=True)['model_state_dict']
     runner.alg.policy.load_state_dict(weights);policy=runner.alg.policy
     obs,_=env.reset();capture=ObservationCapture(bare.observation_manager)
+    timing_event('initial_reset_complete')
     ACTIVE_CAPTURE = capture
     i=state['episode_key'][1]
     dem_frames=[];prefix_command_diffs=[];captured=None;selected_env_reset_count=0
+    last_reset_step=-1;last_reset_ns=None
     frame_steps={state['step']-15,state['step']-10,state['step']-5,state['step']}
+    timing_event('prefix_replay_start',target_global_step=state['step'],target_episode=state['episode_key'][2])
     for step,batch in enumerate(actions):
         if step==state['step']:capture.begin_step()
+        step_started_ns=time.monotonic_ns()
         with torch.inference_mode():obs,reward,done,_=env.step(torch.as_tensor(batch,device=bare.device))
+        TIMING_DURATIONS_NS.append(time.monotonic_ns()-step_started_ns)
         if step==state['step']:captured=capture.finish_step(obs)
         # The collector retains a live command tensor and serializes it after env.step.
         # Its row command is therefore the post-step command, including resampling.
@@ -318,8 +358,22 @@ def main():
         if step in frame_steps:dem_frames.append(dem_capture(bare,i,cfg)['transformed'])
         if bool(done[i]):
             selected_env_reset_count+=1
+            last_reset_step=step;last_reset_ns=time.monotonic_ns()
+            timing_event('episode_reset',global_step=step,episode_after_reset=selected_env_reset_count)
+            if selected_env_reset_count==state['episode_key'][2]:
+                timing_event('target_episode_start',global_step=step+1,target_episode=selected_env_reset_count)
             if step>=state['step']-state['local_step']:
                 raise ValueError('selected target episode reset during prefix')
+        sim_time=getattr(bare.sim,'current_time',None)
+        timing_progress(step,selected_env_reset_count,step-last_reset_step,last_reset_ns,
+                        float(sim_time) if sim_time is not None else float((step+1)*bare.step_dt))
+        if (step+1)%25==0:
+            timing_event('prefix_progress_25',global_step=step,episode=selected_env_reset_count,
+                         episode_local_step=step-last_reset_step)
+    timing_event('target_anchor_reached',global_step=state['step'],episode=selected_env_reset_count)
+    if args.timing_telemetry:
+        atomic(args.output/'timing-step-durations.json',{'step_duration_ns':TIMING_DURATIONS_NS,
+            'target_global_step':state['step'],'target_episode':state['episode_key'][2]})
     if max(prefix_command_diffs)>1e-5:raise ValueError('natural prefix command differs from logged command')
     if len(dem_frames)!=4:raise ValueError('four-frame DEM history missing')
     if selected_env_reset_count!=state['episode_key'][2]:
@@ -339,6 +393,7 @@ def main():
     limits=config_spec['anchor_limits']
     if error['position_m']>limits['position_m'] or error['orientation_rad']>limits['orientation_rad'] or error['dem_rms_m']>limits['dem_rms_m'] or error['mask_iou']<limits['mask_iou_min']:
         raise ValueError('logged anchor tolerance failed: '+repr(error))
+    timing_event('anchor_verification_complete',anchor_error=error)
     pose=local_pose(bare,i);computed_path=map_path(base_path,pose)
     if args.stage=='anchor':
         if args.fixed_map_path.exists():
@@ -467,6 +522,7 @@ def main():
     trace_path=args.output/f'{args.stage}-{args.repeat_id}.trace.json.gz'
     if result_path.exists() or trace_path.exists():raise FileExistsError('run output exists without valid marker')
     if args.stage=='anchor':
+        timing_event('cleanup_start')
         atomic(result_path,summary)
         atomic(marker,{'source':source,'outputs_sha256':{str(result_path):sha(result_path)},
                        'fixed_map_path_sha256':sha(args.fixed_map_path)})
@@ -501,6 +557,10 @@ try:
 except BaseException as exc:
     import traceback
     print('RECOVERY_FATAL',repr(exc),flush=True)
+    timing_event('failure',error=repr(exc))
+    if args.timing_telemetry and TIMING_DURATIONS_NS:
+        atomic(args.output/'timing-step-durations.json',{'step_duration_ns':TIMING_DURATIONS_NS,
+            'incomplete':True})
     traceback.print_exc()
     args.output.mkdir(parents=True, exist_ok=True)
     try:
