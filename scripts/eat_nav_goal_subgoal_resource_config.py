@@ -20,7 +20,7 @@ def main():
     prior = json.loads((PREV / 'runs/train-003-timing-anchor/final-status.json').read_text())
     known_good = int(prior['cpu_anon_peak_bytes'])
     anon_cap = max(6 * 1024**3, 2 * known_good)
-    host_total = int(audit['host_meminfo_kib']['MemTotal']) * 1024
+    host_total = int(audit['host_meminfo_kib']['MemTotal:']) * 1024
     host_min = max(4 * 1024**3, math.ceil(.10 * host_total))
     config = {
         'status': 'frozen_before_resource_probe',
