@@ -107,7 +107,8 @@ def main() -> None:
     processes = subprocess.check_output(['ps', '-eo', 'pid,ppid,etimes,args'], text=True)
     docker_processes = subprocess.check_output(['docker', 'exec', 'isaac-lab-onix', 'ps', '-eo', 'pid,ppid,etimes,args'], text=True)
     relevant = ('eat_nav_goal_subgoal', 'eat_nav_command_delivery_bridge', 'simple_trajectory_follower_node', 'rmw_zenohd', 'isaac-sim/python.sh')
-    active = [line for line in processes.splitlines() if any(term in line for term in relevant) and 'ps -eo' not in line]
+    active = [line for line in processes.splitlines() if any(term in line for term in relevant)
+              and 'ps -eo' not in line and 'eat_nav_goal_subgoal_timing_audit.py' not in line]
     active_docker = [line for line in docker_processes.splitlines() if any(term in line for term in relevant) and 'ps -eo' not in line]
     if active or active_docker:
         raise RuntimeError(f'existing pilot processes active: host={active}, docker={active_docker}')
