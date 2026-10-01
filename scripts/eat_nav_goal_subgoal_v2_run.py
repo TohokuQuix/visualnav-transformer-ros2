@@ -196,12 +196,33 @@ def verify_saved_run(entry, actual_name=None):
     """Recheck frozen input/output bytes before reusing a completed process."""
     actual_name = actual_name or run_name(entry)
     folder = OUT / 'runs' / actual_name
-    complete = read(folder / 'run-complete.json')
+    recovered_path = folder / 'recovered_complete_after_monitor_cleanup_race.json'
+    recovered = recovered_path.exists()
+    complete = read(recovered_path if recovered else folder / 'run-complete.json')
     started = read(folder / 'started.json')
-    if complete['identity'] != entry or started['entry'] != entry or started['run_name'] != actual_name:
+    if started['entry'] != entry or started['run_name'] != actual_name or (
+            recovered and (entry['order'] != 21 or complete['logical_run_id'] != actual_name)) or (
+            not recovered and complete['identity'] != entry):
         raise ValueError('saved run identity differs')
-    if complete['protocol'] != 'fresh_bridge_per_run' or read(folder / 'final-status.json')['stage'] != 'COMPLETE':
+    final = read(folder / 'final-status.json')
+    if recovered:
+        if (complete['classification'] != 'recovered_complete_after_monitor_cleanup_race'
+                or complete['trace_steps'] != 120 or not complete['all_numeric_finite']
+                or final['sim_exit'] != 0 or final['bridge_exit'] != 0 or final['residual_processes']
+                or complete['started_sha256'] != sha(folder / 'started.json')
+                or complete['final_status_sha256'] != sha(folder / 'final-status.json')
+                or complete['resource_failure_sha256'] != sha(folder / 'resource-stop.failure.json')
+                or complete['schedule_sha256'] != sha(OUT / 'run-schedule-v2.json')):
+            raise ValueError('recovery evidence drift')
+    elif (complete['protocol'] != 'fresh_bridge_per_run' or final['stage'] != 'COMPLETE'
+            or ((folder / 'timing-monitor.done.json').exists() and
+                read(folder / 'timing-monitor.done.json').get('status') not in ('complete', 'stopped'))):
         raise ValueError('saved run did not complete normally')
+    if not recovered and entry['order'] >= 22:
+        done = read(folder / 'timing-monitor.done.json')
+        if (done.get('status') != 'complete' or done.get('lifecycle') != 'COMPLETE_MARKER'
+                or done.get('complete_marker_sha256') != sha(folder / 'run-complete.json')):
+            raise ValueError('continuation cleanup verification missing or mismatched')
     for name, digest in complete['output_sha256'].items():
         if sha(folder / name) != digest:
             raise ValueError('saved run output SHA drift: ' + name)
@@ -229,7 +250,7 @@ def verify_saved_run(entry, actual_name=None):
         raise ValueError('saved reference config or raw manifest SHA drift')
     if marker['source']['state'] != sha(OUT / 'inputs/selected-states.json'):
         raise ValueError('saved selected state input SHA drift')
-    return {'run_complete_sha256': sha(folder / 'run-complete.json'),
+    return {'run_complete_sha256': sha(recovered_path if recovered else folder / 'run-complete.json'),
             'started_sha256': sha(folder / 'started.json'),
             'marker_sha256': sha(folder / ('anchor-0.marker.json' if entry['kind'] == 'anchor' else 'live-0.marker.json'))}
 
@@ -273,7 +294,9 @@ def verify_anchor(entry):
               'detailed_fields_saved': sorted(anchor),
               'historical_reference_NA': ['joint position/velocity', 'Actor observation/latent',
                                           'Critic observation', 'previous action', 'raw joint effort'],
-              'run_complete_sha256': sha(folder / 'run-complete.json'),
+              'run_complete_sha256': sha(folder / ('recovered_complete_after_monitor_cleanup_race.json'
+                                                  if (folder / 'recovered_complete_after_monitor_cleanup_race.json').exists()
+                                                  else 'run-complete.json')),
               'anchor_summary_sha256': sha(folder / summary_name),
               'simulator_elapsed_sec': read(folder / 'final-status.json')['elapsed_sec']}
     result['run_id'] = entry['run_id']

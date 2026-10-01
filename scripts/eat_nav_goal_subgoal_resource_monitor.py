@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -105,7 +106,7 @@ def evaluate(snapshot: dict, config: dict, state: dict) -> tuple[str | None, lis
         return 'probe output reached or is projected above storage cap', warnings
     if not snapshot['router_alive']:
         return 'router process stopped', warnings
-    if not snapshot['docker_exec_alive']:
+    if not snapshot['docker_exec_alive'] and not state.get('cleanup_grace_active'):
         return 'Docker exec process stopped before cleanup', warnings
     logical_time = snapshot['simulator_logical_time_sec']
     if logical_time is not None and not math.isfinite(logical_time):
@@ -195,6 +196,29 @@ def output_bytes(path: Path):
     return sum(item.stat().st_size for item in path.rglob('*') if item.is_file())
 
 
+def verified_complete_marker(folder: Path) -> bool:
+    """Accept cleanup only after host output copies match the atomic marker."""
+    path = folder / 'run-complete.json'
+    if not path.exists():
+        return False
+    complete = json.loads(path.read_text())
+    if complete.get('protocol') != 'fresh_bridge_per_run':
+        raise ValueError('unexpected complete marker protocol')
+    outputs = complete.get('output_sha256')
+    if not isinstance(outputs, dict) or not outputs:
+        raise ValueError('missing completed output SHA ledger')
+    for name, digest in outputs.items():
+        if Path(name).name != name or not (folder / name).is_file():
+            raise ValueError('completed output missing: ' + name)
+        h = hashlib.sha256()
+        with (folder / name).open('rb') as stream:
+            for part in iter(lambda: stream.read(1 << 20), b''):
+                h.update(part)
+        if h.hexdigest() != digest:
+            raise ValueError('completed output SHA mismatch: ' + name)
+    return True
+
+
 def v2_storage_projection(*, root: Path, active: Path, remote_root_bytes: int,
                           remote_active_bytes: int, completed_remote_bytes: dict[str, int],
                           schedule: dict, completed_step: int,
@@ -221,7 +245,7 @@ def v2_storage_projection(*, root: Path, active: Path, remote_root_bytes: int,
     for entry in runs:
         name = (entry['run_id'] + '-attempt-1' if entry['order'] == 1 else entry['run_id'])
         folder = root / 'runs' / name
-        if (folder / 'run-complete.json').exists():
+        if (folder / 'run-complete.json').exists() or (folder / 'recovered_complete_after_monitor_cleanup_race.json').exists():
             completed.append(entry)
             host_size = output_bytes(folder)
             completed_host_bytes += host_size
@@ -311,12 +335,20 @@ def main():
         raise ValueError('v2 storage protocol or frozen threshold differs')
     initial_active_bytes = None
     completed_remote_sizes = {}
+    cleanup_started_ns = None
+    cleanup_grace_sec = 120
     while True:
         cycle_ns = time.monotonic_ns()
-        if (args.run / 'monitor.stop').exists() or not pid_alive(args.sim_host_pid):
+        if v2_protocol is None and ((args.run / 'monitor.stop').exists() or not pid_alive(args.sim_host_pid)):
             atomic(args.run / 'timing-monitor.done.json', {'status': 'stopped', 'last_step': last_step,
                                                             'last_heartbeat_monotonic_ns': cycle_ns})
             return
+        if v2_protocol is not None and (args.run / 'monitor.stop').exists():
+            stop = json.loads((args.run / 'monitor.stop').read_text())
+            if stop.get('cleanup') or stop.get('simulator_exit_code') not in (None, 0):
+                atomic(args.run / 'timing-monitor.done.json', {'status': 'aborted', 'last_step': last_step,
+                                                                'last_heartbeat_monotonic_ns': cycle_ns})
+                return
         progress = maybe(lambda: json.loads(remote('cat', args.remote_progress)))
         if progress and progress.get('last_completed_step', -1) > last_step:
             last_step = progress['last_completed_step']
@@ -325,6 +357,42 @@ def main():
         if suffix_step is not None and suffix_step > last_step:
             last_step = suffix_step
             last_advance_ns = cycle_ns
+        suffix_finished = last_step >= args.target_step + 120
+        if v2_protocol is not None and suffix_finished and cleanup_started_ns is None:
+            cleanup_started_ns = cycle_ns
+        cleanup_active = cleanup_started_ns is not None
+        state['cleanup_grace_active'] = cleanup_active
+        if v2_protocol is not None and cleanup_active and not pid_alive(args.sim_host_pid):
+            try:
+                verified = verified_complete_marker(args.run)
+            except (OSError, ValueError, json.JSONDecodeError) as exc:
+                atomic(args.run / 'cleanup.failure.json', {'reason': 'host output SHA verification failed',
+                                                            'detail': repr(exc), 'last_step': last_step})
+                raise
+            lifecycle = ('SHA_VERIFIED' if verified
+                         else 'HOST_COPY' if (args.run / 'docker-exec-return.json').exists()
+                         else 'SIMULATOR_EXITED')
+            if lifecycle == 'SHA_VERIFIED':
+                actual_final_bytes = output_bytes(args.run.parent.parent) + int(remote(
+                    'du', '-sb', str(args.run.parent.parent)).split()[0])
+                if actual_final_bytes > config['storage_cap_bytes']:
+                    atomic(args.run / 'cleanup.failure.json', {'reason': '0.8 GB storage cap exceeded during host cleanup',
+                                                                'actual_storage_bytes': actual_final_bytes})
+                    raise RuntimeError('0.8 GB storage cap exceeded during host cleanup')
+                atomic(args.run / 'timing-monitor.done.json', {
+                    'status': 'complete', 'lifecycle': 'COMPLETE_MARKER', 'last_step': last_step,
+                    'actual_final_storage_bytes': actual_final_bytes,
+                    'complete_marker_sha256': hashlib.sha256((args.run / 'run-complete.json').read_bytes()).hexdigest(),
+                    'last_heartbeat_monotonic_ns': cycle_ns})
+                return
+            if (cycle_ns - cleanup_started_ns) / 1e9 > cleanup_grace_sec:
+                atomic(args.run / 'cleanup.failure.json', {'reason': 'cleanup grace exceeded before verified complete marker',
+                                                            'grace_sec': cleanup_grace_sec, 'last_step': last_step})
+                raise RuntimeError('cleanup grace exceeded before verified complete marker')
+        else:
+            lifecycle = 'SUFFIX_120_REACHED' if cleanup_active else 'RUNNING'
+        if v2_protocol is not None and not pid_alive(args.sim_host_pid) and not cleanup_active:
+            raise RuntimeError('Docker exec process stopped before 120-step trace')
         pid = progress.get('pid') if progress else None
         stat = parse_pairs(remote('cat', '/sys/fs/cgroup/memory.stat'), wanted=STAT_KEYS)
         events = parse_pairs(remote('cat', '/sys/fs/cgroup/memory.events'), wanted=EVENT_KEYS)
@@ -362,7 +430,8 @@ def main():
             remote_root_size = int(remote('du', '-sb', remote_root).split()[0])
             for entry in v2_schedule['runs']:
                 name = entry['run_id'] + '-attempt-1' if entry['order'] == 1 else entry['run_id']
-                if name not in completed_remote_sizes and (args.run.parent / name / 'run-complete.json').exists():
+                if name not in completed_remote_sizes and ((args.run.parent / name / 'run-complete.json').exists()
+                        or (args.run.parent / name / 'recovered_complete_after_monitor_cleanup_race.json').exists()):
                     completed_remote_sizes[name] = int(remote('du', '-sb',
                         remote_root + '/runs/' + name).split()[0])
             if initial_active_bytes is None:
@@ -393,6 +462,7 @@ def main():
         }
         reason, warnings = evaluate(snapshot, config, state)
         heartbeat = {'run_id': args.run_id, 'monitor_pid': os.getpid(),
+                     'lifecycle': lifecycle,
                      'sim_host_pid': args.sim_host_pid, 'simulator_pid': pid,
                      'process_started_monotonic_ns': progress.get('process_started_monotonic_ns') if progress else None,
                      'monotonic_ns': cycle_ns, 'wall_ns': time.time_ns(),

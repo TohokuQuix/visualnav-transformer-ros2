@@ -98,7 +98,7 @@ def archive_logs(folder):
 
 def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,
             timing_telemetry=False,timing_monitor_script=None,timing_monitor_config=None,
-            timing_monitor_extra_args=()):
+            timing_monitor_extra_args=(),monitor_cleanup_protocol=False):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
@@ -189,10 +189,11 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    time.sleep(2)
   sim_log.close()
   if monitor is not None:
-   atomic(target/'monitor.stop',{'simulator_exit_code':sim.returncode,'monotonic_ns':time.monotonic_ns()})
-   monitor.wait(timeout=20)
-   monitor_log.close()
-   if monitor.returncode:raise RuntimeError('timing monitor failed: '+str(monitor.returncode))
+   if not monitor_cleanup_protocol or sim.returncode:
+    atomic(target/'monitor.stop',{'simulator_exit_code':sim.returncode,'monotonic_ns':time.monotonic_ns()})
+    monitor.wait(timeout=20)
+    monitor_log.close()
+    if monitor.returncode:raise RuntimeError('timing monitor failed: '+str(monitor.returncode))
    atomic(target/'docker-exec-return.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),
                                            'exit_code':sim.returncode})
   code=sim.returncode
@@ -232,11 +233,11 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    killed=_terminate_docker_sim(run_name)
    atomic(target/'forced-sim-cleanup.json',{'error':error,'docker_pids_killed':killed})
  finally:
-  if monitor is not None and monitor.poll() is None:
+  if monitor is not None and monitor.poll() is None and (error or not monitor_cleanup_protocol):
    atomic(target/'monitor.stop',{'cleanup':True,'monotonic_ns':time.monotonic_ns()})
    try:monitor.wait(timeout=20)
    except subprocess.TimeoutExpired:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
-  if monitor_log is not None and not monitor_log.closed:monitor_log.close()
+  if monitor_log is not None and not monitor_log.closed and (error or not monitor_cleanup_protocol):monitor_log.close()
   if bridge is not None:
    try:
     response=bridge_request('shutdown')
@@ -264,6 +265,15 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
  atomic(target/'run-complete.json',{'identity':entry,'output_sha256':{name:sha(target/name) for name in names},
        'protocol':'fresh_bridge_per_run','elapsed_sec':time.monotonic()-started,
        'gpu_peak_mib':peak_gpu,'cpu_anon_peak_bytes':peak_cpu_anon})
+ if monitor_cleanup_protocol and monitor is not None:
+  try:
+   monitor.wait(timeout=130)
+   done=read(target/'timing-monitor.done.json')
+   if monitor.returncode or done.get('status')!='complete' or done.get('lifecycle')!='COMPLETE_MARKER':
+    raise RuntimeError('monitor did not verify cleanup complete marker')
+  finally:
+   if monitor.poll() is None:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
+   if monitor_log is not None and not monitor_log.closed:monitor_log.close()
  return read(target/'run-complete.json')
 
 if __name__=='__main__':

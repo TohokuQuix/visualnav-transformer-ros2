@@ -94,6 +94,29 @@ class ResourceMonitorTest(unittest.TestCase):
             self.assertTrue(monitor.heartbeat_stale(path, now, 90))
             self.assertFalse(monitor.heartbeat_stale(path, now, 95))
 
+    def test_cleanup_grace_allows_simulator_exit_only_after_suffix(self):
+        row = snapshot()
+        row['docker_exec_alive'] = False
+        row['simulator_alive'] = False
+        self.assertIn('Docker exec', monitor.evaluate(row, config(), {})[0])
+        self.assertIsNone(monitor.evaluate(row, config(), {'cleanup_grace_active': True})[0])
+        row['gpu_used_mib'] = 6657
+        self.assertIn('GPU', monitor.evaluate(row, config(), {'cleanup_grace_active': True})[0])
+
+    def test_cleanup_requires_sha_verified_complete_marker(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / 'live-0.json').write_bytes(b'completed')
+            self.assertFalse(monitor.verified_complete_marker(folder))
+            monitor.atomic(folder / 'run-complete.json', {
+                'protocol': 'fresh_bridge_per_run',
+                'output_sha256': {'live-0.json': hashlib.sha256(b'completed').hexdigest()}})
+            self.assertTrue(monitor.verified_complete_marker(folder))
+            (folder / 'live-0.json').write_bytes(b'changed')
+            with self.assertRaises(ValueError):
+                monitor.verified_complete_marker(folder)
+
     def test_live_suffix_progress_uses_existing_step_return_log(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'simulator.log'

@@ -114,7 +114,7 @@ def run_metrics(entry, summary, rows, frozen_goal=None):
               'goal_xy_map': target.tolist(), 'goal_initial_distance_m': initial_distance,
               'planned_endpoint_error_m': float(np.linalg.norm(planned[-1] - target)),
               'path_sha256': entry['base_path_sha256'],
-              'input_sha256': sha(OUT / 'runs' / run_name(entry) / 'run-complete.json')}
+              'input_sha256': verify_saved_run(entry)['run_complete_sha256']}
     horizons = {}
     for name, count in [('primary_0_2s', primary), ('secondary_0_6s', secondary)]:
         d = distance[:count]
@@ -134,7 +134,9 @@ def run_metrics(entry, summary, rows, frozen_goal=None):
 
 def main():
     schedule = read(OUT / 'run-schedule-v2.json')['runs']
-    marker = read(OUT / 'v8-numeric-gate.done.json')
+    marker_path = (OUT / 'v2-continuation.done.json' if (OUT / 'v2-continuation.done.json').exists()
+                   else OUT / 'v8-numeric-gate.done.json')
+    marker = read(marker_path)
     if marker['status'] != 'pass' or marker['schedule_sha256'] != sha(OUT / 'run-schedule-v2.json'):
         raise ValueError('44-run completion marker missing or schedule changed')
     entries = [row for row in schedule if row['kind'] != 'anchor']
