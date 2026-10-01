@@ -90,7 +90,15 @@ def main():
     }
     for key in ('evaluator_GT_11', 'evaluator_GT_29', 'evaluator_GT_47'):
         item = eval_source[key]
-        paths[key] = checked(item['path'], item['sha256'], key)
+        if Path(item['path']).exists():
+            paths[key] = checked(item['path'], item['sha256'], key)
+        else:
+            digest, container_path = output(['docker', 'exec', 'isaac-lab-onix', 'sha256sum', item['path']]).split()
+            if digest != item['sha256'] or container_path != item['path']:
+                raise ValueError(f'{key} missing on host and Docker SHA mismatch')
+            size = int(output(['docker', 'exec', 'isaac-lab-onix', 'stat', '-c', '%s', item['path']]).strip())
+            paths[key] = {'container_path': container_path, 'sha256': digest, 'bytes': size,
+                          'host_path_missing': True}
     rl_path = '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt'
     rl_sha = output(['docker', 'exec', 'isaac-lab-onix', 'sha256sum', rl_path]).split()[0]
     if rl_sha != 'b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d':
