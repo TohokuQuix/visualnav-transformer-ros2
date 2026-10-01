@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "storage_cap_bytes": 800000000,
+  "bootstrap_total_bytes": 239907072,
+  "run_control_steps": 120,
+  "schedule_run_count": 48,
+  "accounting": "actual host root plus Docker root; active raw host plus Docker; completed compressed bytes reported separately",
+  "projection": "remaining control steps of active run plus remaining frozen schedule; before first completed live run, use the frozen bootstrap total as a floor",
+  "attempt_0": "v2-train-000-nominal-00 is measurement-invalid due to monitor protocol error and excluded from duplicate and outcome analysis",
+  "attempt_1": "v2-train-000-nominal-00-attempt-1 is the sole authorized replacement using the unchanged frozen schedule entry"
+}

@@ -130,6 +130,57 @@ class ResourceMonitorTest(unittest.TestCase):
         import numpy
         self.assertTrue(numpy.__version__)
 
+    def test_v2_storage_uses_remaining_steps_and_frozen_baseline(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            active = root / 'runs' / 'run-1-attempt-1'
+            active.mkdir(parents=True)
+            (active / 'simulator.log').write_bytes(b'x' * 10_000)
+            schedule = {'runs': [{'run_id': f'run-{i}', 'order': i,
+                                  'kind': 'anchor' if i < 4 else 'candidate'}
+                                 for i in range(48)]}
+            result = monitor.v2_storage_projection(
+                root=root, active=active, remote_root_bytes=50_000,
+                remote_active_bytes=5_000, schedule=schedule, completed_step=60,
+                target_step=60, initial_active_bytes=5_000,
+                baseline_bytes=239_907_072)
+            self.assertEqual(result['active_raw_bytes'], 15_000)
+            self.assertEqual(result['remaining_current_control_steps'], 120)
+            self.assertEqual(result['remaining_future_run_count'], 47)
+            self.assertGreaterEqual(result['projected_final_storage_bytes'], 239_907_072)
+            self.assertLess(result['projected_final_storage_bytes'], 800_000_000)
+            self.assertEqual(result['completed_live_count'], 0)
+            self.assertEqual(result['actual_storage_bytes'], 60_000)
+            row = snapshot()
+            row['output_bytes'] = result['actual_storage_bytes']
+            row['projected_output_bytes'] = result['projected_final_storage_bytes']
+            self.assertIsNone(monitor.evaluate(row, config(), {})[0])
+
+    def test_v2_storage_counts_completed_compressed_run_and_actual_cap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            completed = root / 'runs' / 'run-4'
+            completed.mkdir(parents=True)
+            (completed / 'run-complete.json').write_text('{}')
+            (completed / 'trace.json.gz').write_bytes(b'z' * 5_000)
+            active = root / 'runs' / 'run-5'
+            active.mkdir()
+            (active / 'simulator.log').write_bytes(b'x' * 2_000)
+            schedule = {'runs': [{'run_id': f'run-{i}', 'order': i,
+                                  'kind': 'candidate'} for i in range(48)]}
+            result = monitor.v2_storage_projection(
+                root=root, active=active, remote_root_bytes=1_000,
+                remote_active_bytes=500, schedule=schedule, completed_step=5,
+                target_step=60, initial_active_bytes=1_000,
+                baseline_bytes=239_907_072)
+            self.assertEqual(result['completed_live_count'], 1)
+            self.assertEqual(result['cleanup_compressed_bytes'], 5_000)
+            self.assertEqual(result['remaining_future_run_count'], 46)
+            row = snapshot()
+            row['output_bytes'] = 800_000_001
+            row['projected_output_bytes'] = 800_000_001
+            self.assertIn('storage cap', monitor.evaluate(row, config(), {})[0])
+
 
 if __name__ == '__main__':
     unittest.main()

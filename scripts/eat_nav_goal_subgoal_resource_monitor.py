@@ -7,7 +7,6 @@ import math
 import os
 import re
 from pathlib import Path
-import re
 import subprocess
 import time
 
@@ -196,6 +195,67 @@ def output_bytes(path: Path):
     return sum(item.stat().st_size for item in path.rglob('*') if item.is_file())
 
 
+def v2_storage_projection(*, root: Path, active: Path, remote_root_bytes: int,
+                          remote_active_bytes: int, schedule: dict, completed_step: int,
+                          target_step: int, initial_active_bytes: int,
+                          baseline_bytes: int) -> dict:
+    """Project the fixed schedule using control steps and completed run sizes.
+
+    Host and Docker output roots are distinct storage locations.  Count both
+    actual footprints, including the preserved invalid attempt.  The frozen
+    pre-run estimate remains a floor until at least one live run completes.
+    """
+    host_root_bytes = output_bytes(root)
+    host_active_bytes = output_bytes(active)
+    actual = host_root_bytes + remote_root_bytes
+    active_raw = host_active_bytes + remote_active_bytes
+    runs = schedule['runs']
+    if len(runs) != 48 or baseline_bytes != 239_907_072:
+        raise ValueError('v2 schedule or frozen storage baseline differs')
+    completed = []
+    completed_live = []
+    completed_host_bytes = 0
+    compressed_logs = 0
+    for entry in runs:
+        name = (entry['run_id'] + '-attempt-1' if entry['order'] == 1 else entry['run_id'])
+        folder = root / 'runs' / name
+        if (folder / 'run-complete.json').exists():
+            completed.append(entry)
+            completed_host_bytes += output_bytes(folder)
+            if entry['kind'] != 'anchor':
+                completed_live.append(output_bytes(folder))
+            compressed_logs += sum(p.stat().st_size for p in folder.rglob('*.gz') if p.is_file())
+    total_steps = target_step + 1 + 120
+    done_steps = max(0, min(total_steps, completed_step + 1))
+    remaining_steps = total_steps - done_steps
+    growth = max(0, active_raw - initial_active_bytes)
+    rate = growth / max(1, done_steps)
+    active_future_growth = int(math.ceil(rate * remaining_steps))
+    bootstrap_per_run = baseline_bytes / len(runs)
+    # Docker keeps its own copy of the serialized trace.  Doubling the
+    # measured host footprint bounds this copy without counting it as free.
+    measured_per_run = 2 * max(completed_live) if completed_live else None
+    future_per_run = max(bootstrap_per_run, measured_per_run or 0)
+    future_count = max(0, len(runs) - len(completed) - 1)
+    predicted = max(actual, baseline_bytes,
+                    int(math.ceil(actual + active_future_growth + future_count * future_per_run)))
+    return {'actual_storage_bytes': actual, 'actual_host_root_bytes': host_root_bytes,
+            'actual_docker_root_bytes': remote_root_bytes,
+            'active_raw_bytes': active_raw, 'active_host_bytes': host_active_bytes,
+            'active_docker_bytes': remote_active_bytes,
+            'cleanup_compressed_bytes': compressed_logs,
+            'completed_host_run_bytes': completed_host_bytes,
+            'completed_run_count': len(completed),
+            'completed_live_count': len(completed_live),
+            'remaining_current_control_steps': remaining_steps,
+            'remaining_future_run_count': future_count,
+            'observed_active_growth_bytes_per_step': rate,
+            'projected_active_remaining_bytes': active_future_growth,
+            'bootstrap_total_bytes': baseline_bytes,
+            'future_run_estimate_bytes': future_per_run,
+            'projected_final_storage_bytes': predicted}
+
+
 def failure_evidence(folder: Path, reason: str, heartbeat: dict):
     evidence = {'reason': reason, 'heartbeat': heartbeat, 'captured_wall_ns': time.time_ns()}
     for key, argv in {
@@ -221,6 +281,9 @@ def main():
     parser.add_argument('--target-step', type=int, required=True)
     parser.add_argument('--target-episode', type=int, required=True)
     parser.add_argument('--config', type=Path, required=True)
+    parser.add_argument('--v2-schedule', type=Path)
+    parser.add_argument('--v2-forecast', type=Path)
+    parser.add_argument('--v2-storage-protocol', type=Path)
     args = parser.parse_args()
     config = json.loads(args.config.read_text())
     start_unix = time.time()
@@ -229,6 +292,18 @@ def main():
     last_advance_ns = start_ns
     state = {'host_low_streak': 0}
     previous_cpu = None
+    v2_schedule = json.loads(args.v2_schedule.read_text()) if args.v2_schedule else None
+    v2_baseline = (json.loads(args.v2_forecast.read_text())['storage_estimate_bytes']
+                   if args.v2_forecast else None)
+    v2_protocol = json.loads(args.v2_storage_protocol.read_text()) if args.v2_storage_protocol else None
+    if sum(value is not None for value in (v2_schedule, v2_baseline, v2_protocol)) not in (0, 3):
+        raise ValueError('v2 schedule, forecast and storage protocol must be supplied together')
+    if v2_protocol is not None and (v2_protocol['storage_cap_bytes'] != config['storage_cap_bytes']
+            or v2_protocol['bootstrap_total_bytes'] != v2_baseline
+            or v2_protocol['run_control_steps'] != 120
+            or v2_protocol['schedule_run_count'] != len(v2_schedule['runs'])):
+        raise ValueError('v2 storage protocol or frozen threshold differs')
+    initial_active_bytes = None
     while True:
         cycle_ns = time.monotonic_ns()
         if (args.run / 'monitor.stop').exists() or not pid_alive(args.sim_host_pid):
@@ -274,7 +349,20 @@ def main():
         remote_size = maybe(lambda: int(remote('du', '-sb', remote_folder).split()[0]), 0)
         total_size = output_bytes(args.run) + remote_size
         elapsed = max(1., (cycle_ns - start_ns) / 1e9)
-        projected_size = total_size if elapsed < 60 else int(total_size / elapsed * config['run_timeout_sec'])
+        storage = None
+        if v2_schedule is not None:
+            remote_root = str(args.run.parent.parent)
+            remote_root_size = int(remote('du', '-sb', remote_root).split()[0])
+            if initial_active_bytes is None:
+                initial_active_bytes = total_size
+            storage = v2_storage_projection(root=args.run.parent.parent, active=args.run,
+                remote_root_bytes=remote_root_size, remote_active_bytes=remote_size,
+                schedule=v2_schedule, completed_step=last_step,
+                target_step=args.target_step, initial_active_bytes=initial_active_bytes,
+                baseline_bytes=v2_baseline)
+            projected_size = storage['projected_final_storage_bytes']
+        else:
+            projected_size = total_size if elapsed < 60 else int(total_size / elapsed * config['run_timeout_sec'])
         snapshot = {
             'memory_current_bytes': current, 'memory_peak_bytes': peak, 'memory_max': max_raw,
             'memory_max_bytes': max_bytes, 'memory_events': events, 'memory_stat': stat,
@@ -285,7 +373,9 @@ def main():
             'docker_exec_alive': pid_alive(args.sim_host_pid),
             'router_alive': bool(process_rows('/rmw_zenohd')),
             'seconds_since_progress': (cycle_ns - last_advance_ns) / 1e9,
-            'output_bytes': total_size, 'projected_output_bytes': projected_size,
+            'output_bytes': storage['actual_storage_bytes'] if storage else total_size,
+            'projected_output_bytes': projected_size,
+            'storage': storage,
             'simulator_logical_time_sec': progress.get('simulator_logical_time_sec') if progress else None,
         }
         reason, warnings = evaluate(snapshot, config, state)

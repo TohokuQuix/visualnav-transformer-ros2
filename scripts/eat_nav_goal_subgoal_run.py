@@ -97,7 +97,8 @@ def archive_logs(folder):
  return ledger
 
 def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,
-            timing_telemetry=False,timing_monitor_script=None,timing_monitor_config=None):
+            timing_telemetry=False,timing_monitor_script=None,timing_monitor_config=None,
+            timing_monitor_extra_args=()):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
@@ -156,6 +157,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
        '--sim-host-pid',str(sim.pid),'--run-id',run_name,'--target-step',str(entry['anchor_step']),
        '--target-episode',str(entry['episode_key'][2])]
    if timing_monitor_config is not None:monitor_cmd.extend(['--config',str(timing_monitor_config)])
+   monitor_cmd.extend(map(str,timing_monitor_extra_args))
    monitor=subprocess.Popen(monitor_cmd,stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
   while sim.poll() is None:
    elapsed=time.monotonic()-started

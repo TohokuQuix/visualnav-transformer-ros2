@@ -24,6 +24,7 @@ from eat_nav_goal_subgoal_v2_select import REPO, DOC, OUT, CONFIG, sha, atomic
 TIMING = Path('/tmp/eatnav-candidate-coverage/goal-ood-resource-timing-20261001')
 SOURCE = REPO / 'scripts/eat_nav_goal_subgoal_sim.py'
 REMOTE_SOURCE = str(OUT / 'sim-v2.py')
+STORAGE_PROTOCOL = DOC / 'v2-storage-protocol.json'
 REFERENCE = REPO / 'docs/quality-identifiability-gate/phase-c/reference-eat.yaml'
 MANIFEST = Path('/tmp/eatnav-candidate-coverage/goal-ood/input-copy/manifest.json')
 _FRAME_CACHE = None
@@ -187,12 +188,17 @@ def recorded_frames():
     return found
 
 
-def verify_saved_run(entry):
+def run_name(entry):
+    return entry['run_id'] + '-attempt-1' if entry['order'] == 1 else entry['run_id']
+
+
+def verify_saved_run(entry, actual_name=None):
     """Recheck frozen input/output bytes before reusing a completed process."""
-    folder = OUT / 'runs' / entry['run_id']
+    actual_name = actual_name or run_name(entry)
+    folder = OUT / 'runs' / actual_name
     complete = read(folder / 'run-complete.json')
     started = read(folder / 'started.json')
-    if complete['identity'] != entry or started['entry'] != entry or started['run_name'] != entry['run_id']:
+    if complete['identity'] != entry or started['entry'] != entry or started['run_name'] != actual_name:
         raise ValueError('saved run identity differs')
     if complete['protocol'] != 'fresh_bridge_per_run' or read(folder / 'final-status.json')['stage'] != 'COMPLETE':
         raise ValueError('saved run did not complete normally')
@@ -229,7 +235,7 @@ def verify_saved_run(entry):
 
 
 def verify_anchor(entry):
-    folder = OUT / 'runs' / entry['run_id']
+    folder = OUT / 'runs' / run_name(entry)
     summary_name = 'anchor-0.json' if entry['kind'] == 'anchor' else 'live-0.json'
     summary = read(folder / summary_name)
     logged = read(OUT / 'inputs' / f"state-{entry['state_index']:03d}" / 'logged-anchor.json')
@@ -271,6 +277,8 @@ def verify_anchor(entry):
               'anchor_summary_sha256': sha(folder / summary_name),
               'simulator_elapsed_sec': read(folder / 'final-status.json')['elapsed_sec']}
     result['run_id'] = entry['run_id']
+    if entry['kind'] != 'anchor':
+        result['actual_run_name'] = run_name(entry)
     result['run_integrity'] = verify_saved_run(entry)
     result_name = (f"anchor-{entry['state_id']}-numeric-gate-v2.json" if entry['kind'] == 'anchor'
                    else f"run-{entry['order']:02d}-numeric-gate.json")
@@ -360,14 +368,14 @@ def offline_first_anchor():
 
 
 def load_trace(entry):
-    with gzip.open(OUT / 'runs' / entry['run_id'] / 'live-0.trace.json.gz', 'rt') as stream:
+    with gzip.open(OUT / 'runs' / run_name(entry) / 'live-0.trace.json.gz', 'rt') as stream:
         return json.load(stream)
 
 
 def duplicate_gate(entries):
     if len(entries) != 3 or any(entry['kind'] != 'duplicate' for entry in entries):
         raise ValueError('three fixed duplicate entries required')
-    summaries = [read(OUT / 'runs' / e['run_id'] / 'live-0.json') for e in entries]
+    summaries = [read(OUT / 'runs' / run_name(e) / 'live-0.json') for e in entries]
     traces = [load_trace(e) for e in entries]
     if any(len(t) != 120 or any(row['terminal'] for row in t) for t in traces):
         raise ValueError('duplicate trace must have 120 nonterminal steps')
@@ -430,7 +438,7 @@ def duplicate_gate(entries):
                               'min_mask_iou': min(d['mask_iou'] for d in frame_diagnostics),
                               'raw_sha_match_count': sum(d['raw_sha_match'] for d in frame_diagnostics),
                               'comparison_count': len(frame_diagnostics)},
-              'complete_marker_sha256': [sha(OUT / 'runs' / e['run_id'] / 'run-complete.json') for e in entries]}
+              'complete_marker_sha256': [sha(OUT / 'runs' / run_name(e) / 'run-complete.json') for e in entries]}
     atomic(OUT / f"duplicate-gate-{entries[0]['state_id']}.json", result)
     return result
 
@@ -438,11 +446,42 @@ def duplicate_gate(entries):
 def live():
     if read(OUT / 'v7-numeric-gate.done.json')['status'] != 'pass':
         raise ValueError('all four anchors must pass before live replay')
-    setup()
     schedule = read(OUT / 'run-schedule-v2.json')['runs']
     live_entries = [e for e in schedule if e['kind'] != 'anchor']
     if len(live_entries) != 44:
         raise ValueError('frozen live schedule count differs')
+    storage_protocol = read(STORAGE_PROTOCOL)
+    if (storage_protocol['storage_cap_bytes'] != 800_000_000
+            or storage_protocol['bootstrap_total_bytes'] != read(OUT / 'runtime-forecast-v2.json')['storage_estimate_bytes']
+            or storage_protocol['schedule_run_count'] != len(schedule)
+            or storage_protocol['run_control_steps'] != 120):
+        raise ValueError('v2 storage protocol differs from frozen limits')
+    for anchor in (e for e in schedule if e['kind'] == 'anchor'):
+        verify_saved_run(anchor)
+        verify_anchor(anchor)
+    failed = OUT / 'runs' / 'v2-train-000-nominal-00'
+    first = live_entries[0]
+    if first['order'] != 1 or first['run_id'] != failed.name or first['kind'] != 'duplicate':
+        raise ValueError('fixed first live run changed')
+    previous = read(failed / 'final-status.json')
+    failure = read(failed / 'resource-stop.failure.json')
+    if ((failed / 'run-complete.json').exists() or previous['stage'] != 'FAILED'
+            or failure['reason'] != 'probe output reached or is projected above storage cap'
+            or failure['heartbeat']['resource']['output_bytes'] >= 800_000_000
+            or any((OUT / 'runs' / e['run_id']).exists() for e in live_entries[1:])):
+        raise ValueError('attempt 0 does not match approved measurement-invalid case')
+    atomic(OUT / 'v8-attempt-0-measurement-invalid.json', {
+        'classification': 'measurement-invalid / monitor protocol error',
+        'excluded_from_duplicate_and_outcome_analysis': True,
+        'logical_run_id': first['run_id'], 'attempt': 0,
+        'replacement_run_name': run_name(first),
+        'frozen_entry_sha256': hashlib.sha256(json.dumps(first, sort_keys=True).encode()).hexdigest(),
+        'started_sha256': sha(failed / 'started.json'),
+        'final_status_sha256': sha(failed / 'final-status.json'),
+        'resource_stop_sha256': sha(failed / 'resource-stop.failure.json'),
+        'storage_protocol_sha256': sha(STORAGE_PROTOCOL),
+        'schedule_sha256': sha(OUT / 'run-schedule-v2.json')})
+    setup()
     started = OUT / 'v2-numeric-continuation-start.json'
     if not started.exists():
         atomic(started, {'start_unix': (OUT / 'v7-first-anchor-offline-numeric-gate.json').stat().st_mtime,
@@ -474,21 +513,25 @@ def live():
                     raise TimeoutError('four-hour wall forecast; no new run started')
                 if bytes_in_root() > 800_000_000:
                     raise RuntimeError('0.8 GB storage cap reached')
-                beat.update(run_id=entry['run_id'], current_state=entry['state_id'],
+                beat.update(run_id=run_name(entry), current_state=entry['state_id'],
                             goal_category=entry['goal_id'], seed=entry['seed'],
                             completed_processes=4 + completed, candidate_outcomes=sum(
                                 (OUT / 'runs' / e['run_id'] / 'run-complete.json').exists()
                                 for e in live_entries if e['kind'] == 'candidate'),
-                            predicted_total_sec=forecast)
-                folder = OUT / 'runs' / entry['run_id']
+                            predicted_total_sec=forecast,
+                            logical_run_id=entry['run_id'])
+                folder = OUT / 'runs' / run_name(entry)
                 if folder.exists():
                     verify_saved_run(entry)
                 else:
                     begin = time.monotonic()
-                    replay.run_one(entry, entry['run_id'], timeout_sec=min(900, 4 * 3600 - elapsed),
+                    replay.run_one(entry, run_name(entry), timeout_sec=min(900, 4 * 3600 - elapsed),
                         timing_telemetry=True,
                         timing_monitor_script=REPO / 'scripts/eat_nav_goal_subgoal_resource_monitor.py',
-                        timing_monitor_config=TIMING / 'resource-thresholds.json')
+                        timing_monitor_config=TIMING / 'resource-thresholds.json',
+                        timing_monitor_extra_args=('--v2-schedule', OUT / 'run-schedule-v2.json',
+                                                   '--v2-forecast', OUT / 'runtime-forecast-v2.json',
+                                                   '--v2-storage-protocol', STORAGE_PROTOCOL))
                     durations.append(time.monotonic() - begin)
                     verify_saved_run(entry)
                 verify_anchor(entry)
