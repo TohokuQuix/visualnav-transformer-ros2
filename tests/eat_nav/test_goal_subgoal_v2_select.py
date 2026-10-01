@@ -1,10 +1,13 @@
 """Selection is deterministic and independent of outcomes."""
 import copy
+import gzip
+import json
+from pathlib import Path
 
 import numpy as np
 import yaml
 
-from eat_nav_goal_subgoal_v2_select import CONFIG, exclusion_reasons, rank, select
+from eat_nav_goal_subgoal_v2_select import CONFIG, OUT, REF, exclusion_reasons, rank, select
 
 
 def fixture_window(*, terrain='boxes', env=2, episode=0, step=30, goal=(.4, 0.)):
@@ -58,3 +61,29 @@ def test_no_silent_terrain_substitution():
     selected, _ = select(windows, cfg)
     assert len(selected) == 3
     assert [r['terrain_name'] for r, _ in selected] == cfg['terrain_order'][:-1]
+
+
+def test_frozen_selection_has_complete_train_identity_and_minimum_rank():
+    path = OUT / 'selected-states-v2.json'
+    if not path.exists():
+        return
+    selected = json.loads(path.read_text())['states']
+    with gzip.open(REF / 'complete-window-ids.jsonl.gz', 'rt') as stream:
+        complete_train = {(tuple(row['episode_key']), int(row['step'])) for row in map(json.loads, stream)
+                          if row['split'] == 'train'}
+    with gzip.open(OUT / 'v2-selection-candidates.jsonl.gz', 'rt') as stream:
+        candidates = list(map(json.loads, stream))
+    cfg = config()
+    assert [row['terrain_name'] for row in selected] == cfg['terrain_order']
+    assert len({tuple(row['episode_key']) for row in selected}) == 4
+    for row in selected:
+        assert row['episode_id'] == 0
+        assert row['prefix_steps'] <= 80
+        assert row['global_step'] == row['local_step']
+        assert row['goal_distance_m'] >= .30
+        assert (tuple(row['episode_key']), row['global_step']) in complete_train
+        ranked = sorted((x for x in candidates if x['terrain_name'] == row['terrain_name']
+                         and not x['exclusion_reasons']), key=lambda x: x['selection_rank'])
+        assert ranked and ranked[0]['selection_rank'] == row['selection_rank']
+    assert all(not {'reward', 'critic_value', 'termination_reason', 'candidate_outcome'} & row.keys()
+               for row in candidates)

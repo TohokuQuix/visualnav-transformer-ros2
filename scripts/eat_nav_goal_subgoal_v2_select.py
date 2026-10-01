@@ -46,6 +46,16 @@ def atomic(path, value):
     temp.replace(path)
 
 
+def stage_status(stage, **fields):
+    path = OUT / 'status.json'
+    before = json.loads(path.read_text()) if path.exists() else {}
+    if before.get('stage') not in ('V0_PASS', stage):
+        raise ValueError(f'unexpected status transition: {before.get("stage")} -> {stage}')
+    temp = path.with_name('status.json.tmp')
+    temp.write_text(json.dumps({'stage': stage, **fields}, sort_keys=True, indent=2) + '\n')
+    temp.replace(path)
+
+
 def frozen_config():
     cfg = yaml.safe_load(CONFIG.read_text())
     if cfg['schema_version'] != 1 or cfg['source_split'] != 'train' or cfg['selection_salt'] != 'goal-subgoal-cost-aware-v2-20261001':
@@ -124,7 +134,20 @@ def main():
     if not (OUT / 'v0.done.json').exists():
         raise ValueError('V0 audit marker missing')
     if (OUT / 'selected-states-v2.json').exists():
-        raise FileExistsError('v2 state selection already frozen')
+        frozen = json.loads((OUT / 'selected-states-v2.json').read_text())
+        audit = json.loads((OUT / 'v2-selection-audit.json').read_text())
+        if (frozen['selection_config_sha256'] != sha(CONFIG) or
+                frozen['candidate_list_sha256'] != sha(OUT / 'v2-selection-candidates.jsonl.gz') or
+                audit['status'] != 'pass' or len(frozen['states']) != 4 or
+                not (OUT / 'selected-states-v2.npz').exists()):
+            raise ValueError('partially frozen v2 selection differs')
+        stage_status('V2_STATES_FROZEN', selected_states_sha256=sha(OUT / 'selected-states-v2.json'),
+                     candidate_runs=0)
+        atomic(OUT / 'v2-selection.done.json', {'stage': 'V2_STATES_FROZEN',
+               'selection_sha256': sha(OUT / 'selected-states-v2.json'),
+               'candidate_list_sha256': sha(OUT / 'v2-selection-candidates.jsonl.gz')})
+        print('V2_STATES_FROZEN', [(r['state_id'], r['terrain_name'], r['prefix_steps']) for r in frozen['states']])
+        return 0
     with gzip.open(REF / 'complete-window-ids.jsonl.gz', 'rt') as stream:
         frozen = {(tuple(row['episode_key']), int(row['step'])) for row in map(json.loads, stream)
                   if row['split'] == 'train'}
@@ -164,8 +187,7 @@ def main():
             audit[name][terrain] = np.quantile(values, [0, .25, .5, .75, 1]).tolist() if values else None
     atomic(OUT / 'v2-selection-audit.json', audit)
     if len(selected) != 4:
-        atomic(OUT / 'status.json', {'stage': 'v2_selection_unavailable',
-                                     'selection_audit_sha256': sha(OUT / 'v2-selection-audit.json')})
+        stage_status('v2_selection_unavailable', selection_audit_sha256=sha(OUT / 'v2-selection-audit.json'))
         print(json.dumps(audit, indent=2))
         return 2
     output = []
@@ -183,8 +205,11 @@ def main():
     np.savez_compressed(OUT / 'selected-states-v2.npz', dem=np.stack([w['dem'] for _, w in selected]),
                         logged_goals=np.stack([w['goal'] for _, w in selected]),
                         actions=np.stack([w['action'] for _, w in selected]))
-    atomic(OUT / 'status.json', {'stage': 'V2_STATES_FROZEN', 'selected_states_sha256': sha(OUT / 'selected-states-v2.json'),
-                                 'candidate_runs': 0})
+    stage_status('V2_STATES_FROZEN', selected_states_sha256=sha(OUT / 'selected-states-v2.json'),
+                 candidate_runs=0)
+    atomic(OUT / 'v2-selection.done.json', {'stage': 'V2_STATES_FROZEN',
+           'selection_sha256': sha(OUT / 'selected-states-v2.json'),
+           'candidate_list_sha256': sha(OUT / 'v2-selection-candidates.jsonl.gz')})
     print('V2_STATES_FROZEN', [(r['state_id'], r['terrain_name'], r['prefix_steps']) for r in output])
     return 0
 
