@@ -1,0 +1,72 @@
+{
+  "anchor_error": {
+    "dem_history_sha_match": false,
+    "dem_rms_m": 0.0,
+    "mask_iou": 1.0,
+    "orientation_rad": 0.0002692091523352857,
+    "position_m": 0.0,
+    "prefix_command_max_abs": 0.0,
+    "velocity_max_abs": 0.0
+  },
+  "anchor_summary_sha256": "b6dea0bd63c83514295f67ec4c52c0f66afa60c0b0633d78de9dd09ad1894fd6",
+  "candidate_outcome_runs": 0,
+  "completed_anchor_runs": 1,
+  "dem_history_frame_comparison": [
+    {
+      "different_float32_cells": 188,
+      "frame_index": 0,
+      "height_rms_difference_m": 6.72148416924756e-08,
+      "mask_iou": 1.0,
+      "max_absolute_height_difference_m": 2.682209014892578e-07,
+      "recorded_global_step": 45
+    },
+    {
+      "different_float32_cells": 0,
+      "frame_index": 1,
+      "height_rms_difference_m": 0.0,
+      "mask_iou": 1.0,
+      "max_absolute_height_difference_m": 0.0,
+      "recorded_global_step": 50
+    },
+    {
+      "different_float32_cells": 0,
+      "frame_index": 2,
+      "height_rms_difference_m": 0.0,
+      "mask_iou": 1.0,
+      "max_absolute_height_difference_m": 0.0,
+      "recorded_global_step": 55
+    },
+    {
+      "different_float32_cells": 0,
+      "frame_index": 3,
+      "height_rms_difference_m": 0.0,
+      "mask_iou": 1.0,
+      "max_absolute_height_difference_m": 0.0,
+      "recorded_global_step": 60
+    }
+  ],
+  "failed_condition": "dem_history_sha_match == false",
+  "failed_state_id": "v2-train-000",
+  "no_threshold_or_state_change": true,
+  "remaining_states_not_started": [
+    "v2-train-001",
+    "v2-train-002",
+    "v2-train-003"
+  ],
+  "root_and_current_dem_within_frozen_tolerances": true,
+  "run_complete_sha256": "6aee4d6e516640b87d8093a0fb48e51672b906175ad80090873990a835717f2a",
+  "simulator_final_status": {
+    "bridge_exit": null,
+    "cpu_anon_peak_bytes": 2486968320,
+    "elapsed_sec": 73.63691213889979,
+    "error": null,
+    "fault_seen": false,
+    "gpu_peak_mib": 5550,
+    "residual_processes": [],
+    "sim_exit": 0,
+    "stage": "COMPLETE"
+  },
+  "source_sha256": "5ec20ad0ffdae9c5ac9606de3c57ae951023c5f5ae3cf32bb34796902587ad25",
+  "status": "v2_anchor_gate_fail",
+  "unattempted_anchor_runs": 3
+}

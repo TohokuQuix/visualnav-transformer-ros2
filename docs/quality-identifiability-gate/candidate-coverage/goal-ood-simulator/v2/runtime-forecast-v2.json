@@ -1,0 +1,258 @@
+{
+  "anchor_processes": 4,
+  "anon_shmem_estimate_bytes": 3916652544,
+  "assumptions": [
+    "same fresh Docker/Isaac launch for every process",
+    "each episode-zero state uses recorded 100-env actions from initial reset",
+    "no past episode reset in a prefix of at most 80 steps",
+    "train-003 normal step distribution extrapolated to four frozen terrains",
+    "120-step suffix from current-source exact-stamp parity"
+  ],
+  "conservative_p95_step": {
+    "states": [
+      {
+        "anchor_sec": 71.80351187026909,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 189.39008280438262,
+        "prefix_sec": 52.92902822525108,
+        "prefix_steps": 61,
+        "state_id": "v2-train-000",
+        "state_total_sec": 2155.0944227184777,
+        "terrain": "k_rail_step_field"
+      },
+      {
+        "anchor_sec": 71.80351187026909,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 189.39008280438262,
+        "prefix_sec": 52.92902822525108,
+        "prefix_steps": 61,
+        "state_id": "v2-train-001",
+        "state_total_sec": 2155.0944227184777,
+        "terrain": "pyramid_stairs"
+      },
+      {
+        "anchor_sec": 50.111287187789145,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 167.69785812190267,
+        "prefix_sec": 31.23680354277113,
+        "prefix_steps": 36,
+        "state_id": "v2-train-002",
+        "state_total_sec": 1894.7877265287186,
+        "terrain": "pyramid_stairs_inv"
+      },
+      {
+        "anchor_sec": 50.111287187789145,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 167.69785812190267,
+        "prefix_sec": 31.23680354277113,
+        "prefix_steps": 36,
+        "state_id": "v2-train-003",
+        "state_total_sec": 1894.7877265287186,
+        "terrain": "boxes"
+      }
+    ],
+    "total_hours": 2.2499345273595535,
+    "total_sec": 8099.764298494393
+  },
+  "conservative_plus_20_percent_hours": 2.6999214328314642,
+  "conservative_plus_20_percent_sec": 9719.71715819327,
+  "decision": "pass",
+  "formula": "sum over 4 states of anchor_s + 11*(launch_s + full_prefix_s + 120-step suffix_s + cleanup_s)",
+  "full_prefix_step_total": 2328,
+  "gpu_estimate_mib": 5550,
+  "host_mem_available_min_bytes": 91359293440,
+  "live_processes": 44,
+  "measured_launch_scene_initial_reset_sec": {
+    "anchor_verification": 0.014660639,
+    "cleanup_and_container_return": 5.690659871,
+    "docker_exec_to_isaac": 0.128899375,
+    "initial_reset_and_policy_setup": 0.258736907,
+    "scene_construction": 12.695299618
+  },
+  "measured_step_distribution_sec": {
+    "count": 1601,
+    "max_sec": 1.053166271,
+    "mean_sec": 0.8353978197239226,
+    "median_sec": 0.839082222,
+    "p90_sec": 0.861066666,
+    "p95_sec": 0.867180984,
+    "p99_sec": 0.876552109
+  },
+  "measured_suffix_sec": {
+    "follower_bridge_setup_sec": 1.084642041,
+    "host_copy_cleanup_sec": 9.355328326113522,
+    "post_suffix_trace_save_sec": 1.690659237,
+    "source": "latest-source readiness-002 120-step exact-stamp parity",
+    "suffix_step_and_command_sec": 105.441149795,
+    "suffix_total_sec": 108.231242608
+  },
+  "point": {
+    "states": [
+      {
+        "anchor_sec": 69.86473884942838,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 187.4513097835419,
+        "prefix_sec": 50.99025520441036,
+        "prefix_steps": 61,
+        "state_id": "v2-train-000",
+        "state_total_sec": 2131.829146468389,
+        "terrain": "k_rail_step_field"
+      },
+      {
+        "anchor_sec": 69.86473884942838,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 187.4513097835419,
+        "prefix_sec": 50.99025520441036,
+        "prefix_steps": 61,
+        "state_id": "v2-train-001",
+        "state_total_sec": 2131.829146468389,
+        "terrain": "pyramid_stairs"
+      },
+      {
+        "anchor_sec": 48.96709327385036,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 166.5536642079639,
+        "prefix_sec": 30.092609628832342,
+        "prefix_steps": 36,
+        "state_id": "v2-train-002",
+        "state_total_sec": 1881.0573995614532,
+        "terrain": "pyramid_stairs_inv"
+      },
+      {
+        "anchor_sec": 48.96709327385036,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 18.874483645018017,
+        "live_processes": 11,
+        "live_sec": 166.5536642079639,
+        "prefix_sec": 30.092609628832342,
+        "prefix_steps": 36,
+        "state_id": "v2-train-003",
+        "state_total_sec": 1881.0573995614532,
+        "terrain": "boxes"
+      }
+    ],
+    "total_hours": 2.2293814144610233,
+    "total_sec": 8025.773092059684
+  },
+  "schedule_sha256": "4ebc78fd13cf1e69af754368d8a47d9327e54b188244199e9de7f10833695b86",
+  "source_anchor_sha256": "a535d39b48f637ef867e28cf709805bb2c15808ff341659e7b53a3c338ed8aa7",
+  "source_probe_sha256": "7159bbf7d8769ae6625f82e808ed0d78a6087dede265ee5d36b453f23fdcf3e3",
+  "source_state": "train-003",
+  "state_prefix_steps": [
+    {
+      "expected_past_episode_resets": 0,
+      "fresh_processes": 12,
+      "live_processes": 11,
+      "prefix_steps": 61,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "expected_past_episode_resets": 0,
+      "fresh_processes": 12,
+      "live_processes": 11,
+      "prefix_steps": 61,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "expected_past_episode_resets": 0,
+      "fresh_processes": 12,
+      "live_processes": 11,
+      "prefix_steps": 36,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "expected_past_episode_resets": 0,
+      "fresh_processes": 12,
+      "live_processes": 11,
+      "prefix_steps": 36,
+      "state_id": "v2-train-003",
+      "terrain": "boxes"
+    }
+  ],
+  "storage_estimate_bytes": 239907072,
+  "suffix_step_total": 5280,
+  "thresholds_sha256": "fa312f532881044d4675222c209ab4c251865928825a66f364122271b115b2e7",
+  "worst_observed": {
+    "states": [
+      {
+        "anchor_sec": 83.97208772526922,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 19.697956993018124,
+        "live_processes": 11,
+        "live_sec": 201.55865865938273,
+        "prefix_sec": 64.2741307322511,
+        "prefix_steps": 61,
+        "state_id": "v2-train-000",
+        "state_total_sec": 2301.117332978479,
+        "terrain": "k_rail_step_field"
+      },
+      {
+        "anchor_sec": 83.97208772526922,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 19.697956993018124,
+        "live_processes": 11,
+        "live_sec": 201.55865865938273,
+        "prefix_sec": 64.2741307322511,
+        "prefix_steps": 61,
+        "state_id": "v2-train-001",
+        "state_total_sec": 2301.117332978479,
+        "terrain": "pyramid_stairs"
+      },
+      {
+        "anchor_sec": 57.63023086778926,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 19.697956993018124,
+        "live_processes": 11,
+        "live_sec": 175.2168018019028,
+        "prefix_sec": 37.932273874771134,
+        "prefix_steps": 36,
+        "state_id": "v2-train-002",
+        "state_total_sec": 1985.01505068872,
+        "terrain": "pyramid_stairs_inv"
+      },
+      {
+        "anchor_sec": 57.63023086778926,
+        "expected_past_episode_resets": 0,
+        "fresh_processes": 12,
+        "launch_scene_reset_anchor_cleanup_sec": 19.697956993018124,
+        "live_processes": 11,
+        "live_sec": 175.2168018019028,
+        "prefix_sec": 37.932273874771134,
+        "prefix_steps": 36,
+        "state_id": "v2-train-003",
+        "state_total_sec": 1985.01505068872,
+        "terrain": "boxes"
+      }
+    ],
+    "total_hours": 2.3811846575928883,
+    "total_sec": 8572.264767334398
+  }
+}

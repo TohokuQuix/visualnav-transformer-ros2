@@ -1,0 +1,169 @@
+{
+  "branch": "exp/eatnav-goal-ood-simulator-v2",
+  "files": {
+    "bridge_source": {
+      "bytes": 10423,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/scripts/eat_nav_command_delivery_bridge.py",
+      "sha256": "2a9367a67d9c7b06f50d33e9f598b41b9c151c31c72c07cf4df6376df44ae870"
+    },
+    "complete_window_ids": {
+      "bytes": 148814,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/phase-c/complete-window-ids.jsonl.gz",
+      "sha256": "904b22816531c4bf026181de5b70aaad386f0557ea44d9266223c89d48cddf4e"
+    },
+    "evaluator_GT_11": {
+      "bytes": 183581,
+      "container_path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-11/best.pt",
+      "host_path_missing": true,
+      "sha256": "0ca5c9c7e759ac136fc7e6532cdea6071e2903c369b236136846c0eed9832e35"
+    },
+    "evaluator_GT_29": {
+      "bytes": 183581,
+      "container_path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-29/best.pt",
+      "host_path_missing": true,
+      "sha256": "72d76a5f9f3500ff300b78f0fb81a4f8436d6fa2b08b5ba1d5b1371780fff4b2"
+    },
+    "evaluator_GT_47": {
+      "bytes": 183581,
+      "container_path": "/tmp/eatnav-quality-identifiability-gate/forward-evaluator/checkpoints/GT-47/best.pt",
+      "host_path_missing": true,
+      "sha256": "f49beffca00b9cbe329151ee88a99501bee0756f68ebfb0be4d35a8d4b729b2f"
+    },
+    "exact_stamp_protocol": {
+      "bytes": 1522,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/src/visualnav_transformer/eat_nav/exact_stamp_protocol.py",
+      "sha256": "ba3847dd564dca955acec285ebfeb094718758bc8332965e2ecb9f53c49d0fea"
+    },
+    "follower_binary": {
+      "bytes": 7928000,
+      "path": "/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node",
+      "sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d"
+    },
+    "follower_config": {
+      "bytes": 1623,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "follower_cpp": {
+      "bytes": 52614,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "follower_header": {
+      "bytes": 8582,
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/include/simple_trajectory_follower/simple_trajectory_follower.hpp",
+      "sha256": "7c58d3a4375245863a1ba6aae237ce578da72c62506537d26704d592e19d4b1f"
+    },
+    "goal_support_thresholds": {
+      "bytes": 1600,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/candidate-coverage/goal-ood/goal-support-thresholds.json",
+      "sha256": "f495e76a0e6cf8078428d75ddf4f5b4646e780890f9db8965fbc9f7bc8fcbe56"
+    },
+    "logging_parity": {
+      "bytes": 1291,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood-resource-timing-20261001/parity/parity-result.json",
+      "sha256": "c7f852fefefed9ff9695c3e241ece68ea71b476e5304822681577cff0310cf6c"
+    },
+    "manifest": {
+      "bytes": 34686,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood/input-copy/manifest.json",
+      "sha256": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475"
+    },
+    "nomad_checkpoint": {
+      "bytes": 114123777,
+      "path": "/tmp/eatnav-quality-identifiability-gate/phase-c-remediation/reference/best.pt",
+      "sha256": "191d6a03266bca2ce8d43afac44b04828ae0d2571632be4f47a5f0dc3564b4e0"
+    },
+    "old_run_schedule": {
+      "bytes": 37847,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/candidate-coverage/goal-ood-simulator/run-identities.json",
+      "sha256": "c9e5e6a0c9500cce92fda4abea43f163b82f8305f8d5e8fce8fb7a7c4f1dc942"
+    },
+    "old_selected_states": {
+      "bytes": 2451,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood-simulator/inputs/selected-states.json",
+      "sha256": "0322d4ecca37c69e7e9fa46636e08b25ead16b09065334ac568bdd65aad7600a"
+    },
+    "pilot_follower_binary": {
+      "bytes": 7947864,
+      "path": "/tmp/eatnav-candidate-coverage/evaluator-readiness-recovery/follower-build/simple_trajectory_follower_node",
+      "sha256": "dda18662f450a79d953d8797be8c7df04754c883ef8bd7a64358dce0ada65201"
+    },
+    "reference_config": {
+      "bytes": 286,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/phase-c/reference-eat.yaml",
+      "sha256": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992"
+    },
+    "resource_config": {
+      "bytes": 1021,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood-resource-timing-20261001/resource-thresholds.json",
+      "sha256": "fa312f532881044d4675222c209ab4c251865928825a66f364122271b115b2e7"
+    },
+    "resource_gate_result": {
+      "bytes": 497,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood-resource-timing-20261001/resource-gate-result.json",
+      "sha256": "d7272d45f712f15ddbcd6cac99e433edbd2721ff3bd879b684a9d0b9e8421979"
+    },
+    "runner_source": {
+      "bytes": 17201,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/scripts/eat_nav_goal_subgoal_run.py",
+      "sha256": "0b72ca4bab84406a1f1e3cf4f4536c7da2c1b9d1934b09c97bac0c4070acefe9"
+    },
+    "runtime_forecast": {
+      "bytes": 8798,
+      "path": "/tmp/eatnav-candidate-coverage/goal-ood-resource-timing-20261001/runtime-forecast.json",
+      "sha256": "7159bbf7d8769ae6625f82e808ed0d78a6087dede265ee5d36b453f23fdcf3e3"
+    },
+    "simulator_source": {
+      "bytes": 36871,
+      "path": "/tmp/eatnav-vnt-goal-ood-simulator-v2/scripts/eat_nav_goal_subgoal_sim.py",
+      "sha256": "e177be4772718dce6f951e4998dd7511d979b64f8cbc6212b421bab47b908f87"
+    }
+  },
+  "head": "fb11ebcd7e6ea0ed551b807604cc60c6fbd8a7dc",
+  "old_pilot": {
+    "candidate_outcome_count": 0,
+    "goal_count": 16,
+    "path_count": 32,
+    "run_count": 44,
+    "state_count": 4,
+    "state_ids": [
+      "train-003",
+      "train-004",
+      "train-019",
+      "train-021"
+    ],
+    "status": {
+      "anchor_verified": false,
+      "candidate_runs": 0,
+      "conservative_44_live_prefix_hours": 6.330838472573386,
+      "duplicate_runs": 0,
+      "reason": "conservative full-prefix forecast exceeds fixed 4 h wall cap",
+      "report_sha256": "dbb854927bb60a140c2f8d2d281265ab1d60556467ba642323fc1df9ea1a43c3",
+      "stage": "STOPPED_RUNTIME_FORECAST"
+    }
+  },
+  "processes": {
+    "docker": [],
+    "host": [],
+    "tmux_output": "no server running on /tmp/tmux-1000/default\n",
+    "tmux_returncode": 1
+  },
+  "rl_checkpoint": {
+    "container_path": "/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt",
+    "sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d"
+  },
+  "source_selection_config_sha256": "899539bf742808af3a583e20f682d02bfa1f246728900e604df221419e0df793",
+  "split_hash": "ae584ee5813be6a09f16baa4fae8271ed20c457ef40d9dd44005636a71e9234f",
+  "status": "pass",
+  "timing_status": {
+    "anchor_runs": 1,
+    "candidate_runs": 0,
+    "duplicate_runs": 0,
+    "gate_result_sha256": "d7272d45f712f15ddbcd6cac99e433edbd2721ff3bd879b684a9d0b9e8421979",
+    "report_generated_monotonic_ns": 1459688860489224,
+    "stage": "runtime_gate_fail"
+  },
+  "worktree": "/tmp/eatnav-vnt-goal-ood-simulator-v2",
+  "worktree_status": ""
+}

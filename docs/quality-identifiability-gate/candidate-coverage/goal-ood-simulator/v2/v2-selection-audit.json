@@ -1,0 +1,97 @@
+{
+  "candidate_count_by_terrain": {
+    "boxes": 31,
+    "k_rail_step_field": 82,
+    "pyramid_stairs": 112,
+    "pyramid_stairs_inv": 123
+  },
+  "candidate_list_sha256": "72e582b737cfbfabb21940be820ce04b663e844a314e31bc4934c2daa7d60990",
+  "complete_train_windows": 49598,
+  "config_sha256": "899539bf742808af3a583e20f682d02bfa1f246728900e604df221419e0df793",
+  "exclusion_counts_by_terrain": {
+    "boxes": {
+      "goal_too_close": 97,
+      "prefix_exceeds_80": 280
+    },
+    "k_rail_step_field": {
+      "goal_too_close": 417,
+      "prefix_exceeds_80": 672
+    },
+    "pyramid_stairs": {
+      "goal_too_close": 325,
+      "prefix_exceeds_80": 672
+    },
+    "pyramid_stairs_inv": {
+      "goal_too_close": 411,
+      "prefix_exceeds_80": 784
+    }
+  },
+  "goal_distance_quantiles_by_terrain": {
+    "boxes": [
+      0.005873130634427071,
+      0.25142690539360046,
+      0.5073007345199585,
+      0.7658981680870056,
+      0.8000000715255737
+    ],
+    "k_rail_step_field": [
+      0.001349989208392799,
+      0.10116380453109741,
+      0.29928262531757355,
+      0.6108069717884064,
+      0.8000000715255737
+    ],
+    "pyramid_stairs": [
+      0.002859672298654914,
+      0.1599907949566841,
+      0.42438480257987976,
+      0.7999999523162842,
+      0.8000001311302185
+    ],
+    "pyramid_stairs_inv": [
+      0.0030512402299791574,
+      0.1529165282845497,
+      0.3665759563446045,
+      0.7013217657804489,
+      0.8000001311302185
+    ]
+  },
+  "prefix_quantiles_by_terrain": {
+    "boxes": [
+      16.0,
+      101.0,
+      186.0,
+      271.0,
+      356.0
+    ],
+    "k_rail_step_field": [
+      16.0,
+      101.0,
+      186.0,
+      271.0,
+      356.0
+    ],
+    "pyramid_stairs": [
+      16.0,
+      101.0,
+      186.0,
+      271.0,
+      356.0
+    ],
+    "pyramid_stairs_inv": [
+      16.0,
+      101.0,
+      186.0,
+      271.0,
+      356.0
+    ]
+  },
+  "selected_count": 4,
+  "status": "pass",
+  "terrain_order": [
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "boxes"
+  ]
+}
