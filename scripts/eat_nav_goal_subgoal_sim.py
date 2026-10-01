@@ -289,7 +289,7 @@ def main():
         raise ValueError('frozen state/logged anchor mismatch')
     if state['episode_key'][1]!=config_spec['source_state']['env_index'] or len(base_path)!=9:
         raise ValueError('frozen state/path config mismatch')
-    if config_spec['control_steps']!=120 or not (state['state_id'].startswith('readiness-') or state['state_id'] in ('train-003','train-004','train-019','train-021')):
+    if config_spec['control_steps']!=120 or not (state['state_id'].startswith(('readiness-','v2-train-')) or state['state_id'] in ('train-003','train-004','train-019','train-021')):
         raise ValueError('readiness pilot frozen scope mismatch')
     if args.stage not in ('anchor','live'):
         raise ValueError('readiness pilot allows anchor and live stages only')
