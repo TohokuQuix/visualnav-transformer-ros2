@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 import math
+import os
 import pathlib
 import shutil
 import subprocess
@@ -14,7 +15,8 @@ import time
 import eat_nav_fresh_bridge_run as fresh
 
 REPO = pathlib.Path('/tmp/eatnav-vnt-goal-ood-simulator')
-OUT = pathlib.Path('/tmp/eatnav-candidate-coverage/goal-ood-timing-20261001')
+OUT = pathlib.Path(os.environ.get('EATNAV_TIMING_OUTPUT_ROOT',
+                                  '/tmp/eatnav-candidate-coverage/goal-ood-timing-20261001'))
 OLD = pathlib.Path('/tmp/eatnav-candidate-coverage/goal-ood-simulator')
 PARITY = OUT / 'parity'
 REMOTE = str(OUT / 'sim-parity.py')
@@ -57,8 +59,9 @@ def finite(value):
 
 
 def run():
-    if not (OUT / 'timing-source-provenance.json').exists():
-        raise ValueError('T0 provenance missing')
+    if not ((OUT / 'timing-source-provenance.json').exists() or
+            (OUT / 'resource-probe-provenance.json').exists()):
+        raise ValueError('start provenance missing')
     if (PARITY / 'runs' / NAME).exists() or (PARITY / 'parity-result.json').exists():
         raise FileExistsError('T1 parity has already been attempted')
     PARITY.mkdir(parents=True, exist_ok=True)
@@ -132,13 +135,17 @@ def analyze():
         if left['raw_effort_source'] != 'robot.data.applied_torque' or left['raw_effort_capture_phase'] != 'pre_env_step_after_previous_physics_before_actor_action':
             first = {'step': step, 'signal': 'raw_effort_source', 'reason': 'capture source/phase mismatch'}
             break
+    provenance_path = OUT / 'timing-source-provenance.json'
+    if not provenance_path.exists():
+        provenance_path = OUT / 'resource-probe-provenance.json'
+    provenance = json.loads(provenance_path.read_text())
     result = {'status': 'pass' if first is None else 'fail', 'first_difference': first,
               'compared_steps': len(current), 'compared_fields': list(FIELDS),
               'source_sha256': sha(REPO / 'scripts/eat_nav_goal_subgoal_sim.py'),
               'new_trace_sha256': sha(new), 'old_trace_sha256': sha(old),
               'max_raw_to_pre_noise_effort_abs': max_effort_abs,
               'production_follower_sha256': sha(fresh.PROD),
-              'rl_checkpoint_sha256': json.loads((OUT / 'timing-source-provenance.json').read_text())['rl_checkpoint_sha256']}
+              'rl_checkpoint_sha256': provenance['rl_checkpoint_sha256']}
     atomic(PARITY / 'parity-result.json', result)
     atomic(OUT / 'status.json', {'stage': 'T1_PASS' if first is None else 'T1_FAIL',
                                  'parity_result_sha256': sha(PARITY / 'parity-result.json')})

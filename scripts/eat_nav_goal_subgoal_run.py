@@ -96,7 +96,8 @@ def archive_logs(folder):
  atomic(folder/'archived-log-sha.json',ledger)
  return ledger
 
-def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,timing_telemetry=False):
+def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,
+            timing_telemetry=False,timing_monitor_script=None,timing_monitor_config=None):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
@@ -149,18 +150,26 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
   sim=subprocess.Popen(cmd,stdout=sim_log,stderr=subprocess.STDOUT,start_new_session=True)
   if timing_telemetry:
    monitor_log=(target/'timing-monitor.log').open('x')
-   monitor=subprocess.Popen([sys.executable,str(REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py'),
+   monitor_script=timing_monitor_script or REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py'
+   monitor_cmd=[sys.executable,str(monitor_script),
        '--run',str(target),'--remote-progress',f'{remote}/timing-progress.json',
        '--sim-host-pid',str(sim.pid),'--run-id',run_name,'--target-step',str(entry['anchor_step']),
-       '--target-episode',str(entry['episode_key'][2])],stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
+       '--target-episode',str(entry['episode_key'][2])]
+   if timing_monitor_config is not None:monitor_cmd.extend(['--config',str(timing_monitor_config)])
+   monitor=subprocess.Popen(monitor_cmd,stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
   while sim.poll() is None:
    elapsed=time.monotonic()-started
    if elapsed>timeout_sec:raise TimeoutError('simulator wall limit')
    if monitor is not None:
     if monitor.poll() is not None:raise RuntimeError('timing monitor exited before simulator: '+str(monitor.returncode))
     heartbeat=target/'timing-heartbeat.json'
-    if heartbeat.exists() and time.time()-heartbeat.stat().st_mtime>90:raise TimeoutError('external heartbeat older than 90 seconds')
-    if (target/'timing-stall.failure.json').exists():raise RuntimeError('external timing monitor detected stall')
+    if timing_monitor_config is not None:
+     from eat_nav_goal_subgoal_resource_monitor import heartbeat_stale
+     stale=heartbeat_stale(heartbeat,time.time(),90)
+    else:stale=heartbeat.exists() and time.time()-heartbeat.stat().st_mtime>90
+    if stale:raise TimeoutError('external heartbeat older than 90 seconds')
+    if (target/'timing-stall.failure.json').exists() or (target/'resource-stop.failure.json').exists():
+     raise RuntimeError('external timing monitor detected resource or progress stop')
    if expected_failure and 'RECOVERY_FATAL' in (target/'simulator.log').read_text(errors='replace'):
     if fault_seen is None:fault_seen=time.monotonic()
     if time.monotonic()-fault_seen>60:raise TimeoutError('exception cleanup >60 sec')
