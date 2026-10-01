@@ -6,13 +6,11 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 import numpy as np
-import torch
 import yaml
 
-from visualnav_transformer.eat_nav.checkpoint import load_checkpoint
-from visualnav_transformer.eat_nav.config import load_eat_config
 from eat_nav_goal_ood_prepare import classify
 from eat_nav_goal_ood_freeze import geometry_screen
 from eat_nav_goal_subgoal_v2_select import REPO, DOC, OUT, CONFIG, sha, atomic
@@ -22,6 +20,7 @@ SOURCE_RAW = Path('/tmp/eatnav-candidate-coverage/goal-ood')
 CHECKPOINT = Path('/tmp/eatnav-quality-identifiability-gate/phase-c-remediation/reference/best.pt')
 GOALS = OUT / 'goals-v2.json'
 PATHS = OUT / 'paths-v2.jsonl.gz'
+REMOTE_INFER = '/tmp/eatnav-candidate-coverage/goal-ood-simulator-v2/v2-infer.py'
 
 
 def read(path):
@@ -94,48 +93,36 @@ def build_goals():
 
 
 def build_paths():
-    cfg, states, _, _ = frozen()
+    cfg, _, _, _ = frozen()
     goal_data = read(GOALS)
     if goal_data['selected_states_sha256'] != sha(OUT / 'selected-states-v2.json') or PATHS.exists():
         raise ValueError('goal freeze drift or v2 paths already exist')
-    model_cfg = load_eat_config(REPO / 'docs/quality-identifiability-gate/phase-c/reference-eat.yaml')
-    model, stats, _ = load_checkpoint(CHECKPOINT, model_cfg)
-    if not np.allclose(stats.mean, [.028116857632994652, -4.290757715352811e-05], atol=1e-8):
-        raise ValueError('train-only action normalization drift')
-    model = model.to('cuda').eval()
-    arrays = np.load(OUT / 'selected-states-v2.npz')
-    rows = []
-    with torch.inference_mode():
-        for item in goal_data['goals']:
-            dem = np.asarray(arrays['dem'][item['state_index']], dtype=np.float32)
-            goal = np.asarray(item['goal_xy'], dtype=np.float32)
-            if hashlib.sha256(dem.tobytes() + goal.tobytes()).hexdigest() != item['input_sha256']:
-                raise ValueError('NoMaD input SHA drift')
-            d = torch.as_tensor(dem[None], device='cuda')
-            g = torch.as_tensor(goal[None], device='cuda')
-            for seed in cfg['diffusion_seeds']:
-                increments = model.sample(d, g, None, seed=seed)[0].detach().cpu().numpy()
-                if increments.shape != (8, 2) or not np.isfinite(increments).all():
-                    raise ValueError('nonfinite or malformed sampled Path')
-                waypoints = np.cumsum(increments, axis=0)
-                endpoint_error = float(np.linalg.norm(waypoints[-1] - goal))
-                path_sha = hashlib.sha256(increments.astype(np.float32).tobytes()).hexdigest()
-                rows.append({**item, 'diffusion_seed': seed, 'generation_order': len(rows),
-                             'path_increments': increments.astype(float).tolist(),
-                             'cumulative_waypoints': waypoints.astype(float).tolist(),
-                             'endpoint_error_m': endpoint_error, 'path_sha256': path_sha,
-                             'model_checkpoint_sha256': sha(CHECKPOINT)})
-    if len(rows) != 32:
-        raise ValueError('Path count')
-    temp = PATHS.with_name(PATHS.name + '.tmp')
-    with temp.open('wb') as raw:
-        with gzip.GzipFile(filename='', mode='wb', fileobj=raw, mtime=0) as stream:
-            for row in rows:
-                stream.write((json.dumps(row, sort_keys=True, allow_nan=False) + '\n').encode())
-    temp.replace(PATHS)
-    atomic(OUT / 'v3-paths.done.json', {'paths_sha256': sha(PATHS), 'path_count': 32,
-                                        'goals_sha256': sha(GOALS), 'checkpoint_sha256': sha(CHECKPOINT)})
-    print('V3_PATHS_FROZEN', len(rows), sha(PATHS))
+    if cfg['diffusion_seeds'] != [1001, 1002] or sha(GOALS) != read(OUT / 'v3-goals.done.json')['goals_sha256']:
+        raise ValueError('frozen seeds or goals SHA drift')
+    remote = str(OUT)
+    subprocess.run(['docker', 'exec', 'isaac-lab-onix', 'mkdir', '-p', remote], check=True)
+    for source, name in [(GOALS, 'goals-v2.json'), (OUT / 'selected-states-v2.npz', 'selected-states-v2.npz'),
+                         (REPO / 'scripts/eat_nav_goal_subgoal_v2_infer.py', 'v2-infer.py')]:
+        subprocess.run(['docker', 'cp', str(source), f'isaac-lab-onix:{remote}/{name}'], check=True)
+        digest = subprocess.check_output(['docker', 'exec', 'isaac-lab-onix', 'sha256sum', f'{remote}/{name}'], text=True).split()[0]
+        if digest != sha(source):
+            raise ValueError('Docker input copy SHA mismatch: ' + name)
+    command = ('cd /tmp/eatnav-train && PYTHONPATH=/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src '
+               f'/isaac-sim/python.sh {REMOTE_INFER}')
+    with (OUT / 'v3-inference.log').open('w') as log:
+        subprocess.run(['docker', 'exec', 'isaac-lab-onix', 'bash', '-lc', command],
+                       stdout=log, stderr=subprocess.STDOUT, check=True)
+    for name in ('paths-v2.jsonl.gz', 'v3-paths.done.json'):
+        target = OUT / name
+        if target.exists():
+            raise FileExistsError(target)
+        temp = target.with_name(target.name + '.copytmp')
+        subprocess.run(['docker', 'cp', f'isaac-lab-onix:{remote}/{name}', str(temp)], check=True)
+        temp.replace(target)
+    marker = read(OUT / 'v3-paths.done.json')
+    if marker['paths_sha256'] != sha(PATHS) or marker['goals_sha256'] != sha(GOALS) or marker['path_count'] != 32:
+        raise ValueError('Docker sampled path SHA/count drift')
+    print('V3_PATHS_FROZEN', marker['path_count'], marker['paths_sha256'])
 
 
 if __name__ == '__main__':
