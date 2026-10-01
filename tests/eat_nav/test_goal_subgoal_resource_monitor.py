@@ -141,7 +141,8 @@ class ResourceMonitorTest(unittest.TestCase):
                                  for i in range(48)]}
             result = monitor.v2_storage_projection(
                 root=root, active=active, remote_root_bytes=50_000,
-                remote_active_bytes=5_000, schedule=schedule, completed_step=60,
+                remote_active_bytes=5_000, completed_remote_bytes={},
+                schedule=schedule, completed_step=60,
                 target_step=60, initial_active_bytes=5_000,
                 baseline_bytes=239_907_072)
             self.assertEqual(result['active_raw_bytes'], 15_000)
@@ -170,11 +171,13 @@ class ResourceMonitorTest(unittest.TestCase):
                                   'kind': 'candidate'} for i in range(48)]}
             result = monitor.v2_storage_projection(
                 root=root, active=active, remote_root_bytes=1_000,
-                remote_active_bytes=500, schedule=schedule, completed_step=5,
+                remote_active_bytes=500, completed_remote_bytes={'run-4': 2_000},
+                schedule=schedule, completed_step=5,
                 target_step=60, initial_active_bytes=1_000,
                 baseline_bytes=239_907_072)
             self.assertEqual(result['completed_live_count'], 1)
             self.assertEqual(result['cleanup_compressed_bytes'], 5_000)
+            self.assertEqual(result['completed_physical_run_bytes'], 7_002)
             self.assertEqual(result['remaining_future_run_count'], 46)
             row = snapshot()
             row['output_bytes'] = 800_000_001
