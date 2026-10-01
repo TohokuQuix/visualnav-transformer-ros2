@@ -54,15 +54,15 @@ def main():
             d = torch.as_tensor(dem[None], device='cuda')
             g = torch.as_tensor(goal[None], device='cuda')
             for seed in SEEDS:
-                increments = model.sample(d, g, None, seed=seed)[0].detach().cpu().numpy()
-                if increments.shape != (8, 2) or not np.isfinite(increments).all():
+                waypoints = model.sample(d, g, None, seed=seed)[0].detach().cpu().numpy()
+                if waypoints.shape != (8, 2) or not np.isfinite(waypoints).all():
                     raise ValueError('nonfinite or malformed Path')
-                waypoints = np.cumsum(increments, axis=0)
+                increments = np.diff(np.vstack((np.zeros((1, 2), dtype=np.float32), waypoints)), axis=0)
                 rows.append({**item, 'diffusion_seed': seed, 'generation_order': len(rows),
                              'path_increments': increments.astype(float).tolist(),
                              'cumulative_waypoints': waypoints.astype(float).tolist(),
                              'endpoint_error_m': float(np.linalg.norm(waypoints[-1] - goal)),
-                             'path_sha256': hashlib.sha256(increments.astype(np.float32).tobytes()).hexdigest(),
+                             'path_sha256': hashlib.sha256(waypoints.astype(np.float32).tobytes()).hexdigest(),
                              'model_checkpoint_sha256': CHECKPOINT_SHA})
     if len(rows) != 32:
         raise ValueError('Path count')
