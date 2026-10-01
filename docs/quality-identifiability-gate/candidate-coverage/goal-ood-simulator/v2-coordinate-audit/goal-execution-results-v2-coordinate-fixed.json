@@ -1,0 +1,1740 @@
+{
+  "GS1_pass": false,
+  "aggregates": {
+    "all": {
+      "count": 32,
+      "post_reach_departure_count": 10,
+      "primary_cross_track_p95_median_m": 0.030859592913298102,
+      "primary_endpoint_error_median_m": 0.22012120570421118,
+      "primary_reach_rate": 0.625,
+      "secondary_endpoint_error_median_m": 0.2717051772066993,
+      "secondary_reach_rate": 0.6875
+    },
+    "class:ID": {
+      "count": 8,
+      "post_reach_departure_count": 6,
+      "primary_cross_track_p95_median_m": 0.016206472177736225,
+      "primary_endpoint_error_median_m": 0.20298262413551363,
+      "primary_reach_rate": 1.0,
+      "secondary_endpoint_error_median_m": 0.25647801982797164,
+      "secondary_reach_rate": 1.0
+    },
+    "class:far_ood": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.04660902981687255,
+      "primary_endpoint_error_median_m": 0.3323532563604221,
+      "primary_reach_rate": 0.0,
+      "secondary_endpoint_error_median_m": 0.4062424913738752,
+      "secondary_reach_rate": 0.0
+    },
+    "class:logged": {
+      "count": 8,
+      "post_reach_departure_count": 4,
+      "primary_cross_track_p95_median_m": 0.01164584020762579,
+      "primary_endpoint_error_median_m": 0.25650073373299864,
+      "primary_reach_rate": 0.5,
+      "secondary_endpoint_error_median_m": 0.3023441377841275,
+      "secondary_reach_rate": 0.75
+    },
+    "class:near_ood": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.042672689447862504,
+      "primary_endpoint_error_median_m": 0.0995198342610321,
+      "primary_reach_rate": 1.0,
+      "secondary_endpoint_error_median_m": 0.11350791647965955,
+      "secondary_reach_rate": 1.0
+    },
+    "seed:1001": {
+      "count": 16,
+      "post_reach_departure_count": 5,
+      "primary_cross_track_p95_median_m": 0.035448601985326685,
+      "primary_endpoint_error_median_m": 0.21664090100414213,
+      "primary_reach_rate": 0.625,
+      "secondary_endpoint_error_median_m": 0.2753996393794509,
+      "secondary_reach_rate": 0.6875
+    },
+    "seed:1002": {
+      "count": 16,
+      "post_reach_departure_count": 5,
+      "primary_cross_track_p95_median_m": 0.02972317540433695,
+      "primary_endpoint_error_median_m": 0.2258004720613066,
+      "primary_reach_rate": 0.625,
+      "secondary_endpoint_error_median_m": 0.2598343925573214,
+      "secondary_reach_rate": 0.6875
+    },
+    "state:v2-train-000": {
+      "count": 8,
+      "post_reach_departure_count": 4,
+      "primary_cross_track_p95_median_m": 0.04170779412473675,
+      "primary_endpoint_error_median_m": 0.23913473083421463,
+      "primary_reach_rate": 0.75,
+      "secondary_endpoint_error_median_m": 0.3685585365237027,
+      "secondary_reach_rate": 0.75
+    },
+    "state:v2-train-001": {
+      "count": 8,
+      "post_reach_departure_count": 2,
+      "primary_cross_track_p95_median_m": 0.023878723733512568,
+      "primary_endpoint_error_median_m": 0.2511188264404566,
+      "primary_reach_rate": 0.5,
+      "secondary_endpoint_error_median_m": 0.2340742068521084,
+      "secondary_reach_rate": 0.75
+    },
+    "state:v2-train-002": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.032420900770239625,
+      "primary_endpoint_error_median_m": 0.22081145864664603,
+      "primary_reach_rate": 0.5,
+      "secondary_endpoint_error_median_m": 0.19524091010833394,
+      "secondary_reach_rate": 0.5
+    },
+    "state:v2-train-003": {
+      "count": 8,
+      "post_reach_departure_count": 4,
+      "primary_cross_track_p95_median_m": 0.01993906665508877,
+      "primary_endpoint_error_median_m": 0.19997958001773217,
+      "primary_reach_rate": 0.75,
+      "secondary_endpoint_error_median_m": 0.2720432666501011,
+      "secondary_reach_rate": 0.75
+    },
+    "support:ID": {
+      "count": 16,
+      "post_reach_departure_count": 10,
+      "primary_cross_track_p95_median_m": 0.01220182108032895,
+      "primary_endpoint_error_median_m": 0.22012120570421118,
+      "primary_reach_rate": 0.75,
+      "secondary_endpoint_error_median_m": 0.28456881068988205,
+      "secondary_reach_rate": 0.875
+    },
+    "support:far_ood": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.04660902981687255,
+      "primary_endpoint_error_median_m": 0.3323532563604221,
+      "primary_reach_rate": 0.0,
+      "secondary_endpoint_error_median_m": 0.4062424913738752,
+      "secondary_reach_rate": 0.0
+    },
+    "support:near_ood": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.042672689447862504,
+      "primary_endpoint_error_median_m": 0.0995198342610321,
+      "primary_reach_rate": 1.0,
+      "secondary_endpoint_error_median_m": 0.11350791647965955,
+      "secondary_reach_rate": 1.0
+    },
+    "terrain:boxes": {
+      "count": 8,
+      "post_reach_departure_count": 4,
+      "primary_cross_track_p95_median_m": 0.01993906665508877,
+      "primary_endpoint_error_median_m": 0.19997958001773217,
+      "primary_reach_rate": 0.75,
+      "secondary_endpoint_error_median_m": 0.2720432666501011,
+      "secondary_reach_rate": 0.75
+    },
+    "terrain:k_rail_step_field": {
+      "count": 8,
+      "post_reach_departure_count": 4,
+      "primary_cross_track_p95_median_m": 0.04170779412473675,
+      "primary_endpoint_error_median_m": 0.23913473083421463,
+      "primary_reach_rate": 0.75,
+      "secondary_endpoint_error_median_m": 0.3685585365237027,
+      "secondary_reach_rate": 0.75
+    },
+    "terrain:pyramid_stairs": {
+      "count": 8,
+      "post_reach_departure_count": 2,
+      "primary_cross_track_p95_median_m": 0.023878723733512568,
+      "primary_endpoint_error_median_m": 0.2511188264404566,
+      "primary_reach_rate": 0.5,
+      "secondary_endpoint_error_median_m": 0.2340742068521084,
+      "secondary_reach_rate": 0.75
+    },
+    "terrain:pyramid_stairs_inv": {
+      "count": 8,
+      "post_reach_departure_count": 0,
+      "primary_cross_track_p95_median_m": 0.032420900770239625,
+      "primary_endpoint_error_median_m": 0.22081145864664603,
+      "primary_reach_rate": 0.5,
+      "secondary_endpoint_error_median_m": 0.19524091010833394,
+      "secondary_reach_rate": 0.5
+    },
+    "train_knn_distance_quartile:1": {
+      "count": 8,
+      "distance_max_m": 0.004127972932788803,
+      "distance_min_m": 0.0004051711501857591,
+      "primary_reach_rate": 0.75,
+      "secondary_reach_rate": 1.0
+    },
+    "train_knn_distance_quartile:2": {
+      "count": 8,
+      "distance_max_m": 0.011266268119708517,
+      "distance_min_m": 0.004127972932788803,
+      "primary_reach_rate": 0.75,
+      "secondary_reach_rate": 0.75
+    },
+    "train_knn_distance_quartile:3": {
+      "count": 8,
+      "distance_max_m": 0.017792025072710934,
+      "distance_min_m": 0.017792025072710934,
+      "primary_reach_rate": 1.0,
+      "secondary_reach_rate": 1.0
+    },
+    "train_knn_distance_quartile:4": {
+      "count": 8,
+      "distance_max_m": 0.10956090175220387,
+      "distance_min_m": 0.10956090175220387,
+      "primary_reach_rate": 0.0,
+      "secondary_reach_rate": 0.0
+    }
+  },
+  "core_primary_reach_rate": 0.8333333333333334,
+  "runs": [
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.4410927606585689,
+      "goal_xy_map": [
+        -0.2534694238751678,
+        0.5472603211682217
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.01825348830682849,
+          "cross_track_p95_m": 0.031110160315370113,
+          "endpoint_error_m": 0.2228462062091601,
+          "first_reach_time_sec": 1.1,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.21817969521702107,
+          "post_reach_max_deviation_m": 0.22738919793272253,
+          "progress_m": 0.2182465544494088,
+          "progress_ratio": 0.4947860720351839,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.025227456044397394,
+          "cross_track_p95_m": 0.08323039110493972,
+          "endpoint_error_m": 0.34859944191619857,
+          "first_reach_time_sec": 1.1,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.3441757764528026,
+          "post_reach_max_deviation_m": 0.35725473763118065,
+          "progress_m": 0.09249331874237032,
+          "progress_ratio": 0.20969130983758189,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.004676500085852423,
+      "post_reach_max_deviation_m": 0.35725473763118065,
+      "reach_time_sec": 1.1,
+      "run_id": "v2-train-000-logged-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.004577575850332159,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.4410927606585689,
+      "goal_xy_map": [
+        -0.2534694238751678,
+        0.5472603211682217
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.009111773282510005,
+          "cross_track_p95_m": 0.02844852504910098,
+          "endpoint_error_m": 0.23420473892335095,
+          "first_reach_time_sec": 1.2000000000000002,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.22438816855224902,
+          "post_reach_max_deviation_m": 0.23420473892335095,
+          "progress_m": 0.20688802173521795,
+          "progress_ratio": 0.4690351785105835,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.025286808589991064,
+          "cross_track_p95_m": 0.08039218183383073,
+          "endpoint_error_m": 0.5056235014794558,
+          "first_reach_time_sec": 1.2000000000000002,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.49591550484020386,
+          "post_reach_max_deviation_m": 0.5066644386082501,
+          "progress_m": -0.06453074082088689,
+          "progress_ratio": -0.14629743803670672,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.009816725250464035,
+      "post_reach_max_deviation_m": 0.5066644386082501,
+      "reach_time_sec": 1.2000000000000002,
+      "run_id": "v2-train-000-logged-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.004577575850332159,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        -0.22303263462634473,
+        0.5175718919645353
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.006815115046344202,
+          "cross_track_p95_m": 0.022802817319131665,
+          "endpoint_error_m": 0.24406472274507832,
+          "first_reach_time_sec": 0.9,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.23934047180430854,
+          "post_reach_max_deviation_m": 0.24406472274507832,
+          "progress_m": 0.1559352832153861,
+          "progress_ratio": 0.38983820222942345,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.03463094215013608,
+          "cross_track_p95_m": 0.0959709723517131,
+          "endpoint_error_m": 0.4703647257850461,
+          "first_reach_time_sec": 0.9,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.4657492208682183,
+          "post_reach_max_deviation_m": 0.47069043651769066,
+          "progress_m": -0.0703647198245817,
+          "progress_ratio": -0.17591179694016423,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.004753682315223457,
+      "post_reach_max_deviation_m": 0.47069043651769066,
+      "reach_time_sec": 0.9,
+      "run_id": "v2-train-000-id_forward_long-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        -0.22303263462634473,
+        0.5175718919645353
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.006833999078943442,
+          "cross_track_p95_m": 0.02196532779137399,
+          "endpoint_error_m": 0.24839043239037434,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.23999027262327327,
+          "post_reach_max_deviation_m": 0.24839043239037434,
+          "progress_m": 0.15160957357009008,
+          "progress_ratio": 0.3790239282773286,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.016442347576629168,
+          "cross_track_p95_m": 0.023441257360554663,
+          "endpoint_error_m": 0.24465109033721652,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.23629304340554827,
+          "post_reach_max_deviation_m": 0.3245544806273753,
+          "progress_m": 0.1553489156232479,
+          "progress_ratio": 0.3883722832709218,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.008414622914548647,
+      "post_reach_max_deviation_m": 0.3245544806273753,
+      "reach_time_sec": 0.8500000000000001,
+      "run_id": "v2-train-000-id_forward_long-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.10000000149011612,
+      "goal_xy_map": [
+        -0.1091369305106651,
+        0.12130459120608472
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.029587561036378267,
+          "cross_track_p95_m": 0.05444341382163709,
+          "endpoint_error_m": 0.11098032918156994,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.1025141736021853,
+          "post_reach_max_deviation_m": 0.11112718251732209,
+          "progress_m": -0.010980327691453823,
+          "progress_ratio": -0.10980327527834192,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.06972805848011748,
+          "cross_track_p95_m": 0.10031124159672528,
+          "endpoint_error_m": 0.1082391899493505,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.1049127019129276,
+          "post_reach_max_deviation_m": 0.1475725714685414,
+          "progress_m": -0.008239188459234381,
+          "progress_ratio": -0.08239188336460908,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.012300677349993292,
+      "post_reach_max_deviation_m": 0.1475725714685414,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-000-near_left_lateral-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.10000000149011612,
+      "goal_xy_map": [
+        -0.1091369305106651,
+        0.12130459120608472
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.027774341474630544,
+          "cross_track_p95_m": 0.052305427934103386,
+          "endpoint_error_m": 0.11098032918156994,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.1005262740515132,
+          "post_reach_max_deviation_m": 0.11112718251732209,
+          "progress_m": -0.010980327691453823,
+          "progress_ratio": -0.10980327527834192,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.06802912474708872,
+          "cross_track_p95_m": 0.09812459016753157,
+          "endpoint_error_m": 0.1082391899493505,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.09787080691803089,
+          "post_reach_max_deviation_m": 0.1475725714685414,
+          "progress_m": -0.008239188459234381,
+          "progress_ratio": -0.08239188336460908,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.010740912744779889,
+      "post_reach_max_deviation_m": 0.1475725714685414,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-000-near_left_lateral-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.29999999894188023,
+      "goal_xy_map": [
+        0.1270759539662435,
+        0.43140940725863475
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.030905245315011577,
+          "cross_track_p95_m": 0.05598648450169154,
+          "endpoint_error_m": 0.3373784577013983,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.22561605534209284,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.03737845875951806,
+          "progress_ratio": -0.12459486297118116,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.07455324977929079,
+          "cross_track_p95_m": 0.09929365979748996,
+          "endpoint_error_m": 0.3885176311312068,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.27556163189774313,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.08851763218932657,
+          "progress_ratio": -0.2950587750051136,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.14101673829167471,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-000-far_diag_right-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.29999999894188023,
+      "goal_xy_map": [
+        0.1270759539662435,
+        0.43140940725863475
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.030453384604608003,
+          "cross_track_p95_m": 0.052869652584607595,
+          "endpoint_error_m": 0.3373784577013983,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19526868384420082,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.03737845875951806,
+          "progress_ratio": -0.12459486297118116,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.07335906160696092,
+          "cross_track_p95_m": 0.09596099291671312,
+          "endpoint_error_m": 0.3885176311312068,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.246096453311542,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.08851763218932657,
+          "progress_ratio": -0.2950587750051136,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.1515531247530151,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-000-far_diag_right-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.8000000031614296,
+      "goal_xy_map": [
+        0.8726132005895875,
+        -0.8633359719082611
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.004160001569151483,
+          "cross_track_p95_m": 0.009335654818692134,
+          "endpoint_error_m": 0.2954461986256988,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.3761573250828397,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.5045538045357307,
+          "progress_ratio": 0.6306922531773019,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.004696901549566833,
+          "cross_track_p95_m": 0.009584462209473546,
+          "endpoint_error_m": 0.1598090513271496,
+          "first_reach_time_sec": 2.4000000000000004,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.23909378548580337,
+          "post_reach_max_deviation_m": 0.1953053570765124,
+          "progress_m": 0.64019095183428,
+          "progress_ratio": 0.8002386866304771,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.0817980780799524,
+      "post_reach_max_deviation_m": 0.1953053570765124,
+      "reach_time_sec": 2.4000000000000004,
+      "run_id": "v2-train-001-logged-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.0004051711501857591,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.8000000031614296,
+      "goal_xy_map": [
+        0.8726132005895875,
+        -0.8633359719082611
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0010155275472628219,
+          "cross_track_p95_m": 0.004410446146842013,
+          "endpoint_error_m": 0.30733092180084065,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.31568248220177514,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.49266908136058896,
+          "progress_ratio": 0.6158363492670821,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.01350626246208535,
+          "cross_track_p95_m": 0.0204192933489701,
+          "endpoint_error_m": 0.13055785628580932,
+          "first_reach_time_sec": 2.45,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.1380415625390346,
+          "post_reach_max_deviation_m": 0.19357316814713516,
+          "progress_m": 0.6694421468756203,
+          "progress_ratio": 0.8368026802876595,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.01053844702530831,
+      "post_reach_max_deviation_m": 0.19357316814713516,
+      "reach_time_sec": 2.45,
+      "run_id": "v2-train-001-logged-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.0004051711501857591,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        0.6741239918202557,
+        -0.5117136777890128
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.009551160567923482,
+          "cross_track_p95_m": 0.010447616564098457,
+          "endpoint_error_m": 0.1991737940158129,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19226784254700757,
+          "post_reach_max_deviation_m": 0.1991737940158129,
+          "progress_m": 0.20082621194465153,
+          "progress_ratio": 0.5020655223802696,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.009551160567923482,
+          "cross_track_p95_m": 0.028164457355836264,
+          "endpoint_error_m": 0.30833936237706716,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.30150170732562304,
+          "post_reach_max_deviation_m": 0.3085167346932061,
+          "progress_m": 0.09166064358339726,
+          "progress_ratio": 0.22915160554386818,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.0069059536139296105,
+      "post_reach_max_deviation_m": 0.3085167346932061,
+      "reach_time_sec": 0.8500000000000001,
+      "run_id": "v2-train-001-id_forward_long-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        0.6741239918202557,
+        -0.5117136777890128
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.005940158037057842,
+          "cross_track_p95_m": 0.0070747327526848765,
+          "endpoint_error_m": 0.20679145425521436,
+          "first_reach_time_sec": 0.8,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19797541703388477,
+          "post_reach_max_deviation_m": 0.20679145425521436,
+          "progress_m": 0.19320855170525006,
+          "progress_ratio": 0.4830213720655459,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.00614351965536658,
+          "cross_track_p95_m": 0.03187954974826043,
+          "endpoint_error_m": 0.3357924947894104,
+          "first_reach_time_sec": 0.8,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.32712807163053464,
+          "post_reach_max_deviation_m": 0.3357924947894104,
+          "progress_m": 0.064207511171054,
+          "progress_ratio": 0.16051877553571886,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.008833843577438341,
+      "post_reach_max_deviation_m": 0.3357924947894104,
+      "reach_time_sec": 0.8,
+      "run_id": "v2-train-001-id_forward_long-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        0.4900080398085813,
+        -0.14279455212428177
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.014152749629190511,
+          "cross_track_p95_m": 0.040718124330826375,
+          "endpoint_error_m": 0.10296363216718446,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.09573903793592366,
+          "post_reach_max_deviation_m": 0.10369728297737178,
+          "progress_m": -0.0029636306770683546,
+          "progress_ratio": -0.029636306329068173,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.06963566691428966,
+          "cross_track_p95_m": 0.14268046569563914,
+          "endpoint_error_m": 0.1580357536701286,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.15537423745825432,
+          "post_reach_max_deviation_m": 0.1580357536701286,
+          "progress_m": -0.05803575218001249,
+          "progress_ratio": -0.5803575131521241,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.007980789591758283,
+      "post_reach_max_deviation_m": 0.1580357536701286,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-001-near_left_lateral-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        0.4900080398085813,
+        -0.14279455212428177
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.014187402835824703,
+          "cross_track_p95_m": 0.04081733039615828,
+          "endpoint_error_m": 0.10296363216718446,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.08605782595753705,
+          "post_reach_max_deviation_m": 0.10369728297737178,
+          "progress_m": -0.0029636306770683546,
+          "progress_ratio": -0.029636306329068173,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.06992112392547994,
+          "cross_track_p95_m": 0.14565098741682853,
+          "endpoint_error_m": 0.1580357536701286,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.14927491399466727,
+          "post_reach_max_deviation_m": 0.1580357536701286,
+          "progress_m": -0.05803575218001249,
+          "progress_ratio": -0.5803575131521241,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.017358187959183903,
+      "post_reach_max_deviation_m": 0.1580357536701286,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-001-near_left_lateral-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.2999999989418803,
+      "goal_xy_map": [
+        0.3141810550537655,
+        -0.4907117767107012
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.014022763466359027,
+          "cross_track_p95_m": 0.04034840704913751,
+          "endpoint_error_m": 0.327328055019446,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.20922523356040618,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.02732805607756572,
+          "progress_ratio": -0.09109352057984524,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.06932154226924592,
+          "cross_track_p95_m": 0.14829611075254492,
+          "endpoint_error_m": 0.4239673516165436,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.31776261501355896,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.1239673526746633,
+          "progress_ratio": -0.41322451037301433,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.14187275551875897,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-001-far_diag_right-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.2999999989418803,
+      "goal_xy_map": [
+        0.3141810550537655,
+        -0.4907117767107012
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.012964943702073855,
+          "cross_track_p95_m": 0.03730983090292668,
+          "endpoint_error_m": 0.327328055019446,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.18167899578541893,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.02732805607756572,
+          "progress_ratio": -0.09109352057984524,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0653080359313031,
+          "cross_track_p95_m": 0.1449809763451781,
+          "endpoint_error_m": 0.4239673516165436,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.2873744908125493,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.1239673526746633,
+          "progress_ratio": -0.41322451037301433,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.15230310625877114,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-001-far_diag_right-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.5490639637836341,
+      "goal_xy_map": [
+        0.03255837649392987,
+        0.5301055747853167
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.014242237181249333,
+          "cross_track_p95_m": 0.019694524129884965,
+          "endpoint_error_m": 0.27879672854264637,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19404177984842208,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.2702672352409877,
+          "progress_ratio": 0.49223269612989956,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.011961025351782346,
+          "cross_track_p95_m": 0.018548026998886406,
+          "endpoint_error_m": 0.31464475574069345,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.22968701693630306,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.23441920804294064,
+          "progress_ratio": 0.426943349965172,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.0860294457333503,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-002-logged-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.011266268119708517,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.5490639637836341,
+      "goal_xy_map": [
+        0.03255837649392987,
+        0.5301055747853167
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.012335431175162878,
+          "cross_track_p95_m": 0.013956025596559443,
+          "endpoint_error_m": 0.2794338753327439,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19478426619529687,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.2696300884508902,
+          "progress_ratio": 0.49107227251421204,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.010309722807152075,
+          "cross_track_p95_m": 0.013672716965836836,
+          "endpoint_error_m": 0.32573915578240104,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.24070793958902,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.22332480800123305,
+          "progress_ratio": 0.4067373252148763,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.08603601833456434,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-002-logged-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.011266268119708517,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604645,
+      "goal_xy_map": [
+        0.3204184306218135,
+        -0.3720033263412079
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0021821498820922794,
+          "cross_track_p95_m": 0.02450301628558995,
+          "endpoint_error_m": 0.15097078212508744,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.1444083500247557,
+          "post_reach_max_deviation_m": 0.19802145676207014,
+          "progress_m": 0.24902922383537704,
+          "progress_ratio": 0.6225730503113812,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.001691677044889758,
+          "cross_track_p95_m": 0.007948845071917485,
+          "endpoint_error_m": 0.11421171706783205,
+          "first_reach_time_sec": 0.8500000000000001,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.10764728761543207,
+          "post_reach_max_deviation_m": 0.19802145676207014,
+          "progress_m": 0.2857882888926324,
+          "progress_ratio": 0.7144707115851378,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.006565724572005464,
+      "post_reach_max_deviation_m": 0.19802145676207014,
+      "reach_time_sec": 0.8500000000000001,
+      "run_id": "v2-train-002-id_forward_long-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604645,
+      "goal_xy_map": [
+        0.3204184306218135,
+        -0.3720033263412079
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0020195774966146234,
+          "cross_track_p95_m": 0.028837325297447806,
+          "endpoint_error_m": 0.16282618875064567,
+          "first_reach_time_sec": 0.9,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.15487220563654444,
+          "post_reach_max_deviation_m": 0.18987776562328562,
+          "progress_m": 0.2371738172098188,
+          "progress_ratio": 0.592934534189134,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.004633405954770955,
+          "cross_track_p95_m": 0.01409507078746844,
+          "endpoint_error_m": 0.11555762600551577,
+          "first_reach_time_sec": 0.9,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.10757630567698716,
+          "post_reach_max_deviation_m": 0.18987776562328562,
+          "progress_m": 0.2844423799549487,
+          "progress_ratio": 0.7111059392910675,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.007985663283262577,
+      "post_reach_max_deviation_m": 0.18987776562328562,
+      "reach_time_sec": 0.9,
+      "run_id": "v2-train-002-id_forward_long-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        0.2618111991695305,
+        0.03612067134563891
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.028994093983634475,
+          "cross_track_p95_m": 0.042672689447862504,
+          "endpoint_error_m": 0.09607603635487974,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.08782593810000829,
+          "post_reach_max_deviation_m": 0.10814481252690383,
+          "progress_m": 0.003923965135236365,
+          "progress_ratio": 0.039239650767647294,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0192907232982932,
+          "cross_track_p95_m": 0.03962617728738841,
+          "endpoint_error_m": 0.11877664300996858,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.11073276033730221,
+          "post_reach_max_deviation_m": 0.11939500453918543,
+          "progress_m": -0.018776641519852477,
+          "progress_ratio": -0.18776641240058722,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.008372962484920983,
+      "post_reach_max_deviation_m": 0.11939500453918543,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-002-near_left_lateral-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        0.2618111991695305,
+        0.03612067134563891
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.029050765385901595,
+          "cross_track_p95_m": 0.042672689447862504,
+          "endpoint_error_m": 0.09607603635487974,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.07943887875038665,
+          "post_reach_max_deviation_m": 0.10814481252690383,
+          "progress_m": 0.003923965135236365,
+          "progress_ratio": 0.039239650767647294,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.010294429343853575,
+          "cross_track_p95_m": 0.03964717244775539,
+          "endpoint_error_m": 0.11877664300996858,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.10415185495713696,
+          "post_reach_max_deviation_m": 0.11939500453918543,
+          "progress_m": -0.018776641519852477,
+          "progress_ratio": -0.18776641240058722,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.0166450477906725,
+      "post_reach_max_deviation_m": 0.11939500453918543,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-002-near_left_lateral-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.29999999894188023,
+      "goal_xy_map": [
+        -0.014608927926427207,
+        -0.23874918343684143
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.028442936089223065,
+          "cross_track_p95_m": 0.03978704365528325,
+          "endpoint_error_m": 0.31033436026409383,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.186273902507249,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.010334361322213603,
+          "progress_ratio": -0.03444787119554526,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.01941480158025246,
+          "cross_track_p95_m": 0.038061308062467165,
+          "endpoint_error_m": 0.2717051772066993,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.13975942707941183,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.02829482173518094,
+          "progress_ratio": 0.09431607278326214,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.1418635060629758,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-002-far_diag_right-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.29999999894188023,
+      "goal_xy_map": [
+        -0.014608927926427207,
+        -0.23874918343684143
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.026498473462900657,
+          "cross_track_p95_m": 0.036004476243031436,
+          "endpoint_error_m": 0.31033436026409383,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.16131054902446862,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.010334361322213603,
+          "progress_ratio": -0.03444787119554526,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.018976617058644903,
+          "cross_track_p95_m": 0.03468639229389947,
+          "endpoint_error_m": 0.2717051772066993,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.11965699725718655,
+          "post_reach_max_deviation_m": null,
+          "progress_m": 0.02829482173518094,
+          "progress_ratio": 0.09431607278326214,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.152202112116965,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-002-far_diag_right-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.3119561142796093,
+      "goal_xy_map": [
+        -0.3244476009404968,
+        0.808548921841044
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0020236124593184354,
+          "cross_track_p95_m": 0.0064130297468623036,
+          "endpoint_error_m": 0.18952356423634015,
+          "first_reach_time_sec": 0.5,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.18028154153591702,
+          "post_reach_max_deviation_m": 0.19294816717839763,
+          "progress_m": 0.12243255004326914,
+          "progress_ratio": 0.392467223558028,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.013220268936621829,
+          "cross_track_p95_m": 0.043718080388379,
+          "endpoint_error_m": 0.27909410155220243,
+          "first_reach_time_sec": 0.5,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.2700375995336142,
+          "post_reach_max_deviation_m": 0.2802266709869284,
+          "progress_m": 0.03286201272740685,
+          "progress_ratio": 0.10534178117743931,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.009369911225496593,
+      "post_reach_max_deviation_m": 0.2802266709869284,
+      "reach_time_sec": 0.5,
+      "run_id": "v2-train-003-logged-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.003429337871978651,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "logged",
+      "goal_id": "logged",
+      "goal_initial_distance_m": 0.3119561142796093,
+      "goal_xy_map": [
+        -0.3244476009404968,
+        0.808548921841044
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.007019636511428758,
+          "cross_track_p95_m": 0.009269107798951447,
+          "endpoint_error_m": 0.21739620519926223,
+          "first_reach_time_sec": 0.4,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.19945526734624472,
+          "post_reach_max_deviation_m": 0.21739620519926223,
+          "progress_m": 0.09455990908034706,
+          "progress_ratio": 0.30311926823012064,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.016238613273812274,
+          "cross_track_p95_m": 0.042133442955128476,
+          "endpoint_error_m": 0.2900435198275616,
+          "first_reach_time_sec": 0.4,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.27248069732783997,
+          "post_reach_max_deviation_m": 0.2900435198275616,
+          "progress_m": 0.021912594452047685,
+          "progress_ratio": 0.07024255479861252,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.01819128672915103,
+      "post_reach_max_deviation_m": 0.2900435198275616,
+      "reach_time_sec": 0.4,
+      "run_id": "v2-train-003-logged-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.003429337871978651,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        -0.3767082822132636,
+        0.8846340888304169
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0018687134536335866,
+          "cross_track_p95_m": 0.006777099599031429,
+          "endpoint_error_m": 0.2104355957991242,
+          "first_reach_time_sec": 0.75,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.2032535014649892,
+          "post_reach_max_deviation_m": 0.2104355957991242,
+          "progress_m": 0.18956441016134024,
+          "progress_ratio": 0.47391101834152616,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.007118945366001361,
+          "cross_track_p95_m": 0.03292488284078589,
+          "endpoint_error_m": 0.26499243174799975,
+          "first_reach_time_sec": 0.75,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.25795824297653097,
+          "post_reach_max_deviation_m": 0.26499243174799975,
+          "progress_m": 0.13500757421246468,
+          "progress_ratio": 0.33751893050173776,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.007221149022375259,
+      "post_reach_max_deviation_m": 0.26499243174799975,
+      "reach_time_sec": 0.75,
+      "run_id": "v2-train-003-id_forward_long-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "ID",
+      "goal_id": "id_forward_long",
+      "goal_initial_distance_m": 0.4000000059604644,
+      "goal_xy_map": [
+        -0.3767082822132636,
+        0.8846340888304169
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0018519160897408483,
+          "cross_track_p95_m": 0.0037202032062346293,
+          "endpoint_error_m": 0.1877354624360749,
+          "first_reach_time_sec": 0.75,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.17725211607401556,
+          "post_reach_max_deviation_m": 0.1990497956131683,
+          "progress_m": 0.21226454352438953,
+          "progress_ratio": 0.5306613509035035,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.0031411033640735887,
+          "cross_track_p95_m": 0.024337917546468912,
+          "endpoint_error_m": 0.2479636079079435,
+          "first_reach_time_sec": 0.75,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.23767898526392184,
+          "post_reach_max_deviation_m": 0.2479636079079435,
+          "progress_m": 0.15203639805252092,
+          "progress_ratio": 0.38009098946750525,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.010520364255807735,
+      "post_reach_max_deviation_m": 0.2479636079079435,
+      "reach_time_sec": 0.75,
+      "run_id": "v2-train-003-id_forward_long-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.004127972932788803,
+      "train_support_class": "ID"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        -0.34019567354427416,
+        0.47394340903042437
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.03765141098904276,
+          "cross_track_p95_m": 0.04323874617581406,
+          "endpoint_error_m": 0.03349747159079536,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.03306825070962496,
+          "post_reach_max_deviation_m": 0.10440838093540533,
+          "progress_m": 0.06650252989932075,
+          "progress_ratio": 0.6650252890835585,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.025883300156388286,
+          "cross_track_p95_m": 0.04918026663296739,
+          "endpoint_error_m": 0.0518291299738929,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.0584164576403041,
+          "post_reach_max_deviation_m": 0.10440838093540533,
+          "progress_m": 0.04817087151622321,
+          "progress_ratio": 0.48170870798421306,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.008521221149893995,
+      "post_reach_max_deviation_m": 0.10440838093540533,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-003-near_left_lateral-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "near_ood",
+      "goal_id": "near_left_lateral",
+      "goal_initial_distance_m": 0.1000000014901161,
+      "goal_xy_map": [
+        -0.34019567354427416,
+        0.47394340903042437
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.02922804157431312,
+          "cross_track_p95_m": 0.03060902551122609,
+          "endpoint_error_m": 0.03349747159079536,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.040156081729278675,
+          "post_reach_max_deviation_m": 0.10440838093540533,
+          "progress_m": 0.06650252989932075,
+          "progress_ratio": 0.6650252890835585,
+          "reach_0p2m": true
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.029189655088675263,
+          "cross_track_p95_m": 0.057395511558775945,
+          "endpoint_error_m": 0.0518291299738929,
+          "first_reach_time_sec": 0.05,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.06622488719811002,
+          "post_reach_max_deviation_m": 0.10440838093540533,
+          "progress_m": 0.04817087151622321,
+          "progress_ratio": 0.48170870798421306,
+          "reach_0p2m": true
+        }
+      },
+      "planned_endpoint_error_m": 0.020963240009701994,
+      "post_reach_max_deviation_m": 0.10440838093540533,
+      "reach_time_sec": 0.05,
+      "run_id": "v2-train-003-near_left_lateral-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.017792025072710934,
+      "train_support_class": "near_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.2999999989418802,
+      "goal_xy_map": [
+        -0.04935458632984868,
+        0.7335064759714246
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.10214641431839487,
+          "cross_track_p95_m": 0.10377570119598203,
+          "endpoint_error_m": 0.37410034256687713,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.23636025610817762,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.07410034362499696,
+          "progress_ratio": -0.2470011462878459,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.10285109034246318,
+          "cross_track_p95_m": 0.13376336716093484,
+          "endpoint_error_m": 0.43821944803619617,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.30615234782969836,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.138219449094316,
+          "progress_ratio": -0.46073149860608376,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.14137389638618988,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-003-far_diag_right-seed-1001",
+      "seed": 1001,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    },
+    {
+      "catastrophic_termination": false,
+      "frame": "environment-local map",
+      "goal_class": "far_ood",
+      "goal_id": "far_diag_right",
+      "goal_initial_distance_m": 0.2999999989418802,
+      "goal_xy_map": [
+        -0.04935458632984868,
+        0.7335064759714246
+      ],
+      "horizons": {
+        "primary_0_2s": {
+          "complete": true,
+          "cross_track_p50_m": 0.10214641431839487,
+          "cross_track_p95_m": 0.10377570119598203,
+          "endpoint_error_m": 0.37410034256687713,
+          "first_reach_time_sec": null,
+          "observed_steps": 40,
+          "path_endpoint_distance_m": 0.22404174366099092,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.07410034362499696,
+          "progress_ratio": -0.2470011462878459,
+          "reach_0p2m": false
+        },
+        "secondary_0_6s": {
+          "complete": true,
+          "cross_track_p50_m": 0.10285109034246318,
+          "cross_track_p95_m": 0.13376336716093484,
+          "endpoint_error_m": 0.43821944803619617,
+          "first_reach_time_sec": null,
+          "observed_steps": 120,
+          "path_endpoint_distance_m": 0.2884094221072893,
+          "post_reach_max_deviation_m": null,
+          "progress_m": -0.138219449094316,
+          "progress_ratio": -0.46073149860608376,
+          "reach_0p2m": false
+        }
+      },
+      "planned_endpoint_error_m": 0.15038829490265046,
+      "post_reach_max_deviation_m": null,
+      "reach_time_sec": null,
+      "run_id": "v2-train-003-far_diag_right-seed-1002",
+      "seed": 1002,
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "train_knn_distance_m": 0.10956090175220387,
+      "train_support_class": "far_ood"
+    }
+  ],
+  "state_core_primary_reach_rate": {
+    "v2-train-000": 1.0,
+    "v2-train-001": 0.6666666666666666,
+    "v2-train-002": 0.6666666666666666,
+    "v2-train-003": 1.0
+  }
+}

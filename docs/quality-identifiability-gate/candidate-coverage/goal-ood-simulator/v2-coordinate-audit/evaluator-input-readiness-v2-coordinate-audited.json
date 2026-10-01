@@ -1,0 +1,73 @@
+{
+  "GS4_simulator_schema_pass": true,
+  "fields": [
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "dem_history",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "mission_logged_goal",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "candidate_local_goal",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "planned_candidate_path",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "future step value is outcome-only",
+      "field": "follower_command",
+      "selection_time_available": false
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "future step value is outcome-only",
+      "field": "actor_input",
+      "selection_time_available": false
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "future step value is outcome-only",
+      "field": "actor_latent",
+      "selection_time_available": false
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "previous_action",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "root_state",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "joint_position",
+      "selection_time_available": true
+    },
+    {
+      "all_candidate_steps_available_and_finite": true,
+      "availability_note": "anchor/current value available; future value is outcome-only",
+      "field": "raw_joint_effort",
+      "selection_time_available": true
+    }
+  ],
+  "real_robot_equivalent_effort": "NA / not verified",
+  "same_step_timestamp_audited": true
+}

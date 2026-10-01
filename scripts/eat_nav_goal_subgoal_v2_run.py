@@ -218,7 +218,7 @@ def verify_saved_run(entry, actual_name=None):
             or ((folder / 'timing-monitor.done.json').exists() and
                 read(folder / 'timing-monitor.done.json').get('status') not in ('complete', 'stopped'))):
         raise ValueError('saved run did not complete normally')
-    if not recovered and entry['order'] >= 22:
+    if not recovered and entry['kind'] != 'anchor' and entry['order'] >= 22:
         done = read(folder / 'timing-monitor.done.json')
         if (done.get('status') != 'complete' or done.get('lifecycle') != 'COMPLETE_MARKER'
                 or done.get('complete_marker_sha256') != sha(folder / 'run-complete.json')):

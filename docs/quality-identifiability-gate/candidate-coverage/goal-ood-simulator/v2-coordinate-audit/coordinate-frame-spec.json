@@ -1,0 +1,160 @@
+{
+  "canonical_evaluation_frame": "environment-local map",
+  "env_origin_rotation_rad": 0.0,
+  "frames": [
+    {
+      "frame": "anchor body local",
+      "origin": "anchor robot",
+      "saved_from": "goals-v2.json / schedule goal_xy",
+      "unit": "m",
+      "variable": "robot-local goal",
+      "yaw_basis": "anchor yaw"
+    },
+    {
+      "frame": "environment-local map",
+      "origin": "tile env origin",
+      "saved_from": "legacy analysis derived value",
+      "unit": "m",
+      "variable": "goal_xy_map",
+      "yaw_basis": "world yaw retained"
+    },
+    {
+      "frame": "environment-local map",
+      "origin": "tile env origin",
+      "saved_from": "base-path \u2192 map_path(local_pose)",
+      "unit": "m",
+      "variable": "Path waypoint",
+      "yaw_basis": "anchor yaw"
+    },
+    {
+      "frame": "map \u2192 branch_i/chassis/body",
+      "origin": "tile env origin",
+      "saved_from": "local_pose sent to bridge poses",
+      "unit": "m/rad",
+      "variable": "bridge TF pose",
+      "yaw_basis": "anchor/current world yaw"
+    },
+    {
+      "frame": "Isaac world",
+      "origin": "world zero",
+      "saved_from": "Isaac robot.data.root_state_w",
+      "unit": "m",
+      "variable": "post_root_state",
+      "yaw_basis": "world"
+    },
+    {
+      "frame": "Isaac world",
+      "origin": "world zero",
+      "saved_from": "Isaac scene.env_origins",
+      "unit": "m",
+      "variable": "env origin",
+      "yaw_basis": "zero (translation only)"
+    },
+    {
+      "frame": "environment-local map",
+      "origin": "tile env origin",
+      "saved_from": "post_root_state minus env origin",
+      "unit": "m",
+      "variable": "canonical realized trajectory",
+      "yaw_basis": "world yaw retained"
+    }
+  ],
+  "nominal_and_candidate_same_transform": true,
+  "path_representation": "NoMaD cumulative body-local 8 waypoints; prepend [0,0] for nine-point base Path; rotate+translate at anchor into map Path",
+  "source_evidence": {
+    "bridge_tf_path": "scripts/eat_nav_sim_clock_bridge.py:86-106",
+    "increment_cumulative": "scripts/eat_nav_goal_subgoal_v2_infer.py:56-65",
+    "legacy_world_local_mix": "scripts/eat_nav_goal_subgoal_v2_analyze.py:94-105",
+    "local_pose": "scripts/eat_nav_goal_subgoal_sim.py:106-110",
+    "map_path": "scripts/eat_nav_goal_subgoal_sim.py:199-201",
+    "root_capture": "scripts/eat_nav_goal_subgoal_sim.py:169,488"
+  },
+  "states": [
+    {
+      "anchor_map_xy_m": [
+        -0.022597312927246094,
+        0.17141342163085938
+      ],
+      "anchor_world_xy_m": [
+        11.82740306854248,
+        -35.678585052490234
+      ],
+      "anchor_yaw_world_and_map_rad": 2.0956522158062922,
+      "env_id": 60,
+      "origin_source": "anchor root_state_w minus Path[0], cross-checked over 11 live runs",
+      "origin_world_xy_m": [
+        11.850000381469727,
+        -35.849998474121094
+      ],
+      "origin_yaw_rad": 0.0,
+      "origin_yaw_source": "Isaac env_origins is an XYZ translation tensor; local_pose subtracts XY and preserves world yaw",
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field"
+    },
+    {
+      "anchor_map_xy_m": [
+        0.4140338897705078,
+        -0.20781707763671875
+      ],
+      "anchor_world_xy_m": [
+        28.414033889770508,
+        -36.20781707763672
+      ],
+      "anchor_yaw_world_and_map_rad": -0.8629154512515845,
+      "env_id": 80,
+      "origin_source": "anchor root_state_w minus Path[0], cross-checked over 11 live runs",
+      "origin_world_xy_m": [
+        28.0,
+        -36.0
+      ],
+      "origin_yaw_rad": 0.0,
+      "origin_yaw_source": "Isaac env_origins is an XYZ translation tensor; local_pose subtracts XY and preserves world yaw",
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs"
+    },
+    {
+      "anchor_map_xy_m": [
+        0.16922950744628906,
+        -0.0016765594482421875
+      ],
+      "anchor_world_xy_m": [
+        20.16922950744629,
+        -20.001676559448242
+      ],
+      "anchor_yaw_world_and_map_rad": -1.1831911835174471,
+      "env_id": 72,
+      "origin_source": "anchor root_state_w minus Path[0], cross-checked over 11 live runs",
+      "origin_world_xy_m": [
+        20.0,
+        -20.0
+      ],
+      "origin_yaw_rad": 0.0,
+      "origin_yaw_source": "Isaac env_origins is an XYZ translation tensor; local_pose subtracts XY and preserves world yaw",
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv"
+    },
+    {
+      "anchor_map_xy_m": [
+        -0.2457103729248047,
+        0.5066928863525391
+      ],
+      "anchor_world_xy_m": [
+        -12.245710372924805,
+        12.506692886352539
+      ],
+      "anchor_yaw_world_and_map_rad": 1.9044472280871223,
+      "env_id": 36,
+      "origin_source": "anchor root_state_w minus Path[0], cross-checked over 11 live runs",
+      "origin_world_xy_m": [
+        -12.0,
+        12.0
+      ],
+      "origin_yaw_rad": 0.0,
+      "origin_yaw_source": "Isaac env_origins is an XYZ translation tensor; local_pose subtracts XY and preserves world yaw",
+      "state_id": "v2-train-003",
+      "terrain": "boxes"
+    }
+  ],
+  "status": "unique_translation_confirmed",
+  "transform": "root_map_xy = root_state_w_xy - env_origins_xy; yaw_map = yaw_world"
+}

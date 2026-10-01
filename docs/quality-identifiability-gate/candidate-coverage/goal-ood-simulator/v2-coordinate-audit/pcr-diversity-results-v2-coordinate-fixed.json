@@ -1,0 +1,575 @@
+{
+  "GS2_pass": true,
+  "R_pairwise_translation_invariant": true,
+  "legacy_GS2_pass": true,
+  "states": [
+    {
+      "C_separated_core_pairs": 11,
+      "C_to_R_separated_pair_preservation_rate": 0.7272727272727273,
+      "P_separated_core_pairs": 8,
+      "P_to_C_separated_pair_preservation_rate": 1.0,
+      "core_mode_count": {
+        "C": 3,
+        "P": 2,
+        "R": 2
+      },
+      "distance_matrices": {
+        "C": {
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-far_diag_right-seed-1002": 0.0,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1001": 0.21557554918571895,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.20531260888661465,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1001": 0.25089679679990906,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1002": 0.26714785063591084,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.0,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.0,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1001": 0.21557554918571895,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1002": 0.20531260888661465,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1001": 0.25089679679990906,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1002": 0.26714785063591084,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.0,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.0,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.011385980159585765,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1001": 0.0402018720837748,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1002": 0.05868125922893912,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.21557554918571895,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.21557554918571895,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1001": 0.051194575253732395,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1002": 0.06951860998811973,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.20531260888661465,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.20531260888661465,
+          "v2-train-000-logged-seed-1001|v2-train-000-logged-seed-1002": 0.019169173184164588,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.25089679679990906,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.25089679679990906,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.26714785063591084,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.26714785063591084,
+          "v2-train-000-near_left_lateral-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.0
+        },
+        "P": {
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-far_diag_right-seed-1002": 0.027635034775653853,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1001": 0.16723932815049006,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.153813150555577,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1001": 0.19143843971680075,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1002": 0.17256558613651696,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.14744862807726344,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.14836278138095843,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1001": 0.19173053341521148,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1002": 0.17782192960204524,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1001": 0.2162367118366141,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1002": 0.19669670187379384,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.13624285051855953,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.13580079158177377,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.018804432550736248,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1001": 0.02493936638391846,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1002": 0.015762054014944914,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.22810923910789152,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.23412494397723066,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1001": 0.040882048103649336,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1002": 0.019307116515125868,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.21617389724587324,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.22186237133517775,
+          "v2-train-000-logged-seed-1001|v2-train-000-logged-seed-1002": 0.02512603456187464,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.25065195274274754,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.2568244956678098,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.23268938470098652,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.2385200005023561,
+          "v2-train-000-near_left_lateral-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.010067625756078872
+        },
+        "R": {
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-far_diag_right-seed-1002": 0.0,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1001": 0.196938314070793,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.1964678613036921,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1001": 0.2230788946256092,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-logged-seed-1002": 0.22163724291497905,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.0,
+          "v2-train-000-far_diag_right-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.0,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1001": 0.196938314070793,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-id_forward_long-seed-1002": 0.1964678613036921,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1001": 0.2230788946256092,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-logged-seed-1002": 0.22163724291497905,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.0,
+          "v2-train-000-far_diag_right-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.0,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-id_forward_long-seed-1002": 0.012887591818872734,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1001": 0.03338405903095964,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-logged-seed-1002": 0.03749353556289336,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.196938314070793,
+          "v2-train-000-id_forward_long-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.196938314070793,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1001": 0.03405872281501829,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-logged-seed-1002": 0.03793924245421454,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.1964678613036921,
+          "v2-train-000-id_forward_long-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.1964678613036921,
+          "v2-train-000-logged-seed-1001|v2-train-000-logged-seed-1002": 0.011817706046595445,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1001": 0.2230788946256092,
+          "v2-train-000-logged-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.2230788946256092,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1001": 0.22163724291497905,
+          "v2-train-000-logged-seed-1002|v2-train-000-near_left_lateral-seed-1002": 0.22163724291497905,
+          "v2-train-000-near_left_lateral-seed-1001|v2-train-000-near_left_lateral-seed-1002": 0.0
+        }
+      },
+      "goal_class_modes": {
+        "C": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "P": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "R": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        }
+      },
+      "nominal_duplicate_max_pair_distance_m": 0.0,
+      "nominal_duplicate_rms_m": 0.0,
+      "seed_modes": {
+        "C": {
+          "1001": 2,
+          "1002": 3
+        },
+        "P": {
+          "1001": 3,
+          "1002": 3
+        },
+        "R": {
+          "1001": 2,
+          "1002": 2
+        }
+      },
+      "state_id": "v2-train-000",
+      "terrain": "k_rail_step_field",
+      "threshold_m": 0.05
+    },
+    {
+      "C_separated_core_pairs": 12,
+      "C_to_R_separated_pair_preservation_rate": 1.0,
+      "P_separated_core_pairs": 13,
+      "P_to_C_separated_pair_preservation_rate": 0.9230769230769231,
+      "core_mode_count": {
+        "C": 3,
+        "P": 4,
+        "R": 3
+      },
+      "distance_matrices": {
+        "C": {
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-far_diag_right-seed-1002": 0.0,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1001": 0.20553296296845475,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.2058085007710924,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1001": 0.3495404904467801,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1002": 0.3466444881390132,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.0,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.0,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1001": 0.20553296296845475,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1002": 0.2058085007710924,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1001": 0.3495404904467801,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1002": 0.3466444881390132,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.0,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.0,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.00029690295008262524,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1001": 0.164504451213408,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1002": 0.16165318414854957,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.20553296296845475,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.20553296296845475,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1001": 0.16427262565858733,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1002": 0.16142057783480848,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.2058085007710924,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.2058085007710924,
+          "v2-train-001-logged-seed-1001|v2-train-001-logged-seed-1002": 0.0040055557052113755,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.3495404904467801,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.3495404904467801,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.3466444881390132,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.3466444881390132,
+          "v2-train-001-near_left_lateral-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.0
+        },
+        "P": {
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-far_diag_right-seed-1002": 0.024571427130218156,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1001": 0.1765571904502569,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.16478337124091405,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1001": 0.44755810011088976,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1002": 0.39987111568565825,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.1452891803888695,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.1314630846283768,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1001": 0.19881143957490577,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1002": 0.1867422008554684,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1001": 0.4716859197147628,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1002": 0.4239312375498731,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.1346407026913448,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.12729331339295355,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.014875509910640197,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1001": 0.28817675621219235,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1002": 0.2409121672853662,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.23974051182400422,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.20848975615714532,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1001": 0.3002977705000326,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1002": 0.25283673754173813,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.22819260227661917,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.19842076844196788,
+          "v2-train-001-logged-seed-1001|v2-train-001-logged-seed-1002": 0.04870533210377517,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.5274110139483255,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.4933813341886299,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.4802989401513077,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.447230293041297,
+          "v2-train-001-near_left_lateral-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.06052144564530432
+        },
+        "R": {
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-far_diag_right-seed-1002": 0.0,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1001": 0.1979988432908548,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.19591092840252894,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1001": 0.3141944677119536,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-logged-seed-1002": 0.3055759797124964,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.0,
+          "v2-train-001-far_diag_right-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.0,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1001": 0.1979988432908548,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-id_forward_long-seed-1002": 0.19591092840252894,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1001": 0.3141944677119536,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-logged-seed-1002": 0.3055759797124964,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.0,
+          "v2-train-001-far_diag_right-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.0,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-id_forward_long-seed-1002": 0.005476064550392415,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1001": 0.13309027191484726,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-logged-seed-1002": 0.12686776973839167,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.1979988432908548,
+          "v2-train-001-id_forward_long-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.1979988432908548,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1001": 0.13710866249040995,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-logged-seed-1002": 0.13097450548047304,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.19591092840252894,
+          "v2-train-001-id_forward_long-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.19591092840252894,
+          "v2-train-001-logged-seed-1001|v2-train-001-logged-seed-1002": 0.010571841593785714,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1001": 0.3141944677119536,
+          "v2-train-001-logged-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.3141944677119536,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1001": 0.3055759797124964,
+          "v2-train-001-logged-seed-1002|v2-train-001-near_left_lateral-seed-1002": 0.3055759797124964,
+          "v2-train-001-near_left_lateral-seed-1001|v2-train-001-near_left_lateral-seed-1002": 0.0
+        }
+      },
+      "goal_class_modes": {
+        "C": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "P": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 2
+        },
+        "R": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        }
+      },
+      "nominal_duplicate_max_pair_distance_m": 0.0,
+      "nominal_duplicate_rms_m": 0.0,
+      "seed_modes": {
+        "C": {
+          "1001": 3,
+          "1002": 3
+        },
+        "P": {
+          "1001": 4,
+          "1002": 4
+        },
+        "R": {
+          "1001": 3,
+          "1002": 3
+        }
+      },
+      "state_id": "v2-train-001",
+      "terrain": "pyramid_stairs",
+      "threshold_m": 0.05
+    },
+    {
+      "C_separated_core_pairs": 12,
+      "C_to_R_separated_pair_preservation_rate": 1.0,
+      "P_separated_core_pairs": 12,
+      "P_to_C_separated_pair_preservation_rate": 1.0,
+      "core_mode_count": {
+        "C": 3,
+        "P": 3,
+        "R": 3
+      },
+      "distance_matrices": {
+        "C": {
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-far_diag_right-seed-1002": 0.0,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1001": 0.2168938284857008,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.2168163691873333,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1001": 0.2074720047088958,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1002": 0.24544517890017267,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.0,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.0,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1001": 0.2168938284857008,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1002": 0.2168163691873333,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1001": 0.2074720047088958,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1002": 0.24544517890017267,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.0,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.0,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.000163752598712037,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1001": 0.4243128671737159,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1002": 0.46183928635576327,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.2168938284857008,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.2168938284857008,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1001": 0.42423706697958313,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1002": 0.4617610728616914,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.2168163691873333,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.2168163691873333,
+          "v2-train-002-logged-seed-1001|v2-train-002-logged-seed-1002": 0.042498099436237786,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.2074720047088958,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.2074720047088958,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.24544517890017267,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.24544517890017267,
+          "v2-train-002-near_left_lateral-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.0
+        },
+        "P": {
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-far_diag_right-seed-1002": 0.024496841385478658,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1001": 0.17572228057821568,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.16041996041427584,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1001": 0.3625437118839021,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1002": 0.3620410586112838,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.14404065363549218,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.13060538100198962,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1001": 0.1978941809243,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1002": 0.18211562071169227,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1001": 0.3395852469455835,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1002": 0.3390492993771084,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.1335176206199601,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.12493627020356107,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.020177354577496448,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1001": 0.5066733953540188,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1002": 0.5065680461641857,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.23783752845233663,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.21262652930240666,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1001": 0.49033913929948864,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1002": 0.4902220895485578,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.2223253597709579,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.1986066872353086,
+          "v2-train-002-logged-seed-1001|v2-train-002-logged-seed-1002": 0.002371476463070618,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.2735757056574585,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.3034234684703698,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.27368888493920174,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.30344834904266005,
+          "v2-train-002-near_left_lateral-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.047153318035692705
+        },
+        "R": {
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-far_diag_right-seed-1002": 0.0,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1001": 0.21792870298930914,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.20937905973244525,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1001": 0.21241389161762952,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-logged-seed-1002": 0.20584326246914986,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.0,
+          "v2-train-002-far_diag_right-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.0,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1001": 0.21792870298930914,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-id_forward_long-seed-1002": 0.20937905973244525,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1001": 0.21241389161762952,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-logged-seed-1002": 0.20584326246914986,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.0,
+          "v2-train-002-far_diag_right-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.0,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-id_forward_long-seed-1002": 0.009528860506077722,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1001": 0.43025886865732577,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-logged-seed-1002": 0.42343104947286425,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.21792870298930914,
+          "v2-train-002-id_forward_long-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.21792870298930914,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1001": 0.42170041487080256,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-logged-seed-1002": 0.4148877610617286,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.20937905973244525,
+          "v2-train-002-id_forward_long-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.20937905973244525,
+          "v2-train-002-logged-seed-1001|v2-train-002-logged-seed-1002": 0.016948777795222632,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1001": 0.21241389161762952,
+          "v2-train-002-logged-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.21241389161762952,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1001": 0.20584326246914986,
+          "v2-train-002-logged-seed-1002|v2-train-002-near_left_lateral-seed-1002": 0.20584326246914986,
+          "v2-train-002-near_left_lateral-seed-1001|v2-train-002-near_left_lateral-seed-1002": 0.0
+        }
+      },
+      "goal_class_modes": {
+        "C": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "P": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "R": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        }
+      },
+      "nominal_duplicate_max_pair_distance_m": 0.0,
+      "nominal_duplicate_rms_m": 0.0,
+      "seed_modes": {
+        "C": {
+          "1001": 3,
+          "1002": 3
+        },
+        "P": {
+          "1001": 4,
+          "1002": 4
+        },
+        "R": {
+          "1001": 3,
+          "1002": 3
+        }
+      },
+      "state_id": "v2-train-002",
+      "terrain": "pyramid_stairs_inv",
+      "threshold_m": 0.05
+    },
+    {
+      "C_separated_core_pairs": 12,
+      "C_to_R_separated_pair_preservation_rate": 1.0,
+      "P_separated_core_pairs": 14,
+      "P_to_C_separated_pair_preservation_rate": 0.8571428571428571,
+      "core_mode_count": {
+        "C": 3,
+        "P": 5,
+        "R": 3
+      },
+      "distance_matrices": {
+        "C": {
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-far_diag_right-seed-1002": 0.0,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1001": 0.18488055335286532,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.18496274181473038,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1001": 0.12179137072848309,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1002": 0.09659187597330811,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.0,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.0,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1001": 0.18488055335286532,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1002": 0.18496274181473038,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1001": 0.12179137072848309,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1002": 0.09659187597330811,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.0,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.0,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.00010700673130799453,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1001": 0.06583553835831725,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1002": 0.09129224046928482,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.18488055335286532,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.18488055335286532,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1001": 0.06592958786955808,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1002": 0.09138248106572036,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.18496274181473038,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.18496274181473038,
+          "v2-train-003-logged-seed-1001|v2-train-003-logged-seed-1002": 0.026108968226630544,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.12179137072848309,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.12179137072848309,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.09659187597330811,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.09659187597330811,
+          "v2-train-003-near_left_lateral-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.0
+        },
+        "P": {
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-far_diag_right-seed-1002": 0.024457912782558107,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1001": 0.17519431045333886,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.16231331722511744,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1001": 0.1100287029317754,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1002": 0.08802762487171742,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.14604903094057906,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.1414427699046163,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1001": 0.19724843228510194,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1002": 0.1840138792850665,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1001": 0.1300373254018259,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1002": 0.09854423228102709,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.13486639205818557,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.1429248191049519,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.01615837765514777,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1001": 0.07151656170867499,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1002": 0.13451394491174146,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.24122574520911544,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.19410042893916402,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1001": 0.05703734679730344,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1002": 0.11879907876795893,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.22855350435232785,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.18574632782501888,
+          "v2-train-003-logged-seed-1001|v2-train-003-logged-seed-1002": 0.06695913084871116,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.17789149639616111,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.14782766223876018,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.13568879533774492,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.14163402453496088,
+          "v2-train-003-near_left_lateral-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.10581984610036664
+        },
+        "R": {
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-far_diag_right-seed-1002": 0.0,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1001": 0.16216002486749376,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.16907967641721783,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1001": 0.11322902811825414,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-logged-seed-1002": 0.10499962361964485,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.0,
+          "v2-train-003-far_diag_right-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.0,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1001": 0.16216002486749376,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-id_forward_long-seed-1002": 0.16907967641721783,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1001": 0.11322902811825414,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-logged-seed-1002": 0.10499962361964485,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.0,
+          "v2-train-003-far_diag_right-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.0,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-id_forward_long-seed-1002": 0.010857634682458863,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1001": 0.06207748198971978,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-logged-seed-1002": 0.07595896347066064,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.16216002486749376,
+          "v2-train-003-id_forward_long-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.16216002486749376,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1001": 0.06920886937588812,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-logged-seed-1002": 0.08345303234520351,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.16907967641721783,
+          "v2-train-003-id_forward_long-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.16907967641721783,
+          "v2-train-003-logged-seed-1001|v2-train-003-logged-seed-1002": 0.016629592616946662,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1001": 0.11322902811825414,
+          "v2-train-003-logged-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.11322902811825414,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1001": 0.10499962361964485,
+          "v2-train-003-logged-seed-1002|v2-train-003-near_left_lateral-seed-1002": 0.10499962361964485,
+          "v2-train-003-near_left_lateral-seed-1001|v2-train-003-near_left_lateral-seed-1002": 0.0
+        }
+      },
+      "goal_class_modes": {
+        "C": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        },
+        "P": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 2,
+          "near_ood": 2
+        },
+        "R": {
+          "ID": 1,
+          "far_ood": 1,
+          "logged": 1,
+          "near_ood": 1
+        }
+      },
+      "nominal_duplicate_max_pair_distance_m": 0.0,
+      "nominal_duplicate_rms_m": 0.0,
+      "seed_modes": {
+        "C": {
+          "1001": 3,
+          "1002": 3
+        },
+        "P": {
+          "1001": 4,
+          "1002": 4
+        },
+        "R": {
+          "1001": 3,
+          "1002": 3
+        }
+      },
+      "state_id": "v2-train-003",
+      "terrain": "boxes",
+      "threshold_m": 0.05
+    }
+  ]
+}
