@@ -1,0 +1,30 @@
+schema_version: eatnav_g0e_e1_safety_frozen_proposal_v1
+status: frozen_for_separate_E1_review
+execution_authorized: false
+source_formal_anchor_config_sha256: f7ed701a0156d0acf1b14e8afb23058a299183fbcf221bfdad67aaa38070dd8f
+infrastructure_stop:
+  anchor_gate_failure: immediate
+  nominal_duplicate_xy_rms_over_m: 0.0105
+  same_stamp_tf_command_abs_difference_over: 1.0e-9
+  command_freshness_timeout: immediate
+  follower_or_bridge_lifecycle_failure: immediate
+  nonfinite_observation_or_action: immediate
+  simulator_crash_or_unexpected_reset: immediate
+  gpu_device_total_memory_over_mib: 6656
+  gpu_unattributed_memory_over_mib: 256
+  unresolved_gpu_pid: immediate
+  cgroup_anon_plus_shmem_over_bytes: 6442450944
+  host_mem_available_under_bytes: 10095421850
+  step_stall_over_sec: 120
+  heartbeat_stale_over_sec: 90
+  storage_over_bytes: 800000000
+  per_process_wall_clock_over_sec: 600
+  schedule_wall_clock_over_sec: 3600
+  cleanup_failure_or_residual_process: immediate
+  automatic_retry: forbidden
+  unrelated_process_signal: forbidden
+physical_event_handling:
+  stack_tilt_recovery_or_termination: preserve_trace_and_stop_run_safely
+  outcome_label: valid_negative_if_infrastructure_healthy
+  infrastructure_failure_as_outcome: forbidden
+scope: E1_proposal_only_no_execution

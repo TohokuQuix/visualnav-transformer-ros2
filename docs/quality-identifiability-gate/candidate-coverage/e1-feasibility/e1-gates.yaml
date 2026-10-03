@@ -1,0 +1,48 @@
+schema_version: eatnav_g0e_e1_gate_frozen_proposal_v1
+status: frozen_for_separate_E1_review
+execution_authorized: false
+statistical_unit: StateGroup
+terrain_generalization_claim: prohibited_with_two_groups
+candidate_unique_per_group: 7
+direct_repeats_per_group: 3
+oracle_denominator_per_group: 7
+duplicate:
+  run_before_nondirect_candidates: true
+  path_sha_identity: exact
+  initial_anchor_identity: exact_or_formal_numeric_anchor_gate
+  xy_rms_max_m: 0.0105
+  command_rms_max_m_per_s: 0.001
+  actor_input_max_abs: 0.0001
+  actor_action_max_abs: 0.0001
+  critic_value_max_abs: 0.0001
+  dem_rms_max_m: 0.03
+  dem_mask_iou_min: 0.95
+  reward_max_abs: 0.0001
+  first_divergent_signal_and_step: required_if_any_difference
+P_to_C:
+  compare: [candidate_path_distance, follower_command_series_distance, first_command_difference, command_cluster_count, path_mode_retention]
+  require_distinct_path_sha: true
+  require_at_least_two_nondirect_commands_above_nominal_noise: true
+  follower_command_rms_above_m_per_s: 0.001
+  first_command_difference_above_m_per_s: 0.001
+  minimum_command_clusters_per_group: 2
+C_to_R:
+  compare: [realized_xy_pairwise_rms, realized_mode_count, candidate_effect_to_duplicate_noise_ratio, endpoint_difference, progress_difference, cross_track_difference]
+  realized_xy_rms_above_m: 0.0105
+  candidate_effect_to_duplicate_noise_ratio_min: 2.0
+  ratio_denominator_floor_m: 0.001
+  minimum_realized_modes_per_group: 2
+R_to_Y:
+  compare: [delta_critic_value, H_step_advantage, drawdown, recovery, progress, path_length, endpoint_error, cross_track, tilt, contact, effort, stack, termination]
+  require_outcome_rank_difference_in_at_least_one_group: true
+  numerical_difference_above_duplicate_noise: true
+  minimum_critic_value_difference: 0.01
+  minimum_progress_or_endpoint_difference_m: 0.02
+  categorical_contact_stack_or_termination_difference_counts: true
+feasibility:
+  require_nominal_duplicate_pass: true
+  reject_all_seven_same_command_or_trajectory: true
+  reject_all_seven_same_tracking_failure: true
+  exclude_infrastructure_failures_from_outcome: true
+  outcome_blind_state_and_candidate_order: true
+note: Numerical behavioral thresholds are prospective E1 test definitions and have not been validated by E1 rollout.

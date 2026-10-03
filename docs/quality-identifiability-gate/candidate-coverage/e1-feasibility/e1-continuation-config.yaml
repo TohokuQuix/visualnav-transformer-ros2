@@ -1,0 +1,32 @@
+schema_version: eatnav_e1_feasibility_continuation_v1
+status: frozen_before_live_candidate_results
+output_root: /tmp/eatnav-e1-feasibility-20261003
+tmux_session: eatnav-e1-feasibility
+original_20_row_manifest_sha256: fef68997fbacb0d610f1c568ddf6a30d614760f9171b855e9257954d292e7133
+continuation_18_row_manifest_sha256: 482c07f206d25495dfc87014adbfcf80e47fcc700c196b8d868ab38c5306b1ba
+gates_sha256: 2bb5f3420426c09f15a7a20ea0fa72ae930a4bc137ca752535f5158570a84ea6
+safety_stops_sha256: a6663d97a11859780e7394bed59ba150c9df0b89fd7ca0665715b1c45c421aec
+completed_anchor_only: 2
+new_process_count: 18
+state_group_order: [g0e-train-000, g0e-train-001]
+candidate_order_per_group: [direct_reference_repeat_0, direct_reference_repeat_1,
+  direct_reference_repeat_2, left_0.04, left_0.08, left_0.12,
+  right_0.04, right_0.08, right_0.12]
+seed: 123
+control_steps: 120
+control_frequency_hz: 20
+physical_horizon_s: 6
+path_waypoints: 8
+path_sampling_interval_s: 0.25
+path_nominal_horizon_s: 2
+direct_repeat_aggregation_for_oracle: median
+statistical_unit: StateGroup
+frozen_following: production_follower_exact_stamp
+fresh_bridge_per_run: true
+fresh_follower_processes_per_run: 8
+resume_requires_complete_marker_sha: true
+auto_retry: false
+wall_clock_start: continuation-started.marker.json
+wall_clock_cap_sec: 3600
+candidate_results_used_for_selection: false
+learning_after_pilot: false
