@@ -8,6 +8,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import socket
+import subprocess
 import traceback
 
 import eat_nav_e1_run_one as replay
@@ -56,7 +57,9 @@ def preflight(root):
                 'E1_safety_stops_sha256', 'source_binary_sha256'):
         if audit[key] != prior[key]:
             raise ValueError('frozen E1 input/source changed: ' + key)
-    if sha(OLD/'eat_nav_e1_sim.py') != audit['source_binary_sha256']['simulator']:
+    remote_sha = subprocess.check_output(['docker', 'exec', 'isaac-lab-onix', 'sha256sum',
+        str(OLD/'eat_nav_e1_sim.py')], text=True).split()[0]
+    if remote_sha != audit['source_binary_sha256']['simulator']:
         raise ValueError('frozen Docker simulator source changed')
     return audit
 
