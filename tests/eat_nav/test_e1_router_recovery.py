@@ -69,3 +69,13 @@ def test_recovery_runner_uses_new_output_root_without_rewriting_old(monkeypatch,
         assert replay.REMOTE_CODE == str(old/'eat_nav_e1_sim.py')
     finally:
         configure_output_root(old)
+
+
+def test_transport_guard_rejects_router_connection_warning(tmp_path):
+    from eat_nav_e1_recovery_continue import reject_transport_warnings
+    bridge = tmp_path/'bridge.log'
+    bridge.write_text('[rmw_zenoh_cpp]: Unable to connect to a Zenoh router\n')
+    with pytest.raises(RuntimeError, match='Zenoh router'):
+        reject_transport_warnings(bridge)
+    bridge.write_text('{"stage": "listening", "port": 47819}\n')
+    reject_transport_warnings(bridge)

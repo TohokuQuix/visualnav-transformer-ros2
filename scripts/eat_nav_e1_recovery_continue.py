@@ -33,15 +33,15 @@ def configure_output_root(root):
     replay.REMOTE_CODE = str(OLD/'eat_nav_e1_sim.py')
 
 
-def preflight(root):
+def reject_transport_warnings(bridge_log):
+    message = Path(bridge_log).read_text(errors='replace')
+    if any(text in message for text in ('Unable to connect to a Zenoh router',
+            'no peers will discover', 'failed to connect to a Zenoh router')):
+        raise RuntimeError('Zenoh router connection warning in '+str(bridge_log))
+
+
+def check_router(root):
     root = Path(root)
-    readiness = json.loads((root/'router-readiness.json').read_text())
-    if readiness['gate']['status'] != 'pass':
-        raise ValueError('router readiness gate did not pass')
-    old_marker = OLD/'runs/g0e-train-000-nominal_duplicate-00/failure-0.marker.json'
-    preserved = json.loads((root/'attempt-0-preservation.json').read_text())
-    if preserved['failure_marker_sha256'] != sha(old_marker):
-        raise ValueError('attempt-0 failure marker changed')
     router = json.loads((root/'router-launch-provenance.json').read_text())
     proc = Path('/proc')/str(router['pid'])
     if not proc.is_dir() or proc.joinpath('exe').resolve() != Path('/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd'):
@@ -51,6 +51,18 @@ def preflight(root):
     log = (root/'router.log').read_text()
     if 'Started Zenoh router' not in log or any(x in log.lower() for x in ('error', 'failed', 'panic')):
         raise RuntimeError('external router log has no clean startup')
+
+
+def preflight(root):
+    root = Path(root)
+    readiness = json.loads((root/'router-readiness.json').read_text())
+    if readiness['gate']['status'] != 'pass':
+        raise ValueError('router readiness gate did not pass')
+    old_marker = OLD/'runs/g0e-train-000-nominal_duplicate-00/failure-0.marker.json'
+    preserved = json.loads((root/'attempt-0-preservation.json').read_text())
+    if preserved['failure_marker_sha256'] != sha(old_marker):
+        raise ValueError('attempt-0 failure marker changed')
+    check_router(root)
     audit = schedule.freeze_sources()
     prior = json.loads((OLD/'source-freeze.json').read_text())
     for key in ('E1_continuation_manifest_sha256', 'E1_gates_sha256',
@@ -64,6 +76,17 @@ def preflight(root):
     return audit
 
 
+def install_transport_guard(root):
+    original = replay.run_one
+    def guarded(entry, run_name, **kwargs):
+        check_router(root)
+        result = original(entry, run_name, **kwargs)
+        reject_transport_warnings(Path(root)/'runs'/run_name/'bridge.log')
+        check_router(root)
+        return result
+    replay.run_one = guarded
+
+
 def main():
     configure_output_root(RECOVERY)
     try:
@@ -71,6 +94,7 @@ def main():
         recovery_clock_start(RECOVERY,
             OLD/'runs/g0e-train-000-nominal_duplicate-00', pending=18,
             readiness_status='pass')
+        install_transport_guard(RECOVERY)
         schedule.run()
         atomic(RECOVERY/'recovery-final-status.json', {'status': 'E1_COMPLETE',
                'new_valid_processes': 18, 'router_owned_by_runner': False,
