@@ -3,7 +3,7 @@
 The original completed runs and readiness-100 attempt-0 are never written here.
 """
 from __future__ import annotations
-import argparse, gzip, hashlib, json, os, pathlib, socket, subprocess, time
+import argparse, gzip, hashlib, json, os, pathlib, socket, subprocess, sys, time
 from visualnav_transformer.eat_nav.readiness_recovery import terminate_tree
 
 REPO=pathlib.Path('/tmp/eatnav-vnt-candidate-coverage')
@@ -95,7 +95,8 @@ def archive_logs(folder):
  atomic(folder/'archived-log-sha.json',ledger)
  return ledger
 
-def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600):
+def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,timeout_sec=600,
+            lifecycle_monitor=None,lifecycle_config=None,lifecycle_sim_source=None):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
@@ -110,7 +111,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
         'base_path':state/f"{entry['candidate_id']}-base-path.json",
         'map_path':state/f"{entry['candidate_id']}-map-path.json",'config':state/'config-120.yaml',
         'anchor':state/'logged-anchor.json'}.items() if p.exists()}})
- bridge=None;sim=None;error=None;peak_gpu=0;fault_seen=None;baseline=active_processes()
+ bridge=None;sim=None;monitor=None;monitor_log=None;error=None;peak_gpu=0;fault_seen=None;baseline=active_processes()
  try:
   if entry['kind']!='anchor':
    args=['bash','-lc','source /opt/ros/jazzy/setup.bash; exec /usr/bin/python3 '+
@@ -141,11 +142,23 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
       '--reference-config','/tmp/eatnav-candidate-coverage/baseline-worktree-8e8f4fd/docs/quality-identifiability-gate/phase-c/reference-eat.yaml',
       '--rl-checkpoint','/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
       '--output',remote]
+  if lifecycle_monitor is not None:cmd.append('--timing-telemetry')
   sim_log=(target/'simulator.log').open('x')
+  if lifecycle_monitor is not None:atomic(target/'docker-exec-start.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),'command':cmd})
   sim=subprocess.Popen(cmd,stdout=sim_log,stderr=subprocess.STDOUT,start_new_session=True)
+  if lifecycle_monitor is not None:
+   monitor_log=(target/'timing-monitor.log').open('x')
+   target_step=read(INPUT/'selected-states.json')['train'][entry['state_index']]['step']
+   monitor=subprocess.Popen([sys.executable,str(lifecycle_monitor),'--run',str(target),
+      '--remote-progress',remote+'/timing-progress.json','--sim-host-pid',str(sim.pid),
+      '--run-id',run_name,'--target-step',str(target_step),
+      '--target-episode',str(entry['episode_key'][2]),
+      '--config',str(lifecycle_config),'--sim-source',str(lifecycle_sim_source)],
+      stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
   while sim.poll() is None:
    elapsed=time.monotonic()-started
    if elapsed>timeout_sec:raise TimeoutError('simulator wall limit')
+   if monitor is not None and monitor.poll() is not None:raise RuntimeError('lifecycle monitor exited before simulator')
    if expected_failure and 'RECOVERY_FATAL' in (target/'simulator.log').read_text(errors='replace'):
     if fault_seen is None:fault_seen=time.monotonic()
     if time.monotonic()-fault_seen>60:raise TimeoutError('exception cleanup >60 sec')
@@ -159,6 +172,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    time.sleep(2)
   sim_log.close()
   code=sim.returncode
+  if monitor is not None:atomic(target/'docker-exec-return.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),'exit_code':code})
   if expected_failure:
    for name in ('failure-0.marker.json','failure-0.trace.json.gz','status.json'):
     subprocess.run(['docker','cp',f'isaac-lab-onix:{remote}/{name}',str(target/name)],check=True)
@@ -173,6 +187,9 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    stage='anchor' if entry['kind']=='anchor' else 'live'
    names=['anchor-0.json','anchor-0.marker.json'] if stage=='anchor' else ['live-0.json','live-0.trace.json.gz','live-0.clock.json.gz','live-0.marker.json']
    for name in names:subprocess.run(['docker','cp',f'isaac-lab-onix:{remote}/{name}',str(target/name)],check=True)
+   if monitor is not None:
+    for name in ('timing-events.jsonl','timing-progress.json','timing-step-durations.json'):
+     subprocess.run(['docker','cp',f'isaac-lab-onix:{remote}/{name}',str(target/name)],check=True)
    summary=read(target/names[0])
    if summary['state']['state_id']!=entry['state_id'] or summary['requested_control_steps']!=120:raise ValueError('result identity')
    if stage=='live':
@@ -184,11 +201,16 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
           'expected_failure':expected_failure})
  except BaseException as exc:
   error=repr(exc)
+  if monitor is not None and monitor.poll() is None:atomic(target/'monitor.stop',{'error':error,'monotonic_ns':time.monotonic_ns()})
   if sim is not None and sim.poll() is None:
    terminate_tree(sim,term_wait_sec=3,kill_wait_sec=3)
    killed=_terminate_docker_sim(run_name)
    atomic(target/'forced-sim-cleanup.json',{'error':error,'docker_pids_killed':killed})
  finally:
+  if monitor is not None and monitor.poll() is None and error:
+   try:monitor.wait(timeout=20)
+   except subprocess.TimeoutExpired:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
+  if monitor_log is not None and error:monitor_log.close()
   if bridge is not None:
    try:
     response=bridge_request('shutdown')
@@ -216,6 +238,12 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
  atomic(target/'run-complete.json',{'identity':entry,'output_sha256':{name:sha(target/name) for name in names},
        'protocol':'fresh_bridge_per_run','elapsed_sec':time.monotonic()-started,
        'gpu_peak_mib':peak_gpu})
+ if monitor is not None:
+  monitor.wait(timeout=130)
+  monitor_log.close()
+  done=read(target/'timing-monitor.done.json')
+  if monitor.returncode or done.get('status')!='complete' or done.get('runtime_monitor')!='pass' or done.get('finalization_verifier')!='pass':
+   raise RuntimeError('lifecycle smoke monitor failed')
  return read(target/'run-complete.json')
 
 if __name__=='__main__':

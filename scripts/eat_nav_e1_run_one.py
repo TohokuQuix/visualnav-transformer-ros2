@@ -272,8 +272,15 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
   try:
    monitor.wait(timeout=130)
    done=read(target/'timing-monitor.done.json')
-   if monitor.returncode or done.get('status')!='complete' or done.get('lifecycle')!='COMPLETE_MARKER':
+   if (monitor.returncode or done.get('status')!='complete' or done.get('lifecycle')!='COMPLETE_MARKER'
+       or done.get('runtime_monitor')!='pass' or done.get('finalization_verifier')!='pass'):
     raise RuntimeError('monitor did not verify cleanup complete marker')
+   from eat_nav_e1_monitor import verify_complete
+   if verify_complete(target)!=sha(target/'run-complete.json'):
+    raise RuntimeError('runner finalization verifier disagrees with monitor')
+   atomic(target/'protocol-valid.json',{'status':'valid','identity':entry,
+       'run_complete_sha256':sha(target/'run-complete.json'),
+       'monitor_done_sha256':sha(target/'timing-monitor.done.json')})
   finally:
    if monitor.poll() is None:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
    if monitor_log is not None and not monitor_log.closed:monitor_log.close()

@@ -100,10 +100,13 @@ def main():
                'new_valid_processes': 18, 'router_owned_by_runner': False,
                'source_freeze_sha256': sha(RECOVERY/'source-freeze.json')})
     except BaseException as exc:
+        counts=schedule.process_counts(RECOVERY)
+        schedule.atomic(RECOVERY/'status.json',{'stage':'E1_STOPPED','reason':repr(exc),
+            **counts,'learning_started':False})
         atomic(RECOVERY/'recovery-stop.json', {'status': 'E1_STOPPED',
                'error': repr(exc), 'traceback': traceback.format_exc(),
                'router_owned_by_runner': False,
-               'completed_valid_processes': len(list((RECOVERY/'runs').glob('*/run-complete.json')))})
+               **counts})
         raise
 
 

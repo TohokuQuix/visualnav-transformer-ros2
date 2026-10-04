@@ -1,0 +1,9 @@
+# E1 cleanup monitor protocol
+
+The fixed finalization grace is **30 seconds**, chosen before any new live result. The prior normal Docker exec gap was 1.600 s, and this grace also covers host copy, log compression and atomic marker flush. The frozen resource and behavior limits remain unchanged.
+
+`STARTING` waits for the owned simulator process and stores its host PID start ticks. `RUNNING` checks PID ownership, heartbeat, resources, router/bridge/follower liveness, and protocol errors. A process disappearance before the expected 120 suffix steps is a failure. A matching atomic simulator completion marker, closed trace with SHA matching the marker, 120-step summary, and no simulator failure marker permit `RUNNING → FINALIZING`, whether the simulator PID is still present or has just exited. A malformed or partial marker is never accepted.
+
+`FINALIZING` allows normal disappearance of the Isaac Python PID. It waits no more than 30 seconds for Docker exec exit 0, bridge and follower exit, a complete `run-complete.json`, all listed output SHA, no owned residual or zombie process, and the cleanup marker. A missing item at the deadline or any explicit failure enters `FAIL`. Once these checks pass it enters `COMPLETE`. The monitor writes the transition log and distinct runtime and finalization results. The runner issues `protocol-valid.json` only after both results pass; a mechanical `run-complete.json` alone never counts toward the 18 valid processes.
+
+Attempt-0 and attempt-1 remain excluded. The old monitor's condition `seen_root and no simulator_tree and host Docker exec PID exists` is insufficient to signal failure during normal finalization. It remains a failure in `RUNNING` when completion evidence or 120 steps are absent, and PID reuse is detected through process start ticks.

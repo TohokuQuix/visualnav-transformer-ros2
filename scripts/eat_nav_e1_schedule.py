@@ -16,6 +16,7 @@ from eat_nav_e1_monitor import gate_sample,limits,sample
 from eat_nav_g0e_formal_gate import baseline_gate
 from eat_nav_g0e_gpu_probe import Nvml,atomic,proc_table
 from eat_nav_g0e_gpu_run import container_identity
+from eat_nav_e1_lifecycle import protocol_valid_count
 
 REPO=Path('/tmp/eatnav-vnt-e1-feasibility')
 SESSION='eatnav-e1-feasibility'
@@ -204,15 +205,30 @@ def completed_rows(rows):
         if not folder.exists():continue
         marker=folder/'run-complete.json'
         if not marker.exists():raise ValueError('partial run; no automatic retry '+row['process_id'])
+        validity=folder/'protocol-valid.json'
+        if not validity.exists():raise ValueError('cleanup gate incomplete; no automatic retry '+row['process_id'])
         result=read(marker)
         if result['identity']!=execution_entry(row):raise ValueError('completed run identity differs')
         for name,digest in result['output_sha256'].items():
             if sha(folder/name)!=digest:raise ValueError('completed run output SHA differs')
         done=read(folder/'timing-monitor.done.json')
-        if done['status']!='complete' or done['complete_marker_sha256']!=sha(marker):
+        valid=read(validity)
+        if (done['status']!='complete' or done['complete_marker_sha256']!=sha(marker)
+                or valid['status']!='valid' or valid['identity']!=execution_entry(row)
+                or valid['run_complete_sha256']!=sha(marker)
+                or valid['monitor_done_sha256']!=sha(folder/'timing-monitor.done.json')):
             raise ValueError('completed monitor marker differs')
         completed.add(row['process_id'])
     return completed
+
+
+def process_counts(root=None):
+    runs=Path(root or ROOT)/'runs'
+    folders=[p for p in runs.iterdir() if p.is_dir()] if runs.exists() else []
+    traces=sum((p/'live-0.trace.json.gz').exists() for p in folders)
+    valid=protocol_valid_count(runs)
+    return {'completed_trace_count':traces,'protocol_valid_process_count':valid,
+            'measurement_invalid_count':len(folders)-valid}
 
 
 def run():
@@ -258,7 +274,9 @@ def run():
             'completed_new_processes':len(completed),'elapsed_sec':time.time()-started})
         replay.run_one(entry,row['process_id'],timeout_sec=600,timing_telemetry=True,
             timing_monitor_script=REPO/'scripts/eat_nav_e1_monitor.py',
-            timing_monitor_config=ROOT/'e1-safety-stops.yaml',monitor_cleanup_protocol=True)
+            timing_monitor_config=ROOT/'e1-safety-stops.yaml',
+            timing_monitor_extra_args=('--sim-source',replay.REMOTE_CODE),
+            monitor_cleanup_protocol=True)
         completed=completed_rows(rows)
         atomic(ROOT/'run-stage-markers'/f"{row['process_id']}.json",{'status':'complete',
             'run_complete_sha256':sha(ROOT/'runs'/row['process_id']/'run-complete.json'),
