@@ -173,21 +173,21 @@ def setup_container():
 
 
 def prelaunch_baseline(row,container,nvml):
-    run_id=row['process_id'];path=ROOT/'baselines'/f'{run_id}.jsonl'
-    if path.exists():raise FileExistsError('run baseline already attempted')
-    path.parent.mkdir(parents=True,exist_ok=True)
+    run_id=row['process_id'];baseline_path=ROOT/'baselines'/f'{run_id}.jsonl'
+    if baseline_path.exists():raise FileExistsError('run baseline already attempted')
+    baseline_path.parent.mkdir(parents=True,exist_ok=True)
     prior=proc_table();baseline_ids={(pid,p['start_ticks']) for pid,p in prior.items()}
     residual=[]
-    for path in (ROOT/'runs').glob('*/process-registry.json') if (ROOT/'runs').exists() else []:
-        registry=ProcessRegistry.load(path)
-        if registry.run_id!=path.parent.name:raise ValueError('stale process registry run ID')
+    for registry_path in (ROOT/'runs').glob('*/process-registry.json') if (ROOT/'runs').exists() else []:
+        registry=ProcessRegistry.load(registry_path)
+        if registry.run_id!=registry_path.parent.name:raise ValueError('stale process registry run ID')
         if registry.run_id==run_id:continue
         residual.extend(registry.residuals())
     safety=yaml.safe_load((ROOT/'e1-safety-stops.yaml').read_text())
     samples=[];start=time.monotonic()
     while True:
         snap=sample(nvml,container,baseline_ids,str(ROOT/'runs'/run_id))
-        with path.open('a') as stream:
+        with baseline_path.open('a') as stream:
             stream.write(json.dumps(snap,sort_keys=True,allow_nan=False)+'\n')
             stream.flush();os.fsync(stream.fileno())
         samples.append(gate_sample(snap,snap['cgroup_memory']['events'].get('oom',0)))
@@ -198,7 +198,7 @@ def prelaunch_baseline(row,container,nvml):
         reason=reason or 'insufficient_GPU_headroom'
     result={'status':'pass' if reason is None else 'not_started','reason':reason,
         'sample_count':len(samples),'duration_sec':time.monotonic()-start,
-        'baseline_sha256':sha(path),'device_peak_mib':max(x['device_total_used_mib'] for x in samples),
+        'baseline_sha256':sha(baseline_path),'device_peak_mib':max(x['device_total_used_mib'] for x in samples),
         'residual_count':len(residual)}
     atomic(ROOT/'baselines'/f'{run_id}.gate.json',result)
     return result
