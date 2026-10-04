@@ -30,3 +30,32 @@ def test_cli_file_enumeration_rejects_missing_path_flag():
     cmd.remove('--fixed-map-path')
     with pytest.raises(ValueError,match='missing/duplicate'):
         cli_file_paths(cmd)
+
+
+def test_prepared_attempt_three_root_verifies_inputs_without_overwrite(tmp_path,monkeypatch):
+    import eat_nav_e1_attempt2 as flow
+    prior=tmp_path/'prior';prior.mkdir();root=tmp_path/'new';root.mkdir()
+    (root/'attempt-2-evidence').mkdir()
+    for name in ('continuation-manifest.json','original-20-row-manifest.json',
+                 'e1-gates.yaml','e1-safety-stops.yaml','map-path-identities.jsonl.gz',
+                 'completed-pending-identity.json','input-freeze.json'):
+        (prior/name).write_text(name)
+    (prior/'inputs').mkdir();(prior/'inputs/x').write_text('frozen')
+    (root/'inputs').mkdir();(root/'inputs/x').write_text('frozen')
+    monkeypatch.setattr(flow,'PRIOR',prior);monkeypatch.setattr(flow,'ROOT',root)
+    flow.copy_inputs()
+    assert (root/'input-freeze.json').read_text()=='input-freeze.json'
+    (root/'inputs/x').write_text('modified')
+    with pytest.raises(ValueError,match='SHA'):
+        flow.copy_inputs()
+
+
+def test_attempt_three_selects_new_root_and_preserves_attempt_two(monkeypatch):
+    import eat_nav_e1_attempt2 as flow
+    from eat_nav_e1_attempt3 import configure_attempt3
+    old=flow.ROOT
+    configure_attempt3()
+    assert flow.LABEL=='attempt-3'
+    assert flow.PRIOR==old
+    assert flow.ROOT!=old
+    assert old in flow.HISTORICAL

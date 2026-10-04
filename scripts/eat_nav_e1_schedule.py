@@ -17,6 +17,7 @@ from eat_nav_g0e_formal_gate import baseline_gate
 from eat_nav_g0e_gpu_probe import Nvml,atomic,proc_table
 from eat_nav_g0e_gpu_run import container_identity
 from eat_nav_e1_lifecycle import protocol_valid_count
+from eat_nav_e1_process_ownership import ProcessRegistry
 
 REPO=Path('/tmp/eatnav-vnt-e1-feasibility')
 SESSION='eatnav-e1-feasibility'
@@ -74,6 +75,8 @@ def source_paths():
         'run_one':REPO/'scripts/eat_nav_e1_run_one.py',
         'schedule':REPO/'scripts/eat_nav_e1_schedule.py',
         'monitor':REPO/'scripts/eat_nav_e1_monitor.py',
+        'process_ownership':REPO/'scripts/eat_nav_e1_process_ownership.py',
+        'attempt3_launcher':REPO/'scripts/eat_nav_e1_attempt3.py',
         'anchor_gate':REPO/'scripts/eat_nav_e1_anchor_gate.py',
         'formal_gate':REPO/'scripts/eat_nav_g0e_formal_gate.py',
         'dem_gate':REPO/'scripts/eat_nav_goal_subgoal_dem_gate.py',
@@ -174,9 +177,12 @@ def prelaunch_baseline(row,container,nvml):
     if path.exists():raise FileExistsError('run baseline already attempted')
     path.parent.mkdir(parents=True,exist_ok=True)
     prior=proc_table();baseline_ids={(pid,p['start_ticks']) for pid,p in prior.items()}
-    residual=[p for p in prior.values() if any(x in p['command_line'] for x in (
-        'eat_nav_e1_sim.py','eat_nav_g0e_anchor_sim.py','eat_nav_command_delivery_bridge.py',
-        'simple_trajectory_follower_node'))]
+    residual=[]
+    for path in (ROOT/'runs').glob('*/process-registry.json') if (ROOT/'runs').exists() else []:
+        registry=ProcessRegistry.load(path)
+        if registry.run_id!=path.parent.name:raise ValueError('stale process registry run ID')
+        if registry.run_id==run_id:continue
+        residual.extend(registry.residuals())
     safety=yaml.safe_load((ROOT/'e1-safety-stops.yaml').read_text())
     samples=[];start=time.monotonic()
     while True:
@@ -212,11 +218,18 @@ def completed_rows(rows):
         for name,digest in result['output_sha256'].items():
             if sha(folder/name)!=digest:raise ValueError('completed run output SHA differs')
         done=read(folder/'timing-monitor.done.json')
+        verifier=read(folder/'finalization-verifier-result.json')
+        registry=ProcessRegistry.load(folder/'process-registry.json')
+        if registry.run_id!=row['process_id']:raise ValueError('completed process registry run ID')
+        registry.require_complete()
         valid=read(validity)
-        if (done['status']!='complete' or done['complete_marker_sha256']!=sha(marker)
+        if (done['status']!='stopped' or done['runtime_monitor']!='pass'
+                or verifier['status']!='pass' or verifier['run_complete_sha256']!=sha(marker)
+                or verifier['process_registry_sha256']!=sha(folder/'process-registry.json')
                 or valid['status']!='valid' or valid['identity']!=execution_entry(row)
                 or valid['run_complete_sha256']!=sha(marker)
-                or valid['monitor_done_sha256']!=sha(folder/'timing-monitor.done.json')):
+                or valid['monitor_done_sha256']!=sha(folder/'timing-monitor.done.json')
+                or valid['finalization_verifier_sha256']!=sha(folder/'finalization-verifier-result.json')):
             raise ValueError('completed monitor marker differs')
         completed.add(row['process_id'])
     return completed

@@ -16,10 +16,12 @@ import yaml
 
 import eat_nav_e1_run_one as replay
 import eat_nav_e1_schedule as schedule
+from eat_nav_e1_process_ownership import ownership_spec
 from eat_nav_e1_recovery_continue import configure_output_root, check_router, install_transport_guard
 
 ROOT=Path('/tmp/eatnav-e1-attempt2-20261004')
 PRIOR=Path('/tmp/eatnav-e1-zenoh-recovery-20261004')
+LABEL='attempt-2'
 HISTORICAL=[Path('/tmp/eatnav-e1-feasibility-20261003'),PRIOR,
             Path('/tmp/eatnav-e1-cleanup-fixed-20261004'),
             Path('/tmp/eatnav-e1-lifecycle-compatible-20261004')]
@@ -39,17 +41,18 @@ def atomic(path,value):
 def configure():
     configure_output_root(ROOT)
     replay.REMOTE_CODE=str(ROOT/'eat_nav_e1_sim.py')
-    schedule.SESSION='eatnav-e1-attempt2'
+    schedule.SESSION='eatnav-e1-'+LABEL.replace('-','')
 
 def copy_inputs():
-    if ROOT.exists():raise FileExistsError('attempt-2 output root already exists')
-    ROOT.mkdir()
+    if ROOT.exists():
+        if not (ROOT/'attempt-2-evidence').is_dir():raise FileExistsError('formal output root already exists')
+    else:ROOT.mkdir()
     for name in ('continuation-manifest.json','original-20-row-manifest.json',
                  'e1-gates.yaml','e1-safety-stops.yaml','map-path-identities.jsonl.gz',
                  'completed-pending-identity.json','input-freeze.json'):
-        shutil.copy2(PRIOR/name,ROOT/name)
+        if not (ROOT/name).exists():shutil.copy2(PRIOR/name,ROOT/name)
         if sha(PRIOR/name)!=sha(ROOT/name):raise ValueError('input copy SHA mismatch '+name)
-    shutil.copytree(PRIOR/'inputs',ROOT/'inputs')
+    if not (ROOT/'inputs').exists():shutil.copytree(PRIOR/'inputs',ROOT/'inputs')
     for p in (PRIOR/'inputs').rglob('*'):
         if p.is_file() and sha(p)!=sha(ROOT/p.relative_to(PRIOR)):
             raise ValueError('input copy SHA mismatch '+str(p))
@@ -151,7 +154,6 @@ def audit_cli(cmd,freeze):
 
 def static_preflight():
     configure()
-    if ROOT.exists():raise FileExistsError('fresh output root required')
     copy_inputs()
     freeze=schedule.freeze_sources()
     if freeze['dirty']:raise ValueError('formal worktree dirty')
@@ -163,33 +165,39 @@ def static_preflight():
     identity=audit_identity(rows[0],entry,cmd)
     if (ROOT/'runs'/entry['run_id']).exists():raise FileExistsError('attempt-2 output already exists')
     record={'status':'pass','command':cmd,'file_table':table,'identity':identity,
+            'process_registry_roles':ownership_spec(),
+            'router_ownership':'external',
             'source_freeze_sha256':sha(ROOT/'source-freeze.json'),
             'historical_roots':[{'root':str(root),'source_freeze_sha256':sha(root/'source-freeze.json')
                 if (root/'source-freeze.json').is_file() else None} for root in HISTORICAL]}
-    atomic(ROOT/'attempt-2-static-preflight.json',record)
+    atomic(ROOT/f'{LABEL}-static-preflight.json',record)
     return record
 
 def continue_runs():
     configure()
-    if read(ROOT/'attempt-2-static-preflight.json')['status']!='pass':raise ValueError('static preflight')
+    if read(ROOT/f'{LABEL}-static-preflight.json')['status']!='pass':raise ValueError('static preflight')
     if read(ROOT/'router-readiness.json')['gate']['status']!='pass':raise ValueError('router readiness')
     check_router(ROOT)
-    if (ROOT/'attempt-2-continuation-started.marker.json').exists():raise FileExistsError('attempt-2 already started')
+    marker=ROOT/f'{LABEL}-continuation-started.marker.json'
+    if marker.exists():raise FileExistsError(LABEL+' already started')
     started=time.time_ns()
-    atomic(ROOT/'attempt-2-continuation-started.marker.json',{'start_wall_ns':started,
-        'pending_valid_processes':18,'attempt_0_1_excluded':True})
+    atomic(marker,{'start_wall_ns':started,
+        'pending_valid_processes':18,'historical_attempts_excluded':[0,1,2]
+            if LABEL=='attempt-3' else [0,1]})
     atomic(ROOT/'continuation-started.marker.json',{'start_wall_ns':started,
-        'pending_processes':18,'attempt_2_marker_sha256':sha(ROOT/'attempt-2-continuation-started.marker.json')})
+        'pending_processes':18,LABEL.replace('-','_')+'_marker_sha256':sha(marker)})
     install_transport_guard(ROOT)
     try:
         schedule.run()
-        atomic(ROOT/'final-decision.json',{'decision':'cleanup_protocol_recovered_e1_complete',
+        atomic(ROOT/'final-decision.json',{'decision':('ownership_protocol_recovered_e1_complete'
+            if LABEL=='attempt-3' else 'cleanup_protocol_recovered_e1_complete'),
             'counts':schedule.process_counts(ROOT),'learning_started':False})
     except BaseException as exc:
         counts=schedule.process_counts(ROOT)
-        decision=('attempt_2_measurement_invalid_stop' if counts['protocol_valid_process_count']==0 else
-                  'cleanup_protocol_recovered_e1_duplicate_gate_fail' if 'duplicate gate' in str(exc) else
-                  'cleanup_protocol_recovered_e1_runtime_stop')
+        prefix='ownership_protocol_recovered_e1' if LABEL=='attempt-3' else 'cleanup_protocol_recovered_e1'
+        decision=(LABEL.replace('-','_')+'_measurement_invalid_stop' if counts['protocol_valid_process_count']==0 else
+                  prefix+'_duplicate_gate_fail' if 'duplicate gate' in str(exc) else
+                  prefix+'_runtime_stop')
         atomic(ROOT/'final-decision.json',{'decision':decision,'reason':repr(exc),
             'traceback':traceback.format_exc(),'counts':counts,'learning_started':False})
         raise

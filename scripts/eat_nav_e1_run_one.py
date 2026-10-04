@@ -2,6 +2,10 @@
 from __future__ import annotations
 import argparse, gzip, hashlib, json, os, pathlib, socket, subprocess, sys, time
 from visualnav_transformer.eat_nav.readiness_recovery import terminate_tree
+from eat_nav_e1_process_ownership import (ProcessRegistry,process_record,
+    register_followers,stop_and_join_monitor)
+from eat_nav_g0e_gpu_probe import proc_table
+from eat_nav_g0e_gpu_run import container_identity
 
 REPO=pathlib.Path('/tmp/eatnav-vnt-e1-feasibility')
 DOC=pathlib.Path('/tmp/eatnav-e1-feasibility-20261003')
@@ -75,10 +79,9 @@ def frozen(entry):
  if sha(state/f"{entry['run_id']}-goal-metadata.json")!=entry['goal_metadata_sha256']:raise ValueError('goal metadata SHA changed')
  return state
 
-def active_processes():
- result=subprocess.check_output(['ps','-eo','pid,args'],text=True)
- return [row for row in result.splitlines() if ('eat_nav_command_delivery_bridge.py' in row or
-  'simple_trajectory_follower_node' in row or REMOTE_CODE in row) and 'ps -eo' not in row]
+def active_processes(registry=None):
+ """Formal residuals come only from the run's registered measurement identities."""
+ return registry.residuals() if registry is not None else []
 
 def bridge_request(action,**kwargs):
  from visualnav_transformer.eat_nav.phase_c_bridge_client import FollowerBridgeClient
@@ -92,17 +95,17 @@ def classify_fault_result(exit_code, failure_marker, *, complete_exists):
             'simulator_exit_code':exit_code,'isaac_native_close_exit_zero':exit_code==0}
 
 
-def _docker_sim_pids(run_name):
- result=subprocess.check_output(['docker','exec','isaac-lab-onix','ps','-eo','pid,args'],text=True)
- return [int(row.split(None,1)[0]) for row in result.splitlines() if REMOTE_CODE in row and
-         f'/{run_name}' in row and 'ps -eo' not in row]
+def _docker_sim_pids(registry):
+ return [entry['container_pid'] for entry in registry.by_role('simulator')
+         if (observed:=process_record(entry['host_pid'])) is not None
+         and observed['start_ticks']==entry['start_ticks']]
 
-def _terminate_docker_sim(run_name):
- pids=_docker_sim_pids(run_name)
+def _terminate_docker_sim(registry):
+ pids=_docker_sim_pids(registry)
  if pids:subprocess.run(['docker','exec','isaac-lab-onix','kill','-TERM',*map(str,pids)],check=False)
  deadline=time.monotonic()+3
- while time.monotonic()<deadline and _docker_sim_pids(run_name):time.sleep(.1)
- pids=_docker_sim_pids(run_name)
+ while time.monotonic()<deadline and _docker_sim_pids(registry):time.sleep(.1)
+ pids=_docker_sim_pids(registry)
  if pids:subprocess.run(['docker','exec','isaac-lab-onix','kill','-KILL',*map(str,pids)],check=False)
  return pids
 
@@ -129,7 +132,6 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
  state=frozen(entry)
  target=ROOT/'runs'/run_name
  if target.exists():raise FileExistsError(target)
- if active_processes():raise RuntimeError('stale bridge/follower/simulator process: '+repr(active_processes()))
  target.mkdir(parents=True)
  remote=f'{REMOTE_ROOT}/{run_name}'
  subprocess.run(['docker','exec','isaac-lab-onix','mkdir','-p',remote],check=True)
@@ -140,7 +142,12 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
         'base_path':state/f"{entry['candidate_id']}-base-path.json",
         'map_path':state/f"{entry['candidate_id']}-map-path.json",'config':state/'config-120.yaml',
         'anchor':state/'logged-anchor.json'}.items() if p.exists()}})
- bridge=None;sim=None;monitor=None;monitor_log=None;error=None;peak_gpu=0;peak_cpu_anon=0;fault_seen=None;baseline=active_processes()
+ bridge=None;sim=None;monitor=None;monitor_log=None;error=None;peak_gpu=0;peak_cpu_anon=0;fault_seen=None
+ run_start_ns=time.monotonic_ns();registry=ProcessRegistry(run_name,run_start_ns)
+ registry.register_pid('runner',os.getpid(),ownership='control')
+ router=read(ROOT/'router-launch-provenance.json') if (ROOT/'router-launch-provenance.json').is_file() else None
+ if router:registry.register_pid('zenoh_router',router['pid'],ownership='external')
+ registry.save(target/'process-registry.json')
  try:
   if entry['kind']!='anchor':
    args=['bash','-lc','source /opt/ros/jazzy/setup.bash; exec /usr/bin/python3 '+
@@ -149,6 +156,8 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
        (f' --fault-drop-stamp-ns {fault_drop_stamp_ns}' if fault_drop_stamp_ns is not None else '')]
    bridge_log=(target/'bridge.log').open('x')
    bridge=subprocess.Popen(args,stdout=bridge_log,stderr=subprocess.STDOUT,start_new_session=True)
+   registry.register_pid('bridge',bridge.pid,ownership='measurement')
+   registry.save(target/'process-registry.json')
    deadline=time.monotonic()+20
    while True:
     if bridge.poll() is not None:raise RuntimeError('bridge exited before listen')
@@ -158,9 +167,16 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
      if time.monotonic()>deadline:raise TimeoutError('bridge listen')
      time.sleep(.1)
   cmd=simulator_command(entry,remote,timing_telemetry=timing_telemetry)
+  container=container_identity();table=proc_table()
+  process_ids=[[pid,p['start_ticks']] for pid,p in table.items()
+               if container['container_id'] in p['cgroup']]
+  atomic(target/'container-process-baseline.json',{'container_id':container['container_id'],
+      'process_ids':process_ids,'sample_monotonic_ns':time.monotonic_ns()})
   sim_log=(target/'simulator.log').open('x')
   if timing_telemetry:atomic(target/'docker-exec-start.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),'command':cmd})
   sim=subprocess.Popen(cmd,stdout=sim_log,stderr=subprocess.STDOUT,start_new_session=True)
+  registry.register_pid('docker_exec',sim.pid,ownership='measurement')
+  registry.save(target/'process-registry.json')
   if timing_telemetry:
    monitor_log=(target/'timing-monitor.log').open('x')
    monitor_script=timing_monitor_script or REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py'
@@ -170,7 +186,12 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
        '--target-episode',str(entry['episode_key'][2])]
    if timing_monitor_config is not None:monitor_cmd.extend(['--config',str(timing_monitor_config)])
    monitor_cmd.extend(map(str,timing_monitor_extra_args))
+   if monitor_cleanup_protocol:monitor_cmd.extend(['--container-baseline',
+       str(target/'container-process-baseline.json'),'--process-registry',
+       str(target/'process-registry.json')])
    monitor=subprocess.Popen(monitor_cmd,stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
+   registry.register_pid('runtime_monitor',monitor.pid,ownership='control')
+   registry.save(target/'process-registry.json')
   while sim.poll() is None:
    elapsed=time.monotonic()-started
    if elapsed>timeout_sec:raise TimeoutError('simulator wall limit')
@@ -244,14 +265,12 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
   error=repr(exc)
   if sim is not None and sim.poll() is None:
    terminate_tree(sim,term_wait_sec=3,kill_wait_sec=3)
-   killed=_terminate_docker_sim(run_name)
+   if (target/'simulator-processes.json').is_file():
+    for p in read(target/'simulator-processes.json')['processes']:
+     registry.register('simulator',p,ownership='measurement')
+   killed=_terminate_docker_sim(registry)
    atomic(target/'forced-sim-cleanup.json',{'error':error,'docker_pids_killed':killed})
  finally:
-  if monitor is not None and monitor.poll() is None and (error or not monitor_cleanup_protocol):
-   atomic(target/'monitor.stop',{'cleanup':True,'monotonic_ns':time.monotonic_ns()})
-   try:monitor.wait(timeout=20)
-   except subprocess.TimeoutExpired:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
-  if monitor_log is not None and not monitor_log.closed and (error or not monitor_cleanup_protocol):monitor_log.close()
   if bridge is not None:
    try:
     response=bridge_request('shutdown')
@@ -261,10 +280,32 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
     if bridge.poll() is None:terminate_tree(bridge,term_wait_sec=3,kill_wait_sec=3)
     error=error or 'bridge cleanup '+repr(exc)
    bridge_log.close()
+  if monitor is not None and monitor.poll() is None:
+   try:
+    stop_and_join_monitor(monitor,target/'monitor.stop',
+        lambda:atomic(target/'final-resource-sample.json',read(target/'timing-heartbeat.json'))
+            if (target/'timing-heartbeat.json').is_file() else None,timeout=20)
+   except BaseException as exc:
+    error=error or 'control_cleanup_failure '+repr(exc)
+    if monitor.poll() is None:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
+  if monitor_log is not None and not monitor_log.closed:monitor_log.close()
   sim_log_open=locals().get('sim_log')
   if sim_log_open is not None and not sim_log_open.closed:sim_log_open.close()
-  residual=active_processes()
-  if residual:error=error or 'residual process '+repr(residual)
+  try:
+   observed=target/'simulator-processes.json'
+   if observed.is_file():
+    processes=read(observed)
+    if processes['run_id']!=run_name:raise ValueError('simulator registry run ID differs')
+    for p in processes['processes']:registry.register('simulator',p,ownership='measurement')
+   journal=target/'follower-logs/bridge-events.jsonl'
+   if journal.is_file():register_followers(registry,journal)
+   registry.register_pid('finalization_verifier',os.getpid(),ownership='control')
+   if monitor_cleanup_protocol and error is None:registry.require_complete()
+   registry.save(target/'process-registry.json')
+   residual=active_processes(registry)
+   if residual:error=error or 'residual process '+repr(residual)
+  except BaseException as exc:
+   residual=[];error=error or 'process registry '+repr(exc)
   if (target/'follower-logs').exists():archive_logs(target)
   atomic(target/'final-status.json',{'stage':'FAILED' if error else 'COMPLETE','error':error,
         'elapsed_sec':time.monotonic()-started,'fault_seen':fault_seen is not None,
@@ -280,19 +321,31 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
        'protocol':'fresh_bridge_per_run','elapsed_sec':time.monotonic()-started,
        'gpu_peak_mib':peak_gpu,'cpu_anon_peak_bytes':peak_cpu_anon})
  if monitor_cleanup_protocol and monitor is not None:
-  try:
-   monitor.wait(timeout=130)
-   done=read(target/'timing-monitor.done.json')
-   if (monitor.returncode or done.get('status')!='complete' or done.get('lifecycle')!='COMPLETE_MARKER'
-       or done.get('runtime_monitor')!='pass' or done.get('finalization_verifier')!='pass'):
-    raise RuntimeError('monitor did not verify cleanup complete marker')
-   from eat_nav_e1_monitor import verify_complete
-   if verify_complete(target)!=sha(target/'run-complete.json'):
-    raise RuntimeError('runner finalization verifier disagrees with monitor')
-   atomic(target/'protocol-valid.json',{'status':'valid','identity':entry,
-       'run_complete_sha256':sha(target/'run-complete.json'),
-       'monitor_done_sha256':sha(target/'timing-monitor.done.json')})
-  finally:
-   if monitor.poll() is None:terminate_tree(monitor,term_wait_sec=3,kill_wait_sec=3)
-   if monitor_log is not None and not monitor_log.closed:monitor_log.close()
+  done=read(target/'timing-monitor.done.json')
+  runtime=read(target/'runtime-monitor-result.json')
+  if (monitor.returncode or done.get('status')!='stopped' or done.get('lifecycle')!='FINALIZING'
+      or runtime.get('status')!='pass'):
+   raise RuntimeError('control_cleanup_failure: runtime monitor did not stop in FINALIZING')
+  finalizing=next(x['monotonic_ns'] for x in runtime['transitions'] if x['to']=='FINALIZING')
+  if time.monotonic_ns()-finalizing>30_000_000_000:
+   raise TimeoutError('finalization_grace')
+  from eat_nav_e1_monitor import verify_complete,finalization_status
+  digest=verify_complete(target)
+  if digest!=sha(target/'run-complete.json'):raise RuntimeError('output SHA verifier disagrees')
+  final=finalization_status(target)
+  if not (final['docker_exit']==0 and final['bridge_exit']==0 and final['followers_exit_ok']
+          and final['output_sha_match'] and final['residual_count']==0
+          and final['zombie_count']==0 and final['cleanup_marker']):
+   raise RuntimeError('finalization verifier failed '+repr(final))
+  if time.monotonic_ns()-finalizing>30_000_000_000:
+   raise TimeoutError('finalization_grace')
+  atomic(target/'finalization-verifier-result.json',{'status':'pass',
+      'run_complete_sha256':digest,'finalization_grace_sec':30,
+      'final':final,'process_registry_sha256':sha(target/'process-registry.json'),
+      'lifecycle_transitions':runtime['transitions']+[{'from':'FINALIZING','to':'COMPLETE',
+          'monotonic_ns':time.monotonic_ns(),'reason':None}]})
+  atomic(target/'protocol-valid.json',{'status':'valid','identity':entry,
+      'run_complete_sha256':digest,
+      'monitor_done_sha256':sha(target/'timing-monitor.done.json'),
+      'finalization_verifier_sha256':sha(target/'finalization-verifier-result.json')})
  return read(target/'run-complete.json')

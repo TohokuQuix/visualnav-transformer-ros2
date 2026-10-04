@@ -17,6 +17,8 @@ from eat_nav_g0e_gpu_probe import (MIB,Nvml,account,atomic,cgroup_memory,descend
     host_available_bytes,nvidia_smi_processes,proc_table,sha)
 from eat_nav_g0e_gpu_run import container_identity,container_proc_details
 from eat_nav_e1_lifecycle import LifecycleMachine, marker_matches_run, read_complete_json
+from eat_nav_e1_process_ownership import (container_owned_roots,ProcessRegistry,
+    registered_alive)
 
 
 def append(path,row):
@@ -33,9 +35,11 @@ def roots(table,container_id,remote_output,source=DEFAULT_SIM_SOURCE):
         and source in p['command_line'] and '--output '+remote_output in p['command_line']}
 
 
-def sample(nvml,container,baseline_ids,remote_output,source=DEFAULT_SIM_SOURCE):
+def sample(nvml,container,baseline_ids,remote_output,source=DEFAULT_SIM_SOURCE,
+           container_baseline=None):
     devices,rows=nvml.sample();table=proc_table()
-    root=roots(table,container['container_id'],remote_output,source)
+    root=(container_owned_roots(table,container['container_id'],container_baseline)
+          if container_baseline is not None else roots(table,container['container_id'],remote_output,source))
     accounting=account(devices,rows,table,root,baseline_ids,container['container_id'])
     tree=[table[pid] for pid in accounting['simulator_tree_host_pids'] if pid in table]
     cgroup=cgroup_memory(container['container_id'])
@@ -199,6 +203,8 @@ def main():
     parser.add_argument('--target-episode',type=int,required=True)
     parser.add_argument('--config',type=Path,required=True)
     parser.add_argument('--sim-source',default=DEFAULT_SIM_SOURCE)
+    parser.add_argument('--container-baseline',type=Path)
+    parser.add_argument('--process-registry',type=Path)
     args=parser.parse_args()
     run=args.run;root=run.parents[1];remote=str(root/'runs'/args.run_id)
     safety=yaml.safe_load(args.config.read_text())
@@ -209,8 +215,16 @@ def main():
     sample_count=0;reason=None;completion=None
     machine=LifecycleMachine(expected_steps=120,grace_ns=30_000_000_000)
     entry=json.loads((run/'started.json').read_text())['entry']
+    registry=ProcessRegistry.load(args.process_registry) if args.process_registry else None
+    bridge_entry=registry.by_role('bridge')[0] if registry else None
+    router_entry=registry.by_role('zenoh_router')[0] if registry else None
+    container_baseline=(json.loads(args.container_baseline.read_text())['process_ids']
+                        if args.container_baseline is not None else None)
     while True:
-        snap=sample(nvml,container,baseline_ids,remote,args.sim_source)
+        snap=sample(nvml,container,baseline_ids,remote,args.sim_source,container_baseline)
+        if snap['simulator_tree']:
+            atomic(run/'simulator-processes.json',{'run_id':args.run_id,
+                'processes':snap['simulator_tree'],'sample_monotonic_ns':snap['monotonic_ns']})
         sample_count+=1
         append(run/'gpu-process-timeseries.jsonl',snap)
         if sample_count==1 or sample_count%10==0:
@@ -239,13 +253,15 @@ def main():
         if completion is None and last_step is not None and last_step>=args.target_step+120:
             completion=remote_completion(remote,entry.get('map_path_file_sha256') or
                                          read_complete_json(run/'started.json')['input_sha256']['map_path'])
-        commands=[x['command_line'] for x in table.values()]
         suffix_started=last_step is not None and last_step>args.target_step+1
-        bridge_alive=any('eat_nav_command_delivery_bridge.py' in x for x in commands)
-        follower_alive=sum('simple_trajectory_follower_node --ros-args' in x for x in commands)
-        router_alive=any(x.strip().split()[0].endswith('/rmw_zenohd') for x in commands if x.strip())
+        bridge_alive=(registered_alive(bridge_entry) if bridge_entry else False)
+        router_alive=(registered_alive(router_entry) if router_entry else False)
         journal=run/'follower-logs/bridge-events.jsonl'
         journal_text=journal.read_text(errors='replace') if journal.exists() else ''
+        follower_spawns=[json.loads(line) for line in journal_text.splitlines()
+            if '"event":"follower_spawn"' in line]
+        follower_alive=(len(follower_spawns)==8 and all(registered_alive(x['process'])
+            for x in follower_spawns))
         protocol_error=any(x in journal_text for x in ('"event":"tcp_error"',
             '"event":"executor_exception"','"event":"waiter_error"'))
         observed={'now_ns':snap['monotonic_ns'],'simulator_tree':bool(snap['simulator_tree']),
@@ -253,8 +269,8 @@ def main():
             'step_count':max(0,(last_step or 0)-args.target_step),
             'completion':completion,'resource_stop':stop,'heartbeat_stale':stalled,
             'protocol_error':protocol_error,'router_alive':router_alive,
-            'bridge_alive':bridge_alive,'followers_alive':follower_alive==8 if suffix_started else True,
-            'nonfinite':False,'final':finalization_status(run) if machine.state=='FINALIZING' else None}
+            'bridge_alive':bridge_alive,'followers_alive':follower_alive if suffix_started else True,
+            'nonfinite':False,'final':None}
         machine.observe(observed)
         heartbeat={'run_id':args.run_id,'wall_ns':snap['wall_ns'],'monotonic_ns':snap['monotonic_ns'],
             'global_step':last_step,'target_step':args.target_step,
@@ -270,20 +286,15 @@ def main():
             atomic(run/'resource-stop.failure.json',{'reason':machine.reason,'snapshot':snap,
                 'gpu_timeseries_sha256':sha(run/'gpu-process-timeseries.jsonl')})
             reason=machine.reason;break
-        if machine.state=='COMPLETE':
-            digest=verify_complete(run)
-            atomic(run/'runtime-monitor-result.json',{'status':'pass','transitions':machine.transitions,
-                'sample_count':sample_count,'resource_limits':limits(safety)})
-            atomic(run/'finalization-verifier-result.json',{'status':'pass',
-                'run_complete_sha256':digest,'finalization_grace_sec':30,
-                'final':finalization_status(run)})
-            atomic(run/'timing-monitor.done.json',{'status':'complete','lifecycle':'COMPLETE_MARKER',
-                'complete_marker_sha256':digest,'sample_count':sample_count,
-                'runtime_monitor':'pass','finalization_verifier':'pass'})
-            return
         if (run/'monitor.stop').exists():
-            atomic(run/'timing-monitor.done.json',{'status':'stopped','lifecycle':'MONITOR_STOP',
-                'sample_count':sample_count})
+            if machine.state!='FINALIZING':
+                reason='control_cleanup_failure: monitor stopped before finalizing';break
+            atomic(run/'runtime-monitor-result.json',{'status':'pass','transitions':machine.transitions,
+                'sample_count':sample_count,'resource_limits':limits(safety),
+                'last_sample_monotonic_ns':snap['monotonic_ns']})
+            atomic(run/'timing-monitor.done.json',{'status':'stopped','lifecycle':'FINALIZING',
+                'sample_count':sample_count,'runtime_monitor':'pass',
+                'last_sample_monotonic_ns':snap['monotonic_ns']})
             return
         time.sleep(.5)
     atomic(run/'timing-monitor.done.json',{'status':'failure','reason':reason,'sample_count':sample_count})

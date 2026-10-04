@@ -16,6 +16,7 @@ import rclpy
 
 from eat_nav_exact_stamp_bridge import ExactNode, ExactServer
 from visualnav_transformer.eat_nav.command_delivery_journal import EventJournal
+from eat_nav_e1_process_ownership import process_record
 
 
 def resource_counts():
@@ -117,6 +118,14 @@ class DiagnosticServer(ExactServer):
         self.stop_monitor = threading.Event()
         self.monitor = threading.Thread(target=self._monitor, daemon=True, name="resource-monitor")
         self.monitor.start()
+
+    def launch(self):
+        super().launch()
+        for branch, process in enumerate(self.followers):
+            record=process_record(process.pid)
+            if record is None:
+                raise RuntimeError(f'follower_{branch} exited before process registration')
+            self.journal.emit('follower_spawn',branch=branch,pid=process.pid,process=record)
 
     def _spin(self):
         try:
