@@ -51,7 +51,8 @@ class LifecycleMachine:
             return self
         if self.host_start_ticks is None:
             self.host_start_ticks = sample['host_start_ticks']
-        elif sample['host_alive'] and sample['host_start_ticks'] != self.host_start_ticks:
+        elif (sample['host_alive'] and sample['host_start_ticks'] is not None
+              and sample['host_start_ticks'] != self.host_start_ticks):
             return self._move('FAIL', now, 'host_pid_reused')
         stop = sample['resource_stop']
         if stop:

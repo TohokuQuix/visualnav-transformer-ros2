@@ -1,0 +1,11 @@
+# E1-source lifecycle smoke retry: result
+
+Decision: `cleanup_protocol_smoke_fail_again`. The one authorized smoke was attempted once. No attempt-2 or E1 candidate process started.
+
+The physical `readiness-002` fixture was preserved: prefix/suffix action files and nominal base/map Path files are byte-identical to their originals. The four recorded DEM frames match the existing state history SHA exactly. The diagnostic alias `g0e-train-readiness-000` and G0-E verification sidecars enabled the unmodified E1 simulator source to accept these physical inputs; the previous successful readiness anchor met the frozen E1 numeric limits in an offline check. The E1 simulator source SHA remained `9e2a40f0b283d4581219302c3f2f0782b00ca825e07653bbe3924dd5c47cec07`.
+
+External Zenoh readiness passed with 8 subscribers, advancing clock, TF ready, empty Paths, and zero pre-Path commands. The live smoke then failed before any control step: `eat_nav_e1_run_one.py` passed a fixed map Path under the smoke output root, while the verified file was under the frozen input root. The simulator raised `FileNotFoundError`; its failure marker and log record the missing path. The monitor reported `host_pid_reused` as the Docker exec process disappeared because it treated an absent proc-table start tick as a different tick. The simulator and bridge returned 0 during cleanup, with zero owned residual processes. There is no 120-step trace, run-complete marker, finalization pass, or protocol-valid marker.
+
+Both implementation defects were corrected offline after the attempt. A test first reproduced the wrong fixed-map input root, then passed with the corrected root. Another RED→GREEN test reproduced the PID misclassification and now classifies the early exit as `before_expected_steps`. The E1-related suite passes 66 tests. The frozen E1 simulator, follower, checkpoint, input geometry, 90 s heartbeat limit, 30 s finalization grace, and behavior/resource thresholds were unchanged. No automatic retry was made.
+
+Counts for this root: diagnostic smoke attempts 1, diagnostic protocol-valid 0, E1 completed traces 0, E1 protocol-valid processes 0, E1 measurement-invalid processes 0, E1 remaining valid processes 18. The previous smoke and E1 attempt-0/1 remain separate.

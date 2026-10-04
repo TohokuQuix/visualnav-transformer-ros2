@@ -75,6 +75,17 @@ def remote_progress(path):
     return json.loads(result.stdout) if result.returncode==0 else None
 
 
+def heartbeat_record(progress, *, target_step, sample_monotonic_ns, host_pid, host_start_ticks):
+    step=int(progress['last_completed_step'])
+    return {'phase':'prefix' if step<=target_step else 'suffix',
+        'global_step':step,'local_step':progress.get('episode_local_step'),
+        'episode':progress.get('current_episode'),
+        'simulator_container_pid':progress.get('pid'),
+        'docker_exec_host_pid':host_pid,'docker_exec_start_ticks':host_start_ticks,
+        'source_monotonic_ns':progress['monotonic_ns'],
+        'sample_monotonic_ns':sample_monotonic_ns}
+
+
 def disk_bytes(root):
     return sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
 
@@ -194,7 +205,7 @@ def main():
     container=container_identity();nvml=Nvml()
     table=proc_table();baseline_ids={(pid,p['start_ticks']) for pid,p in table.items()}
     baseline_oom=cgroup_memory(container['container_id'])['events'].get('oom',0)
-    start=time.monotonic();last_progress=start;last_step=None;seen_root=False
+    start=time.monotonic();last_progress=start;last_step=None;last_recorded_step=None;seen_root=False
     sample_count=0;reason=None;completion=None
     machine=LifecycleMachine(expected_steps=120,grace_ns=30_000_000_000)
     entry=json.loads((run/'started.json').read_text())['entry']
@@ -215,6 +226,11 @@ def main():
         if progress is not None:
             step=progress['last_completed_step']
             if last_step!=step:last_step=step;last_progress=time.monotonic()
+            if last_recorded_step!=step:
+                append(run/'timing-progress-timeseries.jsonl',heartbeat_record(progress,
+                    target_step=args.target_step,sample_monotonic_ns=snap['monotonic_ns'],
+                    host_pid=args.sim_host_pid,host_start_ticks=host['start_ticks'] if host else None))
+                last_recorded_step=step
             if (time.monotonic_ns()-progress['monotonic_ns'])/1e9>safety['infrastructure_stop']['heartbeat_stale_over_sec']:
                 stop=stop or 'simulator_heartbeat_stale'
         stalled=machine.state!='FINALIZING' and time.monotonic()-last_progress>safety['infrastructure_stop']['step_stall_over_sec']

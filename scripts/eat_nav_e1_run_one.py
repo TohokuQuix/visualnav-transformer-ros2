@@ -16,6 +16,9 @@ PROD=pathlib.Path('/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact
 FOLL=PROD
 PARAM=pathlib.Path('/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml')
 
+def fixed_map_path(state_index,candidate_id):
+ return f'{REMOTE_INPUT_ROOT}/inputs/state-{state_index:03d}/{candidate_id}-map-path.json'
+
 def sha(p):
  h=hashlib.sha256()
  with pathlib.Path(p).open('rb') as stream:
@@ -136,7 +139,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
       '--logged-anchor',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/logged-anchor.json',
       '--state',f'{REMOTE_INPUT_ROOT}/inputs/selected-states.json',
       '--base-path',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-base-path.json',
-  '--fixed-map-path',f'{ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-map-path.json',
+  '--fixed-map-path',fixed_map_path(entry['state_index'],entry['candidate_id']),
       '--recorded-frames',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/recorded-frames.json',
       '--selected-dem',f'{REMOTE_INPUT_ROOT}/inputs/g0e-selected-states.npz',
       '--expected-local-path-sha256',entry['local_path_sha256'],

@@ -51,6 +51,18 @@ def test_router_must_remain_alive_during_finalization():
     assert m.observe(completed(2_000_000_000, router_alive=False)).reason == 'router_disconnected'
 
 
+def test_heartbeat_record_identifies_prefix_and_suffix_without_changing_progress():
+    from eat_nav_e1_monitor import heartbeat_record
+    progress={'pid':99,'monotonic_ns':10,'last_completed_step':75,'episode_local_step':75,
+              'current_episode':0}
+    prefix=heartbeat_record(progress,target_step=75,sample_monotonic_ns=11,host_pid=8,host_start_ticks=123)
+    assert prefix['phase']=='prefix' and prefix['global_step']==75
+    suffix=heartbeat_record({**progress,'last_completed_step':76,'episode_local_step':76},
+        target_step=75,sample_monotonic_ns=12,host_pid=8,host_start_ticks=123)
+    assert suffix['phase']=='suffix' and suffix['global_step']==76
+    assert suffix['simulator_container_pid']==99 and suffix['docker_exec_host_pid']==8
+
+
 @pytest.mark.parametrize('bad,reason', [
     ({'step_count': 119, 'completion': None}, 'before_expected_steps'),
     ({'completion': None}, 'completion_marker_missing'),
@@ -105,6 +117,13 @@ def test_stale_marker_cannot_be_used_for_another_run():
 def test_pid_reuse_is_detected_by_process_start_ticks():
     m = running()
     assert m.observe(sample(1_000_000_000, host_start_ticks=71)).reason == 'host_pid_reused'
+
+
+def test_missing_proc_table_entry_during_early_exit_is_not_pid_reuse():
+    m = running()
+    observed=sample(1_000_000_000, simulator_tree=False, host_alive=True,
+                    host_start_ticks=None, step_count=0)
+    assert m.observe(observed).reason == 'before_expected_steps'
 
 
 def test_old_attempt_markers_do_not_count_as_protocol_valid(tmp_path):
