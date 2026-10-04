@@ -1,0 +1,48 @@
+schema_version: eatnav_expanded_feasibility_v1
+status: frozen_before_new_candidate_outcomes
+source_e1_root: /tmp/eatnav-e1-artifact-recovered-continuation-20261004
+source_coordinate_addendum: /tmp/eatnav-e1-coordinate-addendum-r2-20261004
+source_g0e_candidate_list: /tmp/eatnav-candidate-bank-g0e/g0e-selection-candidates.jsonl.gz
+source_g0e_bank: /tmp/eatnav-candidate-bank-g0e/g0e-candidate-bank.jsonl.gz
+source_manifest: /tmp/eatnav-candidate-coverage/goal-ood/input-copy/manifest.json
+source_reference_config: /tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/phase-c/reference-eat.yaml
+source_complete_ids: /tmp/eatnav-vnt-goal-ood-simulator-v2/docs/quality-identifiability-gate/phase-c/complete-window-ids.jsonl.gz
+output_root: /tmp/eatnav-expanded-feasibility-20261004
+selection:
+  salt: eatnav-expanded-feasibility-outcome-blind-20261004-v1
+  split: train
+  complete_only: true
+  source_episode: 0
+  max_prefix_control_steps: 80
+  exclude_existing_env_ids: [22, 78]
+  terrains: [boxes, hf_pyramid_slope, k_rail_field, k_rail_step_field, pyramid_stairs]
+  unique_environment_episode_seed: true
+  ranking_fields: [episode_key, global_step, terrain_seed, terrain_type]
+goal_robot_local_xy_m: [0.5987920761108398, 0.0007187569281086326]
+candidate_ids: [direct_reference, left_1, left_2, left_3, right_1, right_2, right_3]
+candidate_family: cubic_bezier
+signed_amplitudes_m: [0.0, 0.04, 0.08, 0.12, -0.04, -0.08, -0.12]
+waypoint_count: 8
+run_seed: 123
+runs_per_state: {anchor: 1, direct_duplicate: 3, non_direct: 6}
+thresholds:
+  realized_xy_mode_rms_m: 0.0105
+  critic_difference_floor: 0.01
+  goal_reach_m: 0.2
+  path_tracking_primary_sec: 2.0
+  body_outcome_diagnostic_sec: 6.0
+  duplicate_gate_source: frozen_E1_gates
+  body_effect_rule: greater_than_max_numerical_floor_or_3x_direct_duplicate_p95
+resources:
+  wall_clock_cap_sec: 14400
+  device_gpu_cap_mib: 6656
+  storage_cap_bytes: 1000000000
+  heartbeat_stale_sec: 90
+  finalization_grace_sec: 30
+  retry_count: 0
+  forecast_margin: 1.2
+scope:
+  scaled_collection: false
+  evaluator_training: false
+  formal_validation: false
+  hardware: false
