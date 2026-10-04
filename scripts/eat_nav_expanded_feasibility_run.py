@@ -425,8 +425,11 @@ def run(root=ROOT):
             'completed_new_processes':len(completed),'elapsed_sec':time.time()-
                 read(root/'pilot-started.marker.json')['start_wall_ns']/1e9})
         if row['role']=='anchor_only':
+            safety=yaml.safe_load((root/'e1-safety-stops.yaml').read_text())
+            anon_shmem_cap=safety['infrastructure_stop']['cgroup_anon_plus_shmem_over_bytes']
             replay.run_one(entry,pid,timeout_sec=600,timing_telemetry=True,
-                timing_monitor_script=REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py')
+                timing_monitor_script=REPO/'scripts/eat_nav_goal_subgoal_timing_monitor.py',
+                timing_monitor_extra_args=('--anon-shmem-cap-bytes',str(anon_shmem_cap)))
             _anchor_complete(root,row,entry,group,amps[sid],states[idx]['logged_goal'])
         else:
             replay.run_one(entry,pid,timeout_sec=600,timing_telemetry=True,

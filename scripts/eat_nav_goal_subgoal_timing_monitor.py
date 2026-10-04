@@ -58,6 +58,25 @@ def bytes_total(folder: Path) -> int:
     return sum(path.stat().st_size for path in folder.rglob('*') if path.is_file())
 
 
+def parse_anon_shmem(memory_stat: str) -> tuple[int, int]:
+    fields = {name: int(value) for name, value in
+              (line.split() for line in memory_stat.splitlines() if line.strip())}
+    return fields['anon'], fields['shmem']
+
+
+def memory_stop_reason(*, total_bytes: int | None, anon_bytes: int | None,
+                       shmem_bytes: int | None, anon_shmem_cap_bytes: int | None,
+                       total_cap_bytes: int) -> str | None:
+    if anon_shmem_cap_bytes is not None:
+        if anon_bytes is None or shmem_bytes is None:
+            return 'cgroup anon+shmem measurement unavailable'
+        if anon_bytes + shmem_bytes > anon_shmem_cap_bytes:
+            return 'cgroup anon+shmem exceeded frozen cap'
+    elif total_bytes is not None and total_bytes > total_cap_bytes:
+        return 'cgroup memory exceeded frozen 8 GiB cap'
+    return None
+
+
 def capture_failure(run: Path, reason: str, heartbeat: dict):
     evidence = {'reason': reason, 'last_heartbeat': heartbeat, 'captured_wall_ns': time.time_ns()}
     for key, args in {
@@ -94,6 +113,7 @@ def main():
     parser.add_argument('--target-step', type=int, required=True)
     parser.add_argument('--target-episode', type=int, required=True)
     parser.add_argument('--cpu-memory-cap-bytes', type=int, default=8 * 1024**3)
+    parser.add_argument('--anon-shmem-cap-bytes', type=int)
     args = parser.parse_args()
     started_ns = time.monotonic_ns()
     last_step = -1
@@ -114,6 +134,11 @@ def main():
             cgroup_bytes = int(remote('cat', '/sys/fs/cgroup/memory.current'))
         except (ValueError, subprocess.SubprocessError, OSError):
             cgroup_bytes = None
+        try:
+            cgroup_anon_bytes, cgroup_shmem_bytes = parse_anon_shmem(
+                remote('cat', '/sys/fs/cgroup/memory.stat'))
+        except (KeyError, ValueError, subprocess.SubprocessError, OSError):
+            cgroup_anon_bytes = cgroup_shmem_bytes = None
         try:
             gpu_mib = int(command('nvidia-smi', '--query-gpu=memory.used', '--format=csv,noheader,nounits').splitlines()[0])
         except (ValueError, IndexError, subprocess.SubprocessError, OSError):
@@ -142,19 +167,26 @@ def main():
             'follower_alive': bool(process_matches('simple_trajectory_follower_node')),
             'router_alive': bool(process_matches('/rmw_zenohd')),
             'cpu_rss_bytes': rss_kib * 1024 if rss_kib is not None else None,
-            'cgroup_memory_bytes': cgroup_bytes, 'gpu_memory_mib': gpu_mib,
+            'cgroup_memory_bytes': cgroup_bytes,
+            'cgroup_anon_bytes': cgroup_anon_bytes,
+            'cgroup_shmem_bytes': cgroup_shmem_bytes,
+            'gpu_memory_mib': gpu_mib,
             'output_bytes': bytes_total(args.run) + (remote_bytes or 0),
         }
         atomic(args.run / 'timing-heartbeat.json', heartbeat)
         atomic(args.run.parent.parent / 'timing-heartbeat.json', heartbeat)
         last_heartbeat_ns = now
         reason = None
+        memory_reason = memory_stop_reason(total_bytes=cgroup_bytes,
+            anon_bytes=cgroup_anon_bytes,shmem_bytes=cgroup_shmem_bytes,
+            anon_shmem_cap_bytes=args.anon_shmem_cap_bytes,
+            total_cap_bytes=args.cpu_memory_cap_bytes)
         if alive(args.sim_host_pid) and (now - last_advance_ns) >= 120 * 1e9:
             reason = 'no completed simulator step for 120 seconds'
         elif gpu_mib is not None and gpu_mib > 6656:
             reason = 'GPU memory exceeded 6.5 GiB'
-        elif cgroup_bytes is not None and cgroup_bytes > args.cpu_memory_cap_bytes:
-            reason = 'cgroup memory exceeded frozen 8 GiB cap'
+        elif memory_reason:
+            reason = memory_reason
         elif not heartbeat['router_alive']:
             reason = 'router process stopped'
         elif progress and progress.get('simulator_logical_time_sec') is not None:
