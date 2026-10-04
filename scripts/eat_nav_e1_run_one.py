@@ -19,6 +19,33 @@ PARAM=pathlib.Path('/home/kojima/onix/dep/onix_automation/teaching_playback/simp
 def fixed_map_path(state_index,candidate_id):
  return f'{REMOTE_INPUT_ROOT}/inputs/state-{state_index:03d}/{candidate_id}-map-path.json'
 
+def simulator_command(entry, remote, *, input_root=None, simulator=None, timing_telemetry=False):
+ """Build the exact Docker CLI used by a formal run without starting processes."""
+ input_root=pathlib.Path(input_root or REMOTE_INPUT_ROOT)
+ simulator=str(simulator or REMOTE_CODE)
+ state=input_root/'inputs'/f"state-{entry['state_index']:03d}"
+ cmd=['docker','exec','-e',ENV,'isaac-lab-onix','/isaac-sim/python.sh',simulator,
+      '--headless','--stage','anchor' if entry['kind']=='anchor' else 'live','--repeat-id','0',
+      '--logical-t0-ns',str(entry['logical_t0_ns']),'--control-steps','120',
+      '--manifest','/tmp/eatnav-extended/output/manifest.json',
+      '--prefix',str(state/'prefix-actions.npz'),
+      '--other-env-actions',str(state/'suffix-actions-120.npz'),
+      '--logged-anchor',str(state/'logged-anchor.json'),
+      '--state',str(input_root/'inputs/selected-states.json'),
+      '--base-path',str(state/f"{entry['candidate_id']}-base-path.json"),
+      '--fixed-map-path',str(state/f"{entry['candidate_id']}-map-path.json"),
+      '--recorded-frames',str(state/'recorded-frames.json'),
+      '--selected-dem',str(input_root/'inputs/g0e-selected-states.npz'),
+      '--expected-local-path-sha256',entry['local_path_sha256'],
+      '--expected-map-path-sha256',entry['map_path_sha256'],
+      '--config',str(state/'config-120.yaml'),
+      '--reference-config','/tmp/eatnav-candidate-coverage/baseline-worktree-8e8f4fd/docs/quality-identifiability-gate/phase-c/reference-eat.yaml',
+      '--rl-checkpoint','/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
+      '--output',remote]
+ if entry['kind']!='anchor':cmd.extend(['--goal-metadata',str(state/f"{entry['run_id']}-goal-metadata.json")])
+ if timing_telemetry:cmd.append('--timing-telemetry')
+ return cmd
+
 def sha(p):
  h=hashlib.sha256()
  with pathlib.Path(p).open('rb') as stream:
@@ -130,26 +157,7 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
     except OSError:
      if time.monotonic()>deadline:raise TimeoutError('bridge listen')
      time.sleep(.1)
-  cmd=['docker','exec','-e',ENV,'isaac-lab-onix','/isaac-sim/python.sh',REMOTE_CODE,
-      '--headless','--stage','anchor' if entry['kind']=='anchor' else 'live','--repeat-id','0',
-      '--logical-t0-ns',str(entry['logical_t0_ns']),'--control-steps','120',
-      '--manifest','/tmp/eatnav-extended/output/manifest.json',
-      '--prefix',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/prefix-actions.npz',
-      '--other-env-actions',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/suffix-actions-120.npz',
-      '--logged-anchor',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/logged-anchor.json',
-      '--state',f'{REMOTE_INPUT_ROOT}/inputs/selected-states.json',
-      '--base-path',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["candidate_id"]}-base-path.json',
-  '--fixed-map-path',fixed_map_path(entry['state_index'],entry['candidate_id']),
-      '--recorded-frames',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/recorded-frames.json',
-      '--selected-dem',f'{REMOTE_INPUT_ROOT}/inputs/g0e-selected-states.npz',
-      '--expected-local-path-sha256',entry['local_path_sha256'],
-      '--expected-map-path-sha256',entry['map_path_sha256'],
-      '--config',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/config-120.yaml',
-      '--reference-config','/tmp/eatnav-candidate-coverage/baseline-worktree-8e8f4fd/docs/quality-identifiability-gate/phase-c/reference-eat.yaml',
-      '--rl-checkpoint','/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
-      '--output',remote]
-  if entry['kind']!='anchor':cmd.extend(['--goal-metadata',f'{REMOTE_INPUT_ROOT}/inputs/state-{entry["state_index"]:03d}/{entry["run_id"]}-goal-metadata.json'])
-  if timing_telemetry:cmd.append('--timing-telemetry')
+  cmd=simulator_command(entry,remote,timing_telemetry=timing_telemetry)
   sim_log=(target/'simulator.log').open('x')
   if timing_telemetry:atomic(target/'docker-exec-start.json',{'monotonic_ns':time.monotonic_ns(),'wall_ns':time.time_ns(),'command':cmd})
   sim=subprocess.Popen(cmd,stdout=sim_log,stderr=subprocess.STDOUT,start_new_session=True)
