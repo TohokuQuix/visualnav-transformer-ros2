@@ -131,6 +131,10 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
             timing_monitor_extra_args=(),monitor_cleanup_protocol=False):
  state=frozen(entry)
  target=ROOT/'runs'/run_name
+ from eat_nav_e1_artifact_recovery import assert_current_run_path
+ for output_name in ('started.json','process-registry.json','bridge.log','simulator.log',
+                     'timing-monitor.log','run-complete.json','protocol-valid.json'):
+  assert_current_run_path(ROOT,run_name,target/output_name)
  if target.exists():raise FileExistsError(target)
  target.mkdir(parents=True)
  remote=f'{REMOTE_ROOT}/{run_name}'

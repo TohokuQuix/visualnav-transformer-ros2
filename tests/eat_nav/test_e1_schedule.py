@@ -38,6 +38,8 @@ def test_next_baseline_does_not_append_to_previous_registry(tmp_path,monkeypatch
     monkeypatch.setattr(schedule,'ROOT',tmp_path)
     previous=tmp_path/'runs/previous/process-registry.json';previous.parent.mkdir(parents=True)
     ProcessRegistry('previous',1).save(previous);original=previous.read_bytes()
+    from eat_nav_e1_artifact_recovery import seal_tree
+    seal_tree(previous.parent)
     (tmp_path/'e1-safety-stops.yaml').write_text('infrastructure_stop:\n  gpu_device_total_memory_over_mib: 6656\n')
     monkeypatch.setattr(schedule,'proc_table',lambda:{})
     monkeypatch.setattr(schedule,'sample',lambda *a,**k:{'monotonic_ns':1,

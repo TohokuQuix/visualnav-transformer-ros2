@@ -18,6 +18,7 @@ from eat_nav_g0e_gpu_probe import Nvml,atomic,proc_table
 from eat_nav_g0e_gpu_run import container_identity
 from eat_nav_e1_lifecycle import protocol_valid_count
 from eat_nav_e1_process_ownership import ProcessRegistry
+from eat_nav_e1_artifact_recovery import seal_tree,verify_seal
 
 REPO=Path('/tmp/eatnav-vnt-e1-feasibility')
 SESSION='eatnav-e1-feasibility'
@@ -75,6 +76,8 @@ def source_paths():
         'run_one':REPO/'scripts/eat_nav_e1_run_one.py',
         'schedule':REPO/'scripts/eat_nav_e1_schedule.py',
         'monitor':REPO/'scripts/eat_nav_e1_monitor.py',
+        'artifact_recovery':REPO/'scripts/eat_nav_e1_artifact_recovery.py',
+        'artifact_continuation':REPO/'scripts/eat_nav_e1_artifact_continuation.py',
         'process_ownership':REPO/'scripts/eat_nav_e1_process_ownership.py',
         'attempt3_launcher':REPO/'scripts/eat_nav_e1_attempt3.py',
         'anchor_gate':REPO/'scripts/eat_nav_e1_anchor_gate.py',
@@ -174,8 +177,21 @@ def setup_container():
 
 def prelaunch_baseline(row,container,nvml):
     run_id=row['process_id'];baseline_path=ROOT/'baselines'/f'{run_id}.jsonl'
+    if run_id != Path(run_id).name or not run_id:
+        raise ValueError('invalid current run ID')
+    expected_baseline=ROOT.resolve()/'baselines'/f'{run_id}.jsonl'
+    if baseline_path.resolve()!=expected_baseline:
+        raise ValueError('baseline output is not current run path')
+    current_run=(ROOT/'runs'/run_id)
+    if current_run.exists():raise FileExistsError('current run already attempted')
     if baseline_path.exists():raise FileExistsError('run baseline already attempted')
     baseline_path.parent.mkdir(parents=True,exist_ok=True)
+    prior_seals={}
+    for previous in (ROOT/'runs').iterdir() if (ROOT/'runs').exists() else []:
+        if not previous.is_dir():continue
+        if not (previous/'sealed-tree-manifest.json').exists():
+            raise ValueError('previous run is unsealed '+previous.name)
+        prior_seals[previous.name]=verify_seal(previous)
     prior=proc_table();baseline_ids={(pid,p['start_ticks']) for pid,p in prior.items()}
     residual=[]
     for registry_path in (ROOT/'runs').glob('*/process-registry.json') if (ROOT/'runs').exists() else []:
@@ -201,6 +217,9 @@ def prelaunch_baseline(row,container,nvml):
         'baseline_sha256':sha(baseline_path),'device_peak_mib':max(x['device_total_used_mib'] for x in samples),
         'residual_count':len(residual)}
     atomic(ROOT/'baselines'/f'{run_id}.gate.json',result)
+    for previous_name,seal_sha in prior_seals.items():
+        if verify_seal(ROOT/'runs'/previous_name)!=seal_sha:
+            raise ValueError('previous sealed run changed during baseline '+previous_name)
     return result
 
 
@@ -291,6 +310,9 @@ def run():
             timing_monitor_extra_args=('--sim-source',replay.REMOTE_CODE),
             monitor_cleanup_protocol=True)
         completed=completed_rows(rows)
+        completed_run=ROOT/'runs'/row['process_id']
+        seal_tree(completed_run)
+        verify_seal(completed_run)
         atomic(ROOT/'run-stage-markers'/f"{row['process_id']}.json",{'status':'complete',
             'run_complete_sha256':sha(ROOT/'runs'/row['process_id']/'run-complete.json'),
             'completed_new_processes':len(completed)})

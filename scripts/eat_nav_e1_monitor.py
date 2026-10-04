@@ -171,7 +171,7 @@ def finalization_status(run):
     return result
 
 
-def verify_complete(run):
+def verify_complete(run,*,source_run=None):
     complete=json.loads((run/'run-complete.json').read_text())
     final=json.loads((run/'final-status.json').read_text())
     returned=json.loads((run/'docker-exec-return.json').read_text())
@@ -184,7 +184,7 @@ def verify_complete(run):
     marker=json.loads((run/'live-0.marker.json').read_text())
     started=read_complete_json(run/'started.json') or {}
     expected_map_sha=complete['identity'].get('map_path_file_sha256') or started.get('input_sha256',{}).get('map_path')
-    if not marker_matches_run(marker,str(run),expected_map_sha):
+    if not marker_matches_run(marker,str(source_run or run),expected_map_sha):
         raise ValueError('simulator marker identity mismatch')
     for name,digest in marker['outputs_sha256'].items():
         if sha(run/Path(name).name)!=digest:raise ValueError('simulator output SHA mismatch')
