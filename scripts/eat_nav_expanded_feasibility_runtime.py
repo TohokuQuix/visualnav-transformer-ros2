@@ -23,6 +23,8 @@ def replace_once(source,old,new):
 
 
 def patch_e1_sim_source(source):
+    source=replace_once(source,"parser.add_argument('--stage',choices=['live'],required=True)",
+        "parser.add_argument('--stage',choices=['anchor','live'],required=True)")
     source=replace_once(source,"config_spec['scope']!='e1_live_candidate'",
         "config_spec['scope']!='anchor_only_then_live_candidate'")
     source=replace_once(source,"state['state_id'].startswith('g0e-train-')",

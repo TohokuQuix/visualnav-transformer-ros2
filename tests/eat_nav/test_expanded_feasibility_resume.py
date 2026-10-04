@@ -43,6 +43,7 @@ def test_sim_adapter_changes_only_identity_and_anchor_path_validation():
     from pathlib import Path
     source=(Path(__file__).resolve().parents[2]/'scripts/eat_nav_e1_sim.py').read_text()
     patched=patch_e1_sim_source(source)
+    assert "parser.add_argument('--stage',choices=['anchor','live'],required=True)" in patched
     assert patched.count("state['state_id'].startswith('expanded-train-')")==1
     assert 'config_spec[\'scope\']!=\'anchor_only_then_live_candidate\'' in patched
     assert "if args.stage=='anchor':\n        fixed=np.asarray(computed_path,dtype=np.float64)" in patched
