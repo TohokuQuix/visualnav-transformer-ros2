@@ -1,0 +1,18 @@
+{
+  "status": "continuous_heads_frozen; proposed_hard_events_not_deployment_thresholds",
+  "continuous_heads": [
+    {"name":"goal_distance_reduction","unit":"m","time":"0-2 s","higher_is_better":true},
+    {"name":"progress_ratio","unit":"fraction of candidate Path arc length","time":"0-2 s","higher_is_better":true},
+    {"name":"endpoint_error","unit":"m","time":"2 s","higher_is_better":false},
+    {"name":"endpoint_encounter_probability","unit":"probability of entering 0.20 m follower tolerance by 2 s","time":"0-2 s","higher_is_better":true},
+    {"name":"cross_track_p95","unit":"m","time":"0-2 s","higher_is_better":false}
+  ],
+  "not_current_hard_exclusions": ["progress_ratio_below_0.50", "goal_distance_reduction_below_0.20_m", "endpoint_not_within_0.20_m_by_2s", "cross_track_threshold", "tilt_above_0.52_rad"],
+  "reason": "curved Paths are longer, follower tracks geometry at roughly constant speed rather than time-aligned waypoints, and safe detours may be slower than two seconds",
+  "endpoint_radius_0_20_m_role": "existing production follower tolerance; diagnostic/continuous-head label, not binary success or failure",
+  "prospective_hard_failure_candidates": ["nonfinite_state", "verified_physical_termination", "verified_stack", "clear_reverse_motion", "goal_distance_reduction_nonpositive_while_forward_commanded"],
+  "prospective_only": true,
+  "tilt_0_52_rad_status": "not hard until real-robot safety limit or existing termination source establishes it",
+  "online_availability_warning": "future physical outcomes cannot be used as hard inference gates unless a validated predictive head exists; current Safety head is disabled",
+  "selection": "retain continuous task heads and abstention; freeze operational thresholds prospectively with future independent support, not these seven groups"
+}

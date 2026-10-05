@@ -1,0 +1,34 @@
+schema_version: 1
+scope: offline_63_protocol_valid_E1_traces
+source_commit: 87d1ef3e1e617bf452949a7f48658718af51723e
+source_review: docs/quality-identifiability-gate/g40-teacher-review
+gamma: 0.99
+control_interval_s: 0.05
+path_transition_count: 40
+critic_replay:
+  checkpoint: /home/kojima/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt
+  dtype: float32
+  device: cpu
+  absolute_tolerance: 0.00001
+  required_indices: [0, 39, 40]
+  all_63_required: true
+terminal_commands:
+  zero: recorded_trace_40_command
+  hold: recorded_trace_39_command
+  canonical_vx_mps: 0.3
+  canonical_vy_mps: 0.0
+  canonical_wz_radps: 0.0
+  direct_reference_optional: true
+  source_confirmation_required: true
+  no_post_result_adjustment: true
+stability_gate:
+  hold_vs_canonical_macro_kendall_min: 0.8
+  hold_vs_canonical_top1_agreement_min_groups: 6
+  hold_vs_canonical_mean_top3_overlap_min: 2.0
+  hold_vs_canonical_direct_sign_agreement_min: 0.9
+  no_single_terrain_wholesale_rank_reversal: true
+  pairwise_statistics_are_descriptive_only: true
+stop_on:
+  - source_integrity_mismatch
+  - observation_schema_unresolved
+  - critic_offline_replay_difference_above_tolerance

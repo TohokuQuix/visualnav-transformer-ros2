@@ -1,0 +1,1648 @@
+{
+  "candidate_pairs": "descriptive_not_independent",
+  "gamma_power_40": 0.6689717585696803,
+  "group_comparisons": {
+    "expanded-train-000": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.5238095238095238,
+        "pairwise_rank_reversal_count": 5,
+        "pairwise_sign_agreement": 0.7619047619047619,
+        "spearman": 0.6785714285714287,
+        "top1_a": "right_1",
+        "top1_agreement": false,
+        "top1_b": "left_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "left_1",
+        "top1_agreement": false,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.5238095238095238,
+        "pairwise_rank_reversal_count": 5,
+        "pairwise_sign_agreement": 0.7619047619047619,
+        "spearman": 0.6785714285714287,
+        "top1_a": "left_1",
+        "top1_agreement": false,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "left_1",
+        "top1_agreement": true,
+        "top1_b": "left_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "left_1",
+        "top1_agreement": false,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.5238095238095238,
+        "pairwise_rank_reversal_count": 5,
+        "pairwise_sign_agreement": 0.7619047619047619,
+        "spearman": 0.6785714285714287,
+        "top1_a": "left_1",
+        "top1_agreement": false,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "left_1",
+        "top1_agreement": true,
+        "top1_b": "left_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "left_1",
+        "top1_agreement": true,
+        "top1_b": "left_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "left_1",
+        "top1_agreement": false,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      }
+    },
+    "expanded-train-001": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.8928571428571429,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.8928571428571429,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_2"
+        ],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.8928571428571429,
+        "top1_a": "right_1",
+        "top1_agreement": true,
+        "top1_b": "right_1",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      }
+    },
+    "expanded-train-002": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.14285714285714288,
+        "pairwise_rank_reversal_count": 9,
+        "pairwise_sign_agreement": 0.5714285714285714,
+        "spearman": 0.1785714285714286,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.04761904761904762,
+        "pairwise_rank_reversal_count": 10,
+        "pairwise_sign_agreement": 0.5238095238095238,
+        "spearman": 0.10714285714285716,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.04761904761904762,
+        "pairwise_rank_reversal_count": 10,
+        "pairwise_sign_agreement": 0.5238095238095238,
+        "spearman": 0.10714285714285716,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.04761904761904762,
+        "pairwise_rank_reversal_count": 10,
+        "pairwise_sign_agreement": 0.5238095238095238,
+        "spearman": 0.10714285714285716,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      }
+    },
+    "expanded-train-003": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_3"
+        ],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_3"
+        ],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_3"
+        ],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_3"
+        ],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.8928571428571429,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.8928571428571429,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.8095238095238096,
+        "pairwise_rank_reversal_count": 2,
+        "pairwise_sign_agreement": 0.9047619047619048,
+        "spearman": 0.9285714285714288,
+        "top1_a": "right_2",
+        "top1_agreement": true,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      }
+    },
+    "expanded-train-004": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_3"
+        ],
+        "kendall": 0.6190476190476191,
+        "pairwise_rank_reversal_count": 4,
+        "pairwise_sign_agreement": 0.8095238095238095,
+        "spearman": 0.7857142857142859,
+        "top1_a": "direct_reference",
+        "top1_agreement": false,
+        "top1_b": "right_3",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_3"
+        ],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "direct_reference",
+        "top1_agreement": false,
+        "top1_b": "right_3",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_3"
+        ],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "direct_reference",
+        "top1_agreement": false,
+        "top1_b": "right_3",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_3"
+        ],
+        "kendall": 0.7142857142857143,
+        "pairwise_rank_reversal_count": 3,
+        "pairwise_sign_agreement": 0.8571428571428571,
+        "spearman": 0.8571428571428573,
+        "top1_a": "direct_reference",
+        "top1_agreement": false,
+        "top1_b": "right_3",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      }
+    },
+    "g0e-train-000": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "left_2",
+        "top1_agreement": true,
+        "top1_b": "left_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_1"
+        ],
+        "kendall": 0.6190476190476191,
+        "pairwise_rank_reversal_count": 4,
+        "pairwise_sign_agreement": 0.8095238095238095,
+        "spearman": 0.8214285714285715,
+        "top1_a": "left_2",
+        "top1_agreement": false,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_1"
+        ],
+        "kendall": 0.6190476190476191,
+        "pairwise_rank_reversal_count": 4,
+        "pairwise_sign_agreement": 0.8095238095238095,
+        "spearman": 0.8214285714285715,
+        "top1_a": "left_2",
+        "top1_agreement": false,
+        "top1_b": "right_2",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_1"
+        ],
+        "kendall": 0.4285714285714286,
+        "pairwise_rank_reversal_count": 6,
+        "pairwise_sign_agreement": 0.7142857142857143,
+        "spearman": 0.5,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "left_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "right_1"
+        ],
+        "kendall": 0.4285714285714286,
+        "pairwise_rank_reversal_count": 6,
+        "pairwise_sign_agreement": 0.7142857142857143,
+        "spearman": 0.5,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "left_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.6190476190476191,
+        "pairwise_rank_reversal_count": 4,
+        "pairwise_sign_agreement": 0.8095238095238095,
+        "spearman": 0.7142857142857144,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.6666666666666666,
+        "direct_sign_reversal_candidates": [
+          "left_1",
+          "right_1"
+        ],
+        "kendall": 0.23809523809523814,
+        "pairwise_rank_reversal_count": 8,
+        "pairwise_sign_agreement": 0.6190476190476191,
+        "spearman": 0.21428571428571433,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "left_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.6666666666666666,
+        "direct_sign_reversal_candidates": [
+          "left_1",
+          "right_1"
+        ],
+        "kendall": 0.23809523809523814,
+        "pairwise_rank_reversal_count": 8,
+        "pairwise_sign_agreement": 0.6190476190476191,
+        "spearman": 0.21428571428571433,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "left_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_1"
+        ],
+        "kendall": 0.6190476190476191,
+        "pairwise_rank_reversal_count": 4,
+        "pairwise_sign_agreement": 0.8095238095238095,
+        "spearman": 0.7500000000000002,
+        "top1_a": "right_3",
+        "top1_agreement": true,
+        "top1_b": "right_3",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 0.8333333333333334,
+        "direct_sign_reversal_candidates": [
+          "left_1"
+        ],
+        "kendall": 0.4285714285714286,
+        "pairwise_rank_reversal_count": 6,
+        "pairwise_sign_agreement": 0.7142857142857143,
+        "spearman": 0.5714285714285715,
+        "top1_a": "right_3",
+        "top1_agreement": false,
+        "top1_b": "right_2",
+        "top3_overlap": 2,
+        "wholesale_reversal": false
+      }
+    },
+    "g0e-train-001": {
+      "canonical_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "canonical_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "direct_reference_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "hold_candidate_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_canonical": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 0.9047619047619049,
+        "pairwise_rank_reversal_count": 1,
+        "pairwise_sign_agreement": 0.9523809523809523,
+        "spearman": 0.9642857142857145,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_direct_reference": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_hold_candidate": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      },
+      "zero_recorded_vs_reward_only": {
+        "comparable_pairs": 21,
+        "descriptive_pairs": 21,
+        "direct_comparable": 6,
+        "direct_sign_agreement": 1.0,
+        "direct_sign_reversal_candidates": [],
+        "kendall": 1.0,
+        "pairwise_rank_reversal_count": 0,
+        "pairwise_sign_agreement": 1.0,
+        "spearman": 1.0,
+        "top1_a": "direct_reference",
+        "top1_agreement": true,
+        "top1_b": "direct_reference",
+        "top3_overlap": 3,
+        "wholesale_reversal": false
+      }
+    }
+  },
+  "group_values": {
+    "expanded-train-000": {
+      "recorded_zero_run_count": 9,
+      "scores": {
+        "canonical": {
+          "direct_reference": 39.702767316704836,
+          "left_1": 39.783821362982536,
+          "left_2": 39.731597465502084,
+          "left_3": 39.72146877141864,
+          "right_1": 39.8083284758615,
+          "right_2": 39.79063345640838,
+          "right_3": 39.70982173034633
+        },
+        "direct_reference": {
+          "direct_reference": 40.439916296580165,
+          "left_1": 40.591523406094765,
+          "left_2": 40.40289147558352,
+          "left_3": 40.482284301316,
+          "right_1": 40.57739182651271,
+          "right_2": 40.572877498332375,
+          "right_3": 40.471119574019205
+        },
+        "hold_candidate": {
+          "direct_reference": 40.439916296580165,
+          "left_1": 40.591523406094765,
+          "left_2": 39.742588605349496,
+          "left_3": 40.482284301316,
+          "right_1": 40.57739182651271,
+          "right_2": 40.572877498332375,
+          "right_3": 40.471119574019205
+        },
+        "reward_only": {
+          "direct_reference": 14.094769096198782,
+          "left_1": 14.241795500808324,
+          "left_2": 14.128981254268885,
+          "left_3": 14.167956695997809,
+          "right_1": 14.243659385485277,
+          "right_2": 14.195558182776551,
+          "right_3": 14.161247629293909
+        },
+        "zero_recorded": {
+          "direct_reference": 40.439916296580165,
+          "left_1": 40.591523406094765,
+          "left_2": 40.40289147558352,
+          "left_3": 40.482284301316,
+          "right_1": 40.57738927458797,
+          "right_2": 40.572877498332375,
+          "right_3": 40.471119574019205
+        }
+      },
+      "terrain": "boxes"
+    },
+    "expanded-train-001": {
+      "recorded_zero_run_count": 9,
+      "scores": {
+        "canonical": {
+          "direct_reference": 40.72939849688023,
+          "left_1": 40.64293778144026,
+          "left_2": 40.72516013753355,
+          "left_3": 40.40663007906115,
+          "right_1": 40.83419277759882,
+          "right_2": 40.67501603405442,
+          "right_3": 40.64601345834305
+        },
+        "direct_reference": {
+          "direct_reference": 41.55420864343733,
+          "left_1": 41.467166089157054,
+          "left_2": 41.56973749311272,
+          "left_3": 41.304004205548864,
+          "right_1": 41.660115563341776,
+          "right_2": 41.49908357051271,
+          "right_3": 41.45623169924714
+        },
+        "hold_candidate": {
+          "direct_reference": 41.55420864343733,
+          "left_1": 41.467166089157054,
+          "left_2": 41.56973749311272,
+          "left_3": 41.304004205548864,
+          "right_1": 41.660115563341776,
+          "right_2": 41.49908357051271,
+          "right_3": 41.45623169924714
+        },
+        "reward_only": {
+          "direct_reference": 14.572899780845253,
+          "left_1": 14.493913652963462,
+          "left_2": 14.596222208671096,
+          "left_3": 14.418198574359037,
+          "right_1": 14.647497136136776,
+          "right_2": 14.529993323567117,
+          "right_3": 14.554440811497258
+        },
+        "zero_recorded": {
+          "direct_reference": 41.55420864343733,
+          "left_1": 41.46716864108179,
+          "left_2": 41.56973494118798,
+          "left_3": 41.30400165362412,
+          "right_1": 41.66011301141704,
+          "right_2": 41.49908357051271,
+          "right_3": 41.45623425117188
+        }
+      },
+      "terrain": "hf_pyramid_slope"
+    },
+    "expanded-train-002": {
+      "recorded_zero_run_count": 9,
+      "scores": {
+        "canonical": {
+          "direct_reference": 40.361064042782345,
+          "left_1": 40.28018701325028,
+          "left_2": 40.16521778068251,
+          "left_3": 40.20606150082829,
+          "right_1": 40.33878580592677,
+          "right_2": 40.280284989783624,
+          "right_3": 40.267109696775606
+        },
+        "direct_reference": {
+          "direct_reference": 41.226352819536714,
+          "left_1": 41.108439706279206,
+          "left_2": 41.05116949204206,
+          "left_3": 41.06350310901271,
+          "right_1": 41.14614333919935,
+          "right_2": 41.1248827607607,
+          "right_3": 41.05963544346979
+        },
+        "hold_candidate": {
+          "direct_reference": 41.226352819536714,
+          "left_1": 41.108439706279206,
+          "left_2": 41.05116949204206,
+          "left_3": 41.06350310901271,
+          "right_1": 41.14614333919935,
+          "right_2": 41.1248827607607,
+          "right_3": 41.05963544346979
+        },
+        "reward_only": {
+          "direct_reference": 14.582076657118202,
+          "left_1": 14.473820027070024,
+          "left_2": 14.486589939197403,
+          "left_3": 14.489425292292493,
+          "right_1": 14.46096237515229,
+          "right_2": 14.49015590071251,
+          "right_3": 14.501675583396022
+        },
+        "zero_recorded": {
+          "direct_reference": 41.226352819536714,
+          "left_1": 41.108439706279206,
+          "left_2": 41.05116949204206,
+          "left_3": 41.06349800516323,
+          "right_1": 41.146145891124085,
+          "right_2": 41.1248827607607,
+          "right_3": 41.05963289154505
+        }
+      },
+      "terrain": "k_rail_field"
+    },
+    "expanded-train-003": {
+      "recorded_zero_run_count": 8,
+      "scores": {
+        "canonical": {
+          "direct_reference": 38.69732727734016,
+          "left_1": 38.73665959939108,
+          "left_2": 38.54886404564523,
+          "left_3": 38.62753668771312,
+          "right_1": 38.349190092588906,
+          "right_2": 38.82646037189301,
+          "right_3": 38.60289871894893
+        },
+        "direct_reference": {
+          "direct_reference": 39.71980696219319,
+          "left_1": 39.8509498805502,
+          "left_2": 39.556192953327596,
+          "left_3": 39.78836386839798,
+          "right_1": 39.41027019103189,
+          "right_2": 39.886341065709054,
+          "right_3": 39.6470008621087
+        },
+        "hold_candidate": {
+          "direct_reference": 39.71980696219319,
+          "left_1": 39.8509498805502,
+          "left_2": 38.60152556454264,
+          "left_3": 39.78836386839798,
+          "right_1": 38.43510063890028,
+          "right_2": 39.886341065709054,
+          "right_3": 38.635925728910664
+        },
+        "reward_only": {
+          "direct_reference": 13.808678361660514,
+          "left_1": 13.838716573814928,
+          "left_2": 13.776644144221045,
+          "left_3": 13.885347836608025,
+          "right_1": 13.513187384258245,
+          "right_2": 13.889013551369585,
+          "right_3": 13.770917844005666
+        },
+        "zero_recorded": {
+          "direct_reference": 39.71980696219319,
+          "left_1": 39.85094732862546,
+          "left_2": 39.55619550525233,
+          "left_3": 39.78836386839798,
+          "right_1": 39.41027019103189,
+          "right_2": 39.886341065709054,
+          "right_3": 38.63585172309325
+        }
+      },
+      "terrain": "k_rail_step_field"
+    },
+    "expanded-train-004": {
+      "recorded_zero_run_count": 9,
+      "scores": {
+        "canonical": {
+          "direct_reference": 39.4656496246522,
+          "left_1": 39.26280953278016,
+          "left_2": 39.370233301923534,
+          "left_3": 39.298316228101385,
+          "right_1": 39.33654444494605,
+          "right_2": 39.2893402203391,
+          "right_3": 39.39425881889365
+        },
+        "direct_reference": {
+          "direct_reference": 39.86855515809282,
+          "left_1": 39.68524749816693,
+          "left_2": 39.78195573533462,
+          "left_3": 39.71447645863219,
+          "right_1": 39.80820648660789,
+          "right_2": 39.71364619463422,
+          "right_3": 39.844933831508555
+        },
+        "hold_candidate": {
+          "direct_reference": 39.86855515809282,
+          "left_1": 39.68524749816693,
+          "left_2": 39.78195573533462,
+          "left_3": 39.71447645863219,
+          "right_1": 39.80820648660789,
+          "right_2": 39.71364619463422,
+          "right_3": 39.844933831508555
+        },
+        "reward_only": {
+          "direct_reference": 14.06464312351071,
+          "left_1": 13.94325791735715,
+          "left_2": 13.966805024205499,
+          "left_3": 13.950297892223796,
+          "right_1": 14.033871259741467,
+          "right_2": 13.968734659999214,
+          "right_3": 14.06931243457409
+        },
+        "zero_recorded": {
+          "direct_reference": 39.86855515809282,
+          "left_1": 39.68524749816693,
+          "left_2": 39.78195573533462,
+          "left_3": 39.71447645863219,
+          "right_1": 39.80821159045736,
+          "right_2": 39.71364619463422,
+          "right_3": 39.844933831508555
+        }
+      },
+      "terrain": "pyramid_stairs"
+    },
+    "g0e-train-000": {
+      "recorded_zero_run_count": 4,
+      "scores": {
+        "canonical": {
+          "direct_reference": 39.438312704747545,
+          "left_1": 39.3593663732199,
+          "left_2": 39.56518156970815,
+          "left_3": 39.47862930971401,
+          "right_1": 39.434324624974366,
+          "right_2": 39.55110217059805,
+          "right_3": 39.55469593041891
+        },
+        "direct_reference": {
+          "direct_reference": 39.44665749864144,
+          "left_1": 39.36913514111771,
+          "left_2": 39.57457265274471,
+          "left_3": 39.4883700064397,
+          "right_1": 39.444118912119556,
+          "right_2": 39.56062084987152,
+          "right_3": 39.5642426808645
+        },
+        "hold_candidate": {
+          "direct_reference": 39.44665749864144,
+          "left_1": 39.367637161296386,
+          "left_2": 39.56530916594506,
+          "left_3": 39.489944544003166,
+          "right_1": 39.983526899806286,
+          "right_2": 39.566194253499745,
+          "right_3": 40.12196328047252
+        },
+        "reward_only": {
+          "direct_reference": 14.002617890639755,
+          "left_1": 13.939187261520338,
+          "left_2": 14.051561181794803,
+          "left_3": 14.051016441252084,
+          "right_1": 14.0217349374462,
+          "right_2": 14.134689699812068,
+          "right_3": 14.106945823847878
+        },
+        "zero_recorded": {
+          "direct_reference": 39.447004560405844,
+          "left_1": 39.90025192533004,
+          "left_2": 39.566171716506574,
+          "left_3": 39.4863386743481,
+          "right_1": 39.98352434788155,
+          "right_2": 40.10299162217929,
+          "right_3": 40.12196328047252
+        }
+      },
+      "terrain": "pyramid_stairs_inv"
+    },
+    "g0e-train-001": {
+      "recorded_zero_run_count": 9,
+      "scores": {
+        "canonical": {
+          "direct_reference": 39.7929303269714,
+          "left_1": 39.67971848265853,
+          "left_2": 39.638376393863986,
+          "left_3": 39.639570642182385,
+          "right_1": 39.513381829427594,
+          "right_2": 39.536324247780975,
+          "right_3": 39.73166718780219
+        },
+        "direct_reference": {
+          "direct_reference": 40.37891094113021,
+          "left_1": 40.27948969810255,
+          "left_2": 40.2173621823154,
+          "left_3": 40.245065824814176,
+          "right_1": 40.1160188563526,
+          "right_2": 40.08744301809128,
+          "right_3": 40.350052142286614
+        },
+        "hold_candidate": {
+          "direct_reference": 40.37891094113021,
+          "left_1": 40.27948969810255,
+          "left_2": 40.2173621823154,
+          "left_3": 40.245065824814176,
+          "right_1": 40.1160188563526,
+          "right_2": 40.08744301809128,
+          "right_3": 40.350052142286614
+        },
+        "reward_only": {
+          "direct_reference": 14.050335939998673,
+          "left_1": 13.920169107725226,
+          "left_2": 13.819193641648516,
+          "left_3": 13.882690580525233,
+          "right_1": 13.754970612927522,
+          "right_2": 13.75379734250495,
+          "right_3": 13.987868292353031
+        },
+        "zero_recorded": {
+          "direct_reference": 40.378913493054945,
+          "left_1": 40.27948969810255,
+          "left_2": 40.2173621823154,
+          "left_3": 40.245065824814176,
+          "right_1": 40.1160188563526,
+          "right_2": 40.08744301809128,
+          "right_3": 40.35004959036188
+        }
+      },
+      "terrain": "random_rough"
+    }
+  },
+  "macro": {
+    "canonical_vs_direct_reference": {
+      "direct_sign_agreement": 0.9285714285714286,
+      "kendall": 0.8503401360544219,
+      "mean_top3_overlap": 2.7142857142857144,
+      "pairwise_sign_agreement": 0.9251700680272109,
+      "spearman": 0.9234693877551022,
+      "top1_agreement_groups": 6,
+      "wholesale_reversal_groups": 0
+    },
+    "canonical_vs_reward_only": {
+      "direct_sign_agreement": 0.9047619047619048,
+      "kendall": 0.6462585034013605,
+      "mean_top3_overlap": 2.5714285714285716,
+      "pairwise_sign_agreement": 0.8231292517006803,
+      "spearman": 0.7704081632653063,
+      "top1_agreement_groups": 5,
+      "wholesale_reversal_groups": 0
+    },
+    "direct_reference_vs_reward_only": {
+      "direct_sign_agreement": 0.9285714285714286,
+      "kendall": 0.6870748299319729,
+      "mean_top3_overlap": 2.857142857142857,
+      "pairwise_sign_agreement": 0.8435374149659863,
+      "spearman": 0.7908163265306124,
+      "top1_agreement_groups": 4,
+      "wholesale_reversal_groups": 0
+    },
+    "hold_candidate_vs_canonical": {
+      "direct_sign_agreement": 0.9047619047619048,
+      "kendall": 0.7687074829931975,
+      "mean_top3_overlap": 2.5714285714285716,
+      "pairwise_sign_agreement": 0.8843537414965986,
+      "spearman": 0.8520408163265307,
+      "top1_agreement_groups": 5,
+      "wholesale_reversal_groups": 0
+    },
+    "hold_candidate_vs_direct_reference": {
+      "direct_sign_agreement": 0.9761904761904762,
+      "kendall": 0.9183673469387755,
+      "mean_top3_overlap": 2.857142857142857,
+      "pairwise_sign_agreement": 0.9591836734693878,
+      "spearman": 0.9285714285714286,
+      "top1_agreement_groups": 6,
+      "wholesale_reversal_groups": 0
+    },
+    "hold_candidate_vs_reward_only": {
+      "direct_sign_agreement": 0.9523809523809524,
+      "kendall": 0.6870748299319729,
+      "mean_top3_overlap": 2.7142857142857144,
+      "pairwise_sign_agreement": 0.8435374149659863,
+      "spearman": 0.7755102040816327,
+      "top1_agreement_groups": 4,
+      "wholesale_reversal_groups": 0
+    },
+    "zero_recorded_vs_canonical": {
+      "direct_sign_agreement": 0.880952380952381,
+      "kendall": 0.7142857142857144,
+      "mean_top3_overlap": 2.5714285714285716,
+      "pairwise_sign_agreement": 0.8571428571428571,
+      "spearman": 0.795918367346939,
+      "top1_agreement_groups": 5,
+      "wholesale_reversal_groups": 0
+    },
+    "zero_recorded_vs_direct_reference": {
+      "direct_sign_agreement": 0.9523809523809524,
+      "kendall": 0.8639455782312926,
+      "mean_top3_overlap": 2.857142857142857,
+      "pairwise_sign_agreement": 0.9319727891156463,
+      "spearman": 0.8724489795918366,
+      "top1_agreement_groups": 6,
+      "wholesale_reversal_groups": 0
+    },
+    "zero_recorded_vs_hold_candidate": {
+      "direct_sign_agreement": 0.9761904761904762,
+      "kendall": 0.9183673469387755,
+      "mean_top3_overlap": 3.0,
+      "pairwise_sign_agreement": 0.9591836734693878,
+      "spearman": 0.9489795918367346,
+      "top1_agreement_groups": 7,
+      "wholesale_reversal_groups": 0
+    },
+    "zero_recorded_vs_reward_only": {
+      "direct_sign_agreement": 0.9285714285714286,
+      "kendall": 0.6598639455782314,
+      "mean_top3_overlap": 2.7142857142857144,
+      "pairwise_sign_agreement": 0.8299319727891156,
+      "spearman": 0.7551020408163266,
+      "top1_agreement_groups": 4,
+      "wholesale_reversal_groups": 0
+    }
+  },
+  "recorded_condition_caveat": "zero_recorded is literal zero for 57/63 runs, not 63/63",
+  "statistical_unit": "StateGroup",
+  "terminal_query_raw_sha256": "e1c8f9dd3ca66a27b4c219f3de843579093a537540b0faaf9a6a658b64da0218"
+}

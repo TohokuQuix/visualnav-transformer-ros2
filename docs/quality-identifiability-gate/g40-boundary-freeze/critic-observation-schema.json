@@ -1,0 +1,333 @@
+{
+  "command_field": {
+    "candidate_path_relation": "current follower command only",
+    "clip": [
+      -100.0,
+      100.0
+    ],
+    "command_relation": "direct",
+    "end": 12,
+    "frame": "base-yaw command",
+    "function": "isaaclab.envs.mdp.observations:generated_commands",
+    "meaning": "current command; no Path history",
+    "name": "velocity_commands",
+    "noise_applied": false,
+    "noise_configured": false,
+    "normalization": {
+      "empirical": false,
+      "scale": null
+    },
+    "phase": "pre-step",
+    "shape": [
+      3
+    ],
+    "start": 9,
+    "unit": "m/s, m/s, rad/s"
+  },
+  "command_source": "IsaacLab mdp.generated_commands -> env.command_manager.get_command(base_velocity)",
+  "config_sha256": "c2b7e9b7959a231c5391ed714a4de4be958fe5812cf03c10ab60f5636598233b",
+  "fields": [
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "held state feature",
+      "end": 3,
+      "frame": "base",
+      "function": "isaaclab.envs.mdp.observations:base_lin_vel",
+      "meaning": "base linear velocity",
+      "name": "base_lin_vel",
+      "noise_applied": false,
+      "noise_configured": true,
+      "normalization": {
+        "empirical": false,
+        "scale": 2.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        3
+      ],
+      "start": 0,
+      "unit": "m/s"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "held state feature",
+      "end": 6,
+      "frame": "base",
+      "function": "isaaclab.envs.mdp.observations:base_ang_vel",
+      "meaning": "base angular velocity",
+      "name": "base_ang_vel",
+      "noise_applied": false,
+      "noise_configured": true,
+      "normalization": {
+        "empirical": false,
+        "scale": 0.25
+      },
+      "phase": "pre-step",
+      "shape": [
+        3
+      ],
+      "start": 3,
+      "unit": "rad/s"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -1.0,
+        1.0
+      ],
+      "command_relation": "held state feature",
+      "end": 9,
+      "frame": "base",
+      "function": "isaaclab.envs.mdp.observations:projected_gravity",
+      "meaning": "projected gravity direction",
+      "name": "projected_gravity",
+      "noise_applied": false,
+      "noise_configured": true,
+      "normalization": {
+        "empirical": false,
+        "scale": 1.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        3
+      ],
+      "start": 6,
+      "unit": "unitless"
+    },
+    {
+      "candidate_path_relation": "current follower command only",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "direct",
+      "end": 12,
+      "frame": "base-yaw command",
+      "function": "isaaclab.envs.mdp.observations:generated_commands",
+      "meaning": "current command; no Path history",
+      "name": "velocity_commands",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": null
+      },
+      "phase": "pre-step",
+      "shape": [
+        3
+      ],
+      "start": 9,
+      "unit": "m/s, m/s, rad/s"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -1.0,
+        1.0
+      ],
+      "command_relation": "held state feature",
+      "end": 13,
+      "frame": "controller",
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.observations:flipper_fold_mode",
+      "meaning": "current mode",
+      "name": "flipper_fold_mode",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 1.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        1
+      ],
+      "start": 12,
+      "unit": "categorical -1/0/1"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "held state feature",
+      "end": 17,
+      "frame": "joint-relative",
+      "function": "isaaclab.envs.mdp.observations:joint_pos_rel",
+      "meaning": "relative to default joint positions",
+      "name": "joint_pos",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 1.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        4
+      ],
+      "start": 13,
+      "unit": "rad"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "held state feature",
+      "end": 19,
+      "frame": "joint",
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.observations:track_mean_velocity",
+      "meaning": "mean right and left track speed",
+      "name": "joint_vel",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 0.05
+      },
+      "phase": "pre-step",
+      "shape": [
+        2
+      ],
+      "start": 17,
+      "unit": "rad/s"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": null,
+      "command_relation": "held state feature",
+      "end": 25,
+      "frame": "action-manager",
+      "function": "isaaclab.envs.mdp.observations:last_action",
+      "meaning": "last action",
+      "name": "actions",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": null
+      },
+      "phase": "pre-step",
+      "shape": [
+        6
+      ],
+      "start": 19,
+      "unit": "normalized action units"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        0.0,
+        1.0
+      ],
+      "command_relation": "held state feature",
+      "end": 26,
+      "frame": "controller",
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.observations:control_latency",
+      "meaning": "current latency",
+      "name": "control_latency",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": null
+      },
+      "phase": "pre-step",
+      "shape": [
+        1
+      ],
+      "start": 25,
+      "unit": "fraction of max latency"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": null,
+      "command_relation": "held state feature",
+      "end": 74,
+      "frame": "per-contact-body",
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.observations:contact_binary",
+      "meaning": "force > 1 N",
+      "name": "roller_contact_binary",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 1.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        48
+      ],
+      "start": 26,
+      "unit": "0/1"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -100.0,
+        100.0
+      ],
+      "command_relation": "held state feature",
+      "end": 80,
+      "frame": "joint",
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.observations:joint_effort_with_track_sum",
+      "meaning": "four flippers + signed right/left track sums",
+      "name": "joint_effort",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 0.01
+      },
+      "phase": "pre-step",
+      "shape": [
+        6
+      ],
+      "start": 74,
+      "unit": "0.01 * clipped N m"
+    },
+    {
+      "candidate_path_relation": "none",
+      "clip": [
+        -1.0,
+        1.0
+      ],
+      "command_relation": "held state feature",
+      "end": 267,
+      "frame": "yaw-aligned scanner",
+      "function": "isaaclab.envs.mdp.observations:height_scan",
+      "meaning": "sensor height minus ray hit z minus 0.5 m",
+      "name": "height_scan",
+      "noise_applied": false,
+      "noise_configured": false,
+      "normalization": {
+        "empirical": false,
+        "scale": 1.0
+      },
+      "phase": "pre-step",
+      "shape": [
+        187
+      ],
+      "start": 80,
+      "unit": "m"
+    }
+  ],
+  "height_scan_grid": {
+    "nx": 17,
+    "ny": 11,
+    "resolution_m": 0.1
+  },
+  "normalizer_source": "training agent.yaml empirical_normalization=false; Critic normalizer disabled",
+  "ordering_source": "IsaacLab ObservationManager.compute_group: ordered config terms, then concatenate",
+  "total_dim": 267
+}

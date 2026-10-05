@@ -1,0 +1,32 @@
+{
+  "status": "source_confirmed_conditional_critic_queries",
+  "critic_command_slice": [9, 12],
+  "term_name": "velocity_commands",
+  "term_source": "IsaacLab mdp.generated_commands returns command_manager.get_command(base_velocity)",
+  "observation_order": "saved env.yaml critic term order, concatenated by ObservationManager.compute_group",
+  "command_components": ["linear_x_mps", "linear_y_mps", "angular_z_radps"],
+  "command_clip_after_observation": [-100.0, 100.0],
+  "command_scale": null,
+  "rl_training_command_ranges": {"linear_x_mps": [-1.0, 1.0], "linear_y_mps": [0.0, 0.0], "angular_z_radps": [-0.5, 0.5]},
+  "canonical_command": [0.3, 0.0, 0.0],
+  "canonical_source": "production simple_trajectory_follower.cpp:19 declares linear_speed=0.3; saved RL command ranges contain canonical command",
+  "trace_39": "pre-step command that conditioned Actor/Critic and transition 39",
+  "trace_40": "command after transition 39 and command_manager update; 57/63 literal zero, 6/63 nonzero",
+  "conditions": {
+    "zero_recorded": "saved trace[40] command and saved V40; name denotes recorded Path-end condition, not uniform literal zero",
+    "hold_candidate": "same run trace[39] command copied into trace[40] command slice",
+    "canonical": "[0.3,0,0] for every run; fixed before inference",
+    "direct_reference": "same StateGroup direct_reference repeat 0 trace[39] command for every candidate"
+  },
+  "command_observation_max_abs_difference_at_0_39_40": 0.0,
+  "noncommand_invariance": "all 252 conditional vectors are byte-identical float32 to recorded trace[40] outside slice [9:12]",
+  "command_history_term_in_critic": false,
+  "command_dependent_held_state": "previous action, flipper mode and latency remain the observed terminal state; this is a conditional value query, not a physical continuation",
+  "source_lines": [
+    "onix rough_env_cfg.py:756-758 command ranges",
+    "saved env.yaml:1149-1161 velocity_commands",
+    "IsaacLab observations.py:675-678 generated_commands",
+    "IsaacLab observation_manager.py:386-430 ordered term post-processing",
+    "eat_nav_e1_sim.py:485-530 command/observation/reward order"
+  ]
+}

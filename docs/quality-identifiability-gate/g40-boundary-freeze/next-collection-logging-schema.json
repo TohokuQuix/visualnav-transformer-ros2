@@ -1,0 +1,17 @@
+{
+  "schema_version": "next_collection_proposal_v1",
+  "status": "design_only_no_collection_authorized",
+  "record_granularity": "one record per control transition plus anchor and terminal snapshot",
+  "reward": ["scalar_total_reward_post_dt", "component_name", "component_raw_value", "component_weight", "component_weighted_post_dt_value", "reward_config_sha256", "reward_evaluation_stamp_ns"],
+  "boundary": ["path_active_flag", "path_horizon_end_flag", "replanning_event", "current_command_xyz", "last_nonzero_command_xyz", "command_source", "pre_command_update_stamp_ns", "post_command_update_stamp_ns", "terminal_pre_reset_observation", "terminal_pre_reset_critic_observation", "terminal_pre_reset_critic_value", "terminal_value_zero", "terminal_value_hold", "terminal_value_canonical", "terminal_command_condition_metadata"],
+  "body_anchor": ["root_pose", "root_linear_velocity", "root_angular_velocity", "projected_gravity", "full_joint_position", "full_joint_velocity", "joint_order", "joint_units", "previous_action", "controller_state", "follower_state", "actor_observation_pre_noise", "actor_observation_post_noise_pre_delay", "actor_observation_post_delay", "critic_observation", "actor_and_critic_capture_stamp_ns", "raw_effort", "per_joint_actuator_limit", "contact", "tilt"],
+  "validity": ["terminated", "truncated", "termination_reason", "time_limit_truncation", "measurement_invalid", "infrastructure_failure", "manual_stop", "censoring_reason", "label_valid_mask", "episode_id", "state_group_id", "candidate_path_sha256", "trace_sha256"],
+  "time_order": ["pre_Path_anchor", "Path_publication", "pre_step_observation_and_command", "Actor_action", "physics_transition", "reward_components_and_total", "termination_pre_reset_snapshot", "command_update", "next_observation"],
+  "parity_gate_before_collection": {
+    "required": true,
+    "checks": ["logging disabled/enabled duplicate control", "same command stamps", "same Actor/Critic observations", "same actions and root trajectories", "same contact and termination", "same reward totals", "no additional control/physics updates"],
+    "purpose": "verify logging does not change controller, physics or timing"
+  },
+  "data_integrity": "atomic per-run completion marker; input/output SHA; invalid runs excluded from robot Outcome",
+  "note": "logging implementation and simulator rollout are outside this review"
+}

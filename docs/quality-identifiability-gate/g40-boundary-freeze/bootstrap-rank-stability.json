@@ -1,0 +1,149 @@
+{
+  "gate": {
+    "gate_checks": {
+      "direct_sign": true,
+      "macro_kendall": false,
+      "no_wholesale_reversal": true,
+      "top1": false,
+      "top3": true
+    },
+    "macro_direct_sign_agreement": 0.9047619047619048,
+    "macro_kendall": 0.7687074829931975,
+    "mean_top3_overlap": 2.5714285714285716,
+    "status": "g40_bootstrap_sensitive",
+    "top1_agreement_groups": 5,
+    "wholesale_reversal_terrain_count": 0
+  },
+  "group_hold_vs_canonical": {
+    "expanded-train-000": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 0.8333333333333334,
+      "direct_sign_reversal_candidates": [
+        "left_2"
+      ],
+      "kendall": 0.5238095238095238,
+      "pairwise_rank_reversal_count": 5,
+      "pairwise_sign_agreement": 0.7619047619047619,
+      "spearman": 0.6785714285714287,
+      "top1_a": "left_1",
+      "top1_agreement": false,
+      "top1_b": "right_1",
+      "top3_overlap": 3,
+      "wholesale_reversal": false
+    },
+    "expanded-train-001": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 0.8333333333333334,
+      "direct_sign_reversal_candidates": [
+        "left_2"
+      ],
+      "kendall": 0.8095238095238096,
+      "pairwise_rank_reversal_count": 2,
+      "pairwise_sign_agreement": 0.9047619047619048,
+      "spearman": 0.9285714285714288,
+      "top1_a": "right_1",
+      "top1_agreement": true,
+      "top1_b": "right_1",
+      "top3_overlap": 3,
+      "wholesale_reversal": false
+    },
+    "expanded-train-002": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 1.0,
+      "direct_sign_reversal_candidates": [],
+      "kendall": 0.9047619047619049,
+      "pairwise_rank_reversal_count": 1,
+      "pairwise_sign_agreement": 0.9523809523809523,
+      "spearman": 0.9642857142857145,
+      "top1_a": "direct_reference",
+      "top1_agreement": true,
+      "top1_b": "direct_reference",
+      "top3_overlap": 3,
+      "wholesale_reversal": false
+    },
+    "expanded-train-003": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 0.8333333333333334,
+      "direct_sign_reversal_candidates": [
+        "left_3"
+      ],
+      "kendall": 0.9047619047619049,
+      "pairwise_rank_reversal_count": 1,
+      "pairwise_sign_agreement": 0.9523809523809523,
+      "spearman": 0.9642857142857145,
+      "top1_a": "right_2",
+      "top1_agreement": true,
+      "top1_b": "right_2",
+      "top3_overlap": 2,
+      "wholesale_reversal": false
+    },
+    "expanded-train-004": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 1.0,
+      "direct_sign_reversal_candidates": [],
+      "kendall": 0.9047619047619049,
+      "pairwise_rank_reversal_count": 1,
+      "pairwise_sign_agreement": 0.9523809523809523,
+      "spearman": 0.9642857142857145,
+      "top1_a": "direct_reference",
+      "top1_agreement": true,
+      "top1_b": "direct_reference",
+      "top3_overlap": 2,
+      "wholesale_reversal": false
+    },
+    "g0e-train-000": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 0.8333333333333334,
+      "direct_sign_reversal_candidates": [
+        "right_1"
+      ],
+      "kendall": 0.4285714285714286,
+      "pairwise_rank_reversal_count": 6,
+      "pairwise_sign_agreement": 0.7142857142857143,
+      "spearman": 0.5,
+      "top1_a": "right_3",
+      "top1_agreement": false,
+      "top1_b": "left_2",
+      "top3_overlap": 2,
+      "wholesale_reversal": false
+    },
+    "g0e-train-001": {
+      "comparable_pairs": 21,
+      "descriptive_pairs": 21,
+      "direct_comparable": 6,
+      "direct_sign_agreement": 1.0,
+      "direct_sign_reversal_candidates": [],
+      "kendall": 0.9047619047619049,
+      "pairwise_rank_reversal_count": 1,
+      "pairwise_sign_agreement": 0.9523809523809523,
+      "spearman": 0.9642857142857145,
+      "top1_a": "direct_reference",
+      "top1_agreement": true,
+      "top1_b": "direct_reference",
+      "top3_overlap": 3,
+      "wholesale_reversal": false
+    }
+  },
+  "source_config_sha256": "3e02eb027fb40c6972cd9594fc7fe9b847921bffd202e75a8fa7eaeced6753fb",
+  "statistical_unit": "StateGroup",
+  "thresholds": {
+    "hold_vs_canonical_direct_sign_agreement_min": 0.9,
+    "hold_vs_canonical_macro_kendall_min": 0.8,
+    "hold_vs_canonical_mean_top3_overlap_min": 2.0,
+    "hold_vs_canonical_top1_agreement_min_groups": 6,
+    "no_single_terrain_wholesale_rank_reversal": true,
+    "pairwise_statistics_are_descriptive_only": true
+  }
+}

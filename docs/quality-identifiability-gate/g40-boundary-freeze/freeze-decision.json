@@ -1,0 +1,23 @@
+{
+  "decision": "split_reward_terminal_value_teacher_required",
+  "critic_offline_replay": "pass_189_values_max_abs_difference_7.62939453125e-06",
+  "command_slice": [9, 12],
+  "bootstrap_gate": {
+    "status": "g40_bootstrap_sensitive",
+    "hold_vs_canonical_macro_kendall": 0.7687074829931975,
+    "required_macro_kendall": 0.8,
+    "top1_agreement_groups": 5,
+    "required_top1_agreement_groups": 6,
+    "mean_top3_overlap": 2.5714285714285716,
+    "required_mean_top3_overlap": 2.0,
+    "macro_direct_sign_agreement": 0.9047619047619048,
+    "required_direct_sign_agreement": 0.9,
+    "wholesale_reversal_terrain_count": 0
+  },
+  "single_G40_primary": false,
+  "primary_teacher": "discounted_reward_2s_with_terminal_values_as_separate_heads",
+  "input_contract": "portable_body_state_included; real_robot_parity_blockers_explicit",
+  "safety_head": "disabled_for_training_and_inference",
+  "next_step_recommendation": "input_source_and_parity_preparation_plus_prospective_teacher_threshold_review_before_hard_state_selection_design",
+  "authorization_from_this_review": "none_for_rollout_collection_or_training"
+}

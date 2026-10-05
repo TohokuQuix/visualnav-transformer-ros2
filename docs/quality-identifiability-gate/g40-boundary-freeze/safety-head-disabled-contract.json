@@ -1,0 +1,11 @@
+{
+  "name": "p_unsafe",
+  "enabled_for_training": false,
+  "loss_weight": 0.0,
+  "inference_use": false,
+  "reason": "zero_failure_positive_support",
+  "required_future_labels": ["verified_stack", "excessive_tilt", "physical_termination", "progress_failure"],
+  "observed_positive_counts": {"verified_stack":0,"physical_termination":0,"failure_positive":0},
+  "never_map_to_positive": ["infrastructure_failure", "measurement_invalid", "manual_stop", "censored_timeout"],
+  "activation_requires": ["positive/negative label support", "prospectively frozen definition", "independent validation", "calibration and false-negative review"]
+}

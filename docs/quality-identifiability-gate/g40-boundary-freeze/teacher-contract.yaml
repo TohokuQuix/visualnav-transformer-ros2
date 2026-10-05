@@ -1,0 +1,54 @@
+schema_version: split_reward_terminal_value_v1
+status: offline_design_freeze_not_training_authorization
+decision: split_reward_terminal_value_teacher_required
+discount:
+  gamma: 0.99
+  transition_count: 40
+  control_interval_s: 0.05
+  reward_already_dt_scaled: true
+primary_observed_head:
+  name: discounted_reward_2s
+  definition: sum_k_0_to_39_gamma_power_k_times_observed_reward_k
+  source: 63_protocol_valid_nonterminal_traces
+terminal_value_heads:
+  terminal_value_zero:
+    command: [0.0, 0.0, 0.0]
+    current_support: 57_recorded_literal_zero;_other_6_NA_without_separately_frozen_query
+    use_for_candidate_selection: false
+  terminal_value_hold:
+    command: candidate_trace_39_command
+    current_support: 63_conditional_Critic_queries
+    use_for_candidate_selection: false
+  terminal_value_canonical:
+    command: [0.3, 0.0, 0.0]
+    current_support: 63_conditional_Critic_queries
+    use_for_candidate_selection: false
+  terminal_value_direct_reference:
+    command: StateGroup_direct_repeat_0_trace_39_command
+    current_support: 63_conditional_Critic_queries
+    use_for_candidate_selection: false
+  recorded_boundary_value:
+    source: trace_40_Critic
+    condition: 57_literal_zero_and_6_nonzero
+    use_for_candidate_selection: false
+diagnostic_combined_returns:
+  G40_zero_recorded: diagnostic_only
+  G40_hold: diagnostic_only
+  G40_canonical: diagnostic_only
+task_continuous_heads: [goal_distance_reduction, progress_ratio, endpoint_error, endpoint_encounter_probability, cross_track_p95]
+body_diagnostics: [critic_drawdown, tilt, recovery, action_variation]
+uncertainty_head: prospective_calibration_required
+safety_head:
+  name: p_unsafe
+  enabled_for_training: false
+  loss_weight: 0.0
+  inference_use: false
+  reason: zero_failure_positive_support
+selection:
+  current_status: no_learned_candidate_selection_authorized
+  future_rule: safety_and_task_constraints_then_separately_validated_embodiment_head
+  terminal_value_weight: NA_until_independent_validation
+  task_thresholds: continuous_now;_prospective_freeze_before_collection
+  abstention: direct_if_verified_safe_and_task_feasible_else_replan_or_controlled_hold
+normalization: complete_only_train_split_only
+checkpoint_metadata_required: [schema_version, gamma, horizon_steps, command_conditions, field_order, normalization_sha256]
