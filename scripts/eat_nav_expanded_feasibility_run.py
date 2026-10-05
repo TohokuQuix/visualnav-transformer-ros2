@@ -23,11 +23,8 @@ from eat_nav_g0e_gpu_probe import Nvml, atomic as atomic_status
 from eat_nav_g0e_gpu_run import container_identity
 
 
-ROOT=Path('/tmp/eatnav-expanded-feasibility-live-20261005')
+ROOT=Path('/tmp/eatnav-expanded-feasibility-approved-resume-20261005')
 REPO=Path(__file__).resolve().parents[1]
-ROUTER_PID=2784060
-ROUTER_START_TICKS=176326379
-SIM=ROOT/'eat_nav_expanded_sim_v2.py'
 EXPECTED_SIM_SHA='0e8ea4639f0496ab45b4b833ab1bc0e8c6320d3419194e42ff2b8e84e0454e2e'
 WALL_CAP_SEC=14400
 STORAGE_CAP_BYTES=1_000_000_000
@@ -55,13 +52,14 @@ def disk_bytes(root=ROOT):
     return sum(p.stat().st_size for p in Path(root).rglob('*') if p.is_file())
 
 
-def router_identity():
-    proc=Path('/proc')/str(ROUTER_PID)
+def router_identity(root=ROOT,*,proc_root=Path('/proc')):
+    expected=read(Path(root)/'external-router-provenance.json')['router_identity']
+    pid=int(expected['pid'])
+    proc=Path(proc_root)/str(pid)
     stat=(proc/'stat').read_text().rsplit(')',1)[1].split()
-    result={'pid':ROUTER_PID,'start_ticks':int(stat[19]),
+    result={'pid':pid,'start_ticks':int(stat[19]),
         'binary':str((proc/'exe').resolve())}
-    if result!={'pid':ROUTER_PID,'start_ticks':ROUTER_START_TICKS,
-               'binary':'/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd'}:
+    if result!=expected or result['binary']!='/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd':
         raise RuntimeError('external router PID/start tick/binary changed')
     return result
 
@@ -185,10 +183,11 @@ def docker(*args):
 
 
 def configure_replay(root=ROOT):
+    root=Path(root)
     replay.ROOT=Path(root)
     replay.INPUT=Path(root)/'inputs'
     replay.REPO=REPO
-    replay.SIM=SIM
+    replay.SIM=root/'eat_nav_expanded_sim_v2.py'
     replay.REMOTE_CODE=str(Path(root)/'eat_nav_expanded_sim_v2.py')
     replay.REMOTE_ROOT=str(Path(root)/'runs')
     replay.REMOTE_INPUT_ROOT=Path(root)
@@ -202,7 +201,8 @@ def configure_replay(root=ROOT):
         row=rows[entry['order']]
         if row['process_id']!=entry['run_id'] or states[row['state_index']]['state_id']!=entry['state_id']:
             raise ValueError('frozen execution identity differs')
-        if sha(SIM)!=EXPECTED_SIM_SHA:raise ValueError('adapted simulator SHA differs')
+        if sha(root/'eat_nav_expanded_sim_v2.py')!=EXPECTED_SIM_SHA:
+            raise ValueError('adapted simulator SHA differs')
         folder=Path(root)/'inputs'/f"state-{row['state_index']:03d}"
         expected={'prefix-actions.npz':row['input_sha256']['prefix-actions.npz'],
             'suffix-actions-120.npz':row['input_sha256']['suffix-actions-120.npz'],
@@ -218,17 +218,18 @@ def configure_replay(root=ROOT):
             raise ValueError('follower binary differs')
         if sha(replay.PARAM)!='ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90':
             raise ValueError('follower config differs')
-        router_identity()
+        router_identity(root)
         return folder
     replay.frozen=frozen
 
 
 def setup_container(root=ROOT):
     root=Path(root)
-    if sha(SIM)!=EXPECTED_SIM_SHA:raise ValueError('adapted simulator SHA differs')
+    sim=root/'eat_nav_expanded_sim_v2.py'
+    if sha(sim)!=EXPECTED_SIM_SHA:raise ValueError('adapted simulator SHA differs')
     remote=str(root)
     docker('exec','isaac-lab-onix','mkdir','-p',remote)
-    source_files={'eat_nav_expanded_sim_v2.py':SIM,
+    source_files={'eat_nav_expanded_sim_v2.py':sim,
         'eat_nav_e1_anchor_gate.py':REPO/'scripts/eat_nav_e1_anchor_gate.py',
         'eat_nav_g0e_formal_gate.py':REPO/'scripts/eat_nav_g0e_formal_gate.py',
         'eat_nav_goal_subgoal_dem_gate.py':REPO/'scripts/eat_nav_goal_subgoal_dem_gate.py'}
@@ -275,10 +276,12 @@ def _entry(root,row,state):
 
 
 def _router_check(root=ROOT):
-    current=router_identity()
-    source=read(Path(root)/'external-router-provenance.json')['router_identity']
-    if current['pid']!=source['pid'] or current['start_ticks']!=source['start_ticks']:
-        raise RuntimeError('external router identity changed')
+    current=router_identity(root)
+    provenance=read(Path(root)/'external-router-provenance.json')
+    for name,source in provenance['router_log_sources'].items():
+        content=Path(source).read_text(errors='replace').lower()
+        if any(term in content for term in ('warning','warn','error','refused','bind failed','mismatch','panic')):
+            raise RuntimeError('external router '+name+' log warning')
     return current
 
 
@@ -376,13 +379,15 @@ def _noise_floor(root,rows):
 
 def run(root=ROOT):
     root=Path(root);rows,states=frozen_rows(root)
-    if sha(SIM)!=EXPECTED_SIM_SHA:raise ValueError('simulator adapter SHA differs')
+    if sha(root/'eat_nav_expanded_sim_v2.py')!=EXPECTED_SIM_SHA:
+        raise ValueError('simulator adapter SHA differs')
     if read(root/'x2-readiness-gate.json')['status']!='pass':raise ValueError('X2 pending')
     _router_check(root)
     configure_replay(root)
     if not (root/'router-launch-provenance.json').exists():
-        once(root/'router-launch-provenance.json',{'pid':ROUTER_PID,
-            'start_ticks':ROUTER_START_TICKS,'ownership':'external',
+        identity=router_identity(root)
+        once(root/'router-launch-provenance.json',{'pid':identity['pid'],
+            'start_ticks':identity['start_ticks'],'ownership':'external',
             'external_router_provenance_sha256':sha(root/'external-router-provenance.json')})
     completed=_completed_prefix(root,rows)
     if not completed and (root/'pilot-started.marker.json').exists():
@@ -391,8 +396,9 @@ def run(root=ROOT):
         setup_container(root)
         copy_inputs_to_container(root)
         once(root/'container-setup.marker.json',{'status':'pass',
-            'simulator_sha256':sha(SIM),'input_file_count':len(list((root/'inputs').rglob('*'))),
-            'router_pid':ROUTER_PID})
+            'simulator_sha256':sha(root/'eat_nav_expanded_sim_v2.py'),
+            'input_file_count':len(list((root/'inputs').rglob('*'))),
+            'router_pid':router_identity(root)['pid']})
     else:setup_container(root)
     container=container_identity();nvml=Nvml()
     gates=yaml.safe_load((root/'e1-gates.yaml').read_text())
@@ -415,10 +421,11 @@ def run(root=ROOT):
         baseline=schedule.prelaunch_baseline(row,container,nvml)
         if baseline['status']!='pass':raise RuntimeError('prelaunch baseline '+repr(baseline))
         if row['role']=='anchor_only' and not (root/'pilot-started.marker.json').exists():
+            identity=router_identity(root)
             once(root/'pilot-started.marker.json',{'start_wall_ns':time.time_ns(),
                 'wall_cap_sec':WALL_CAP_SEC,'storage_cap_bytes':STORAGE_CAP_BYTES,
                 'frozen_manifest_sha256':sha(root/'run-manifest.json'),
-                'router_pid':ROUTER_PID,'router_start_ticks':ROUTER_START_TICKS})
+                'router_pid':identity['pid'],'router_start_ticks':identity['start_ticks']})
         _router_check(root)
         entry=_entry(root,row,states[idx])
         atomic_status(root/'status.json',{'stage':'RUNNING','run_id':pid,

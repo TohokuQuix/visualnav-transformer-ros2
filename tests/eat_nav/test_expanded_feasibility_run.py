@@ -4,7 +4,7 @@ import json
 import numpy as np
 import pytest
 
-from eat_nav_expanded_feasibility_run import execution_entry, freeze_map_paths
+from eat_nav_expanded_feasibility_run import execution_entry, freeze_map_paths, router_identity
 
 
 def test_execution_entry_keeps_frozen_order_and_role():
@@ -49,3 +49,14 @@ def test_freeze_map_paths_uses_anchor_pose_and_preserves_direct(tmp_path):
     with pytest.raises(FileExistsError):
         freeze_map_paths(root,0,rows,anchor_map,{'root_state':[11.,12.,0.,1.,0.,0.,0.]},
             logged_goal=[.8,0.],amplitudes={'direct_reference':0.,'left_1':.05})
+
+
+def test_router_identity_comes_from_new_root_not_prior_pid(tmp_path):
+    root=tmp_path/'root';root.mkdir()
+    proc_root=tmp_path/'proc';proc=(proc_root/'456');proc.mkdir(parents=True)
+    (proc/'stat').write_text('456 (rmw_zenohd) S '+' '.join(['1']*18+['789']+['1']*30))
+    (proc/'exe').symlink_to('/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd')
+    (root/'external-router-provenance.json').write_text(json.dumps({
+        'router_identity':{'pid':456,'start_ticks':789,
+            'binary':'/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd'}}))
+    assert router_identity(root,proc_root=proc_root)['pid']==456
