@@ -1,0 +1,90 @@
+{
+  "checkpoint_training_source": "Isaac Lab 24-joint-per-side mean for 2026-07-24_18-20-16 model_10000.pt",
+  "existing_robot_policy_gap": "local model_8000 has 22-d input with same joint_vel term name/config, but bridge supplies two-sprocket mean; numerical equivalence to training aggregation not established",
+  "no_one_to_one_raw_joint_mapping": true,
+  "physical_equivalence": "not established; passive subroller and sprocket slip may change the mean",
+  "robot": {
+    "direction_reverse": "backend can swap sides and negate values for reverse drive direction",
+    "left": "arithmetic mean of chassis/fl_sprocket_axle and chassis/rl_sprocket_axle",
+    "right": "arithmetic mean of chassis/fr_sprocket_axle and chassis/rr_sprocket_axle",
+    "scale": 0.05,
+    "units": "JointState velocity treated as rad/s"
+  },
+  "same_arithmetic_expression": false,
+  "same_output_dimension": 2,
+  "simulator": {
+    "known_anchor_fixture": {
+      "left": {
+        "absolute_error": 6.953875197890369e-09,
+        "actor_pre_noise_slice": 0.2528768479824066,
+        "joint_names": [
+          "chassis_l01_sprocket_axle",
+          "chassis_l02_sprocket_axle",
+          "chassis_l03_sprocket_axle",
+          "chassis_l04_sprocket_axle",
+          "chassis_l05_sprocket_axle",
+          "chassis_l06_sprocket_axle",
+          "chassis_l07_sprocket_axle",
+          "chassis_l08_sprocket_axle",
+          "chassis_fl_subroller_01_axle",
+          "chassis_fl_subroller_02_axle",
+          "chassis_fl_subroller_03_axle",
+          "chassis_fl_subroller_04_axle",
+          "chassis_fl_subroller_05_axle",
+          "chassis_fl_subroller_06_axle",
+          "chassis_fl_subroller_07_axle",
+          "chassis_fl_subroller_08_axle",
+          "chassis_rl_subroller_01_axle",
+          "chassis_rl_subroller_02_axle",
+          "chassis_rl_subroller_03_axle",
+          "chassis_rl_subroller_04_axle",
+          "chassis_rl_subroller_05_axle",
+          "chassis_rl_subroller_06_axle",
+          "chassis_rl_subroller_07_axle",
+          "chassis_rl_subroller_08_axle"
+        ],
+        "n": 24,
+        "raw_mean_rad_s": 5.0575370987256365,
+        "scaled_mean": 0.2528768549362818
+      },
+      "right": {
+        "absolute_error": 3.4769376128229723e-09,
+        "actor_pre_noise_slice": 0.06740524619817734,
+        "joint_names": [
+          "chassis_r01_sprocket_axle",
+          "chassis_r02_sprocket_axle",
+          "chassis_r03_sprocket_axle",
+          "chassis_r04_sprocket_axle",
+          "chassis_r05_sprocket_axle",
+          "chassis_r06_sprocket_axle",
+          "chassis_r07_sprocket_axle",
+          "chassis_r08_sprocket_axle",
+          "chassis_fr_subroller_01_axle",
+          "chassis_fr_subroller_02_axle",
+          "chassis_fr_subroller_03_axle",
+          "chassis_fr_subroller_04_axle",
+          "chassis_fr_subroller_05_axle",
+          "chassis_fr_subroller_06_axle",
+          "chassis_fr_subroller_07_axle",
+          "chassis_fr_subroller_08_axle",
+          "chassis_rr_subroller_01_axle",
+          "chassis_rr_subroller_02_axle",
+          "chassis_rr_subroller_03_axle",
+          "chassis_rr_subroller_04_axle",
+          "chassis_rr_subroller_05_axle",
+          "chassis_rr_subroller_06_axle",
+          "chassis_rr_subroller_07_axle",
+          "chassis_rr_subroller_08_axle"
+        ],
+        "n": 24,
+        "raw_mean_rad_s": 1.3481048544247944,
+        "scaled_mean": 0.06740524272123972
+      }
+    },
+    "left": "arithmetic mean of 8 left sprockets + 8 FL subrollers + 8 RL subrollers",
+    "right": "arithmetic mean of 8 right sprockets + 8 FR subrollers + 8 RR subrollers",
+    "scale": 0.05,
+    "units": "rad/s before scaling"
+  },
+  "status": "sim_robot_aggregation_mismatch"
+}

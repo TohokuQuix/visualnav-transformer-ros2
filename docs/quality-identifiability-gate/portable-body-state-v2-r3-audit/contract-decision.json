@@ -1,0 +1,21 @@
+{
+  "decision": "sim_robot_aggregation_mismatch",
+  "first_failure": "Isaac Lab Actor track channels are means of 24 joints per side including passive subrollers; onix_policy_bridge Actor track channels are means of 2 physical sprockets per side. The known simulator anchor reconstructs its Actor pre-noise track slices to <1e-6, confirming the difference is real and source-defined. Physical equivalence is unverified.",
+  "first_stop_stage": "R3",
+  "not_started": [
+    "v2 portable schema/hash/normalization/checkpoint contract",
+    "canonical adapters, ROS online message, validator, loggers",
+    "R8 full simulator/robot canonical fixtures",
+    "logging parity simulator pair",
+    "Evaluator training/collection/robot control"
+  ],
+  "previous_artifacts_unchanged": true,
+  "production_control_unchanged": true,
+  "robot_commands_sent": 0,
+  "secondary_findings": [
+    "frozen Actor 22-d policy does not use previous action or base linear velocity",
+    "robot backend cache is pre-publish commanded processed action, not hardware-acknowledged applied action",
+    "flipper physical sign/zero and IMU extrinsic/timing parity unverified"
+  ],
+  "simulator_runs_started": 0
+}

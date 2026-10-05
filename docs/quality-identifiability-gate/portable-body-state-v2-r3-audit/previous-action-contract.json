@@ -1,0 +1,16 @@
+{
+  "frontend_published_outputs": "four flipper commands plus diff-drive linear/angular command; frontend may further limit/mode-switch/manual-override",
+  "hardware_adoption_ack": "none found in local bridge path",
+  "previous_applied_action": "not confirmed by source or bag; no hardware adoption feedback",
+  "previous_commanded_action": "potentially capturable with explicit post-publish stamp",
+  "robot_cached_last_action": "processed/rate-limited/direction-transformed 6-D action assigned before frontend publishes response",
+  "robot_cached_last_action_obs": "raw/sanitized policy action, pre-processed, used only if action observation enabled; disabled for frozen 22-d checkpoint",
+  "robot_raw_actor_output": "backend policy output before processing",
+  "simulator_source": "ActionManager._prev_action captured pre-step; Actor policy actions term disabled for frozen 22-d checkpoint; Critic actions term enabled",
+  "status": "previous_applied_action_source_incomplete",
+  "substitution_prohibited": [
+    "cmd_vel",
+    "raw_actor_output",
+    "unstamped_backend_cache"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "canonical_order": [
+    "rear_right",
+    "rear_left",
+    "front_right",
+    "front_left"
+  ],
+  "clip": [
+    -100,
+    100
+  ],
+  "robot_physical_encoder_sign_and_zero": "not independently validated; names alone do not prove exact semantic match",
+  "robot_value": "raw JointState.position by name; no bridge sign or zero-offset transform in forward drive",
+  "ros_names": [
+    "chassis/rr_flipper_joint",
+    "chassis/rl_flipper_joint",
+    "chassis/fr_flipper_joint",
+    "chassis/fl_flipper_joint"
+  ],
+  "scale": 1.0,
+  "sim_names": [
+    "chassis_rr_flipper_joint",
+    "chassis_rl_flipper_joint",
+    "chassis_fr_flipper_joint",
+    "chassis_fl_flipper_joint"
+  ],
+  "sim_value": "joint_pos_rel = joint_pos - default_joint_pos; ONIX_CFG default joint_pos=0",
+  "status": "source_transform_defined_physical_sign_parity_unverified",
+  "timestamp": "ROS header stamp not forwarded; frontend receipt clock used for age",
+  "unit": "radian assumed by both source configs"
+}

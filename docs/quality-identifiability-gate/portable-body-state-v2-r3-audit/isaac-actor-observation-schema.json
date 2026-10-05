@@ -1,0 +1,69 @@
+{
+  "checkpoint_action_dimension": 6,
+  "checkpoint_actor_input_dimension": 22,
+  "critic_previous_action": true,
+  "fields": [
+    {
+      "dimension": 3,
+      "index_end_exclusive": 3,
+      "index_start": 0,
+      "name": "base_angular_velocity",
+      "source": "robot.data.root_ang_vel_b",
+      "transform": "clip +/-100; scale .25; policy uniform noise"
+    },
+    {
+      "dimension": 3,
+      "index_end_exclusive": 6,
+      "index_start": 3,
+      "name": "projected_gravity",
+      "source": "robot.data.projected_gravity_b",
+      "transform": "clip +/-1; scale 1; policy uniform noise"
+    },
+    {
+      "dimension": 3,
+      "index_end_exclusive": 9,
+      "index_start": 6,
+      "name": "velocity_command",
+      "source": "CommandManager base_velocity",
+      "transform": "clip +/-100"
+    },
+    {
+      "dimension": 1,
+      "index_end_exclusive": 10,
+      "index_start": 9,
+      "name": "flipper_fold_mode",
+      "source": "env._onix_flipper_fold_mode",
+      "transform": "clip +/-1"
+    },
+    {
+      "dimension": 4,
+      "index_end_exclusive": 14,
+      "index_start": 10,
+      "name": "flipper_position",
+      "source": "robot.data.joint_pos - default_joint_pos",
+      "transform": "RR,RL,FR,FL; default joint pos 0; clip +/-100; policy noise"
+    },
+    {
+      "dimension": 2,
+      "index_end_exclusive": 16,
+      "index_start": 14,
+      "name": "track_mean_velocity",
+      "source": "robot.data.joint_vel",
+      "transform": "right mean 24, left mean 24; clip +/-100; scale .05; policy noise"
+    },
+    {
+      "dimension": 6,
+      "index_end_exclusive": 22,
+      "index_start": 16,
+      "name": "joint_effort",
+      "source": "robot.data.applied_torque",
+      "transform": "RR,RL,FR,FL, right sum24, left sum24; clip +/-100; scale .01"
+    }
+  ],
+  "policy_base_linear_velocity": false,
+  "policy_previous_action": false,
+  "raw_articulation_joint_count": 52,
+  "source_yaml_sha256": "c2b7e9b7959a231c5391ed714a4de4be958fe5812cf03c10ab60f5636598233b",
+  "status": "source_and_known_trace_confirmed",
+  "subrollers_in_actor": "only through right/left track mean and summed effort, not individual joint vector"
+}

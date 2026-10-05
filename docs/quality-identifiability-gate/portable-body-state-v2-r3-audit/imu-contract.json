@@ -1,0 +1,9 @@
+{
+  "base_angular_velocity": "IMU angular_velocity rotated by configured yaw offset unless fallback marked robot frame; reverse direction transform also applies",
+  "covariance_negative_one": "not consulted by _effective_imu_state; code uses message values if timely; sentinel must not be interpreted here as measurement invalidity",
+  "fallback": "angular velocity from /livox/imu_172_16_94_141 and map -> chassis/body TF orientation if primary stale",
+  "header_stamps": "not passed in frontend payload; callback reception clock governs freshness",
+  "primary": "/bno055/imu orientation and angular velocity, reception-age <= state_timeout 0.5s",
+  "projected_gravity": "quaternion wxyz normalized; world (0,0,-1) rotated to body; yaw offset applied to sensor-frame primary; reverse direction flips body x/y",
+  "status": "source_mapping_known_physical_frame_parity_pending"
+}

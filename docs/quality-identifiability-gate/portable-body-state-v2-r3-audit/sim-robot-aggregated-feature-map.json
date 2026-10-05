@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "classification": "similar_but_unverified",
+      "field": "projected_gravity",
+      "reason": "same physical target, IMU extrinsic/timing and direction frame not physically parity-tested"
+    },
+    {
+      "classification": "similar_but_unverified",
+      "field": "base_angular_velocity",
+      "reason": "body angular velocity target, sensor yaw transform and timing pending"
+    },
+    {
+      "classification": "similar_but_unverified",
+      "field": "flipper_position",
+      "reason": "name order and zero offset agree in code, physical sign/zero parity unverified"
+    },
+    {
+      "classification": "similar_but_unverified",
+      "field": "track_velocity_right_left",
+      "reason": "dimension and side labels match; simulator mean24 vs robot mean2 are different source populations"
+    },
+    {
+      "classification": "simulator_only",
+      "field": "joint_effort",
+      "reason": "sim sum24 vs robot sum2; excluded from portable primary pending parity"
+    },
+    {
+      "classification": "missing_physical_source",
+      "field": "previous_action",
+      "reason": "sim pre-step _prev_action exists; robot hardware-applied action unavailable; Actor policy does not use last-action term"
+    },
+    {
+      "classification": "not_used_by_policy",
+      "field": "base_linear_velocity",
+      "reason": "Actor 22-d policy excludes; robot optional wheel estimate is not measured base twist"
+    },
+    {
+      "classification": "robot_only",
+      "field": "physical_arm_joints",
+      "reason": "eight real arm joints have no locomotion Actor equivalent"
+    }
+  ],
+  "first_gating_mismatch": "track_velocity_right_left",
+  "future_candidate_contract": "not frozen",
+  "status": "no_exact_body_semantic_match_claim"
+}

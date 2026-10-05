@@ -1,0 +1,70 @@
+{
+  "audit_utc": "2026-10-05T22:14:47.219679+00:00",
+  "physical_command_sent": false,
+  "prior_R0_stop_preserved": "/tmp/eatnav-vnt-portable-body-v2/docs/quality-identifiability-gate/portable-body-state-v2-r0-audit/contract-decision.json",
+  "remote_binary_independently_verified": false,
+  "sources": [
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/frontend.py",
+      "sha256": "e6818cec3d3042ea71570ca98467378de3aa6dae91a6126949d391c7192b2749",
+      "size_bytes": 47074
+    },
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/backend.py",
+      "sha256": "53572ec2d7c45781221defd9a20f958815a20e28f42c4c9efab46e6a832f4493",
+      "size_bytes": 57312
+    },
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/launch/onix_policy_bridge.launch.py",
+      "sha256": "a79b30c4a049a914b8f159cb57e0b40101694d0bc7c324928240f73c481b1217",
+      "size_bytes": 16133
+    },
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/env.yaml",
+      "sha256": "12a17c407598de01a2209223994cac3bbdc63cc08d3587b5317ee0bbf404f367",
+      "size_bytes": 85991
+    },
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/agent.yaml",
+      "sha256": "af0d0f6f0fe2ed25bb632dcada8e2ab285179e7b83eeddb7dcfba49044b40928",
+      "size_bytes": 1027
+    },
+    {
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/checkpoints/onix_rough_standard/model_8000.pt",
+      "sha256": "0be2a231b6305683b729225c0a3b691dba8a7c6a1d1e5414819095199cb37ae3",
+      "size_bytes": 19365365
+    },
+    {
+      "path": "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/tasks/locomotion/velocity/config/onix/rough_env_cfg.py",
+      "sha256": "f357e63f7f8b95caa5b6c6ac064cf1b76cc38a797edd7c435c01f2373d79ac71",
+      "size_bytes": 35221
+    },
+    {
+      "path": "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/tasks/locomotion/velocity/mdp/observations.py",
+      "sha256": "be194d0fcc4d5603c5dbc795c8ef9c9c9adfc80e0acb13b1f0958c61d7835679",
+      "size_bytes": 9283
+    },
+    {
+      "path": "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/assets/onix.py",
+      "sha256": "f659e2fc8969225aca6e94b91a2ce3735a110c8e0e434259f0ab13e710f62654",
+      "size_bytes": 3636
+    },
+    {
+      "path": "/home/kojima/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml",
+      "sha256": "c2b7e9b7959a231c5391ed714a4de4be958fe5812cf03c10ab60f5636598233b",
+      "size_bytes": 85999
+    },
+    {
+      "path": "/home/kojima/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt",
+      "sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+      "size_bytes": 19365439
+    },
+    {
+      "path": "/tmp/eatnav-expanded-feasibility-ros-continuation-20261005/runs/expanded-train-000-nominal_duplicate-00/live-0.json",
+      "sha256": "4ba05a31967da0bf29864caaf751ee4daf509aa89732527c638b4426097e1419",
+      "size_bytes": 294405
+    }
+  ],
+  "status": "local_bridge_accepted_as_robot_equivalent_by_user",
+  "user_clarification": "Local onix_policy_bridge is the same implementation as the real robot; uncommitted differences are policy changes only and do not change physical connection structure."
+}

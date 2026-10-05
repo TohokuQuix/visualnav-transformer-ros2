@@ -1,0 +1,76 @@
+{
+  "actor_input_not_canonical_evaluator_input": true,
+  "backend_observation_config_reconciliation": "configured 22 equals checkpoint 22; no toggle needed for this model",
+  "checkpoint_action_dimension": 6,
+  "checkpoint_actor_input_dimension": 22,
+  "excluded_terms": [
+    "base_linear_velocity",
+    "flipper_velocity",
+    "previous_action",
+    "height_scan"
+  ],
+  "fields": [
+    {
+      "dimension": 3,
+      "index_end_exclusive": 3,
+      "index_start": 0,
+      "name": "base_angular_velocity",
+      "source": "/bno055/imu angular_velocity or fallback IMU",
+      "transform": "sensor frame -> body; clip +/-100 then scale .25"
+    },
+    {
+      "dimension": 3,
+      "index_end_exclusive": 6,
+      "index_start": 3,
+      "name": "projected_gravity",
+      "source": "/bno055/imu orientation or fallback map->chassis/body TF",
+      "transform": "world down rotated into body; clip +/-1"
+    },
+    {
+      "dimension": 3,
+      "index_end_exclusive": 9,
+      "index_start": 6,
+      "name": "velocity_command",
+      "source": "/cmd_vel_auto or manual via frontend",
+      "transform": "clamped x/y/yaw command; not measured velocity"
+    },
+    {
+      "dimension": 1,
+      "index_end_exclusive": 10,
+      "index_start": 9,
+      "name": "flipper_fold_mode",
+      "source": "/flipper_fold_mode",
+      "transform": "scalar -1/0/1"
+    },
+    {
+      "dimension": 4,
+      "index_end_exclusive": 14,
+      "index_start": 10,
+      "name": "flipper_position",
+      "source": "/joint_states position",
+      "transform": "RR,RL,FR,FL; name lookup, clip +/-100; scale 1"
+    },
+    {
+      "dimension": 2,
+      "index_end_exclusive": 16,
+      "index_start": 14,
+      "name": "track_mean_velocity",
+      "source": "/joint_states velocity",
+      "transform": "right mean(FR,RR), left mean(FL,RL); clip +/-100; scale .05"
+    },
+    {
+      "dimension": 6,
+      "index_end_exclusive": 22,
+      "index_start": 16,
+      "name": "joint_effort",
+      "source": "/joint_states effort",
+      "transform": "RR,RL,FR,FL, right sum(FR,RR), left sum(FL,RL); clip +/-100; scale .01"
+    }
+  ],
+  "missing_behavior": "frontend requires flipper positions, two right and two left track velocities, effective IMU; state_timeout default 0.5 s; backend _source_joint_obs has zero defaults but frontend gate should block missing required fields",
+  "normalization": "checkpoint obs_norm_state_dict if present; needs separate checkpoint inspection before model parity",
+  "observation_config_dimension": 22,
+  "source_yaml_sha256": "12a17c407598de01a2209223994cac3bbdc63cc08d3587b5317ee0bbf404f367",
+  "status": "source_confirmed_local_implementation",
+  "timestamp": "frontend callback reception time for freshness; message header stamp not propagated to backend"
+}
