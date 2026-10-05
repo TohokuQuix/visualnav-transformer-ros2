@@ -1,0 +1,89 @@
+{
+  "Core+24J": "unavailable_by_design",
+  "first_joint_example": {
+    "angular": {
+      "age_ns": null,
+      "available": false,
+      "reason": "covariance_invalid",
+      "stamp_ns": 1782950156563826675,
+      "value": null
+    },
+    "bag_timestamp_ns": 1782950156562379994,
+    "flipper": {
+      "age_ns": null,
+      "available": false,
+      "reason": "sign_or_zero_unverified",
+      "stamp_ns": 1782950156561015671,
+      "value": null
+    },
+    "gravity": {
+      "age_ns": null,
+      "available": false,
+      "reason": "covariance_invalid",
+      "stamp_ns": 1782950156563826675,
+      "value": null
+    },
+    "header_timestamp_ns": 1782950156561015671,
+    "joint_index": 0,
+    "two_sprocket": {
+      "age_ns": 0,
+      "available": true,
+      "reason": null,
+      "stamp_ns": 1782950156561015671,
+      "value": [
+        1.5264162357198074e-05,
+        0.0
+      ]
+    },
+    "variant_status": {
+      "Core": "partial_unavailable",
+      "Core+24J": "unavailable_by_design",
+      "Core+2S": "partial_unavailable"
+    }
+  },
+  "long_bag_first_joint_example": {
+    "angular": {
+      "age_ns": null,
+      "available": false,
+      "reason": "covariance_invalid",
+      "stamp_ns": 1783152593018339750,
+      "value": null
+    },
+    "bag_timestamp_ns": 1783152593021568547,
+    "flipper": {
+      "age_ns": null,
+      "available": false,
+      "reason": "sign_or_zero_unverified",
+      "stamp_ns": 1783152593019944582,
+      "value": null
+    },
+    "gravity": {
+      "age_ns": null,
+      "available": false,
+      "reason": "covariance_invalid",
+      "stamp_ns": 1783152593018339750,
+      "value": null
+    },
+    "header_timestamp_ns": 1783152593019944582,
+    "joint_index": 0,
+    "two_sprocket": {
+      "age_ns": 0,
+      "available": true,
+      "reason": null,
+      "stamp_ns": 1783152593019944582,
+      "value": [
+        1.5054811228765175e-05,
+        1.4113885299593676e-05
+      ]
+    },
+    "variant_status": {
+      "Core": "partial_unavailable",
+      "Core+24J": "unavailable_by_design",
+      "Core+2S": "partial_unavailable"
+    }
+  },
+  "no_imputed_values": true,
+  "source_bag": "/home/kojima/Desktop/robocup2026_incheon/2026_07_02-08_55_56",
+  "status": "partial_body_state_only",
+  "synthetic_complete_input_test": "passed with finite float32-compatible tensor, explicit masks and variant hashes; synthetic validation is not observed parity"
+}

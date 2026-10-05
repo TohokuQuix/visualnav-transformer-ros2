@@ -1,0 +1,21 @@
+{
+  "bag_reader_joint_message_counts": [
+    92,
+    219,
+    15646
+  ],
+  "baseline_prior_related_tests_passed": 11,
+  "command": "PYTHONPATH=src:scripts:$PYTHONPATH PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /usr/bin/python3 -m pytest -q tests/eat_nav/test_portable_input_v2.py tests/eat_nav/test_portable_input_v2_contracts.py tests/eat_nav/test_evaluator_multihead_addendum.py tests/eat_nav/test_evaluator_multihead_labels.py",
+  "failed": 0,
+  "full_real_bag_core_tensor": "unavailable; no fabricated DEM/goal/Path/IMU/calibration",
+  "passed": 30,
+  "physical_24j": "unavailable_by_design",
+  "prior_proxy_ledger_entries_sha_verified": 16,
+  "python_compile": "passed for portable_input_v2.py and eat_nav_portable_bag_audit.py",
+  "sealed_traces_and_summaries_sha_verified": 63,
+  "selected_bag_body_sha_frozen": 3,
+  "simulator_anchor_actor24_max_abs_error": 0.0,
+  "simulator_anchor_actor24_tolerance": 1e-05,
+  "synthetic_full_simulator_and_physical_tensor_tests": "passed; does not imply observed full bag parity",
+  "verification_utc": "2026-10-05T23:02:50.342633+00:00"
+}

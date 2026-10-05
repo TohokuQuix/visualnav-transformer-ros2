@@ -1,0 +1,47 @@
+{
+  "actor24_max_abs_error": 0.0,
+  "actor24_recomputed": [
+    0.06740524619817734,
+    0.2528768479824066
+  ],
+  "actor24_tolerance": 1e-05,
+  "actor_slice_pre_noise": [
+    0.06740524619817734,
+    0.2528768479824066
+  ],
+  "field_order_hashes": {
+    "Core": "495f185c1bd7336832f8ea7a9e6682da3c87ab4ef4eda549b96bfbe6410ebb04",
+    "Core+24J": "675a2bbd98b964d0ff253ba7f2b01bba9a68ad7a933ff5509cbbd15bedd2ddc8",
+    "Core+2S": "a26adf905e8a5c7b702033c47ebb5faeabb90f9605df5381534c63d5ed6c933a"
+  },
+  "fields_available": {
+    "arm_configuration_state": false,
+    "body_angular_velocity": false,
+    "candidate_path": false,
+    "dem_height_history": false,
+    "dem_valid_history": false,
+    "flipper_position": true,
+    "path_coverage": false,
+    "path_dem_profile": false,
+    "path_geometry": false,
+    "projected_gravity": false,
+    "relative_goal": false,
+    "simulator_actor_track_velocity_24j": true,
+    "track_sprocket_velocity": true
+  },
+  "full_tensor_reason": "goal, candidate geometry/profile/coverage, verified arm condition and body-frame conversions not jointly present in this source fixture; no imputation",
+  "logical_t0_ns": 2300000000000,
+  "proxy2_recomputed": [
+    0.09236781299114227,
+    0.25351521372795105
+  ],
+  "source_phase": "saved pre-Path anchor",
+  "source_run": "expanded-train-000-left_1",
+  "source_summary_sha256": "a30c8bc6ecd53073122f5aab77d8e96f94dea3a0b6bab4669575b4d799393921",
+  "synthetic_complete_input_test": "passed with finite float32-compatible tensor, explicit masks and variant hashes; synthetic validation is not observed parity",
+  "variant_status": {
+    "Core": "partial_unavailable",
+    "Core+24J": "partial_unavailable",
+    "Core+2S": "partial_unavailable"
+  }
+}

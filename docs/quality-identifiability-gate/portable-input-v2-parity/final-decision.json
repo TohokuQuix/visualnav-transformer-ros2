@@ -1,0 +1,23 @@
+{
+  "source_fixture_ready": "yes_for_pure_offline_body_extraction_and_partial_full_tensor_assembly",
+  "physical_body_state_parity_supported": false,
+  "physical_body_state_parity_partial": true,
+  "flipper_mapping_ready": false,
+  "flipper_mapping_status": "order_axis_source_match; physical encoder sign and zero unverified",
+  "imu_mapping_ready": false,
+  "imu_mapping_status": "primary and fallback source paths known; covariance sentinel, extrinsic and header-time parity unresolved",
+  "arm_scope_ready": "proposal_only; operator reference angles and per-axis tolerances required",
+  "logging_parity_ready_for_execution": false,
+  "small_training_plan_ready": "yes_as_plan_only; training not authorized",
+  "portable_input_contract_ready_to_freeze": false,
+  "Core_simulator_and_physical_full_tensor_now": false,
+  "Core_plus_2S_common_formula_ready": true,
+  "Core_plus_2S_full_physical_tensor_now": false,
+  "Core_plus_24J_portable_primary": false,
+  "source_fixture_limit": "Historical pre-Path anchor and selected physical bags do not supply all verified common fields concurrently; pure functions with complete validated inputs can assemble tensors but observed full tensors remain unavailable.",
+  "existing_bag_limit": "Three SHA-frozen target bags have joint velocities, flippers and arm positions. No Evaluator candidate Path, anchor DEM or relative goal; BNO055 covariance sentinel -1 in all primary samples of the two bags that contain it.",
+  "next_evidence": ["physical flipper sign/zero calibration source fixture", "IMU extrinsic/status and header-time fixture or calibrated bag", "operator-defined arm stowed reference and tolerance", "new bag with pre-Path DEM, goal, candidate Path and synchronized validity", "production logging implementation then separately authorized logging parity pair"],
+  "evaluator_training_authorized": false,
+  "nomad_retraining_authorized": false,
+  "new_simulator_rollout_or_robot_control": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": "plan_only_no_training_authorized",
+  "variants": ["constant/direct baseline", "geometry-only", "Core", "Core+2S", "Core+24J simulator-only", "DEM/Path-only optional"],
+  "comparison_unit": "independent StateGroup; candidates and repeats remain clustered within group",
+  "split": "group by source trajectory/environment instance, terrain seed and episode identity; no shared source windows or near-duplicate anchors across train/validation/held-out",
+  "data_gate": "the current seven StateGroups permit pipeline smoke/small overfit only; acquire independently supported groups before model selection or generalization claims",
+  "shared_training": ["same group split", "complete-only train scaler", "same capacity/head architecture where inputs permit", "optimizer and LR", "max epoch, early stopping and best checkpoint rule", "random seeds", "labels", "metrics"],
+  "primary_labels": ["discounted_reward_2s", "direct_relative_reward_2s", "goal_distance_reduction_2s"],
+  "auxiliary_labels": ["reward preference", "goal preference", "endpoint error", "path progress", "cross-track"],
+  "phase_b_only": ["terminal Critic", "Critic residual"],
+  "safety_head": "disabled",
+  "metrics": ["held-out StateGroup aggregate loss per head", "within-group candidate ranking", "calibration", "baseline-relative gain", "terrain/common-support strata where supported", "seed uncertainty at StateGroup level"],
+  "decision_rules": {
+    "Core+2S_better_than_Core_on_independent_validation": "supports portable 2S candidate after physical parity",
+    "Core+2S_equivalent_to_Core": "track optional, not mandatory primary",
+    "Core+2S_worse_than_Core": "2S optional ablation",
+    "only_Core+24J_improves": "simulator-specific diagnostic, not portable primary",
+    "all_fail_baselines": "review group count, label support and model design before more inputs"
+  },
+  "fixed_before_training": "schema version/hash, exact group split, seeds, model/optimizer/loss, normalization, early-stop/selection rules; no seven-group threshold tuning",
+  "next_step": "review and separate approval after source, physical and logging parity gates"
+}

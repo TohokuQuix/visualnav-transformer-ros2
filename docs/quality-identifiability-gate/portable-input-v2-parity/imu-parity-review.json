@@ -1,0 +1,70 @@
+{
+  "bags": [
+    {
+      "fallback_count": 930,
+      "fallback_sentinel": {
+        "angular_minus_one": 0,
+        "orientation_minus_one": 0
+      },
+      "joint_header_to_bag_offset_ms_p95": 0.43728905000000023,
+      "joint_to_primary_imu_50ms_fraction": 1.0,
+      "map_body_tf_count": 47,
+      "primary_count": 463,
+      "primary_header_to_bag_offset_ms_p95": 0.6812945999999996,
+      "primary_sentinel": {
+        "angular_minus_one": 463,
+        "orientation_minus_one": 463
+      },
+      "uri": "/home/kojima/Desktop/robocup2026_incheon/2026_07_02-08_55_56"
+    },
+    {
+      "fallback_count": 2188,
+      "fallback_sentinel": {
+        "angular_minus_one": 0,
+        "orientation_minus_one": 0
+      },
+      "joint_header_to_bag_offset_ms_p95": 0.39918479999999995,
+      "joint_to_primary_imu_50ms_fraction": 0.0,
+      "map_body_tf_count": 110,
+      "primary_count": 0,
+      "primary_header_to_bag_offset_ms_p95": null,
+      "primary_sentinel": {
+        "angular_minus_one": 0,
+        "orientation_minus_one": 0
+      },
+      "uri": "/home/kojima/Desktop/robocup2026_jo/onix_2026_04_24-15_55_30"
+    },
+    {
+      "fallback_count": 157840,
+      "fallback_sentinel": {
+        "angular_minus_one": 0,
+        "orientation_minus_one": 0
+      },
+      "joint_header_to_bag_offset_ms_p95": 2.1021427499999996,
+      "joint_to_primary_imu_50ms_fraction": 0.9999360859005496,
+      "map_body_tf_count": 7874,
+      "primary_count": 78867,
+      "primary_header_to_bag_offset_ms_p95": 2.049479399999996,
+      "primary_sentinel": {
+        "angular_minus_one": 78867,
+        "orientation_minus_one": 78867
+      },
+      "uri": "/home/kojima/Desktop/robocup2026_incheon/2026_07_04-17_09_52"
+    }
+  ],
+  "bridge_fallback_selection": "fallback angular velocity plus latest map->body TF orientation when primary stale; TF stamp age checked; source frame transform attempted",
+  "bridge_primary_selection": "selects primary by callback receipt age <= state_timeout 0.5s; does not check covariance sentinel",
+  "bridge_quaternion_convention": "ROS xyzw message to backend wxyz internal normalized; world-down rotated to body",
+  "bridge_yaw_offset_default_rad": 0.0,
+  "callback_receipt_time": "used by production bridge for freshness",
+  "decision": "parity_unverified",
+  "fallback_frame_observed": "front_lidar",
+  "fallback_orientation_tf": "map -> chassis/body",
+  "fallback_topic": "/livox/imu_172_16_94_141",
+  "header_stamp": "recorded in bag; not forwarded in bridge payload",
+  "physical_sensor_to_body_extrinsic": "not validated from source and bag",
+  "primary_frame_observed": "bno055",
+  "primary_topic": "/bno055/imu",
+  "reset_initialization": "not established for Evaluator anchor; no fabricated initial IMU",
+  "validity_rule_for_evaluator": "covariance sentinel -1 blocks corresponding orientation/angular field even if finite; require verified extrinsic, header-stamp age and synchronized TF"
+}

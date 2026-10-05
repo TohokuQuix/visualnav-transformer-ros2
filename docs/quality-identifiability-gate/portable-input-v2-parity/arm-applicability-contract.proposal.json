@@ -1,0 +1,14 @@
+{
+  "status": "not_frozen_operator_reference_required",
+  "primary_tensor_arm_axes": "excluded",
+  "applicability_state": "fixed_stowed_pose",
+  "joint_order": ["arm/grasp_left", "arm/grasp_right", "arm/joint1", "arm/joint2", "arm/joint3", "arm/joint4", "arm/joint5", "arm/joint6"],
+  "reference_angles_rad": "TBD requiring operator specification from mechanical stowed pose or operation config",
+  "per_axis_tolerance_rad": "TBD requiring operator specification before use; not derived from observed bag variation",
+  "decision_timestamp": "pre-Path anchor, using each joint header stamp and a prospectively frozen freshness limit",
+  "decision_rule": "all eight named positions finite, fresh and within per-axis tolerance -> fixed_stowed_pose_verified; otherwise abstain",
+  "missing_or_stale": "abstain; do not infer stowed from last command or one short observation",
+  "simulator_equivalent": "check all eight simulated arm joints against the same mechanically defined reference and tolerance; no implicit always-stowed assumption",
+  "observed_bags": "Two short bags show small arm ranges, but the long selected bag shows large motion on all eight axes; neither fixes a safe reference/tolerance",
+  "future_schema_change": "arm-pose-aware Evaluator requires a new schema version, train-only normalization and new compatibility hash"
+}

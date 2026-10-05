@@ -1,0 +1,233 @@
+{
+  "arm_rule": "fixed_stowed_pose verified prospectively or abstain",
+  "availability_rule": "any missing critical field -> tensor unavailable; per-field values remain diagnostic",
+  "field_order_hash": "495f185c1bd7336832f8ea7a9e6682da3c87ab4ef4eda549b96bfbe6410ebb04",
+  "fields": [
+    {
+      "clip": null,
+      "dtype": "float32",
+      "frame": "base-yaw DEM",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "dem_height_history",
+      "normalization": "reference-height scalar offset, train-only valid-cell statistics",
+      "order": "oldest to current, row-major per 20\u00d720 frame",
+      "parity_status": "GridMap axis/resolution/unknown and timing unverified",
+      "physical_source": "GridMap DEM adapter",
+      "shape": [
+        4,
+        20,
+        20
+      ],
+      "sign": "height above scalar reference",
+      "simulator_source": "transformed height scanner DEM history",
+      "timestamp_phase": "4 frame stamps through pre-Path anchor",
+      "unit": "m"
+    },
+    {
+      "clip": [
+        0,
+        1
+      ],
+      "dtype": "float32",
+      "frame": "base-yaw DEM",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "dem_valid_history",
+      "normalization": "none",
+      "order": "oldest to current, row-major",
+      "parity_status": "unknown representation unverified",
+      "physical_source": "GridMap validity",
+      "shape": [
+        4,
+        20,
+        20
+      ],
+      "sign": "1 valid, 0 unknown",
+      "simulator_source": "transformed DEM mask",
+      "timestamp_phase": "same as corresponding height frame",
+      "unit": "binary"
+    },
+    {
+      "clip": null,
+      "dtype": "float32",
+      "frame": "base",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "relative_goal",
+      "normalization": "fixed 2 m scale",
+      "order": "base x,y",
+      "parity_status": "bag lacks candidate anchor goal",
+      "physical_source": "goal and timestamped TF",
+      "shape": [
+        2
+      ],
+      "sign": "+x forward, +y left",
+      "simulator_source": "frozen relative goal at anchor",
+      "timestamp_phase": "pre-Path anchor",
+      "unit": "m"
+    },
+    {
+      "clip": null,
+      "dtype": "float32",
+      "frame": "base",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "candidate_path",
+      "normalization": "fixed 2 m scale",
+      "order": "8 waypoints, each base x,y",
+      "parity_status": "teaching playback Path is not an Evaluator candidate",
+      "physical_source": "candidate generator Path transformed at anchor",
+      "shape": [
+        8,
+        2
+      ],
+      "sign": "+x forward, +y left",
+      "simulator_source": "frozen candidate Path",
+      "timestamp_phase": "defined before Path publication",
+      "unit": "m"
+    },
+    {
+      "clip": null,
+      "dtype": "float32",
+      "frame": "base",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "path_geometry",
+      "normalization": "prospective physical scales then train-only stats",
+      "order": "length,max curvature,mean abs curvature,first tangent,final tangent,direct difference",
+      "parity_status": "shared-function parity pending",
+      "physical_source": "same deterministic Path geometry function",
+      "shape": [
+        6
+      ],
+      "sign": "geometry convention from frozen candidate generator",
+      "simulator_source": "same deterministic Path geometry function",
+      "timestamp_phase": "derived pre-Path",
+      "unit": "mixed m,1/m,rad"
+    },
+    {
+      "clip": null,
+      "dtype": "float32",
+      "frame": "base-yaw DEM",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "path_dem_profile",
+      "normalization": "train-only valid-cell stats",
+      "order": "64 centerline samples",
+      "parity_status": "DEM parity pending",
+      "physical_source": "same function over GridMap-derived DEM",
+      "shape": [
+        64
+      ],
+      "sign": "height above scalar reference",
+      "simulator_source": "sample_profile",
+      "timestamp_phase": "derived pre-Path from current DEM",
+      "unit": "m"
+    },
+    {
+      "clip": [
+        0,
+        1
+      ],
+      "dtype": "float32",
+      "frame": "base-yaw DEM",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "path_coverage",
+      "normalization": "none",
+      "order": "64 centerline sample valid bits",
+      "parity_status": "DEM parity pending",
+      "physical_source": "same function over GridMap-derived mask",
+      "shape": [
+        64
+      ],
+      "sign": "1 covered, 0 unknown",
+      "simulator_source": "sample_profile mask",
+      "timestamp_phase": "derived pre-Path",
+      "unit": "binary"
+    },
+    {
+      "clip": "prospective sensor limits",
+      "dtype": "float32",
+      "frame": "base",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "body_angular_velocity",
+      "normalization": "complete-only train statistics",
+      "order": "base x,y,z",
+      "parity_status": "unverified IMU covariance/extrinsic; physical fixture masks",
+      "physical_source": "validated IMU angular velocity transformed by measured extrinsic",
+      "shape": [
+        3
+      ],
+      "sign": "right-hand axes",
+      "simulator_source": "robot base angular velocity",
+      "timestamp_phase": "pre-Path anchor synchronized to joint/DEM",
+      "unit": "rad/s"
+    },
+    {
+      "clip": [
+        -1,
+        1
+      ],
+      "dtype": "float32",
+      "frame": "base",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "projected_gravity",
+      "normalization": "unit vector",
+      "order": "base x,y,z",
+      "parity_status": "unverified IMU covariance/extrinsic; physical fixture masks",
+      "physical_source": "validated IMU orientation and extrinsic",
+      "shape": [
+        3
+      ],
+      "sign": "world down transformed to base",
+      "simulator_source": "robot projected gravity",
+      "timestamp_phase": "pre-Path anchor synchronized to joint/DEM",
+      "unit": "unitless"
+    },
+    {
+      "clip": "prospective joint limits",
+      "dtype": "float32",
+      "frame": "joint coordinates",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "flipper_position",
+      "normalization": "train-only after prospective sign/zero calibration",
+      "order": "RR,RL,FR,FL",
+      "parity_status": "sign_or_zero_unverified",
+      "physical_source": "raw /joint_states by name, awaiting calibration",
+      "shape": [
+        4
+      ],
+      "sign": "URDF axes; physical encoder sign unverified",
+      "simulator_source": "joint_pos_rel, default 0",
+      "timestamp_phase": "pre-Path joint sample",
+      "unit": "rad"
+    },
+    {
+      "clip": [
+        0,
+        1
+      ],
+      "dtype": "float32",
+      "frame": "arm joint configuration",
+      "missing_stale_rule": "mask unavailable; no imputation or zero filling; full tensor withheld",
+      "name": "arm_configuration_state",
+      "normalization": "none",
+      "order": "verified fixed_stowed_pose flag",
+      "parity_status": "reference/tolerance not yet fixed",
+      "physical_source": "8 arm JointState positions against prospective reference",
+      "shape": [
+        1
+      ],
+      "sign": "1 verified stowed",
+      "simulator_source": "fixed stowed pose check against prospective reference",
+      "timestamp_phase": "pre-Path anchor",
+      "unit": "binary"
+    }
+  ],
+  "no_actor_or_bridge_change": true,
+  "physical_24j": null,
+  "portable_primary": true,
+  "schema_version": "portable-evaluator-input-v2-proposal-1",
+  "status": "proposal_not_frozen",
+  "tail_fields": [
+    "availability mask one bit per field",
+    "domain source mask simulator,physical"
+  ],
+  "train_only_scaler_required": true,
+  "variant": "Core"
+}

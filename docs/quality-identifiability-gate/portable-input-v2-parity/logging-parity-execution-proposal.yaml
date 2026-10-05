@@ -1,0 +1,47 @@
+schema_version: evaluator_logging_parity_v2_proposal
+status: proposal_only_not_ready_for_execution
+execution_requires_separate_approval: true
+pair:
+  state_group_id: expanded-train-000
+  terrain: boxes
+  source_episode_key: [0, 36, 0]
+  source_window_step: 20
+  map_path_file: /tmp/eatnav-expanded-feasibility-ros-continuation-20261005/inputs/state-000/expanded-train-000-nominal_duplicate-00-map-path.json
+  map_path_sha256: c4395fa25805d573e4dab6de80e4b6f92d2343e16379e5897f83647748d86b86
+  seed: 123
+  checkpoint: /home/kojima/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt
+  checkpoint_sha256: b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d
+  reference_config_sha256: caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992
+  source_run_reference: expanded-train-000-nominal_duplicate-00
+  source_summary_path: /tmp/eatnav-expanded-feasibility-ros-continuation-20261005/runs/expanded-train-000-nominal_duplicate-00/live-0.json
+  source_summary_sha256: 4ba05a31967da0bf29864caaf751ee4daf509aa89732527c638b4426097e1419
+  source_sha256:
+    runner_source: 0e8ea4639f0496ab45b4b833ab1bc0e8c6320d3419194e42ff2b8e84e0454e2e
+    capture_source: a9f7f6a1c6378bba9582218decf048fdf00edc8698d8732cb4e4575859a5ba75
+    bridge_client_source: f4dc28eb505d1ab375d4796dd308ddac70629fe57215c7742a54f511dc69b6ce
+    clock_protocol_source: 7b4d51b323963d1a7db1e265803ddd5428c7d088e80d3a2461471ba23e31460a
+  run_order: [logging_off, logging_on]
+  control_steps_each: 120
+  external_zenoh_router: operator_managed; verify PID/start-tick/ZID/endpoint/log SHA and readiness before either run; runner neither starts nor stops router
+  exact_stamp: identical Path SHA, logical time, clock/TF/command stamp and event order at every control step
+limits:
+  gpu_device_total_mib: 6656
+  pair_wall_minutes: 45
+  one_run_wall_minutes: 20
+  final_artifact_storage_gb: 0.8
+  host_ram_gb: 64
+  retry: one new-root retry only for classified pre-control infrastructure invalidity; no retry after candidate Path publication/control step; preserve failed attempt
+signals:
+  exact: [Path identity and publication, logical step/time ns, command/TF/clock stamps, masks, source/field-order hash, termination reason, reset and event order]
+  numeric: [follower command, Actor input, Actor action, Critic input/value, root pose/velocity, full joint position/velocity, contact, DEM height and mask, reward total, reward component pre/post dt, realized XY, Core, Core+2S, Core+24J]
+pre_frozen_tolerances:
+  follower_command: {max_abs: 1.0e-5, rms: 1.0e-6}
+  actor_input_action_critic: {max_abs: 1.0e-5, rms: 1.0e-6}
+  root_joint_realized_xy: {max_abs: 1.0e-4, rms: 1.0e-5}
+  contact_dem_reward_components: {max_abs: 1.0e-4, rms: 1.0e-5}
+  core_fixture_numeric: {max_abs: 1.0e-5, rms: 1.0e-6}
+  masks_and_stamp: exact
+  note: Proposed before any logging parity run; require source fixture and logging implementation tests before authorization. No after-result relaxation.
+output: per-signal first-divergence step, max absolute difference, RMS, mask mismatch count, command/Path event trace, cleanup and finalization markers, SHA ledger
+infrastructure_invalid: pre-control router/bridge/follower/monitor startup failures only; never silently promote a partial trace
+readiness_blockers: [production logging schema not implemented and tested, source fixture not wired, external router identity not currently verified, physical field parity incomplete]

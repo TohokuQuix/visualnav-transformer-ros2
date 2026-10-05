@@ -1,0 +1,169 @@
+{
+  "bag_joint_presence": {
+    "/home/kojima/Desktop/robocup2026_incheon/2026_07_02-08_55_56": {
+      "chassis/fl_flipper_joint": 1.0,
+      "chassis/fr_flipper_joint": 1.0,
+      "chassis/rl_flipper_joint": 1.0,
+      "chassis/rr_flipper_joint": 1.0
+    },
+    "/home/kojima/Desktop/robocup2026_incheon/2026_07_04-17_09_52": {
+      "chassis/fl_flipper_joint": 1.0,
+      "chassis/fr_flipper_joint": 1.0,
+      "chassis/rl_flipper_joint": 1.0,
+      "chassis/rr_flipper_joint": 1.0
+    },
+    "/home/kojima/Desktop/robocup2026_jo/onix_2026_04_24-15_55_30": {
+      "chassis/fl_flipper_joint": 1.0,
+      "chassis/fr_flipper_joint": 1.0,
+      "chassis/rl_flipper_joint": 1.0,
+      "chassis/rr_flipper_joint": 1.0
+    }
+  },
+  "clip": "proposal uses prospective physical joint limits; no Outcome-fitted transform",
+  "decision": "sign_or_zero_unverified",
+  "joint_mapping": [
+    {
+      "axis_and_origin_match": true,
+      "axis_order": "RR",
+      "physical_axis": "0 1 0",
+      "physical_joint": "chassis/rr_flipper_joint",
+      "physical_origin": {
+        "rpy": "0 3.141592653589793 0",
+        "xyz": "-0.255 -0.195 0"
+      },
+      "physical_raw_range_per_bag": [
+        {
+          "raw_max_rad": 0.9221258759498596,
+          "raw_min_rad": 0.9221227169036865,
+          "samples": 92
+        },
+        {
+          "raw_max_rad": 1.9326666593551636,
+          "raw_min_rad": 1.9326634407043457,
+          "samples": 219
+        },
+        {
+          "raw_max_rad": 3.882399797439575,
+          "raw_min_rad": -0.0005325444508343935,
+          "samples": 15646
+        }
+      ],
+      "simulator_axis": "0 1 0",
+      "simulator_joint": "chassis_rr_flipper_joint",
+      "simulator_origin": {
+        "rpy": "0 3.141592653589793 0",
+        "xyz": "-0.255 -0.195 0"
+      }
+    },
+    {
+      "axis_and_origin_match": true,
+      "axis_order": "RL",
+      "physical_axis": "0 1 0",
+      "physical_joint": "chassis/rl_flipper_joint",
+      "physical_origin": {
+        "rpy": "0 3.141592653589793 0",
+        "xyz": "-0.255 0.195 0"
+      },
+      "physical_raw_range_per_bag": [
+        {
+          "raw_max_rad": 0.901199996471405,
+          "raw_min_rad": 0.9011968374252319,
+          "samples": 92
+        },
+        {
+          "raw_max_rad": 2.1140387058258057,
+          "raw_min_rad": 2.1140356063842773,
+          "samples": 219
+        },
+        {
+          "raw_max_rad": 3.6835381984710693,
+          "raw_min_rad": -0.002462235279381275,
+          "samples": 15646
+        }
+      ],
+      "simulator_axis": "0 1 0",
+      "simulator_joint": "chassis_rl_flipper_joint",
+      "simulator_origin": {
+        "rpy": "0 3.141592653589793 0",
+        "xyz": "-0.255 0.195 0"
+      }
+    },
+    {
+      "axis_and_origin_match": true,
+      "axis_order": "FR",
+      "physical_axis": "0 -1 0",
+      "physical_joint": "chassis/fr_flipper_joint",
+      "physical_origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.255 -0.195 0"
+      },
+      "physical_raw_range_per_bag": [
+        {
+          "raw_max_rad": 0.5351977944374084,
+          "raw_min_rad": 0.5351946949958801,
+          "samples": 92
+        },
+        {
+          "raw_max_rad": 1.8052444458007812,
+          "raw_min_rad": 1.805241346359253,
+          "samples": 219
+        },
+        {
+          "raw_max_rad": 3.141636610031128,
+          "raw_min_rad": -0.8794627785682678,
+          "samples": 15646
+        }
+      ],
+      "simulator_axis": "0 -1 0",
+      "simulator_joint": "chassis_fr_flipper_joint",
+      "simulator_origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.255 -0.195 0"
+      }
+    },
+    {
+      "axis_and_origin_match": true,
+      "axis_order": "FL",
+      "physical_axis": "0 -1 0",
+      "physical_joint": "chassis/fl_flipper_joint",
+      "physical_origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.255 0.195 0"
+      },
+      "physical_raw_range_per_bag": [
+        {
+          "raw_max_rad": 0.5820398330688477,
+          "raw_min_rad": 0.5820398330688477,
+          "samples": 92
+        },
+        {
+          "raw_max_rad": 1.8049999475479126,
+          "raw_min_rad": 1.8049999475479126,
+          "samples": 219
+        },
+        {
+          "raw_max_rad": 3.1416115760803223,
+          "raw_min_rad": -0.8796789050102234,
+          "samples": 15646
+        }
+      ],
+      "simulator_axis": "0 -1 0",
+      "simulator_joint": "chassis_fl_flipper_joint",
+      "simulator_origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.255 0.195 0"
+      }
+    }
+  ],
+  "known_affine_mapping": null,
+  "missing_stale": "name-based presence plus header-time age; no zero fill",
+  "order": "RR,RL,FR,FL",
+  "physical_encoder_sign": "unverified",
+  "physical_source": "bridge frontend raw JointState.position by name; no sign or zero correction",
+  "physical_zero_offset_rad": null,
+  "simulator_default_offset_rad": 0.0,
+  "simulator_source": "onix.py init_state joint_pos={.*:0.0}; observation joint_pos_rel subtracts default",
+  "timestamp": "JointState header exists in bags; bridge frontend uses callback receipt clock and does not forward header stamp",
+  "unit": "rad by URDF/ROS source",
+  "why_not_exact": "Matching URDF axes and zero configured simulator defaults do not establish encoder calibration under physical operation"
+}

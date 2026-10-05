@@ -1,0 +1,17 @@
+{
+  "status": "prospective; no new recording authorized here",
+  "anchor_record": ["anchor_id", "robot/environment/source trajectory identity", "episode identity", "terrain/source seed", "pre-Path anchor header stamp", "callback receipt stamp", "clock domain", "field-order/schema hash"],
+  "required_topics": [
+    {"topic": "/joint_states", "required": "four named sprocket velocities, four named flipper positions and all eight arm positions with header stamp, units and calibration version"},
+    {"topic": "/bno055/imu or validated replacement", "required": "quaternion, angular velocity, frame_id, covariance/status, header stamp and sensor-to-base extrinsic version"},
+    {"topic": "/tf and /tf_static", "required": "timestamped map/base/sensor transforms and exact anchor lookup outcome"},
+    {"topic": "Evaluator DEM/GridMap", "required": "four 20×20 height/mask frames, native resolution/axis/unknown representation and frame header stamps"},
+    {"topic": "relative goal", "required": "pre-Path goal identity, base-frame transform and stamp"},
+    {"topic": "candidate Path", "required": "8×2 base waypoints, map Path identity/SHA, publication stamp and geometry/profile/coverage hashes"},
+    {"topic": "bridge/follower status", "required": "selected IMU primary/fallback, receipt age, controller state, Path adoption, command adoption and stale/missing reasons"}
+  ],
+  "operational_conditions": ["stationary", "straight", "turning", "arm verified stowed", "intentional arm-outside-scope for abstention test"],
+  "synchronization": "one pre-Path anchor with raw header and receipt stamps; preserve original clock domain and report nearest-sample ages, jumps and resets",
+  "invalidity": "missing, stale, covariance sentinel -1, unknown extrinsic, unverified flipper calibration or non-stowed arm -> explicit mask/abstain, not zero fill",
+  "selection_and_storage": "capture enough independent source trajectories and terrain/goal settings; retain raw messages and SHA, plus derived fixture output in a separate versioned root"
+}
