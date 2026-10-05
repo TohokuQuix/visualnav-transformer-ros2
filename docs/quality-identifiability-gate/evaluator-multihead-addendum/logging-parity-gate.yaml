@@ -1,0 +1,32 @@
+schema_version: evaluator_logging_parity_m12_v1
+status: prospective_pre_collection_gate_no_rollout_now
+paired_protocol: same_frozen_state_Path_seed_checkpoint_controller_and_follower;_logging_enabled_vs_disabled
+sample_unit: synchronized_control_step
+comparison_signals:
+  - command_current
+  - actor_command_input
+  - actor_observation
+  - critic_observation
+  - actor_action
+  - root_pose
+  - full_joint_position
+  - full_joint_velocity
+  - contact
+  - dem_height_mask_history
+  - reward_total
+  - reward_component_pre_dt
+  - reward_component_post_dt
+  - logical_sim_time_ns
+  - path_id_sha256
+  - termination_reason
+  - reset
+  - realized_xy
+identity_and_time_rule: exact_Path_SHA_event_order_logical_step_and_stamp_match
+numerical_rule: pre_frozen_per_signal_duplicate_equivalence_tolerance_before_first_parity_run
+missing_rule: any_unlogged_required_signal_or_invalid_mask_is_gate_failure
+comparison_output: per_signal_first_divergence_step_max_absolute_difference_RMS_and_mask_mismatch_count
+decision:
+  pass: all_required_signals_present_and_within_pre_frozen_tolerance
+  fail: any_required_signal_diverges_or_logging_changes_control_physics_reward_timing_or_termination
+on_fail: do_not_start_collection
+no_threshold_tuning_after_seeing_parity_runs: true

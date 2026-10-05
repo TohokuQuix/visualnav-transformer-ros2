@@ -1,0 +1,26 @@
+{
+  "schema_version": "evaluator_baseline_ablation_m11_v1",
+  "status": "prospective_only",
+  "required_comparisons": [
+    "constant_mean_predictor",
+    "direct_only_baseline",
+    "goal_endpoint_geometry_baseline",
+    "DEM_only_model",
+    "DEM_plus_Path_model",
+    "DEM_plus_Path_plus_portable_body_state_model",
+    "optional_fixed_anchor_Actor_latent_ablation",
+    "primary_only_multihead",
+    "primary_plus_terminal_value_auxiliary",
+    "primary_plus_Critic_residual_auxiliary",
+    "primary_plus_terminal_and_residual_auxiliary"
+  ],
+  "phase_A_primary": ["discounted_reward_2s", "direct_relative_reward_2s", "goal_distance_reduction_2s"],
+  "phase_A_auxiliary_loss": ["reward_pairwise_preference", "goal_pairwise_preference"],
+  "phase_A_endpoint_error_role": "auxiliary_calibration_not_equal_weight_primary",
+  "phase_B_only": ["terminal_value_hold", "terminal_value_canonical", "critic_residual_hold", "critic_residual_canonical"],
+  "auxiliary_adoption_rule": "reject_if_primary_task_performance_degrades_on_independent_validation",
+  "scaler_fit": "train_StateGroups_only",
+  "model_or_loss_weight_selection": "future_independent_validation_under_pre_frozen_rule",
+  "current_63_outcomes_usable_for_weight_search": false,
+  "training_run_authorized": false
+}

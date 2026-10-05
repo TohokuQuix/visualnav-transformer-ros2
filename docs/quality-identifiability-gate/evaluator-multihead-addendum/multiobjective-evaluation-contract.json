@@ -1,0 +1,16 @@
+{
+  "schema_version": "evaluator_multiobjective_m11_v1",
+  "status": "descriptive_current_support_and_prospective_metrics",
+  "current_group_count": 7,
+  "current_descriptive_pair_count": 147,
+  "current_reward_goal_conflict_pairs": 66,
+  "current_conflict_pair_fraction": 0.4489795918367347,
+  "statistical_unit": "StateGroup",
+  "pair_independence_claim": false,
+  "objectives": {"discounted_reward_2s": "maximize", "goal_distance_reduction_2s": "maximize"},
+  "pareto_rule": "within_each_StateGroup_candidate_is_Pareto_optimal_if_no_other_candidate_is_at_least_as_good_on_both_objectives_and_strictly_better_on_one",
+  "current_pairwise_margin": {"value": 0.000001, "meaning": "numerical_floor_only_for_deterministic_simulator_strict_ordering", "physical_indifference_claim": false},
+  "prospective_metrics": ["reward_goal_preference_agreement", "conflict_pairs_per_StateGroup", "Pareto_optimal_candidate_recall", "selected_discounted_reward_2s", "selected_goal_distance_reduction_2s", "direct_baseline_reward_delta", "direct_baseline_goal_delta", "one_up_other_down_tradeoffs", "abstention_coverage", "abstention_conditional_performance", "uncertainty_misranking_relation"],
+  "selection_rule": "no_single_weighted_scalar_until_independent_validation_and_prospective_weight_freeze",
+  "minimum_meaningful_effect_rule": "must_be_pre_frozen_before_new_data;_not_tuned_from_current_63_outcomes"
+}

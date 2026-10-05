@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "endpoint_not_double_weighted": true,
+    "input_contract_complete": true,
+    "logging_contract_complete": true,
+    "no_unapproved_operations": true,
+    "pairwise_teacher_supported_for_deterministic_smoke": true,
+    "prospective_evaluation_contract_complete": true,
+    "safety_head_disabled": true,
+    "source_integrity": true,
+    "split_and_no_leakage_contract": true,
+    "teacher_label_alignment": true
+  },
+  "first_failure": null,
+  "group_sizes": {
+    "expanded-train-000": 9,
+    "expanded-train-001": 9,
+    "expanded-train-002": 9,
+    "expanded-train-003": 9,
+    "expanded-train-004": 9,
+    "g0e-train-000": 9,
+    "g0e-train-001": 9
+  },
+  "instruction_tail_resolved": true,
+  "pair_group_sizes": {
+    "expanded-train-000": 21,
+    "expanded-train-001": 21,
+    "expanded-train-002": 21,
+    "expanded-train-003": 21,
+    "expanded-train-004": 21,
+    "g0e-train-000": 21,
+    "g0e-train-001": 21
+  },
+  "prior_artifact_mismatches": [],
+  "prior_artifacts_unchanged": true,
+  "prior_config_sha256": "cebc13070cb60ae6f214e422ce1e5a2aa17cf88095a7311f4a0566c23fdfb172",
+  "prior_label_rows": 63,
+  "prior_label_sha256": "17796149fedc5ccc60f2e10f5cc266f9e3dd3eaec46dee4afea2a297ab4d95bd",
+  "prior_ledger_sha256": "7b3da2ecc828867889cdc5674c041f3061440fc85c559ea2a96b2f6278817668",
+  "prior_pair_rows": 147,
+  "prior_pair_sha256": "de9206cdb407256b66aa346f09c79b6b2d4bb82e4ec4475179773d9ebf8d6913",
+  "raw_trace_mismatches": [],
+  "retained_old_raw_trace_and_contracts": true,
+  "status": "pass",
+  "versioned_interpretation_overrides": {
+    "endpoint_error": "M0-M10 equal-weight primary proposal superseded by auxiliary calibration/reporting",
+    "labels_and_split": "unchanged",
+    "pair_margin": "unchanged 1e-6 numeric floor; no physical indifference claim",
+    "pairwise_Bradley_Terry": "M0-M10 equal-weight smoke proposal superseded by auxiliary ranking loss subordinate to continuous Huber"
+  }
+}

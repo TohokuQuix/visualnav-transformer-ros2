@@ -1,0 +1,66 @@
+schema_version: evaluator_prospective_gates_m11_v1
+status: offline_design_only_no_training_or_validation
+source_m0_m10_commit: 74bf5029c3818a7335f6b1396cc10c725b84b2a2
+phase_A_primary_teachers:
+  - discounted_reward_2s
+  - direct_relative_reward_2s
+  - goal_distance_reduction_2s
+  - reward_and_goal_within_StateGroup_pairwise_preference
+auxiliary_task_heads: [endpoint_error_2s, endpoint_encounter_2s, path_progress_2s, cross_track_p95_2s]
+phase_B_only_heads: [terminal_value_hold, terminal_value_canonical, critic_residual_hold, critic_residual_canonical]
+loss_precedence: continuous_Huber_primary;_Bradley_Terry_auxiliary
+endpoint_error_policy: auxiliary_calibration_and_reporting;_no_equal_weight_independent_primary_double_count
+pairwise_margin_interpretation: 1e-6_numeric_floor_deterministic_simulator_ordering_only
+duplicate_variation: seven_direct_repeat_groups_have_zero_observed_difference
+minimum_meaningful_effect: must_be_fixed_before_additional_data;_not_inferred_from_current_63_outcomes
+ranking_weight_rule: subordinate_to_continuous_regression;_formal_weight_selection_requires_new_independent_validation
+LOSO_role: diagnostic_not_generalization_evidence
+split:
+  unit: StateGroup
+  keep_together: [all_candidates, all_direct_repeats, source_trajectory, environment_instance, terrain_seed, source_episode]
+  prohibit: [candidate_random_split, validation_or_heldout_scaler_fit, iterative_validation_weight_or_threshold_tuning]
+  scaler_fit: training_StateGroups_only
+  terrain_generalization_claim: only_after_terrain_held_out_test
+regression_metrics_per_head:
+  - StateGroup_macro_MAE
+  - StateGroup_macro_RMSE
+  - StateGroup_macro_Spearman
+  - predictive_calibration
+  - prediction_range_collapse
+  - direct_relative_sign_accuracy
+  - constant_mean_baseline_delta
+  - leave_one_StateGroup_out_diagnostic
+  - StateGroup_bootstrap_CI
+ranking_metrics:
+  - StateGroup_macro_pairwise_accuracy
+  - StateGroup_macro_Kendall
+  - top1_recall
+  - top3_recall
+  - oracle_regret
+  - direct_vs_candidate_sign_accuracy
+  - strict_pair_count
+  - tie_invalid_censored_counts
+  - generator_and_terrain_descriptives
+  - comparison_with_duplicate_variation
+ranking_statistics_unit: StateGroup;_candidate_pairs_descriptive_not_independent
+multiobjective_metrics:
+  - reward_goal_preference_agreement
+  - reward_goal_conflict_pair_count
+  - Pareto_optimal_candidate_recall
+  - selected_discounted_reward_2s
+  - selected_goal_distance_reduction_2s
+  - both_deltas_against_direct_baseline
+  - reward_goal_tradeoff_count
+  - abstention_coverage_and_conditional_performance
+  - uncertainty_vs_misranking
+weighted_score: prohibited_until_weights_prospectively_fixed_on_independent_validation
+allowed_current_states:
+  - pipeline_smoke_pass
+  - small_overfit_pass
+  - stategroup_heldout_signal_detected
+  - insufficient_stategroup_support
+  - auxiliary_head_hurts_primary
+  - selector_not_ready
+current_state: insufficient_stategroup_support
+numeric_pass_fail_thresholds: deferred_until_new_independent_groups_and_prospective_freeze
+online_selection_authorized: false

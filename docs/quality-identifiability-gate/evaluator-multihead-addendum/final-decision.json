@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "endpoint_not_double_weighted": true,
+    "input_contract_complete": true,
+    "logging_contract_complete": true,
+    "no_unapproved_operations": true,
+    "pairwise_teacher_supported_for_deterministic_smoke": true,
+    "prospective_evaluation_contract_complete": true,
+    "safety_head_disabled": true,
+    "source_integrity": true,
+    "split_and_no_leakage_contract": true,
+    "teacher_label_alignment": true
+  },
+  "current_support": "seven_train_groups_sixty_three_traces_only",
+  "decision": "multihead_teacher_contract_ready_for_input_integration",
+  "does_not_authorize": [
+    "Evaluator_training",
+    "hard_state_rollout",
+    "scaled_collection",
+    "online_candidate_selection",
+    "Safety_head",
+    "formal_validation",
+    "real_robot_control"
+  ],
+  "failed_checks": [],
+  "next_design_scope": [
+    "ROS2_portable_input_integration",
+    "field_order_unit_timestamp_parity",
+    "logging_implementation_proposal",
+    "logging_parity_proposal",
+    "additional_StateGroup_collection_design",
+    "small_training_plan"
+  ],
+  "primary_teacher": [
+    "discounted_reward_2s",
+    "direct_relative_reward_2s",
+    "goal_distance_reduction_2s",
+    "reward_and_goal_within_StateGroup_pairwise_preference_auxiliary_loss"
+  ],
+  "selector_ready": false,
+  "statistical_unit": "StateGroup"
+}
