@@ -1,0 +1,154 @@
+{
+  "bags_with_nonempty_odom_topic": 0,
+  "base_velocity_not_command": "No cmd_vel or track command is treated as measured base linear velocity.",
+  "metadata_files_empty": 2,
+  "metadata_files_found": 48,
+  "metadata_search_roots": [
+    "/home/kojima/Desktop/robocup2026_incheon",
+    "/home/kojima/Desktop/robocup2026_jo"
+  ],
+  "missing_or_unverified": [
+    "direct measured base linear velocity source",
+    "TF-difference velocity timing/filter/reset agreement",
+    "full 52-joint mapping",
+    "applied previous 6-D action cache with anchor stamp",
+    "controller state capture",
+    "DEM/GridMap timing and parity"
+  ],
+  "no_robot_commands_sent": true,
+  "previous_applied_6d_action_topic": "not identified in sampled bag metadata; current bridge backend cache has no timestamped hardware-adoption proof",
+  "sampling_rate_note": "Count divided by bag duration; not interval jitter or synchronized latency. Detailed timing parity remains pending.",
+  "short_bag_first_imu": {
+    "angular_velocity_covariance_0": -1.0,
+    "frame": "bno055",
+    "interpretation": "covariance sentinel indicates data validity cannot be assumed from this message",
+    "orientation_covariance_0": -1.0,
+    "topic": "/bno055/imu"
+  },
+  "short_bag_first_tf": {
+    "child": "chassis/body",
+    "parent": "map"
+  },
+  "status": "read_only_partial_audit",
+  "three_sampled_bags": [
+    {
+      "duration_ns": 4713907729,
+      "first_message_position_count": 16,
+      "first_message_velocity_count": 16,
+      "imu": {
+        "average_hz_from_bag_count": 98.22,
+        "count": 463,
+        "type": "sensor_msgs/msg/Imu"
+      },
+      "joint_first_message_names": [
+        "arm/grasp_left",
+        "arm/grasp_right",
+        "arm/joint1",
+        "arm/joint2",
+        "arm/joint3",
+        "arm/joint4",
+        "arm/joint5",
+        "arm/joint6",
+        "chassis/fl_flipper_joint",
+        "chassis/fl_sprocket_axle",
+        "chassis/fr_flipper_joint",
+        "chassis/fr_sprocket_axle",
+        "chassis/rl_flipper_joint",
+        "chassis/rl_sprocket_axle",
+        "chassis/rr_flipper_joint",
+        "chassis/rr_sprocket_axle"
+      ],
+      "joint_states": {
+        "average_hz_from_bag_count": 19.517,
+        "count": 92,
+        "type": "sensor_msgs/msg/JointState"
+      },
+      "metadata_sha256": "9a5b60401f73ca6f85a4bb6970b3499b56b9101cc6f65f14755b842e78cc51df",
+      "odometry_topics": [],
+      "path": "/home/kojima/Desktop/robocup2026_incheon/2026_07_02-08_55_56",
+      "tf": {
+        "average_hz_from_bag_count": 23.335,
+        "count": 110,
+        "type": "tf2_msgs/msg/TFMessage"
+      }
+    },
+    {
+      "duration_ns": 10975344198,
+      "first_message_position_count": 16,
+      "first_message_velocity_count": 16,
+      "imu": null,
+      "joint_first_message_names": [
+        "arm/grasp_left",
+        "arm/grasp_right",
+        "arm/joint1",
+        "arm/joint2",
+        "arm/joint3",
+        "arm/joint4",
+        "arm/joint5",
+        "arm/joint6",
+        "chassis/fl_flipper_joint",
+        "chassis/fl_sprocket_axle",
+        "chassis/fr_flipper_joint",
+        "chassis/fr_sprocket_axle",
+        "chassis/rl_flipper_joint",
+        "chassis/rl_sprocket_axle",
+        "chassis/rr_flipper_joint",
+        "chassis/rr_sprocket_axle"
+      ],
+      "joint_states": {
+        "average_hz_from_bag_count": 19.954,
+        "count": 219,
+        "type": "sensor_msgs/msg/JointState"
+      },
+      "metadata_sha256": "1d7c1ac785df00793eaad342ac4384e2a2ab37b95e2d067275fa90ddfe2130d2",
+      "odometry_topics": [],
+      "path": "/home/kojima/Desktop/robocup2026_jo/onix_2026_04_24-15_55_30",
+      "tf": {
+        "average_hz_from_bag_count": 23.416,
+        "count": 257,
+        "type": "tf2_msgs/msg/TFMessage"
+      }
+    },
+    {
+      "duration_ns": 789390413019,
+      "first_message_position_count": 16,
+      "first_message_velocity_count": 16,
+      "imu": {
+        "average_hz_from_bag_count": 99.909,
+        "count": 78867,
+        "type": "sensor_msgs/msg/Imu"
+      },
+      "joint_first_message_names": [
+        "arm/grasp_left",
+        "arm/grasp_right",
+        "arm/joint1",
+        "arm/joint2",
+        "arm/joint3",
+        "arm/joint4",
+        "arm/joint5",
+        "arm/joint6",
+        "chassis/fl_flipper_joint",
+        "chassis/fl_sprocket_axle",
+        "chassis/fr_flipper_joint",
+        "chassis/fr_sprocket_axle",
+        "chassis/rl_flipper_joint",
+        "chassis/rl_sprocket_axle",
+        "chassis/rr_flipper_joint",
+        "chassis/rr_sprocket_axle"
+      ],
+      "joint_states": {
+        "average_hz_from_bag_count": 19.82,
+        "count": 15646,
+        "type": "sensor_msgs/msg/JointState"
+      },
+      "metadata_sha256": "4113b8ca8462d575efa50aedae3fa72f8a963ce8531f776ce04d1704a661b764",
+      "odometry_topics": [],
+      "path": "/home/kojima/Desktop/robocup2026_incheon/2026_07_04-17_09_52",
+      "tf": {
+        "average_hz_from_bag_count": 23.321,
+        "count": 18409,
+        "type": "tf2_msgs/msg/TFMessage"
+      }
+    }
+  ]
+}

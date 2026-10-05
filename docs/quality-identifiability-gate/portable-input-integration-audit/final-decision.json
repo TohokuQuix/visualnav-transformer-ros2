@@ -1,0 +1,21 @@
+{
+  "decision": "portable_input_contract_requires_joint_subset_redesign",
+  "first_blocker": "Simulator live articulation has 52 joints; three sampled physical /joint_states streams have 16 joints, only four direct flipper name correspondences and no proven sprocket one-to-one mapping. The frozen portable contract requires 52 joint position/velocity values, which cannot be populated without inventing or zero-filling 48 channels. User instruction requires design review before selecting a common subset or simulator-only branch.",
+  "new_processes_started": 0,
+  "no_retry": true,
+  "not_run": [
+    "canonical schema/adapter/validator implementation",
+    "source fixture parity",
+    "logging on/off simulator runs",
+    "small training",
+    "real robot control"
+  ],
+  "production_control_sha_unchanged": true,
+  "secondary_blockers": [
+    "No nonempty odometry topic in 46 readable bag metadata files; measured base velocity not validated",
+    "Current bridge payload does not expose full joints, base velocity, or applied previous action",
+    "External Zenoh router live identity not established; no simulator launch"
+  ],
+  "simulator_runs_started": 0,
+  "stage_reached": "I3-4 joint-state source mapping; I0 source freeze and I1 field classification completed"
+}

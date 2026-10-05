@@ -1,0 +1,525 @@
+{
+  "critical_note": "post_command_update_pre_step values cannot become anchor_pre_path online input; these require a separately timestamped pre-publication capture",
+  "fields": [
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "reward_total",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "reward_component_pre_dt",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "reward_component_post_dt",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "reward_component_weight",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "control_dt_s",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "excluded",
+      "name": "reward_config_sha256",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "excluded",
+      "name": "reward_term_version",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "termination_reward",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "reward_component_valid",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "pre_command_update",
+      "model_inclusion": "candidate",
+      "name": "path_active",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": true,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "audit_only",
+      "name": "path_id_sha256",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": true,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "excluded",
+      "name": "path_publish_stamp_ns",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "path_horizon_end",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "replanning_event",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "pre_command_update",
+      "model_inclusion": "candidate",
+      "name": "follower_mode",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": true,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "command_current",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "command_last_nonzero",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "command_source",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "pre_command_update",
+      "model_inclusion": "excluded",
+      "name": "command_publish_stamp_ns",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "command_adopt_stamp_ns",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "pre_command_update",
+      "model_inclusion": "excluded",
+      "name": "pre_command_observation_stamp_ns",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "post_command_observation_stamp_ns",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "exact_stamp_tf",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "post_path_control_state",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "projected_gravity",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "base_linear_velocity",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "base_angular_velocity",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "full_joint_position",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "full_joint_velocity",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "previous_action",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "actor_action",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "actor_command_input",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "actor_observation",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "critic_observation",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "controller_state",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "raw_applied_effort",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "effort_limit",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "contact",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "roll_pitch_tilt",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "C",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "excluded",
+      "name": "root_pose",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "post_step",
+      "model_inclusion": "excluded",
+      "name": "realized_xy",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "post_command_update_pre_step",
+      "model_inclusion": "candidate",
+      "name": "dem_height_mask_history",
+      "needs_anchor_rephase": true,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "candidate",
+      "name": "relative_goal",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": true,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "A",
+      "logged_phase": "anchor_pre_path",
+      "model_inclusion": "candidate",
+      "name": "candidate_path",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": true,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "termination_reason",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "truncation",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "timeout",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "reset",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "stack_proxy",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "verified_stack",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "excessive_tilt",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "infrastructure_failure",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "manual_stop",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "censored",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "measurement_valid",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    },
+    {
+      "layer": "B",
+      "logged_phase": "terminal_pre_reset",
+      "model_inclusion": "excluded",
+      "name": "failure_positive_eligible",
+      "needs_anchor_rephase": false,
+      "online_eligible_as_logged": false,
+      "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1"
+    }
+  ],
+  "layer_counts": {
+    "A": 12,
+    "B": 26,
+    "C": 18
+  },
+  "missing_from_56_field_collection_schema_but_required_online": [
+    "path_geometry",
+    "path_dem_profile",
+    "path_coverage_mask",
+    "availability_mask",
+    "anchor_timestamp",
+    "pre_path_controller_state"
+  ],
+  "source_schema_sha256": "87db7df0c42c41dd7eb2622ad1d1243148d0dda7ed68624bbb4121630928c3d1",
+  "source_schema_version": "future_evaluator_collection_v1",
+  "status": "audit_only_not_final_online_schema"
+}
