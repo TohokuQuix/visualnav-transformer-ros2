@@ -1,0 +1,15 @@
+{
+  "decision": "portable_2sprocket_contract_information_loss",
+  "scope": "offline review of 63 sealed 120-step simulator traces; not a real-robot parity result",
+  "reason": "The four front/rear sprocket joints map uniquely and the two-joint signal distinguishes every non-direct candidate from exact direct repeats, but it does not preserve the 24-joint candidate-distance ordering or its descriptive relationships to key outcomes consistently across seven StateGroups.",
+  "actor24_reconstruction": {"valid_traces": 63, "steps": 7560, "max_abs_error": 6.059805551794639e-08, "tolerance": 1e-05},
+  "candidate_information": {"state_groups": 7, "candidate_pairs_per_group": 15, "mean_pairwise_order_concordance": 0.6571428571428571, "lowest_concordance": 0.4666666666666667, "direct_duplicate_variation": "exactly zero; candidate/duplicate ratio undefined", "candidate_pairwise_variation": "nonzero in all seven groups"},
+  "divergent_groups": ["expanded-train-000 / boxes", "expanded-train-002 / k_rail_field", "g0e-train-001 / random_rough"],
+  "interpretation_limit": "A changed correlation or ranking relative to 24 joints is not proof of lower predictive value; 24-joint mean is not an outcome oracle. Seven StateGroups are insufficient to settle which track representation carries more independent outcome information.",
+  "portable_primary_schema": "not frozen or implemented; deferred proposal only",
+  "simulator_actor": "unchanged; 24-joint mean remains simulator-only diagnostic and possible ablation",
+  "evaluator_training_authorized": false,
+  "next_gate": "source fixture for exact four-joint capture, then timestamped real-bag parity and logging parity; prospectively broaden independent StateGroups before schema/training decision",
+  "nomad_retraining": "deferred; does not precede Evaluator input and label readiness",
+  "new_rollouts_or_training": false
+}

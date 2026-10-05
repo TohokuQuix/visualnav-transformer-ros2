@@ -1,0 +1,20 @@
+{
+  "schema_version": "portable_body_state_v2_proposal",
+  "status": "deferred_information_retention_gate_not_passed; not an adopted training or inference schema",
+  "anchor_rule": "All primary observations are sampled at one pre-Path-publication anchor. Candidate Path is known before publication; future command, action, motion and labels are excluded.",
+  "candidate_fields": [
+    {"name": "dem_history", "shape": [4, 2, 20, 20], "order": "oldest to current; height then valid mask", "frame": "base-yaw raster", "unit": "m and binary", "timestamp": "anchor, -0.25, -0.50, -0.75 s", "normalization": "scalar reference-height offset only, then train-only valid-cell statistics", "clip": null, "missing": "per-cell mask; unavailable frame blocks inference"},
+    {"name": "relative_goal", "shape": [2], "order": "x,y", "frame": "base", "unit": "m", "timestamp": "anchor", "normalization": "fixed 2 m coordinate scale", "clip": null, "missing": "goal_available=false blocks inference"},
+    {"name": "candidate_path", "shape": [8, 2], "order": "future waypoint index then base x,y", "frame": "base", "unit": "m", "timestamp": "defined before Path publication", "normalization": "fixed 2 m coordinate scale", "clip": null, "missing": "waypoint validity mask; invalid Path blocks inference"},
+    {"name": "path_geometry_profile_coverage", "shape": "6 geometry scalars + 64 height samples + 64 coverage bits", "frame": "base and base-yaw raster", "unit": "mixed physical units; m profile; binary coverage", "timestamp": "derived from anchor DEM and candidate Path", "normalization": "physical geometry scales, train-only valid height statistics", "clip": null, "missing": "coverage and field-availability masks; no inferred DEM values"},
+    {"name": "body_angular_velocity", "shape": [3], "order": "x,y,z", "frame": "robot base", "unit": "rad/s", "timestamp": "anchor, synchronized with IMU and DEM", "normalization": "complete-only train statistics", "clip": "prospective sensor-validity bounds only", "missing": "angular_velocity_available=false blocks inference"},
+    {"name": "projected_gravity", "shape": [3], "order": "x,y,z", "frame": "robot base", "unit": "unitless", "timestamp": "anchor", "normalization": "unit vector", "clip": [-1, 1], "missing": "gravity_available=false blocks inference"},
+    {"name": "flipper_position", "shape": [4], "order": "RR,RL,FR,FL", "frame": "joint coordinates", "unit": "rad", "timestamp": "joint sample aligned to anchor", "normalization": "complete-only train statistics after verified physical zero/sign", "clip": "prospectively fixed joint limits", "missing": "per-joint mask; missing or stale blocks inference"},
+    {"name": "track_sprocket_velocity", "shape": [2], "order": "right,left", "frame": "URDF joint coordinates, forward robot-body mode", "unit": "rad/s × 0.05", "timestamp": "joint sample aligned to anchor", "normalization": "mean(front,rear) after raw [-100,100] rad/s clip, scaled by 0.05; train-only statistics may follow only after gate", "clip": [-100, 100], "missing": "front/rear four-joint availability mask; no zero filling"},
+    {"name": "availability_domain_masks", "shape": "one per critical field plus DEM/Path elements and domain", "frame": "none", "unit": "binary/categorical", "timestamp": "anchor", "normalization": "none", "clip": null, "missing": "mask itself mandatory"}
+  ],
+  "arm_condition": "arm_configuration=fixed_stowed_pose; tolerance must be frozen prospectively; outside tolerance or unknown -> abstain",
+  "simulator_only_diagnostics": ["ordered 52-joint vector", "simulator_actor_track_velocity_24j"],
+  "excluded_primary": ["raw effort", "base linear velocity (optional ablation)", "previous commanded/applied action", "eight arm joint axes", "future follower command", "future Actor action", "reward", "Critic value"],
+  "required_before_adoption": ["resolve candidate ranking and Outcome relationship divergence", "physical four-joint timestamp/sign parity", "flipper and IMU parity", "DEM/Path synchronization", "train-only normalization and field-order hash", "logging parity"]
+}

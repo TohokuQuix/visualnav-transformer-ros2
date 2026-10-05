@@ -1,0 +1,34 @@
+status: open; source review only, no hardware run
+gates:
+  - id: four_sprocket_jointstate
+    requirement: front/rear velocity names, signs, raw rad/s units, encoder/transmission orientation, joint header stamps and availability
+    current_evidence: source URDF and bridge mapping; no independent loaded physical velocity parity
+    next_evidence: stationary and forward/turning real bag with per-joint velocity and synchronized chassis motion
+  - id: flipper_four_axis
+    requirement: RR/RL/FR/FL name order, physical sign, zero offset and anchor-time validity
+    current_evidence: name mapping exists; physical sign/zero remains unverified
+    next_evidence: source fixture plus timestamped real bag; compare declared fixed poses
+  - id: imu_body_frame
+    requirement: IMU extrinsic, projected gravity and angular velocity in robot base frame including reverse mode
+    current_evidence: bridge has primary/fallback IMU paths and yaw rotation; extrinsic parity unverified
+    next_evidence: static-pose and known-yaw-rate timestamped bag plus TF/extrinsic fixture
+  - id: synchronization
+    requirement: header stamp, callback receipt, freshness and joint/IMU/DEM/Path anchor alignment
+    current_evidence: bridge frontend uses receipt time and does not forward joint/IMU header stamps in payload
+    next_evidence: pre-Path anchored logging fixture, then matched real bag parity
+  - id: missing_and_stale
+    requirement: explicit availability mask, no zero fill, abstain on critical field loss
+    current_evidence: contract design only
+    next_evidence: source fixture and logging parity test for dropped/stale field
+  - id: arm_stowed
+    requirement: fixed_stowed_pose declaration, prospective tolerance, current arm state and abstention if unknown/outside
+    current_evidence: prior short JointState bag cannot establish always-stowed condition
+    next_evidence: timestamped joint state plus fixed-pose fixture and tolerances
+  - id: normalization_compatibility
+    requirement: complete-only train statistics, exact field order/hash and checkpoint metadata compatibility
+    current_evidence: proposal only; no Evaluator checkpoint trained for this schema
+    next_evidence: schema freeze, dataset fixture, future checkpoint compatibility tests
+  - id: logging_parity
+    requirement: same pre-Path fields and behavior with logging enabled/disabled
+    current_evidence: prior schema and protocol only
+    next_evidence: separately approved paired logging parity runs
