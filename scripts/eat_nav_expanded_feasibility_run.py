@@ -21,6 +21,7 @@ from eat_nav_e1_analyze import duplicate_gate, load_trace
 from eat_nav_e1_artifact_recovery import seal_tree, verify_seal
 from eat_nav_g0e_gpu_probe import Nvml, atomic as atomic_status
 from eat_nav_g0e_gpu_run import container_identity
+from eat_nav_ros_subprocess_env import build_container_env,docker_pythonpath_arg
 
 
 ROOT=Path('/tmp/eatnav-expanded-feasibility-config-restored-20261005')
@@ -61,6 +62,13 @@ def once(path,value):
 
 def disk_bytes(root=ROOT):
     return sum(p.stat().st_size for p in Path(root).rglob('*') if p.is_file())
+
+
+def measured_storage_bytes(root):
+    root=Path(root)
+    ledger=root/'continuation-reuse-ledger.json'
+    reused=read(ledger)['reused_run_bytes'] if ledger.exists() else 0
+    return disk_bytes(root)+reused
 
 
 def router_identity(root=ROOT,*,proc_root=Path('/proc')):
@@ -227,9 +235,10 @@ def configure_replay(root=ROOT):
     replay.REMOTE_CODE=str(Path(root)/'eat_nav_expanded_sim_v2.py')
     replay.REMOTE_ROOT=str(Path(root)/'runs')
     replay.REMOTE_INPUT_ROOT=Path(root)
-    replay.ENV=('PYTHONPATH='+str(root)+':/tmp/eatnav-candidate-coverage/evaluator-readiness-code/src:'
-        '/tmp/eatnav-train:/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src:'
-        '/tmp/eatnav-extended/isaac-source')
+    replay.ENV=docker_pythonpath_arg(build_container_env(repo=REPO,extra_paths=(
+        root,'/tmp/eatnav-candidate-coverage/evaluator-readiness-code/src',
+        '/tmp/eatnav-train','/tmp/eatnav-train/src',
+        '/tmp/eatnav-train/upstream-src','/tmp/eatnav-extended/isaac-source')))
     schedule.ROOT=Path(root)
 
     def frozen(entry):
@@ -343,22 +352,25 @@ def _completed_prefix(root,rows):
 
 def _remaining_forecast(root,rows,completed,start):
     elapsed=time.time()-start
-    if elapsed>=WALL_CAP_SEC:raise TimeoutError('four-hour pilot cap')
-    if disk_bytes(root)>=STORAGE_CAP_BYTES:raise RuntimeError('one-GB storage cap')
+    ledger=Path(root)/'continuation-reuse-ledger.json'
+    prior=float(read(ledger)['prior_active_elapsed_sec']) if ledger.exists() else 0.0
+    if prior+elapsed>=WALL_CAP_SEC:raise TimeoutError('four-hour pilot cap')
+    storage=measured_storage_bytes(root)
+    if storage>=STORAGE_CAP_BYTES:raise RuntimeError('one-GB storage cap')
     durations=[read(Path(root)/'runs'/name/'run-complete.json')['elapsed_sec'] for name in completed]
     if durations:
         per_run=max(read(Path(root)/'runtime-storage-forecast.json')['measured_process_p95_sec'],
                     float(np.mean(durations)))
-        projected=elapsed+(len(rows)-len(completed))*per_run*1.2
+        projected=prior+elapsed+(len(rows)-len(completed))*per_run*1.2
     else:
         forecast=read(Path(root)/'runtime-storage-forecast.json')
-        projected=elapsed+forecast['p95_plus_20pct_sec']
+        projected=prior+elapsed+forecast['p95_plus_20pct_sec']
     if projected>WALL_CAP_SEC:
         once(Path(root)/'forecast-stop.json',{'elapsed_sec':elapsed,'completed':len(completed),
             'projected_total_sec':projected,'reason':'4h_cap_projection'})
         raise TimeoutError('pilot projected over four hours')
-    return {'elapsed_sec':elapsed,'projected_total_sec':projected,
-        'storage_bytes':disk_bytes(root),'completed':len(completed)}
+    return {'continuation_elapsed_sec':elapsed,'prior_active_elapsed_sec':prior,
+        'projected_total_sec':projected,'storage_bytes':storage,'completed':len(completed)}
 
 
 def _anchor_complete(root,row,entry,group,amplitudes,logged_goal):
@@ -447,7 +459,7 @@ def run(root=ROOT):
         if (root/'pilot-started.marker.json').exists():
             start=read(root/'pilot-started.marker.json')['start_wall_ns']/1e9
             forecast=_remaining_forecast(root,rows,completed,start)
-        else:forecast={'elapsed_sec':0,'projected_total_sec':read(root/'runtime-storage-forecast.json')['p95_plus_20pct_sec']}
+        else:forecast=_remaining_forecast(root,rows,completed,time.time())
         group=rows[idx*10:(idx+1)*10]
         if row['role']=='candidate_outcome' and read(root/f'duplicate-gate-{sid}.json')['status']!='pass':
             raise RuntimeError('lateral candidate before duplicate pass')
@@ -457,10 +469,12 @@ def run(root=ROOT):
             'completed_new_processes':len(completed),'forecast':forecast})
         baseline=schedule.prelaunch_baseline(row,container,nvml)
         if baseline['status']!='pass':raise RuntimeError('prelaunch baseline '+repr(baseline))
-        if row['role']=='anchor_only' and not (root/'pilot-started.marker.json').exists():
+        if not (root/'pilot-started.marker.json').exists():
             identity=router_identity(root)
             once(root/'pilot-started.marker.json',{'start_wall_ns':time.time_ns(),
                 'wall_cap_sec':WALL_CAP_SEC,'storage_cap_bytes':STORAGE_CAP_BYTES,
+                'prior_active_elapsed_sec':read(root/'continuation-reuse-ledger.json')['prior_active_elapsed_sec']
+                    if (root/'continuation-reuse-ledger.json').exists() else 0.0,
                 'frozen_manifest_sha256':sha(root/'run-manifest.json'),
                 'router_pid':identity['pid'],'router_start_ticks':identity['start_ticks']})
         _router_check(root)

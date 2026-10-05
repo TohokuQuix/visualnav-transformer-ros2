@@ -6,6 +6,8 @@ from eat_nav_e1_process_ownership import (ProcessRegistry,process_record,
     register_followers,stop_and_join_monitor)
 from eat_nav_g0e_gpu_probe import proc_table
 from eat_nav_g0e_gpu_run import container_identity
+from eat_nav_ros_subprocess_env import (build_env,build_ros_host_env,
+    docker_pythonpath_arg,env_audit)
 
 REPO=pathlib.Path('/tmp/eatnav-vnt-e1-feasibility')
 DOC=pathlib.Path('/tmp/eatnav-e1-feasibility-20261003')
@@ -15,7 +17,10 @@ SIM=REPO/'scripts/eat_nav_e1_sim.py'
 REMOTE_CODE=str(ROOT/'eat_nav_e1_sim.py')
 REMOTE_ROOT=str(ROOT/'runs')
 REMOTE_INPUT_ROOT=ROOT
-ENV='PYTHONPATH=/tmp/eatnav-e1-feasibility-20261003:/tmp/eatnav-candidate-coverage/evaluator-readiness-code/src:/tmp/eatnav-train:/tmp/eatnav-train/src:/tmp/eatnav-train/upstream-src:/tmp/eatnav-extended/isaac-source'
+ENV=docker_pythonpath_arg(build_env(os.environ,repo=pathlib.Path(__file__).resolve().parents[1],
+    extra_paths=(ROOT,'/tmp/eatnav-candidate-coverage/evaluator-readiness-code/src',
+                 '/tmp/eatnav-train','/tmp/eatnav-train/src',
+                 '/tmp/eatnav-train/upstream-src','/tmp/eatnav-extended/isaac-source')))
 PROD=pathlib.Path('/tmp/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node')
 FOLL=PROD
 PARAM=pathlib.Path('/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml')
@@ -159,7 +164,10 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
        ' --params '+str(PARAM)+' --diagnostic-dir '+str(target/'follower-logs')+
        (f' --fault-drop-stamp-ns {fault_drop_stamp_ns}' if fault_drop_stamp_ns is not None else '')]
    bridge_log=(target/'bridge.log').open('x')
-   bridge=subprocess.Popen(args,stdout=bridge_log,stderr=subprocess.STDOUT,start_new_session=True)
+   host_env=build_ros_host_env(repo=pathlib.Path(__file__).resolve().parents[1])
+   atomic(target/'bridge-environment.json',{'env':env_audit(host_env,'/usr/bin/python3'),
+       'builder_sha256':sha(pathlib.Path(__file__).resolve().with_name('eat_nav_ros_subprocess_env.py'))})
+   bridge=subprocess.Popen(args,env=host_env,stdout=bridge_log,stderr=subprocess.STDOUT,start_new_session=True)
    registry.register_pid('bridge',bridge.pid,ownership='measurement')
    registry.save(target/'process-registry.json')
    deadline=time.monotonic()+20
@@ -193,7 +201,8 @@ def run_one(entry,run_name,*,fault_drop_stamp_ns=None,expected_failure=False,tim
    if monitor_cleanup_protocol:monitor_cmd.extend(['--container-baseline',
        str(target/'container-process-baseline.json'),'--process-registry',
        str(target/'process-registry.json')])
-   monitor=subprocess.Popen(monitor_cmd,stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
+   monitor=subprocess.Popen(monitor_cmd,env=build_ros_host_env(repo=pathlib.Path(__file__).resolve().parents[1]),
+       stdout=monitor_log,stderr=subprocess.STDOUT,start_new_session=True)
    registry.register_pid('runtime_monitor',monitor.pid,ownership='control')
    registry.save(target/'process-registry.json')
   while sim.poll() is None:
