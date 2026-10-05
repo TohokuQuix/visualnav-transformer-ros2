@@ -37,15 +37,48 @@ def roots(table,container_id,remote_output,source=DEFAULT_SIM_SOURCE):
 
 def sample(nvml,container,baseline_ids,remote_output,source=DEFAULT_SIM_SOURCE,
            container_baseline=None):
-    devices,rows=nvml.sample();table=proc_table()
+    sample_start=time.monotonic_ns()
+    devices,rows=nvml.sample()
+    table_start=time.monotonic_ns();table=proc_table();table_end=time.monotonic_ns()
+    devices_after=nvml.memory_snapshot()
+    classify_start=time.monotonic_ns()
     root=(container_owned_roots(table,container['container_id'],container_baseline)
           if container_baseline is not None else roots(table,container['container_id'],remote_output,source))
     accounting=account(devices,rows,table,root,baseline_ids,container['container_id'])
+    before_by_uuid={device['uuid']:device['used_bytes'] for device in devices}
+    after_by_uuid={device['uuid']:device['used_bytes'] for device in devices_after}
+    if len(before_by_uuid)!=len(devices) or set(before_by_uuid)!=set(after_by_uuid):
+        raise RuntimeError('GPU UUID changed during bracketed sample')
+    process_by_uuid={uuid:0 for uuid in before_by_uuid}
+    for process in accounting['processes']:
+        process_by_uuid[process['gpu_uuid']]+=process['used_gpu_memory_bytes']
+    bracket=[]
+    for uuid,before in before_by_uuid.items():
+        after=after_by_uuid[uuid];total=process_by_uuid[uuid]
+        gap=(min(before,after)-total if total<min(before,after) else
+             max(before,after)-total if total>max(before,after) else 0)
+        bracket.append({'gpu_uuid':uuid,'device_before_bytes':before,
+                        'device_after_bytes':after,'process_sum_bytes':total,
+                        'attribution_gap_bytes':gap})
+    accounting['bracketed_unattributed_bytes']=max(
+        (row['attribution_gap_bytes'] for row in bracket),key=abs)
+    accounting['device_total_peak_bracket_bytes']=sum(
+        max(row['device_before_bytes'],row['device_after_bytes']) for row in bracket)
+    classify_end=time.monotonic_ns()
     tree=[table[pid] for pid in accounting['simulator_tree_host_pids'] if pid in table]
     cgroup=cgroup_memory(container['container_id'])
     detail=container_proc_details([p['container_pid'] for p in tree]) if tree else {}
     return {'wall_ns':time.time_ns(),'monotonic_ns':time.monotonic_ns(),
         'devices':devices,'gpu_accounting':accounting,'simulator_tree':tree,
+        'gpu_acquisition':{'device_before':devices,'device_after':devices_after,
+            'raw_process_rows':rows,'bracket':bracket,
+            'query_timing':{**getattr(nvml,'last_query_timing',{}),
+                'process_table_start_ns':table_start,'process_table_end_ns':table_end,
+                **getattr(nvml,'last_memory_snapshot_timing',{}),
+                'classification_start_ns':classify_start,
+                'classification_end_ns':classify_end,
+                'sample_start_ns':sample_start,
+                'sample_end_ns':time.monotonic_ns()}},
         'container_tree_details':detail,'cgroup_memory':cgroup,
         'host_available_bytes':host_available_bytes(),
         'simulator_tree_rss_bytes':sum(p['rss_bytes'] for p in tree),
@@ -56,10 +89,12 @@ def sample(nvml,container,baseline_ids,remote_output,source=DEFAULT_SIM_SOURCE,
 
 def gate_sample(snapshot,baseline_oom):
     a=snapshot['gpu_accounting'];m=snapshot['cgroup_memory']
-    return {'device_total_used_mib':a['device_total_used_bytes']/MIB,
+    return {'device_total_used_mib':a.get('device_total_peak_bracket_bytes',
+                                        a['device_total_used_bytes'])/MIB,
         'simulator_process_tree_used_mib':a['simulator_tree_used_bytes']/MIB,
         'other_processes_used_mib':a['other_processes_used_bytes']/MIB,
-        'unattributed_used_mib':a['unattributed_bytes']/MIB,
+        'unattributed_used_mib':a.get('bracketed_unattributed_bytes',
+                                    a['unattributed_bytes'])/MIB,
         'unresolved_pid_mib':a['unresolved_pid_bytes']/MIB,
         'anon_shmem_bytes':m['anon_bytes']+m['shmem_bytes'],
         'host_available_bytes':snapshot['host_available_bytes'],

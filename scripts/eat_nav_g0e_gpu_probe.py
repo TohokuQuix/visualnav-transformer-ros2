@@ -60,12 +60,15 @@ class Nvml:
     def sample(self):
         devices = []
         processes = []
+        query_times = []
         for i, handle in enumerate(self.handles):
             uuid = C.create_string_buffer(96)
             self._call('nvmlDeviceGetUUID', handle, uuid, len(uuid))
             memory = _MemoryV2(); memory.version = C.sizeof(_MemoryV2) | (2 << 24)
             util = _Util(); temperature = C.c_uint(); power = C.c_uint(); mode = C.c_uint()
+            before_start = time.monotonic_ns()
             self._call('nvmlDeviceGetMemoryInfo_v2', handle, C.byref(memory))
+            before_end = time.monotonic_ns()
             self._call('nvmlDeviceGetUtilizationRates', handle, C.byref(util))
             self._call('nvmlDeviceGetTemperature', handle, 0, C.byref(temperature))
             self._call('nvmlDeviceGetPowerUsage', handle, C.byref(power))
@@ -76,10 +79,43 @@ class Nvml:
                             'driver_reserved_bytes': memory.reserved,
                             'utilization_percent': util.gpu, 'temperature_c': temperature.value,
                             'power_mw': power.value, 'compute_mode': mode.value})
+            times = {'gpu_index': i, 'device_before_start_ns': before_start,
+                     'device_before_end_ns': before_end}
             for kind in ('Compute', 'Graphics'):
+                start = time.monotonic_ns()
                 for item in self._processes(handle, kind):
                     processes.append({**item, 'gpu_index': i, 'gpu_uuid': uid})
+                times[kind.lower() + '_start_ns'] = start
+                times[kind.lower() + '_end_ns'] = time.monotonic_ns()
+            query_times.append(times)
+        self.last_query_timing = {
+            key: min(row[key] for row in query_times) if key.endswith('start_ns')
+            else max(row[key] for row in query_times)
+            for key in ('device_before_start_ns', 'device_before_end_ns',
+                        'compute_start_ns', 'compute_end_ns',
+                        'graphics_start_ns', 'graphics_end_ns')}
+        self.last_query_timing['per_gpu'] = query_times
         return devices, processes
+
+    def memory_snapshot(self):
+        devices = []
+        times = []
+        for i, handle in enumerate(self.handles):
+            uuid = C.create_string_buffer(96)
+            self._call('nvmlDeviceGetUUID', handle, uuid, len(uuid))
+            memory = _MemoryV2(); memory.version = C.sizeof(_MemoryV2) | (2 << 24)
+            start = time.monotonic_ns()
+            self._call('nvmlDeviceGetMemoryInfo_v2', handle, C.byref(memory))
+            end = time.monotonic_ns()
+            devices.append({'index': i, 'uuid': uuid.value.decode(),
+                            'used_bytes': memory.used})
+            times.append({'gpu_index': i, 'device_after_start_ns': start,
+                          'device_after_end_ns': end})
+        self.last_memory_snapshot_timing = {
+            'device_after_start_ns': min(row['device_after_start_ns'] for row in times),
+            'device_after_end_ns': max(row['device_after_end_ns'] for row in times),
+            'per_gpu_after': times}
+        return devices
 
 
 def proc_info(pid):
