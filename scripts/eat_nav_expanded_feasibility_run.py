@@ -26,6 +26,8 @@ from eat_nav_g0e_gpu_run import container_identity
 ROOT=Path('/tmp/eatnav-expanded-feasibility-approved-resume-20261005')
 REPO=Path(__file__).resolve().parents[1]
 EXPECTED_SIM_SHA='0e8ea4639f0496ab45b4b833ab1bc0e8c6320d3419194e42ff2b8e84e0454e2e'
+E1_ANCHOR_CONFIG=Path('/tmp/eatnav-e1-artifact-recovered-continuation-20261004/inputs/state-000/config-120.yaml')
+E1_ANCHOR_CONFIG_SHA='d89e7853cc72ce0e0090623f6a4e300637cd6f35efa2cd7058ddf3d1720be605'
 WALL_CAP_SEC=14400
 STORAGE_CAP_BYTES=1_000_000_000
 
@@ -84,6 +86,26 @@ def frozen_rows(root=ROOT):
         if sha(path)!=row['base_path_file_sha256']:
             raise ValueError('frozen base Path SHA differs '+row['process_id'])
     return rows,states
+
+
+def validate_anchor_limit_contract(root,state_count,reference_limits):
+    """Reject missing or changed E1 numeric limits before launching an anchor."""
+    for index in range(state_count):
+        path=Path(root)/'inputs'/f'state-{index:03d}'/'config-120.yaml'
+        current=yaml.safe_load(path.read_text()).get('anchor_limits',{})
+        missing=sorted(set(reference_limits)-set(current))
+        different=sorted(key for key in reference_limits if key in current
+                         and current[key]!=reference_limits[key])
+        extra=sorted(set(current)-set(reference_limits))
+        if missing or different or extra:
+            raise ValueError(f'anchor limits state-{index:03d}: missing={missing}; '
+                             f'different={different}; extra={extra}')
+
+
+def original_e1_anchor_limits():
+    if sha(E1_ANCHOR_CONFIG)!=E1_ANCHOR_CONFIG_SHA:
+        raise ValueError('original E1 anchor config SHA differs')
+    return yaml.safe_load(E1_ANCHOR_CONFIG.read_text())['anchor_limits']
 
 
 def execution_entry(row,state,*,map_digest):
@@ -379,6 +401,7 @@ def _noise_floor(root,rows):
 
 def run(root=ROOT):
     root=Path(root);rows,states=frozen_rows(root)
+    validate_anchor_limit_contract(root,len(states),original_e1_anchor_limits())
     if sha(root/'eat_nav_expanded_sim_v2.py')!=EXPECTED_SIM_SHA:
         raise ValueError('simulator adapter SHA differs')
     if read(root/'x2-readiness-gate.json')['status']!='pass':raise ValueError('X2 pending')

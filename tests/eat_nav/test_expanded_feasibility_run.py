@@ -4,7 +4,9 @@ import json
 import numpy as np
 import pytest
 
-from eat_nav_expanded_feasibility_run import execution_entry, freeze_map_paths, router_identity
+from eat_nav_expanded_feasibility_run import (
+    execution_entry, freeze_map_paths, router_identity, validate_anchor_limit_contract,
+)
 
 
 def test_execution_entry_keeps_frozen_order_and_role():
@@ -60,3 +62,17 @@ def test_router_identity_comes_from_new_root_not_prior_pid(tmp_path):
         'router_identity':{'pid':456,'start_ticks':789,
             'binary':'/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd'}}))
     assert router_identity(root,proc_root=proc_root)['pid']==456
+
+
+def test_anchor_config_contract_fails_offline_if_original_e1_keys_missing(tmp_path):
+    state=tmp_path/'inputs/state-000';state.mkdir(parents=True)
+    (state/'config-120.yaml').write_text('anchor_limits:\n  position_m: 0.02\n  orientation_rad: 0.03\n  dem_rms_m: 0.03\n  mask_iou_min: 0.95\n')
+    reference={'position_m':.02,'orientation_rad':.03,'dem_rms_m':.03,
+        'mask_iou_min':.95,'velocity_max_abs':1e-4,'command_max_abs':1e-5}
+    with pytest.raises(ValueError,match='missing.*command_max_abs.*velocity_max_abs'):
+        validate_anchor_limit_contract(tmp_path,1,reference)
+    (state/'config-120.yaml').write_text('anchor_limits:\n  position_m: 0.02\n  orientation_rad: 0.03\n  dem_rms_m: 0.03\n  mask_iou_min: 0.95\n  velocity_max_abs: 0.0001\n  command_max_abs: 0.00001\n')
+    validate_anchor_limit_contract(tmp_path,1,reference)
+    (state/'config-120.yaml').write_text('anchor_limits:\n  position_m: 0.03\n  orientation_rad: 0.03\n  dem_rms_m: 0.03\n  mask_iou_min: 0.95\n  velocity_max_abs: 0.0001\n  command_max_abs: 0.00001\n')
+    with pytest.raises(ValueError,match="different=\\['position_m'\\]"):
+        validate_anchor_limit_contract(tmp_path,1,reference)
