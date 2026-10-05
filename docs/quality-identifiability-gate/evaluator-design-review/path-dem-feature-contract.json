@@ -1,0 +1,23 @@
+{
+  "candidate_id_family_amplitude_are_not_inputs": true,
+  "features": [
+    "Path_length_m",
+    "waypoint_spacing_m",
+    "heading_change_rad",
+    "curvature_per_m",
+    "start_end_tangent_rad",
+    "DEM_height_profile_m",
+    "slope_profile",
+    "roughness_std_m",
+    "height_discontinuity_m",
+    "unknown_cell_coverage",
+    "centerline_known_fraction",
+    "footprint_coverage_diagnostic",
+    "direct_Path_difference_m"
+  ],
+  "footprint_note": "diagnostic only until robot collision and hardware footprint parity checked",
+  "frame": "base-yaw DEM and base Path",
+  "sampling": "frozen E0 dense centerline; 0.1 m DEM; all 4 history frames retain masks",
+  "source": "anchor DEM history + candidate Path only",
+  "unknown_policy": "never treat unknown as free; preserve coverage mask and NA values"
+}

@@ -1,0 +1,297 @@
+{
+  "bootstrap": "trace[40] pre-step Critic at t=2 s; rewards trace[0:40]",
+  "gamma": 0.99,
+  "groups": {
+    "expanded-train-000": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 1.8176285463360244,
+          "delta_v_0_2s": 0.7592658996582031,
+          "reward_0_2s": 17.068001061677933
+        },
+        "left_1": {
+          "advantage_0_2s": 1.951878783292031,
+          "delta_v_0_2s": 0.7487564086914062,
+          "reward_0_2s": 17.277898281812668
+        },
+        "left_2": {
+          "advantage_0_2s": 1.744139034177266,
+          "delta_v_0_2s": 0.6163139343261719,
+          "reward_0_2s": 17.142588704824448
+        },
+        "left_3": {
+          "advantage_0_2s": 1.8001859126441175,
+          "delta_v_0_2s": 0.6533851623535156,
+          "reward_0_2s": 17.18981346487999
+        },
+        "right_1": {
+          "advantage_0_2s": 1.934853111257894,
+          "delta_v_0_2s": 0.7219505310058594,
+          "reward_0_2s": 17.294492214918137
+        },
+        "right_2": {
+          "advantage_0_2s": 1.90712127274643,
+          "delta_v_0_2s": 0.7638893127441406,
+          "reward_0_2s": 17.233792930841446
+        },
+        "right_3": {
+          "advantage_0_2s": 1.7767302307574866,
+          "delta_v_0_2s": 0.6344337463378906,
+          "reward_0_2s": 17.180551528930664
+        }
+      },
+      "delta_advantage_spearman": 0.7142857142857144,
+      "delta_top1_equals_advantage": false
+    },
+    "expanded-train-001": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 2.523473627568187,
+          "delta_v_0_2s": 1.3017730712890625,
+          "reward_0_2s": 17.683982580900192
+        },
+        "left_1": {
+          "advantage_0_2s": 2.401506257048588,
+          "delta_v_0_2s": 1.2548065185546875,
+          "reward_0_2s": 17.57449209690094
+        },
+        "left_2": {
+          "advantage_0_2s": 2.465856919947747,
+          "delta_v_0_2s": 1.2169761657714844,
+          "reward_0_2s": 17.706215292215347
+        },
+        "left_3": {
+          "advantage_0_2s": 2.153710210753026,
+          "delta_v_0_2s": 1.0394515991210938,
+          "reward_0_2s": 17.465615302324295
+        },
+        "right_1": {
+          "advantage_0_2s": 2.6043917284580616,
+          "delta_v_0_2s": 1.3235855102539062,
+          "reward_0_2s": 17.769237875938416
+        },
+        "right_2": {
+          "advantage_0_2s": 2.414446882280288,
+          "delta_v_0_2s": 1.2296066284179688,
+          "reward_0_2s": 17.607779383659363
+        },
+        "right_3": {
+          "advantage_0_2s": 2.3359530316894563,
+          "delta_v_0_2s": 1.0933647155761719,
+          "reward_0_2s": 17.64509215950966
+        }
+      },
+      "delta_advantage_spearman": 0.8571428571428573,
+      "delta_top1_equals_advantage": true
+    },
+    "expanded-train-002": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 2.605293401812105,
+          "delta_v_0_2s": 1.2076416015625,
+          "reward_0_2s": 17.72189411520958
+        },
+        "left_1": {
+          "advantage_0_2s": 2.457404397441316,
+          "delta_v_0_2s": 1.1632308959960938,
+          "reward_0_2s": 17.565272271633148
+        },
+        "left_2": {
+          "advantage_0_2s": 2.3672019017100254,
+          "delta_v_0_2s": 1.0256004333496094,
+          "reward_0_2s": 17.58262437582016
+        },
+        "left_3": {
+          "advantage_0_2s": 2.3393692820187084,
+          "delta_v_0_2s": 0.9996299743652344,
+          "reward_0_2s": 17.583553194999695
+        },
+        "right_1": {
+          "advantage_0_2s": 2.5016566027940073,
+          "delta_v_0_2s": 1.245361328125,
+          "reward_0_2s": 17.556653797626495
+        },
+        "right_2": {
+          "advantage_0_2s": 2.453354898211863,
+          "delta_v_0_2s": 1.1428985595703125,
+          "reward_0_2s": 17.596588850021362
+        },
+        "right_3": {
+          "advantage_0_2s": 2.354817980656378,
+          "delta_v_0_2s": 0.9948539733886719,
+          "reward_0_2s": 17.614733815193176
+        }
+      },
+      "delta_advantage_spearman": 0.9285714285714288,
+      "delta_top1_equals_advantage": false
+    },
+    "expanded-train-003": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 2.2171519328963143,
+          "delta_v_0_2s": 1.2301139831542969,
+          "reward_0_2s": 16.757958561182022
+        },
+        "left_1": {
+          "advantage_0_2s": 2.3166799030883496,
+          "delta_v_0_2s": 1.3496322631835938,
+          "reward_0_2s": 16.763678550720215
+        },
+        "left_2": {
+          "advantage_0_2s": 1.9872715550570206,
+          "delta_v_0_2s": 0.9671592712402344,
+          "reward_0_2s": 16.68557459115982
+        },
+        "left_3": {
+          "advantage_0_2s": 2.1772722546284484,
+          "delta_v_0_2s": 1.1095504760742188,
+          "reward_0_2s": 16.848171830177307
+        },
+        "right_1": {
+          "advantage_0_2s": 1.8800997503580632,
+          "delta_v_0_2s": 1.1816024780273438,
+          "reward_0_2s": 16.389354944229126
+        },
+        "right_2": {
+          "advantage_0_2s": 2.3246268933457728,
+          "delta_v_0_2s": 1.2999076843261719,
+          "reward_0_2s": 16.85767412185669
+        },
+        "right_3": {
+          "advantage_0_2s": 1.0354984821264566,
+          "delta_v_0_2s": -0.4314689636230469,
+          "reward_0_2s": 16.687800496816635
+        }
+      },
+      "delta_advantage_spearman": 0.8571428571428573,
+      "delta_top1_equals_advantage": false
+    },
+    "expanded-train-004": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 2.089841931774451,
+          "delta_v_0_2s": 0.7937850952148438,
+          "reward_0_2s": 17.05698075890541
+        },
+        "left_1": {
+          "advantage_0_2s": 1.884347992551696,
+          "delta_v_0_2s": 0.6790351867675781,
+          "reward_0_2s": 16.905442386865616
+        },
+        "left_2": {
+          "advantage_0_2s": 1.9566421672193925,
+          "delta_v_0_2s": 0.7639846801757812,
+          "reward_0_2s": 16.915721893310547
+        },
+        "left_3": {
+          "advantage_0_2s": 1.859354846083356,
+          "delta_v_0_2s": 0.6579818725585938,
+          "reward_0_2s": 16.912769615650177
+        },
+        "right_1": {
+          "advantage_0_2s": 2.013385082889002,
+          "delta_v_0_2s": 0.7334671020507812,
+          "reward_0_2s": 17.02188029885292
+        },
+        "right_2": {
+          "advantage_0_2s": 1.900234481987738,
+          "delta_v_0_2s": 0.6708908081054688,
+          "reward_0_2s": 16.947334975004196
+        },
+        "right_3": {
+          "advantage_0_2s": 2.0087102292136336,
+          "delta_v_0_2s": 0.6939849853515625,
+          "reward_0_2s": 17.070518165826797
+        }
+      },
+      "delta_advantage_spearman": 0.8571428571428573,
+      "delta_top1_equals_advantage": true
+    },
+    "g0e-train-000": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 1.0284636058160004,
+          "delta_v_0_2s": -0.3834724426269531,
+          "reward_0_2s": 16.90155640244484
+        },
+        "left_1": {
+          "advantage_0_2s": 1.4624429348515235,
+          "delta_v_0_2s": 0.36960601806640625,
+          "reward_0_2s": 16.8086279630661
+        },
+        "left_2": {
+          "advantage_0_2s": 1.1072293031764957,
+          "delta_v_0_2s": -0.31890106201171875,
+          "reward_0_2s": 16.944395124912262
+        },
+        "left_3": {
+          "advantage_0_2s": 1.001662313264113,
+          "delta_v_0_2s": -0.46315765380859375,
+          "reward_0_2s": 16.945247501134872
+        },
+        "right_1": {
+          "advantage_0_2s": 1.5431442514460016,
+          "delta_v_0_2s": 0.3681182861328125,
+          "reward_0_2s": 16.901247143745422
+        },
+        "right_2": {
+          "advantage_0_2s": 1.637587111681242,
+          "delta_v_0_2s": 0.3528289794921875,
+          "reward_0_2s": 17.050075978040695
+        },
+        "right_3": {
+          "advantage_0_2s": 1.6257512748572793,
+          "delta_v_0_2s": 0.39185333251953125,
+          "reward_0_2s": 17.028413116931915
+        }
+      },
+      "delta_advantage_spearman": 0.7500000000000002,
+      "delta_top1_equals_advantage": false
+    },
+    "g0e-train-001": {
+      "candidate_values": {
+        "direct_reference": {
+          "advantage_0_2s": 1.8040843914924523,
+          "delta_v_0_2s": 0.7819557189941406,
+          "reward_0_2s": 17.06287509202957
+        },
+        "left_1": {
+          "advantage_0_2s": 1.695959272077161,
+          "delta_v_0_2s": 0.8192100524902344,
+          "reward_0_2s": 16.900541603565216
+        },
+        "left_2": {
+          "advantage_0_2s": 1.6240813900790698,
+          "delta_v_0_2s": 0.8675308227539062,
+          "reward_0_2s": 16.780917763710022
+        },
+        "left_3": {
+          "advantage_0_2s": 1.6396428511813639,
+          "delta_v_0_2s": 0.8018836975097656,
+          "reward_0_2s": 16.86241042613983
+        },
+        "right_1": {
+          "advantage_0_2s": 1.5317369349658776,
+          "delta_v_0_2s": 0.8210411071777344,
+          "reward_0_2s": 16.706149488687515
+        },
+        "right_2": {
+          "advantage_0_2s": 1.4920717717533947,
+          "delta_v_0_2s": 0.7689895629882812,
+          "reward_0_2s": 16.683932840824127
+        },
+        "right_3": {
+          "advantage_0_2s": 1.7407012932427364,
+          "delta_v_0_2s": 0.79766845703125,
+          "reward_0_2s": 16.99472799897194
+        }
+      },
+      "delta_advantage_spearman": -0.1785714285714286,
+      "delta_top1_equals_advantage": false
+    }
+  },
+  "state_group_macro_delta_advantage_spearman": 0.6836734693877553,
+  "status": "exploratory_only_not_teacher_selection",
+  "top1_match_count": 2,
+  "window_sec": 2
+}

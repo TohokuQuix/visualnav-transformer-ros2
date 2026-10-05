@@ -1,0 +1,22 @@
+status: prospective_design_not_train_ready
+preferred_architecture: multi_task_ranking_after_teacher_revision
+losses:
+  pairwise_logistic: good for relative order; apply duplicate-aware ties and StateGroup
+    weighting
+  margin_ranking: sensitive to fixed margin and sparse labels; secondary ablation
+  listwise: requires stable group-level total order; defer while label discordance
+    exists
+  Huber_regression: for ΔV/advantage/progress/drawdown calibration heads; group-normalized
+    targets and raw values both reported
+  multi_task_weighted: shared representation; weights must be frozen prospectively,
+    no optimization on these 7 groups
+  tie_aware_ranking: exclude pairs within max(direct-repeat floor, measurement floor);
+    denominator-zero recorded separately
+  uncertainty_aware: heteroscedastic head is exploratory; calibrate on held-out groups,
+    do not use missing safety positives
+prospective_measurement_floors:
+  delta_v_critic_units: 0.01
+  source: pre-existing frozen E1 critic difference floor; not fitted here
+numerical_loss_weights: null
+reason_weights_unset: primary teacher direction unresolved across ΔV/advantage/reward/progress
+safety_head_training: false

@@ -1,0 +1,57 @@
+{
+  "all_seven_terrain_two_state_target_supported": false,
+  "decision": "not executable as 14 groups under frozen short-prefix geometry support; no collection authorization",
+  "final_storage_point_bytes_approx": 1187004000,
+  "final_storage_with_20pct_margin_bytes_approx": 1424404800,
+  "fresh_process": "anchor/duplicate/candidate must retain per-run sealed lifecycle",
+  "gpu_peak_forecast_mib": "about 5960 if serial and same process topology; not a guarantee",
+  "new_max_processes": 140,
+  "processes_per_group": {
+    "anchor_only": 1,
+    "direct_repeat": 3,
+    "non_direct": 6
+  },
+  "proposed_new_groups": 14,
+  "ram_forecast": "PSS about 5.38 GiB; anon+shmem about 3.72 GiB if serial, measured topology",
+  "serial_runtime_point_sec": 23881.621555175778,
+  "serial_runtime_with_20pct_margin_sec": 28657.945866210932,
+  "source_measurement": {
+    "active_seconds": 8529.150555419921,
+    "anonymous_plus_shmem_peak_gib": 3.724,
+    "combined_storage_bytes_approx": 423930000,
+    "gpu_device_total_peak_mib": 5959.56,
+    "sealed_processes": 50,
+    "simulator_pss_peak_gib": 5.38
+  },
+  "support_by_terrain": {
+    "boxes": {
+      "independent_episode_support": 0,
+      "target_two_supported": false
+    },
+    "hf_pyramid_slope": {
+      "independent_episode_support": 0,
+      "target_two_supported": false
+    },
+    "k_rail_field": {
+      "independent_episode_support": 10,
+      "target_two_supported": true
+    },
+    "k_rail_step_field": {
+      "independent_episode_support": 9,
+      "target_two_supported": true
+    },
+    "pyramid_stairs": {
+      "independent_episode_support": 2,
+      "target_two_supported": true
+    },
+    "pyramid_stairs_inv": {
+      "independent_episode_support": 2,
+      "target_two_supported": true
+    },
+    "random_rough": {
+      "independent_episode_support": 8,
+      "target_two_supported": true
+    }
+  },
+  "zenoh": "external router preflight required; runner neither starts nor stops router"
+}

@@ -1,0 +1,23 @@
+schema_version: eatnav_hard_state_support_v1
+purpose: prospective_outcome_blind_support_audit_only
+source_split: complete_only_train
+source_episode: 0
+max_prefix_control_steps: 80
+exclude_existing_environment_ids: [22, 78, 36, 54, 6, 73, 47]
+exclude_previously_probed_anchors: true
+path_bank: frozen_cubic_bezier_7
+dem_shape: [4, 2, 20, 20]
+dem_resolution_m: 0.1
+centerline_common_known_fraction_min: 0.8
+direct_exposure_any:
+  height_range_m_min: 0.04
+  roughness_std_m_min: 0.015
+  adjacent_height_jump_m_min: 0.04
+  slope_abs_min: 0.2
+detour_difference:
+  mean_absolute_height_profile_m_min: 0.02
+  required_detour_count_min: 1
+candidate_target_per_terrain: 2
+selection_ranking: sha256_of_episode_key_step_terrain_seed_with_fixed_salt
+selection_salt: eatnav-evaluator-hard-state-v1-20261005
+note: thresholds are prospective geometry exposure definitions, not fitted to E1 outcomes

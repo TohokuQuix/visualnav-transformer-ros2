@@ -1,0 +1,353 @@
+{
+  "complete_only_train_count": 49598,
+  "outcome_fields_read": false,
+  "previously_probed_anchors_excluded": 3,
+  "selection_still_requires_review": true,
+  "short_prefix_before_prior_probe_exclusion": 949,
+  "short_prefix_candidates": 946,
+  "source_chunk_sha256_checked": [
+    {
+      "file": "chunk-000000.jsonl.gz",
+      "sha256": "b5e4adb28413bd98e2d0f2829067657a2182d29d64e4807eb889e173d2cb58d5"
+    },
+    {
+      "file": "chunk-000001.jsonl.gz",
+      "sha256": "34ec27b3dac5b1dc981176f73678a6293a697cd17327a5a591e065f38927342f"
+    }
+  ],
+  "source_sha256": {
+    "bank": "c68815526efc8150b229025bfaa196d9ff9edc58076b2042ae5295e5ec985f02",
+    "candidate_list": "aa0ec83560db08af59e5b27b9d5dcd6cbb0fc9311b08ecb1db838f5de37e4aed",
+    "manifest": "55d9e2d89631c2afa19dabfb02b2753616bc2b71907843f5570bd3a8e41e1475"
+  },
+  "status": "support_audited_not_selected",
+  "terrain": {
+    "boxes": {
+      "counts": {
+        "no_direct_exposure": 51,
+        "no_distinct_detour_profile": 1,
+        "short_prefix_complete_windows": 52
+      },
+      "independent_episode_support": 0,
+      "independent_terrain_seed_support": 0,
+      "prospective_first_two": [],
+      "supported_prefix_steps": null,
+      "two_state_target_supported": false
+    },
+    "hf_pyramid_slope": {
+      "counts": {
+        "no_direct_exposure": 96,
+        "no_distinct_detour_profile": 8,
+        "short_prefix_complete_windows": 104
+      },
+      "independent_episode_support": 0,
+      "independent_terrain_seed_support": 0,
+      "prospective_first_two": [],
+      "supported_prefix_steps": null,
+      "two_state_target_supported": false
+    },
+    "k_rail_field": {
+      "counts": {
+        "geometry_supported_windows": 71,
+        "no_direct_exposure": 44,
+        "no_distinct_detour_profile": 28,
+        "short_prefix_complete_windows": 143
+      },
+      "independent_episode_support": 10,
+      "independent_terrain_seed_support": 10,
+      "prospective_first_two": [
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.046217408031225204,
+            "height_range_m": 0.05997811257839203,
+            "roughness_std_m": 0.022383835166692734,
+            "slope_abs": 0.46217408776283264
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            17,
+            0
+          ],
+          "prefix_steps": 26,
+          "selection_rank": "0341b9f4319e6c4fa4434fa570fa6495846cb31d504da3c2b6b37360a776e114",
+          "step": 25,
+          "terrain_seed": 1654312519
+        },
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.08865761756896973,
+            "height_range_m": 0.11143071204423904,
+            "roughness_std_m": 0.046275340020656586,
+            "slope_abs": 0.8865761756896973
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            28,
+            0
+          ],
+          "prefix_steps": 51,
+          "selection_rank": "063adea037d59246492f01825f4faba80cfdd536dbc15d6f304626f5689cf52c",
+          "step": 50,
+          "terrain_seed": 1151611242
+        }
+      ],
+      "supported_prefix_steps": {
+        "max": 76,
+        "median": 46,
+        "min": 16
+      },
+      "two_state_target_supported": true
+    },
+    "k_rail_step_field": {
+      "counts": {
+        "geometry_supported_windows": 97,
+        "no_direct_exposure": 10,
+        "no_distinct_detour_profile": 35,
+        "short_prefix_complete_windows": 142
+      },
+      "independent_episode_support": 9,
+      "independent_terrain_seed_support": 9,
+      "prospective_first_two": [
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.036432892084121704,
+            "height_range_m": 0.0446440726518631,
+            "roughness_std_m": 0.015724673867225647,
+            "slope_abs": 0.36432892084121704
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            44,
+            0
+          ],
+          "prefix_steps": 21,
+          "selection_rank": "069539bc93be98612ab1d0f24a5247b23daba63a7b9825ab2fd15f16d17d49f5",
+          "step": 20,
+          "terrain_seed": 842950983
+        },
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.08706644177436829,
+            "height_range_m": 0.13195312023162842,
+            "roughness_std_m": 0.04510818421840668,
+            "slope_abs": 0.8706644177436829
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            79,
+            0
+          ],
+          "prefix_steps": 66,
+          "selection_rank": "089a8c91067f6f8e158d4e89a77160c2ab9920e23cb3b9ee078f11d4de22dd01",
+          "step": 65,
+          "terrain_seed": 2280449575
+        }
+      ],
+      "supported_prefix_steps": {
+        "max": 76,
+        "median": 41,
+        "min": 16
+      },
+      "two_state_target_supported": true
+    },
+    "pyramid_stairs": {
+      "counts": {
+        "geometry_supported_windows": 7,
+        "no_direct_exposure": 99,
+        "no_distinct_detour_profile": 36,
+        "short_prefix_complete_windows": 142
+      },
+      "independent_episode_support": 2,
+      "independent_terrain_seed_support": 2,
+      "prospective_first_two": [
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.1283321976661682,
+            "height_range_m": 0.27232223749160767,
+            "roughness_std_m": 0.09592945873737335,
+            "slope_abs": 1.2833219766616821
+          },
+          "distinct_detours": [
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            40,
+            0
+          ],
+          "prefix_steps": 76,
+          "selection_rank": "38a70d5a9bddb42a08d206df51195c238d18c9224f9147c7049a8b51493d3a67",
+          "step": 75,
+          "terrain_seed": 2610241574
+        },
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.06859743595123291,
+            "height_range_m": 0.1591503918170929,
+            "roughness_std_m": 0.04745209962129593,
+            "slope_abs": 0.6859743595123291
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2",
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            26,
+            0
+          ],
+          "prefix_steps": 61,
+          "selection_rank": "5ece47ca864776c9bc44b58b23a3eeda31dbf09e51294abd504cbc1b58ad0b97",
+          "step": 60,
+          "terrain_seed": 666010005
+        }
+      ],
+      "supported_prefix_steps": {
+        "max": 76,
+        "median": 66,
+        "min": 56
+      },
+      "two_state_target_supported": true
+    },
+    "pyramid_stairs_inv": {
+      "counts": {
+        "geometry_supported_windows": 7,
+        "no_direct_exposure": 142,
+        "no_distinct_detour_profile": 19,
+        "short_prefix_complete_windows": 168
+      },
+      "independent_episode_support": 2,
+      "independent_terrain_seed_support": 2,
+      "prospective_first_two": [
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.13908445835113525,
+            "height_range_m": 0.16617703437805176,
+            "roughness_std_m": 0.07115036994218826,
+            "slope_abs": 1.3908445835113525
+          },
+          "distinct_detours": [
+            "left_3"
+          ],
+          "episode_key": [
+            0,
+            2,
+            0
+          ],
+          "prefix_steps": 51,
+          "selection_rank": "21776409b4b5f4c9294e6a4c5fd5ea39a91dbb4199af51edff701b66f9ee069b",
+          "step": 50,
+          "terrain_seed": 2922780060
+        },
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.14146947860717773,
+            "height_range_m": 0.16598397493362427,
+            "roughness_std_m": 0.07630080729722977,
+            "slope_abs": 1.4146947860717773
+          },
+          "distinct_detours": [
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            29,
+            0
+          ],
+          "prefix_steps": 76,
+          "selection_rank": "952e2ca0a4a3296526792f23620b2d3f86a69990a64b051567598d5ca1297dbd",
+          "step": 75,
+          "terrain_seed": 993084048
+        }
+      ],
+      "supported_prefix_steps": {
+        "max": 76,
+        "median": 66,
+        "min": 46
+      },
+      "two_state_target_supported": true
+    },
+    "random_rough": {
+      "counts": {
+        "geometry_supported_windows": 16,
+        "no_direct_exposure": 65,
+        "no_distinct_detour_profile": 114,
+        "short_prefix_complete_windows": 195
+      },
+      "independent_episode_support": 8,
+      "independent_terrain_seed_support": 8,
+      "prospective_first_two": [
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.03286190330982208,
+            "height_range_m": 0.04531335458159447,
+            "roughness_std_m": 0.015186566859483719,
+            "slope_abs": 0.3286190330982208
+          },
+          "distinct_detours": [
+            "right_1",
+            "right_2"
+          ],
+          "episode_key": [
+            0,
+            39,
+            0
+          ],
+          "prefix_steps": 61,
+          "selection_rank": "0a75170fdb588d22f3f55a3062d4aa4d7d5eb07df9c5dbc8d296109fd090c9f2",
+          "step": 60,
+          "terrain_seed": 912919973
+        },
+        {
+          "direct_exposure": {
+            "adjacent_height_jump_m": 0.03219880908727646,
+            "height_range_m": 0.03219880908727646,
+            "roughness_std_m": 0.010165564715862274,
+            "slope_abs": 0.3219880759716034
+          },
+          "distinct_detours": [
+            "right_3"
+          ],
+          "episode_key": [
+            0,
+            5,
+            0
+          ],
+          "prefix_steps": 41,
+          "selection_rank": "0bde8be9879859c94816a46e4770872ef91e3131eb385d4890309da856c44068",
+          "step": 40,
+          "terrain_seed": 909734349
+        }
+      ],
+      "supported_prefix_steps": {
+        "max": 76,
+        "median": 53.5,
+        "min": 26
+      },
+      "two_state_target_supported": true
+    }
+  },
+  "threshold_config_sha256": "a13364f04d54270bda84162658539b3008fc0d3db3ed09e38161bb8426774f81"
+}

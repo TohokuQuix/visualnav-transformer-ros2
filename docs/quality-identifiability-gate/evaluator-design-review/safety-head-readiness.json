@@ -1,0 +1,27 @@
+{
+  "censored_timeout_is_failure": false,
+  "events": [
+    "verified_stack",
+    "excessive_tilt",
+    "termination_by_cause",
+    "recovery",
+    "high_effort",
+    "contact_anomaly",
+    "progress_failure",
+    "censored_timeout",
+    "infrastructure_failure"
+  ],
+  "failure_positive_live_trajectories": 0,
+  "infrastructure_failure_is_robot_failure": false,
+  "note": "event-specific counts; do not pool causes to satisfy threshold",
+  "prospective_per_event_minimum": {
+    "distinct_terrain_seeds_with_positives": 10,
+    "distinct_terrain_types_with_positives": 3,
+    "test_positive_distinct_StateGroups": 10,
+    "train_negative_distinct_StateGroups": 40,
+    "train_positive_distinct_StateGroups": 40,
+    "validation_positive_distinct_StateGroups": 10
+  },
+  "ready_to_train": false,
+  "verified_stack_trajectories": 0
+}

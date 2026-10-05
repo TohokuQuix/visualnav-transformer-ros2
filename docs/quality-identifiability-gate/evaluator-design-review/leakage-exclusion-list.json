@@ -1,0 +1,29 @@
+{
+  "future_trace_used_only_as_teacher": true,
+  "group_split_required": true,
+  "metadata_only": [
+    "candidate_id",
+    "family_name",
+    "amplitude_name",
+    "run_order"
+  ],
+  "primary_model_exclusions": [
+    "future_follower_command",
+    "future_Actor_action",
+    "live_post_Path_Actor_latent",
+    "realized_trajectory",
+    "post_rollout_contact",
+    "post_rollout_effort",
+    "post_rollout_reward",
+    "post_rollout_Critic",
+    "termination",
+    "candidate_outcome",
+    "success_or_failure_label",
+    "candidate_id",
+    "family_name",
+    "amplitude_name",
+    "run_order",
+    "environment_absolute_origin",
+    "future_trace_feature"
+  ]
+}

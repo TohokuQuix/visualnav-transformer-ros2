@@ -1,0 +1,223 @@
+{
+  "all_normalization_statistics_train_only": true,
+  "excluded_until_capture_and_parity": "anchor_raw_joint_effort",
+  "fields": [
+    {
+      "frame": "base-yaw raster",
+      "missing_policy": "mask unknown, never free-fill",
+      "name": "dem_history",
+      "normalization": "subtract scalar reference height only; train-only valid-cell scaling",
+      "production_parity": "sim source-to-base transform verified; physical GridMap parity pending",
+      "real_robot_available": "GridMap adapter exists; measured parity unverified",
+      "same_anchor_time": "4 frames at -0.75,-0.50,-0.25,0 s; exact anchor identity",
+      "shape": [
+        4,
+        2,
+        20,
+        20
+      ],
+      "simulator_available": true,
+      "source": "anchor.dem_history",
+      "unit": "height m + binary mask"
+    },
+    {
+      "frame": "base-yaw raster",
+      "missing_policy": "explicit unknown indicator",
+      "name": "unknown_mask",
+      "normalization": "none",
+      "production_parity": "physical unknown encoding pending",
+      "real_robot_available": "GridMap unknown cells available; parity unverified",
+      "same_anchor_time": "paired with each DEM frame",
+      "shape": [
+        4,
+        20,
+        20
+      ],
+      "simulator_available": true,
+      "source": "DEM channel 1",
+      "unit": "binary"
+    },
+    {
+      "frame": "base",
+      "missing_policy": "reject absent goal",
+      "name": "relative_goal",
+      "normalization": "fixed 2 m coordinate scale",
+      "production_parity": "sim Path/goal identity verified; hardware pending",
+      "real_robot_available": "ROS goal transform available; timestamp parity pending",
+      "same_anchor_time": "same anchor goal for all candidates",
+      "shape": [
+        2
+      ],
+      "simulator_available": true,
+      "source": "frozen candidate endpoint",
+      "unit": "m"
+    },
+    {
+      "frame": "base",
+      "missing_policy": "coverage mask and reject if absent",
+      "name": "body_orientation",
+      "normalization": "unit vector, no absolute map yaw",
+      "production_parity": "sim quaternion verified; real IMU extrinsic pending",
+      "real_robot_available": "IMU/TF may provide; parity unverified",
+      "same_anchor_time": "anchor snapshot",
+      "shape": [
+        3
+      ],
+      "simulator_available": true,
+      "source": "anchor.root_state[3:7]",
+      "unit": "gravity vector, unitless"
+    },
+    {
+      "frame": "base",
+      "missing_policy": "mask and reject critical absence",
+      "name": "body_velocity",
+      "normalization": "train-only channel statistics",
+      "production_parity": "sim world-to-base transform required; hardware pending",
+      "real_robot_available": "odometry may provide; parity unverified",
+      "same_anchor_time": "anchor snapshot",
+      "shape": [
+        3
+      ],
+      "simulator_available": true,
+      "source": "anchor.root_state[7:10]",
+      "unit": "m/s"
+    },
+    {
+      "frame": "base",
+      "missing_policy": "mask and reject critical absence",
+      "name": "angular_velocity",
+      "normalization": "train-only channel statistics",
+      "production_parity": "sim world-to-base transform required; hardware pending",
+      "real_robot_available": "IMU may provide; parity unverified",
+      "same_anchor_time": "anchor snapshot",
+      "shape": [
+        3
+      ],
+      "simulator_available": true,
+      "source": "anchor.root_state[10:13]",
+      "unit": "rad/s"
+    },
+    {
+      "frame": "ordered RL joint vector",
+      "missing_policy": "joint availability mask; reject order mismatch",
+      "name": "joint_position",
+      "normalization": "joint-wise train-only statistics",
+      "production_parity": "joint order and units require physical audit",
+      "real_robot_available": "JointState likely available; exact 52-order parity unverified",
+      "same_anchor_time": "anchor snapshot",
+      "shape": [
+        52
+      ],
+      "simulator_available": true,
+      "source": "anchor.joint_position",
+      "unit": "joint-specific rad/m"
+    },
+    {
+      "frame": "ordered RL joint vector",
+      "missing_policy": "joint availability mask; reject order mismatch",
+      "name": "joint_velocity",
+      "normalization": "joint-wise train-only statistics",
+      "production_parity": "joint order and timing require physical audit",
+      "real_robot_available": "JointState likely available; exact 52-order parity unverified",
+      "same_anchor_time": "anchor snapshot",
+      "shape": [
+        52
+      ],
+      "simulator_available": true,
+      "source": "anchor.joint_velocity",
+      "unit": "joint-specific rad/s or m/s"
+    },
+    {
+      "frame": "Actor action order",
+      "missing_policy": "availability mask; exclude for portable model if absent",
+      "name": "previous_action",
+      "normalization": "checkpoint action metadata; train-only stats if learned",
+      "production_parity": "source checkpoint and action semantics fixed",
+      "real_robot_available": "possible only via deployed Actor/ActionManager; parity unverified",
+      "same_anchor_time": "anchor previous-action snapshot",
+      "shape": [
+        6
+      ],
+      "simulator_available": true,
+      "source": "anchor.action_manager_previous_action",
+      "unit": "RL action units"
+    },
+    {
+      "frame": "ordered RL joint vector",
+      "missing_policy": "exclude from primary input",
+      "name": "anchor_raw_joint_effort",
+      "normalization": "none until parity established",
+      "production_parity": "not established",
+      "real_robot_available": "physical equivalent/order/timing unverified",
+      "same_anchor_time": "not saved in anchor snapshot; first live step is post-Path",
+      "shape": [
+        52
+      ],
+      "simulator_available": false,
+      "source": "live trace raw_joint_effort only",
+      "unit": "sim applied torque/force units"
+    },
+    {
+      "frame": "frozen RL Actor",
+      "missing_policy": "portable model excludes; conditional model masks",
+      "name": "anchor_actor_latent",
+      "normalization": "frozen checkpoint; train-only stats",
+      "production_parity": "sim anchor only, physical parity pending",
+      "real_robot_available": "requires same deployed checkpoint and latent API; unverified",
+      "same_anchor_time": "anchor-only latent exists; live first-step latent is post-Path and excluded",
+      "shape": [
+        256
+      ],
+      "simulator_available": true,
+      "source": "anchor.actor_latent",
+      "unit": "checkpoint latent units"
+    },
+    {
+      "frame": "base",
+      "missing_policy": "candidate invalid if absent",
+      "name": "candidate_path",
+      "normalization": "fixed physical scale; 0.25 s waypoint interval",
+      "production_parity": "E1 frozen bank and Path SHA verified",
+      "real_robot_available": "ROS Path base/map transform exists; physical timing unverified",
+      "same_anchor_time": "known before selection, same anchor/goal",
+      "shape": [
+        8,
+        2
+      ],
+      "simulator_available": true,
+      "source": "8 future waypoints; implicit start (0,0)",
+      "unit": "m"
+    },
+    {
+      "frame": "base DEM/Path",
+      "missing_policy": "retain unknown/partial coverage, no free imputation",
+      "name": "feature_coverage_mask",
+      "normalization": "none",
+      "production_parity": "deterministic feature code to be parity-tested",
+      "real_robot_available": "derived if DEM and Path available",
+      "same_anchor_time": "deterministic from anchor inputs",
+      "shape": [
+        "feature-dependent"
+      ],
+      "simulator_available": true,
+      "source": "DEM mask x frozen Path",
+      "unit": "binary"
+    }
+  ],
+  "optional_checkpoint_dependent_field": "anchor_actor_latent",
+  "post_Path_live_trace_not_anchor_input": true,
+  "primary_portable_fields": [
+    "dem_history",
+    "unknown_mask",
+    "relative_goal",
+    "body_orientation",
+    "body_velocity",
+    "angular_velocity",
+    "joint_position",
+    "joint_velocity",
+    "previous_action",
+    "candidate_path",
+    "feature_coverage_mask"
+  ],
+  "schema_version": "evaluator_preexecution_input_v1"
+}

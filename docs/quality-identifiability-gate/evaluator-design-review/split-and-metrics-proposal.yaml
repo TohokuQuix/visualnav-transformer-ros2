@@ -1,0 +1,24 @@
+unit: source trajectory/environment instance/terrain seed and episode; keep all anchors/candidates/repeats
+  together
+random_candidate_split_forbidden: true
+source_episode_id_zero_can_repeat_across_distinct_environment_instances: true
+train_validation_test: partition distinct source trajectories and terrain seeds before
+  state selection; nested grouping by environment then episode
+terrain_generalization: separate leave-one-terrain-out evaluation only after enough
+  independent groups per terrain; current 1 per terrain is insufficient
+model_selection: validation aggregate StateGroup macro only; test and held-out never
+  select model or thresholds
+metrics:
+- StateGroup-macro pairwise accuracy
+- top-1 oracle recall
+- top-3 oracle recall
+- oracle regret
+- improvement versus fixed direct
+- fraction worse than direct
+- calibration
+- uncertainty versus misranking
+- terrain breakdown with support
+- easy/difficult geometry breakdown with support
+uncertainty: bootstrap StateGroups/seed clusters, not candidate pairs; report NA when
+  support insufficient
+current_7_group_model_performance: NA / no Evaluator trained
