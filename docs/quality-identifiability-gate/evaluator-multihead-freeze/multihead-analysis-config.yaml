@@ -1,0 +1,30 @@
+schema_version: evaluator_multihead_m0_v1
+source_base_commit: 51d9bf201f76fd8e3b54d3d9496ca4c3429cbb3a
+data_scope: seven_train_state_groups_sixty_three_protocol_valid_traces_only
+statistical_unit: StateGroup
+control_rate_hz: 20
+horizon_transitions: 40
+gamma: 0.99
+reward_already_dt_scaled: true
+candidate_summary: median_over_repeats
+direct_baseline: mean_of_three_direct_repeats_with_sample_variance
+pair_universe: seven_unique_candidates_per_group
+pair_count_per_group: 21
+tie_margin:
+  source: direct_repeat_only
+  rule: max_of_all_direct_repeat_pairwise_absolute_differences_and_numeric_floor
+  numeric_floor:
+    reward: 0.000001
+    goal_distance_reduction_m: 0.000001
+    endpoint_error_m: 0.000001
+  floor_reason: float_comparison_guard_not_outcome_tuned
+  equality_is_tie: true
+pairwise_loss: bradley_terry_logistic_strict_pairs_only
+tie_handling: mask_from_ranking_loss
+invalid_or_censored_handling: mask_zero
+scaler_fit: training_StateGroups_only
+split_boundary: source_trajectory_environment_instance_terrain_seed_and_StateGroup
+validation_use_for_current_design: false
+held_out_use_for_current_design: false
+safety_head_training: false
+no_training_or_rollout: true

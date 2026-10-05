@@ -1,0 +1,40 @@
+schema_version: evaluator_multihead_output_v1
+status: offline_design_contract_not_training_authorization
+primary_heads:
+  discounted_reward_2s: {type: continuous, unit: discounted_reward, source: observed_trace_0_to_39}
+  direct_relative_reward_2s: {type: continuous, unit: discounted_reward_difference, baseline: three_direct_repeats_mean_per_StateGroup}
+  goal_distance_reduction_2s: {type: continuous, unit: m, frame: corrected_map}
+  endpoint_error_2s: {type: continuous, unit: m, frame: corrected_map}
+  reward_pairwise_preference: {type: ordered_pair, labels: [i_better, j_better, tie_within_duplicate_noise, invalid_or_censored]}
+  goal_pairwise_preference: {type: ordered_pair, labels: [i_better, j_better, tie_within_duplicate_noise, invalid_or_censored]}
+auxiliary_task_heads:
+  endpoint_encounter_2s: {type: binary, radius_m: 0.2, current_label_support: insufficient_label_variation}
+  path_progress_2s: {type: continuous, unit: fraction_of_candidate_path_arc_length}
+  cross_track_p95_2s: {type: continuous, unit: m}
+auxiliary_critic_heads:
+  terminal_value_hold: {type: continuous, source: offline_conditional_Critic_at_observed_terminal_body_state}
+  terminal_value_canonical: {type: continuous, command: [0.3, 0.0, 0.0], source: offline_conditional_Critic_at_observed_terminal_body_state}
+  terminal_value_direct: {type: continuous, optional: true, source: same_StateGroup_direct_repeat_zero_step_39_command}
+  recorded_boundary_value: {type: diagnostic, literal_zero_count: 57, nonzero_count: 6}
+  terminal_value_literal_zero: {type: diagnostic, valid_count: 57, missing_count: 6, no_imputation: true}
+  critic_residual_hold: {type: continuous, use: auxiliary_calibration_only}
+  critic_residual_canonical: {type: continuous, use: auxiliary_calibration_only}
+uncertainty_outputs:
+  per_head_mean: required_after_training
+  per_head_variance_or_ensemble_disagreement: required_after_training
+  pairwise_preference_confidence: required_after_training
+  out_of_support_flag: required_after_training
+  missing_input_flag: required_after_training
+safety_head:
+  name: p_unsafe
+  enabled_for_training: false
+  loss_weight: 0.0
+  inference_use: false
+  reason: zero_failure_positive_support
+  excluded_pseudo_positives: [stack_proxy, infrastructure_failure, measurement_invalid, manual_stop, censored_timeout]
+teacher_non_equivalence:
+  - positive_Critic_residual_does_not_mean_absolute_Path_quality
+  - negative_Critic_residual_does_not_mean_absolute_Path_failure
+  - residual_does_not_remove_terminal_command_condition_dependency
+  - conditional_Critic_value_is_not_physical_counterfactual_rollout
+  - six_second_Outcome_is_diagnostic_only

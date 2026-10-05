@@ -1,0 +1,16 @@
+schema_version: evaluator_multihead_selection_v1
+status: prospective_only_no_online_selector_approved
+ordered_steps_after_independent_validation:
+  - exclude_verified_Type_A_hard_invalid
+  - abstain_or_fallback_on_missing_required_input_or_out_of_support
+  - direct_or_fallback_on_excess_uncertainty
+  - prefer_predicted_positive_goal_distance_reduction
+  - compare_predicted_discounted_reward_among_task_feasible_candidates
+  - use_terminal_value_only_as_independently_validated_tiebreaker
+  - resolve_reward_task_conflict_by_independent_validation_rule
+direct_relative_reward_at_inference: compare_with_predicted_direct_candidate_from_same_anchor;_no_future_observed_baseline
+current_unapproved_hard_thresholds: [progress_ratio_0_50, goal_reduction_0_20_m,
+                                     endpoint_radius_0_20_m, cross_track_threshold, tilt_0_52_rad]
+weighted_scalar_selector: not_authorized
+critic_residual_as_primary_online_score: prohibited
+safety_probability_gate: disabled_zero_failure_positive_support

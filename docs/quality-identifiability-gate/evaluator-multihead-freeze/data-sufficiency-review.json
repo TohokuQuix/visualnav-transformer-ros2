@@ -1,0 +1,362 @@
+{
+  "heads": {
+    "critic_residual_canonical": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        1.051789763215666,
+        1.5697850916469953
+      ],
+      "median": 1.2023921738539727,
+      "median_candidate_spread": 0.25875443470725656,
+      "missing_or_censored": 0,
+      "range": [
+        0.8190196519150774,
+        1.7784714946398381
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "critic_residual_hold": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        1.6326970630193252,
+        2.3376624328164475
+      ],
+      "median": 1.9348556631826312,
+      "median_candidate_spread": 0.4506815177050214,
+      "missing_or_censored": 0,
+      "range": [
+        0.9049301982264524,
+        2.605293401812105
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "cross_track_p95_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        0.03857372282568562,
+        0.09593263788459441
+      ],
+      "median": 0.06544714075690518,
+      "median_candidate_spread": 0.08981645758112401,
+      "missing_or_censored": 0,
+      "range": [
+        0.03490356792967248,
+        0.1752409865041207
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "direct_relative_reward_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        -0.0861609150639362,
+        0.011893178934912818
+      ],
+      "median": 0.0,
+      "median_candidate_spread": 0.19550243829172942,
+      "missing_or_censored": 0,
+      "range": [
+        -0.2965385974937238,
+        0.14889028928649495
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 25,
+        "positive": 17,
+        "zero": 21
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "discounted_reward_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        13.946777904790473,
+        14.467391201111157
+      ],
+      "median": 14.06464312351071,
+      "median_candidate_spread": 0.19550243829172942,
+      "missing_or_censored": 0,
+      "range": [
+        13.513187384258245,
+        14.647497136136776
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "endpoint_encounter_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": {
+        "False": 2,
+        "True": 7
+      },
+      "classification": "insufficient_label_variation",
+      "count": 63,
+      "duplicate_noise_max": 0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        1.0,
+        1.0
+      ],
+      "median": 1.0,
+      "median_candidate_spread": 0.0,
+      "missing_or_censored": 0,
+      "range": [
+        0.0,
+        1.0
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 57,
+        "zero": 6
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "endpoint_error_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        0.15098050925832934,
+        0.18795486846040182
+      ],
+      "median": 0.17385172705220794,
+      "median_candidate_spread": 0.023028333908657717,
+      "missing_or_censored": 0,
+      "range": [
+        0.04651415203118145,
+        0.22523314603253344
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "goal_distance_reduction_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        0.4108376398718398,
+        0.4478119982304096
+      ],
+      "median": 0.42494078043653094,
+      "median_candidate_spread": 0.023028333908657717,
+      "missing_or_censored": 0,
+      "range": [
+        0.37355931328627223,
+        0.5522783554575573
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "path_progress_2s": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        0.6772023047679817,
+        0.7570904275214931
+      ],
+      "median": 0.7153037024633406,
+      "median_candidate_spread": 0.1036269437986661,
+      "missing_or_censored": 0,
+      "range": [
+        0.5754442363360259,
+        0.9688311310939636
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "terminal_value_canonical": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        37.97022247314453,
+        38.535240173339844
+      ],
+      "median": 38.26032257080078,
+      "median_candidate_spread": 0.15102386474609375,
+      "missing_or_censored": 0,
+      "range": [
+        36.98540115356445,
+        39.14469528198242
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "terminal_value_hold": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 63,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        38.551353454589844,
+        39.71666717529297
+      ],
+      "median": 39.356781005859375,
+      "median_candidate_spread": 0.19017410278320312,
+      "missing_or_censored": 0,
+      "range": [
+        37.109012603759766,
+        40.379310607910156
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 63,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 63
+    },
+    "terminal_value_literal_zero": {
+      "candidate_to_duplicate_ratio": null,
+      "class_state_group_support": null,
+      "classification": "supported_for_pipeline_smoke",
+      "count": 57,
+      "duplicate_noise_max": 0.0,
+      "formal_generalization_support": "insufficient_state_groups_seven_train_groups_only",
+      "iqr": [
+        38.73276901245117,
+        39.814266204833984
+      ],
+      "median": 39.36448669433594,
+      "median_candidate_spread": 0.15457916259765625,
+      "missing_or_censored": 6,
+      "range": [
+        38.47993469238281,
+        40.37930679321289
+      ],
+      "ratio_status": "denominator_zero",
+      "sign_support": {
+        "negative": 0,
+        "positive": 57,
+        "zero": 0
+      },
+      "state_group_support": 7,
+      "terrain_support": 7,
+      "valid": 57
+    }
+  },
+  "no_formal_training_claim": true,
+  "pair_labels": {
+    "endpoint_label": {
+      "i_better": 61,
+      "j_better": 86
+    },
+    "goal_label": {
+      "i_better": 61,
+      "j_better": 86
+    },
+    "reward_label": {
+      "i_better": 65,
+      "j_better": 82
+    }
+  },
+  "reward_goal_conflict_pairs": 66,
+  "state_group_count": 7,
+  "statistical_unit": "StateGroup",
+  "unique_candidate_pairs": 147
+}

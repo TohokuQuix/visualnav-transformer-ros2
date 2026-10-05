@@ -1,0 +1,103 @@
+{
+  "artifacts_excluding_self": 17,
+  "base_commit": "51d9bf201f76fd8e3b54d3d9496ca4c3429cbb3a",
+  "branch": "exp/eatnav-evaluator-multihead",
+  "code_test_files": 5,
+  "exclusions": [
+    "raw traces",
+    "checkpoints",
+    "live logs",
+    "new rollout artifacts"
+  ],
+  "files": {
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/data-sufficiency-review.json": {
+      "sha256": "0ce0a9d39012051f79da8a1420ee09d51eb181b36d3579aecd4145d3d2a2ea06",
+      "size_bytes": 10261
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/fig-01-observed-label-distributions.svg": {
+      "sha256": "fc609fe80e6d704fc0867d7a234b3646673da59f8e504fbfb5f243427836dd9f",
+      "size_bytes": 67248
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/fig-02-pairwise-labels.svg": {
+      "sha256": "72a00dca24146cffac75a7343e957da5a5a1a46bee9b12052f08102bfee1d629",
+      "size_bytes": 40179
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/fig-03-reward-goal-conflicts.svg": {
+      "sha256": "ae036f7e75c2b766c23d4c4005de07f1318ff793818209bcb22e7b7cdb118f02",
+      "size_bytes": 32682
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/fig-04-head-support.svg": {
+      "sha256": "29378e117b37799fa6d022a118e5d579b996050e5649fc0a5f5eacfbf1231e15",
+      "size_bytes": 30704
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/future-training-and-evaluation-gates.md": {
+      "sha256": "d2f312151fad6cfc7c2c1b1a2244d9866f9bb2cc5856b68640285a77619e6376",
+      "size_bytes": 3114
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/inference-selection-contract.yaml": {
+      "sha256": "01ec77de47ba5fc63ce3c647446be5445c5e83865de3b7ac1f9e70cca84e9b88",
+      "size_bytes": 1015
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/label-generation-audit.json": {
+      "sha256": "7cece3d86979bc95a75eeb7974ec1967dcc9ff401314971e18a9cdd17e22ff0c",
+      "size_bytes": 486
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/loss-and-normalization-contract.yaml": {
+      "sha256": "e7616e032fb5f23c5b30200f643c4a7511201e1bc8477cda93dcc15fac089f3f",
+      "size_bytes": 2306
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/m0-provenance.json": {
+      "sha256": "6a9a6d8bfd2b537e90cf2f83ee8cc88bf7219a2031ed1bdf58b58b0ac027a888",
+      "size_bytes": 80176
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/model-output-contract.yaml": {
+      "sha256": "a91d468e02d4e3b36e108db97ae8e7573d1bcd21efb17ce3f107f2f9aaa4bafd",
+      "size_bytes": 2651
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/multihead-analysis-config.yaml": {
+      "sha256": "cebc13070cb60ae6f214e422ce1e5a2aa17cf88095a7311f4a0566c23fdfb172",
+      "size_bytes": 1178
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/multihead-design-review.md": {
+      "sha256": "2573e5b3c60062c1e06e16ee6a94e216144dc2ae7b1ee4e495bbc7896239ec83",
+      "size_bytes": 9803
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/multihead-labels.jsonl.gz": {
+      "sha256": "17796149fedc5ccc60f2e10f5cc266f9e3dd3eaec46dee4afea2a297ab4d95bd",
+      "size_bytes": 12731
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/optional-latent-input-contract.json": {
+      "sha256": "369f7b55298eb44edc78a6e462a0d995eca021e399339f4a055034b20218aeb4",
+      "size_bytes": 826
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/pairwise-labels.json": {
+      "sha256": "de9206cdb407256b66aa346f09c79b6b2d4bb82e4ec4475179773d9ebf8d6913",
+      "size_bytes": 52172
+    },
+    "docs/quality-identifiability-gate/evaluator-multihead-freeze/portable-evaluator-input-contract.json": {
+      "sha256": "4bfdaec78f369e113dc032e0d43fe3b09e38282977d35919471b9bd0cf617cbd",
+      "size_bytes": 8213
+    },
+    "scripts/eat_nav_evaluator_multihead.py": {
+      "sha256": "a3bfbe59258f6a89e1646e4c426d160008c91219b1237de6404064770cd57c2e",
+      "size_bytes": 6742
+    },
+    "scripts/eat_nav_evaluator_multihead_audit.py": {
+      "sha256": "b01c437b1adb445066a721c6ee57f5cb0a7cdd6c6a1d2e6891a53cf05d106af3",
+      "size_bytes": 15099
+    },
+    "scripts/eat_nav_evaluator_multihead_figures.py": {
+      "sha256": "047cac5a6e662d83182cdaa8b52ad514deb11af3942ee6a7716ce4bd8edcac16",
+      "size_bytes": 3679
+    },
+    "scripts/eat_nav_evaluator_multihead_ledger.py": {
+      "sha256": "312b14c37091105eb0eb5dc7967ed735d7820b26d6cc3a27003af4c6f17e6a4c",
+      "size_bytes": 2273
+    },
+    "tests/eat_nav/test_evaluator_multihead_labels.py": {
+      "sha256": "a01ac9ecb9d200741d40e179e7978c7c19722c12c3c5a069e5b0085653058cf8",
+      "size_bytes": 3561
+    }
+  },
+  "schema_version": 1
+}

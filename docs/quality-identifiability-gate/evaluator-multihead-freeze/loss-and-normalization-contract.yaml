@@ -1,0 +1,36 @@
+schema_version: evaluator_multihead_loss_v1
+status: proposed_for_future_implementation_no_training_now
+phase_A:
+  regression_heads: [discounted_reward_2s, direct_relative_reward_2s, goal_distance_reduction_2s, endpoint_error_2s]
+  regression_loss: Huber_on_train_Stategroup_scaled_targets
+  ranking_heads: [reward_pairwise_preference, goal_pairwise_preference]
+  ranking_loss: Bradley_Terry_logistic_on_strict_pairs
+  tie_handling: zero_ranking_loss_mask
+  invalid_or_censored_handling: zero_all_relevant_loss_masks
+  loss_reduction: within_StateGroup_mean_then_macro_mean_across_StateGroups
+  smoke_weights_only: {reward: 1.0, direct_relative_reward: 1.0, goal: 1.0, endpoint: 1.0, reward_rank: 1.0, goal_rank: 1.0}
+  weight_selection: frozen_smoke_values_are_not_optimized_on_63_traces;_formal_selection_requires_independent_validation
+  endpoint_encounter_BCE: disabled_until_both_classes_have_adequate_StateGroup_support
+  pair_direction: larger_reward_and_goal_reduction_are_better;_smaller_endpoint_error_is_better
+  direct_repeats: used_to_estimate_baseline_and_noise;_not_three_independent_StateGroups
+phase_B_auxiliary_ablation:
+  prerequisite: independent_validation_of_phase_A_primary_ranking
+  variants: [primary_only, primary_plus_terminal_values, primary_plus_Critic_residuals,
+             primary_plus_terminal_and_residual, DEM_only, DEM_plus_Path,
+             DEM_plus_Path_plus_portable_body, optional_fixed_anchor_Actor_latent]
+  adoption: reject_auxiliary_variant_if_primary_ranking_worsens_on_independent_validation
+normalization:
+  fit_population: complete_valid_training_StateGroups_only
+  fit_unit: StateGroup_balanced
+  apply_to: continuous_inputs_and_regression_targets
+  persist: scaler_parameters_field_order_training_group_IDs_and_SHA
+  prohibited: validation_or_held_out_fit;_candidate_random_split;_future_state_fields
+split:
+  grouping_keys: [StateGroup, source_trajectory, environment_instance, terrain_seed, source_episode]
+  leakage_rule: all_repeats_and_candidates_from_one_StateGroup_remain_in_one_split
+  current_63_trace_role: train_only_design_and_pipeline_smoke
+  validation_role: future_independent_groups_only
+  held_out_role: final_evaluation_only
+uncertainty:
+  objective: future_independent_calibration
+  no_uncertainty_claim_from_current_seven_groups: true

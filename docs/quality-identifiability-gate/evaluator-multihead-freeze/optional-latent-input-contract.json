@@ -1,0 +1,15 @@
+{
+  "branch": "checkpoint_dependent_ablation_only",
+  "enabled_for_primary_portable_model": false,
+  "field": "anchor_actor_latent",
+  "dimension": [256],
+  "unit": "fixed Actor latent units",
+  "frame": "network feature space",
+  "timestamp": "anchor before candidate Path publication",
+  "source_api": "fixed checkpoint Actor layer-6 forward-pre-hook used by phase_c_sim.capture_actor_critic",
+  "requirements": ["same fixed RL checkpoint SHA", "same latent API/layer", "anchor-only observation", "Path unpublished", "separate ablation result"],
+  "excluded": ["first live-step latent after Path", "candidate-conditioned Actor response", "future action"],
+  "real_robot_availability": "requires identical deployed checkpoint and API; unverified",
+  "missing_mask": "latent_available",
+  "parity_status": "not established"
+}
