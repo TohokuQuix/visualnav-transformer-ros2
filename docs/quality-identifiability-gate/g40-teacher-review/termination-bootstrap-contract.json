@@ -1,0 +1,22 @@
+{
+  "censored_timeout": "not equivalent to physical failure; mask or separately bootstrap only with verified pre-reset value",
+  "infrastructure_failure": "exclude from robot outcome",
+  "manual_stop": "exclude or censor, never failure without physical evidence",
+  "measurement_invalid": "exclude from robot outcome",
+  "observed_63_traces": {
+    "censoring": 0,
+    "physical_termination": 0,
+    "timeout": 0
+  },
+  "physical_termination": "sum rewards through terminal transition; no V after physical termination",
+  "required_future_fields": [
+    "terminated",
+    "truncated",
+    "termination_reason",
+    "pre_reset_terminal_critic",
+    "last_valid_step",
+    "censor_reason"
+  ],
+  "time_limit_truncation": "preserve separate flag and pre-reset terminal observation/value; exclude if unavailable",
+  "training_time_limit_note": "later available PPO source adds gamma*pre-step V to timeout reward; exact 2026-07 training source unverified"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "design_proposal_not_trained",
+  "input": ["DEM_history", "relative_goal", "candidate_Path_geometry"],
+  "heads": [
+    {"name": "G40", "unit": "RL_return", "support": "63_nonterminal_traces", "role": "embodiment_ranking_after_constraints"},
+    {"name": "goal_distance_reduction", "unit": "m", "support": "63_traces", "role": "task_feasibility"},
+    {"name": "endpoint_error", "unit": "m", "support": "63_traces", "role": "task_feasibility"},
+    {"name": "cross_track_p95", "unit": "m", "support": "63_traces", "role": "tracking_diagnostic"},
+    {"name": "critic_drawdown", "unit": "RL_value", "support": "63_traces", "role": "body_risk_diagnostic"},
+    {"name": "tilt", "unit": "rad", "support": "63_traces", "role": "body_stability"},
+    {"name": "p_unsafe", "unit": "probability", "support": "zero_failure_positive", "role": "future_masked_head", "train_mask": false},
+    {"name": "uncertainty", "unit": "head_specific", "support": "future_calibration_required", "role": "abstention"}
+  ],
+  "strategies": {
+    "G40_only": "not_ready_task_rank_conflict",
+    "task_constraint_plus_G40": "descriptive_proposal_requires_prospective_threshold_freeze",
+    "multihead_lexicographic": "preferred_architecture_proposal_not_training_authorization",
+    "weighted_sum": "not_recommended_weights_would_mix_units_and_hide_safety_failures"
+  },
+  "deployment": "not_authorized"
+}

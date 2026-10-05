@@ -1,0 +1,14 @@
+{
+  "actuator_limit_source": "/home/kojima/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml:227,264 effort_limit_sim=3000",
+  "max_raw_effort_3000_count": 63,
+  "observation_transform_source": "onix observations.py:156-170; track joint signed sum, then clip +/-100 and scale 0.01 in env.yaml",
+  "physical_saturation_proven": false,
+  "range_max_raw_effort": [
+    3000.0,
+    3000.0
+  ],
+  "ranking_teacher_allowed": false,
+  "raw_tensor_source": "robot.data.applied_torque pre-step; no logging-side clip in E1 simulator",
+  "reason": "3000 is configured per-joint actuator limit; raw tensor equality alone does not distinguish requested clamp from achieved physical torque",
+  "run_count": 63
+}

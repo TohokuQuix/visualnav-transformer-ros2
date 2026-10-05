@@ -1,0 +1,15 @@
+{
+  "V0": "trace[0].critic_value",
+  "V40": "trace[40].critic_value",
+  "checked_root_boundaries": 7497,
+  "diagram": "t_k: follower command -> obs_k -> V_k/Actor_k -> env.step(action_k) -> r_k/post_state_(k+1) -> command_manager/obs_(k+1); row k+1 holds V_(k+1)",
+  "mismatched_root_boundaries": 0,
+  "path_interval": "control steps 0-39, 0.00-2.00 s",
+  "reward_interval": "trace[0:40].reward",
+  "row_k": "pre-step V_k, actor input/action/command and post-step reward r_k, post_root_state",
+  "source_lines": "scripts/eat_nav_e1_sim.py:485-530; onix envs.py:22-67",
+  "status": "pass",
+  "timestamp_mismatch_count": 0,
+  "v40_command_is_after_command_manager_compute": true,
+  "v40_zero_command_run_count": 57
+}

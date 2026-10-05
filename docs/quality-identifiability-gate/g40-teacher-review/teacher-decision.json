@@ -1,0 +1,17 @@
+{
+  "decision": "multihead_teacher_ready_single_score_not_ready",
+  "scope": "offline_design_review_only",
+  "G40_reconstruction": "pass_for_63_nonterminal_protocol_valid_traces",
+  "source_and_index_integrity": "pass",
+  "single_score_reason": "G40 top-1 agrees with 2-second endpoint-error top-1 in 0/7 groups and with 2-second progress in 2/7; explicit goal progress is absent from RL reward config",
+  "caveats": [
+    "reward-component contributions and dominance are NA because only aggregate reward was recorded",
+    "PPO package bytes at the July training run were not preserved; August image PPO source is later and used only as qualified reference",
+    "57/63 V40 observations contain zero command after Path horizon; this is an actual boundary condition and must be documented",
+    "failure-positive, verified stack and physical termination support are zero; Safety head is not training-ready",
+    "seven StateGroups are descriptive support, not formal validation or terrain generalization"
+  ],
+  "next_review_request": "prospectively_freeze_teacher_definition_and_task_safety_thresholds_before_hard_state_selection_or_new_collection",
+  "authorized_next_action": "none",
+  "forbidden_from_this_review": ["rollout", "training", "collection", "real_robot_test"]
+}

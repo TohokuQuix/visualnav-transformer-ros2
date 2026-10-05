@@ -1,0 +1,253 @@
+{
+  "command_tracking_dominates": "NA_unidentifiable_from_scalar_total",
+  "config_sha256": "c2b7e9b7959a231c5391ed714a4de4be958fe5812cf03c10ab60f5636598233b",
+  "exact_decomposition_possible": false,
+  "progress_absence_can_score_high": "possible_by_reward_definition_no_explicit_goal_progress_term",
+  "reason": "RewardManager component tensors and previous action/acceleration/sensor state at reward evaluation were not recorded; no unsupported estimates",
+  "reward_component_trace_recorded": false,
+  "reward_total_recorded": true,
+  "terms": [
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.05,
+      "function": "isaaclab.envs.mdp.rewards:track_lin_vel_xy_exp",
+      "name": "track_lin_vel_xy_exp",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 1.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.1,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:track_ang_vel_z_world_exp",
+      "name": "track_ang_vel_z_exp",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 2.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "isaaclab.envs.mdp.rewards:lin_vel_z_l2",
+      "name": "lin_vel_z_l2",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": -0.004,
+      "function": "isaaclab.envs.mdp.rewards:ang_vel_xy_l2",
+      "name": "ang_vel_xy_l2",
+      "recorded_component_values": false,
+      "sign": "negative",
+      "terrain_dominance": null,
+      "weight": -0.08
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "isaaclab.envs.mdp.rewards:joint_torques_l2",
+      "name": "dof_torques_l2",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "isaaclab.envs.mdp.rewards:joint_acc_l2",
+      "name": "dof_acc_l2",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": -0.0005,
+      "function": "isaaclab.envs.mdp.rewards:action_rate_l2",
+      "name": "action_rate_l2",
+      "recorded_component_values": false,
+      "sign": "negative",
+      "terrain_dominance": null,
+      "weight": -0.01
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "isaaclab.envs.mdp.rewards:flat_orientation_l2",
+      "name": "flat_orientation_l2",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "isaaclab.envs.mdp.rewards:joint_pos_limits",
+      "name": "dof_pos_limits",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": -25.0,
+      "function": "isaaclab.envs.mdp.rewards:is_terminated",
+      "name": "termination_penalty",
+      "recorded_component_values": false,
+      "sign": "negative",
+      "terrain_dominance": null,
+      "weight": -500.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.25,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:track_lin_vel_x_yaw_frame_exp",
+      "name": "track_lin_vel_x_exp",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 5.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.05,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:standstill_reward",
+      "name": "standstill_reward",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 1.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:flipper_symmetry_forward_l2",
+      "name": "flipper_symmetry_forward_l2",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:directional_flipper_fold_reward",
+      "name": "directional_flipper_fold_reward",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:directional_folded_flipper_contact_reward",
+      "name": "directional_folded_flipper_contact_reward",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:directional_unfolded_flipper_contact_reward",
+      "name": "directional_unfolded_flipper_contact_reward",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:directional_unfolded_flipper_angle_reward",
+      "name": "directional_unfolded_flipper_angle_reward",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0125,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:flipper_fold_mode_angle_reward",
+      "name": "flipper_fold_mode_angle_reward",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 0.25
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.020000000000000004,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:flipper_fold_mode_contact_reward",
+      "name": "flipper_fold_mode_contact_reward",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 0.4
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": -1e-07,
+      "function": "isaaclab.envs.mdp.rewards:joint_torques_l2",
+      "name": "flipper_torques_l2",
+      "recorded_component_values": false,
+      "sign": "negative",
+      "terrain_dominance": null,
+      "weight": -2e-06
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.0,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:contact_count_bonus",
+      "name": "roller_contact_count_bonus",
+      "recorded_component_values": false,
+      "sign": "zero",
+      "terrain_dominance": null,
+      "weight": 0.0
+    },
+    {
+      "candidate_rank_contribution": null,
+      "discounted_component_contribution": null,
+      "effective_weight_per_policy_step": 0.025,
+      "function": "onix_isaac_lab.tasks.locomotion.velocity.mdp.rewards:support_margin_quad",
+      "name": "support_margin_reward",
+      "recorded_component_values": false,
+      "sign": "positive",
+      "terrain_dominance": null,
+      "weight": 0.5
+    }
+  ]
+}

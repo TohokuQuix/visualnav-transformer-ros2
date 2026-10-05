@@ -1,0 +1,33 @@
+schema_version: 1
+status: prospective_proposal_not_frozen
+statistical_unit: StateGroup
+selection: lexicographic
+safety:
+  hard_exclude: [verified_physical_termination, verified_stack, nonfinite_state]
+  proposed_excessive_roll_or_pitch_rad: 0.52
+  proposed_progress_failure:
+    goal_distance_reduction_m_less_than: 0.0
+    while_commanded_forward_motion: true
+  unsupported_labels: [verified_stack, physical_termination, failure_positive]
+  label_support: zero_in_current_63_traces
+task:
+  proposed_endpoint_encounter_radius_m: 0.20
+  proposed_min_progress_ratio: 0.50
+  proposed_min_goal_distance_reduction_m: 0.20
+  comparator: endpoint_encounter_then_progress_ratio_then_endpoint_error
+  status: proposal_for_next_collection_freeze_not_optimized_on_seven_groups
+embodiment:
+  compare: G40
+  diagnostics: [critic_drawdown, tilt, recovery, action_variation, reward_components, uncertainty]
+  note: compare_only_within_safety_and_task_feasible_set
+tie:
+  threshold: NA_requires_prospective_measurement_and_uncertainty_calibration
+  repeat_noise_zero_is_not_a_threshold: true
+  preferred_if_direct_safe_and_task_feasible: direct_reference
+  else_if_safe_lower_curvature_candidate_task_feasible: lower_curvature_candidate
+  else: replan_or_controlled_hold_with_independent_safety_supervisor
+  options_review:
+    direct_reference: simple_and_reproducible_but_may_fail_task
+    lower_curvature_candidate: conservative_geometry_only_if_task_feasible
+    stop_hold: requires_verified_slope_stability_and_controller_support
+    replanning: safest_general_fallback_when_all_candidates_fail_constraints

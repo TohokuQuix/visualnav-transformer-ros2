@@ -1,0 +1,29 @@
+{
+  "actor_dim": 22,
+  "config_sha256": "c2b7e9b7959a231c5391ed714a4de4be958fe5812cf03c10ab60f5636598233b",
+  "critic_dim": 267,
+  "includes_candidate_path": false,
+  "includes_contact": true,
+  "includes_current_command": true,
+  "includes_dem": true,
+  "includes_effort": true,
+  "includes_goal": false,
+  "includes_joint_state": true,
+  "includes_privileged_state": "base_lin_vel and height_scan and contact_binary",
+  "interpretation": "current state and command RL return estimator, not a whole-Path outcome predictor",
+  "phase": "pre-step; follower command applied before observation, then Actor/Critic evaluated together",
+  "terms": [
+    "base_lin_vel",
+    "base_ang_vel",
+    "projected_gravity",
+    "velocity_commands",
+    "flipper_fold_mode",
+    "joint_pos",
+    "joint_vel",
+    "actions",
+    "control_latency",
+    "roller_contact_binary",
+    "joint_effort",
+    "height_scan"
+  ]
+}
