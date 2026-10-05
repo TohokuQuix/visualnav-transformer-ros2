@@ -23,9 +23,18 @@ from eat_nav_g0e_gpu_probe import Nvml, atomic as atomic_status
 from eat_nav_g0e_gpu_run import container_identity
 
 
-ROOT=Path('/tmp/eatnav-expanded-feasibility-approved-resume-20261005')
+ROOT=Path('/tmp/eatnav-expanded-feasibility-config-restored-20261005')
 REPO=Path(__file__).resolve().parents[1]
 EXPECTED_SIM_SHA='0e8ea4639f0496ab45b4b833ab1bc0e8c6320d3419194e42ff2b8e84e0454e2e'
+EXPECTED_MANIFEST_SHA='b65868f9b3b6b7433be946f8385bb574d15574e2962f3aecd0b85f73231f016a'
+EXPECTED_INPUT_FREEZE_SHA='58f2ff2138647cd17cb2d2e7d390f27eb4e28413af28ba25f2a1b93ab192154d'
+EXPECTED_CONFIG_SHA=(
+    '1df33506ae7b11cee668b898cb908b5ec835c000037b94b749393825c47d51b0',
+    '191e6642cdd2f85a8656c06e5d894163b4a99d2339562f72a5861b248eeefd2c',
+    '251ded83b0b9f16dcd546bdeceb014ecb6c6133dee8a871af940100a537bd796',
+    'f2d29e2cd8057357451d10d03d91f95d91388b14c43dc3144ea1180867fbeea0',
+    '726f7c67daa974b93feb2a74a6bf7a9a937adbe0f1478cf1266877995cc3119b',
+)
 E1_ANCHOR_CONFIG=Path('/tmp/eatnav-e1-artifact-recovered-continuation-20261004/inputs/state-000/config-120.yaml')
 E1_ANCHOR_CONFIG_SHA='d89e7853cc72ce0e0090623f6a4e300637cd6f35efa2cd7058ddf3d1720be605'
 WALL_CAP_SEC=14400
@@ -67,8 +76,10 @@ def router_identity(root=ROOT,*,proc_root=Path('/proc')):
 
 
 def frozen_rows(root=ROOT):
-    if sha(root/'run-manifest.json')!='acf3444cbb1eb3312b8af95ec575ef916afc932bdac6d8e3a420d0a533c473de':
+    if sha(root/'run-manifest.json')!=EXPECTED_MANIFEST_SHA:
         raise ValueError('50-process manifest SHA differs')
+    if sha(root/'input-freeze.json')!=EXPECTED_INPUT_FREEZE_SHA:
+        raise ValueError('restored input freeze SHA differs')
     if sha(root/'selected-states.json')!='6b91c1c7e602db042228106f968f4d6ee4dd7f30583c4b6a78fd744bdc3065b9':
         raise ValueError('selected-state SHA differs')
     if sha(root/'candidate-paths.jsonl.gz')!='e04c146c4b2c46217915a50815245cb6c56fc10103d8ae79c1550ffe815c3514':
@@ -82,6 +93,9 @@ def frozen_rows(root=ROOT):
             raise ValueError('state index/order differs')
         if row['seed']!=123 or row['episode_key']!=states[idx//10]['episode_key']:
             raise ValueError('state seed/episode differs')
+        config=root/'inputs'/f'state-{idx//10:03d}'/'config-120.yaml'
+        if sha(config)!=EXPECTED_CONFIG_SHA[idx//10] or row['input_sha256']['config-120.yaml']!=sha(config):
+            raise ValueError('restored config SHA differs')
         path=root/'inputs'/f"state-{row['state_index']:03d}"/f"{row['path_id']}-base-path.json"
         if sha(path)!=row['base_path_file_sha256']:
             raise ValueError('frozen base Path SHA differs '+row['process_id'])
