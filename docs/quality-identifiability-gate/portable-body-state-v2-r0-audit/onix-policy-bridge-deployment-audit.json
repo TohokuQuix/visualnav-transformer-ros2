@@ -1,0 +1,128 @@
+{
+  "bag_recording_deployment_sha256": null,
+  "branch": "imu_failure_fallback",
+  "head": "d951d4db4290464a03651866a2082c476923d3f5",
+  "host_ros_package_prefix_with_onix_overlay": "/home/kojima/onix/install/onix_policy_bridge",
+  "host_ros_package_prefix_without_onix_overlay": null,
+  "install_launch_resolves_to_source": true,
+  "install_module_resolves_to_source": true,
+  "local_launch_default_model": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/checkpoints/onix_rough_standard/model_8000.pt",
+  "local_launch_model_selection_rule": "largest existing model_*.pt in resolved source checkpoint directory, unless launch model_path override",
+  "package_files": [
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/package.xml",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/package.xml",
+      "sha256": "1bcbc5a379f517f3b4909414a48a38027ca722ef9b7b540099e5267fd7abdcd2",
+      "size_bytes": 1116
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/setup.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/setup.py",
+      "sha256": "232065a8e3756bee5da9726d6f3a39002906e7d2eba64f38bfda54bb00eede20",
+      "size_bytes": 6503
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/launch/onix_policy_bridge.launch.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/launch/onix_policy_bridge.launch.py",
+      "sha256": "a79b30c4a049a914b8f159cb57e0b40101694d0bc7c324928240f73c481b1217",
+      "size_bytes": 16133
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/frontend.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/frontend.py",
+      "sha256": "e6818cec3d3042ea71570ca98467378de3aa6dae91a6126949d391c7192b2749",
+      "size_bytes": 47074
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/backend.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/backend.py",
+      "sha256": "53572ec2d7c45781221defd9a20f958815a20e28f42c4c9efab46e6a832f4493",
+      "size_bytes": 57312
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/agent.yaml",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/agent.yaml",
+      "sha256": "af0d0f6f0fe2ed25bb632dcada8e2ab285179e7b83eeddb7dcfba49044b40928",
+      "size_bytes": 1027
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/env.yaml",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/env.yaml",
+      "sha256": "12a17c407598de01a2209223994cac3bbdc63cc08d3587b5317ee0bbf404f367",
+      "size_bytes": 85991
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/checkpoints/onix_rough_standard/model_8000.pt",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/checkpoints/onix_rough_standard/model_8000.pt",
+      "sha256": "0be2a231b6305683b729225c0a3b691dba8a7c6a1d1e5414819095199cb37ae3",
+      "size_bytes": 19365365
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/dep/onix_joy/onix_joy/launch/onix_joy.launch.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_joy/onix_joy/launch/onix_joy.launch.py",
+      "sha256": "571cc3356367c793b14de8def2570db4eea9587ddc69cfcf90d8fd40d16a5bb4",
+      "size_bytes": 3531
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/onix_teleop/bash/onix2_bringup.bash",
+      "resolved_path": "/home/kojima/onix/onix_teleop/bash/onix2_bringup.bash",
+      "sha256": "2f9a949edd550059bd5dac76d9d3f2a1a7cc94faf58e93673c3462828f8bb93b",
+      "size_bytes": 4734
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/onix_robot/bash/onix2_bringup.bash",
+      "resolved_path": "/home/kojima/onix/onix_robot/bash/onix2_bringup.bash",
+      "sha256": "6b1819d01e5ce4ff38011538e901e54e7ea0ec221f6cc1f3c79313361410bde4",
+      "size_bytes": 1867
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/install/onix_policy_bridge/share/onix_policy_bridge/launch/onix_policy_bridge.launch.py",
+      "resolved_path": "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/launch/onix_policy_bridge.launch.py",
+      "sha256": "a79b30c4a049a914b8f159cb57e0b40101694d0bc7c324928240f73c481b1217",
+      "size_bytes": 16133
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/install/onix_policy_bridge/lib/onix_policy_bridge/onix_policy_bridge_frontend",
+      "resolved_path": "/home/kojima/onix/install/onix_policy_bridge/lib/onix_policy_bridge/onix_policy_bridge_frontend",
+      "sha256": "f0c32a7c4487ff6aaa6c41e37f4f3f4a027c9935e0395d1a143aec1a673a76e2",
+      "size_bytes": 1010
+    },
+    {
+      "exists": true,
+      "path": "/home/kojima/onix/install/onix_policy_bridge/lib/onix_policy_bridge/onix_policy_bridge_backend",
+      "resolved_path": "/home/kojima/onix/install/onix_policy_bridge/lib/onix_policy_bridge/onix_policy_bridge_backend",
+      "sha256": "425ccb4230ba80214eec7f3c34d920e0ac0b3deecca9412a7171975b53f2b53d",
+      "size_bytes": 1008
+    }
+  ],
+  "package_status": [
+    "D onix_policy_bridge/checkpoints/onix_rough_standard/model_2000.pt",
+    " M onix_policy_bridge/config/onix_rough_standard/agent.yaml",
+    " M onix_policy_bridge/config/onix_rough_standard/env.yaml",
+    "?? onix_policy_bridge/checkpoints/onix_rough_standard/model_8000.pt"
+  ],
+  "package_version": "0.1.0",
+  "real_robot_bringup_entry_point": "onix_joy/onix_joy.launch.py included by onix2_bringup.bash on quix@onix2.local",
+  "real_robot_workspace_setup": "source ~/onix/install/setup.bash on remote host",
+  "remote_checkpoint_sha256": null,
+  "remote_identity_verification": "blocked: onix2.local DNS resolution failed; no SSH read-only audit could run",
+  "remote_launch_override": null,
+  "remote_package_prefix": null,
+  "remote_source_sha256": null,
+  "repository_path": "/home/kojima/onix/dep/onix_automation",
+  "robot_live_process": null,
+  "status": "configured_local_candidate_only_not_confirmed_physical_deployment"
+}

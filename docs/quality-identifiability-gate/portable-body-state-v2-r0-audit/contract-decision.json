@@ -1,0 +1,26 @@
+{
+  "confirmed": [
+    "local package 0.1.0 and launch/entry-point/symlink chain",
+    "local onix_policy_bridge source has uncommitted config and checkpoint changes",
+    "41/41 previous ledger entries unchanged",
+    "new worktree baseline 11/11 relevant tests passed"
+  ],
+  "decision": "onix_policy_bridge_deployment_identity_inconclusive",
+  "first_blocker": "Actual robot executes on quix@onix2.local; this host could not resolve onix2.local. The local onix_policy_bridge source/install is mutable and not evidence of remote deployed source, launch overrides, checkpoint or bag-era version.",
+  "first_stop_stage": "R0",
+  "not_confirmed": [
+    "remote package prefix/HEAD/dirty state/source SHA",
+    "remote selected model and normalization config",
+    "bag-era bridge version",
+    "actual deployment observation implementation"
+  ],
+  "not_started": [
+    "R1-R10 source comparison, v2 contract implementation, fixtures, simulator logging parity",
+    "Evaluator training",
+    "candidate collection",
+    "robot control"
+  ],
+  "owned_processes_started": 0,
+  "previous_artifacts_modified": false,
+  "source_modified": false
+}
