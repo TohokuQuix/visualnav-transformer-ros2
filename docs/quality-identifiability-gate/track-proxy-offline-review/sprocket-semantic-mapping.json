@@ -1,0 +1,147 @@
+{
+  "mapping": [
+    {
+      "confidence": "high_for_front_rear_joint_identity_moderate_for_dynamic_equivalence",
+      "joint_coordinate_positive_direction": "rotation about +Y; robot-forward wheel rotation is positive in joint coordinate for +X chassis motion",
+      "lateral_offset_difference_m": 0.075,
+      "physical_axis": "0 1 0",
+      "physical_child": "chassis/rr_sprocket",
+      "physical_joint": "chassis/rr_sprocket_axle",
+      "physical_parent": "chassis/body",
+      "physical_xyz_m": [
+        -0.255,
+        -0.020000000000000018,
+        0.0
+      ],
+      "position": "rear",
+      "scale": 0.05,
+      "side": "right",
+      "simulator_axis": "0 1 0",
+      "simulator_child": "chassis_r01_sprocket",
+      "simulator_index": 10,
+      "simulator_joint": "chassis_r01_sprocket_axle",
+      "simulator_parent": "chassis_body",
+      "simulator_xyz_m": [
+        -0.255,
+        -0.09500000000000001,
+        0.0
+      ],
+      "unit": "rad/s",
+      "unresolved": [
+        "physical lateral placement differs from simulator by 0.075 m",
+        "real encoder/transmission sign under load not independently bag-validated"
+      ],
+      "x_match": true
+    },
+    {
+      "confidence": "high_for_front_rear_joint_identity_moderate_for_dynamic_equivalence",
+      "joint_coordinate_positive_direction": "rotation about +Y; robot-forward wheel rotation is positive in joint coordinate for +X chassis motion",
+      "lateral_offset_difference_m": 0.075,
+      "physical_axis": "0 1 0",
+      "physical_child": "chassis/fr_sprocket",
+      "physical_joint": "chassis/fr_sprocket_axle",
+      "physical_parent": "chassis/body",
+      "physical_xyz_m": [
+        0.255,
+        -0.020000000000000018,
+        0.0
+      ],
+      "position": "front",
+      "scale": 0.05,
+      "side": "right",
+      "simulator_axis": "0 1 0",
+      "simulator_child": "chassis_r08_sprocket",
+      "simulator_index": 17,
+      "simulator_joint": "chassis_r08_sprocket_axle",
+      "simulator_parent": "chassis_body",
+      "simulator_xyz_m": [
+        0.255,
+        -0.09500000000000001,
+        0.0
+      ],
+      "unit": "rad/s",
+      "unresolved": [
+        "physical lateral placement differs from simulator by 0.075 m",
+        "real encoder/transmission sign under load not independently bag-validated"
+      ],
+      "x_match": true
+    },
+    {
+      "confidence": "high_for_front_rear_joint_identity_moderate_for_dynamic_equivalence",
+      "joint_coordinate_positive_direction": "rotation about +Y; robot-forward wheel rotation is positive in joint coordinate for +X chassis motion",
+      "lateral_offset_difference_m": 0.075,
+      "physical_axis": "0 1 0",
+      "physical_child": "chassis/rl_sprocket",
+      "physical_joint": "chassis/rl_sprocket_axle",
+      "physical_parent": "chassis/body",
+      "physical_xyz_m": [
+        -0.255,
+        0.020000000000000018,
+        0.0
+      ],
+      "position": "rear",
+      "scale": 0.05,
+      "side": "left",
+      "simulator_axis": "0 1 0",
+      "simulator_child": "chassis_l01_sprocket",
+      "simulator_index": 2,
+      "simulator_joint": "chassis_l01_sprocket_axle",
+      "simulator_parent": "chassis_body",
+      "simulator_xyz_m": [
+        -0.255,
+        0.09500000000000001,
+        0.0
+      ],
+      "unit": "rad/s",
+      "unresolved": [
+        "physical lateral placement differs from simulator by 0.075 m",
+        "real encoder/transmission sign under load not independently bag-validated"
+      ],
+      "x_match": true
+    },
+    {
+      "confidence": "high_for_front_rear_joint_identity_moderate_for_dynamic_equivalence",
+      "joint_coordinate_positive_direction": "rotation about +Y; robot-forward wheel rotation is positive in joint coordinate for +X chassis motion",
+      "lateral_offset_difference_m": 0.075,
+      "physical_axis": "0 1 0",
+      "physical_child": "chassis/fl_sprocket",
+      "physical_joint": "chassis/fl_sprocket_axle",
+      "physical_parent": "chassis/body",
+      "physical_xyz_m": [
+        0.255,
+        0.020000000000000018,
+        0.0
+      ],
+      "position": "front",
+      "scale": 0.05,
+      "side": "left",
+      "simulator_axis": "0 1 0",
+      "simulator_child": "chassis_l08_sprocket",
+      "simulator_index": 9,
+      "simulator_joint": "chassis_l08_sprocket_axle",
+      "simulator_parent": "chassis_body",
+      "simulator_xyz_m": [
+        0.255,
+        0.09500000000000001,
+        0.0
+      ],
+      "unit": "rad/s",
+      "unresolved": [
+        "physical lateral placement differs from simulator by 0.075 m",
+        "real encoder/transmission sign under load not independently bag-validated"
+      ],
+      "x_match": true
+    }
+  ],
+  "not_claimed": "physical contact/slip dynamics or encoder sign under load parity",
+  "physical_generated_urdf_sha256": "f4af48ade7593be75d0038bba0516a12d1564938cb57565818fd1f20d6910718",
+  "physical_left_transmission_reduction": 1,
+  "physical_right_transmission_reduction": -1,
+  "physical_sprocket_radius_m": 0.0703,
+  "physical_xacro_sha256": "981fd9b9a3ac00c0b629393b6ab2b2cd0759f1463c72b11a0f43ab4c3110bf76",
+  "sign_contract": "JointState joint velocity uses URDF joint coordinate after transmission; no extra side sign applied in forward body frame",
+  "simulator_main_sprocket_radius_m": 0.0703,
+  "simulator_urdf_sha256": "94cb178f40dd0de375b3f21c83c9f58529b530de5cfac4d70f083b4d2a771ece",
+  "status": "four_endpoint_joint_identity_source_confirmed",
+  "trace_order_source_sha256": "4ba05a31967da0bf29864caaf751ee4daf509aa89732527c638b4426097e1419"
+}

@@ -1,0 +1,49 @@
+actor_24j_reconstruction_tolerance_abs: 1.0e-05
+aggregation: arithmetic mean of front and rear joint angular velocities per side
+candidate_feature_distance: time-aligned RMS of scaled right/left track velocity over
+  120 steps
+candidate_information_decision: descriptive only, no thresholds optimized on 63 traces
+candidate_ranking: six non-direct candidate distances to mean direct reference, pairwise
+  concordance of 24j vs 2j; StateGroup is independent unit
+canonical_order:
+- right_track_sprocket_velocity
+- left_track_sprocket_velocity
+denominator_epsilon: 1.0e-06
+duplicate_reference: three direct_reference runs per StateGroup; report pairwise RMS
+feature_clip_before_scale:
+- -100
+- 100
+feature_scale: 0.05
+feature_unit: scaled rad/s (dimensionless RL observation units)
+field_phase: same step joint_velocity and pre_noise from saved trace; verify per-step
+  before proxy comparison
+missing_policy: reject; no zero filling or inferred joints
+motion_strata:
+  low_speed_other: remaining steps
+  stopped: abs(command_vx)<0.05 m/s and abs(command_yaw)<0.05 rad/s
+  straight: abs(command_vx)>=0.05 m/s and abs(command_yaw)<0.15 rad/s
+  turning: abs(command_yaw)>=0.15 rad/s
+outcome_relationship: within-StateGroup Spearman of candidate track distance to direct
+  against absolute direct-relative reward and goal difference; descriptive only
+physical_equivalence: not assumed merely from joint identity
+physical_joint_names:
+  left:
+  - chassis/fl_sprocket_axle
+  - chassis/rl_sprocket_axle
+  right:
+  - chassis/fr_sprocket_axle
+  - chassis/rr_sprocket_axle
+plot_data_policy: aggregate plots and derived timeseries only; no raw trace copied
+  into Git
+primary_result_scale_tuning: false
+raw_joint_axis: 0 1 0 in parent body URDF frame
+raw_unit: rad/s
+sign_deadband_scaled: 0.001
+sim_joint_names:
+  left:
+  - chassis_l08_sprocket_axle
+  - chassis_l01_sprocket_axle
+  right:
+  - chassis_r08_sprocket_axle
+  - chassis_r01_sprocket_axle
+status: frozen_before_P2_metrics
