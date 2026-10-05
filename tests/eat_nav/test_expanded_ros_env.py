@@ -68,10 +68,12 @@ def test_continuation_manifest_starts_at_frozen_row_16():
 def test_reused_storage_is_counted_without_copying_raw_run(tmp_path):
     import json
     from eat_nav_expanded_feasibility_run import measured_storage_bytes
+    from eat_nav_e1_monitor import measured_disk_bytes
     old=tmp_path/'old';run=old/'runs/row-0';run.mkdir(parents=True)
     (run/'trace.gz').write_bytes(b'raw'*100)
     new=tmp_path/'new';(new/'runs').mkdir(parents=True)
     (new/'runs/row-0').symlink_to(run,target_is_directory=True)
     (new/'continuation-reuse-ledger.json').write_text(json.dumps({'reused_run_bytes':300}))
     assert measured_storage_bytes(new)>=300
+    assert measured_disk_bytes(new)>=300
     assert (new/'runs/row-0').is_symlink()

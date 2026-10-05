@@ -129,6 +129,13 @@ def disk_bytes(root):
     return sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
 
 
+def measured_disk_bytes(root):
+    root=Path(root)
+    ledger=root/'continuation-reuse-ledger.json'
+    reused=json.loads(ledger.read_text())['reused_run_bytes'] if ledger.exists() else 0
+    return disk_bytes(root)+reused
+
+
 def finite(value):
     if isinstance(value,dict):return all(finite(x) for x in value.values())
     if isinstance(value,list):return all(finite(x) for x in value)
@@ -283,7 +290,7 @@ def main():
             if (time.monotonic_ns()-progress['monotonic_ns'])/1e9>safety['infrastructure_stop']['heartbeat_stale_over_sec']:
                 stop=stop or 'simulator_heartbeat_stale'
         stalled=machine.state!='FINALIZING' and time.monotonic()-last_progress>safety['infrastructure_stop']['step_stall_over_sec']
-        if stop is None and disk_bytes(root)>safety['infrastructure_stop']['storage_over_bytes']:
+        if stop is None and measured_disk_bytes(root)>safety['infrastructure_stop']['storage_over_bytes']:
             stop='storage_cap'
         if completion is None and last_step is not None and last_step>=args.target_step+120:
             completion=remote_completion(remote,entry.get('map_path_file_sha256') or
