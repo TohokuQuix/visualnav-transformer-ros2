@@ -1,0 +1,15 @@
+schema: evaluator_offline_smoke_teacher_student_v1
+source: sealed_prepath_anchor_only
+teacher: B3_privileged_simulator_Actor22_plus_DEM_goal_Path
+student: B7_same_portable_input_as_B5
+training_only_teacher_signal: B3_predictions_on_train_StateGroups
+distillation_auxiliary_weight: 0.1
+primary_observed_targets:
+  - discounted_reward_2s
+  - direct_relative_reward_2s
+  - goal_distance_reduction_2s
+critic_auxiliary: disabled_in_this_smoke
+safety_head: disabled
+teacher_prediction_is_not_ground_truth: true
+adoption_rule: observed_Outcome_performance_must_not_worsen
+physical_deployment: blocked_pending_parity_and_arm_stowed_contract

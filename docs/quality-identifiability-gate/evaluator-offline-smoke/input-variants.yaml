@@ -1,0 +1,17 @@
+schema: evaluator_offline_smoke_inputs_v1
+prepath_anchor_only: true
+candidate_specific: [candidate_path, path_geometry, path_dem_profile, path_coverage]
+common: [dem_history, body_angular_velocity, projected_gravity, flipper_position, flipper_fold_mode, sprocket_angular_state, arm_applicability_mask, anchor_timestamp]
+variants:
+  B0: [constant]
+  B1: [relative_goal, candidate_path, path_geometry, path_dem_profile, path_coverage]
+  B2: [simulator_actor22_prepath]
+  B3: [simulator_actor22_prepath, dem_history, relative_goal, candidate_path, path_geometry, path_dem_profile, path_coverage]
+  B4: [dem_history, relative_goal, candidate_path, path_geometry, path_dem_profile, path_coverage, body_angular_velocity, projected_gravity, flipper_fold_mode, flipper_position, availability_mask, stale_mask, arm_applicability_mask]
+  B5: [B4, right_sprocket_angular_state_scaled, left_sprocket_angular_state_scaled]
+  B6: [B4, simulator_actor_track_aggregate_24j]
+  B7: [B5, privileged_B3_output_distillation_training_only]
+physical_critic_observation: excluded
+physical_critic_value: excluded
+pseudo_ground_speed: excluded
+arm_mask_semantics: simulator_without_arm_is_inapplicable_and_physical_requires_verified_stowed_pose_before_inference

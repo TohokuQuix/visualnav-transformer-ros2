@@ -1,0 +1,227 @@
+{
+  "folds": [
+    {
+      "held_out": "expanded-train-000",
+      "train": [
+        "expanded-train-001",
+        "expanded-train-002",
+        "expanded-train-003",
+        "expanded-train-004",
+        "g0e-train-000",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "expanded-train-001",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-002",
+        "expanded-train-003",
+        "expanded-train-004",
+        "g0e-train-000",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "expanded-train-002",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-001",
+        "expanded-train-003",
+        "expanded-train-004",
+        "g0e-train-000",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "expanded-train-003",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-001",
+        "expanded-train-002",
+        "expanded-train-004",
+        "g0e-train-000",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "expanded-train-004",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-001",
+        "expanded-train-002",
+        "expanded-train-003",
+        "g0e-train-000",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "g0e-train-000",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-001",
+        "expanded-train-002",
+        "expanded-train-003",
+        "expanded-train-004",
+        "g0e-train-001"
+      ]
+    },
+    {
+      "held_out": "g0e-train-001",
+      "train": [
+        "expanded-train-000",
+        "expanded-train-001",
+        "expanded-train-002",
+        "expanded-train-003",
+        "expanded-train-004",
+        "g0e-train-000"
+      ]
+    }
+  ],
+  "groups": [
+    "expanded-train-000",
+    "expanded-train-001",
+    "expanded-train-002",
+    "expanded-train-003",
+    "expanded-train-004",
+    "g0e-train-000",
+    "g0e-train-001"
+  ],
+  "heldout_never_used_for_checkpoint_selection": true,
+  "limitation": "one StateGroup per terrain; LOSO confounds held-out terrain with held-out source and is not terrain generalization evidence",
+  "same_seed_set_all_variants": [
+    123,
+    456,
+    789
+  ],
+  "source_ancestry": {
+    "expanded-train-000": {
+      "env_id": 36,
+      "episode_key": [
+        0,
+        36,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          36,
+          0
+        ],
+        20
+      ],
+      "terrain_seed": 645838458,
+      "terrain_type": "boxes"
+    },
+    "expanded-train-001": {
+      "env_id": 54,
+      "episode_key": [
+        0,
+        54,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          54,
+          0
+        ],
+        65
+      ],
+      "terrain_seed": 2480648597,
+      "terrain_type": "hf_pyramid_slope"
+    },
+    "expanded-train-002": {
+      "env_id": 6,
+      "episode_key": [
+        0,
+        6,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          6,
+          0
+        ],
+        15
+      ],
+      "terrain_seed": 2373776937,
+      "terrain_type": "k_rail_field"
+    },
+    "expanded-train-003": {
+      "env_id": 73,
+      "episode_key": [
+        0,
+        73,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          73,
+          0
+        ],
+        75
+      ],
+      "terrain_seed": 964068328,
+      "terrain_type": "k_rail_step_field"
+    },
+    "expanded-train-004": {
+      "env_id": 47,
+      "episode_key": [
+        0,
+        47,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          47,
+          0
+        ],
+        55
+      ],
+      "terrain_seed": 3361987328,
+      "terrain_type": "pyramid_stairs"
+    },
+    "g0e-train-000": {
+      "env_id": 22,
+      "episode_key": [
+        0,
+        22,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          22,
+          0
+        ],
+        30
+      ],
+      "terrain_seed": 3397720646,
+      "terrain_type": "pyramid_stairs_inv"
+    },
+    "g0e-train-001": {
+      "env_id": 78,
+      "episode_key": [
+        0,
+        78,
+        0
+      ],
+      "source_window_id": [
+        [
+          0,
+          78,
+          0
+        ],
+        20
+      ],
+      "terrain_seed": 3241617023,
+      "terrain_type": "random_rough"
+    }
+  },
+  "train_only_scaler": true,
+  "unit": "StateGroup"
+}

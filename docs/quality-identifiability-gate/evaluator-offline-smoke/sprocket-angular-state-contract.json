@@ -1,0 +1,16 @@
+{
+  "formula": "0.05 * clip(mean(front,rear angular velocity in rad/s), -100, 100)",
+  "ground_velocity_interpretation": "prohibited",
+  "model_order": [
+    "right_sprocket_angular_state_scaled",
+    "left_sprocket_angular_state_scaled"
+  ],
+  "raw_order": [
+    "right_front_sprocket_angular_velocity_rad_s",
+    "right_rear_sprocket_angular_velocity_rad_s",
+    "left_front_sprocket_angular_velocity_rad_s",
+    "left_rear_sprocket_angular_velocity_rad_s"
+  ],
+  "scale_meaning": "Actor observation normalization, not wheel radius or m/s conversion",
+  "simulator_24j": "simulator_actor_track_aggregate_24j; simulator-only diagnostic"
+}

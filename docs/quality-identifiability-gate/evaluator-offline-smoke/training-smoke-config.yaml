@@ -1,0 +1,23 @@
+schema: evaluator_offline_smoke_v1
+status: frozen_before_training
+source: 63_sealed_E1_traces_7_StateGroups
+input_variants: [B0, B1, B2, B3, B4, B5, B6, B7]
+seeds: [123, 456, 789]
+split: leave_one_StateGroup_out_7_folds
+single_batch: first_non_direct_and_direct_from_lexically_first_group
+optimizer: Adam
+learning_rate: 0.0001
+weight_decay: 0.0
+batch_unit: all_candidates_in_one_StateGroup
+network: {hidden_width: 64, hidden_layers: 2, activation: ReLU, output_heads: 6}
+max_epochs: {single_batch: 300, seven_group: 300, loso: 200}
+early_stop: {patience: 30, min_delta: 0.0, select: train_loss, loso_holdout_never_selects}
+input_normalization: train_StateGroup_balanced_mean_std_continuous_only
+target_normalization: train_StateGroup_balanced_mean_std_continuous_only
+missing_input: explicit_availability_and_stale_masks_no_value_imputation
+regression: {type: smooth_l1, beta: 1.0, heads: [reward, direct_relative_reward, goal_reduction, endpoint_error, path_progress, cross_track_p95], weights: [1.0, 1.0, 1.0, 1.0, 0.25, 0.25]}
+ranking: {type: Bradley_Terry, heads: [reward, goal_reduction], weights: [0.25, 0.25], strict_pairs_only: true, within_group_then_group_macro: true}
+auxiliary_critic: {enabled: false, reason: phase_B_only}
+distillation: {teacher: B3, auxiliary_weight: 0.1, primary_observed_labels_retained: true}
+safety: {enabled_for_training: false, loss_weight: 0.0, inference_use: false}
+decision_rule: descriptive_7_group_smoke_only_no_formal_generalization

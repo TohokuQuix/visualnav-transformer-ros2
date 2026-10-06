@@ -1,0 +1,225 @@
+{
+  "actor22_distillation_supported_for_smoke": false,
+  "actor22_not_sufficient_for_path_selection": true,
+  "actor22_reason": "pre-Path 22D input is identical for every candidate within each StateGroup; group-level mean fit does not establish candidate-specific Outcome distillation",
+  "distillation": [
+    {
+      "core_primary_mae": 0.10674439177468971,
+      "held_out": "expanded-train-000",
+      "observed_primary_delta_student_minus_core": -0.005908883280224264,
+      "reward_pair_ranking_retained_vs_teacher": 0.5714285714285714,
+      "seed": 123,
+      "student_primary_mae": 0.10083550849446545,
+      "teacher_student_mae": 0.03980835168449967
+    },
+    {
+      "core_primary_mae": 0.1697506399618255,
+      "held_out": "expanded-train-000",
+      "observed_primary_delta_student_minus_core": -0.02523681907742112,
+      "reward_pair_ranking_retained_vs_teacher": 0.7142857142857143,
+      "seed": 456,
+      "student_primary_mae": 0.14451382088440437,
+      "teacher_student_mae": 0.03130529310416292
+    },
+    {
+      "core_primary_mae": 0.08179791658012955,
+      "held_out": "expanded-train-000",
+      "observed_primary_delta_student_minus_core": -0.004386202880629783,
+      "reward_pair_ranking_retained_vs_teacher": 0.8095238095238095,
+      "seed": 789,
+      "student_primary_mae": 0.07741171369949977,
+      "teacher_student_mae": 0.06958257165495996
+    },
+    {
+      "core_primary_mae": 0.10767020588671719,
+      "held_out": "expanded-train-001",
+      "observed_primary_delta_student_minus_core": -0.000772041993008718,
+      "reward_pair_ranking_retained_vs_teacher": 0.8571428571428571,
+      "seed": 123,
+      "student_primary_mae": 0.10689816389370847,
+      "teacher_student_mae": 0.009980238956847676
+    },
+    {
+      "core_primary_mae": 0.11403369786286796,
+      "held_out": "expanded-train-001",
+      "observed_primary_delta_student_minus_core": 0.0022816844284534454,
+      "reward_pair_ranking_retained_vs_teacher": 0.7619047619047619,
+      "seed": 456,
+      "student_primary_mae": 0.1163153822913214,
+      "teacher_student_mae": 0.008129155332291568
+    },
+    {
+      "core_primary_mae": 0.11053947400715616,
+      "held_out": "expanded-train-001",
+      "observed_primary_delta_student_minus_core": -0.0023306533004398694,
+      "reward_pair_ranking_retained_vs_teacher": 0.8095238095238095,
+      "seed": 789,
+      "student_primary_mae": 0.1082088207067163,
+      "teacher_student_mae": 0.007730704301071388
+    },
+    {
+      "core_primary_mae": 0.05719518282071308,
+      "held_out": "expanded-train-002",
+      "observed_primary_delta_student_minus_core": 0.003005790524184704,
+      "reward_pair_ranking_retained_vs_teacher": 0.8095238095238095,
+      "seed": 123,
+      "student_primary_mae": 0.06020097334489778,
+      "teacher_student_mae": 0.02074840528614543
+    },
+    {
+      "core_primary_mae": 0.050864941612989815,
+      "held_out": "expanded-train-002",
+      "observed_primary_delta_student_minus_core": 0.0020660419293023896,
+      "reward_pair_ranking_retained_vs_teacher": 0.8095238095238095,
+      "seed": 456,
+      "student_primary_mae": 0.052930983542292205,
+      "teacher_student_mae": 0.022072595440679126
+    },
+    {
+      "core_primary_mae": 0.037169339790664335,
+      "held_out": "expanded-train-002",
+      "observed_primary_delta_student_minus_core": -0.0008674304656408408,
+      "reward_pair_ranking_retained_vs_teacher": 1.0,
+      "seed": 789,
+      "student_primary_mae": 0.036301909325023494,
+      "teacher_student_mae": 0.015116673428565264
+    },
+    {
+      "core_primary_mae": 0.35241815571983653,
+      "held_out": "expanded-train-003",
+      "observed_primary_delta_student_minus_core": -0.03589115002089077,
+      "reward_pair_ranking_retained_vs_teacher": 1.0,
+      "seed": 123,
+      "student_primary_mae": 0.31652700569894576,
+      "teacher_student_mae": 0.058124431719382606
+    },
+    {
+      "core_primary_mae": 0.3883456914789147,
+      "held_out": "expanded-train-003",
+      "observed_primary_delta_student_minus_core": -0.036031489019040686,
+      "reward_pair_ranking_retained_vs_teacher": 0.7619047619047619,
+      "seed": 456,
+      "student_primary_mae": 0.352314202459874,
+      "teacher_student_mae": 0.028653429269238754
+    },
+    {
+      "core_primary_mae": 0.2853644690303891,
+      "held_out": "expanded-train-003",
+      "observed_primary_delta_student_minus_core": -0.029750025382748346,
+      "reward_pair_ranking_retained_vs_teacher": 1.0,
+      "seed": 789,
+      "student_primary_mae": 0.25561444364764074,
+      "teacher_student_mae": 0.06536226685124415
+    },
+    {
+      "core_primary_mae": 0.16419863933697343,
+      "held_out": "expanded-train-004",
+      "observed_primary_delta_student_minus_core": -0.04345065024163988,
+      "reward_pair_ranking_retained_vs_teacher": 0.5238095238095238,
+      "seed": 123,
+      "student_primary_mae": 0.12074798909533355,
+      "teacher_student_mae": 0.16287896154379403
+    },
+    {
+      "core_primary_mae": 0.1063714321806199,
+      "held_out": "expanded-train-004",
+      "observed_primary_delta_student_minus_core": 0.038413154789143145,
+      "reward_pair_ranking_retained_vs_teacher": 0.6190476190476191,
+      "seed": 456,
+      "student_primary_mae": 0.14478458696976304,
+      "teacher_student_mae": 0.2598689858008314
+    },
+    {
+      "core_primary_mae": 0.28652327271454314,
+      "held_out": "expanded-train-004",
+      "observed_primary_delta_student_minus_core": -0.1136319626260687,
+      "reward_pair_ranking_retained_vs_teacher": 0.6666666666666666,
+      "seed": 789,
+      "student_primary_mae": 0.17289131008847444,
+      "teacher_student_mae": 0.13023702710590981
+    },
+    {
+      "core_primary_mae": 0.20889910565758193,
+      "held_out": "g0e-train-000",
+      "observed_primary_delta_student_minus_core": -0.0063965057057362995,
+      "reward_pair_ranking_retained_vs_teacher": 0.8571428571428571,
+      "seed": 123,
+      "student_primary_mae": 0.20250259995184564,
+      "teacher_student_mae": 0.019271060100032225
+    },
+    {
+      "core_primary_mae": 0.17624047653818573,
+      "held_out": "g0e-train-000",
+      "observed_primary_delta_student_minus_core": 0.0009935187106883125,
+      "reward_pair_ranking_retained_vs_teacher": 0.9047619047619048,
+      "seed": 456,
+      "student_primary_mae": 0.17723399524887404,
+      "teacher_student_mae": 0.03846476737547804
+    },
+    {
+      "core_primary_mae": 0.2241107094343062,
+      "held_out": "g0e-train-000",
+      "observed_primary_delta_student_minus_core": 0.006275985941842727,
+      "reward_pair_ranking_retained_vs_teacher": 1.0,
+      "seed": 789,
+      "student_primary_mae": 0.23038669537614892,
+      "teacher_student_mae": 0.021519123576581478
+    },
+    {
+      "core_primary_mae": 0.15285307044784227,
+      "held_out": "g0e-train-001",
+      "observed_primary_delta_student_minus_core": 0.009348822964562326,
+      "reward_pair_ranking_retained_vs_teacher": 0.9047619047619048,
+      "seed": 123,
+      "student_primary_mae": 0.1622018934124046,
+      "teacher_student_mae": 0.005167677170700497
+    },
+    {
+      "core_primary_mae": 0.142223808914423,
+      "held_out": "g0e-train-001",
+      "observed_primary_delta_student_minus_core": -0.0005498066268585233,
+      "reward_pair_ranking_retained_vs_teacher": 0.8095238095238095,
+      "seed": 456,
+      "student_primary_mae": 0.14167400228756447,
+      "teacher_student_mae": 0.007644605650394051
+    },
+    {
+      "core_primary_mae": 0.1637447393602795,
+      "held_out": "g0e-train-001",
+      "observed_primary_delta_student_minus_core": 0.0003641493342541047,
+      "reward_pair_ranking_retained_vs_teacher": 0.9047619047619048,
+      "seed": 789,
+      "student_primary_mae": 0.1641088886945336,
+      "teacher_student_mae": 0.00876961489794431
+    }
+  ],
+  "distillation_supported": false,
+  "fold_improvements": {
+    "B4_over_B1": {
+      "direct_relative_reward": 2,
+      "goal_reduction": 5,
+      "reward": 4
+    },
+    "B5_over_B4": {
+      "direct_relative_reward": 3,
+      "goal_reduction": 1,
+      "reward": 4
+    },
+    "B7_over_B5": {
+      "direct_relative_reward": 5,
+      "goal_reduction": 5,
+      "reward": 3
+    }
+  },
+  "formal_evaluator_training_approved": false,
+  "insufficient_state_group_support": true,
+  "next_evidence": "additional independent StateGroups and physical logging parity before model selection",
+  "nomad_retraining_approved": false,
+  "online_selection_approved": false,
+  "physical_deployment_blocked": "flipper/IMU/DEM parity and arm stowed reference remain unverified",
+  "portable_2s_adds_signal": false,
+  "portable_2s_not_required": true,
+  "portable_core_learns_signal": false,
+  "scope": "offline_7_StateGroup_smoke_only",
+  "simulator_privileged_only": false
+}

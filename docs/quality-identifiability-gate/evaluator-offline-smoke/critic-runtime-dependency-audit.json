@@ -1,0 +1,27 @@
+{
+  "actor_checkpoint_loader": "backend.py:_load_policy filters actor.* state_dict keys only",
+  "critic_observation_consumer": "none in frontend/backend; env.yaml critic section is a serialized training config only",
+  "critic_value_consumer": "none in frontend/backend; no feedback to arbitration, recovery, watchdog, mode or follower",
+  "inference_path": "frontend request -> backend.handle_request -> _build_observation -> ActorOnly -> action processing -> frontend publications",
+  "portable_contract_exclusions": [
+    "physical_critic_observation",
+    "physical_critic_value",
+    "pseudo_ground_velocity",
+    "critic_dimension_compatibility"
+  ],
+  "pseudo_base_linear_velocity": {
+    "actor_observation": "disabled by env.yaml observations.policy.base_lin_vel: null; 22D config already matches checkpoint so reconcile does not toggle",
+    "critic_observation_position": "env.yaml observations.critic.base_lin_vel first 3 dimensions, not built by physical bridge",
+    "enable_condition": "non-null policy.base_lin_vel.func or dimension reconciliation if model expects +3",
+    "fallback": "joint lookup defaults to 0 if missing in _mean_joint_value; current Actor still uses measured track angular state",
+    "other_consumer": "none; cmd_out.linear_x uses processed policy action, not measured pseudo velocity",
+    "source": "backend.py:_base_lin_vel_obs, measured left/right sprocket angular mean times radius"
+  },
+  "source_shas": {
+    "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/config/onix_rough_standard/env.yaml": "12a17c407598de01a2209223994cac3bbdc63cc08d3587b5317ee0bbf404f367",
+    "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/launch/onix_policy_bridge.launch.py": "a79b30c4a049a914b8f159cb57e0b40101694d0bc7c324928240f73c481b1217",
+    "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/backend.py": "53572ec2d7c45781221defd9a20f958815a20e28f42c4c9efab46e6a832f4493",
+    "/home/kojima/onix/dep/onix_automation/onix_policy_bridge/onix_policy_bridge/frontend.py": "e6818cec3d3042ea71570ca98467378de3aa6dae91a6126949d391c7192b2749"
+  },
+  "verdict": "critic_not_used_for_robot_control"
+}
