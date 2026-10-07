@@ -1,0 +1,175 @@
+{
+  "P1_main_track_support": {
+    "actual_contact_unverified": true,
+    "area_m2": 0.22800400000000004,
+    "bounds_xy_m": [
+      -0.3353,
+      0.3353,
+      -0.17,
+      0.17
+    ],
+    "collision_points": 1848,
+    "hull_xy_m": [
+      [
+        -0.3353,
+        -0.17
+      ],
+      [
+        0.3353,
+        -0.17
+      ],
+      [
+        0.3353,
+        0.17
+      ],
+      [
+        -0.3353,
+        0.17
+      ]
+    ],
+    "links": 18,
+    "role": "primary terrain corridor; main tracks plus main sprockets",
+    "z_range_m": [
+      -0.08029999999999998,
+      0.08029999999999998
+    ]
+  },
+  "P2_initial_pose_support": {
+    "area_m2": 0.5611984,
+    "bounds_xy_m": [
+      -0.6409,
+      0.6409,
+      -0.219,
+      0.219
+    ],
+    "collision_points": 6104,
+    "hull_xy_m": [
+      [
+        -0.6309,
+        -0.219
+      ],
+      [
+        0.6309,
+        -0.219
+      ],
+      [
+        0.6409,
+        -0.20750000000000002
+      ],
+      [
+        0.6409,
+        0.20750000000000002
+      ],
+      [
+        0.6309,
+        0.219
+      ],
+      [
+        -0.6309,
+        0.219
+      ],
+      [
+        -0.6409,
+        0.20750000000000002
+      ],
+      [
+        -0.6409,
+        -0.20750000000000002
+      ]
+    ],
+    "links": 58,
+    "role": "initial anchor/support/penetration diagnostic at zero flipper joints",
+    "settled_support_unverified": true,
+    "z_range_m": [
+      -0.08030000000000002,
+      0.08029999999999998
+    ]
+  },
+  "P3_potential_flipper_reach": {
+    "contact_after_actor_action_unverified": true,
+    "exact_flipper_only_polygon": null,
+    "role": "auxiliary possible-contact mask; never substitute for P1",
+    "sampled_52_joints_13_angles": true,
+    "upper_bound_from_full_articulated_union_including_nonflipper": {
+      "articulated_union": true,
+      "collision_shape_count": 271,
+      "effective_width_m": 0.438,
+      "half_width_m": 0.219,
+      "joint_angle_samples": 13,
+      "sampled_joint_count": 52,
+      "x_max_m": 0.6409,
+      "x_min_m": -0.6409,
+      "y_max_m": 0.219,
+      "y_min_m": -0.219
+    }
+  },
+  "P4_full_collision_envelope": {
+    "articulated_union": {
+      "articulated_union": true,
+      "collision_shape_count": 271,
+      "effective_width_m": 0.438,
+      "half_width_m": 0.219,
+      "joint_angle_samples": 13,
+      "sampled_joint_count": 52,
+      "x_max_m": 0.6409,
+      "x_min_m": -0.6409,
+      "y_max_m": 0.219,
+      "y_min_m": -0.219
+    },
+    "note": "Zero-joint XY hull coincides with F1 projection, but F2 includes chassis/top geometry and 3D collision; future articulation can change footprint.",
+    "role": "penetration/collision/clearance only; not primary terrain corridor",
+    "used_as_terrain_corridor": false,
+    "zero_joint": {
+      "area_m2": 0.5611984,
+      "bounds_xy_m": [
+        -0.6409,
+        0.6409,
+        -0.219,
+        0.219
+      ],
+      "collision_points": 6112,
+      "hull_xy_m": [
+        [
+          -0.6309,
+          -0.219
+        ],
+        [
+          0.6309,
+          -0.219
+        ],
+        [
+          0.6409,
+          -0.20750000000000002
+        ],
+        [
+          0.6409,
+          0.20750000000000002
+        ],
+        [
+          0.6309,
+          0.219
+        ],
+        [
+          -0.6309,
+          0.219
+        ],
+        [
+          -0.6409,
+          0.20750000000000002
+        ],
+        [
+          -0.6409,
+          -0.20750000000000002
+        ]
+      ],
+      "links": 59,
+      "z_range_m": [
+        -0.08030000000000002,
+        0.2
+      ]
+    }
+  },
+  "collision_width_m": 0.438,
+  "difference": "visual extent, collision envelope, main-track support and flipper reach are distinct",
+  "visual_width_estimate_m": 0.56
+}

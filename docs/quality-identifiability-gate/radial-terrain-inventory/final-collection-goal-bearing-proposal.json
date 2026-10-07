@@ -1,0 +1,51 @@
+{
+  "candidate_number_or_missing_mask": "must freeze before future collection",
+  "future_bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "future_goal_distance_m": 0.6,
+  "future_goals_robot_xy_m": {
+    "-10": [
+      0.5908846518073247,
+      -0.1041889066001582
+    ],
+    "-20": [
+      0.563815572471545,
+      -0.20521208599540122
+    ],
+    "0": [
+      0.6,
+      0.0
+    ],
+    "10": [
+      0.5908846518073247,
+      0.1041889066001582
+    ],
+    "20": [
+      0.563815572471545,
+      0.20521208599540122
+    ]
+  },
+  "gates": [
+    "front-goal small pilot pass",
+    "bearing-specific geometry",
+    "follower screen",
+    "known terrain corridor",
+    "global-goal teacher",
+    "runtime/storage",
+    "split/leakage",
+    "separate approval"
+  ],
+  "no_goal_bearing_path_executed": true,
+  "path_generation": "regenerate constrained forward-tangent curves for each task goal; do not rotate old Paths",
+  "plus_minus_30_deg_not_auto_adopted": true,
+  "same_task_global_goal_within_candidate_bank": true,
+  "small_pilot_goal_bearing_deg": [
+    0
+  ],
+  "status": "design_only_future_review"
+}
