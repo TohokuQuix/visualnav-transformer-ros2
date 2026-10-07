@@ -4,10 +4,11 @@ import hashlib,json,os,subprocess,time,traceback,sys
 from pathlib import Path
 
 ROOT=Path(os.environ['EATNAV_FIVE_POSE_ROOT'])
-WORKTREE=Path('/tmp/eatnav-vnt-radial-lean-logging')
+WORKTREE=Path('/tmp/eatnav-vnt-radial-112-sharded')
 CONTAINER='isaac-lab-onix'
 sys.path.insert(0,str(WORKTREE/'src'))
 from visualnav_transformer.eat_nav.contact_host_gate import evaluate_run_markers
+from visualnav_transformer.eat_nav.radial_shard_inventory import verify_shard_artifacts
 
 def process_matches(owned,pid,start_tick):
     return int(owned['pid'])==int(pid) and int(owned['proc_start_ticks'])==int(start_tick)
@@ -45,9 +46,10 @@ def anon():
     return d.get('anon',0)+d.get('shmem',0)
 
 def storage():
-    remote=docker('exec',CONTAINER,'du','-sb',ROOT,check=False)
+    scope=ROOT.parent.parent
+    remote=docker('exec',CONTAINER,'du','-sb',scope,check=False)
     r=int(remote.stdout.split()[0]) if remote.returncode==0 else 0
-    h=sum(p.stat().st_size for p in ROOT.rglob('*') if p.is_file())
+    h=sum(p.stat().st_size for p in scope.rglob('*') if p.is_file())
     return r+h
 
 def owned():
@@ -86,6 +88,8 @@ def copy_inputs(freeze):
              (WORKTREE/'src/visualnav_transformer/eat_nav/contact_raw_capture.py',ROOT/'src/visualnav_transformer/eat_nav/contact_raw_capture.py')]
     mapping.append((WORKTREE/'src/visualnav_transformer/eat_nav/radial_lean_log.py',
                     ROOT/'src/visualnav_transformer/eat_nav/radial_lean_log.py'))
+    mapping.append((WORKTREE/'src/visualnav_transformer/eat_nav/radial_shard_inventory.py',
+                    ROOT/'src/visualnav_transformer/eat_nav/radial_shard_inventory.py'))
     for local,remote in mapping:
         docker('exec',CONTAINER,'mkdir','-p',remote.parent)
         docker('cp',local,f'{CONTAINER}:{remote}')
@@ -100,6 +104,9 @@ def main():
     if (ROOT/'host-launch.json').exists():raise RuntimeError('one-shot already launched')
     if sha(ROOT/'input-freeze.json')!=pre['freeze_sha256'] or sha(ROOT/'pose-manifest.json')!=freeze['pose_manifest_sha256']:
         raise RuntimeError('host freeze SHA mismatch')
+    for path,expected in pre['source_and_test_sha256'].items():
+        if sha(path)!=expected:
+            raise RuntimeError('source SHA mismatch before launch: '+path)
     copy_inputs(freeze)
     cmd=pre['command']
     atomic(ROOT/'host-launch.json',{'wall_ns':time.time_ns(),'monotonic_ns':time.monotonic_ns(),
@@ -133,9 +140,15 @@ def main():
         docker('cp',f'{CONTAINER}:{ROOT}/run/.',ROOT/'run',check=False)
         if (ROOT/'status.json').exists() and json.loads((ROOT/'status.json').read_text())['stage']=='resource_or_lifecycle_stop':
             raise RuntimeError('resource or lifecycle cap')
-        outcome=evaluate_run_markers(ROOT/'run',freeze['run_kind'],client.returncode)
+        manifest=json.loads((ROOT/'pose-manifest.json').read_text())
+        pose_ids=[item['pose_id'] for item in manifest['poses']]
+        if len(pose_ids)!=freeze['expected_pose_count']:
+            raise RuntimeError('frozen pose count mismatch')
+        outcome=evaluate_run_markers(ROOT/'run',freeze['run_kind'],client.returncode,
+            expected_pose_count=len(pose_ids))
         if outcome=='invalid':
             raise RuntimeError(f'invalid simulator markers: exit={client.returncode}, mode={freeze["run_kind"]}')
+        artifact_gate=verify_shard_artifacts(ROOT/'run',pose_ids)
         files=[p for p in (ROOT/'run').rglob('*') if p.is_file()]
         mismatches=[str(p) for p in files if sha(p)!=rsha(p)]
         if mismatches:raise RuntimeError('host/container SHA mismatch: '+repr(mismatches))
@@ -143,9 +156,14 @@ def main():
         if owned_alive(item):
             raise RuntimeError('owned simulator process remains')
         atomic(ROOT/'sha-ledger.json',{'files':[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(files)]})
+        atomic(ROOT/'seal.json',{'schema':'eatnav_radial_shard_seal_v1','shard_id':freeze['shard_id'],
+            'pose_ids':pose_ids,'artifact_gate':artifact_gate,'native_exit_code':client.returncode,
+            'owned_process':item,'owned_residual':False,'run_sha_ledger_sha256':sha(ROOT/'sha-ledger.json'),
+            'freeze_sha256':sha(ROOT/'input-freeze.json'),'pose_manifest_sha256':sha(ROOT/'pose-manifest.json'),
+            'resource_latest':json.loads((ROOT/'resource-latest.json').read_text())})
         atomic(ROOT/'status.json',{'stage':outcome,'run_kind':freeze['run_kind'],
             'native_exit_code':client.returncode,'owned_residual':False,
-            'sha_ledger_sha256':sha(ROOT/'sha-ledger.json')})
+            'sha_ledger_sha256':sha(ROOT/'sha-ledger.json'),'seal_sha256':sha(ROOT/'seal.json')})
     except BaseException as e:
         if client and client.poll() is None:stop_owned(client)
         docker('cp',f'{CONTAINER}:{ROOT}/run/.',ROOT/'run',check=False)

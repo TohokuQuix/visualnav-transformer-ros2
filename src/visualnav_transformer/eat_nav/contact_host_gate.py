@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 
-def evaluate_run_markers(folder: Path, mode: str, native_exit_code: int) -> str:
+def evaluate_run_markers(folder: Path, mode: str, native_exit_code: int, *, expected_pose_count: int = 5) -> str:
     folder=Path(folder)
     if native_exit_code!=0:
         return 'invalid'
@@ -25,6 +25,6 @@ def evaluate_run_markers(folder: Path, mode: str, native_exit_code: int) -> str:
         finished=folder/'sim-finished.json'
         if finished.exists() and not failure.exists():
             data=json.loads(finished.read_text())
-            if data.get('physics_steps')==200 and data.get('pose_count')==5:
+            if data.get('physics_steps')==200 and data.get('pose_count')==expected_pose_count:
                 return 'full_complete'
     return 'invalid'

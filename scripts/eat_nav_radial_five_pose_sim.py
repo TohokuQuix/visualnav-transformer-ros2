@@ -35,6 +35,7 @@ from visualnav_transformer.eat_nav.contact_preflight_protocol import normalize_v
 from visualnav_transformer.eat_nav.radial_five_pose_contract import terrain_mesh_path
 from visualnav_transformer.eat_nav.contact_raw_capture import diagnostic_should_stop, validate_view_capacity, verify_frozen_view_contract
 from visualnav_transformer.eat_nav.radial_lean_log import LeanContactRecorder, append_step, save_dem_frame, save_actor, write_complete_before_close
+from visualnav_transformer.eat_nav.radial_shard_inventory import select_shard_rows, sensor_paths_for_env
 from isaaclab.utils import math as math_utils
 from isaaclab.utils.math import euler_xyz_from_quat
 import onix_isaac_lab.tasks  # noqa: F401
@@ -179,12 +180,7 @@ def main():
         if digest(path) != freeze['source_sha256'][label]:
             raise ValueError('input SHA drift: '+label)
     all_rows = [r for r in build_pose_schedule([args.batch_seed])]
-    selected = [next(r for r in all_rows if r['pose_id']==entry['pose_id']) for entry in manifest['poses']]
-    for expected,row in zip(manifest['poses'],selected):
-        if any(row[k]!=expected[k] for k in ('pose_id','env_index','terrain_seed','row','column','theta_rad')):
-            raise ValueError('pose identity mismatch')
-    if len(selected)!=5 or len({r['pose_id'] for r in selected})!=5:
-        raise ValueError('five unique poses required')
+    selected = select_shard_rows(manifest['poses'], all_rows)
     config = load_eat_config(Path(freeze['source_paths']['eat_config']))
     saved = yaml.load(Path(freeze['source_paths']['checkpoint_env']).read_text(), Loader=yaml.BaseLoader)
     toggles = {name:saved[name].lower()=='true' for name in
@@ -230,7 +226,10 @@ def main():
             if not sensors or filters!=[terrain_path] or any(f'/env_{i}/onix_chassis/' not in s for s in sensors):
                 raise ValueError('ambiguous Onix contact sensor paths: '+repr(sensors))
             if args.mode=='full':
-                verify_frozen_view_contract(sensors, freeze['contact_contract']['sensor_paths_by_pose'][row['pose_id']],
+                expected_sensors=freeze['contact_contract'].get('sensor_paths_by_pose',{}).get(row['pose_id'])
+                if expected_sensors is None:
+                    expected_sensors=sensor_paths_for_env(freeze['contact_contract']['sensor_path_template'],i)
+                verify_frozen_view_contract(sensors, expected_sensors,
                     filters, freeze['contact_contract']['filter_paths'],
                     freeze['contact_contract']['expected_array_shapes'], freeze['contact_contract']['expected_array_shapes'])
             views[row['pose_id']]=view
@@ -345,7 +344,7 @@ def main():
                 'settled_actor_path':f'actor/{name}/settled_step_200.json',
                 'action':vector(zero[i]),'control_step_count':20,'physics_step_count':200,
                 'candidate_free':True})
-        write_complete_before_close(args.output,{'pose_count':5,'physics_steps':physics_count,
+        write_complete_before_close(args.output,{'pose_count':len(selected),'physics_steps':physics_count,
             'elapsed_sec':time.monotonic()-started,'sim_source_sha256':digest(__file__)},env.close)
         env=None
     finally:
