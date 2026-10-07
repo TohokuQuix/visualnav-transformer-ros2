@@ -87,7 +87,9 @@ def write(path,value):
 def collision_proxy(stage,robot):
     root_prim=stage.GetPrimAtPath('/World/envs/env_0/onix_chassis')
     if not root_prim.IsValid():raise ValueError('robot root prim missing')
-    cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.default_,UsdGeom.Tokens.proxy])
+    # URDF-generated collision shapes have USD purpose=guide. Excluding guide
+    # yields an empty bound even when CollisionAPI is composed in the stage.
+    cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.guide])
     base=robot.data.root_pos_w[0].detach().cpu().numpy()
     _,_,yaw=euler_xyz_from_quat(robot.data.root_quat_w[0:1]);theta=float(yaw.item())
     c,s=math.cos(theta),math.sin(theta)
