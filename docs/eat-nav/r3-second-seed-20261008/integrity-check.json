@@ -1,0 +1,70 @@
+{
+  "anchor_placement": {
+    "dynamic_log_explanation": "analysis-v9.result.log was empty when its ledger entry was computed and later received stdout; old root untouched",
+    "dynamic_log_mismatch": [
+      "analysis-v9.result.log"
+    ],
+    "immutable_artifact_mismatch": [],
+    "ledger_entry_count": 164
+  },
+  "first_pilot": {
+    "mismatch": [],
+    "verified": 224
+  },
+  "inventory": {
+    "dynamic_log_mismatch": [],
+    "immutable_artifact_mismatch": [],
+    "ledger_entry_count": 1897
+  },
+  "robustness-freeze.json_sha256": "19d7b0f3884dab9c390a5bb0070d11e457b39dc2d64aadc979d5cd97ddc06899",
+  "scan": {
+    "anon_shmem_peak_bytes": 3815124992,
+    "elapsed_sec": 35.444038765039295,
+    "gpu_peak_mib": 5537,
+    "host_available_min_bytes": 87510175744,
+    "mismatch": [],
+    "native_exit_zero": true,
+    "owned_residual_zero": true,
+    "resource_caps_pass": true,
+    "resource_samples": 17,
+    "storage_peak_bytes": 25134567,
+    "verified": 9
+  },
+  "seed-freeze.json_sha256": "aef592cc262a4774a6d124a42dffa7c647bc36ae549f15b3cc14dd538883bf72",
+  "selection/pilot-manifest.json_sha256": "d493060b2cf30622710e5986a29f40c0252319adfb320224fbb14a92db574510",
+  "shard_A": {
+    "anon_shmem_peak_bytes": 3928084480,
+    "elapsed_sec": 37.05628259596415,
+    "gpu_peak_mib": 5861,
+    "host_available_min_bytes": 87243825152,
+    "mismatch": [],
+    "native_exit_zero": true,
+    "owned_residual_zero": true,
+    "resource_caps_pass": true,
+    "resource_samples": 18,
+    "storage_peak_bytes": 57043947,
+    "verified": 89
+  },
+  "shard_B": {
+    "anon_shmem_peak_bytes": 3904909312,
+    "elapsed_sec": 37.170056542148814,
+    "gpu_peak_mib": 5867,
+    "host_available_min_bytes": 87343325184,
+    "mismatch": [],
+    "native_exit_zero": true,
+    "owned_residual_zero": true,
+    "resource_caps_pass": true,
+    "resource_samples": 18,
+    "storage_peak_bytes": 71648996,
+    "verified": 89
+  },
+  "termination_continuation": {
+    "dynamic_log_mismatch": [],
+    "immutable_artifact_mismatch": [],
+    "ledger_entry_count": 912
+  },
+  "transition_reserve": {
+    "mismatch": [],
+    "verified": 84
+  }
+}

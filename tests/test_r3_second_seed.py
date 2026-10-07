@@ -80,3 +80,34 @@ def test_second_settling_only_changes_batch_seed_guard():
         "if args.batch_seed != freeze['batch_seeds'][0] or len(freeze['batch_seeds']) != 1:")
     assert 'max_contact_data_count=view_capacity' in new
     assert 'bare._reset_idx=capture_before_reset' in new
+
+
+def test_second_seed_decision_requires_all_four_class_supplies():
+    import importlib.util
+    path=Path(__file__).resolve().parents[1]/'scripts/eat_nav_r3_second_analyze.py'
+    spec=importlib.util.spec_from_file_location('r3_second_analyze_test',path)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    rows=[{'virtual_class':c,'classification':'settled_anchor_eligible',
+           'settled_class':c,'physical_supply_second_seed':True} for c in
+          ('transition','differential','graded','flat-only') for _ in range(2)]
+    assert module.decide(rows)=='r3_second_seed_physical_supply_pass_ready_for_goal_candidate_bank_design'
+    rows[0]['physical_supply_second_seed']=False
+    rows[1]['physical_supply_second_seed']=False
+    assert module.decide(rows)=='r3_second_seed_partial_class_support_review_required'
+    rows[0]['settled_class']='flat-only'
+    assert module.decide(rows)=='r3_second_seed_class_mismatch_review_required'
+    rows[0]['classification']='measurement_invalid'
+    assert module.decide(rows)=='r3_second_seed_measurement_invalid'
+
+
+def test_second_scan_reuses_first_seed_generator_and_collision_proxy():
+    import ast
+    root=Path(__file__).resolve().parents[1]
+    def definition(path,name):
+        tree=ast.parse(path.read_text())
+        return next(ast.dump(node,include_attributes=False) for node in ast.walk(tree)
+                    if isinstance(node,(ast.ClassDef,ast.FunctionDef)) and node.name==name)
+    old=root/'scripts/eat_nav_anchor_placement_scan_sim.py'
+    new=root/'scripts/eat_nav_r3_second_scan_sim.py'
+    for name in ('RadialTerrainGenerator','collision_proxy','outside_corridor_difference'):
+        assert definition(old,name)==definition(new,name)

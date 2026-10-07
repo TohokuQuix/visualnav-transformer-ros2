@@ -1,0 +1,102 @@
+{
+  "all": {
+    "differential": 150,
+    "flat-only": 213,
+    "graded": 80,
+    "transition": 5
+  },
+  "by_radius": {
+    "0.3": {
+      "differential": 23,
+      "flat-only": 69,
+      "graded": 19,
+      "transition": 1
+    },
+    "0.4": {
+      "differential": 30,
+      "flat-only": 60,
+      "graded": 21,
+      "transition": 1
+    },
+    "0.5": {
+      "differential": 39,
+      "flat-only": 52,
+      "graded": 20,
+      "transition": 1
+    },
+    "0.6": {
+      "differential": 58,
+      "flat-only": 32,
+      "graded": 20,
+      "transition": 2
+    }
+  },
+  "by_terrain": {
+    "boxes": {
+      "differential": 35,
+      "flat-only": 24,
+      "graded": 4,
+      "transition": 1
+    },
+    "hf_pyramid_slope": {
+      "flat-only": 64
+    },
+    "k_rail_field": {
+      "differential": 34,
+      "flat-only": 12,
+      "graded": 16,
+      "transition": 2
+    },
+    "k_rail_step_field": {
+      "differential": 60,
+      "graded": 2,
+      "transition": 2
+    },
+    "pyramid_stairs": {
+      "differential": 8,
+      "flat-only": 56
+    },
+    "pyramid_stairs_inv": {
+      "differential": 8,
+      "flat-only": 56
+    },
+    "random_rough": {
+      "differential": 5,
+      "flat-only": 1,
+      "graded": 58
+    }
+  },
+  "known_onset_all": 170,
+  "r3_112": {
+    "differential": 36,
+    "flat-only": 35,
+    "graded": 36,
+    "transition": 5
+  },
+  "source_families_by_class": {
+    "differential": [
+      "3773891777:boxes",
+      "3773891777:k_rail_field",
+      "3773891777:k_rail_step_field"
+    ],
+    "flat-only": [
+      "3773891777:boxes",
+      "3773891777:hf_pyramid_slope",
+      "3773891777:k_rail_field",
+      "3773891777:pyramid_stairs",
+      "3773891777:pyramid_stairs_inv",
+      "3773891777:random_rough"
+    ],
+    "graded": [
+      "3773891777:boxes",
+      "3773891777:k_rail_field",
+      "3773891777:k_rail_step_field",
+      "3773891777:random_rough"
+    ],
+    "transition": [
+      "3773891777:boxes",
+      "3773891777:k_rail_field",
+      "3773891777:k_rail_step_field"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "batch_seed": 3773891777,
+  "first_batch_seed": 20261007,
+  "first_seed_noncollision": true,
+  "first_terrain_seeds": [
+    675156315,
+    847729425,
+    1134960613,
+    1806762392,
+    1963488745,
+    2428165710,
+    2945874050
+  ],
+  "geometry_or_outcome_inputs_read": false,
+  "salt": "eatnav-r3-second-seed-v1",
+  "schema": "eatnav_r3_second_seed_freeze_v1",
+  "seed_selection_source_sha256": "7396bc78dfc0557a530ae4caa01872b40b5528272cdba4a5801cad216e20c4b2",
+  "selection_inputs_only": [
+    "literal base string",
+    "20261007",
+    "deterministic terrain_seed function"
+  ],
+  "sha256": "e0f104c125c64d396e2690c55ddb3ffbc16fb110d972e9f706266f33612429f8",
+  "source_family_ids": {
+    "boxes": "3773891777:boxes",
+    "hf_pyramid_slope": "3773891777:hf_pyramid_slope",
+    "k_rail_field": "3773891777:k_rail_field",
+    "k_rail_step_field": "3773891777:k_rail_step_field",
+    "pyramid_stairs": "3773891777:pyramid_stairs",
+    "pyramid_stairs_inv": "3773891777:pyramid_stairs_inv",
+    "random_rough": "3773891777:random_rough"
+  },
+  "terrain_seeds": {
+    "boxes": 703455880,
+    "hf_pyramid_slope": 3529918978,
+    "k_rail_field": 559994885,
+    "k_rail_step_field": 2525527592,
+    "pyramid_stairs": 352166304,
+    "pyramid_stairs_inv": 3627827408,
+    "random_rough": 1125787858
+  },
+  "timestamp_utc": "2026-10-07T22:50:12.052210+00:00",
+  "uint32_rule": "first 4 SHA-256 bytes, big endian"
+}

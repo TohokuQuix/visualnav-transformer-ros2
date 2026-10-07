@@ -1,0 +1,3326 @@
+{
+  "classifier_source_sha256": "fc12a07a372c3597402bf6002e6ef000c63bd7a50db1717c47f2d0c18a3addf8",
+  "poses": [
+    {
+      "angle_index": 12,
+      "batch_seed": 3773891777,
+      "column": 0,
+      "env_index": 84,
+      "pilot_slot": 1,
+      "pose_id": "b3773891777-boxes-r0.50-a12",
+      "radius_m": 0.5,
+      "rank": 1,
+      "requested_xy_yaw": [
+        36.0,
+        -24.5,
+        4.71238899230957
+      ],
+      "robustness": {
+        "class_retention_fraction": 1.0,
+        "class_switch_counts": {},
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.04225038290023804,
+            "min": 0.026632948243937214,
+            "range": 0.015617434656300826
+          },
+          "slope": {
+            "max": 1.2170584872364998,
+            "min": 0.8443379960954189,
+            "range": 0.37272049114108086
+          },
+          "step": {
+            "max": 0.12170584872364998,
+            "min": 0.08443379960954189,
+            "range": 0.037272049114108086
+          }
+        },
+        "nominal_class": "transition",
+        "nominal_threshold_margin": {
+          "differential": -0.023920112252235413,
+          "graded_slope": 1.0970584499835967,
+          "height_change": 0.06562595725059509,
+          "transition_step": 0.07170584499835968
+        },
+        "onset_max_m": 0.55,
+        "onset_mean_m": 0.5499999999999999,
+        "onset_min_m": 0.55,
+        "onset_range_m": 0.0,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "transition",
+          "dem_sha256": "ce39c2b162def6393825993052bd2a341e355fdf2dc23d9c444b5e8aeda04d60",
+          "height_change": -0.10562595725059509,
+          "known_fraction": 0.95,
+          "lateral": 0.016079887747764587,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.04225038290023804,
+          "slope": 1.2170584499835968,
+          "step": 0.12170584499835968,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "3d032feb1442bea8794814d1f9566a2fb2fe1b76f2cd2be1178d057d7af0aaac",
+          "height_change": -0.10396913439035416,
+          "known_fraction": 0.95,
+          "lateral": 0.011008819565176964,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200550688073614,
+          "slope": 1.0453757643699646,
+          "step": 0.10453757643699646,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "7de41002f97b8bf1d1f989df34f421ad628c449c2e9dc3bba0f1a5154f1a4825",
+          "height_change": -0.10396913811564445,
+          "known_fraction": 0.95,
+          "lateral": 0.015888549387454987,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200552178150045,
+          "slope": 1.0319273732602596,
+          "step": 0.10319273732602596,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "1ef33c6e54b49154f7c19a9904187d662d90c9a0fafc3467f0ca1ed670a0921d",
+          "height_change": -0.08976857364177704,
+          "known_fraction": 0.95,
+          "lateral": 0.01900564879179001,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.026632948243937214,
+          "slope": 0.8443379960954189,
+          "step": 0.08443379960954189,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "4a0d1f3dc8cee3a90df99f1433a209df9748e2769c7c19d96080f3561b6357a1",
+          "height_change": -0.09003424644470215,
+          "known_fraction": 0.95,
+          "lateral": 0.025726988911628723,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.026838034387059544,
+          "slope": 1.0449695959687233,
+          "step": 0.10449695959687233,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "89bf27502aa446702436a01e62005c7ef27318d3d84ae70e666593e4cc530556",
+          "height_change": -0.09003424271941185,
+          "known_fraction": 0.95,
+          "lateral": 0.02637716755270958,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.026838032294566418,
+          "slope": 0.947524905204773,
+          "step": 0.0947524905204773,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "99b9cbc0d24adc932915d0e6315cd17b68f0c4b0503c1937b4c86e4bc2c64d99",
+          "height_change": -0.08450060337781906,
+          "known_fraction": 0.95,
+          "lateral": 0.012863889336585999,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.03380024135112762,
+          "slope": 0.9736449271440506,
+          "step": 0.09736449271440506,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "8c2fc24f016b25273fa2ed231d86fdb2b2ee6f8607ec2add17e476a827aaf77a",
+          "height_change": -0.08414670452475548,
+          "known_fraction": 0.95,
+          "lateral": 0.015766102820634842,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.03365868180990219,
+          "slope": 0.9726313501596451,
+          "step": 0.09726313501596451,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "b50889cf96a4e38e05d79bd0273ebff15bb9b531148201afbecca01ffd9e853a",
+          "height_change": -0.08414670452475548,
+          "known_fraction": 0.95,
+          "lateral": 0.03349163755774498,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.03365868180990219,
+          "slope": 1.0832439363002777,
+          "step": 0.10832439363002777,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "dd2ca3d29f3d8c9a87a3a37f93dea389d63f7e9b1835c1fae8dd6b8b1ef178e2",
+          "height_change": -0.1056259535253048,
+          "known_fraction": 0.95,
+          "lateral": 0.016079895198345184,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.04225038141012192,
+          "slope": 1.2170584872364998,
+          "step": 0.12170584872364998,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "66a8e73f483dd927b45ccf039a7e7f7ef59b6809e397ddd0d3a43b00827644df",
+          "height_change": -0.10396914184093475,
+          "known_fraction": 0.95,
+          "lateral": 0.010987509042024612,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200553668226475,
+          "slope": 1.0605600848793983,
+          "step": 0.10605600848793983,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "399a3efbf36fee10ccde62c32dc85aa0ba8cd0fce271234ade3dadeb93183a4f",
+          "height_change": -0.10396913811564445,
+          "known_fraction": 0.95,
+          "lateral": 0.01644529029726982,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200552178150045,
+          "slope": 1.0319273732602596,
+          "step": 0.10319273732602596,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "7b18ffdf9014c4fd7a09011c90f333022a468666226be8b64909f8dadc7dbd67",
+          "height_change": -0.1056259535253048,
+          "known_fraction": 0.95,
+          "lateral": 0.014471959322690964,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.04225038141012192,
+          "slope": 1.2009791284799576,
+          "step": 0.12009791284799576,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "e9ee369f1b073a147108009c493501f204b280994c1280257d531303539d700a",
+          "height_change": -0.10396914184093475,
+          "known_fraction": 0.95,
+          "lateral": 0.011025715619325638,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200553668226475,
+          "slope": 1.0430805757641792,
+          "step": 0.10430805757641792,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "fbdcec111ea4c679094c0697875ee4842f460222cd47953de9dd3f8a7d3069a6",
+          "height_change": -0.10396913811564445,
+          "known_fraction": 0.95,
+          "lateral": 0.014157820492982864,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.041200552178150045,
+          "slope": 1.0319273732602596,
+          "step": 0.10319273732602596,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 12,
+      "source_family": "3773891777:boxes",
+      "terrain": "boxes",
+      "terrain_seed": 703455880,
+      "theta_rad": 4.71238898038469,
+      "virtual_class": "transition",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "ce39c2b162def6393825993052bd2a341e355fdf2dc23d9c444b5e8aeda04d60",
+      "virtual_dem_valid_fraction": 0.9025,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.862900016217604
+      },
+      "virtual_interaction_onset_m": 0.55,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 0,
+      "batch_seed": 3773891777,
+      "column": 6,
+      "env_index": 6,
+      "pilot_slot": 2,
+      "pose_id": "b3773891777-k_rail_step_field-r0.60-a00",
+      "radius_m": 0.6,
+      "rank": 6,
+      "requested_xy_yaw": [
+        -59.55000305175781,
+        24.149999618530273,
+        0.0
+      ],
+      "robustness": {
+        "class_retention_fraction": 1.0,
+        "class_switch_counts": {},
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.0322247087963392,
+            "min": 0.022885871234958364,
+            "range": 0.009338837561380837
+          },
+          "slope": {
+            "max": 0.8470136672258377,
+            "min": 0.6484347581863403,
+            "range": 0.19857890903949738
+          },
+          "step": {
+            "max": 0.08470136672258377,
+            "min": 0.06484347581863403,
+            "range": 0.019857890903949738
+          }
+        },
+        "nominal_class": "differential",
+        "nominal_threshold_margin": {
+          "differential": 0.16362764969468116,
+          "graded_slope": 0.7269417691230774,
+          "height_change": 0.05918290004134178,
+          "transition_step": 0.034694176912307736
+        },
+        "onset_max_m": 0.15000000000000002,
+        "onset_mean_m": 0.14333333333333328,
+        "onset_min_m": 0.05,
+        "onset_range_m": 0.1,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "differential",
+          "dem_sha256": "0926459ba923bcad94658f23dcc966b33aa4fa95a7107f0425764609a2becf42",
+          "height_change": 0.09918290004134178,
+          "known_fraction": 0.95,
+          "lateral": 0.20362764969468117,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03222180307018109,
+          "slope": 0.8469417691230774,
+          "step": 0.08469417691230774,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "b2b0f65ebf0221137e54a2629a546d8fc95b8d67e4f8256589db9e3857d2e377",
+          "height_change": 0.09814266860485077,
+          "known_fraction": 0.95,
+          "lateral": 0.18827421590685844,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.0291211852534133,
+          "slope": 0.7848189771175385,
+          "step": 0.07848189771175385,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "7aff346e1e344d6cb2b49a90fe1e4ae9135228b6c374bc525d728ae17a692dc4",
+          "height_change": 0.09918272122740746,
+          "known_fraction": 0.95,
+          "lateral": 0.19129270315170288,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03151082557947766,
+          "slope": 0.8326862752437592,
+          "step": 0.08326862752437592,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "a0545aae579d57fd8fb1f21de0f99eb5291c882cddda1fc17a890c4c445d6daf",
+          "height_change": 0.09918287396430969,
+          "known_fraction": 0.95,
+          "lateral": 0.20528345927596092,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.02495888383021562,
+          "slope": 0.6858309358358383,
+          "step": 0.06858309358358383,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "4a41947a761d762e9c2c7445d00ff56730b2bbd8d08dfb457f2058b95dd4a136",
+          "height_change": 0.0980604737997055,
+          "known_fraction": 0.95,
+          "lateral": 0.18976985290646553,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.02304149152034977,
+          "slope": 0.7408358156681061,
+          "step": 0.07408358156681061,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "ac3913919902ca5536e50ce48f67269eb4e9a1e7ddb6d11ed3843b9087cd5ff7",
+          "height_change": 0.09918273240327835,
+          "known_fraction": 0.95,
+          "lateral": 0.1970442645251751,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.05,
+          "roughness": 0.025027317836725568,
+          "slope": 0.6875818967819214,
+          "step": 0.06875818967819214,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "5fab314922f8d92bf1b98798972b2ec638138d97c153f6cc631949e2781ab152",
+          "height_change": 0.09918294474482536,
+          "known_fraction": 0.95,
+          "lateral": 0.19391537085175514,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.02495934841259169,
+          "slope": 0.6858432292938232,
+          "step": 0.06858432292938232,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "f24291a5e8d2a775787014b2adab9b4a6ba6276f2f8278efa7d135a49c426853",
+          "height_change": 0.09835235029459,
+          "known_fraction": 0.95,
+          "lateral": 0.18264363333582878,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.022885871234958364,
+          "slope": 0.6484347581863403,
+          "step": 0.06484347581863403,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "4f48beeb21e591bf03a99bb005334bc157c14904e3f987a3e978b76df03a6593",
+          "height_change": 0.09918275475502014,
+          "known_fraction": 0.95,
+          "lateral": 0.1831093765795231,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.024875836045601823,
+          "slope": 0.7694247364997864,
+          "step": 0.07694247364997864,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "0a0fef9538950611e2125ffd6d03a02cd22a632a0867bf7f9281c5bfc166d808",
+          "height_change": 0.09515509009361267,
+          "known_fraction": 0.95,
+          "lateral": 0.18728072196245193,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.02836617071942285,
+          "slope": 0.7663868367671967,
+          "step": 0.07663868367671967,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "0056a7b5d41c4a6985ccdc8589429aa2dc9144957da4f3dc93f6e2ed0caec9cc",
+          "height_change": 0.09418882057070732,
+          "known_fraction": 0.95,
+          "lateral": 0.1718578301370144,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.02539388110066325,
+          "slope": 0.7058892399072647,
+          "step": 0.07058892399072647,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "778d1e3a67591440954f74c37d7598bf515a1358052f43cdd55dd1d1f1b13f0b",
+          "height_change": 0.09614120051264763,
+          "known_fraction": 0.95,
+          "lateral": 0.1983327530324459,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.030089317821914645,
+          "slope": 0.8018650114536285,
+          "step": 0.08018650114536285,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "d286766ef47b792cada2fe6668d013f964f8679e30c4e055b90a2d890292a2a1",
+          "height_change": 0.09918994456529617,
+          "known_fraction": 0.95,
+          "lateral": 0.19558429718017578,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.0322247087963392,
+          "slope": 0.8470136672258377,
+          "step": 0.08470136672258377,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "7d386e28250b3f266a27ee6b5dc02e41945380b3bba407a1be4af0122b5a6d63",
+          "height_change": 0.09916755557060242,
+          "known_fraction": 0.95,
+          "lateral": 0.2039407193660736,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03150952724119487,
+          "slope": 0.8326281607151031,
+          "step": 0.08326281607151031,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "bb3b964e15fd8f5f54814a5424c30ade54f9aa47cbbff632caa615ad87aa5a9f",
+          "height_change": 0.09918961301445961,
+          "known_fraction": 0.95,
+          "lateral": 0.18425945192575455,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03151351178932451,
+          "slope": 0.8327537775039673,
+          "step": 0.08327537775039673,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 0,
+      "source_family": "3773891777:k_rail_step_field",
+      "terrain": "k_rail_step_field",
+      "terrain_seed": 2525527592,
+      "theta_rad": 0.0,
+      "virtual_class": "differential",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "0926459ba923bcad94658f23dcc966b33aa4fa95a7107f0425764609a2becf42",
+      "virtual_dem_valid_fraction": 0.9025,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.7629000186920165
+      },
+      "virtual_interaction_onset_m": 0.15000000000000002,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 6,
+      "batch_seed": 3773891777,
+      "column": 6,
+      "env_index": 48,
+      "pilot_slot": 3,
+      "pose_id": "b3773891777-k_rail_step_field-r0.30-a06",
+      "radius_m": 0.3,
+      "rank": 34,
+      "requested_xy_yaw": [
+        -12.36213207244873,
+        24.362131118774414,
+        2.356194496154785
+      ],
+      "robustness": {
+        "class_retention_fraction": 0.13333333333333333,
+        "class_switch_counts": {
+          "differential": 8,
+          "transition": 5
+        },
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.03155138819097214,
+            "min": 0.02553556755061523,
+            "range": 0.0060158206403569114
+          },
+          "slope": {
+            "max": 0.597497820854187,
+            "min": 0.48652101308107376,
+            "range": 0.11097680777311325
+          },
+          "step": {
+            "max": 0.0597497820854187,
+            "min": 0.048652101308107376,
+            "range": 0.011097680777311325
+          }
+        },
+        "nominal_class": "graded",
+        "nominal_threshold_margin": {
+          "differential": -0.000746362805366517,
+          "graded_slope": 0.36652101308107377,
+          "height_change": -0.026828368157148362,
+          "transition_step": -0.0013478986918926267
+        },
+        "onset_max_m": 0.25,
+        "onset_mean_m": 0.23,
+        "onset_min_m": 0.15000000000000002,
+        "onset_range_m": 0.1,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "graded",
+          "dem_sha256": "42260ef8b29b4d9f3924e290620849e13807e874dd0380fafdc6b14031fff26c",
+          "height_change": -0.013171631842851639,
+          "known_fraction": 0.95,
+          "lateral": 0.039253637194633484,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.027632304333954617,
+          "slope": 0.48652101308107376,
+          "step": 0.048652101308107376,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "b61a6b50e529c8667d879d6ac72de1aff3a96236972a1fa392ea45cabe5555f7",
+          "height_change": -0.013623299077153206,
+          "known_fraction": 0.95,
+          "lateral": 0.04049123451113701,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.027588314931107975,
+          "slope": 0.5335725843906403,
+          "step": 0.053357258439064026,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "6d3b7075056132257244290e93b87a0666b8fd3c9df464d67b922bcc9541d592",
+          "height_change": -0.012703923508524895,
+          "known_fraction": 0.95,
+          "lateral": 0.03952191025018692,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.027588318977765352,
+          "slope": 0.5453114956617355,
+          "step": 0.05453114956617355,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "359c0dd079a809ea2ae4cd12f8f50b60d98970ef2cbb688dc9b343b2b6b2a063",
+          "height_change": -0.015412691980600357,
+          "known_fraction": 0.95,
+          "lateral": 0.042708855122327805,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03151276675501325,
+          "slope": 0.5167904496192932,
+          "step": 0.05167904496192932,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "965c42f23740de1b0fd5cab5b4980e24deb509826a25ca5c83b2108144602cc4",
+          "height_change": -0.015829656273126602,
+          "known_fraction": 0.95,
+          "lateral": 0.0474708192050457,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.15000000000000002,
+          "roughness": 0.03155138819097214,
+          "slope": 0.516984649002552,
+          "step": 0.0516984649002552,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "f1bd8f53d4b7fb1dc4245effcb32af345c4597251eecaaf6abffce03978415a8",
+          "height_change": -0.014910276979207993,
+          "known_fraction": 0.95,
+          "lateral": 0.045218050479888916,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.031551371602999104,
+          "slope": 0.5190274119377136,
+          "step": 0.05190274119377136,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "2556163bdd1fc79e08ea2db59be5f7bc1a76b56f2d9f9a49dd2472b18937d920",
+          "height_change": -0.013171620666980743,
+          "known_fraction": 0.95,
+          "lateral": 0.03517632186412811,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.02553556755061523,
+          "slope": 0.4865211620926857,
+          "step": 0.04865211620926857,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "6e1a83e847a85b7b351d80be10d60dcc4eb4e39fe1c3924fb07fc837736cb457",
+          "height_change": -0.013623284175992012,
+          "known_fraction": 0.95,
+          "lateral": 0.04100169241428375,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.02554373709735946,
+          "slope": 0.5483715236186981,
+          "step": 0.05483715236186981,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "cc2fa73a08bc25a50a150bd6feceaac95a6c9cb258f7e8304472c0e6c26afc03",
+          "height_change": -0.012703914195299149,
+          "known_fraction": 0.95,
+          "lateral": 0.036046456545591354,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.025543743222732535,
+          "slope": 0.5402008444070816,
+          "step": 0.05402008444070816,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "6887ddb8913a893b88a2a9e8bb31d2153f1b241a4ab6679e2efef41196419327",
+          "height_change": -0.014292106032371521,
+          "known_fraction": 0.95,
+          "lateral": 0.042708851397037506,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.026890847034727182,
+          "slope": 0.5780300125479698,
+          "step": 0.05780300125479698,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "0448315182f148932638a619d0a682160e571ac52af23770790850cc3e7c2e64",
+          "height_change": -0.015223396942019463,
+          "known_fraction": 0.95,
+          "lateral": 0.037531256675720215,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.02684947151314163,
+          "slope": 0.5905339494347572,
+          "step": 0.05905339494347572,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "ed9dd100d3ffc00ecedaaaec625b1c5886cc0a9286f2f436e1ef121864c2a5fd",
+          "height_change": -0.013310063630342484,
+          "known_fraction": 0.95,
+          "lateral": 0.045218050479888916,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.02715664384565394,
+          "slope": 0.5399543046951294,
+          "step": 0.05399543046951294,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "032e29e3e034734d2749b03004d42d7e6e09d836d3ebbeacf73f87c34258015b",
+          "height_change": -0.01429220475256443,
+          "known_fraction": 0.95,
+          "lateral": 0.034243352711200714,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.02689079677986807,
+          "slope": 0.5926673486828804,
+          "step": 0.05926673486828804,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "22b86b52d446d0949805519a15de7774b87e99dd96253bea21906bf511d55a78",
+          "height_change": -0.014229537919163704,
+          "known_fraction": 0.95,
+          "lateral": 0.039278753101825714,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.027156572833291866,
+          "slope": 0.5430234596133232,
+          "step": 0.05430234596133232,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "4f02438bb1feef5e2568a2d9060f5bf521a11027a4286afc539954cbcd8d22ae",
+          "height_change": -0.014304127544164658,
+          "known_fraction": 0.95,
+          "lateral": 0.04072371870279312,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.25,
+          "roughness": 0.026849458005149276,
+          "slope": 0.597497820854187,
+          "step": 0.0597497820854187,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 6,
+      "source_family": "3773891777:k_rail_step_field",
+      "terrain": "k_rail_step_field",
+      "terrain_seed": 2525527592,
+      "theta_rad": 2.356194490192345,
+      "virtual_class": "graded",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "42260ef8b29b4d9f3924e290620849e13807e874dd0380fafdc6b14031fff26c",
+      "virtual_dem_valid_fraction": 0.79,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 3.186897926193218
+      },
+      "virtual_interaction_onset_m": 0.25,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 4,
+      "batch_seed": 3773891777,
+      "column": 5,
+      "env_index": 33,
+      "pilot_slot": 4,
+      "pose_id": "b3773891777-k_rail_field-r0.50-a04",
+      "radius_m": 0.5,
+      "rank": 62,
+      "requested_xy_yaw": [
+        -28.0,
+        16.5,
+        1.5707963705062866
+      ],
+      "robustness": {
+        "class_retention_fraction": 0.8,
+        "class_switch_counts": {
+          "differential": 1,
+          "graded": 2
+        },
+        "interaction_retention_fraction": 0.8,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.006005087494865526,
+            "min": 1.311810080830679e-08,
+            "range": 0.006005074376764718
+          },
+          "slope": {
+            "max": 0.2276478335261345,
+            "min": 2.980232238769531e-07,
+            "range": 0.22764753550291061
+          },
+          "step": {
+            "max": 0.02276478335261345,
+            "min": 2.9802322387695312e-08,
+            "range": 0.02276475355029106
+          }
+        },
+        "nominal_class": "flat-only",
+        "nominal_threshold_margin": {
+          "differential": -0.015163340568542481,
+          "graded_slope": -0.11999970197677612,
+          "height_change": -0.04,
+          "transition_step": -0.049999970197677615
+        },
+        "onset_max_m": 0.55,
+        "onset_mean_m": 0.55,
+        "onset_min_m": 0.55,
+        "onset_range_m": 0.0,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "flat-only",
+          "dem_sha256": "4cd48bc6e028420cce65f4633e87a6a86689c43515ddb50ff49fe65ade12f79c",
+          "height_change": 0.0,
+          "known_fraction": 0.95,
+          "lateral": 0.02483665943145752,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 1.884864366154897e-08,
+          "slope": 2.980232238769531e-07,
+          "step": 2.9802322387695312e-08,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "17c9ee30ed1cbd3b5fe8da296e87c0c8c6b43ec864dcaf112644fd29d66841d8",
+          "height_change": -0.00012097693979740143,
+          "known_fraction": 0.95,
+          "lateral": 0.03242897987365723,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.00021164268315231947,
+          "slope": 0.07462993264198303,
+          "step": 0.007462993264198303,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "79e082ea9e8febfe10e60940efe4ddbc3e31878959fdd9c73fe7cc72176ce4f6",
+          "height_change": 0.001179189421236515,
+          "known_fraction": 0.95,
+          "lateral": 0.0248919315636158,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.00021164268350312848,
+          "slope": 0.07751928642392159,
+          "step": 0.0077519286423921585,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "e2914b345ac60b1948f244fa1a471af46dd26003625e0136b14d11925c123e6f",
+          "height_change": 0.015012718737125397,
+          "known_fraction": 0.95,
+          "lateral": 0.02483666129410267,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.006005087494865526,
+          "slope": 0.15012718737125397,
+          "step": 0.015012718737125397,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "cdbe1b6e6b8fe1d7d286b8e93a2cd098518bd64e1a91e1d422fc0f4a1ed68ffe",
+          "height_change": 0.014111131429672241,
+          "known_fraction": 0.95,
+          "lateral": 0.04053975269198418,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.55,
+          "roughness": 0.005904486030353944,
+          "slope": 0.2247585542500019,
+          "step": 0.02247585542500019,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "bfa7b54f002e19bdbe04946fea221801e6d2b64d558dc908e03d92cdd88695e8",
+          "height_change": 0.015411303378641605,
+          "known_fraction": 0.95,
+          "lateral": 0.024821529164910316,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.005904488265532354,
+          "slope": 0.2276478335261345,
+          "step": 0.02276478335261345,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "6b8e43d172b29383a6ab7546ec399744e2b43068ba596d40ad1d8d53a88c3e5a",
+          "height_change": 0.0,
+          "known_fraction": 0.95,
+          "lateral": 0.02483666129410267,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 1.3888889463474787e-08,
+          "slope": 0.04139447584748268,
+          "step": 0.004139447584748268,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "4c1bff6872cf5b3c7a76c1ac6edecf2e4fde2848c90d849a4020e4986788e153",
+          "height_change": -0.0006500836461782455,
+          "known_fraction": 0.95,
+          "lateral": 0.02482152357697487,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 1.311810080830679e-08,
+          "slope": 0.04281388595700264,
+          "step": 0.004281388595700264,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "30910f96f4c5898d5ab9fa7e1dcd280f7cda9e3c54b5d658b21b60f553bac1bf",
+          "height_change": 0.0006500845775008202,
+          "known_fraction": 0.95,
+          "lateral": 0.025006961077451706,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 1.4966211785823604e-08,
+          "slope": 0.0014449656009674072,
+          "step": 0.00014449656009674072,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "e1bcfd77e2b35256964a49371d974f298f38307d013a9642445f59df2e40598e",
+          "height_change": 0.0,
+          "known_fraction": 0.95,
+          "lateral": 0.024836651980876923,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 1.5314522975008536e-08,
+          "slope": 0.04139453172683716,
+          "step": 0.004139453172683716,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "21b61d8cbe4c87807c062c3288d4b85202b8c0bcde9563d1f516b7b48cd609dd",
+          "height_change": -0.00012097880244255066,
+          "known_fraction": 0.95,
+          "lateral": 0.032428985461592674,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.00021164100653358047,
+          "slope": 0.07463004440069199,
+          "step": 0.007463004440069199,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "b938083fb9590c6106405cea4f78cc96c112ab7429c0a9e9e601e94f6a17d724",
+          "height_change": 0.0011791866272687912,
+          "known_fraction": 0.95,
+          "lateral": 0.024821529164910316,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.0002116411930362043,
+          "slope": 0.07751928642392159,
+          "step": 0.0077519286423921585,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "ca03eb3520b0c39c804f4d25649ebbc87c981b4c43ac0627e2a9c4e065d359e4",
+          "height_change": 0.0,
+          "known_fraction": 0.95,
+          "lateral": 0.02483665756881237,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 2.0841659204213866e-08,
+          "slope": 4.6566128730773926e-07,
+          "step": 4.6566128730773926e-08,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "6e7345856fbc7511fedae5ae82f6a10d5e6b7c96d944db548eb56d363ecc87b5",
+          "height_change": -0.00012097973376512527,
+          "known_fraction": 0.95,
+          "lateral": 0.032428983598947525,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.00021164398719858524,
+          "slope": 0.07462993264198303,
+          "step": 0.007462993264198303,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "4481c37c15b5ac5bd06a359101a96d294acf3286fed8da7d3faeda4fe4c82943",
+          "height_change": 0.0011791912838816643,
+          "known_fraction": 0.95,
+          "lateral": 0.02581113390624523,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.0002116473401827804,
+          "slope": 0.07751930505037308,
+          "step": 0.007751930505037308,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 4,
+      "source_family": "3773891777:k_rail_field",
+      "terrain": "k_rail_field",
+      "terrain_seed": 559994885,
+      "theta_rad": 1.5707963267948966,
+      "virtual_class": "flat-only",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "4cd48bc6e028420cce65f4633e87a6a86689c43515ddb50ff49fe65ade12f79c",
+      "virtual_dem_valid_fraction": 0.9025,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.8629000096219044
+      },
+      "virtual_interaction_onset_m": null,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 2,
+      "batch_seed": 3773891777,
+      "column": 6,
+      "env_index": 20,
+      "pilot_slot": 5,
+      "pose_id": "b3773891777-k_rail_step_field-r0.40-a02",
+      "radius_m": 0.4,
+      "rank": 2,
+      "requested_xy_yaw": [
+        -43.867156982421875,
+        24.432842254638672,
+        0.7853981852531433
+      ],
+      "robustness": {
+        "class_retention_fraction": 0.6666666666666666,
+        "class_switch_counts": {
+          "differential": 4,
+          "graded": 1
+        },
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.022117805130605846,
+            "min": 0.019634418936772497,
+            "range": 0.0024833861938333493
+          },
+          "slope": {
+            "max": 0.6095179915428162,
+            "min": 0.4865187406539917,
+            "range": 0.12299925088882446
+          },
+          "step": {
+            "max": 0.060951799154281616,
+            "min": 0.04865187406539917,
+            "range": 0.012299925088882446
+          }
+        },
+        "nominal_class": "transition",
+        "nominal_threshold_margin": {
+          "differential": -0.0007462435960769662,
+          "graded_slope": 0.4097841876745224,
+          "height_change": 0.053727100640535354,
+          "transition_step": 0.002978418767452237
+        },
+        "onset_max_m": 0.35000000000000003,
+        "onset_mean_m": 0.3499999999999999,
+        "onset_min_m": 0.35000000000000003,
+        "onset_range_m": 0.0,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "transition",
+          "dem_sha256": "8f39c5453403cde4d8db029fc46db5b81b4b7230e112b49c2cf193b0d591df46",
+          "height_change": 0.09372710064053535,
+          "known_fraction": 0.95,
+          "lateral": 0.039253756403923035,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.020677541234302762,
+          "slope": 0.5297841876745224,
+          "step": 0.05297841876745224,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "5a6a3b461e265921e653d3bea268049fc04c046e7014fef63ffbfd7d55df08a0",
+          "height_change": 0.09325938671827316,
+          "known_fraction": 0.95,
+          "lateral": 0.039522022008895874,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.020657960691617325,
+          "slope": 0.5453091859817505,
+          "step": 0.05453091859817505,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "3646a99b979c190bfa93f04afde3c1648b8727e23070d4188c7ff6cbc3ac536e",
+          "height_change": 0.09417877718806267,
+          "known_fraction": 0.95,
+          "lateral": 0.03753115236759186,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.02065795464808403,
+          "slope": 0.5335721373558044,
+          "step": 0.053357213735580444,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "be34b2cb355e3174532bd7285023e43f63ee7238b10d47b6fd2c226d055f4945",
+          "height_change": 0.09372712299227715,
+          "known_fraction": 0.95,
+          "lateral": 0.04270873963832855,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.022117805130605846,
+          "slope": 0.6095179915428162,
+          "step": 0.060951799154281616,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "6b756f3484c3a33b133531fd69d2a5d0b76a8da27e214c364dd7eeac2273c280",
+          "height_change": 0.0930631011724472,
+          "known_fraction": 0.95,
+          "lateral": 0.04521816223859787,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.02197434176397072,
+          "slope": 0.6046802550554276,
+          "step": 0.060468025505542755,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "aa51af671893b3ac447940971cdf6a969d0b4f3e7e2bda5c2cbc45f78b2e85ee",
+          "height_change": 0.0939825028181076,
+          "known_fraction": 0.95,
+          "lateral": 0.037727512419223785,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.021974334921239052,
+          "slope": 0.6067232042551041,
+          "step": 0.060672320425510406,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "3ff3f95e73130540e9b1e10861ea23de18e8eec18201ac85b4c22f3109c135ca",
+          "height_change": 0.09372710064053535,
+          "known_fraction": 0.95,
+          "lateral": 0.03355761617422104,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.019758521521628842,
+          "slope": 0.4865187406539917,
+          "step": 0.04865187406539917,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "1dd6c409e7ce5309044e40ba9d19c3c4d3caa1bf7e1d28fd526be6bce65f92d7",
+          "height_change": 0.09325939416885376,
+          "known_fraction": 0.95,
+          "lateral": 0.03604608029127121,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.01976204493566536,
+          "slope": 0.5402006953954697,
+          "step": 0.05402006953954697,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "bbd94a2341840f03e0bd967b7e7d0df2eeca36c3937f64deda7048e6b103d967",
+          "height_change": 0.09417875856161118,
+          "known_fraction": 0.95,
+          "lateral": 0.03331513702869415,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.019762037646721377,
+          "slope": 0.5483733117580414,
+          "step": 0.05483733117580414,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "aaa7fc745e21dbe375957f3c0f20dc6e4222050f9e1346c012795360ecda6f1f",
+          "height_change": 0.09372709318995476,
+          "known_fraction": 0.95,
+          "lateral": 0.03355761617422104,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.020161610423560964,
+          "slope": 0.5926652997732162,
+          "step": 0.059266529977321625,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "9f7fd878220b65abd174e54092fb6dea8538b48473326ceb33fa59c85c2c0504",
+          "height_change": 0.09306308627128601,
+          "known_fraction": 0.95,
+          "lateral": 0.033825889229774475,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.01963443012410021,
+          "slope": 0.597497969865799,
+          "step": 0.059749796986579895,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "a4d9512da94ebeda29f045d32a3d9f2c973cf0611c822b968bfca442a0d15e0d",
+          "height_change": 0.09417875483632088,
+          "known_fraction": 0.95,
+          "lateral": 0.03331514447927475,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.020657953718787894,
+          "slope": 0.5430211126804352,
+          "step": 0.05430211126804352,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "dc3897b83102b127beafcd99fcb3fdeaf4fd37083a85543db3ea55fb855b10a5",
+          "height_change": 0.09372712671756744,
+          "known_fraction": 0.95,
+          "lateral": 0.04270873963832855,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.02016160437483944,
+          "slope": 0.578029528260231,
+          "step": 0.0578029528260231,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "bebe7a4cb5ceceb057e31487e40bd51dd9186532d0096c16b04dbcde067991d4",
+          "height_change": 0.09325940161943436,
+          "known_fraction": 0.95,
+          "lateral": 0.04521815478801727,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.020657956972356544,
+          "slope": 0.5399561673402786,
+          "step": 0.05399561673402786,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "transition",
+          "dem_sha256": "257037fc8ddf66e9c86115ca44d6e22f73288375d21460d7c7ce20014f1e8b0a",
+          "height_change": 0.0939825139939785,
+          "known_fraction": 0.95,
+          "lateral": 0.037531159818172455,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.019634418936772497,
+          "slope": 0.5905334651470184,
+          "step": 0.05905334651470184,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 2,
+      "source_family": "3773891777:k_rail_step_field",
+      "terrain": "k_rail_step_field",
+      "terrain_seed": 2525527592,
+      "theta_rad": 0.7853981633974483,
+      "virtual_class": "transition",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "8f39c5453403cde4d8db029fc46db5b81b4b7230e112b49c2cf193b0d591df46",
+      "virtual_dem_valid_fraction": 0.79,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 3.1161872385286378
+      },
+      "virtual_interaction_onset_m": 0.35000000000000003,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 13,
+      "batch_seed": 3773891777,
+      "column": 0,
+      "env_index": 91,
+      "pilot_slot": 6,
+      "pose_id": "b3773891777-boxes-r0.60-a13",
+      "radius_m": 0.6,
+      "rank": 12,
+      "requested_xy_yaw": [
+        44.229610443115234,
+        -24.5543270111084,
+        5.105088233947754
+      ],
+      "robustness": {
+        "class_retention_fraction": 1.0,
+        "class_switch_counts": {},
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.9666666666666667,
+            "min": 0.9416666666666667,
+            "range": 0.025000000000000022
+          },
+          "roughness": {
+            "max": 0.03758117454817117,
+            "min": 0.030611274264512534,
+            "range": 0.006969900283658636
+          },
+          "slope": {
+            "max": 0.9901999123394489,
+            "min": 0.7898185029625893,
+            "range": 0.20038140937685966
+          },
+          "step": {
+            "max": 0.09901999123394489,
+            "min": 0.07898185029625893,
+            "range": 0.020038140937685966
+          }
+        },
+        "nominal_class": "differential",
+        "nominal_threshold_margin": {
+          "differential": 0.08260615825653075,
+          "graded_slope": 0.8248004513978958,
+          "height_change": 0.08483102083206176,
+          "transition_step": 0.04448004513978958
+        },
+        "onset_max_m": 0.35000000000000003,
+        "onset_mean_m": 0.3499999999999999,
+        "onset_min_m": 0.35000000000000003,
+        "onset_range_m": 0.0,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "differential",
+          "dem_sha256": "d1c8135eed181f6316fe098601c64d34d8f8f6c300a56c6f99cd4ac2b99d2730",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.12260615825653076,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03300740588537774,
+          "slope": 0.9448004513978958,
+          "step": 0.09448004513978958,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "cd38d8a86c7ed65febe9751c6907e2a615ce60e59e028b9a0c8aa2655cf2f759",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.12197251990437508,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.031480235889194415,
+          "slope": 0.9166451916098595,
+          "step": 0.09166451916098595,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "293678a06237a58859320c6d3bd8949e37f04be8cc48aa206d49ecaa06789f2a",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.12260615825653076,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03497338892121531,
+          "slope": 0.972551554441452,
+          "step": 0.0972551554441452,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "a32c7d549e27377ef0653fa3d6d155f93a227a7297d0124758247e2252833ad4",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.11971911042928696,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.036492506356367034,
+          "slope": 0.9619451873004436,
+          "step": 0.09619451873004436,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "fd0d12d2885c7c6041f3111b401c7bcb09aea01d71f0883e008d1b62c26305da",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.11912042275071144,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.035276445270477456,
+          "slope": 0.9251277893781662,
+          "step": 0.09251277893781662,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "d533d613e551ce66f30ef9cbdd5b60ff099d151767342b3ed06686470c16b3a8",
+          "height_change": -0.12460169941186905,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.11918752267956734,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03758117454817117,
+          "slope": 0.9901999123394489,
+          "step": 0.09901999123394489,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "d92a934bc88b04877d31654524345eb1697eec6ab00e1680a0e6276b30561d1f",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.12260615825653076,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03065324365315438,
+          "slope": 0.8543753437697887,
+          "step": 0.08543753437697887,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "21644713e3ea52269113c760e408bb2556c7050cc834832d089415d70f5886d0",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.12262249737977982,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03139121397013516,
+          "slope": 0.8869178220629692,
+          "step": 0.08869178220629692,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "b44076c09f7615a5c64e10fbee48d3fb66698939c5fcae5e8ea4fe109eacb8b3",
+          "height_change": -0.12483101710677147,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.12260615825653076,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03067029942214984,
+          "slope": 0.7898185029625893,
+          "step": 0.07898185029625893,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "017692cd2837ff8419c07a6700cf7afc768e7c99a82f29b72abc26e05a1a081a",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.12271424010396004,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03123739594743279,
+          "slope": 0.9426097571849823,
+          "step": 0.09426097571849823,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "2555f11390cdae16470985bfe2137bfc8137c3deb1701b6c449458f7d8e34b59",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.95,
+          "lateral": 0.1229131817817688,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.030611274264512534,
+          "slope": 0.9166451916098595,
+          "step": 0.09166451916098595,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "b8a2053bab24be25a5bad1e7c21318ea5dcf4f2efc60f48e023ffaa52c769f72",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.12260615825653076,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.032473034323709495,
+          "slope": 0.9225264191627502,
+          "step": 0.09225264191627502,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "ac36b47f304010b0ded2f17359b4ae9081eb9adef29474599ff51ae2e7a67e7c",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.12143970280885696,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.035677960609996034,
+          "slope": 0.9448004513978958,
+          "step": 0.09448004513978958,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "7d9c9294f6baf53ee56d8520817e9cfabe2f85a9dc44f9d3a732594526ecd17a",
+          "height_change": -0.12483102083206177,
+          "known_fraction": 0.9666666666666667,
+          "lateral": 0.12065439671278,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.033436294180261714,
+          "slope": 0.9166451543569565,
+          "step": 0.09166451543569565,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "e4affb8f25daf35ba843d885d9671d6e5aaefe89a793c7bf8b033fbfdd9efd46",
+          "height_change": -0.12483101338148117,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.12233147025108337,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 0.03731263704828391,
+          "slope": 0.972551517188549,
+          "step": 0.0972551517188549,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 13,
+      "source_family": "3773891777:boxes",
+      "terrain": "boxes",
+      "terrain_seed": 703455880,
+      "theta_rad": 5.105088062083414,
+      "virtual_class": "differential",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "d1c8135eed181f6316fe098601c64d34d8f8f6c300a56c6f99cd4ac2b99d2730",
+      "virtual_dem_valid_fraction": 0.82,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.7776618854639175
+      },
+      "virtual_interaction_onset_m": 0.35000000000000003,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 1,
+      "batch_seed": 3773891777,
+      "column": 5,
+      "env_index": 12,
+      "pilot_slot": 7,
+      "pose_id": "b3773891777-k_rail_field-r0.50-a01",
+      "radius_m": 0.5,
+      "rank": 35,
+      "requested_xy_yaw": [
+        -51.53805923461914,
+        16.191341400146484,
+        0.39269909262657166
+      ],
+      "robustness": {
+        "class_retention_fraction": 0.9333333333333333,
+        "class_switch_counts": {
+          "differential": 1
+        },
+        "interaction_retention_fraction": 1.0,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.9666666666666667,
+            "min": 0.9416666666666667,
+            "range": 0.025000000000000022
+          },
+          "roughness": {
+            "max": 5.5973648938515625e-08,
+            "min": 3.3618552007313005e-08,
+            "range": 2.235509693120262e-08
+          },
+          "slope": {
+            "max": 0.32068759202957153,
+            "min": 0.22668853402137756,
+            "range": 0.09399905800819397
+          },
+          "step": {
+            "max": 0.03206875920295715,
+            "min": 0.022668853402137756,
+            "range": 0.009399905800819397
+          }
+        },
+        "nominal_class": "graded",
+        "nominal_threshold_margin": {
+          "differential": -0.015019963458180428,
+          "graded_slope": 0.1777782115340233,
+          "height_change": -0.022790496200323106,
+          "transition_step": -0.020222178846597674
+        },
+        "onset_max_m": 0.55,
+        "onset_mean_m": 0.37857142857142856,
+        "onset_min_m": 0.05,
+        "onset_range_m": 0.5,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "graded",
+          "dem_sha256": "7c8ab435372c647ed5bba7e790e1185c537bb115dfdaca03b0864c7feeafa005",
+          "height_change": 0.017209503799676895,
+          "known_fraction": 0.95,
+          "lateral": 0.024980036541819572,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 4.925278985809806e-08,
+          "slope": 0.2977782115340233,
+          "step": 0.02977782115340233,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "9e8f6c42981327d2ad0e0ef36178e416177eb77ff41468f25b2c887d22c47a0c",
+          "height_change": 0.016950251534581184,
+          "known_fraction": 0.95,
+          "lateral": 0.0238373801112175,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 4.359703909852443e-08,
+          "slope": 0.24233806878328323,
+          "step": 0.024233806878328323,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "371305d440c5469f6b71c629a1395a729d1f90c129f9e6c9842d1925f79cf02b",
+          "height_change": 0.01744779758155346,
+          "known_fraction": 0.95,
+          "lateral": 0.02572544850409031,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": 0.45,
+          "roughness": 4.8708793904427145e-08,
+          "slope": 0.2563980966806412,
+          "step": 0.025639809668064117,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "bb6aa4f9846dc285fb2bc224357879c75bea9d6bc6a011986434ca0ff18ad4bb",
+          "height_change": 0.017209492623806,
+          "known_fraction": 0.95,
+          "lateral": 0.030516255646944046,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 5.1045993366720195e-08,
+          "slope": 0.3036324493587017,
+          "step": 0.03036324493587017,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "35057b140e6fb05580db022b2a5f97dea8af42de4359a03ead191c43c9526986",
+          "height_change": 0.01695023477077484,
+          "known_fraction": 0.95,
+          "lateral": 0.02961576171219349,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 4.882262624921166e-08,
+          "slope": 0.24015260860323906,
+          "step": 0.024015260860323906,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "9bd5fc2620bd018fbde3c2b1165e428507f3254aafd1714045fc7a378bb66d99",
+          "height_change": 0.017447778955101967,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.025954144075512886,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": 0.45,
+          "roughness": 5.5973648938515625e-08,
+          "slope": 0.2731133811175823,
+          "step": 0.027311338111758232,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "2eb46591e9dc9f4fc86e1a82be77afd436ed2c5a5bc8ae25d9db0d0ee447e270",
+          "height_change": 0.017209524288773537,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.0264467541128397,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 3.3618552007313005e-08,
+          "slope": 0.2898035943508148,
+          "step": 0.028980359435081482,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "de6623959e95634980dcdd5e02951cfefa8b1064c6ad694479fe877f453606a2",
+          "height_change": 0.016950272023677826,
+          "known_fraction": 0.95,
+          "lateral": 0.023541487753391266,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 3.52310848758724e-08,
+          "slope": 0.32068759202957153,
+          "step": 0.03206875920295715,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "922c930d49141b555c4846e4e0e89b367b7e38be5cd92bf314b66262130b1270",
+          "height_change": 0.017447810620069504,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.029154056683182716,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": 0.45,
+          "roughness": 3.8527499061369584e-08,
+          "slope": 0.25360889732837677,
+          "step": 0.025360889732837677,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "889974c44f72245a07c52f24016a05776f487c87c51a68e180d87d2ed23d2138",
+          "height_change": 0.01720951311290264,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.024645134806632996,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 4.192234544943332e-08,
+          "slope": 0.22668853402137756,
+          "step": 0.022668853402137756,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "c20910334fdc9e89f92c2b749e35fcd77561ba23e6e0fbfc70a7c7c22c466a2f",
+          "height_change": 0.01695025898516178,
+          "known_fraction": 0.95,
+          "lateral": 0.017835620790719986,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": 0.55,
+          "roughness": 3.966340915622164e-08,
+          "slope": 0.28036847710609436,
+          "step": 0.028036847710609436,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "b6b6238d59371fc518f027d354c2965f7b73bfaab8f18d5b2b4be87e56418c30",
+          "height_change": 0.017447801306843758,
+          "known_fraction": 0.9416666666666667,
+          "lateral": 0.026703352108597755,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 4.694457054741193e-08,
+          "slope": 0.27352187782526016,
+          "step": 0.027352187782526016,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "37bbc6c0fdd12a26f54ddff9aa2a675e316ac4de4a4480e1ea059a430423738c",
+          "height_change": 0.017209496349096298,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.03794023394584656,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 4.9846555840008645e-08,
+          "slope": 0.24917932227253914,
+          "step": 0.024917932227253914,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "42b9b098fbd94d1497d6524d5e4efb91842dd078e94403f139d804f423fc42c8",
+          "height_change": 0.016950244084000587,
+          "known_fraction": 0.9666666666666667,
+          "lateral": 0.034233102574944496,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.35000000000000003,
+          "roughness": 4.6743116204017766e-08,
+          "slope": 0.31725965440273285,
+          "step": 0.031725965440273285,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "differential",
+          "dem_sha256": "f822ff3190b0d88b8385e35398749e72bc6d30784991944febedb21adac5e34d",
+          "height_change": 0.017447788268327713,
+          "known_fraction": 0.9583333333333334,
+          "lateral": 0.04129590466618538,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": 0.05,
+          "roughness": 5.2239144274467535e-08,
+          "slope": 0.28856977820396423,
+          "step": 0.028856977820396423,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 1,
+      "source_family": "3773891777:k_rail_field",
+      "terrain": "k_rail_field",
+      "terrain_seed": 559994885,
+      "theta_rad": 0.39269908169872414,
+      "virtual_class": "graded",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "7c8ab435372c647ed5bba7e790e1185c537bb115dfdaca03b0864c7feeafa005",
+      "virtual_dem_valid_fraction": 0.82,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.8700497929589885
+      },
+      "virtual_interaction_onset_m": 0.35000000000000003,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "angle_index": 0,
+      "batch_seed": 3773891777,
+      "column": 3,
+      "env_index": 3,
+      "pilot_slot": 8,
+      "pose_id": "b3773891777-pyramid_stairs_inv-r0.60-a00",
+      "radius_m": 0.6,
+      "rank": 63,
+      "requested_xy_yaw": [
+        -59.400001525878906,
+        0.0,
+        0.0
+      ],
+      "robustness": {
+        "class_retention_fraction": 0.8,
+        "class_switch_counts": {
+          "graded": 3
+        },
+        "interaction_retention_fraction": 0.8,
+        "metric_ranges": {
+          "known_fraction": {
+            "max": 0.95,
+            "min": 0.95,
+            "range": 0.0
+          },
+          "roughness": {
+            "max": 0.008800315857256555,
+            "min": 7.539457464619587e-08,
+            "range": 0.00880024046268191
+          },
+          "slope": {
+            "max": 0.33149123191833496,
+            "min": 1.1920928955078125e-06,
+            "range": 0.33149003982543945
+          },
+          "step": {
+            "max": 0.033149123191833496,
+            "min": 1.1920928955078125e-07,
+            "range": 0.033149003982543945
+          }
+        },
+        "nominal_class": "flat-only",
+        "nominal_threshold_margin": {
+          "differential": -0.03999988079071045,
+          "graded_slope": -0.11999165534973144,
+          "height_change": -0.03999922513961792,
+          "transition_step": -0.04999916553497315
+        },
+        "onset_max_m": null,
+        "onset_mean_m": null,
+        "onset_min_m": null,
+        "onset_range_m": null,
+        "perturbation_valid_count": 15,
+        "schema": "eatnav_r3_robustness_summary_v1",
+        "unknown_only_count": 0
+      },
+      "robustness_conditions": [
+        {
+          "class": "flat-only",
+          "dem_sha256": "6f74aef445f8b79c6fd2263d752b525822df13a32d4f2effa8503496d9c039ee",
+          "height_change": 7.748603820800781e-07,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 3.421950362779456e-07,
+          "slope": 8.344650268554688e-06,
+          "step": 8.344650268554688e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "227c7887191368f82ef5a023035fffda4c7a0529fe9470cf728532d88c007e28",
+          "height_change": 0.0007758140563964844,
+          "known_fraction": 0.95,
+          "lateral": 0.011149078607559204,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.00031034947357447333,
+          "slope": 0.11149168014526367,
+          "step": 0.011149168014526367,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "8466f50e5294c7b542e35b90eddff7b0172e47dc89221d95adf39ae5c81a36a9",
+          "height_change": 0.0007758140563964844,
+          "known_fraction": 0.95,
+          "lateral": 0.01114913821220398,
+          "offset_local_m": [
+            0.0,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.00031034947357447333,
+          "slope": 0.11149078607559204,
+          "step": 0.011149078607559204,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "0d8340e1071ecb999dfdcbca63e436bdaa5d39403c4c1e18b03002a59f053809",
+          "height_change": 0.02200073003768921,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.008800315857256555,
+          "slope": 0.22000819444656372,
+          "step": 0.022000819444656372,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "dfd1fcbefaecac00a2e4744408de02a1092e61d7084df18b5489d2d9735787bf",
+          "height_change": 0.021632224321365356,
+          "known_fraction": 0.95,
+          "lateral": 0.02303367853164673,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.008652913570732517,
+          "slope": 0.33149123191833496,
+          "step": 0.033149123191833496,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "graded",
+          "dem_sha256": "899a4b0ef2ed689162f2c5b2e5b34de84837d8f85d4a68d4d6ea918bad4ab82d",
+          "height_change": 0.021632224321365356,
+          "known_fraction": 0.95,
+          "lateral": 0.023033589124679565,
+          "offset_local_m": [
+            0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 0.008652913570732517,
+          "slope": 0.33149033784866333,
+          "step": 0.03314903378486633,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "b4cc9da75adf2e2d2a1e405618fc5ebcb547b1088cff141b50b23275342fece6",
+          "height_change": -5.960464477539063e-08,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 7.539457464619587e-08,
+          "slope": 1.1920928955078125e-06,
+          "step": 1.1920928955078125e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "f9b854c6f78530032bf6fbe8439fad064e455236cb003a8ad27c66274bc012cd",
+          "height_change": -5.960464477539063e-08,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 7.539457464619587e-08,
+          "slope": 1.1920928955078125e-06,
+          "step": 1.1920928955078125e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "ed897891b517541c026269691122a3fefa3a95f6a1896b38fe28a604d538f902",
+          "height_change": -5.960464477539063e-08,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            -0.02,
+            0.0
+          ],
+          "onset_m": null,
+          "roughness": 7.539457464619587e-08,
+          "slope": 1.1920928955078125e-06,
+          "step": 1.1920928955078125e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "19fe577e27ad71799449ce920a6f760a63bd2890c06f3d3c37b36b302b24705d",
+          "height_change": 7.748603820800781e-07,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 3.421950362779456e-07,
+          "slope": 8.344650268554688e-06,
+          "step": 8.344650268554688e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "9977f5d3589e2fa5738f6cf19b7bc12d3d9c19db8f3e7bf671eb7bf6023a45fb",
+          "height_change": 0.0007758438587188721,
+          "known_fraction": 0.95,
+          "lateral": 0.011149108409881592,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.0003103464935569645,
+          "slope": 0.11149168014526367,
+          "step": 0.011149168014526367,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "4cf929d1bbb419111987b22b8bf715debc7f9ca3ee69639a90c93a3216d069d3",
+          "height_change": 0.0007758140563964844,
+          "known_fraction": 0.95,
+          "lateral": 0.01114913821220398,
+          "offset_local_m": [
+            0.0,
+            0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.00031034947357447333,
+          "slope": 0.11149078607559204,
+          "step": 0.011149078607559204,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "6f74aef445f8b79c6fd2263d752b525822df13a32d4f2effa8503496d9c039ee",
+          "height_change": 7.748603820800781e-07,
+          "known_fraction": 0.95,
+          "lateral": 1.1920928955078125e-07,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 3.421950362779456e-07,
+          "slope": 8.344650268554688e-06,
+          "step": 8.344650268554688e-07,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 0.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "ded873f600fa543d5b315c2de0008e1baac15ff185a917bb1c10620f720dcdc9",
+          "height_change": 0.0007758140563964844,
+          "known_fraction": 0.95,
+          "lateral": 0.011149108409881592,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.00031034947357447333,
+          "slope": 0.11149168014526367,
+          "step": 0.011149168014526367,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": 2.0
+        },
+        {
+          "class": "flat-only",
+          "dem_sha256": "b20a211309eabd649ab4966eb54dabb65faeac2f17f99d59c0f2014726e99d23",
+          "height_change": 0.0007758140563964844,
+          "known_fraction": 0.95,
+          "lateral": 0.011149078607559204,
+          "offset_local_m": [
+            0.0,
+            -0.02
+          ],
+          "onset_m": null,
+          "roughness": 0.00031034947357447333,
+          "slope": 0.11149078607559204,
+          "step": 0.011149078607559204,
+          "unknown_only": false,
+          "valid": true,
+          "yaw_offset_deg": -2.0
+        }
+      ],
+      "row": 0,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "terrain": "pyramid_stairs_inv",
+      "terrain_seed": 3627827408,
+      "theta_rad": 0.0,
+      "virtual_class": "flat-only",
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_sha256": "6f74aef445f8b79c6fd2263d752b525822df13a32d4f2effa8503496d9c039ee",
+      "virtual_dem_valid_fraction": 0.9025,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.7629000186920165
+      },
+      "virtual_interaction_onset_m": null,
+      "virtual_unknown_only_difference": false
+    }
+  ],
+  "r3_source_sha256": "60da9ea1a4a7d6cfdde812ac49bc09561518710f7127d1d8cf86111b28ecb3de",
+  "robustness_freeze_sha256": "19d7b0f3884dab9c390a5bb0070d11e457b39dc2d64aadc979d5cd97ddc06899",
+  "scan_sha256": {
+    "radius-0.30.json": "14047334936daed3818dffa6281a3b198309f9d7962c358d3f1c5dd657fcc4ed",
+    "radius-0.40.json": "37adfdb20f92f68b4bc2c226d9ef9a8bdd65c73963787f7a040925136c5daaca",
+    "radius-0.50.json": "3327e09ee64911e7fba898659502a3e35b5ec9b521850e398419225d2b98d66e",
+    "radius-0.60.json": "21ec271d4d7eb8230d62ddf80a0495245f54dc4459c630ac5862467c327a898a"
+  },
+  "schema": "eatnav_r3_second_pilot_v1",
+  "seed_freeze_sha256": "aef592cc262a4774a6d124a42dffa7c647bc36ae549f15b3cc14dd538883bf72",
+  "selection_order": "R3 original rank; first distinct family per class in shard A, second in shard B",
+  "selection_uses_robustness": false
+}

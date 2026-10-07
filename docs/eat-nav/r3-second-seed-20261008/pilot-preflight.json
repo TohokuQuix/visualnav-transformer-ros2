@@ -1,0 +1,24 @@
+{
+  "candidate_free": true,
+  "execution_manifest_sha256": "647384370269fb87df7a3651749baa93dc789409c0ac18d58a603ad2ba2acf7d",
+  "external_router_follower_bridge_required": false,
+  "pilot_manifest_sha256": "d493060b2cf30622710e5986a29f40c0252319adfb320224fbb14a92db574510",
+  "primary_manifest_sha256": "a45f2eb8d9f9062ed5387f0440cf4e8114fda7d85ca29d8a5176c36018362e38",
+  "robustness_freeze_sha256": "19d7b0f3884dab9c390a5bb0070d11e457b39dc2d64aadc979d5cd97ddc06899",
+  "runtime_cap_per_shard_sec": 900,
+  "runtime_forecast_sec": 180,
+  "schema": "eatnav_r3_second_pilot_preflight_v1",
+  "seed_freeze_sha256": "aef592cc262a4774a6d124a42dffa7c647bc36ae549f15b3cc14dd538883bf72",
+  "source_and_test_sha256": {
+    "/tmp/eatnav-vnt-r3-second-seed/scripts/eat_nav_r3_second_settle_run.py": "1328de314af8e65c4d050e1ae867e18db5c7cbba6d5b04ae547ef36e9220c307",
+    "/tmp/eatnav-vnt-r3-second-seed/scripts/eat_nav_r3_second_settle_sim.py": "4cbae8f91310a0e88e78d616cb3713c139bf2730bf069bce3b1224fdf55da63a",
+    "/tmp/eatnav-vnt-r3-second-seed/src/visualnav_transformer/eat_nav/r3_anchor_contract.py": "0ef73e312469987865fdc18207ff7de84440097e0a88b294f2e53fb52e7e7948",
+    "/tmp/eatnav-vnt-r3-second-seed/src/visualnav_transformer/eat_nav/radial_shard_inventory.py": "1ba2ba9a9e41e102197cf43b0fcac71aa2e49f144bef019445c977b6a5c6a3bd",
+    "/tmp/eatnav-vnt-r3-second-seed/src/visualnav_transformer/eat_nav/radial_termination_capture.py": "535e92bbf9e931bd452693a3b29df275421395904a80970b7fd7251a727cb4eb"
+  },
+  "source_commit": "e4f030c41ff7ba77c4fe218d17af5cd89830703e",
+  "storage_cap_bytes": 500000000,
+  "storage_forecast_bytes": 60000000,
+  "terrain_mesh_sha256": "ff7a1066eb40e01fe4a872e6d907028b4c2c009aa8f05f3e4a2d9c78ee0597ef",
+  "worktree": "/tmp/eatnav-vnt-r3-second-seed"
+}

@@ -1,0 +1,38 @@
+{
+  "DEM_source": "same zero-step nominal RayCaster source grid; robot_dem resampling at perturbed robot pose",
+  "condition_count": 15,
+  "condition_order": "translation outer, yaw inner",
+  "coverage_interpretation": "unknown remains unknown; invalid transformation recorded invalid, not free space",
+  "hard_gate_use": false,
+  "nominal_condition_index": 0,
+  "schema": "eatnav_r3_robustness_v1",
+  "selection_use": false,
+  "translation_offsets_local_m": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.02,
+      0.0
+    ],
+    [
+      -0.02,
+      0.0
+    ],
+    [
+      0.0,
+      0.02
+    ],
+    [
+      0.0,
+      -0.02
+    ]
+  ],
+  "xy_frame": "robot-local; x forward, y left; converted to map at nominal yaw",
+  "yaw_offsets_deg": [
+    0.0,
+    2.0,
+    -2.0
+  ]
+}

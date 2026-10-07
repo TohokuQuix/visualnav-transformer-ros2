@@ -1,0 +1,1589 @@
+[
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "exact_class_and_onset_match",
+    "contact_count_sum": 72584,
+    "contact_occupancy_max": 533,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "48b413be21b3758b36e9d9d65c79061fc8ac561da940d9b7a25480e3d90ba40a",
+    "dem_valid_fraction": 0.9,
+    "direction_index": 12,
+    "env_index": 84,
+    "final40_max": {
+      "angular_speed_radps": 0.02680637438198146,
+      "h1_signed_rad": 0.006287826621304869,
+      "linear_speed_mps": 0.012806929229287403,
+      "xy_drift_m": 0.004031852145635501
+    },
+    "ineligible_reasons": [],
+    "known_onset": true,
+    "max_decoded_penetration_m": 3.547966844053008e-05,
+    "physical_supply": true,
+    "physical_supply_second_seed": true,
+    "pilot_slot": 1,
+    "pose_id": "b3773891777-boxes-r0.50-a12",
+    "primary_onset_match": true,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 0.000931212205266181,
+    "r3_rank": 1,
+    "radius_m": 0.5,
+    "rank": 1,
+    "requested_xy_yaw": [
+      36.0,
+      -24.5,
+      4.71238899230957
+    ],
+    "robustness": {
+      "class_retention_fraction": 1.0,
+      "class_switch_counts": {},
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.04225038290023804,
+          "min": 0.026632948243937214,
+          "range": 0.015617434656300826
+        },
+        "slope": {
+          "max": 1.2170584872364998,
+          "min": 0.8443379960954189,
+          "range": 0.37272049114108086
+        },
+        "step": {
+          "max": 0.12170584872364998,
+          "min": 0.08443379960954189,
+          "range": 0.037272049114108086
+        }
+      },
+      "nominal_class": "transition",
+      "nominal_threshold_margin": {
+        "differential": -0.023920112252235413,
+        "graded_slope": 1.0970584499835967,
+        "height_change": 0.06562595725059509,
+        "transition_step": 0.07170584499835968
+      },
+      "onset_max_m": 0.55,
+      "onset_mean_m": 0.5499999999999999,
+      "onset_min_m": 0.55,
+      "onset_range_m": 0.0,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "transition",
+        "dem_sha256": "15fd74526da468a0f812141cebc9a7f4ce5780251721cf0354a3a71f3e01ae87",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": 0.55,
+        "step": 50
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "4395ce57cda2192141ed43e8b285a666ab060cb964ebee618e1a6295358de755",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": 0.55,
+        "step": 100
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "2fc5ba4ddc600eabc0769ec6ebadb778320f44b7f4fe2c81e3cd1288c639be3f",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": 0.55,
+        "step": 150
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "48b413be21b3758b36e9d9d65c79061fc8ac561da940d9b7a25480e3d90ba40a",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": 0.55,
+        "step": 200
+      }
+    ],
+    "settled_class": "transition",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "transition",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.10533498227596283,
+      "forward_roughness_m": 0.04205368259962875,
+      "interaction_start_m": 0.55,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.014676406979560852,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.00016071274876594543,
+          -0.10533498227596283
+        ],
+        "left": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.002277230843901634,
+          -0.12001138925552368
+        ],
+        "right": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.10541993007063866
+        ]
+      },
+      "max_forward_slope": 1.1773415841162205,
+      "max_step_m": 0.11773415841162205,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": 0.55,
+    "shard_id": "shard-A",
+    "source_family": "3773891777:boxes",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "boxes",
+    "terrain_seed": 703455880,
+    "trace_length": 200,
+    "trace_sha256": "dc65bba9fe5e46bbcce8fee2ba2a31ea8a5d42e0d690237680de9ad1fcb585f9",
+    "virtual_class": "transition",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "ce39c2b162def6393825993052bd2a341e355fdf2dc23d9c444b5e8aeda04d60",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "transition",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.10562595725059509,
+      "forward_roughness_m": 0.04225038290023804,
+      "interaction_start_m": 0.55,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.016079887747764587,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.10562595725059509
+        ],
+        "left": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.12170584499835968
+        ],
+        "right": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.10814781486988068
+        ]
+      },
+      "max_forward_slope": 1.2170584499835968,
+      "max_step_m": 0.12170584499835968,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.55,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "interaction_class_match_onset_difference",
+    "contact_count_sum": 107190,
+    "contact_occupancy_max": 673,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "2e901f4684f3a55f3aa4b92ce93d2bb064b71fcdd1d0389e8abb7965bfad218c",
+    "dem_valid_fraction": 0.9,
+    "direction_index": 0,
+    "env_index": 6,
+    "final40_max": {
+      "angular_speed_radps": 0.04206631466444883,
+      "h1_signed_rad": 0.0034942736127655184,
+      "linear_speed_mps": 0.006221041700590908,
+      "xy_drift_m": 0.0020585311404760654
+    },
+    "ineligible_reasons": [],
+    "known_onset": true,
+    "max_decoded_penetration_m": 1.9930301277781837e-05,
+    "physical_supply": true,
+    "physical_supply_second_seed": true,
+    "pilot_slot": 2,
+    "pose_id": "b3773891777-k_rail_step_field-r0.60-a00",
+    "primary_onset_match": false,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 0.023841910176484685,
+    "r3_rank": 6,
+    "radius_m": 0.6,
+    "rank": 6,
+    "requested_xy_yaw": [
+      -59.55000305175781,
+      24.149999618530273,
+      0.0
+    ],
+    "robustness": {
+      "class_retention_fraction": 1.0,
+      "class_switch_counts": {},
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.0322247087963392,
+          "min": 0.022885871234958364,
+          "range": 0.009338837561380837
+        },
+        "slope": {
+          "max": 0.8470136672258377,
+          "min": 0.6484347581863403,
+          "range": 0.19857890903949738
+        },
+        "step": {
+          "max": 0.08470136672258377,
+          "min": 0.06484347581863403,
+          "range": 0.019857890903949738
+        }
+      },
+      "nominal_class": "differential",
+      "nominal_threshold_margin": {
+        "differential": 0.16362764969468116,
+        "graded_slope": 0.7269417691230774,
+        "height_change": 0.05918290004134178,
+        "transition_step": 0.034694176912307736
+      },
+      "onset_max_m": 0.15000000000000002,
+      "onset_mean_m": 0.14333333333333328,
+      "onset_min_m": 0.05,
+      "onset_range_m": 0.1,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "differential",
+        "dem_sha256": "35b046a5323506b447fb4ed2413be61c4627a045c924a1e87a6920bde2bb9899",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": 0.05,
+        "step": 50
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "c8695e5af4d94a8a97da69ab507b5ad5aab529be1e7a21280ccdbf08406564f8",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": 0.05,
+        "step": 100
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "40bb9600a8b142bb97ab367a57fa893b9f0abc15d1ce52067e41ea340272f083",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": 0.05,
+        "step": 150
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "2e901f4684f3a55f3aa4b92ce93d2bb064b71fcdd1d0389e8abb7965bfad218c",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": 0.05,
+        "step": 200
+      }
+    ],
+    "settled_class": "differential",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "differential",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.09918402135372162,
+      "forward_roughness_m": 0.032151984987817184,
+      "interaction_start_m": 0.05,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.24325139075517654,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.005919061601161957,
+          0.010058648884296417,
+          0.01419810950756073,
+          0.0184074267745018,
+          0.10296212881803513,
+          0.1071728765964508
+        ],
+        "left": [
+          0.006807193160057068,
+          0.09043183922767639,
+          0.09443044662475586,
+          0.09773888438940048,
+          0.02253461629152298,
+          0.026673980057239532
+        ],
+        "right": [
+          -0.03551691770553589,
+          -0.039722077548503876,
+          -0.04386476054787636,
+          -0.04800409823656082,
+          -0.13096217066049576,
+          -0.13607851415872574
+        ]
+      },
+      "max_forward_slope": 0.8455470204353333,
+      "max_step_m": 0.08455470204353333,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": 0.05,
+    "shard_id": "shard-A",
+    "source_family": "3773891777:k_rail_step_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_step_field",
+    "terrain_seed": 2525527592,
+    "trace_length": 200,
+    "trace_sha256": "c871f6f656609cfd0b61a442d2d1eb910e015c0e3145becd070034c55f069a6d",
+    "virtual_class": "differential",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "0926459ba923bcad94658f23dcc966b33aa4fa95a7107f0425764609a2becf42",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "differential",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.09918290004134178,
+      "forward_roughness_m": 0.03222180307018109,
+      "interaction_start_m": 0.15000000000000002,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.20362764969468117,
+      "left_center_right_profiles_m": {
+        "center": [
+          -0.008278995752334595,
+          -0.0041390880942344666,
+          3.0547380447387695e-07,
+          0.004140317440032959,
+          0.0888344943523407,
+          0.09297385811805725
+        ],
+        "left": [
+          -0.0082780122756958,
+          0.07641610503196716,
+          0.08055552840232849,
+          0.08469483256340027,
+          0.07391317188739777,
+          0.01241832971572876
+        ],
+        "right": [
+          -0.028947703540325165,
+          -0.02894767001271248,
+          -0.05795173719525337,
+          -0.062091127038002014,
+          -0.06623058021068573,
+          -0.11065379157662392
+        ]
+      },
+      "max_forward_slope": 0.8469417691230774,
+      "max_step_m": 0.08469417691230774,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.15000000000000002,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "exact_class_and_onset_match",
+    "contact_count_sum": 106045,
+    "contact_occupancy_max": 676,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "e9b0711d6fb8b800c588d09030b6dfc644d9e39861028f51c9fceeff319c4965",
+    "dem_valid_fraction": 0.79,
+    "direction_index": 6,
+    "env_index": 48,
+    "final40_max": {
+      "angular_speed_radps": 0.030974952360109647,
+      "h1_signed_rad": 0.0009310081114213276,
+      "linear_speed_mps": 0.006090514985738829,
+      "xy_drift_m": 0.003895537324539527
+    },
+    "ineligible_reasons": [],
+    "known_onset": true,
+    "max_decoded_penetration_m": 6.336149090202525e-05,
+    "physical_supply": true,
+    "physical_supply_second_seed": true,
+    "pilot_slot": 3,
+    "pose_id": "b3773891777-k_rail_step_field-r0.30-a06",
+    "primary_onset_match": true,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 8.672838693210374e-05,
+    "r3_rank": 34,
+    "radius_m": 0.3,
+    "rank": 34,
+    "requested_xy_yaw": [
+      -12.36213207244873,
+      24.362131118774414,
+      2.356194496154785
+    ],
+    "robustness": {
+      "class_retention_fraction": 0.13333333333333333,
+      "class_switch_counts": {
+        "differential": 8,
+        "transition": 5
+      },
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.03155138819097214,
+          "min": 0.02553556755061523,
+          "range": 0.0060158206403569114
+        },
+        "slope": {
+          "max": 0.597497820854187,
+          "min": 0.48652101308107376,
+          "range": 0.11097680777311325
+        },
+        "step": {
+          "max": 0.0597497820854187,
+          "min": 0.048652101308107376,
+          "range": 0.011097680777311325
+        }
+      },
+      "nominal_class": "graded",
+      "nominal_threshold_margin": {
+        "differential": -0.000746362805366517,
+        "graded_slope": 0.36652101308107377,
+        "height_change": -0.026828368157148362,
+        "transition_step": -0.0013478986918926267
+      },
+      "onset_max_m": 0.25,
+      "onset_mean_m": 0.23,
+      "onset_min_m": 0.15000000000000002,
+      "onset_range_m": 0.1,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "graded",
+        "dem_sha256": "ef531d264aa1542efd4b7780370d7f5d568bded94a8c851acf0fe42f17e1a324",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": 0.25,
+        "step": 50
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "ceb90063d04fef3d9572886aa4f6f2b23c706f60dec97b240d0b3b2b702d1dc1",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": 0.25,
+        "step": 100
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "6a5ac3e0f18b5940dc5bf78e006f9b522099ae54fcc61b9e6c473c7aab0877f4",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": 0.25,
+        "step": 150
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "e9b0711d6fb8b800c588d09030b6dfc644d9e39861028f51c9fceeff319c4965",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": 0.25,
+        "step": 200
+      }
+    ],
+    "settled_class": "graded",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "graded",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.01318380981683731,
+      "forward_roughness_m": 0.027632251142361175,
+      "interaction_start_m": 0.25,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.039246849715709686,
+      "left_center_right_profiles_m": {
+        "center": [
+          -0.021951373666524887,
+          -0.02488107606768608,
+          0.022240281105041504,
+          -0.00023611634969711304,
+          -0.033670321106910706,
+          -0.036600034683942795
+        ],
+        "left": [
+          -0.02926212176680565,
+          -0.0038428381085395813,
+          0.035471901297569275,
+          0.022927239537239075,
+          -0.0255705788731575,
+          -0.04537295922636986
+        ],
+        "right": [
+          -0.01097768172621727,
+          0.011042766273021698,
+          0.05187220126390457,
+          0.03901073336601257,
+          -0.00980345904827118,
+          -0.027827098965644836
+        ]
+      },
+      "max_forward_slope": 0.4881419241428375,
+      "max_step_m": 0.04881419241428375,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": 0.25,
+    "shard_id": "shard-A",
+    "source_family": "3773891777:k_rail_step_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_step_field",
+    "terrain_seed": 2525527592,
+    "trace_length": 200,
+    "trace_sha256": "041b7bf05919f480994ac3a20b7e67db5138d2708a69ac4e1349d15235b87fe5",
+    "virtual_class": "graded",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "42260ef8b29b4d9f3924e290620849e13807e874dd0380fafdc6b14031fff26c",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "graded",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.013171631842851639,
+      "forward_roughness_m": 0.027632304333954617,
+      "interaction_start_m": 0.25,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.039253637194633484,
+      "left_center_right_profiles_m": {
+        "center": [
+          -0.021952729672193527,
+          -0.02487974241375923,
+          0.02224445343017578,
+          -0.0002294406294822693,
+          -0.03366083279252052,
+          -0.03658786788582802
+        ],
+        "left": [
+          -0.029270291328430176,
+          -0.0037162452936172485,
+          0.03562619537115097,
+          0.022925779223442078,
+          -0.0257263220846653,
+          -0.04536893218755722
+        ],
+        "right": [
+          -0.011024750769138336,
+          0.010918878018856049,
+          0.0517246276140213,
+          0.039024196565151215,
+          -0.00962745025753975,
+          -0.02780676633119583
+        ]
+      },
+      "max_forward_slope": 0.48652101308107376,
+      "max_step_m": 0.048652101308107376,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.25,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "anchor_ineligible_numeric",
+    "comparison": "NA / no settled eligible DEM",
+    "contact_count_sum": 105629,
+    "contact_occupancy_max": 718,
+    "dem_frame_count": 4,
+    "dem_valid_fraction": 0.9,
+    "direction_index": 4,
+    "env_index": 33,
+    "final40_max": {
+      "angular_speed_radps": 0.18722385648385068,
+      "h1_signed_rad": 0.012463280050999836,
+      "linear_speed_mps": 0.13009957989708426,
+      "xy_drift_m": 0.0581462882581118
+    },
+    "ineligible_reasons": [
+      "linear_speed_mps"
+    ],
+    "known_onset": false,
+    "max_decoded_penetration_m": 0.0020460051018744707,
+    "physical_supply": false,
+    "physical_supply_second_seed": false,
+    "pilot_slot": 4,
+    "pose_id": "b3773891777-k_rail_field-r0.50-a04",
+    "primary_onset_match": false,
+    "primary_virtual_settled_class_match": false,
+    "r3_rank": 62,
+    "radius_m": 0.5,
+    "rank": 62,
+    "requested_xy_yaw": [
+      -28.0,
+      16.5,
+      1.5707963705062866
+    ],
+    "robustness": {
+      "class_retention_fraction": 0.8,
+      "class_switch_counts": {
+        "differential": 1,
+        "graded": 2
+      },
+      "interaction_retention_fraction": 0.8,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.006005087494865526,
+          "min": 1.311810080830679e-08,
+          "range": 0.006005074376764718
+        },
+        "slope": {
+          "max": 0.2276478335261345,
+          "min": 2.980232238769531e-07,
+          "range": 0.22764753550291061
+        },
+        "step": {
+          "max": 0.02276478335261345,
+          "min": 2.9802322387695312e-08,
+          "range": 0.02276475355029106
+        }
+      },
+      "nominal_class": "flat-only",
+      "nominal_threshold_margin": {
+        "differential": -0.015163340568542481,
+        "graded_slope": -0.11999970197677612,
+        "height_change": -0.04,
+        "transition_step": -0.049999970197677615
+      },
+      "onset_max_m": 0.55,
+      "onset_mean_m": 0.55,
+      "onset_min_m": 0.55,
+      "onset_range_m": 0.0,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "flat-only",
+        "dem_sha256": "33bac01570bee8ae0a5efbfbf16e6a018017edcb6abe91544229a93f30ba5385",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 50
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "124ed94eaae7eaf3a08ca914943e054ea78077f70b784f2efe4fff6b7421dd8d",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 100
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "51e5702b136729742325e03b9f33e797beb816b4f9eb453f5aaa736863413fbb",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 150
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "6e672e66651e4f73aaadaf2d61147fc1e594b8918577806f4dacae13711f3f6f",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 200
+      }
+    ],
+    "settled_class": null,
+    "shard_id": "shard-A",
+    "source_family": "3773891777:k_rail_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_field",
+    "terrain_seed": 559994885,
+    "trace_length": 200,
+    "trace_sha256": "6cf803d11ef45aee3c482f9caac5c87c54f089313966c5960edaa849888d2a18",
+    "virtual_class": "flat-only",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "4cd48bc6e028420cce65f4633e87a6a86689c43515ddb50ff49fe65ade12f79c",
+    "virtual_interaction_onset_m": null,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "anchor_ineligible_numeric",
+    "comparison": "NA / no settled eligible DEM",
+    "contact_count_sum": 106097,
+    "contact_occupancy_max": 843,
+    "dem_frame_count": 4,
+    "dem_valid_fraction": 0.79,
+    "direction_index": 2,
+    "env_index": 20,
+    "final40_max": {
+      "angular_speed_radps": 0.7980148548189907,
+      "h1_signed_rad": 0.02392348769686148,
+      "linear_speed_mps": 0.08331993657855005,
+      "xy_drift_m": 0.022458396789302414
+    },
+    "ineligible_reasons": [
+      "angular_speed_radps"
+    ],
+    "known_onset": false,
+    "max_decoded_penetration_m": 6.866536568850279e-05,
+    "physical_supply": false,
+    "physical_supply_second_seed": false,
+    "pilot_slot": 5,
+    "pose_id": "b3773891777-k_rail_step_field-r0.40-a02",
+    "primary_onset_match": false,
+    "primary_virtual_settled_class_match": false,
+    "r3_rank": 2,
+    "radius_m": 0.4,
+    "rank": 2,
+    "requested_xy_yaw": [
+      -43.867156982421875,
+      24.432842254638672,
+      0.7853981852531433
+    ],
+    "robustness": {
+      "class_retention_fraction": 0.6666666666666666,
+      "class_switch_counts": {
+        "differential": 4,
+        "graded": 1
+      },
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.022117805130605846,
+          "min": 0.019634418936772497,
+          "range": 0.0024833861938333493
+        },
+        "slope": {
+          "max": 0.6095179915428162,
+          "min": 0.4865187406539917,
+          "range": 0.12299925088882446
+        },
+        "step": {
+          "max": 0.060951799154281616,
+          "min": 0.04865187406539917,
+          "range": 0.012299925088882446
+        }
+      },
+      "nominal_class": "transition",
+      "nominal_threshold_margin": {
+        "differential": -0.0007462435960769662,
+        "graded_slope": 0.4097841876745224,
+        "height_change": 0.053727100640535354,
+        "transition_step": 0.002978418767452237
+      },
+      "onset_max_m": 0.35000000000000003,
+      "onset_mean_m": 0.3499999999999999,
+      "onset_min_m": 0.35000000000000003,
+      "onset_range_m": 0.0,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "transition",
+        "dem_sha256": "fafa35c67903f0f48915a051d640f4e9119e1d2409b4e05ea56a1244814f52e0",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 50
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "e630d232671d3d28b91dafc69d3181618eb9b211fbcfe6c5030329f924d106bc",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 100
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "79ec553bcc21432508f26cf3f43c9861f89d7731dec14c60c1a58bffa21aa45b",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 150
+      },
+      {
+        "class": "transition",
+        "dem_sha256": "aadf6beb90a1f92493aea29b77efdd29b11e77eec85b705998ee399abf4d2420",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 200
+      }
+    ],
+    "settled_class": null,
+    "shard_id": "shard-B",
+    "source_family": "3773891777:k_rail_step_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_step_field",
+    "terrain_seed": 2525527592,
+    "trace_length": 200,
+    "trace_sha256": "64958429795940c46fffeb78eec74b38fa57e72623059ca66667739e3e57bed3",
+    "virtual_class": "transition",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "8f39c5453403cde4d8db029fc46db5b81b4b7230e112b49c2cf193b0d591df46",
+    "virtual_interaction_onset_m": 0.35000000000000003,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "exact_class_and_onset_match",
+    "contact_count_sum": 161824,
+    "contact_occupancy_max": 1041,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "64381fad7fd8014eda3e10f41643b2c6419bd8701c1631ff14725816ed887e3d",
+    "dem_valid_fraction": 0.82,
+    "direction_index": 13,
+    "env_index": 91,
+    "final40_max": {
+      "angular_speed_radps": 0.006249616176786756,
+      "h1_signed_rad": 3.919133963468034e-05,
+      "linear_speed_mps": 0.0010634298415540346,
+      "xy_drift_m": 5.4618152859788335e-05
+    },
+    "ineligible_reasons": [],
+    "known_onset": true,
+    "max_decoded_penetration_m": 1.4089049727772363e-05,
+    "physical_supply": true,
+    "physical_supply_second_seed": true,
+    "pilot_slot": 6,
+    "pose_id": "b3773891777-boxes-r0.60-a13",
+    "primary_onset_match": true,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 5.672611313016675e-06,
+    "r3_rank": 12,
+    "radius_m": 0.6,
+    "rank": 12,
+    "requested_xy_yaw": [
+      44.229610443115234,
+      -24.5543270111084,
+      5.105088233947754
+    ],
+    "robustness": {
+      "class_retention_fraction": 1.0,
+      "class_switch_counts": {},
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.9666666666666667,
+          "min": 0.9416666666666667,
+          "range": 0.025000000000000022
+        },
+        "roughness": {
+          "max": 0.03758117454817117,
+          "min": 0.030611274264512534,
+          "range": 0.006969900283658636
+        },
+        "slope": {
+          "max": 0.9901999123394489,
+          "min": 0.7898185029625893,
+          "range": 0.20038140937685966
+        },
+        "step": {
+          "max": 0.09901999123394489,
+          "min": 0.07898185029625893,
+          "range": 0.020038140937685966
+        }
+      },
+      "nominal_class": "differential",
+      "nominal_threshold_margin": {
+        "differential": 0.08260615825653075,
+        "graded_slope": 0.8248004513978958,
+        "height_change": 0.08483102083206176,
+        "transition_step": 0.04448004513978958
+      },
+      "onset_max_m": 0.35000000000000003,
+      "onset_mean_m": 0.3499999999999999,
+      "onset_min_m": 0.35000000000000003,
+      "onset_range_m": 0.0,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "differential",
+        "dem_sha256": "4fa6100a554c8ae4c26828478f540f3c8ce84aba3dcdf95abd666e292f48fb8f",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 50
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "4e42000b6dc36249cd45d13b5363b2a2a0b46dad14ed17c2376749efc6946bf3",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 100
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "c82e020808b74920f4cd691401fdbb9f95d09d9654be7ac01865c09c76a6d71f",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 150
+      },
+      {
+        "class": "differential",
+        "dem_sha256": "64381fad7fd8014eda3e10f41643b2c6419bd8701c1631ff14725816ed887e3d",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": 0.35000000000000003,
+        "step": 200
+      }
+    ],
+    "settled_class": "differential",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "differential",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.12483099102973938,
+      "forward_roughness_m": 0.0330093994784948,
+      "interaction_start_m": 0.35000000000000003,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.12260618805885315,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.08207852393388748,
+          -0.12483099102973938
+        ],
+        "left": [
+          0.0,
+          3.725290298461914e-09,
+          3.725290298461914e-09,
+          3.725290298461914e-09,
+          0.0,
+          -0.047890981659293175
+        ],
+        "right": [
+          0.0,
+          0.0,
+          -0.00913383811712265,
+          -0.10361703857779503,
+          -0.12260618805885315,
+          -0.09912329912185669
+        ]
+      },
+      "max_forward_slope": 0.9448320046067238,
+      "max_step_m": 0.09448320046067238,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": 0.35000000000000003,
+    "shard_id": "shard-B",
+    "source_family": "3773891777:boxes",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "boxes",
+    "terrain_seed": 703455880,
+    "trace_length": 200,
+    "trace_sha256": "e69c42401217a7be16bd486bb7edec0e6f3e9f358e767d16a78f6203bc2ff6fe",
+    "virtual_class": "differential",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "d1c8135eed181f6316fe098601c64d34d8f8f6c300a56c6f99cd4ac2b99d2730",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "differential",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": -0.12483102083206177,
+      "forward_roughness_m": 0.03300740588537774,
+      "interaction_start_m": 0.35000000000000003,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.12260615825653076,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.08207014203071594,
+          -0.12483102083206177
+        ],
+        "left": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.047869233414530754
+        ],
+        "right": [
+          0.0,
+          0.0,
+          -0.009139284491539001,
+          -0.10361932963132858,
+          -0.12260615825653076,
+          -0.09912227094173431
+        ]
+      },
+      "max_forward_slope": 0.9448004513978958,
+      "max_step_m": 0.09448004513978958,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.35000000000000003,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "interaction_class_match_onset_difference",
+    "contact_count_sum": 63321,
+    "contact_occupancy_max": 426,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "1cf59d19e8e0dbebe8e2185c0b93fbb243aa680a8eb3acbcf6f4374366edee9b",
+    "dem_valid_fraction": 0.81,
+    "direction_index": 1,
+    "env_index": 12,
+    "final40_max": {
+      "angular_speed_radps": 0.019033356905976257,
+      "h1_signed_rad": 0.03445029520842363,
+      "linear_speed_mps": 0.0026741075382703825,
+      "xy_drift_m": 0.01295423394479556
+    },
+    "ineligible_reasons": [],
+    "known_onset": false,
+    "max_decoded_penetration_m": 2.6319792596041225e-05,
+    "physical_supply": false,
+    "physical_supply_second_seed": false,
+    "pilot_slot": 7,
+    "pose_id": "b3773891777-k_rail_field-r0.50-a01",
+    "primary_onset_match": false,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 0.00909345345573595,
+    "r3_rank": 35,
+    "radius_m": 0.5,
+    "rank": 35,
+    "requested_xy_yaw": [
+      -51.53805923461914,
+      16.191341400146484,
+      0.39269909262657166
+    ],
+    "robustness": {
+      "class_retention_fraction": 0.9333333333333333,
+      "class_switch_counts": {
+        "differential": 1
+      },
+      "interaction_retention_fraction": 1.0,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.9666666666666667,
+          "min": 0.9416666666666667,
+          "range": 0.025000000000000022
+        },
+        "roughness": {
+          "max": 5.5973648938515625e-08,
+          "min": 3.3618552007313005e-08,
+          "range": 2.235509693120262e-08
+        },
+        "slope": {
+          "max": 0.32068759202957153,
+          "min": 0.22668853402137756,
+          "range": 0.09399905800819397
+        },
+        "step": {
+          "max": 0.03206875920295715,
+          "min": 0.022668853402137756,
+          "range": 0.009399905800819397
+        }
+      },
+      "nominal_class": "graded",
+      "nominal_threshold_margin": {
+        "differential": -0.015019963458180428,
+        "graded_slope": 0.1777782115340233,
+        "height_change": -0.022790496200323106,
+        "transition_step": -0.020222178846597674
+      },
+      "onset_max_m": 0.55,
+      "onset_mean_m": 0.37857142857142856,
+      "onset_min_m": 0.05,
+      "onset_range_m": 0.5,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "graded",
+        "dem_sha256": "74587c18178aaafbd29702c7ef407f3b567e736e96fac080b3800de641f16cf4",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 50
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "ebe68615605ca8b6ee177bdcd941806089a26b460c2737aa1eb9446120ec8648",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 100
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "a9c11b7c5d4f70d3cede6d9a4f7da0f3831d22a336516e1c281da59d88f5c3d0",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 150
+      },
+      {
+        "class": "graded",
+        "dem_sha256": "1cf59d19e8e0dbebe8e2185c0b93fbb243aa680a8eb3acbcf6f4374366edee9b",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 200
+      }
+    ],
+    "settled_class": "graded",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "graded",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.016953762620687485,
+      "forward_roughness_m": 4.9139953994277565e-08,
+      "interaction_start_m": null,
+      "interaction_within_two_second_proxy": false,
+      "left_center_right_difference_m": 0.009681608527898788,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.007548131048679352,
+          0.011315695941448212,
+          0.015083182603120804,
+          0.01885060966014862,
+          0.022618159651756287,
+          0.026385676115751266
+        ],
+        "left": [
+          0.007105555385351181,
+          0.017830196768045425,
+          0.019577622413635254,
+          0.018382493406534195,
+          0.032299768179655075,
+          0.022955920547246933
+        ],
+        "right": [
+          0.00411243736743927,
+          0.016004741191864014,
+          0.018512878566980362,
+          0.022280409932136536,
+          0.026047945022583008,
+          0.03153037652373314
+        ]
+      },
+      "max_forward_slope": 0.1391727477312088,
+      "max_step_m": 0.01391727477312088,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": false,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": null,
+    "shard_id": "shard-B",
+    "source_family": "3773891777:k_rail_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_field",
+    "terrain_seed": 559994885,
+    "trace_length": 200,
+    "trace_sha256": "fb5538d6f09e15e8e54b47c655311fac502ec15ad90ae826a749fe7de93e97c4",
+    "virtual_class": "graded",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "7c8ab435372c647ed5bba7e790e1185c537bb115dfdaca03b0864c7feeafa005",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "graded",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.017209503799676895,
+      "forward_roughness_m": 4.925278985809806e-08,
+      "interaction_start_m": 0.35000000000000003,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.024980036541819572,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.015105202794075012,
+          0.0189296156167984,
+          0.02275388315320015,
+          0.026578210294246674,
+          0.030402585864067078,
+          0.0342269130051136
+        ],
+        "left": [
+          0.014671891927719116,
+          0.02916961908340454,
+          0.023814260959625244,
+          0.02465856820344925,
+          0.038104329258203506,
+          0.031058762222528458
+        ],
+        "right": [
+          -0.007852364331483841,
+          0.004189582541584969,
+          0.008498679846525192,
+          0.03827650099992752,
+          0.03685949742794037,
+          0.03739509359002113
+        ]
+      },
+      "max_forward_slope": 0.2977782115340233,
+      "max_step_m": 0.02977782115340233,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.35000000000000003,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "exact_class_and_onset_match",
+    "contact_count_sum": 161457,
+    "contact_occupancy_max": 1041,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "42c26427fb4344735d29cf6705df0e667bf27221c66d8cd95e50974de26b832a",
+    "dem_valid_fraction": 0.905,
+    "direction_index": 0,
+    "env_index": 3,
+    "final40_max": {
+      "angular_speed_radps": 0.004676803837579379,
+      "h1_signed_rad": 8.354607982777832e-07,
+      "linear_speed_mps": 0.001903599056721325,
+      "xy_drift_m": 7.645609738120275e-06
+    },
+    "ineligible_reasons": [],
+    "known_onset": false,
+    "max_decoded_penetration_m": 9.655953363107983e-06,
+    "physical_supply": true,
+    "physical_supply_second_seed": true,
+    "pilot_slot": 8,
+    "pose_id": "b3773891777-pyramid_stairs_inv-r0.60-a00",
+    "primary_onset_match": true,
+    "primary_virtual_settled_class_match": true,
+    "profile_rms_m": 3.9736429850260414e-08,
+    "r3_rank": 63,
+    "radius_m": 0.6,
+    "rank": 63,
+    "requested_xy_yaw": [
+      -59.400001525878906,
+      0.0,
+      0.0
+    ],
+    "robustness": {
+      "class_retention_fraction": 0.8,
+      "class_switch_counts": {
+        "graded": 3
+      },
+      "interaction_retention_fraction": 0.8,
+      "metric_ranges": {
+        "known_fraction": {
+          "max": 0.95,
+          "min": 0.95,
+          "range": 0.0
+        },
+        "roughness": {
+          "max": 0.008800315857256555,
+          "min": 7.539457464619587e-08,
+          "range": 0.00880024046268191
+        },
+        "slope": {
+          "max": 0.33149123191833496,
+          "min": 1.1920928955078125e-06,
+          "range": 0.33149003982543945
+        },
+        "step": {
+          "max": 0.033149123191833496,
+          "min": 1.1920928955078125e-07,
+          "range": 0.033149003982543945
+        }
+      },
+      "nominal_class": "flat-only",
+      "nominal_threshold_margin": {
+        "differential": -0.03999988079071045,
+        "graded_slope": -0.11999165534973144,
+        "height_change": -0.03999922513961792,
+        "transition_step": -0.04999916553497315
+      },
+      "onset_max_m": null,
+      "onset_mean_m": null,
+      "onset_min_m": null,
+      "onset_range_m": null,
+      "perturbation_valid_count": 15,
+      "schema": "eatnav_r3_robustness_summary_v1",
+      "unknown_only_count": 0
+    },
+    "secondary_frame_classes": [
+      {
+        "class": "flat-only",
+        "dem_sha256": "b6ed62897f0744e03cf4210cac2cc9dba7fc5b5f93ab75c5fdf44b4643cad132",
+        "frame_index": 0,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 50
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "e3451e0e7b85a6ad9f6b8717729a8e3c61c673a051f3f4c00390649fc31cfce3",
+        "frame_index": 1,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 100
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "dce652315714e03207752a4712422cd6e4222bfd2e5b7f811edfbe3a8f2ee0c6",
+        "frame_index": 2,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 150
+      },
+      {
+        "class": "flat-only",
+        "dem_sha256": "42c26427fb4344735d29cf6705df0e667bf27221c66d8cd95e50974de26b832a",
+        "frame_index": 3,
+        "known_fraction": 0.95,
+        "onset_m": null,
+        "step": 200
+      }
+    ],
+    "settled_class": "flat-only",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "flat-only",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 8.344650268554688e-07,
+      "forward_roughness_m": 3.337860107421875e-07,
+      "interaction_start_m": null,
+      "interaction_within_two_second_proxy": false,
+      "left_center_right_difference_m": 0.0,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.344650268554688e-07
+        ],
+        "left": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.344650268554688e-07
+        ],
+        "right": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.344650268554688e-07
+        ]
+      },
+      "max_forward_slope": 8.344650268554688e-06,
+      "max_step_m": 8.344650268554688e-07,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": false,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": null,
+    "shard_id": "shard-B",
+    "source_family": "3773891777:pyramid_stairs_inv",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "pyramid_stairs_inv",
+    "terrain_seed": 3627827408,
+    "trace_length": 200,
+    "trace_sha256": "1fc723bccb599209fa9d05ac1832597d13968b872fa9f3224fd37176f277d406",
+    "virtual_class": "flat-only",
+    "virtual_corridor_known_fraction": 0.95,
+    "virtual_dem_sha256": "6f74aef445f8b79c6fd2263d752b525822df13a32d4f2effa8503496d9c039ee",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "flat-only",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 7.748603820800781e-07,
+      "forward_roughness_m": 3.421950362779456e-07,
+      "interaction_start_m": null,
+      "interaction_within_two_second_proxy": false,
+      "left_center_right_difference_m": 1.1920928955078125e-07,
+      "left_center_right_profiles_m": {
+        "center": [
+          0.0,
+          1.1920928955078125e-07,
+          0.0,
+          0.0,
+          0.0,
+          8.344650268554688e-07
+        ],
+        "left": [
+          0.0,
+          5.960464477539063e-08,
+          0.0,
+          5.960464477539063e-08,
+          5.960464477539063e-08,
+          8.940696716308594e-07
+        ],
+        "right": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.344650268554688e-07
+        ]
+      },
+      "max_forward_slope": 8.344650268554688e-06,
+      "max_step_m": 8.344650268554688e-07,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": false,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": null,
+    "virtual_unknown_only_difference": false
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "eligibility_required": "settled_anchor_eligible",
+  "flat_control_requirement": "primary settled class flat-only, no known interaction onset, corridor known fraction >= 0.70 and not unknown-only",
+  "interaction_classes": [
+    "transition",
+    "differential",
+    "graded"
+  ],
+  "interaction_requirement": "primary settled class equals virtual, known onset in 0-0.6 m corridor, not unknown-only",
+  "reason": "flat-only control cannot simultaneously require a positive interaction onset; known terrain coverage demonstrates known absence of interaction",
+  "robustness_is_hard_gate": false,
+  "schema": "eatnav_r3_second_supply_contract_v1",
+  "selection_uses_robustness": false
+}

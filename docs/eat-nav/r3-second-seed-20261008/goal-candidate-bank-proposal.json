@@ -1,0 +1,31 @@
+{
+  "candidate_families": [
+    "direct",
+    "left-small",
+    "left-medium",
+    "left-large",
+    "right-small",
+    "right-medium",
+    "right-large"
+  ],
+  "candidate_paths_generated": false,
+  "follower_bridge_router_started": false,
+  "goal_bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "goal_distance_m": 0.6,
+  "goal_reduction_reference": "same global goal for all candidate paths derived from a given anchor and bearing",
+  "illustrative_definition_count_balanced": 280,
+  "outcome_collected": false,
+  "proposed_balanced_anchor_policy": "design option: one supplied anchor per class per seed, 8 anchors total; freeze after review, no Path generated now",
+  "runtime_storage_forecast": "requires separate Path/follower/rollout preflight; zero rollout authorized here",
+  "schema": "eatnav_r3_second_goal_bank_proposal_v1",
+  "second_seed_additional_differential_anchor": "retain as within-source-family sensitivity option, not independent sample",
+  "split_grouping": "all goal bearings and all candidates from one anchor remain in one split; source family and terrain seed are the independence unit",
+  "status": "proposal_only_not_frozen_for_execution",
+  "trigger_decision": "r3_second_seed_physical_supply_pass_ready_for_goal_candidate_bank_design"
+}
