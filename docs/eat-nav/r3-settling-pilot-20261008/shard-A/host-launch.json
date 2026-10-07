@@ -1,0 +1,26 @@
+{
+  "candidate_free": true,
+  "command": [
+    "docker",
+    "exec",
+    "-e",
+    "PYTHONPATH=/tmp/eatnav-r3-settling-pilot-20261008/shard-A/src:/tmp/eatnav-train/src:/tmp/eatnav-extended/isaac-source:/workspace/isaaclab/source/isaaclab:/workspace/isaaclab/source/isaaclab_rl:/workspace/isaaclab/source/isaaclab_tasks:/workspace/isaaclab_onix/source/onix_isaac_lab",
+    "isaac-lab-onix",
+    "/isaac-sim/python.sh",
+    "/tmp/eatnav-r3-settling-pilot-20261008/shard-A/inputs/eat_nav_r3_settling_sim.py",
+    "--headless",
+    "--freeze",
+    "/tmp/eatnav-r3-settling-pilot-20261008/shard-A/input-freeze.json",
+    "--pose-manifest",
+    "/tmp/eatnav-r3-settling-pilot-20261008/shard-A/pose-manifest.json",
+    "--batch-seed",
+    "20261007",
+    "--output",
+    "/tmp/eatnav-r3-settling-pilot-20261008/shard-A/run",
+    "--mode",
+    "full"
+  ],
+  "freeze_sha256": "34637197a836d489e042530ab75c67d7185be9dbf8755a7162b422d0ed6bb4be",
+  "monotonic_ns": 2011702515034682,
+  "wall_ns": 1791391534761984826
+}
