@@ -24,7 +24,7 @@ import numpy as np
 import torch
 import yaml
 import omni.usd
-from pxr import Usd,UsdGeom,UsdPhysics
+from pxr import Gf,Usd,UsdGeom,UsdPhysics
 from isaaclab.terrains.terrain_generator import TerrainGenerator
 from isaaclab.utils import math as math_utils
 from isaaclab.utils.math import euler_xyz_from_quat
@@ -90,12 +90,18 @@ def collision_proxy(stage,robot):
     # URDF-generated collision shapes have USD purpose=guide. Excluding guide
     # yields an empty bound even when CollisionAPI is composed in the stage.
     cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.guide])
-    base=robot.data.root_pos_w[0].detach().cpu().numpy()
-    _,_,yaw=euler_xyz_from_quat(robot.data.root_quat_w[0:1]);theta=float(yaw.item())
-    c,s=math.cos(theta),math.sin(theta)
+    # IsaacLab's cloned Actor state is already at the terrain origin, while
+    # the USD collision template remains at its authoring transform. Rebase
+    # bounds in the USD root's own frame before using them at virtual poses.
+    usd_root_to_world=UsdGeom.XformCache(Usd.TimeCode.Default()).GetLocalToWorldTransform(root_prim)
+    world_to_usd_root=usd_root_to_world.GetInverse()
+    actor_root=robot.data.root_pos_w[0].detach().cpu().numpy()
     groups={'main_track_sprocket':[],'initial_flipper_support':[],
             'articulated_reach':[],'full_collision_union':[]}
-    counts={'collision_api_prim_count':0,'usable_collision_bound_count':0}
+    counts={'collision_api_prim_count':0,'usable_collision_bound_count':0,
+            'usd_template_root_xyz':list(usd_root_to_world.ExtractTranslation()),
+            'sim_actor_root_xyz':actor_root.tolist(),
+            'coordinate_rule':'USD world bounds transformed by inverse USD root transform'}
     for prim in Usd.PrimRange(root_prim,Usd.TraverseInstanceProxies()):
         if not prim.HasAPI(UsdPhysics.CollisionAPI):continue
         counts['collision_api_prim_count']+=1
@@ -110,8 +116,8 @@ def collision_proxy(stage,robot):
         corners=[]
         for x in (lower[0],upper[0]):
             for y in (lower[1],upper[1]):
-                dx,dy=x-base[0],y-base[1]
-                corners.append((float(c*dx+s*dy),float(-s*dx+c*dy)))
+                local=world_to_usd_root.Transform(Gf.Vec3d(float(x),float(y),float((lower[2]+upper[2])/2)))
+                corners.append((float(local[0]),float(local[1])))
         groups['full_collision_union'].extend(corners)
         if any(f'/chassis_{prefix}' in path for prefix in ('fl','fr','rl','rr')):
             groups['initial_flipper_support'].extend(corners)

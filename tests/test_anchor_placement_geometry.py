@@ -27,6 +27,16 @@ def test_collision_proxy_bounds_include_usd_guide_purpose():
     assert 'guide' in tokens
 
 
+def test_collision_proxy_rebases_template_bounds_in_usd_root_frame():
+    source = Path(__file__).resolve().parents[1] / 'scripts/eat_nav_anchor_placement_scan_sim.py'
+    tree = ast.parse(source.read_text())
+    fn = next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == 'collision_proxy')
+    calls = [node.func.attr for node in ast.walk(fn) if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)]
+    assert 'GetLocalToWorldTransform' in calls
+    assert 'GetInverse' in calls
+    assert 'Transform' in calls
+
+
 def test_collision_proxy_reports_known_and_outside_without_safety_verdict():
     mask=np.ones((20,20),dtype=bool)
     mask[9,9]=False
