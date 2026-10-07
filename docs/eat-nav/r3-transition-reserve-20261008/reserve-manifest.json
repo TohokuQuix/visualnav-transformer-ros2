@@ -1,0 +1,319 @@
+{
+  "offline_scan_sha256": {
+    "/tmp/eatnav-anchor-placement-20261008/scan-v3/radius-0.30.json": "a6cb1d9dae96dd8cf9492a777413074662f15269001ca1389af908edb842ddf8",
+    "/tmp/eatnav-anchor-placement-20261008/scan-v3/radius-0.40.json": "32f129d4b90a0ba43f5551994be5fd0edb5d9309e57bd9609fca7b9ebbe45187",
+    "/tmp/eatnav-anchor-placement-20261008/scan-v3/radius-0.50.json": "e1e685adc2f34a13ea8c73c9e88cc88d9528b5769d7b0f717fb411ea3f8f9bd4",
+    "/tmp/eatnav-anchor-placement-20261008/scan-v3/radius-0.60.json": "0cae6821b022442553ab97d5acdfa30cb3e60796575d42956b6c969d5760e4f8"
+  },
+  "preaudit_selection_sha256": "8201190142a8e9d4ca9017df5d9b5ddca0bc1a3a5e3722edd19c2c1bd6a5b0ca",
+  "reserve_input_sha256": "1c5ca63edfdb2eb63222a538008c96e2164f5891588b82bf086a718cf05bacfb",
+  "schema": "eatnav_r3_transition_reserve_manifest_v1",
+  "selected": [
+    {
+      "classification": "transition",
+      "dem_sha256": "bc1d838c42809da6e3279467a64e3e2ed280d13f30e6bc07146583f4f3206c2f",
+      "direction_index": 4,
+      "env_id": 33,
+      "env_origin_xyz": [
+        -28.0,
+        16.0,
+        0.0
+      ],
+      "pose_id": "b20261007-k_rail_field-r0.60-a04",
+      "radius_m": 0.6,
+      "requested_root_z_m": 0.35,
+      "requested_xy_yaw": [
+        -28.0,
+        16.600000381469727,
+        1.5707963705062866
+      ],
+      "root_z_rule": "scene.env_origins.z + 0.35 m",
+      "selection_rank_in_r3": 3,
+      "source_family": "20261007:k_rail_field",
+      "status": "reserve_only_not_in_execution_manifest",
+      "terrain": "k_rail_field",
+      "terrain_seed": 1806762392,
+      "theta_rad": 1.5707963705062866,
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_valid_fraction": 0.9025,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 2.7629000096219043
+      },
+      "virtual_interaction": {
+        "assumed_speed_mps": 0.3,
+        "assumed_two_second_reach_m": 0.6,
+        "band_valid_fraction": {
+          "center": 1.0,
+          "left": 1.0,
+          "right": 1.0
+        },
+        "class": "transition",
+        "corridor_valid_fraction": 0.95,
+        "forward_height_change_m": 0.07506416365504265,
+        "forward_roughness_m": 0.03002566546202298,
+        "interaction_start_m": 0.55,
+        "interaction_within_two_second_proxy": true,
+        "left_center_right_difference_m": 0.02483665943145752,
+        "left_center_right_profiles_m": {
+          "center": [
+            -0.014488071203231812,
+            -0.014488071203231812,
+            -0.014488041400909424,
+            -0.014488071203231812,
+            -0.014488071203231812,
+            0.06057609245181084
+          ],
+          "left": [
+            -0.026906371116638184,
+            -0.026906371116638184,
+            -0.026906371116638184,
+            -0.026906371116638184,
+            -0.026906371116638184,
+            0.04815774783492088
+          ],
+          "right": [
+            -0.0020697712898254395,
+            -0.0020697414875030518,
+            -0.002069711685180664,
+            -0.002069711685180664,
+            -0.0020697414875030518,
+            0.07299439609050751
+          ]
+        },
+        "max_forward_slope": 0.7506416365504265,
+        "max_step_m": 0.07506416365504265,
+        "schema": "eatnav_radial_dem_interaction_v1",
+        "supply_candidate": true,
+        "unknown_fraction": 0.050000000000000044
+      },
+      "virtual_interaction_onset_m": 0.55,
+      "virtual_unknown_only_difference": false
+    },
+    {
+      "classification": "transition",
+      "dem_sha256": "afa1c9e34af24d62a6cea98e805727d6ff60eec25e61defc04305bbde6f620f6",
+      "direction_index": 2,
+      "env_id": 20,
+      "env_origin_xyz": [
+        -44.150001525878906,
+        24.149999618530273,
+        0.14934653043746948
+      ],
+      "pose_id": "b20261007-k_rail_step_field-r0.30-a02",
+      "radius_m": 0.3,
+      "requested_root_z_m": 0.49934653043746946,
+      "requested_xy_yaw": [
+        -43.937870025634766,
+        24.362131118774414,
+        0.7853981852531433
+      ],
+      "root_z_rule": "scene.env_origins.z + 0.35 m",
+      "selection_rank_in_r3": 4,
+      "source_family": "20261007:k_rail_step_field",
+      "status": "reserve_only_not_in_execution_manifest",
+      "terrain": "k_rail_step_field",
+      "terrain_seed": 675156315,
+      "theta_rad": 0.7853981852531433,
+      "virtual_corridor_known_fraction": 0.95,
+      "virtual_dem_valid_fraction": 0.79,
+      "virtual_footprint_diagnostic": {
+        "articulated_reach": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "articulated_reach_m": 0.6700392845945206,
+        "full_collision_union": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 1084,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "initial_flipper_support": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.637099987995823,
+              -0.21899999546232607
+            ],
+            [
+              0.6370999813079834,
+              0.21899999546232607
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 736,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "main_track_sprocket": {
+          "inside_dem_fraction": 1.0,
+          "known_fraction": 1.0,
+          "local_bbox_xy_m": [
+            [
+              -0.33149999380111694,
+              -0.17000000440662255
+            ],
+            [
+              0.33149999380111694,
+              0.17000000440662255
+            ]
+          ],
+          "outside_dem_fraction": 0.0,
+          "sample_count": 344,
+          "unknown_or_outside_fraction": 0.0
+        },
+        "proxy_semantics": "USD collision world AABB corners transformed to initial root-local XY; diagnostic only",
+        "tile_boundary_margin_m": 3.1868979181927237
+      },
+      "virtual_interaction": {
+        "assumed_speed_mps": 0.3,
+        "assumed_two_second_reach_m": 0.6,
+        "band_valid_fraction": {
+          "center": 1.0,
+          "left": 1.0,
+          "right": 1.0
+        },
+        "class": "transition",
+        "corridor_valid_fraction": 0.95,
+        "forward_height_change_m": 0.09372708946466446,
+        "forward_roughness_m": 0.02067752937631424,
+        "interaction_start_m": 0.35000000000000003,
+        "interaction_within_two_second_proxy": true,
+        "left_center_right_difference_m": 0.03925374150276184,
+        "left_center_right_profiles_m": {
+          "center": [
+            -0.022043295204639435,
+            -0.01911626011133194,
+            -0.01618926227092743,
+            0.03678913414478302,
+            0.0702202320098877,
+            0.07314731180667877
+          ],
+          "left": [
+            -0.03082434833049774,
+            -0.027897275984287262,
+            -0.02204323559999466,
+            -0.002464607357978821,
+            0.046187207102775574,
+            0.046251118183135986
+          ],
+          "right": [
+            -0.023068584501743317,
+            -0.010335296392440796,
+            -0.007408246397972107,
+            0.013633973896503448,
+            0.062285810708999634,
+            0.06234978884458542
+          ]
+        },
+        "max_forward_slope": 0.5297839641571045,
+        "max_step_m": 0.05297839641571045,
+        "schema": "eatnav_radial_dem_interaction_v1",
+        "supply_candidate": true,
+        "unknown_fraction": 0.050000000000000044
+      },
+      "virtual_interaction_onset_m": 0.35000000000000003,
+      "virtual_unknown_only_difference": false
+    }
+  ],
+  "selection_inputs_only": [
+    "reserve-rank-freeze.json",
+    "scan-v3/radius-*.json"
+  ],
+  "source_commit": "dfe81c1c399ef48167a268f5daf5b93524102684",
+  "timestamp_utc": "2026-10-07T22:32:24.307488+00:00"
+}

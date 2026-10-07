@@ -1,0 +1,36 @@
+{
+  "eight_pose_result_files_opened_by_selection": false,
+  "schema": "eatnav_r3_transition_preaudit_v1",
+  "selected": [
+    {
+      "classification": "transition",
+      "dem_sha256": "bc1d838c42809da6e3279467a64e3e2ed280d13f30e6bc07146583f4f3206c2f",
+      "direction_index": 4,
+      "pose_id": "b20261007-k_rail_field-r0.60-a04",
+      "radius_m": 0.6,
+      "selection_rank_in_r3": 3,
+      "source_family": "20261007:k_rail_field",
+      "status": "reserve_only_not_in_execution_manifest",
+      "terrain": "k_rail_field"
+    },
+    {
+      "classification": "transition",
+      "dem_sha256": "afa1c9e34af24d62a6cea98e805727d6ff60eec25e61defc04305bbde6f620f6",
+      "direction_index": 2,
+      "pose_id": "b20261007-k_rail_step_field-r0.30-a02",
+      "radius_m": 0.3,
+      "selection_rank_in_r3": 4,
+      "source_family": "20261007:k_rail_step_field",
+      "status": "reserve_only_not_in_execution_manifest",
+      "terrain": "k_rail_step_field"
+    }
+  ],
+  "selection_input_path": "/tmp/eatnav-r3-settling-pilot-20261008/reserve-rank-freeze.json",
+  "selection_input_sha256": "1c5ca63edfdb2eb63222a538008c96e2164f5891588b82bf086a718cf05bacfb",
+  "selection_inputs_only": [
+    "reserve-rank-freeze.json"
+  ],
+  "selection_rule": "virtual transition, reserve-only, original R3 selection rank ascending with pose_id tie-break, max 2; prefer distinct source family only if same rank",
+  "timestamp_utc": "2026-10-07T22:32:24.248688+00:00",
+  "transition_available": 2
+}

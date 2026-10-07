@@ -1,0 +1,236 @@
+[
+  {
+    "classification": "settled_anchor_eligible",
+    "comparison": "exact_class_and_onset_match",
+    "contact_count_sum": 142858,
+    "contact_occupancy_max": 885,
+    "dem_frame_count": 4,
+    "dem_frame_index": 3,
+    "dem_frame_physics_step": 200,
+    "dem_frame_sha256": "ebd6fc7f720a3e7dcd63d5903527373917a0f3b6cdb5f945ad6429caeff166b0",
+    "dem_valid_fraction": 0.9,
+    "direction_index": 4,
+    "env_index": 33,
+    "final40_max": {
+      "angular_speed_radps": 0.017894560856960017,
+      "h1_signed_rad": 0.014893386179408495,
+      "linear_speed_mps": 0.005109959808290229,
+      "xy_drift_m": 0.0026784499636141905
+    },
+    "ineligible_reasons": [],
+    "known_onset": true,
+    "max_decoded_penetration_m": 3.453344470472075e-05,
+    "physical_supply": true,
+    "pose_id": "b20261007-k_rail_field-r0.60-a04",
+    "profile_rms_m": 0.0016122526221078353,
+    "radius_m": 0.6,
+    "rank": 3,
+    "requested_xy_yaw": [
+      -28.0,
+      16.600000381469727,
+      1.5707963705062866
+    ],
+    "secondary_all_frame_classes": [
+      {
+        "class": "transition",
+        "index": 0,
+        "sha256": "471632494d67374e2e1a2d72f39471c563c866148d6612769898f4b7eb48fd4d",
+        "valid_fraction": 0.9
+      },
+      {
+        "class": "transition",
+        "index": 1,
+        "sha256": "fbd592d8ad303f3396517c66d9b12fd032e0e31d8d43b777909f5440c553546e",
+        "valid_fraction": 0.9
+      },
+      {
+        "class": "transition",
+        "index": 2,
+        "sha256": "20e5993734897628dc6a67e2ca1a5f945cfe7ae906b0faf89985627351eeb596",
+        "valid_fraction": 0.9
+      },
+      {
+        "class": "transition",
+        "index": 3,
+        "sha256": "ebd6fc7f720a3e7dcd63d5903527373917a0f3b6cdb5f945ad6429caeff166b0",
+        "valid_fraction": 0.9
+      }
+    ],
+    "settled_class": "transition",
+    "settled_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "transition",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.07479463424533606,
+      "forward_roughness_m": 0.029676805876276517,
+      "interaction_start_m": 0.55,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.02483387663960457,
+      "left_center_right_profiles_m": {
+        "center": [
+          -0.01343444176018238,
+          -0.013372790068387985,
+          -0.013311196118593216,
+          -0.013249559327960014,
+          -0.0129273422062397,
+          0.06139101833105087
+        ],
+        "left": [
+          -0.025851380079984665,
+          -0.025789743289351463,
+          -0.025728117674589157,
+          -0.02566649578511715,
+          -0.02229003608226776,
+          0.04730913043022156
+        ],
+        "right": [
+          -0.0010175034403800964,
+          -0.0009558796882629395,
+          -0.0008942410349845886,
+          -0.0008326340466737747,
+          -0.0007710102945566177,
+          0.07095657289028168
+        ]
+      },
+      "max_forward_slope": 0.7431836053729057,
+      "max_step_m": 0.07431836053729057,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "settled_interaction_onset_m": 0.55,
+    "shard_id": "shard-reserve",
+    "source_family": "20261007:k_rail_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_field",
+    "terrain_seed": 1806762392,
+    "trace_length": 200,
+    "trace_sha256": "d9cef5c6e9cea8455c48a399a1aff563d67ce4793ac1a42f84ee1fc0ae8619ce",
+    "virtual_class": "transition",
+    "virtual_dem_sha256": "bc1d838c42809da6e3279467a64e3e2ed280d13f30e6bc07146583f4f3206c2f",
+    "virtual_interaction": {
+      "assumed_speed_mps": 0.3,
+      "assumed_two_second_reach_m": 0.6,
+      "band_valid_fraction": {
+        "center": 1.0,
+        "left": 1.0,
+        "right": 1.0
+      },
+      "class": "transition",
+      "corridor_valid_fraction": 0.95,
+      "forward_height_change_m": 0.07506416365504265,
+      "forward_roughness_m": 0.03002566546202298,
+      "interaction_start_m": 0.55,
+      "interaction_within_two_second_proxy": true,
+      "left_center_right_difference_m": 0.02483665943145752,
+      "left_center_right_profiles_m": {
+        "center": [
+          -0.014488071203231812,
+          -0.014488071203231812,
+          -0.014488041400909424,
+          -0.014488071203231812,
+          -0.014488071203231812,
+          0.06057609245181084
+        ],
+        "left": [
+          -0.026906371116638184,
+          -0.026906371116638184,
+          -0.026906371116638184,
+          -0.026906371116638184,
+          -0.026906371116638184,
+          0.04815774783492088
+        ],
+        "right": [
+          -0.0020697712898254395,
+          -0.0020697414875030518,
+          -0.002069711685180664,
+          -0.002069711685180664,
+          -0.0020697414875030518,
+          0.07299439609050751
+        ]
+      },
+      "max_forward_slope": 0.7506416365504265,
+      "max_step_m": 0.07506416365504265,
+      "schema": "eatnav_radial_dem_interaction_v1",
+      "supply_candidate": true,
+      "unknown_fraction": 0.050000000000000044
+    },
+    "virtual_interaction_onset_m": 0.55,
+    "virtual_unknown_only_difference": false
+  },
+  {
+    "classification": "anchor_ineligible_numeric",
+    "comparison": "NA / no settled eligible DEM",
+    "contact_count_sum": 136946,
+    "contact_occupancy_max": 910,
+    "dem_frame_count": 4,
+    "dem_valid_fraction": 0.79,
+    "direction_index": 2,
+    "env_index": 20,
+    "final40_max": {
+      "angular_speed_radps": 0.3760028668618623,
+      "h1_signed_rad": 0.0007768594200330271,
+      "linear_speed_mps": 0.05332261029023112,
+      "xy_drift_m": 0.024668471944103217
+    },
+    "ineligible_reasons": [
+      "angular_speed_radps"
+    ],
+    "known_onset": false,
+    "max_decoded_penetration_m": 0.00015055567200761288,
+    "physical_supply": false,
+    "pose_id": "b20261007-k_rail_step_field-r0.30-a02",
+    "radius_m": 0.3,
+    "rank": 4,
+    "requested_xy_yaw": [
+      -43.937870025634766,
+      24.362131118774414,
+      0.7853981852531433
+    ],
+    "secondary_all_frame_classes": [
+      {
+        "class": "transition",
+        "index": 0,
+        "sha256": "4742ec36b543f3d1592302b15237677f2cef01964c145117757fdd0f93bd075e",
+        "valid_fraction": 0.79
+      },
+      {
+        "class": "transition",
+        "index": 1,
+        "sha256": "c038e5df378bc05daa76e94f784fb3e682bcb8b0413df3bb2ebc25f766ea99b7",
+        "valid_fraction": 0.79
+      },
+      {
+        "class": "transition",
+        "index": 2,
+        "sha256": "5082642dc1af39382bdf46160a82f00bd67e3f7dd81e0ef80a902fbca6bad235",
+        "valid_fraction": 0.79
+      },
+      {
+        "class": "transition",
+        "index": 3,
+        "sha256": "810f45da393a1e29821a297c54b60506d89d6a8d31e4a870e5556872796cf402",
+        "valid_fraction": 0.79
+      }
+    ],
+    "settled_class": null,
+    "shard_id": "shard-reserve",
+    "source_family": "20261007:k_rail_step_field",
+    "termination_reason": [],
+    "termination_step": null,
+    "terrain": "k_rail_step_field",
+    "terrain_seed": 675156315,
+    "trace_length": 200,
+    "trace_sha256": "7a3d3efe5df6a56442c930ce4b0bb6ea35b779a79d387de164291d21e90ae18a",
+    "virtual_class": "transition",
+    "virtual_dem_sha256": "afa1c9e34af24d62a6cea98e805727d6ff60eec25e61defc04305bbde6f620f6",
+    "virtual_unknown_only_difference": false
+  }
+]
