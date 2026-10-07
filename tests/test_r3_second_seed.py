@@ -3,6 +3,7 @@ from pathlib import Path
 
 from visualnav_transformer.eat_nav.r3_second_seed import choose_second_seed
 from visualnav_transformer.eat_nav.r3_robustness import perturb_pose, summarize_perturbations
+from visualnav_transformer.eat_nav.r3_second_selection import choose_pilot
 
 
 def test_seed_is_big_endian_sha256_and_avoids_all_first_seeds():
@@ -52,3 +53,30 @@ def test_second_scan_has_seed_freeze_and_zero_step_robustness_contract():
     assert 'OFFSETS_LOCAL_M' in source and 'YAW_OFFSETS_DEG' in source
     assert '20261007' not in source
     assert 'env.step(' not in source
+
+
+def test_pilot_selection_uses_r3_rank_and_distinct_family_not_robustness():
+    classes=('transition','differential','graded','flat-only')
+    ordered=[]
+    for cls in classes:
+        for index,family in enumerate(('a','a','b')):
+            ordered.append({'pose_id':f'{cls}-{index}','classification':cls,
+                            'source_family':family,'robustness':{'class_retention_fraction':index/10}})
+    selected,missing=choose_pilot(ordered)
+    assert not missing
+    assert [x['pose_id'] for x in selected]==[f'{c}-0' for c in classes]+[f'{c}-2' for c in classes]
+    for x in ordered:x['robustness']['class_retention_fraction']=1.0
+    assert [x['pose_id'] for x in choose_pilot(ordered)[0]]==[x['pose_id'] for x in selected]
+    _,missing=choose_pilot([x for x in ordered if x['classification']!='graded' or x['source_family']=='a'])
+    assert missing==['graded']
+
+
+def test_second_settling_only_changes_batch_seed_guard():
+    root=Path(__file__).resolve().parents[1]
+    old=(root/'scripts/eat_nav_r3_settling_sim.py').read_text()
+    new=(root/'scripts/eat_nav_r3_second_settle_sim.py').read_text()
+    assert new==old.replace(
+        "if args.batch_seed != 20261007 or args.batch_seed not in freeze['batch_seeds']:",
+        "if args.batch_seed != freeze['batch_seeds'][0] or len(freeze['batch_seeds']) != 1:")
+    assert 'max_contact_data_count=view_capacity' in new
+    assert 'bare._reset_idx=capture_before_reset' in new
