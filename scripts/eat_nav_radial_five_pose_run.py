@@ -90,6 +90,8 @@ def copy_inputs(freeze):
                     ROOT/'src/visualnav_transformer/eat_nav/radial_lean_log.py'))
     mapping.append((WORKTREE/'src/visualnav_transformer/eat_nav/radial_shard_inventory.py',
                     ROOT/'src/visualnav_transformer/eat_nav/radial_shard_inventory.py'))
+    mapping.append((WORKTREE/'src/visualnav_transformer/eat_nav/radial_termination_capture.py',
+                    ROOT/'src/visualnav_transformer/eat_nav/radial_termination_capture.py'))
     for local,remote in mapping:
         docker('exec',CONTAINER,'mkdir','-p',remote.parent)
         docker('cp',local,f'{CONTAINER}:{remote}')
@@ -148,7 +150,7 @@ def main():
             expected_pose_count=len(pose_ids))
         if outcome=='invalid':
             raise RuntimeError(f'invalid simulator markers: exit={client.returncode}, mode={freeze["run_kind"]}')
-        artifact_gate=verify_shard_artifacts(ROOT/'run',pose_ids)
+        artifact_gate=verify_shard_artifacts(ROOT/'run',pose_ids,termination_aware=True)
         files=[p for p in (ROOT/'run').rglob('*') if p.is_file()]
         mismatches=[str(p) for p in files if sha(p)!=rsha(p)]
         if mismatches:raise RuntimeError('host/container SHA mismatch: '+repr(mismatches))

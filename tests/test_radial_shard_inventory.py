@@ -69,6 +69,40 @@ def test_shard_artifacts_require_every_step_dem_actor_and_sha(tmp_path):
     with pytest.raises(ValueError): verify_shard_artifacts(run,[pose])
 
 
+def test_terminated_pose_requires_exact_pre_reset_evidence_and_no_post_reset_trace(tmp_path):
+    pose = 'b20261007-k_rail_field-a00'
+    run = tmp_path/'run'; (run/'trace').mkdir(parents=True)
+    stream = run/'trace'/f'{pose}.jsonl'
+    stream.write_text(''.join(json.dumps({'physics_step':i,'contact':{
+        'bounds_valid':True,'buffer_full_or_truncation_suspected':False,
+        'finite':True,'buffer_capacity':4096}})+'\n' for i in range(1,141)))
+    for i in range(2):
+        p=run/'dem'/pose/f'frame-{i:02d}.json';p.parent.mkdir(parents=True,exist_ok=True)
+        p.write_text(json.dumps({'physics_step':(i+1)*50,'shape':[2,20,20],'finite':True}))
+    p=run/'actor'/pose/'prephysics.json';p.parent.mkdir(parents=True,exist_ok=True)
+    p.write_text(json.dumps({'shape':[22],'finite':True,'field_order':['a']*22}))
+    import hashlib
+    marker={'pose_id':pose,'env_id':5,'termination_step':140,'last_valid_step':140,
+            'termination_reason':['tilt_over'],'terminated':True,'truncated':False,
+            'done':True,'post_reset_state':False,'episode_id':0,'reset_counter_before':0,
+            'reset_counter_after':1,'pre_reset_state':{'root_state_w':[0]*13},
+            'pre_reset_actor':[0]*22,'pre_reset_contact':{'bounds_valid':True,'finite':True,
+            'buffer_capacity':4096,'buffer_full_or_truncation_suspected':False},
+            'term_flags':{'tilt_over':True,'time_out':False},
+            'logical_timestamp_ns':700000000,
+            'dem_frame_ids':['frame-00','frame-01'],
+            'trace_sha256':hashlib.sha256(stream.read_bytes()).hexdigest()}
+    p=run/'termination'/f'{pose}.json';p.parent.mkdir(parents=True,exist_ok=True)
+    p.write_text(json.dumps(marker))
+    (run/'control-events.jsonl').write_text(''.join(json.dumps({
+        'physics_step':i*10,'selected':{pose:{'terminated':i==14,'truncated':False,
+        'done':i==14,'actor_observation':[0.0]*22,'post_reset_state':False}} if i<=14 else {}})+'\n'
+        for i in range(1,21)))
+    assert verify_shard_artifacts(run,[pose],termination_aware=True)['terminated_pose_count']==1
+    stream.write_text(stream.read_text()+json.dumps({'physics_step':141})+'\n')
+    with pytest.raises(ValueError): verify_shard_artifacts(run,[pose],termination_aware=True)
+
+
 def test_numeric_exceedance_stop_is_prospective_majority():
     assert not numerical_exceedance_stop([False, True, True, False, False])
     assert numerical_exceedance_stop([False, True, True, True, False])

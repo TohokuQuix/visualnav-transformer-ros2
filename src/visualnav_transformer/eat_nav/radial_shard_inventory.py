@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 
@@ -84,42 +85,104 @@ def select_shard_rows(manifest_poses: list[dict], schedule: list[dict]) -> list[
     return selected
 
 
-def verify_shard_artifacts(run: Path, pose_ids: list[str]) -> dict:
+def verify_shard_artifacts(run: Path, pose_ids: list[str], *, termination_aware: bool = False) -> dict:
     run = Path(run)
     if not 1 <= len(pose_ids) <= 5 or len(set(pose_ids)) != len(pose_ids):
         raise ValueError('invalid pose set')
+    terminated_count = 0
+    control_rows = None
+    if termination_aware:
+        control_stream = run/'control-events.jsonl'
+        data = control_stream.read_bytes()
+        if not data.endswith(b'\n'):
+            raise ValueError('interrupted control event stream')
+        control_rows = [json.loads(line) for line in data.splitlines()]
+        if len(control_rows) != 20 or [row['physics_step'] for row in control_rows] != list(range(10,201,10)):
+            raise ValueError('control step history incomplete')
+    if termination_aware and (run/'termination').exists():
+        markers={path.stem for path in (run/'termination').glob('*.json')}
+        if not markers.issubset(set(pose_ids)):
+            raise ValueError('orphan termination marker')
     for pose_id in pose_ids:
         stream = run/'trace'/f'{pose_id}.jsonl'
         data = stream.read_bytes()
         if not data.endswith(b'\n'):
             raise ValueError('interrupted step stream')
         rows = [json.loads(line) for line in data.splitlines()]
-        if len(rows) != 200 or [row['physics_step'] for row in rows] != list(range(1,201)):
+        terminal = run/'termination'/f'{pose_id}.json'
+        marker = json.loads(terminal.read_text()) if termination_aware and terminal.exists() else None
+        expected_steps = marker['termination_step'] if marker else 200
+        if (not isinstance(expected_steps, int) or expected_steps < 1 or expected_steps > 200 or
+            len(rows) != expected_steps or [row['physics_step'] for row in rows] != list(range(1,expected_steps+1))):
             raise ValueError('missing, repeated, or out-of-order physics step')
         if any((not row['contact']['bounds_valid'] or row['contact']['buffer_full_or_truncation_suspected'] or
                 not row['contact']['finite'] or row['contact']['buffer_capacity'] != 4096) for row in rows):
             raise ValueError('contact integrity gate failed')
-        for index, expected_step in enumerate((50,100,150,200)):
+        if termination_aware and any(row.get('post_reset_state') is True for row in rows):
+            raise ValueError('post-reset state contaminated anchor trace')
+        frame_steps = [step for step in (50,100,150,200) if step <= expected_steps]
+        for index, expected_step in enumerate(frame_steps):
             path = run/'dem'/pose_id/f'frame-{index:02d}.json'
             if not path.exists():
                 raise ValueError('DEM history incomplete')
             frame = json.loads(path.read_text())
             if frame['physics_step'] != expected_step or frame['shape'] != [2,20,20] or not frame['finite']:
                 raise ValueError('DEM history incomplete')
-        for phase in ('prephysics','settled_step_200'):
+        for phase in ('prephysics',) if marker else ('prephysics','settled_step_200'):
             path = run/'actor'/pose_id/f'{phase}.json'
             if not path.exists():
                 raise ValueError('Actor observation incomplete')
             actor = json.loads(path.read_text())
             if actor['shape'] != [22] or not actor['finite'] or len(actor['field_order']) != 22:
                 raise ValueError('Actor observation incomplete')
+        if marker:
+            if (marker.get('pose_id') != pose_id or marker.get('terminated') is not True or
+                marker.get('truncated') is not False or marker.get('done') is not True or
+                marker.get('post_reset_state') is not False or
+                marker.get('last_valid_step') != expected_steps or
+                not marker.get('termination_reason') or
+                marker.get('logical_timestamp_ns') != expected_steps*5_000_000 or
+                marker.get('reset_counter_after') != marker.get('reset_counter_before', -2) + 1 or
+                marker.get('episode_id') != marker.get('reset_counter_before') or
+                sorted(name for name,flag in marker.get('term_flags', {}).items() if flag) !=
+                    sorted(marker['termination_reason']) or
+                marker.get('trace_sha256') != hashlib.sha256(data).hexdigest() or
+                marker.get('dem_frame_ids') != [f'frame-{i:02d}' for i in range(len(frame_steps))] or
+                len(marker.get('pre_reset_actor', [])) != 22 or
+                not all(isinstance(v,(int,float)) and math.isfinite(v) for v in marker['pre_reset_actor']) or
+                not marker.get('pre_reset_state') or
+                marker.get('pre_reset_contact', {}).get('bounds_valid') is not True or
+                marker.get('pre_reset_contact', {}).get('finite') is not True or
+                marker.get('pre_reset_contact', {}).get('buffer_full_or_truncation_suspected') is not False or
+                marker.get('pre_reset_contact', {}).get('buffer_capacity') != 4096):
+                raise ValueError('physical termination evidence incomplete')
+            if ((run/'actor'/pose_id/'settled_step_200.json').exists() or
+                (run/'dem'/pose_id/f'frame-{len(frame_steps):02d}.json').exists()):
+                raise ValueError('post-reset or extra DEM evidence in terminated pose')
+            terminated_count += 1
+        if control_rows is not None:
+            for event in control_rows:
+                step=event['physics_step']
+                state=event['selected'].get(pose_id)
+                if step<=expected_steps:
+                    if (state is None or state.get('post_reset_state') is not False or
+                        len(state.get('actor_observation',[])) != 22 or
+                        not all(isinstance(v,(int,float)) and math.isfinite(v) for v in state['actor_observation']) or
+                        state.get('terminated') is not (marker is not None and step==expected_steps) or
+                        state.get('truncated') is not False or
+                        state.get('done') is not (marker is not None and step==expected_steps)):
+                        raise ValueError('selected control event incomplete or contaminated')
+                elif state is not None:
+                    raise ValueError('terminated selected pose appears after reset')
     for raw in (run/'raw').rglob('*.npz'):
         sidecar = json.loads(raw.with_suffix('.json').read_text())
         if hashlib.sha256(raw.read_bytes()).hexdigest() != sidecar['raw_sha256']:
             raise ValueError('raw contact SHA mismatch')
     if (run/'partial').exists():
         raise ValueError('cumulative partial snapshots forbidden')
-    return {'pose_count':len(pose_ids),'physics_steps':200,'raw_count':len(list((run/'raw').rglob('*.npz')))}
+    return {'pose_count':len(pose_ids),'physics_steps':200,
+            'terminated_pose_count':terminated_count,
+            'raw_count':len(list((run/'raw').rglob('*.npz')))}
 
 
 def numerical_exceedance_stop(exceeded: list[bool]) -> bool:

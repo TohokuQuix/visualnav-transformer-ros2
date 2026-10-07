@@ -36,6 +36,7 @@ from visualnav_transformer.eat_nav.radial_five_pose_contract import terrain_mesh
 from visualnav_transformer.eat_nav.contact_raw_capture import diagnostic_should_stop, validate_view_capacity, verify_frozen_view_contract
 from visualnav_transformer.eat_nav.radial_lean_log import LeanContactRecorder, append_step, save_dem_frame, save_actor, write_complete_before_close
 from visualnav_transformer.eat_nav.radial_shard_inventory import select_shard_rows, sensor_paths_for_env
+from visualnav_transformer.eat_nav.radial_termination_capture import build_reset_events
 from isaaclab.utils import math as math_utils
 from isaaclab.utils.math import euler_xyz_from_quat
 import onix_isaac_lab.tasks  # noqa: F401
@@ -279,6 +280,13 @@ def main():
         recorder=LeanContactRecorder(args.output,paths,
             expected_shapes=freeze['contact_contract']['expected_array_shapes'])
         first_contacts={r['pose_id']:None for r in selected}
+        selected_by_env={r['env_index']:r['pose_id'] for r in selected}
+        active=set(selected_by_env.values())
+        terminal_events={}
+        reset_counts={i:0 for i in selected_by_env}
+        last_contacts={}
+        trace_steps={i:0 for i in selected_by_env}
+        dem_frame_ids={i:[] for i in selected_by_env}
         original_update=bare.scene.update
         physics_count=0
         def measured_update(dt):
@@ -286,41 +294,113 @@ def main():
             original_update(dt)
             physics_count+=1
             snapshots={r['pose_id']:state_snapshot(bare,r['env_index'],requested[r['pose_id']])
-                       for r in selected}
+                       for r in selected if r['pose_id'] in active}
             atomic_json(args.output/'heartbeat.json',{'physics_step':physics_count,
                 'monotonic_ns':time.monotonic_ns(),'elapsed_sec':time.monotonic()-started})
             for r in selected:
                 name=r['pose_id']
+                if name not in active:
+                    continue
                 arrays=[a.detach().cpu().numpy() for a in views[name].get_contact_data(dt=0.005)]
                 contact=recorder.record(name,physics_count,arrays,views[name].max_contact_data_count)
+                last_contacts[r['env_index']]=contact
+                trace_steps[r['env_index']]=physics_count
                 if contact['contact_count']>0 and first_contacts[name] is None:
                     first_contacts[name]=physics_count
                 sample={'physics_step':physics_count,'logical_time_s':physics_count*.005,
                         'wall_ns':time.time_ns(),'monotonic_ns':time.monotonic_ns(),
                         'phase':'FIRST_CONTACT_TRANSIENT' if physics_count==1 else
                             'SETTLED_ANCHOR' if physics_count>160 else 'SETTLING',
-                        'state':snapshots[name],
+                        'state':snapshots[name], 'episode_id':reset_counts[r['env_index']],
+                        'reset_counter':reset_counts[r['env_index']],
+                        'post_reset_state':False, 'termination_phase':'pre_evaluation',
                         'contact':contact}
                 append_step(args.output/'trace'/f'{name}.jsonl',sample)
         bare.scene.update=measured_update
+        original_reset_idx=bare._reset_idx
+        def capture_before_reset(env_ids):
+            done_ids=[int(i) for i in env_ids.detach().cpu().tolist()]
+            manager=bare.termination_manager
+            terminated_ids=bare.reset_terminated.nonzero(as_tuple=False).squeeze(-1).detach().cpu().tolist()
+            truncated_ids=bare.reset_time_outs.nonzero(as_tuple=False).squeeze(-1).detach().cpu().tolist()
+            term_flags={name:manager.get_term(name).nonzero(as_tuple=False).squeeze(-1).detach().cpu().tolist()
+                        for name in manager.active_terms}
+            timeout_terms={name for name,cfg in zip(manager.active_terms,manager._term_cfgs) if cfg.time_out}
+            selected_done=[i for i in done_ids if i in selected_by_env and selected_by_env[i] in active]
+            pre_states={i:state_snapshot(bare,i,requested[selected_by_env[i]]) for i in selected_done}
+            pre_actor=bare.observation_manager.compute(update_history=False)['policy'] if selected_done else None
+            actor_values={i:vector(pre_actor[i]) for i in selected_done}
+            active_by_env={i:name for i,name in selected_by_env.items() if name in active}
+            events=build_reset_events(selected=active_by_env,physics_step=physics_count,
+                done_ids=done_ids,terminated_ids=terminated_ids,truncated_ids=truncated_ids,
+                term_flags=term_flags,timeout_terms=timeout_terms,pre_states=pre_states,
+                actor_values=actor_values,
+                episode_lengths={i:int(bare.episode_length_buf[i].item()) for i in selected_done},
+                reset_counts=reset_counts,trace_steps=trace_steps,dem_frame_ids=dem_frame_ids,
+                contacts=last_contacts)
+            for event in events:
+                name=event['pose_id']; i=event['env_id']
+                event['captured_wall_ns']=time.time_ns()
+                event['trace_sha256']=digest(args.output/'trace'/f'{name}.jsonl')
+                atomic_json(args.output/'termination'/f'{name}.json',event)
+                terminal_events[name]=event
+                active.remove(name)
+                reset_counts[i]+=1
+            atomic_json(args.output/'control-reset'/f'step-{physics_count:04d}.json',{
+                'physics_step':physics_count,'logical_timestamp_ns':physics_count*5_000_000,
+                'all_done_env_ids':done_ids,'selected_termination_pose_ids':[e['pose_id'] for e in events],
+                'terminated_env_ids':terminated_ids,'truncated_env_ids':truncated_ids,
+                'term_flags':term_flags,'post_reset_state':False})
+            return original_reset_idx(env_ids)
+        bare._reset_idx=capture_before_reset
         zero=torch.zeros((112,6),device=bare.device)
         frame_steps=(4,9,14,19)
         control_count=6 if args.mode=='diagnostic' else 20
         for control_step in range(control_count):
             obs,reward,done,extra=env.step(zero)
-            if bool(torch.any(done)):
-                raise RuntimeError('unexpected episode reset during settling')
             if physics_count!=(control_step+1)*10:
                 raise RuntimeError('physics/control decimation mismatch')
+            done_ids=done.nonzero(as_tuple=False).squeeze(-1).detach().cpu().tolist()
+            if done_ids and not (args.output/'control-reset'/f'step-{physics_count:04d}.json').exists():
+                raise RuntimeError('reset occurred without pre-reset capture')
+            selected_control={}
+            for i,name in selected_by_env.items():
+                terminal=terminal_events.get(name)
+                just_terminated=terminal is not None and terminal['termination_step']==physics_count
+                if terminal is not None and not just_terminated:
+                    continue
+                selected_control[name]={
+                    'env_id':i,'episode_id':0,'reset_counter':0,
+                    'terminated':bool(just_terminated),'truncated':False,'done':bool(just_terminated),
+                    'term_flags':terminal['term_flags'] if just_terminated else
+                        {term:False for term in bare.termination_manager.active_terms},
+                    'termination_reason':terminal['termination_reason'] if just_terminated else [],
+                    'state':terminal['pre_reset_state'] if just_terminated else state_snapshot(bare,i,requested[name]),
+                    'actor_observation':terminal['pre_reset_actor'] if just_terminated else vector(obs['policy'][i]),
+                    'contact':last_contacts[i],
+                    'dem_frame_ids':list(dem_frame_ids[i]),
+                    'post_reset_state':False}
+            append_step(args.output/'control-events.jsonl',{
+                'control_step':control_step+1,'physics_step':physics_count,
+                'logical_timestamp_ns':physics_count*5_000_000,
+                'all_done_env_ids':done_ids,
+                'selected_active_pose_ids':sorted(active),
+                'selected_terminal_pose_ids':sorted(terminal_events),
+                'selected':selected_control,
+                'post_reset_observation_excluded_for_terminated':True})
             if control_step in frame_steps:
                 for r in selected:
+                    if r['pose_id'] not in active:
+                        continue
                     frame={'control_step':control_step,
                         'physics_step':physics_count,'logical_stamp_ns':physics_count*5_000_000,
                         'frame_id':config.reference_frame,'resolution_m':config.dem_resolution_m,
                         'axis':'robot-relative-grid-xy','dem':extract_dem(bare,r['env_index'],config)}
                     payload={**frame['dem'],**{k:v for k,v in frame.items() if k!='dem'}}
                     save_dem_frame(args.output,r['pose_id'],frame_steps.index(control_step),payload)
+                    dem_frame_ids[r['env_index']].append(f'frame-{frame_steps.index(control_step):02d}')
         bare.scene.update=original_update
+        bare._reset_idx=original_reset_idx
         expected_steps=60 if args.mode=='diagnostic' else 200
         if physics_count!=expected_steps:
             raise RuntimeError('physics step count mismatch')
@@ -334,6 +414,15 @@ def main():
         actor=obs['policy']
         for r in selected:
             name=r['pose_id']; i=r['env_index']
+            if name in terminal_events:
+                event=terminal_events[name]
+                atomic_json(args.output/'poses'/f'{name}.json',{
+                    'pose_id':name,'env_index':i,'classification':'anchor_ineligible_physical_termination',
+                    'termination_path':f'termination/{name}.json',
+                    'trace_path':f'trace/{name}.jsonl',
+                    'dem_paths':[f'dem/{name}/{f}.json' for f in event['dem_frame_ids']],
+                    'physics_step_count':event['termination_step'],'candidate_free':True})
+                continue
             save_actor(args.output,name,'settled_step_200',vector(actor[i]),
                        actor_order,freeze['source_sha256']['checkpoint_env'])
             atomic_json(args.output/'poses'/f'{name}.json', {
@@ -345,6 +434,7 @@ def main():
                 'action':vector(zero[i]),'control_step_count':20,'physics_step_count':200,
                 'candidate_free':True})
         write_complete_before_close(args.output,{'pose_count':len(selected),'physics_steps':physics_count,
+            'physical_termination_pose_ids':sorted(terminal_events),
             'elapsed_sec':time.monotonic()-started,'sim_source_sha256':digest(__file__)},env.close)
         env=None
     finally:
