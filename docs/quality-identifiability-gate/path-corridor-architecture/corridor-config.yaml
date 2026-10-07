@@ -1,0 +1,56 @@
+schema: eatnav_path_corridor_architecture_v1
+source_root: /tmp/eatnav-evaluator-independent-expansion-20261006-v7
+output_root: /tmp/eatnav-path-corridor-architecture-20261007
+dem:
+  frames: 4
+  channels: [height, valid_mask]
+  height_cells: 20
+  width_cells: 20
+  resolution_m: 0.1
+  axis: row=+robot_left_y,col=+robot_forward_x
+  frame: anchor_robot_local
+  height_reference: anchor_source_valid_annulus_median
+  reference_radius_m: [0.3, 0.8]
+  interpolation: bilinear_all_nonzero_weight_cells_valid
+  invalid: mask=0,height=0
+corridor:
+  stations: 16
+  lateral_samples: 7
+  lateral_extent_m: [-0.4, 0.4]
+  path_includes_origin: true
+  path_future_points: 8
+support:
+  min_candidate_valid_ratio: 0.5
+  flat_height_std_max_m: 0.03
+  flat_longitudinal_step_max_m: 0.03
+  differential_pair_rms_min_m: 0.03
+  differential_step_difference_min_m: 0.03
+  nonflat_station_height_delta_min_m: 0.03
+  transition_first_nonflat_range_m: [0.15, 0.55]
+  minimum_groups_for_claim: 3
+  cluster_pair_rms_max_m: 0.03
+  threshold_provenance: prior_DEM_numeric_equivalence_limit_0.03m_and_0.1m_resolution
+models:
+  variants: [A1, A2, A3, A4]
+  common_embedding_dim: 64
+  image_embedding_dim: 64
+  fusion_width: 384
+  cnn_activation: SiLU
+  cnn_normalization: GroupNorm
+training:
+  split_folds: 40
+  seeds: [123, 456, 789]
+  max_epochs: 200
+  patience: 30
+  min_delta: 0.0
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  target_heads: [reward, direct_relative_reward, goal_reduction, endpoint_error, path_progress, cross_track_p95]
+  regression_beta: 1.0
+  regression_weights: [1.0, 1.0, 1.0, 1.0, 0.25, 0.25]
+  ranking_heads: [reward, goal_reduction]
+  ranking_weights: [0.25, 0.25]
+  selection_metric: train_loss
+  bootstrap_seed: 123
+  bootstrap_repeats: 1000
