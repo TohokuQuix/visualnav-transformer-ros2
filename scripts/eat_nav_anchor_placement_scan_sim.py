@@ -180,6 +180,14 @@ def scan_radius(bare,rows,radius,config,proxy):
               'physical_stability':'unmeasured'}
         try:
             dem=np.asarray(robot_dem(source,(float(pos[0]),float(pos[1]),t),config),dtype=np.float32)
+        except ValueError as exc:
+            base.update({'dem_complete':False,'classification':'insufficient',
+                         'interaction_onset_m':None,'corridor_known_fraction':None,
+                         'centerline_known':False,'unknown_only_difference':True,
+                         'profile_vector_m':[],'dem_error':repr(exc),
+                         'footprint_known_fraction':None,'dem_valid_fraction':None,
+                         'dem_sha256':None})
+        else:
             height=dem[0];mask=dem[1]>.5
             interaction=classify_dem(height,mask,config.dem_resolution_m)
             x=(np.arange(20)-9.5)*.1;y=(np.arange(20)-9.5)*.1
@@ -206,13 +214,6 @@ def scan_radius(bare,rows,radius,config,proxy):
                          'dem_sha256':hashlib.sha256(dem.tobytes()).hexdigest(),
                          'dem_shape':[2,20,20],
                          'dem':dem.tolist()})
-        except ValueError as exc:
-            base.update({'dem_complete':False,'classification':'insufficient',
-                         'interaction_onset_m':None,'corridor_known_fraction':None,
-                         'centerline_known':False,'unknown_only_difference':True,
-                         'profile_vector_m':[],'dem_error':repr(exc),
-                         'footprint_known_fraction':None,'dem_valid_fraction':None,
-                         'dem_sha256':None})
         candidates.append(base)
     return candidates
 
