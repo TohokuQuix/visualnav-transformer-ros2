@@ -1,0 +1,31 @@
+{
+  "base_radii_m": [
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "candidate_free": true,
+  "config_sha256": "3f0c3d53290db7e05e3fa09844e814098a79f288daac47bc21cbdf150c7e30e7",
+  "difficulty": 0.5,
+  "direction_count": 16,
+  "frozen_source_sha256": {
+    "/tmp/eatnav-anchor-placement-20261008/inputs/eat_nav_anchor_placement_scan_sim.py": "55c1b6ace971b28edf2f8bd40ee205fc4dfdc021e1dbcd8ae799599c3411e851",
+    "/tmp/eatnav-anchor-placement-20261008/src/visualnav_transformer/eat_nav/anchor_placement_geometry.py": "6160d0f2e2618e8c4c6b39b8ebbf8261efe96e637c368d067be14ca158512e95",
+    "/tmp/eatnav-anchor-placement-20261008/src/visualnav_transformer/eat_nav/anchor_placement_rules.py": "60da9ea1a4a7d6cfdde812ac49bc09561518710f7127d1d8cf86111b28ecb3de",
+    "/tmp/eatnav-anchor-placement-20261008/src/visualnav_transformer/eat_nav/radial_interaction.py": "fc12a07a372c3597402bf6002e6ef000c63bd7a50db1717c47f2d0c18a3addf8"
+  },
+  "input_manifest_sha256": "387cccdace12007311f7668a575faa8ceb8e5bea1476f693be177f18103e8475",
+  "no_physics_control_steps": true,
+  "outcome_blind": true,
+  "parity_report_sha256": "f8f5bdcdc0b0e639b46d12483b4e4d42d9be5b0029b022f6fb58f1244284cfa7",
+  "post_result_implementation_fix": "USD collision template world bounds rebased by inverse USD template root transform; class/selection thresholds unchanged; scan-v2 retained",
+  "pre_result_fix": "ValueError from footprint or classification now fails scan; only robot_dem insufficient coverage may be labeled insufficient",
+  "pre_result_fix_2": "URDF collision USD prims have purpose=guide; BBoxCache now includes guide; 271 live CollisionAPI prims confirmed",
+  "radial_interaction_frozen_sha256": "fc12a07a372c3597402bf6002e6ef000c63bd7a50db1717c47f2d0c18a3addf8",
+  "schema": "eatnav_anchor_placement_scan_freeze_v1",
+  "seed": 20261007,
+  "source_commit": "cf69b66cd5b07b3147ea024b00b0ff229ca81906",
+  "supersedes_scan_freeze_sha256": "712369e16efe50fbfba158a3e69b5d3871b68c470a9008b804e79205f9345697",
+  "terrain_mesh_sha256": "1689eff80304bdbc318e6662f66883d8bb7a34e729ee0f24535f701bdec17d1e"
+}

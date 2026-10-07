@@ -1,0 +1,32 @@
+{
+  "base_radii_m": [
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "batch_seed": 20261007,
+  "centerline_known_required": true,
+  "corridor_known_min": 0.7,
+  "direction_count": 16,
+  "interaction_onset_range_m": [
+    0.1,
+    0.5
+  ],
+  "interpolation_radii_m": [
+    0.35,
+    0.45,
+    0.55
+  ],
+  "no_physics_control_steps": true,
+  "parity_tolerance": {
+    "height_max_abs_m": 0.0001,
+    "height_rms_m": 1e-05,
+    "mask_iou": 1.0,
+    "origin_max_abs_m": 1e-05,
+    "yaw_abs_rad": 1e-05
+  },
+  "physical_stability": "unmeasured",
+  "schema": "eatnav_anchor_placement_offline_v1",
+  "terrain_difficulty": 0.5
+}

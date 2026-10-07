@@ -1,0 +1,27 @@
+[
+  {
+    "evidence": "no physics/control steps executed",
+    "next_check": "candidate-free anchor pilot",
+    "risk": "new-radius settling and physical termination unknown"
+  },
+  {
+    "evidence": "20261007 only; terrain-specific seeds are independent terrain families",
+    "next_check": "freeze rule before second seed",
+    "risk": "one batch seed does not establish seed generalization"
+  },
+  {
+    "evidence": "assumed speed 0.3 m/s; no rollout reach measured",
+    "next_check": "candidate-free pilot and later trajectory checks",
+    "risk": "0.6 m forward corridor is only a two-second reach proxy"
+  },
+  {
+    "evidence": "271 composed CollisionAPI bounds, purpose=guide; proxy coverage 1.0",
+    "next_check": "measure actual contacts and settling in pilot",
+    "risk": "footprint uses USD collision-bound corner proxy rather than PhysX contact response"
+  },
+  {
+    "evidence": "R3 has four related poses across two terrain/source families",
+    "next_check": "measure both families and retain NA if unstable",
+    "risk": "transition geometry is sparse and concentrated"
+  }
+]
