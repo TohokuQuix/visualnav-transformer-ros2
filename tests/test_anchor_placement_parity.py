@@ -47,3 +47,4 @@ def test_terrain_generator_methods_match_frozen_inventory_source():
         cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='RadialTerrainGenerator')
         return {x.name:ast.dump(x,include_attributes=False) for x in cls.body if isinstance(x,ast.FunctionDef)}
     assert methods(root/'scripts/eat_nav_anchor_placement_parity_sim.py')==methods(root/'scripts/eat_nav_radial_five_pose_sim.py')
+    assert methods(root/'scripts/eat_nav_anchor_placement_scan_sim.py')==methods(root/'scripts/eat_nav_radial_five_pose_sim.py')
