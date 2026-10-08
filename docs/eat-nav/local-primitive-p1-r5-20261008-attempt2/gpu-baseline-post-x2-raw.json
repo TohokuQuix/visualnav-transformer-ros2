@@ -1,0 +1,339 @@
+{
+  "brackets": [
+    {
+      "device_after_bytes": 538247168,
+      "device_before_bytes": 538247168,
+      "gap_bytes": 67829760,
+      "process_sum_bytes": 470417408,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "deduplicated_processes": [
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 2950,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+        "command_line": "/usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3",
+        "container_pid": 2950,
+        "cpu_ticks": 17395,
+        "executable": "/usr/lib/xorg/Xorg",
+        "fd_count": 89,
+        "host_pid": 2950,
+        "namespace_pid_chain": [
+          2950
+        ],
+        "parent_host_pid": 2947,
+        "process_group": 2947,
+        "rss_bytes": 109412352,
+        "session_id": 2947,
+        "start_ticks": 16047,
+        "thread_count": 2,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 155541504
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3155,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service",
+        "command_line": "/usr/bin/gnome-shell",
+        "container_pid": 3155,
+        "cpu_ticks": 28872,
+        "executable": "/usr/bin/gnome-shell",
+        "fd_count": 71,
+        "host_pid": 3155,
+        "namespace_pid_chain": [
+          3155
+        ],
+        "parent_host_pid": 2800,
+        "process_group": 3155,
+        "rss_bytes": 467091456,
+        "session_id": 3155,
+        "start_ticks": 16207,
+        "thread_count": 16,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 38936576
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3704,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/xdg-desktop-portal-gnome.service",
+        "command_line": "/usr/libexec/xdg-desktop-portal-gnome",
+        "container_pid": 3704,
+        "cpu_ticks": 429,
+        "executable": "/usr/libexec/xdg-desktop-portal-gnome",
+        "fd_count": 43,
+        "host_pid": 3704,
+        "namespace_pid_chain": [
+          3704
+        ],
+        "parent_host_pid": 2800,
+        "process_group": 3704,
+        "rss_bytes": 294477824,
+        "session_id": 3704,
+        "start_ticks": 16308,
+        "thread_count": 6,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 6299648
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 4168,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome-code-4129.scope",
+        "command_line": "/usr/share/code/code --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=4151 --enable-crash-reporter=4b7598ea-574e-48b0-ac7f-e2b05ba20fb8,no_channel --user-data-dir=/home/kojima/.config/Code --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15011964905772612706,9576565123508880178,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,14125901453843659362,17781196675957273075,4 --trace-process-track-uuid=3190708988185955192",
+        "container_pid": 4168,
+        "cpu_ticks": 62378,
+        "executable": "/usr/share/code/code",
+        "fd_count": 84,
+        "host_pid": 4168,
+        "namespace_pid_chain": [
+          4168
+        ],
+        "parent_host_pid": 4134,
+        "process_group": 3155,
+        "rss_bytes": 299347968,
+        "session_id": 3155,
+        "start_ticks": 19314,
+        "thread_count": 10,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 93724672
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 81992,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service",
+        "command_line": "/opt/google/chrome/chrome --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=81955 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=YAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --metrics-shmem-handle=4,i,5838593622374906686,10528012927959880410,262144 --field-trial-handle=3,i,1953880115574397247,1678558347763650030,262144 --variations-seed-version=20261008-010031.548000-production --pseudonymization-salt-handle=7,i,9265378195796720075,13436244629961148344,4 --trace-process-track-uuid=3190708988185955192",
+        "container_pid": 81992,
+        "cpu_ticks": 11814,
+        "executable": "/opt/google/chrome/chrome",
+        "fd_count": 200,
+        "host_pid": 81992,
+        "namespace_pid_chain": [
+          81992
+        ],
+        "parent_host_pid": 81963,
+        "process_group": 3155,
+        "rss_bytes": 354889728,
+        "session_id": 3155,
+        "start_ticks": 1396894,
+        "thread_count": 16,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 156901376
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 99686,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/session.slice/dbus.service",
+        "command_line": "/usr/bin/nautilus --gapplication-service",
+        "container_pid": 99686,
+        "cpu_ticks": 327,
+        "executable": "/usr/bin/nautilus",
+        "fd_count": 52,
+        "host_pid": 99686,
+        "namespace_pid_chain": [
+          99686
+        ],
+        "parent_host_pid": 2800,
+        "process_group": 2839,
+        "rss_bytes": 226549760,
+        "session_id": 2839,
+        "start_ticks": 1658065,
+        "thread_count": 7,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 19013632
+    }
+  ],
+  "devices_after": [
+    {
+      "index": 0,
+      "used_bytes": 538247168,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "devices_before": [
+    {
+      "compute_mode": 0,
+      "driver_reserved_bytes": 494469120,
+      "free_bytes": 16062218240,
+      "index": 0,
+      "power_mw": 26354,
+      "temperature_c": 51,
+      "total_bytes": 17094934528,
+      "used_bytes": 538247168,
+      "utilization_percent": 1,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "monotonic_ns": 17326040305170,
+  "nvidia_smi_health_query": {
+    "command": [
+      "nvidia-smi",
+      "-q"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\n==============NVSMI LOG==============\n\nTimestamp                                              : Thu Oct  8 22:02:25 2026\nDriver Version                                         : 580.173.02\nCUDA Version                                           : 13.0\n\nAttached GPUs                                          : 1\nGPU 00000000:01:00.0\n    Product Name                                       : NVIDIA GeForce RTX 5070 Ti\n    Product Brand                                      : GeForce\n    Product Architecture                               : Blackwell\n    Display Mode                                       : Requested functionality has been deprecated\n    Display Attached                                   : Yes\n    Display Active                                     : Enabled\n    Persistence Mode                                   : Disabled\n    Addressing Mode                                    : HMM\n    MIG Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    Accounting Mode                                    : Disabled\n    Accounting Mode Buffer Size                        : 4000\n    Driver Model\n        Current                                        : N/A\n        Pending                                        : N/A\n    Serial Number                                      : 0\n    GPU UUID                                           : GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26\n    GPU PDI                                            : 0xd536ec2289d3d7b7\n    Minor Number                                       : 0\n    VBIOS Version                                      : 98.03.58.00.92\n    MultiGPU Board                                     : No\n    Board ID                                           : 0x100\n    Board Part Number                                  : N/A\n    GPU Part Number                                    : 2C05-300-A1\n    FRU Part Number                                    : N/A\n    Platform Info\n        Chassis Serial Number                          : \n        Slot Number                                    : 0\n        Tray Index                                     : 0\n        Host ID                                        : 1\n        Peer Type                                      : Direct Connected\n        Module Id                                      : 1\n        GPU Fabric GUID                                : 0x0000000000000000\n    Inforom Version\n        Image Version                                  : G005.0000.98.01\n        OEM Object                                     : 2.1\n        ECC Object                                     : N/A\n        Power Management Object                        : N/A\n    Inforom BBX Object Flush\n        Latest Timestamp                               : N/A\n        Latest Duration                                : N/A\n    GPU Operation Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    GPU C2C Mode                                       : Disabled\n    GPU Virtualization Mode\n        Virtualization Mode                            : None\n        Host VGPU Mode                                 : N/A\n        vGPU Heterogeneous Mode                        : N/A\n    GPU Recovery Action                                : None\n    GSP Firmware Version                               : 580.173.02\n    IBMNPU\n        Relaxed Ordering Mode                          : N/A\n    PCI\n        Bus                                            : 0x01\n        Device                                         : 0x00\n        Domain                                         : 0x0000\n        Base Classcode                                 : 0x3\n        Sub Classcode                                  : 0x0\n        Device Id                                      : 0x2C0510DE\n        Bus Id                                         : 00000000:01:00.0\n        Sub System Id                                  : 0x53101462\n        GPU Link Info\n            PCIe Generation\n                Max                                    : 4\n                Current                                : 1\n                Device Current                         : 1\n                Device Max                             : 5\n                Host Max                               : 4\n            Link Width\n                Max                                    : 16x\n                Current                                : 4x\n        Bridge Chip\n            Type                                       : N/A\n            Firmware                                   : N/A\n        Replays Since Reset                            : 0\n        Replay Number Rollovers                        : 0\n        Tx Throughput                                  : 984 KB/s\n        Rx Throughput                                  : 10623 KB/s\n        Atomic Caps Outbound                           : N/A\n        Atomic Caps Inbound                            : FETCHADD_32 FETCHADD_64 SWAP_32 SWAP_64 CAS_32 CAS_64 \n    Fan Speed                                          : 0 %\n    Performance State                                  : P8\n    Clocks Event Reasons\n        Idle                                           : Not Active\n        Applications Clocks Setting                    : Not Active\n        SW Power Cap                                   : Not Active\n        HW Slowdown                                    : Not Active\n            HW Thermal Slowdown                        : Not Active\n            HW Power Brake Slowdown                    : Not Active\n        Sync Boost                                     : Not Active\n        SW Thermal Slowdown                            : Not Active\n        Display Clock Setting                          : Not Active\n    Clocks Event Reasons Counters\n        SW Power Capping                               : 220529 us\n        Sync Boost                                     : 0 us\n        SW Thermal Slowdown                            : 0 us\n        HW Thermal Slowdown                            : 0 us\n        HW Power Braking                               : 0 us\n    Sparse Operation Mode                              : N/A\n    FB Memory Usage\n        Total                                          : 16303 MiB\n        Reserved                                       : 472 MiB\n        Used                                           : 513 MiB\n        Free                                           : 15319 MiB\n    BAR1 Memory Usage\n        Total                                          : 16384 MiB\n        Used                                           : 42 MiB\n        Free                                           : 16342 MiB\n    Conf Compute Protected Memory Usage\n        Total                                          : 0 MiB\n        Used                                           : 0 MiB\n        Free                                           : 0 MiB\n    Compute Mode                                       : Default\n    Utilization\n        GPU                                            : 1 %\n        Memory                                         : 11 %\n        Encoder                                        : 0 %\n        Decoder                                        : 0 %\n        JPEG                                           : 0 %\n        OFA                                            : 0 %\n    Encoder Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    FBC Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    DRAM Encryption Mode\n        Current                                        : Disabled\n        Pending                                        : Disabled\n    ECC Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    ECC Errors\n        Volatile\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n        Aggregate\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n            SRAM Threshold Exceeded                    : N/A\n        Aggregate Uncorrectable SRAM Sources\n            SRAM L2                                    : N/A\n            SRAM SM                                    : N/A\n            SRAM Microcontroller                       : N/A\n            SRAM PCIE                                  : N/A\n            SRAM Other                                 : N/A\n        Channel Repair Pending                         : No\n        TPC Repair Pending                             : No\n        Unrepairable Memory                            : N/A\n    Retired Pages\n        Single Bit ECC                                 : N/A\n        Double Bit ECC                                 : N/A\n        Pending Page Blacklist                         : N/A\n    Remapped Rows                                      : N/A\n    Temperature\n        GPU Current Temp                               : 51 C\n        GPU T.Limit Temp                               : 37 C\n        GPU Shutdown T.Limit Temp                      : -5 C\n        GPU Slowdown T.Limit Temp                      : -2 C\n        GPU Max Operating T.Limit Temp                 : 0 C\n        GPU Target Temperature                         : N/A\n        Memory Current Temp                            : N/A\n        Memory Max Operating T.Limit Temp              : N/A\n    GPU Power Readings\n        Average Power Draw                             : 26.35 W\n        Instantaneous Power Draw                       : 23.97 W\n        Current Power Limit                            : 300.00 W\n        Requested Power Limit                          : 300.00 W\n        Default Power Limit                            : 300.00 W\n        Min Power Limit                                : 250.00 W\n        Max Power Limit                                : 300.00 W\n    GPU Memory Power Readings \n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n    Module Power Readings\n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n        Current Power Limit                            : N/A\n        Requested Power Limit                          : N/A\n        Default Power Limit                            : N/A\n        Min Power Limit                                : N/A\n        Max Power Limit                                : N/A\n    Power Smoothing                                    : N/A\n    Workload Power Profiles\n        Requested Profiles                             : N/A\n        Enforced Profiles                              : N/A\n    Clocks\n        Graphics                                       : 495 MHz\n        SM                                             : 495 MHz\n        Memory                                         : 405 MHz\n        Video                                          : 742 MHz\n    Applications Clocks\n        Graphics                                       : N/A\n        Memory                                         : N/A\n    Default Applications Clocks\n        Graphics                                       : N/A\n        Memory                                         : N/A\n    Deferred Clocks\n        Memory                                         : N/A\n    Max Clocks\n        Graphics                                       : 3090 MHz\n        SM                                             : 3090 MHz\n        Memory                                         : 14001 MHz\n        Video                                          : 3090 MHz\n    Max Customer Boost Clocks\n        Graphics                                       : N/A\n    Clock Policy\n        Auto Boost                                     : N/A\n        Auto Boost Default                             : N/A\n    Fabric\n        State                                          : N/A\n        Status                                         : N/A\n        CliqueId                                       : N/A\n        ClusterUUID                                    : N/A\n        Health\n            Summary                                    : N/A\n            Bandwidth                                  : N/A\n            Route Recovery in progress                 : N/A\n            Route Unhealthy                            : N/A\n            Access Timeout Recovery                    : N/A\n            Incorrect Configuration                    : N/A\n            Partition Assigned                         : N/A\n    Processes\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 2950\n            Type                          : G\n            Name                          : /usr/lib/xorg/Xorg\n            Used GPU Memory               : 148 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 3155\n            Type                          : G\n            Name                          : /usr/bin/gnome-shell\n            Used GPU Memory               : 37 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 3704\n            Type                          : G\n            Name                          : /usr/libexec/xdg-desktop-portal-gnome\n            Used GPU Memory               : 6 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 4168\n            Type                          : G\n            Name                          : /usr/share/code/code --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=4151 --enable-crash-reporter=4b7598ea-574e-48b0-ac7f-e2b05ba20fb8,no_channel --user-data-dir=/home/kojima/.config/Code --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15011964905772612706,9576565123508880178,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,14125901453843659362,17781196675957273075,4 --trace-process-track-uuid=3190708988185955192\n            Used GPU Memory               : 89 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 81992\n            Type                          : G\n            Name                          : /opt/google/chrome/chrome --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=81955 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=YAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --metrics-shmem-handle=4,i,5838593622374906686,10528012927959880410,262144 --field-trial-handle=3,i,1953880115574397247,1678558347763650030,262144 --variations-seed-version=20261008-010031.548000-production --pseudonymization-salt-handle=7,i,9265378195796720075,13436244629961148344,4 --trace-process-track-uuid=3190708988185955192\n            Used GPU Memory               : 149 MiB\n        GPU instance ID                   : N/A\n        Compute instance ID               : N/A\n        Process ID                        : 99686\n            Type                          : G\n            Name                          : /usr/bin/nautilus\n            Used GPU Memory               : 18 MiB\n    Capabilities\n        EGM                                            : disabled\n\n"
+  },
+  "nvidia_smi_identity": {
+    "driver_version": "580.173.02",
+    "index": "0",
+    "mig_mode": "[N/A]",
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "temperature_c": 51.0,
+    "total_mib": 16303.0,
+    "used_mib": 514.0,
+    "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+  },
+  "nvidia_smi_identity_stderr": "",
+  "nvidia_smi_identity_stdout": "0, GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26, NVIDIA GeForce RTX 5070 Ti, 16303, 514, 51, 580.173.02, [N/A]\n",
+  "nvml_version": "13.580.173.02",
+  "process_table_sample_finished_ns": 17326020589797,
+  "process_table_sample_started_ns": 17325979701838,
+  "query_timing": {
+    "compute_end_ns": 17325979515839,
+    "compute_start_ns": 17325979370554,
+    "device_after_end_ns": 17326020656572,
+    "device_after_start_ns": 17326020624777,
+    "device_before_end_ns": 17325967167043,
+    "device_before_start_ns": 17325967151743,
+    "graphics_end_ns": 17325979692702,
+    "graphics_start_ns": 17325979516247,
+    "per_gpu": [
+      {
+        "compute_end_ns": 17325979515839,
+        "compute_start_ns": 17325979370554,
+        "device_before_end_ns": 17325967167043,
+        "device_before_start_ns": 17325967151743,
+        "gpu_index": 0,
+        "graphics_end_ns": 17325979692702,
+        "graphics_start_ns": 17325979516247
+      }
+    ],
+    "per_gpu_after": [
+      {
+        "device_after_end_ns": 17326020656572,
+        "device_after_start_ns": 17326020624777,
+        "gpu_index": 0
+      }
+    ]
+  },
+  "raw_gpu_process_rows": [
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 2950,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 155541504
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3155,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 38936576
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3704,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 6299648
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 4168,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 93724672
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 81992,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 156901376
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 99686,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 19013632
+    }
+  ],
+  "sample_started_monotonic_ns": 17325967087072,
+  "schema": "eatnav_p1_r3_gpu_bracket_baseline_v1",
+  "simulator_processes_started": 0,
+  "wall_ns": 1791464545338794156
+}

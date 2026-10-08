@@ -1,0 +1,60 @@
+{
+  "container_connectivity": "pending_container_start",
+  "disallowed_warning_found": false,
+  "fixed_log_directory": "/home/kojima/eatnav-router-logs/p1-r5-20261008-attempt2",
+  "host_127_0_0_1_7447_connected": true,
+  "launch_process": {
+    "cmdline": "/usr/bin/python3 /opt/ros/jazzy/bin/ros2 run rmw_zenoh_cpp rmw_zenohd",
+    "pid": 98913,
+    "ppid": 12078,
+    "start_tick": 1646269
+  },
+  "listener_rows": [
+    "LISTEN 0      1024                      0.0.0.0:7447       0.0.0.0:*    users:((\"rmw_zenohd\",pid=98923,fd=10))"
+  ],
+  "pass_host_router": true,
+  "router_processes": [
+    {
+      "cmdline": "/opt/ros/jazzy/lib/rmw_zenoh_cpp/rmw_zenohd",
+      "pid": 98923,
+      "ppid": 98913,
+      "start_tick": 1646280
+    }
+  ],
+  "router_zid": "3110e0eea0702bccfcc86507623b3971",
+  "runner_started_stopped_or_restarted_router": false,
+  "schema": "eatnav_p1_r5_external_router_x1_v1",
+  "wall_ns": 1791464370747601342,
+  "x1_files": {
+    "router-launch.pid": {
+      "mtime_ns_after": 1791463681998065249,
+      "mtime_ns_before": 1791463681998065249,
+      "path": "/home/kojima/eatnav-router-logs/p1-r5-20261008-attempt2/router-launch.pid",
+      "sha256": "9168132205d47bc85ff18d1155a45e73d2cb9dc2213fd5a9974b8bce8c8b2b88",
+      "size_bytes": 6,
+      "stable_during_read": true,
+      "stat_size_after": 6,
+      "stat_size_before": 6
+    },
+    "router.stderr.log": {
+      "mtime_ns_after": 1791463681996065164,
+      "mtime_ns_before": 1791463681996065164,
+      "path": "/home/kojima/eatnav-router-logs/p1-r5-20261008-attempt2/router.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "stable_during_read": true,
+      "stat_size_after": 0,
+      "stat_size_before": 0
+    },
+    "router.stdout.log": {
+      "mtime_ns_after": 1791463682606091120,
+      "mtime_ns_before": 1791463682606091120,
+      "path": "/home/kojima/eatnav-router-logs/p1-r5-20261008-attempt2/router.stdout.log",
+      "sha256": "473dd76ebdfec37492fb1c7446b0c24d74f01b710d2e67296ac455043cfdcffc",
+      "size_bytes": 434,
+      "stable_during_read": true,
+      "stat_size_after": 434,
+      "stat_size_before": 434
+    }
+  }
+}

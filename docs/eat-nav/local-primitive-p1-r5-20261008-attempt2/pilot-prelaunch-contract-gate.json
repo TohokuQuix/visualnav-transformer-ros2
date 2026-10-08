@@ -1,0 +1,72 @@
+{
+  "candidate_control_steps": 0,
+  "candidate_path_published": false,
+  "checks": {
+    "frozen_sim_source_sha_valid": true,
+    "r3_sources_sha_valid": true,
+    "r5_manifest_output_paths": false,
+    "radial_anchors_have_required_episode_fields": false,
+    "simulator_requires_100env_episode_prefix": true,
+    "simulator_requires_episode_key": true,
+    "simulator_requires_g0e_train_state": true
+  },
+  "frozen_simulator_sha256": "9e2a40f0b283d4581219302c3f2f0782b00ca825e07653bbe3924dd5c47cec07",
+  "frozen_simulator_source": "/tmp/eatnav-vnt-local-primitive-p1-r5/scripts/eat_nav_e1_sim.py",
+  "incompatible": "frozen E1 simulator requires g0e-train episode/prefix in 100-env recorded playback; P1 anchors are radial settled-pose records without those fields; manifest outputs refer to preserved r3 root",
+  "schema": "eatnav_p1_r5_pre_candidate_execution_contract_v1",
+  "selected_anchor_fields": {
+    "first-differential": {
+      "dem_sha256": false,
+      "episode_key": false,
+      "local_step": false,
+      "state_id": false,
+      "step": false
+    },
+    "first-graded": {
+      "dem_sha256": false,
+      "episode_key": false,
+      "local_step": false,
+      "state_id": false,
+      "step": false
+    },
+    "second-differential": {
+      "dem_sha256": false,
+      "episode_key": false,
+      "local_step": false,
+      "state_id": false,
+      "step": false
+    },
+    "second-graded": {
+      "dem_sha256": false,
+      "episode_key": false,
+      "local_step": false,
+      "state_id": false,
+      "step": false
+    }
+  },
+  "source_or_artifact_integrity_invalid": true,
+  "source_sha_checks": {
+    "bridge": true,
+    "bridge_client": true,
+    "checkpoint_audit_copy": true,
+    "expanded_e1_safety": true,
+    "follower_binary": true,
+    "follower_params": true,
+    "follower_source": true,
+    "gpu_monitor": true,
+    "new_freeze_runner": true,
+    "new_gate_config": true,
+    "new_gate_source": true,
+    "nvml_accounting": true,
+    "original_e1_numeric_gates": true,
+    "previous_primitive_ledger": true,
+    "previous_role_ledger": true,
+    "r3_freeze_runner": true,
+    "r3_gate_source": true,
+    "r3_gpu_baseline_runner": true,
+    "reference_eat_config": true,
+    "role_gate_source": true,
+    "simulator": true
+  },
+  "wall_ns": 1791464671426472794
+}

@@ -1,0 +1,30 @@
+{
+  "candidate_path_published": false,
+  "command": [
+    "/usr/bin/python3",
+    "/tmp/eatnav-vnt-local-primitive-p1-r5/scripts/eat_nav_e1_router_recovery.py",
+    "--root",
+    "/tmp/eatnav-local-primitive-p1-r5-20261008-attempt2/x2-candidate-free",
+    "--follower",
+    "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node",
+    "--params",
+    "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml"
+  ],
+  "env_audit": {
+    "python_executable": "/usr/bin/python3",
+    "variables": {
+      "AMENT_PREFIX_PATH": "/opt/ros/jazzy",
+      "LD_LIBRARY_PATH": "/opt/ros/jazzy/opt/zenoh_cpp_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib",
+      "PYTHONPATH": "/tmp/eatnav-vnt-local-primitive-p1-r5/src:/tmp/eatnav-vnt-local-primitive-p1-r5/scripts:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages:src:scripts:.",
+      "RMW_IMPLEMENTATION": "rmw_zenoh_cpp",
+      "ROS_DISTRO": "jazzy",
+      "ROS_DOMAIN_ID": null,
+      "ZENOH_CONFIG_OVERRIDE": null
+    }
+  },
+  "follower_sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d",
+  "params_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "router_pid": 98923,
+  "router_start_tick": 1646280,
+  "started_wall_ns": 1791464506250834315
+}

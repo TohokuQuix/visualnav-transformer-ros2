@@ -1,0 +1,37 @@
+{
+  "schema": "minimal_p1_gate_v2",
+  "source_commit": "ace048acb7ef75310f350aeed46393e05f4daada",
+  "preserve_r2_gate_decision": "p1_measurement_or_protocol_invalid_stop",
+  "preserve_r2_subreason": "prelaunch_resource_forecast_exceeds_frozen_cap",
+  "required_slots": [
+    {"seed_label": "first", "primary_role": "R-differential", "anchor_id": "first-differential"},
+    {"seed_label": "second", "primary_role": "R-differential", "anchor_id": "second-differential"},
+    {"seed_label": "first", "primary_role": "R-transition-common", "anchor_id": "first-graded"},
+    {"seed_label": "second", "primary_role": "R-transition-common", "anchor_id": "second-graded"}
+  ],
+  "transition_selection_order": [
+    "physical eligibility",
+    "exact transition-common primary role",
+    "known onset strictly inside 0–0.60 m",
+    "earlier known onset",
+    "known DEM coverage",
+    "larger frozen transition margin",
+    "distinct source-family preference",
+    "lower frozen R3 rank",
+    "lexical anchor ID"
+  ],
+  "transition_onset_strict_upper_m": 0.6,
+  "expected_selected_transition_onset_m": 0.2,
+  "required_dem_history_frames": 4,
+  "required_actor_body_state_shape": [22],
+  "required_known_primitive_paths": 5,
+  "bearings_deg": [-20, -10, 0, 10, 20],
+  "repeats_per_bearing": {"-20": 1, "-10": 1, "0": 3, "10": 1, "20": 1},
+  "local_path_chord_m": 0.75,
+  "navigation_global_goal_base_xy_m": [0.75, 0.0],
+  "random_seed": 123,
+  "candidate_retry_count": 0,
+  "candidate_outcome_access": false,
+  "graded_common": "not_tested_in_p1_r3",
+  "flat_control": "not_tested_in_p1_r3"
+}
