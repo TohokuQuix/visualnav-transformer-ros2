@@ -2,13 +2,15 @@
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 
 import pytest
 from visualnav_transformer.eat_nav.r3_transition_decision import decide_transition
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = Path('/tmp/eatnav-r3-transition-reserve-20261008')
+ARTIFACT_ROOT = Path(os.environ.get('EATNAV_FROZEN_ARTIFACT_ROOT', '/tmp'))
+OUT = ARTIFACT_ROOT / 'eatnav-r3-transition-reserve-20261008'
 
 
 def module(name):
@@ -20,6 +22,7 @@ def module(name):
 
 def test_reserve_selection_inputs_are_outcome_blind(monkeypatch):
     prep=module('eat_nav_r3_transition_prepare.py')
+    monkeypatch.setattr(prep, 'OLD', ARTIFACT_ROOT / 'eatnav-r3-settling-pilot-20261008')
     frozen=json.loads((OUT/'reserve-manifest.json').read_text())
     primary=json.loads((prep.OLD/'primary-manifest.json').read_text())['poses']
     old_read=Path.read_text

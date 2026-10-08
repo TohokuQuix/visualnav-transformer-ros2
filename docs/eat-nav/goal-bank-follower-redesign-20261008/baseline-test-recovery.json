@@ -1,0 +1,15 @@
+{
+  "artifact_root": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown",
+  "command": [
+    "pytest",
+    "-q",
+    "tests/test_r3_second_seed.py",
+    "tests/test_r3_transition_reserve.py",
+    "tests/test_r3_anchor_contract.py"
+  ],
+  "exit_code": 0,
+  "expected": "18 passed",
+  "path_independent": true,
+  "stderr": "",
+  "stdout": "..................                                                       [100%]\n18 passed in 0.45s\n"
+}

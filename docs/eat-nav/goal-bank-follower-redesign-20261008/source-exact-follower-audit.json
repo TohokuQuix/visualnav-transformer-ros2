@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "angular_gain_sign": true,
+    "goal_extension": true,
+    "goal_tolerance": true,
+    "latest_TF_lookup": true,
+    "linear_speed": true,
+    "nearest_path_projection": true,
+    "path_arclength_sampling": true,
+    "path_frame_tf": true,
+    "saturation": true,
+    "turn_in_place": true
+  },
+  "frozen_source_matches_backup": true,
+  "numeric_parity_tolerance": 1e-05,
+  "production_C0_fixture_sha256": "08251e2a8f26008a026cda55b5ec1a63086ba961ffa429927d18a1377448b1b8",
+  "production_C0_numeric_parity": [
+    {
+      "case_id": "straight",
+      "max_abs_error": 0.0,
+      "production_first_v_omega": [
+        0.3,
+        0.0
+      ],
+      "pure_first_v_omega": [
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "case_id": "curved",
+      "max_abs_error": 6.938893903907228e-17,
+      "production_first_v_omega": [
+        0.28545171448770457,
+        0.07617464481292352
+      ],
+      "pure_first_v_omega": [
+        0.28545171448770457,
+        0.07617464481292345
+      ]
+    },
+    {
+      "case_id": "short_goal_extension",
+      "max_abs_error": 1.1102230246251565e-16,
+      "production_first_v_omega": [
+        0.2911755152590401,
+        -0.0462048940565247
+      ],
+      "pure_first_v_omega": [
+        0.2911755152590401,
+        -0.04620489405652459
+      ]
+    }
+  ],
+  "production_config_scalars": {
+    "angular_direction_sign": 0.5,
+    "angular_gain": 1.0,
+    "goal_tolerance": 0.2,
+    "linear_speed": 0.3,
+    "lookahead_distance": 0.5,
+    "max_angular_speed": 1.6,
+    "min_linear_speed_scale": 0.0,
+    "turn_in_place_heading_threshold": 0.6
+  },
+  "production_config_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "production_cpp_sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be",
+  "production_path_geometry_cpp_sha256": "bbe1b2cfde291495646b4883de0463478d892006459acb9b261a0c778663fca3",
+  "pure_source_equivalent": "candidate_bank_geometry.c0_fresh_forward at fresh pose origin/yaw0",
+  "scope_limits": [
+    "production follower requests latest TF; upstream synchronized bridge may require exact-stamp TF independently",
+    "requires a valid Path frame and robot TF at ROS boundary",
+    "does not model mutable controller state or later commands",
+    "initial command only; no physical tracking inference"
+  ]
+}

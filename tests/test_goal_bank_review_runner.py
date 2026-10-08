@@ -1,14 +1,15 @@
 from pathlib import Path
+import os
 
 import pytest
 
 from scripts.eat_nav_goal_bank_review import load_anchor_inputs, run_review, _decision, _verify_prior_file
 
 
-BACKUP = Path('/home/kojima/eatnav-backups/2026-10-08-pre-shutdown')
+BACKUP = Path(os.environ.get('EATNAV_FROZEN_ARTIFACT_ROOT', '/tmp'))
 
 
-@pytest.mark.skipif(not BACKUP.exists(), reason='frozen R3 backup unavailable')
+@pytest.mark.skipif(not (BACKUP/'eatnav-r3-second-seed-20261008').exists(), reason='frozen R3 backup unavailable')
 def test_eight_anchor_freeze_reads_sealed_inputs_and_exact_dem():
     anchors, provenance = load_anchor_inputs(BACKUP)
     assert len(anchors) == 8
@@ -28,7 +29,7 @@ def test_eight_anchor_freeze_reads_sealed_inputs_and_exact_dem():
     assert provenance['source_file_count'] >= 8 * 6
 
 
-@pytest.mark.skipif(not BACKUP.exists(), reason='frozen R3 backup unavailable')
+@pytest.mark.skipif(not (BACKUP/'eatnav-r3-second-seed-20261008').exists(), reason='frozen R3 backup unavailable')
 def test_full_offline_review_is_deterministic_and_produces_560_paths(tmp_path):
     one = run_review(BACKUP, tmp_path / 'one', figures=False)
     two = run_review(BACKUP, tmp_path / 'two', figures=False)

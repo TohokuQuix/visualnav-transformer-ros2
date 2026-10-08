@@ -1,0 +1,95 @@
+{
+  "anon_shmem_reference_gib": 3.72,
+  "automatic_retries": 0,
+  "bank_B_repeat_policy": "shared direct only if SHA-identical and accepted as a common baseline; otherwise independent direct repeats",
+  "cleanup_finalization": "owned PID/start-tick, SHA seal, native exit, zero residual",
+  "external_zenoh_prerequisite": true,
+  "gpu_device_total_cap_mib": 6656,
+  "gpu_peak_reference_mib": 5960,
+  "host_available_reference_gb": 87.7,
+  "not_an_authorization_to_run": true,
+  "sequential_fresh_process_estimates": {
+    "Bank_B_added_five_independent_baseline": {
+      "p95_hours": 3.635144731184351,
+      "p95_plus_20_percent_hours": 4.362173677421222,
+      "point_hours": 3.5287069684830583,
+      "processes": 84,
+      "saved_gb_plus_20_percent": 0.8568,
+      "saved_gb_point": 0.714
+    },
+    "Bank_B_added_five_shared_direct": {
+      "p95_hours": 2.0772255606767724,
+      "p95_plus_20_percent_hours": 2.4926706728121264,
+      "point_hours": 2.0164039819903192,
+      "processes": 48,
+      "saved_gb_plus_20_percent": 0.4896,
+      "saved_gb_point": 0.408
+    },
+    "Bank_B_added_seven_independent_baseline": {
+      "p95_hours": 4.673757511522737,
+      "p95_plus_20_percent_hours": 5.608509013827285,
+      "point_hours": 4.536908959478217,
+      "processes": 108,
+      "saved_gb_plus_20_percent": 1.1016,
+      "saved_gb_point": 0.918
+    },
+    "Bank_B_added_seven_shared_direct": {
+      "p95_hours": 3.1158383410151584,
+      "p95_plus_20_percent_hours": 3.73900600921819,
+      "point_hours": 3.024605972985478,
+      "processes": 72,
+      "saved_gb_plus_20_percent": 0.7344,
+      "saved_gb_point": 0.612
+    },
+    "P1_five": {
+      "p95_hours": 1.2117149103947837,
+      "p95_plus_20_percent_hours": 1.4540578924737404,
+      "point_hours": 1.1762356561610194,
+      "processes": 28,
+      "saved_gb_plus_20_percent": 0.2856,
+      "saved_gb_point": 0.238
+    },
+    "P1_plus_P2_five": {
+      "p95_hours": 3.635144731184351,
+      "p95_plus_20_percent_hours": 4.362173677421222,
+      "point_hours": 3.5287069684830583,
+      "processes": 84,
+      "saved_gb_plus_20_percent": 0.8568,
+      "saved_gb_point": 0.714
+    },
+    "P1_plus_P2_seven": {
+      "p95_hours": 4.673757511522737,
+      "p95_plus_20_percent_hours": 5.608509013827285,
+      "point_hours": 4.536908959478217,
+      "processes": 108,
+      "saved_gb_plus_20_percent": 1.1016,
+      "saved_gb_point": 0.918
+    },
+    "P1_seven": {
+      "p95_hours": 1.5579191705075792,
+      "p95_plus_20_percent_hours": 1.869503004609095,
+      "point_hours": 1.512302986492739,
+      "processes": 36,
+      "saved_gb_plus_20_percent": 0.3672,
+      "saved_gb_point": 0.306
+    },
+    "P2_five": {
+      "p95_hours": 2.4234298207895675,
+      "p95_plus_20_percent_hours": 2.908115784947481,
+      "point_hours": 2.352471312322039,
+      "processes": 56,
+      "saved_gb_plus_20_percent": 0.5712,
+      "saved_gb_point": 0.476
+    },
+    "P2_seven": {
+      "p95_hours": 3.1158383410151584,
+      "p95_plus_20_percent_hours": 3.73900600921819,
+      "point_hours": 3.024605972985478,
+      "processes": 72,
+      "saved_gb_plus_20_percent": 0.7344,
+      "saved_gb_point": 0.612
+    }
+  },
+  "simulator_pss_reference_gib": 5.38,
+  "source_prior_forecast_sha256": "605243ea904206d5542d10b0d349f9fa9f32595c9d9a823cceba69dcdcde3371"
+}

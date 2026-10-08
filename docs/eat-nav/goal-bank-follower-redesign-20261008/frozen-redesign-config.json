@@ -1,0 +1,59 @@
+{
+  "amplitude_pool_m": [
+    0.04,
+    0.08,
+    0.12,
+    0.16,
+    0.2
+  ],
+  "bank_B_generator_source_sha256": "9c2168ac8100f630304a407beb4ac6bbdab07fc1722a0f73eacbce2d22cd5c1e",
+  "bank_B_strict_goal_facing": "prior baseline diagnostic only",
+  "bank_B_terminal_mode": "blended_goal_connected",
+  "bank_B_terminal_rule": "terminal=normalize(0.30*goal_unit-signed_offset*goal_normal); P1=goal/3+signed_offset*0.4*normal; P2=endpoint-0.15*terminal",
+  "bank_B_terminal_rule_sha256": "3596ab02d62b58dbd5140714122f5be485e3468fbef7276acac39bdac38ef2cd",
+  "base_commit": "8481ebf234f2bc52937f457cf8311961a4abef41",
+  "dense_spacing_max_m": 0.02,
+  "follower_curvature_screen_per_m": 1.236,
+  "forbidden_selection_inputs": [
+    "reward",
+    "Critic",
+    "Outcome",
+    "Evaluator_prediction"
+  ],
+  "future_waypoints": 8,
+  "geometry_early_rms_m": 0.01,
+  "geometry_full_rms_m": 0.015,
+  "global_goal_bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "global_goal_distance_m": 0.6,
+  "known_terrain_min_common_bins": 5,
+  "known_terrain_rms_m": 0.01,
+  "minimum_compatible_candidates_per_group": 5,
+  "offset_pool_m": [
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.12
+  ],
+  "same_40_state_groups": true,
+  "same_8_anchors": true,
+  "schema": "eatnav_goal_bank_redesign_v1",
+  "selection_order": [
+    "hard_valid_groups",
+    "follower_compatible",
+    "side_balance",
+    "geometry_mode_total",
+    "known_terrain_separated_pairs",
+    "unknown_dependence",
+    "maximum_curvature_per_m",
+    "turn_in_place_estimates",
+    "endpoint_residual_m_sum",
+    "parameter_simplicity"
+  ]
+}

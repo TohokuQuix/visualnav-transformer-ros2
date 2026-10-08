@@ -1,0 +1,56 @@
+{
+  "A_to_R_per_group": {
+    "candidate_to_duplicate_ratio_min": 2.0,
+    "minimum_realized_modes": 2,
+    "ratio_denominator_floor_m": 0.001,
+    "realized_xy_rms_above_m": 0.0105
+  },
+  "C_to_A_per_group": {
+    "actor_action_max_abs_above": "max(0.0001, 2 * measured direct-duplicate max_abs)",
+    "actor_input_difference_recorded": true,
+    "minimum_nondirect_actor_action_differences": 1
+  },
+  "P1_to_P2_rule": "all 4 P1 groups satisfy duplicate, P_to_C, C_to_A and A_to_R; at least one group satisfies R_to_Y; every scheduled process is infrastructure-valid; otherwise stop before P2",
+  "P2_only_after_P1_pass": true,
+  "P_to_C_per_group": {
+    "first_command_difference_above_m_per_s": 0.001,
+    "follower_command_rms_above_m_per_s": 0.001,
+    "minimum_command_clusters": 2,
+    "minimum_nondirect_commands_above_noise": 2
+  },
+  "R_to_Y_at_least_one_group": {
+    "categorical_contact_stack_or_termination_difference_accepted": true,
+    "critic_value_difference_min": 0.01,
+    "numeric_difference_above_duplicate_noise": true,
+    "outcome_rank_difference_required": true,
+    "progress_or_endpoint_difference_m_min": 0.02
+  },
+  "duplicate_gate": {
+    "actor_action_max_abs": 0.0001,
+    "actor_input_max_abs": 0.0001,
+    "command_rms_max_m_per_s": 0.001,
+    "critic_value_max_abs": 0.0001,
+    "dem_mask_iou_min": 0.95,
+    "dem_rms_max_m": 0.03,
+    "reward_max_abs": 0.0001,
+    "same_path_sha_and_initial_anchor": true,
+    "xy_rms_max_m": 0.0105
+  },
+  "infrastructure_validity_all_scheduled_processes": {
+    "failed_or_missing_process_policy": "stop before P2; no automatic retry",
+    "host_container_SHA_match": true,
+    "native_exit": 0,
+    "owned_residual_processes": 0,
+    "protocol_valid_marker": true,
+    "run_complete_marker": true
+  },
+  "no_change_after_P1_to": [
+    "Path",
+    "threshold",
+    "candidate_count"
+  ],
+  "numeric_source_path": "/tmp/eatnav-vnt-goal-bearing-bank-review/docs/quality-identifiability-gate/candidate-coverage/e1-feasibility/e1-gates.yaml",
+  "numeric_source_sha256": "2bb5f3420426c09f15a7a20ea0fa72ae930a4bc137ca752535f5158570a84ea6",
+  "statistical_unit": "StateGroup; 4 distinct source families in P1",
+  "status": "prospective_only_no_rollout_authorized"
+}

@@ -261,8 +261,10 @@ def _candidate_key(side: str, magnitude: float) -> str:
     return 'direct' if side == 'direct' else f'{side}_{magnitude:.2f}'
 
 
-def _pool_for_group(bank: str, mode: str, goal: np.ndarray, anchor: dict, follower: dict) -> dict:
-    magnitudes = AMPLITUDE_POOL_M if bank == 'A' else OFFSET_POOL_M
+def _pool_for_group(bank: str, mode: str, goal: np.ndarray, anchor: dict, follower: dict,
+                    magnitudes: tuple[float,...] | None = None) -> dict:
+    if magnitudes is None:
+        magnitudes = AMPLITUDE_POOL_M if bank == 'A' else OFFSET_POOL_M
     specs=[('direct',0.0)]+[(side,m) for side in ('left','right') for m in magnitudes]
     result={}
     for side,magnitude in specs:
