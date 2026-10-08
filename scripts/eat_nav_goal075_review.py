@@ -4,18 +4,27 @@
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 from pathlib import Path
 import subprocess
 import tarfile
+from collections import Counter
+
+import numpy as np
 
 from scripts.eat_nav_curvature_attainable import (
     verify_anchor_identity, verify_base_sources, _read_follower_config,
     _source_exact_audit, FOLLOWER_CONFIG, load_anchor_inputs, sha, write, CONFIG as PRIOR_CONFIG,
+    separation,
 )
-from visualnav_transformer.eat_nav.curvature_attainable import generate_goal_library
+from visualnav_transformer.eat_nav.curvature_attainable import (
+    generate_goal_library, solve_distinct_modes, solve_symmetric_target,
+)
 from visualnav_transformer.eat_nav.goal_bank_offline import goal_for_bearing
-from visualnav_transformer.eat_nav.goal075_offline import contract075
+from visualnav_transformer.eat_nav.goal075_offline import (
+    contract075, goal075, audit_candidate, side_relative_to_direct,
+)
 
 BASE_COMMIT='bb85939e716376017b909e564938ec00b11e849b'
 ARCHIVES={
@@ -138,3 +147,50 @@ def verify_g0_regression_archive(old_groups,definitions):
             raise ValueError('prior 0.60m G0 Path SHA mismatch: '+item['state_group_id']+':'+variant)
         matched+=1
     return {'matched_selected_prior_paths':matched,'source_exact_path_sha':True}
+
+
+def analyze_group_075(anchor,bearing_deg,curves,failures,follower_config):
+    goal=goal075(bearing_deg)
+    common=[curve for curve in curves if curve['family']!='G0B']
+    direct=next((curve for curve in common if curve['family']=='G2' and curve['variant_id']=='constant'),None)
+    if direct is None:
+        raise ValueError('frozen forward-tangent direct G2 constant missing')
+    all_records=[];compatible=[]
+    for curve in common:
+        result=audit_candidate(curve,goal,anchor,follower_config)
+        result['side'],result['signed_relative_lateral_m']=side_relative_to_direct(curve,direct,goal)
+        if curve is direct:result['side']='direct'
+        all_records.append(result)
+        if result['compatible']:
+            compatible.append((curve,result))
+    pair_rows=[];conflicts=[]
+    for i,j in itertools.combinations(range(len(compatible)),2):
+        ca,ra=compatible[i];cb,rb=compatible[j]
+        metric=separation(ca,cb,ra['dem_full'],rb['dem_full'],goal)
+        pair_rows.append({'first':ra['candidate_id'],'second':rb['candidate_id'],**metric})
+        if not metric['distinct']:conflicts.append((i,j))
+    maximum=solve_distinct_modes(len(compatible),conflicts)
+    direct_id='G2:constant'
+    direct_index=next((i for i,(_,r) in enumerate(compatible) if r['candidate_id']==direct_id),None)
+    sides=[r['side'] for _,r in compatible]
+    targets={str(1+2*n):solve_symmetric_target(sides,conflicts,pair_count=n,direct_index=direct_index)
+             if direct_index is not None else {'feasible':False,'selected_indices':[],
+                                                'solver_status':'direct_incompatible'}
+             for n in (1,2,3)}
+    group_id=f"{anchor['anchor_id']}-b{bearing_deg:+03d}"
+    return {'state_group_id':group_id,'anchor_id':anchor['anchor_id'],
+            'seed_label':anchor['seed_label'],'terrain_class':anchor['terrain_class'],
+            'source_family':anchor['source_family'],'bearing_deg':bearing_deg,
+            'goal_base_xy_m':goal.tolist(),'direct_id':direct_id,
+            'generated_common_goal':len(common),'construction_failures':failures,
+            'hard_valid_count':sum(r['hard_valid'] for r in all_records),
+            'source_compatible_count':len(compatible),
+            'compatible_by_family':dict(Counter(r['family'] for _,r in compatible)),
+            'rejection_reasons':dict(Counter(reason for r in all_records for reason in r['reasons'])),
+            'hard_valid_ids':[r['candidate_id'] for r in all_records if r['hard_valid']],
+            'compatible_ids':[r['candidate_id'] for _,r in compatible],
+            'side_by_id':{r['candidate_id']:r['side'] for _,r in compatible},
+            'maximum_distinct':maximum,'symmetric_targets':targets,
+            'pair_count':len(pair_rows),'conflict_count':len(conflicts),
+            '_records':all_records,'_compatible':compatible,'_pair_rows':pair_rows,
+            '_conflicts':conflicts}
