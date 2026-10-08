@@ -1,0 +1,70 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "bracket_gap_peak_bytes": 76546048,
+      "candidate_path_published": false,
+      "classification": "measurement_invalid_resource_attribution",
+      "device_used_peak_bytes": 704905216,
+      "first_failing_signal": "RuntimeError('resource_attribution_gate:unexpected_compute_process,unresolved_gpu_process')",
+      "gpu_processes_misclassified": [
+        {
+          "bytes": 232783872,
+          "cgroup": "0::/system.slice/docker-392c15ae67cf8462af6d744cce5582944766ff47ca1ecc6af6881199352d5dd4.scope",
+          "pid": 143417,
+          "start_ticks": 1996868
+        }
+      ],
+      "host_copy_completion_marker": false,
+      "last_sample_elapsed_sec": 2.9165630509996845,
+      "later_container_complete": true,
+      "later_container_completion_marker_sha256": "4b384990075ab9f7f492f0be9db2a0dd70b60c92e8c7fad926361f3d3e5eb102",
+      "later_container_raw_file_count": 89,
+      "later_container_raw_sha_verified": true,
+      "monitor_marker_identity": null,
+      "monitor_native_exit": 0,
+      "monitor_owned_identity": null,
+      "outcome_collected": false,
+      "root": "/tmp/eatnav-p1-resource-rollout-20261008-attempt1",
+      "sample_count": 3,
+      "sampled_heartbeat_steps": [],
+      "unresolved_gpu_bytes_at_failure": 232783872
+    },
+    {
+      "attempt": 2,
+      "bracket_gap_peak_bytes": 76546048,
+      "candidate_path_published": false,
+      "classification": "measurement_invalid_resource_attribution",
+      "device_used_peak_bytes": 673513472,
+      "first_failing_signal": "RuntimeError('resource_attribution_gate:unexpected_compute_process,unresolved_gpu_process')",
+      "gpu_processes_misclassified": [
+        {
+          "bytes": 232783872,
+          "cgroup": "0::/system.slice/docker-392c15ae67cf8462af6d744cce5582944766ff47ca1ecc6af6881199352d5dd4.scope",
+          "pid": 146749,
+          "start_ticks": 2010298
+        }
+      ],
+      "host_copy_completion_marker": false,
+      "last_sample_elapsed_sec": 3.1681593520006572,
+      "later_container_complete": true,
+      "later_container_completion_marker_sha256": "a2dc15564920e960069c60f67006db001a318e8ce40cfe72ddca4d57eecd3d2f",
+      "later_container_raw_file_count": 89,
+      "later_container_raw_sha_verified": true,
+      "monitor_marker_identity": null,
+      "monitor_native_exit": 0,
+      "monitor_owned_identity": null,
+      "outcome_collected": false,
+      "root": "/tmp/eatnav-p1-resource-rollout-20261008-attempt2",
+      "sample_count": 3,
+      "sampled_heartbeat_steps": [],
+      "unresolved_gpu_bytes_at_failure": 232783872
+    }
+  ],
+  "attribution_series_complete": false,
+  "monitor_client_exit_not_equivalent_to_simulator_exit": true,
+  "monitor_did_not_identify_owned_simulator": true,
+  "owned_gpu_pid_residual_after_stop": 0,
+  "poststop_remote_completion_is_not_resource_gate_pass": true,
+  "schema": "eatnav_p1_resource_lifecycle_review_v1"
+}
