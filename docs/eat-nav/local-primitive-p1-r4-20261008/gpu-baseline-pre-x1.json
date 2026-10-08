@@ -1,0 +1,63 @@
+{
+  "contract_schema": "p1_local_primitive_resource_contract_v2",
+  "device_total_mib": 416.8125,
+  "failures": [],
+  "known_other_process_mib": 370.546875,
+  "known_other_processes": [
+    {
+      "command_line": "/usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3",
+      "host_pid": 2950,
+      "kinds": [
+        "graphics"
+      ],
+      "start_ticks": 16047,
+      "used_gpu_memory_bytes": 147742720
+    },
+    {
+      "command_line": "/usr/bin/gnome-shell",
+      "host_pid": 3155,
+      "kinds": [
+        "graphics"
+      ],
+      "start_ticks": 16207,
+      "used_gpu_memory_bytes": 29302784
+    },
+    {
+      "command_line": "/usr/share/code/code --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=4151 --enable-crash-reporter=4b7598ea-574e-48b0-ac7f-e2b05ba20fb8,no_channel --user-data-dir=/home/kojima/.config/Code --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15011964905772612706,9576565123508880178,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,14125901453843659362,17781196675957273075,4 --trace-process-track-uuid=3190708988185955192",
+      "host_pid": 4168,
+      "kinds": [
+        "graphics"
+      ],
+      "start_ticks": 19314,
+      "used_gpu_memory_bytes": 91168768
+    },
+    {
+      "command_line": "/opt/google/chrome/chrome --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=81955 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=YAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --metrics-shmem-handle=4,i,5838593622374906686,10528012927959880410,262144 --field-trial-handle=3,i,1953880115574397247,1678558347763650030,262144 --variations-seed-version=20261008-010031.548000-production --pseudonymization-salt-handle=7,i,9265378195796720075,13436244629961148344,4 --trace-process-track-uuid=3190708988185955192",
+      "host_pid": 81992,
+      "kinds": [
+        "graphics"
+      ],
+      "start_ticks": 1396894,
+      "used_gpu_memory_bytes": 120332288
+    }
+  ],
+  "pass": true,
+  "r4_contract_sha256": "709e2b0df2c0e5572f00d7d020f478bc54083bda31318e633fa84a57df243ef0",
+  "raw_sha256": "055754d19a9f8ccd983d8355ba0679dd62bf6d99bd146f43fc9ac6d759b0d9ad",
+  "sample_summary": {
+    "bracket_gap_mib": 46.265625,
+    "device_used_mib": 416.8125,
+    "driver_version": "580.173.02",
+    "gpu_health_error": false,
+    "mig_mode": "[N/A]",
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "nvml_version": "13.580.173.02",
+    "other_processes_used_mib": 370.546875,
+    "temperature_c": 48,
+    "total_mib": 16303.0,
+    "unresolved_pid_bytes": 0,
+    "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+  },
+  "sample_wall_ns": 1791462395860141591,
+  "stage": "pre-x1"
+}
