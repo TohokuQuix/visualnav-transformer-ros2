@@ -1,0 +1,24 @@
+{
+  "evaluation_within_bearing_only": true,
+  "metrics": [
+    "P_to_C_command_mode",
+    "C_to_A_Actor_input_action_difference",
+    "A_to_R_realized_trajectory_mode",
+    "R_to_Y_2s_outcome_difference",
+    "direct_repeat_reproducibility",
+    "candidate_to_duplicate_ratio",
+    "global_goal_distance_reduction",
+    "discounted_reward_2s",
+    "direct_relative_reward",
+    "cross_track",
+    "Path_progress",
+    "termination",
+    "tilt",
+    "contact",
+    "effort",
+    "infrastructure_invalid_separation",
+    "coordinate_corrected_map_frame_geometry"
+  ],
+  "no_cross_bearing_candidate_preference_comparison": true,
+  "status": "prospective_only_no_rollout_authorized"
+}

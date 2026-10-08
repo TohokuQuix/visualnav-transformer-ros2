@@ -1,0 +1,553 @@
+{
+  "anchor_only_replay_processes": "separate if required",
+  "bank": "A",
+  "candidate_process_count": 108,
+  "candidate_processes_per_state_group": 9,
+  "direct_repeats_per_state_group": 3,
+  "four_class_2_bearing_reduced_option_processes": 72,
+  "non_direct_once_per_state_group": 6,
+  "path_sha256_by_state_group": {
+    "first-differential-b+00": {
+      "direct": "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+      "left-large": "af60890f0ec377d6e529bd9a993c6b1bc116a8fbe4cbccec438c7468566f1ce3",
+      "left-medium": "835e8baebf95b01b75d8e8543aea363aa9e7bebe7ac25c1afe97f0f10b5017f6",
+      "left-small": "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+      "right-large": "02b8963a902310f93578c0e77e7d188f54e19e0c066b59e3355db53e46ba8d95",
+      "right-medium": "af13fbaf559d1cebf461bdcd1655792fda1b9b35fc9e80eaaf441aab2612cf8c",
+      "right-small": "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0"
+    },
+    "first-differential-b+20": {
+      "direct": "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+      "left-large": "179a4bb5e87a1c941ab51397896e96d52c9ca21c2c4396666b9cb50d35d13a89",
+      "left-medium": "314abd4c064ada81de9728114d8ad4a16bd99307c3e09f0effbd7ac222e146a8",
+      "left-small": "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+      "right-large": "ce2f169deea9638e02b48b46e592056e216e56e388ea2c623f134a82254de9ee",
+      "right-medium": "4b45e3b8d476211ac7252ed27b8c487495cbc84d708d7a4c9424f900486b4803",
+      "right-small": "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7"
+    },
+    "first-differential-b-20": {
+      "direct": "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+      "left-large": "5a61fd5c167c427491f4b08e0774c5816cc9a2866503794b570beb6207391298",
+      "left-medium": "8ab66b957e2f60bc8ff38643d3124802f04f8fdadbd0cc89fb94efdc8fc58fdb",
+      "left-small": "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+      "right-large": "b4d2f5d116cd336e7e35eb14ee94a6fdd4ff142913e463b6bdb4617278f270b0",
+      "right-medium": "f2315849fd1dce47f49962b3bc4d0655c0c6fb6813b8a355210fb15df9403574",
+      "right-small": "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3"
+    },
+    "first-transition-b+00": {
+      "direct": "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+      "left-large": "af60890f0ec377d6e529bd9a993c6b1bc116a8fbe4cbccec438c7468566f1ce3",
+      "left-medium": "835e8baebf95b01b75d8e8543aea363aa9e7bebe7ac25c1afe97f0f10b5017f6",
+      "left-small": "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+      "right-large": "02b8963a902310f93578c0e77e7d188f54e19e0c066b59e3355db53e46ba8d95",
+      "right-medium": "af13fbaf559d1cebf461bdcd1655792fda1b9b35fc9e80eaaf441aab2612cf8c",
+      "right-small": "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0"
+    },
+    "first-transition-b+20": {
+      "direct": "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+      "left-large": "179a4bb5e87a1c941ab51397896e96d52c9ca21c2c4396666b9cb50d35d13a89",
+      "left-medium": "314abd4c064ada81de9728114d8ad4a16bd99307c3e09f0effbd7ac222e146a8",
+      "left-small": "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+      "right-large": "ce2f169deea9638e02b48b46e592056e216e56e388ea2c623f134a82254de9ee",
+      "right-medium": "4b45e3b8d476211ac7252ed27b8c487495cbc84d708d7a4c9424f900486b4803",
+      "right-small": "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7"
+    },
+    "first-transition-b-20": {
+      "direct": "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+      "left-large": "5a61fd5c167c427491f4b08e0774c5816cc9a2866503794b570beb6207391298",
+      "left-medium": "8ab66b957e2f60bc8ff38643d3124802f04f8fdadbd0cc89fb94efdc8fc58fdb",
+      "left-small": "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+      "right-large": "b4d2f5d116cd336e7e35eb14ee94a6fdd4ff142913e463b6bdb4617278f270b0",
+      "right-medium": "f2315849fd1dce47f49962b3bc4d0655c0c6fb6813b8a355210fb15df9403574",
+      "right-small": "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3"
+    },
+    "second-flat-only-b+00": {
+      "direct": "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+      "left-large": "af60890f0ec377d6e529bd9a993c6b1bc116a8fbe4cbccec438c7468566f1ce3",
+      "left-medium": "835e8baebf95b01b75d8e8543aea363aa9e7bebe7ac25c1afe97f0f10b5017f6",
+      "left-small": "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+      "right-large": "02b8963a902310f93578c0e77e7d188f54e19e0c066b59e3355db53e46ba8d95",
+      "right-medium": "af13fbaf559d1cebf461bdcd1655792fda1b9b35fc9e80eaaf441aab2612cf8c",
+      "right-small": "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0"
+    },
+    "second-flat-only-b+20": {
+      "direct": "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+      "left-large": "179a4bb5e87a1c941ab51397896e96d52c9ca21c2c4396666b9cb50d35d13a89",
+      "left-medium": "314abd4c064ada81de9728114d8ad4a16bd99307c3e09f0effbd7ac222e146a8",
+      "left-small": "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+      "right-large": "ce2f169deea9638e02b48b46e592056e216e56e388ea2c623f134a82254de9ee",
+      "right-medium": "4b45e3b8d476211ac7252ed27b8c487495cbc84d708d7a4c9424f900486b4803",
+      "right-small": "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7"
+    },
+    "second-flat-only-b-20": {
+      "direct": "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+      "left-large": "5a61fd5c167c427491f4b08e0774c5816cc9a2866503794b570beb6207391298",
+      "left-medium": "8ab66b957e2f60bc8ff38643d3124802f04f8fdadbd0cc89fb94efdc8fc58fdb",
+      "left-small": "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+      "right-large": "b4d2f5d116cd336e7e35eb14ee94a6fdd4ff142913e463b6bdb4617278f270b0",
+      "right-medium": "f2315849fd1dce47f49962b3bc4d0655c0c6fb6813b8a355210fb15df9403574",
+      "right-small": "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3"
+    },
+    "second-graded-b+00": {
+      "direct": "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+      "left-large": "af60890f0ec377d6e529bd9a993c6b1bc116a8fbe4cbccec438c7468566f1ce3",
+      "left-medium": "835e8baebf95b01b75d8e8543aea363aa9e7bebe7ac25c1afe97f0f10b5017f6",
+      "left-small": "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+      "right-large": "02b8963a902310f93578c0e77e7d188f54e19e0c066b59e3355db53e46ba8d95",
+      "right-medium": "af13fbaf559d1cebf461bdcd1655792fda1b9b35fc9e80eaaf441aab2612cf8c",
+      "right-small": "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0"
+    },
+    "second-graded-b+20": {
+      "direct": "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+      "left-large": "179a4bb5e87a1c941ab51397896e96d52c9ca21c2c4396666b9cb50d35d13a89",
+      "left-medium": "314abd4c064ada81de9728114d8ad4a16bd99307c3e09f0effbd7ac222e146a8",
+      "left-small": "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+      "right-large": "ce2f169deea9638e02b48b46e592056e216e56e388ea2c623f134a82254de9ee",
+      "right-medium": "4b45e3b8d476211ac7252ed27b8c487495cbc84d708d7a4c9424f900486b4803",
+      "right-small": "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7"
+    },
+    "second-graded-b-20": {
+      "direct": "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+      "left-large": "5a61fd5c167c427491f4b08e0774c5816cc9a2866503794b570beb6207391298",
+      "left-medium": "8ab66b957e2f60bc8ff38643d3124802f04f8fdadbd0cc89fb94efdc8fc58fdb",
+      "left-small": "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+      "right-large": "b4d2f5d116cd336e7e35eb14ee94a6fdd4ff142913e463b6bdb4617278f270b0",
+      "right-medium": "f2315849fd1dce47f49962b3bc4d0655c0c6fb6813b8a355210fb15df9403574",
+      "right-small": "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3"
+    }
+  },
+  "pilot_anchor_ids": [
+    "first-differential",
+    "first-transition",
+    "second-flat-only",
+    "second-graded"
+  ],
+  "pilot_not_final_collection": true,
+  "plus_minus_10_degree_goals": "defined offline; not in initial pilot",
+  "provisional_when_decision_not_ready": true,
+  "selection_rule": "one physical-supply anchor per class; 2 first + 2 second seed; four distinct source families; fixed before Outcome",
+  "state_group_count": 12,
+  "state_groups": [
+    {
+      "anchor_body_state_actor_sha256": "f185014377556294a62555a90e3fb6894cc6fce3b8549191d2cf55ceac8fa0a3",
+      "anchor_dem_history_sha256": [
+        "471632494d67374e2e1a2d72f39471c563c866148d6612769898f4b7eb48fd4d",
+        "fbd592d8ad303f3396517c66d9b12fd032e0e31d8d43b777909f5440c553546e",
+        "20e5993734897628dc6a67e2ca1a5f945cfe7ae906b0faf89985627351eeb596",
+        "ebd6fc7f720a3e7dcd63d5903527373917a0f3b6cdb5f945ad6429caeff166b0"
+      ],
+      "anchor_id": "first-transition",
+      "bearing_deg": -20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        -0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": 0.06944583356380463,
+        "inside": true,
+        "known": true,
+        "row": 7
+      },
+      "global_goal_id": "first-transition-goal--20",
+      "global_goal_map_xy_m": [
+        -27.439250378664596,
+        16.389093585759447
+      ],
+      "global_goal_sha256": "d8cd1b3e087a8ebfc437a6ce0db51018b69b14fb636d4e0fb96ba06b86a0a5ef",
+      "map_inverse_error_m": 1.7763568394002505e-15,
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-transition-b-20",
+      "terrain": "k_rail_field",
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_body_state_actor_sha256": "f185014377556294a62555a90e3fb6894cc6fce3b8549191d2cf55ceac8fa0a3",
+      "anchor_dem_history_sha256": [
+        "471632494d67374e2e1a2d72f39471c563c866148d6612769898f4b7eb48fd4d",
+        "fbd592d8ad303f3396517c66d9b12fd032e0e31d8d43b777909f5440c553546e",
+        "20e5993734897628dc6a67e2ca1a5f945cfe7ae906b0faf89985627351eeb596",
+        "ebd6fc7f720a3e7dcd63d5903527373917a0f3b6cdb5f945ad6429caeff166b0"
+      ],
+      "anchor_id": "first-transition",
+      "bearing_deg": 0,
+      "global_goal_base_xy_m": [
+        0.6,
+        0.0
+      ],
+      "global_goal_cell": {
+        "column": 16,
+        "height_m": -0.01180063933134079,
+        "inside": true,
+        "known": true,
+        "row": 10
+      },
+      "global_goal_id": "first-transition-goal-+00",
+      "global_goal_map_xy_m": [
+        -27.400014991122283,
+        16.593744257389304
+      ],
+      "global_goal_sha256": "1daca3bf49f05c9ac5d1c27a01ce5c976f87864467a815ce3e025f60ef6183b2",
+      "map_inverse_error_m": 7.771561172376096e-16,
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-transition-b+00",
+      "terrain": "k_rail_field",
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_body_state_actor_sha256": "f185014377556294a62555a90e3fb6894cc6fce3b8549191d2cf55ceac8fa0a3",
+      "anchor_dem_history_sha256": [
+        "471632494d67374e2e1a2d72f39471c563c866148d6612769898f4b7eb48fd4d",
+        "fbd592d8ad303f3396517c66d9b12fd032e0e31d8d43b777909f5440c553546e",
+        "20e5993734897628dc6a67e2ca1a5f945cfe7ae906b0faf89985627351eeb596",
+        "ebd6fc7f720a3e7dcd63d5903527373917a0f3b6cdb5f945ad6429caeff166b0"
+      ],
+      "anchor_id": "first-transition",
+      "bearing_deg": 20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": 0.04957524687051773,
+        "inside": true,
+        "known": true,
+        "row": 12
+      },
+      "global_goal_id": "first-transition-goal-+20",
+      "global_goal_map_xy_m": [
+        -27.433140439017635,
+        16.799472276229416
+      ],
+      "global_goal_sha256": "df7be234d9b6678c050a28410b83477343045c3b86fd83d5e95085e8ecbe565c",
+      "map_inverse_error_m": 1.4432899320127035e-15,
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-transition-b+20",
+      "terrain": "k_rail_field",
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_body_state_actor_sha256": "7b05bc854cbdc88e17a8378be6cc29c3700ffb7aa50a2f46c671b08232dc6226",
+      "anchor_dem_history_sha256": [
+        "695f4ac6b4084a122f55f38721fd7c5cfa69238b4d22ab7ff160fc850f0be88f",
+        "1b764f17c47fc7b61466159d0a4e90533b41ecf1723df84969e3d53e344bd0c9",
+        "35a75fb4d62b46efde1906f3669db46aa006cbfbbc9b9f966d5d4c486e09250b",
+        "a4ac6f98576396167ca822badbd46094032f09c1d4f3c82edac3e56050cfe5e5"
+      ],
+      "anchor_id": "first-differential",
+      "bearing_deg": -20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        -0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": -0.10141399502754211,
+        "inside": true,
+        "known": true,
+        "row": 7
+      },
+      "global_goal_id": "first-differential-goal--20",
+      "global_goal_map_xy_m": [
+        -50.88011204575234,
+        -23.97423183421977
+      ],
+      "global_goal_sha256": "d8cd1b3e087a8ebfc437a6ce0db51018b69b14fb636d4e0fb96ba06b86a0a5ef",
+      "map_inverse_error_m": 2.886579864025407e-15,
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-differential-b-20",
+      "terrain": "boxes",
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_body_state_actor_sha256": "7b05bc854cbdc88e17a8378be6cc29c3700ffb7aa50a2f46c671b08232dc6226",
+      "anchor_dem_history_sha256": [
+        "695f4ac6b4084a122f55f38721fd7c5cfa69238b4d22ab7ff160fc850f0be88f",
+        "1b764f17c47fc7b61466159d0a4e90533b41ecf1723df84969e3d53e344bd0c9",
+        "35a75fb4d62b46efde1906f3669db46aa006cbfbbc9b9f966d5d4c486e09250b",
+        "a4ac6f98576396167ca822badbd46094032f09c1d4f3c82edac3e56050cfe5e5"
+      ],
+      "anchor_id": "first-differential",
+      "bearing_deg": 0,
+      "global_goal_base_xy_m": [
+        0.6,
+        0.0
+      ],
+      "global_goal_cell": {
+        "column": 16,
+        "height_m": -0.08905813843011856,
+        "inside": true,
+        "known": true,
+        "row": 10
+      },
+      "global_goal_id": "first-differential-goal-+00",
+      "global_goal_map_xy_m": [
+        -50.84400410050645,
+        -23.76900627702899
+      ],
+      "global_goal_sha256": "1daca3bf49f05c9ac5d1c27a01ce5c976f87864467a815ce3e025f60ef6183b2",
+      "map_inverse_error_m": 2.4424906541753444e-15,
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-differential-b+00",
+      "terrain": "boxes",
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_body_state_actor_sha256": "7b05bc854cbdc88e17a8378be6cc29c3700ffb7aa50a2f46c671b08232dc6226",
+      "anchor_dem_history_sha256": [
+        "695f4ac6b4084a122f55f38721fd7c5cfa69238b4d22ab7ff160fc850f0be88f",
+        "1b764f17c47fc7b61466159d0a4e90533b41ecf1723df84969e3d53e344bd0c9",
+        "35a75fb4d62b46efde1906f3669db46aa006cbfbbc9b9f966d5d4c486e09250b",
+        "a4ac6f98576396167ca822badbd46094032f09c1d4f3c82edac3e56050cfe5e5"
+      ],
+      "anchor_id": "first-differential",
+      "bearing_deg": 20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": -0.007301822304725647,
+        "inside": true,
+        "known": true,
+        "row": 12
+      },
+      "global_goal_id": "first-differential-goal-+20",
+      "global_goal_map_xy_m": [
+        -50.88026500529164,
+        -23.563807690731945
+      ],
+      "global_goal_sha256": "df7be234d9b6678c050a28410b83477343045c3b86fd83d5e95085e8ecbe565c",
+      "map_inverse_error_m": 1.6653345369377348e-15,
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "first-differential-b+20",
+      "terrain": "boxes",
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_body_state_actor_sha256": "2323914270f3a537781592958dd8089e7f63e4e076ade069accba6f64a0d8400",
+      "anchor_dem_history_sha256": [
+        "ef531d264aa1542efd4b7780370d7f5d568bded94a8c851acf0fe42f17e1a324",
+        "ceb90063d04fef3d9572886aa4f6f2b23c706f60dec97b240d0b3b2b702d1dc1",
+        "6a5ac3e0f18b5940dc5bf78e006f9b522099ae54fcc61b9e6c473c7aab0877f4",
+        "e9b0711d6fb8b800c588d09030b6dfc644d9e39861028f51c9fceeff319c4965"
+      ],
+      "anchor_id": "second-graded",
+      "bearing_deg": -20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        -0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": -0.029289260506629944,
+        "inside": true,
+        "known": true,
+        "row": 7
+      },
+      "global_goal_id": "second-graded-goal--20",
+      "global_goal_map_xy_m": [
+        -11.801999431755835,
+        24.157859350305444
+      ],
+      "global_goal_sha256": "d8cd1b3e087a8ebfc437a6ce0db51018b69b14fb636d4e0fb96ba06b86a0a5ef",
+      "map_inverse_error_m": 7.771561172376096e-16,
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-graded-b-20",
+      "terrain": "k_rail_step_field",
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_body_state_actor_sha256": "2323914270f3a537781592958dd8089e7f63e4e076ade069accba6f64a0d8400",
+      "anchor_dem_history_sha256": [
+        "ef531d264aa1542efd4b7780370d7f5d568bded94a8c851acf0fe42f17e1a324",
+        "ceb90063d04fef3d9572886aa4f6f2b23c706f60dec97b240d0b3b2b702d1dc1",
+        "6a5ac3e0f18b5940dc5bf78e006f9b522099ae54fcc61b9e6c473c7aab0877f4",
+        "e9b0711d6fb8b800c588d09030b6dfc644d9e39861028f51c9fceeff319c4965"
+      ],
+      "anchor_id": "second-graded",
+      "bearing_deg": 0,
+      "global_goal_base_xy_m": [
+        0.6,
+        0.0
+      ],
+      "global_goal_cell": {
+        "column": 16,
+        "height_m": -0.04099193215370178,
+        "inside": true,
+        "known": true,
+        "row": 10
+      },
+      "global_goal_id": "second-graded-goal-+00",
+      "global_goal_map_xy_m": [
+        -11.766005201511293,
+        24.363104882347553
+      ],
+      "global_goal_sha256": "1daca3bf49f05c9ac5d1c27a01ce5c976f87864467a815ce3e025f60ef6183b2",
+      "map_inverse_error_m": 1.429412144204889e-15,
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-graded-b+00",
+      "terrain": "k_rail_step_field",
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_body_state_actor_sha256": "2323914270f3a537781592958dd8089e7f63e4e076ade069accba6f64a0d8400",
+      "anchor_dem_history_sha256": [
+        "ef531d264aa1542efd4b7780370d7f5d568bded94a8c851acf0fe42f17e1a324",
+        "ceb90063d04fef3d9572886aa4f6f2b23c706f60dec97b240d0b3b2b702d1dc1",
+        "6a5ac3e0f18b5940dc5bf78e006f9b522099ae54fcc61b9e6c473c7aab0877f4",
+        "e9b0711d6fb8b800c588d09030b6dfc644d9e39861028f51c9fceeff319c4965"
+      ],
+      "anchor_id": "second-graded",
+      "bearing_deg": 20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": -0.04391080141067505,
+        "inside": true,
+        "known": true,
+        "row": 12
+      },
+      "global_goal_id": "second-graded-goal-+20",
+      "global_goal_map_xy_m": [
+        -11.802379795245624,
+        24.568283346043938
+      ],
+      "global_goal_sha256": "df7be234d9b6678c050a28410b83477343045c3b86fd83d5e95085e8ecbe565c",
+      "map_inverse_error_m": 8.049116928532385e-16,
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-graded-b+20",
+      "terrain": "k_rail_step_field",
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_body_state_actor_sha256": "f2adc2df74647572bfb2351e8da52dc3044c4e7b16a4cb6e3f9b818468e80ebe",
+      "anchor_dem_history_sha256": [
+        "b6ed62897f0744e03cf4210cac2cc9dba7fc5b5f93ab75c5fdf44b4643cad132",
+        "e3451e0e7b85a6ad9f6b8717729a8e3c61c673a051f3f4c00390649fc31cfce3",
+        "dce652315714e03207752a4712422cd6e4222bfd2e5b7f811edfbe3a8f2ee0c6",
+        "42c26427fb4344735d29cf6705df0e667bf27221c66d8cd95e50974de26b832a"
+      ],
+      "anchor_id": "second-flat-only",
+      "bearing_deg": -20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        -0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": 8.344650268554688e-07,
+        "inside": true,
+        "known": true,
+        "row": 7
+      },
+      "global_goal_id": "second-flat-only-goal--20",
+      "global_goal_map_xy_m": [
+        -58.83619357651274,
+        -0.20521256010448388
+      ],
+      "global_goal_sha256": "d8cd1b3e087a8ebfc437a6ce0db51018b69b14fb636d4e0fb96ba06b86a0a5ef",
+      "map_inverse_error_m": 2.4424906541753444e-15,
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-flat-only-b-20",
+      "terrain": "pyramid_stairs_inv",
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_body_state_actor_sha256": "f2adc2df74647572bfb2351e8da52dc3044c4e7b16a4cb6e3f9b818468e80ebe",
+      "anchor_dem_history_sha256": [
+        "b6ed62897f0744e03cf4210cac2cc9dba7fc5b5f93ab75c5fdf44b4643cad132",
+        "e3451e0e7b85a6ad9f6b8717729a8e3c61c673a051f3f4c00390649fc31cfce3",
+        "dce652315714e03207752a4712422cd6e4222bfd2e5b7f811edfbe3a8f2ee0c6",
+        "42c26427fb4344735d29cf6705df0e667bf27221c66d8cd95e50974de26b832a"
+      ],
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 0,
+      "global_goal_base_xy_m": [
+        0.6,
+        0.0
+      ],
+      "global_goal_cell": {
+        "column": 16,
+        "height_m": 0.10999995470046997,
+        "inside": true,
+        "known": true,
+        "row": 10
+      },
+      "global_goal_id": "second-flat-only-goal-+00",
+      "global_goal_map_xy_m": [
+        -58.800009155273436,
+        -4.7300013521622864e-07
+      ],
+      "global_goal_sha256": "1daca3bf49f05c9ac5d1c27a01ce5c976f87864467a815ce3e025f60ef6183b2",
+      "map_inverse_error_m": 1.7763568394002505e-15,
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-flat-only-b+00",
+      "terrain": "pyramid_stairs_inv",
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_body_state_actor_sha256": "f2adc2df74647572bfb2351e8da52dc3044c4e7b16a4cb6e3f9b818468e80ebe",
+      "anchor_dem_history_sha256": [
+        "b6ed62897f0744e03cf4210cac2cc9dba7fc5b5f93ab75c5fdf44b4643cad132",
+        "e3451e0e7b85a6ad9f6b8717729a8e3c61c673a051f3f4c00390649fc31cfce3",
+        "dce652315714e03207752a4712422cd6e4222bfd2e5b7f811edfbe3a8f2ee0c6",
+        "42c26427fb4344735d29cf6705df0e667bf27221c66d8cd95e50974de26b832a"
+      ],
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 20,
+      "global_goal_base_xy_m": [
+        0.563815572471545,
+        0.20521208599540122
+      ],
+      "global_goal_cell": {
+        "column": 15,
+        "height_m": 8.344650268554688e-07,
+        "inside": true,
+        "known": true,
+        "row": 12
+      },
+      "global_goal_id": "second-flat-only-goal-+20",
+      "global_goal_map_xy_m": [
+        -58.836193589091046,
+        0.2052116118863184
+      ],
+      "global_goal_sha256": "df7be234d9b6678c050a28410b83477343045c3b86fd83d5e95085e8ecbe565c",
+      "map_inverse_error_m": 8.881784197001252e-16,
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_contract": "anchor+four DEM frames+body state+global goal fixed; candidate Path only varies",
+      "state_group_id": "second-flat-only-b+20",
+      "terrain": "pyramid_stairs_inv",
+      "terrain_class": "flat-only"
+    }
+  ],
+  "status": "proposal_only_no_rollout_authorized"
+}

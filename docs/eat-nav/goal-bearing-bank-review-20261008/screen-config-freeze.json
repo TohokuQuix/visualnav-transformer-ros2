@@ -1,0 +1,74 @@
+{
+  "amplitude_pool_m": [
+    0.04,
+    0.08,
+    0.12,
+    0.16,
+    0.2
+  ],
+  "bank_A_terminal_mode": "common",
+  "bank_B_terminal_modes_compared": [
+    "goal_connected",
+    "strict_goal_facing"
+  ],
+  "base_commit": "ecadcd3fa9f7cc57ecab092777f387d14d8d98d9",
+  "bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "decision_follower_supply_minimum_average_candidates_per_state_group": 4,
+  "dem_resolution_m": 0.1,
+  "dem_shape": [
+    2,
+    20,
+    20
+  ],
+  "follower_config_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "follower_first_command_config": {
+    "angular_direction_sign": 0.5,
+    "angular_gain": 1.0,
+    "goal_tolerance": 0.2,
+    "linear_speed": 0.3,
+    "lookahead_distance": 0.5,
+    "max_angular_speed": 1.6,
+    "min_linear_speed_scale": 0.0,
+    "turn_in_place_heading_threshold": 0.6
+  },
+  "forbidden_selection_inputs": [
+    "reward",
+    "Critic",
+    "Outcome",
+    "Evaluator_prediction"
+  ],
+  "geometry_mode_rms_thresholds_m": {
+    "early_0_5m": 0.01,
+    "full": 0.015
+  },
+  "goal_distance_m": 0.6,
+  "known_terrain_min_common_bins": 5,
+  "known_terrain_separation_rms_m": 0.01,
+  "offset_pool_m": [
+    0.06,
+    0.12,
+    0.18,
+    0.24
+  ],
+  "path_future_point_count": 8,
+  "path_start": "implicit robot origin; eight future poses exclude origin",
+  "schema": "eatnav_goal_bank_offline_v1",
+  "selection_order": [
+    "hard_valid_groups",
+    "follower_compatible",
+    "early_separation",
+    "full_separation",
+    "known_terrain_separation",
+    "unknown_dependence",
+    "curvature_penalty",
+    "side_balance",
+    "parameter_simplicity"
+  ],
+  "terrain_selection_metric": "known main-track corridor profile RMS at common known stations"
+}

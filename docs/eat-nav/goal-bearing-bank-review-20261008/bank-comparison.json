@@ -1,0 +1,796 @@
+{
+  "A": {
+    "bearing_support": {
+      "-10": {
+        "follower_compatible": 24,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "-20": {
+        "follower_compatible": 24,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "0": {
+        "follower_compatible": 24,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "10": {
+        "follower_compatible": 24,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "20": {
+        "follower_compatible": 24,
+        "groups": 8,
+        "hard_valid": 56
+      }
+    },
+    "candidate_class_proxy_known": 280,
+    "candidate_class_proxy_matches_anchor": 83,
+    "candidate_count": 280,
+    "centerline_known_fraction_mean": 1.0,
+    "centerline_unknown_or_outside_mean": 0.0,
+    "class_support": {
+      "differential": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "flat-only": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "graded": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "transition": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      }
+    },
+    "follower_compatible_candidate_count": 120,
+    "geometry_mode_definition": "each pair full RMS >=0.015 m or early <=0.5m RMS >=0.01 m; descriptive only",
+    "group_support": {
+      "first-differential-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 14,
+        "non_direct_follower_compatible": 2
+      },
+      "first-differential-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 17,
+        "non_direct_follower_compatible": 2
+      },
+      "first-differential-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 11,
+        "non_direct_follower_compatible": 2
+      },
+      "first-differential-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 11,
+        "non_direct_follower_compatible": 2
+      },
+      "first-differential-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 14,
+        "non_direct_follower_compatible": 2
+      },
+      "first-flat-only-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      },
+      "first-flat-only-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 4,
+        "non_direct_follower_compatible": 2
+      },
+      "first-flat-only-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      },
+      "first-flat-only-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      },
+      "first-flat-only-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      },
+      "first-graded-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 2
+      },
+      "first-graded-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 2
+      },
+      "first-graded-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "first-graded-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 7,
+        "non_direct_follower_compatible": 2
+      },
+      "first-graded-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "first-transition-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 2,
+        "non_direct_follower_compatible": 2
+      },
+      "first-transition-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 2,
+        "non_direct_follower_compatible": 2
+      },
+      "first-transition-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 2
+      },
+      "first-transition-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 2,
+        "non_direct_follower_compatible": 2
+      },
+      "first-transition-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 4,
+        "non_direct_follower_compatible": 2
+      },
+      "second-differential-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 18,
+        "non_direct_follower_compatible": 2
+      },
+      "second-differential-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 14,
+        "non_direct_follower_compatible": 2
+      },
+      "second-differential-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-differential-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 20,
+        "non_direct_follower_compatible": 2
+      },
+      "second-differential-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 20,
+        "non_direct_follower_compatible": 2
+      },
+      "second-flat-only-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-flat-only-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-flat-only-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-flat-only-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-flat-only-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-graded-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 8,
+        "non_direct_follower_compatible": 2
+      },
+      "second-graded-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      },
+      "second-graded-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-graded-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 7,
+        "non_direct_follower_compatible": 2
+      },
+      "second-graded-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-transition-b+00": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 2
+      },
+      "second-transition-b+10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 2
+      },
+      "second-transition-b+20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 8,
+        "non_direct_follower_compatible": 2
+      },
+      "second-transition-b-10": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 4,
+        "non_direct_follower_compatible": 2
+      },
+      "second-transition-b-20": {
+        "follower_compatible": 3,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 2
+      }
+    },
+    "groups_meeting_follower_minimum": 0,
+    "hard_valid_candidate_count": 280,
+    "hard_valid_state_groups": 40,
+    "left_direct_right_terrain_difference": {
+      "direct_vs_left": {
+        "common_known_pair_count": 120,
+        "known_separated_pair_count": 22,
+        "mean_known_corridor_rms_m": 0.008176178787178991,
+        "pair_count": 120
+      },
+      "direct_vs_right": {
+        "common_known_pair_count": 120,
+        "known_separated_pair_count": 28,
+        "mean_known_corridor_rms_m": 0.00785176216844217,
+        "pair_count": 120
+      },
+      "left_vs_right": {
+        "common_known_pair_count": 360,
+        "known_separated_pair_count": 136,
+        "mean_known_corridor_rms_m": 0.012778455259825301,
+        "pair_count": 360
+      }
+    },
+    "left_follower_compatible": 40,
+    "main_track_known_fraction_mean": 0.9998114296739103,
+    "maximum_curvature_per_m": 4.444444444444447,
+    "mean_local_endpoint_global_goal_residual_m": 0.0,
+    "mean_terminal_goal_direction_cosine": null,
+    "minimum_follower_compatible_per_group": 3,
+    "proxy_known_coverage": {
+      "articulated_reach": {
+        "mean": 0.9694126368496119,
+        "minimum": 0.9258241758241759
+      },
+      "full_collision_union": {
+        "mean": 0.9694126368496119,
+        "minimum": 0.9258241758241759
+      },
+      "initial_flipper_support": {
+        "mean": 0.9694126368496119,
+        "minimum": 0.9258241758241759
+      },
+      "main_track_sprocket": {
+        "mean": 0.9998114296739103,
+        "minimum": 0.9948979591836735
+      }
+    },
+    "reverse_candidate_count": 0,
+    "right_follower_compatible": 40,
+    "seed_support": {
+      "first": {
+        "groups": 20,
+        "hard_valid": 140
+      },
+      "second": {
+        "groups": 20,
+        "hard_valid": 140
+      }
+    },
+    "seven_geometry_mode_supply_groups": 40,
+    "source_family_support": {
+      "20261007:boxes": {
+        "follower_compatible": 15,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "20261007:k_rail_field": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "20261007:k_rail_step_field": {
+        "follower_compatible": 15,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "3773891777:boxes": {
+        "follower_compatible": 15,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "3773891777:k_rail_step_field": {
+        "follower_compatible": 30,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "3773891777:pyramid_stairs_inv": {
+        "follower_compatible": 15,
+        "groups": 5,
+        "hard_valid": 35
+      }
+    },
+    "state_groups": 40,
+    "terrain_pair_definition": "common-known main-track corridor profile bins >=5 and RMS >=0.01 m; unknown-only difference excluded",
+    "terrain_separated_groups": 29,
+    "terrain_separated_known_pairs": 229,
+    "turn_in_place_candidate_count": 0
+  },
+  "B": {
+    "bearing_support": {
+      "-10": {
+        "follower_compatible": 8,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "-20": {
+        "follower_compatible": 8,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "0": {
+        "follower_compatible": 8,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "10": {
+        "follower_compatible": 8,
+        "groups": 8,
+        "hard_valid": 56
+      },
+      "20": {
+        "follower_compatible": 8,
+        "groups": 8,
+        "hard_valid": 56
+      }
+    },
+    "candidate_class_proxy_known": 280,
+    "candidate_class_proxy_matches_anchor": 92,
+    "candidate_count": 280,
+    "centerline_known_fraction_mean": 1.0,
+    "centerline_unknown_or_outside_mean": 0.0,
+    "class_support": {
+      "differential": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "flat-only": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "graded": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "transition": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      }
+    },
+    "follower_compatible_candidate_count": 40,
+    "geometry_mode_definition": "each pair full RMS >=0.015 m or early <=0.5m RMS >=0.01 m; descriptive only",
+    "group_support": {
+      "first-differential-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 17,
+        "non_direct_follower_compatible": 0
+      },
+      "first-differential-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 15,
+        "non_direct_follower_compatible": 0
+      },
+      "first-differential-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 13,
+        "non_direct_follower_compatible": 0
+      },
+      "first-differential-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 14,
+        "non_direct_follower_compatible": 0
+      },
+      "first-differential-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 17,
+        "non_direct_follower_compatible": 0
+      },
+      "first-flat-only-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 4,
+        "non_direct_follower_compatible": 0
+      },
+      "first-flat-only-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 0
+      },
+      "first-flat-only-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 8,
+        "non_direct_follower_compatible": 0
+      },
+      "first-flat-only-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 6,
+        "non_direct_follower_compatible": 0
+      },
+      "first-flat-only-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 6,
+        "non_direct_follower_compatible": 0
+      },
+      "first-graded-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "first-graded-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 0
+      },
+      "first-graded-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 10,
+        "non_direct_follower_compatible": 0
+      },
+      "first-graded-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 12,
+        "non_direct_follower_compatible": 0
+      },
+      "first-graded-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 12,
+        "non_direct_follower_compatible": 0
+      },
+      "first-transition-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 0
+      },
+      "first-transition-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 0
+      },
+      "first-transition-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 3,
+        "non_direct_follower_compatible": 0
+      },
+      "first-transition-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 0
+      },
+      "first-transition-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 0
+      },
+      "second-differential-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 20,
+        "non_direct_follower_compatible": 0
+      },
+      "second-differential-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 13,
+        "non_direct_follower_compatible": 0
+      },
+      "second-differential-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 15,
+        "non_direct_follower_compatible": 0
+      },
+      "second-differential-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 21,
+        "non_direct_follower_compatible": 0
+      },
+      "second-differential-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 18,
+        "non_direct_follower_compatible": 0
+      },
+      "second-flat-only-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-flat-only-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-flat-only-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-flat-only-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 8,
+        "non_direct_follower_compatible": 0
+      },
+      "second-flat-only-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 8,
+        "non_direct_follower_compatible": 0
+      },
+      "second-graded-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-graded-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 0,
+        "non_direct_follower_compatible": 0
+      },
+      "second-graded-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-graded-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 12,
+        "non_direct_follower_compatible": 0
+      },
+      "second-graded-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 12,
+        "non_direct_follower_compatible": 0
+      },
+      "second-transition-b+00": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 10,
+        "non_direct_follower_compatible": 0
+      },
+      "second-transition-b+10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 5,
+        "non_direct_follower_compatible": 0
+      },
+      "second-transition-b+20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-transition-b-10": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 9,
+        "non_direct_follower_compatible": 0
+      },
+      "second-transition-b-20": {
+        "follower_compatible": 1,
+        "hard_valid": true,
+        "known_terrain_separated_pairs": 7,
+        "non_direct_follower_compatible": 0
+      }
+    },
+    "groups_meeting_follower_minimum": 0,
+    "hard_valid_candidate_count": 280,
+    "hard_valid_state_groups": 40,
+    "left_direct_right_terrain_difference": {
+      "direct_vs_left": {
+        "common_known_pair_count": 120,
+        "known_separated_pair_count": 25,
+        "mean_known_corridor_rms_m": 0.00964465682341559,
+        "pair_count": 120
+      },
+      "direct_vs_right": {
+        "common_known_pair_count": 120,
+        "known_separated_pair_count": 45,
+        "mean_known_corridor_rms_m": 0.012589700818001539,
+        "pair_count": 120
+      },
+      "left_vs_right": {
+        "common_known_pair_count": 360,
+        "known_separated_pair_count": 253,
+        "mean_known_corridor_rms_m": 0.021755017974147053,
+        "pair_count": 360
+      }
+    },
+    "left_follower_compatible": 0,
+    "main_track_known_fraction_mean": 0.9995026377898097,
+    "maximum_curvature_per_m": 33.92520053101081,
+    "mean_local_endpoint_global_goal_residual_m": 0.1542857142857143,
+    "mean_terminal_goal_direction_cosine": 1.0,
+    "minimum_follower_compatible_per_group": 1,
+    "proxy_known_coverage": {
+      "articulated_reach": {
+        "mean": 0.9592793094802023,
+        "minimum": 0.9214743589743589
+      },
+      "full_collision_union": {
+        "mean": 0.9592793094802023,
+        "minimum": 0.9214743589743589
+      },
+      "initial_flipper_support": {
+        "mean": 0.9592793094802023,
+        "minimum": 0.9214743589743589
+      },
+      "main_track_sprocket": {
+        "mean": 0.9995026377898097,
+        "minimum": 0.9948979591836735
+      }
+    },
+    "reverse_candidate_count": 0,
+    "right_follower_compatible": 0,
+    "seed_support": {
+      "first": {
+        "groups": 20,
+        "hard_valid": 140
+      },
+      "second": {
+        "groups": 20,
+        "hard_valid": 140
+      }
+    },
+    "seven_geometry_mode_supply_groups": 40,
+    "source_family_support": {
+      "20261007:boxes": {
+        "follower_compatible": 5,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "20261007:k_rail_field": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "20261007:k_rail_step_field": {
+        "follower_compatible": 5,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "3773891777:boxes": {
+        "follower_compatible": 5,
+        "groups": 5,
+        "hard_valid": 35
+      },
+      "3773891777:k_rail_step_field": {
+        "follower_compatible": 10,
+        "groups": 10,
+        "hard_valid": 70
+      },
+      "3773891777:pyramid_stairs_inv": {
+        "follower_compatible": 5,
+        "groups": 5,
+        "hard_valid": 35
+      }
+    },
+    "state_groups": 40,
+    "terrain_pair_definition": "common-known main-track corridor profile bins >=5 and RMS >=0.01 m; unknown-only difference excluded",
+    "terrain_separated_groups": 35,
+    "terrain_separated_known_pairs": 368,
+    "turn_in_place_candidate_count": 64
+  }
+}

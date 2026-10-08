@@ -1,0 +1,82 @@
+{
+  "alternatives": {
+    "4_anchors_1_bearing": {
+      "candidate_processes": 36,
+      "p95_hours": 1.5579191705075792,
+      "plus_20_percent_hours": 1.869503004609095,
+      "point_hours": 1.512302986492739,
+      "saved_gb_plus_20_percent": 0.3672,
+      "saved_gb_point": 0.306
+    },
+    "4_anchors_2_bearings": {
+      "candidate_processes": 72,
+      "p95_hours": 3.1158383410151584,
+      "plus_20_percent_hours": 3.73900600921819,
+      "point_hours": 3.024605972985478,
+      "saved_gb_plus_20_percent": 0.7344,
+      "saved_gb_point": 0.612
+    },
+    "4_anchors_3_bearings": {
+      "candidate_processes": 108,
+      "p95_hours": 4.673757511522737,
+      "plus_20_percent_hours": 5.608509013827285,
+      "point_hours": 4.536908959478217,
+      "saved_gb_plus_20_percent": 1.1016,
+      "saved_gb_point": 0.918
+    },
+    "8_anchors_1_bearing": {
+      "candidate_processes": 72,
+      "p95_hours": 3.1158383410151584,
+      "plus_20_percent_hours": 3.73900600921819,
+      "point_hours": 3.024605972985478,
+      "saved_gb_plus_20_percent": 0.7344,
+      "saved_gb_point": 0.612
+    },
+    "staged_0_then_plus_minus_20": {
+      "candidate_processes": 108,
+      "p95_hours": 4.673757511522737,
+      "plus_20_percent_hours": 5.608509013827285,
+      "point_hours": 4.536908959478217,
+      "saved_gb_plus_20_percent": 1.1016,
+      "saved_gb_point": 0.918
+    },
+    "two_banks_independent_three_direct_repeats_each": {
+      "candidate_processes": 216,
+      "p95_hours": 9.347515023045474,
+      "plus_20_percent_hours": 11.21701802765457,
+      "point_hours": 9.073817918956435,
+      "saved_gb_plus_20_percent": 2.2032,
+      "saved_gb_point": 1.836
+    },
+    "two_banks_shared_three_direct_repeats": {
+      "candidate_processes": 180,
+      "p95_hours": 7.789595852537896,
+      "plus_20_percent_hours": 9.347515023045474,
+      "point_hours": 7.561514932463695,
+      "saved_gb_plus_20_percent": 1.836,
+      "saved_gb_point": 1.53
+    }
+  },
+  "anchor_only_replay_count": "extra if required; not hidden in candidate-process counts",
+  "cleanup_and_finalization": "owned PID/start-tick, sealed marker, native exit, zero residual, host/container SHA per process",
+  "expanded_design_review_source": "/tmp/eatnav-vnt-goal-bearing-bank-review/docs/quality-identifiability-gate/evaluator-design-review/evaluator-design-review.md",
+  "expanded_design_review_source_sha256": "979ea98bbacf5a4efce0253590fd17272b78ff4a1a9b61d35dc46f1ee23dfe74",
+  "external_zenoh_prerequisite": true,
+  "forecast_scope": "sequential fresh-process; includes prior startup/finalization overhead in per-run measurement; excludes new retries",
+  "measured_prior_process_mean_sec": 151.23029864927392,
+  "measured_prior_process_p95_sec": 155.79191705075792,
+  "minimum_goal_bearing_comparison": "4 anchors x 2 bearings (-20,+20) = 72 processes; four classes and both side bearings",
+  "one_bank_108_process_plus_anchor_replays": 108,
+  "prior_anon_shmem_reference_gib": 3.72,
+  "prior_gpu_device_total_cap_mib": 6656,
+  "prior_gpu_peak_reference_mib": 5960,
+  "prior_host_available_reference_gb": 87.7,
+  "prior_simulator_pss_reference_gib": 5.38,
+  "retry_policy": "no automatic retry; infrastructure-invalid and measurement-invalid kept separate; new attempt requires review",
+  "source": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-expanded-feasibility-ros-continuation-20261005/runtime-storage-forecast.json",
+  "source_sha256": "c3745fb0ff1be96762da23db9a8f99c9907e5ba3e762e222c389f179ff5dbb00",
+  "staged_review": "phase 1 four anchors x 0 deg = 36; phase 2 same anchors x +/-20 deg = 72; stop between phases",
+  "storage_reference_bytes_per_process": 8500000.0,
+  "two_bank_direct_path_identity": "direct Path SHA is identical across A/B for every StateGroup",
+  "two_bank_repeat_policy": "180 processes if three sealed direct repeats are shared; 216 if each bank requires its own three-repeat baseline"
+}
