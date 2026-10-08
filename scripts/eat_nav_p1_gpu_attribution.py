@@ -159,6 +159,7 @@ def capture_live(nvml: Nvml, owned: dict, baseline_identities: set[tuple[int,int
                             device_cap_mib=device_cap_mib)
     result.update({'wall_ns':wall,'monotonic_ns':started,'sample_finished_monotonic_ns':finished,
                    'process_table_monotonic_ns':table_time,'raw_nvml_rows':rows,
+                   'process_table_before':before_table,'process_table_after':after_table,
                    'resolved_owned':resolved_owned,
                    'health_query_stdout':health.stdout,'health_query_stderr':health.stderr,
                    'query_timing':{**nvml.last_query_timing,**nvml.last_memory_snapshot_timing}})
