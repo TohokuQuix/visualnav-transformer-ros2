@@ -261,11 +261,14 @@ def prefix_row(row,end_m):
     if (stations.ndim!=1 or dense.shape!=(len(stations),2) or
         not np.isfinite(stations).all() or not np.isfinite(dense).all() or
         stations[0]!=0 or np.any(np.diff(stations)<=0) or
-        end_m<=0 or end_m>stations[-1]+1e-9):
+        end_m<=0 or end_m>stations[-1]+1e-6):
         raise ValueError('valid increasing dense Path and in-range prefix required')
-    keep=stations<end_m-1e-9
+    # Numerical chord integration can miss the nominal length by nanometres.
+    # Extend only the station label within 1e-6 m; never duplicate the endpoint.
+    cutoff=min(float(end_m),float(stations[-1]))
+    keep=stations<cutoff-1e-9
     clipped_stations=np.r_[stations[keep],float(end_m)]
-    clipped_dense=np.stack([np.interp(clipped_stations,stations,dense[:,axis])
+    clipped_dense=np.stack([np.interp(np.minimum(clipped_stations,cutoff),stations,dense[:,axis])
                             for axis in range(2)],axis=1)
     return {**row,'stations_m':clipped_stations,'dense':clipped_dense,
             'arc_length_m':float(end_m)}

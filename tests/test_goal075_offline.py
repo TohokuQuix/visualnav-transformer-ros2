@@ -227,6 +227,16 @@ def test_full_diagnostic_excludes_arc_length_after_point_seven_five():
     assert coverage['_dem_full']['known_height_profile_m'][-1][0]==pytest.approx(.75)
 
 
+def test_full_prefix_accepts_numerical_arc_length_roundoff_without_duplicate_point():
+    stations=np.linspace(0,.749999991,76)
+    row={'stations_m':stations,'dense':np.stack((stations,np.zeros_like(stations)),axis=1),
+         'arc_length_m':float(stations[-1])}
+    clipped=prefix_row(row,.75)
+    assert clipped['stations_m'][-1]==pytest.approx(.75)
+    assert np.all(np.diff(clipped['stations_m'])>0)
+    assert np.all(np.linalg.norm(np.diff(clipped['dense'],axis=0),axis=1)>0)
+
+
 def test_baseline_terrain_count_requires_geometric_distinctness():
     pairs=[{'terrain_separated':True,'distinct':False},
            {'terrain_separated':True,'distinct':True},
