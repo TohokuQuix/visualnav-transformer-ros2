@@ -1,0 +1,88 @@
+{
+  "critical_missing": [],
+  "e1": "g0e-train episode_key/step/local_step and 100-env action prefix required",
+  "fields": [
+    {
+      "evidence": "pose manifest, input freeze, terrain generator",
+      "field": "terrain batch seed / terrain seed / difficulty",
+      "status": "saved source"
+    },
+    {
+      "evidence": "pose manifest and run terrain mesh identity",
+      "field": "terrain type / tile index / scene origin",
+      "status": "saved source"
+    },
+    {
+      "evidence": "pose manifest and prephysics pose",
+      "field": "requested XY/yaw",
+      "status": "saved source"
+    },
+    {
+      "evidence": "input freeze: env origin + 0.35 m",
+      "field": "root z rule",
+      "status": "saved source"
+    },
+    {
+      "evidence": "reset and prephysics state; per-step trace",
+      "field": "root pose and velocity",
+      "status": "saved source"
+    },
+    {
+      "evidence": "reset and prephysics state; per-step trace",
+      "field": "joint position and velocity",
+      "status": "saved source"
+    },
+    {
+      "evidence": "original RL reset event and fixed source; recorded mode",
+      "field": "flipper reset and fold mode",
+      "status": "reconstructable"
+    },
+    {
+      "evidence": "original frozen settling simulator source",
+      "field": "reset event ordering",
+      "status": "reconstructable"
+    },
+    {
+      "evidence": "pose record and input freeze",
+      "field": "zero 6D action",
+      "status": "saved source"
+    },
+    {
+      "evidence": "frozen RL config and simulator source",
+      "field": "dt / decimation / 200 steps",
+      "status": "reconstructable"
+    },
+    {
+      "evidence": "termination-aware per-step trace",
+      "field": "termination / reset handling",
+      "status": "saved source"
+    },
+    {
+      "evidence": "frame records at physics 50,100,150,200",
+      "field": "DEM four frame order / unit / mask",
+      "status": "saved source"
+    },
+    {
+      "evidence": "settled_step_200.json",
+      "field": "Actor 22 field order and post-step vector",
+      "status": "saved source"
+    },
+    {
+      "evidence": "not separated in source record",
+      "field": "Actor pre-noise / post-noise separate vectors",
+      "status": "diagnostic only"
+    },
+    {
+      "evidence": "root pose and recorded map DEM; no TF published",
+      "field": "TF map/base transform",
+      "status": "reconstructable"
+    },
+    {
+      "evidence": "step 200 logical stamp; no Path publisher",
+      "field": "pre-Path anchor timestamp",
+      "status": "saved source"
+    }
+  ],
+  "radial": "normal RL reset plus deterministic candidate-free 200-step settling; no episode prefix",
+  "schema": "eatnav_episode_vs_radial_input_contract_v1"
+}

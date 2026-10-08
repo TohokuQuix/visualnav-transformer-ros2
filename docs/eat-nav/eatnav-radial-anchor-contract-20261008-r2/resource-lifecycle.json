@@ -1,0 +1,99 @@
+{
+  "anon_shmem_peak_bytes": 3945414656,
+  "elapsed_sec_total": 108.59831922899684,
+  "gpu_attribution": {
+    "device_total_cap_verified": true,
+    "driver_accounting_mode": "Disabled",
+    "per_pid_gpu_series_captured": false,
+    "unresolved_gpu_bytes": "unknown",
+    "v2_zero_unresolved_condition_verified": false
+  },
+  "gpu_peak_mib": 5906,
+  "host_output_storage_bytes": 27077144,
+  "previous_attempt": {
+    "candidate_free": true,
+    "failure": "launcher_precreated_simulator_output_directory",
+    "pre_control": true,
+    "remediation_cycle": 1,
+    "root": "/tmp/eatnav-radial-anchor-contract-20261008-r1"
+  },
+  "resource_contract_sha256": "709e2b0df2c0e5572f00d7d020f478bc54083bda31318e633fa84a57df243ef0",
+  "schema": "eatnav_radial_fixture_resource_lifecycle_v1",
+  "shards": [
+    {
+      "anon_shmem_peak_bytes": 3892527104,
+      "elapsed_sec": 36.90291864599931,
+      "gpu_peak_mib": 5906,
+      "host_available_min_bytes": 86152744960,
+      "host_container_sha_match": true,
+      "last_heartbeat": {
+        "elapsed_sec": 32.01638523600195,
+        "monotonic_ns": 18412727158664,
+        "physics_step": 197
+      },
+      "native_exit_code": 0,
+      "owned_process": {
+        "candidate_free": true,
+        "pid": 713,
+        "proc_start_ticks": 1837599
+      },
+      "owned_residual": false,
+      "physics_steps": 200,
+      "raw_sha_ledger_sha256": "2673cee4e7e9cf4874070698e0de14ce28d13561d598f02e34be017a74be38b5",
+      "seal_sha256": "f6d650bb9c94e3ae0e30071ef86114f0e39504926f9efcf0b748677eb695ee87",
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-settling-pilot-20261008/shard-B",
+      "status": "protocol_valid",
+      "subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-00"
+    },
+    {
+      "anon_shmem_peak_bytes": 3945414656,
+      "elapsed_sec": 34.78404262999902,
+      "gpu_peak_mib": 5898,
+      "host_available_min_bytes": 86829260800,
+      "host_container_sha_match": true,
+      "last_heartbeat": {
+        "elapsed_sec": 30.042054981000547,
+        "monotonic_ns": 18454008469500,
+        "physics_step": 192
+      },
+      "native_exit_code": 0,
+      "owned_process": {
+        "candidate_free": true,
+        "pid": 2115,
+        "proc_start_ticks": 1841932
+      },
+      "owned_residual": false,
+      "physics_steps": 200,
+      "raw_sha_ledger_sha256": "fedcc98e08fd3c6190475499565f1785210ac63739648a84bc3e8875a42f91f9",
+      "seal_sha256": "33b13065698096d4cca7ab0bfc8932b7f5683e397302e695cee2e568175dfc6b",
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-second-seed-20261008/shard-A",
+      "status": "protocol_valid",
+      "subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-01"
+    },
+    {
+      "anon_shmem_peak_bytes": 3903938560,
+      "elapsed_sec": 36.911357952998515,
+      "gpu_peak_mib": 5875,
+      "host_available_min_bytes": 86796251136,
+      "host_container_sha_match": true,
+      "last_heartbeat": {
+        "elapsed_sec": 31.495121017997008,
+        "monotonic_ns": 18496619179553,
+        "physics_step": 200
+      },
+      "native_exit_code": 0,
+      "owned_process": {
+        "candidate_free": true,
+        "pid": 3486,
+        "proc_start_ticks": 1846046
+      },
+      "owned_residual": false,
+      "physics_steps": 200,
+      "raw_sha_ledger_sha256": "9acb9e7b67c80332d6f00824cb851c696518908e859c1f3f628948ff25773e80",
+      "seal_sha256": "38c5d2d22cd02839dd73285e4457d402b7e7aeb4254ea0e51d789666165c2c1a",
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-settling-pilot-20261008/shard-A",
+      "status": "protocol_valid",
+      "subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-02"
+    }
+  ]
+}

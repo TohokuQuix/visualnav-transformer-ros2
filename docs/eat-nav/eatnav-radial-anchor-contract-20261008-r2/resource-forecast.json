@@ -1,0 +1,38 @@
+{
+  "anon_shmem_peak_bytes": 4713297110,
+  "caps": {
+    "container_anon_plus_shmem_cap_bytes": 6442450944,
+    "gpu_device_total_hard_cap_mib": 7680,
+    "heartbeat_stale_sec": 90,
+    "minimum_host_available_bytes": 10095421850,
+    "per_process_timeout_sec": 600,
+    "storage_cap_bytes": 1000000000
+  },
+  "gpu_peak_mib": 7033.2,
+  "historical": {
+    "first_shard_A": {
+      "anon_shmem_peak_gib": 3.649,
+      "elapsed_sec": 34.74,
+      "gpu_peak_mib": 5853,
+      "storage_mb": 7.6
+    },
+    "first_shard_B": {
+      "anon_shmem_peak_gib": 3.649,
+      "elapsed_sec": 34.88,
+      "gpu_peak_mib": 5857,
+      "storage_mb": 22.1
+    },
+    "second_shard_A": {
+      "anon_shmem_peak_gib": 3.658,
+      "elapsed_sec": 37.06,
+      "gpu_peak_mib": 5861,
+      "storage_mb": 57.0
+    }
+  },
+  "margin_factor": 1.2,
+  "pass": true,
+  "runtime_sec": 128.016,
+  "schema": "eatnav_radial_fixture_resource_forecast_v1",
+  "source": "three original candidate-free shards",
+  "storage_bytes": 104040000
+}

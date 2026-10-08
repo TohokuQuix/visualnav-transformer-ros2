@@ -1,0 +1,54 @@
+{
+  "anchor_ids": [
+    "first-differential",
+    "second-differential",
+    "first-graded",
+    "second-graded"
+  ],
+  "candidate_free": true,
+  "forbidden": [
+    "Path publish",
+    "follower",
+    "bridge",
+    "Zenoh control",
+    "candidate command",
+    "Outcome"
+  ],
+  "output_root": "/tmp/eatnav-radial-anchor-contract-20261008-r2",
+  "schema": "eatnav_radial_fixture_manifest_v1",
+  "shards": [
+    {
+      "batch_seed": 20261007,
+      "fixture_subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-00",
+      "pose_order": [
+        "b20261007-k_rail_field-r0.60-a12",
+        "b20261007-boxes-r0.60-a01",
+        "b20261007-k_rail_field-r0.50-a01",
+        "b20261007-random_rough-r0.60-a06"
+      ],
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-settling-pilot-20261008/shard-B"
+    },
+    {
+      "batch_seed": 3773891777,
+      "fixture_subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-01",
+      "pose_order": [
+        "b3773891777-boxes-r0.50-a12",
+        "b3773891777-k_rail_step_field-r0.60-a00",
+        "b3773891777-k_rail_step_field-r0.30-a06",
+        "b3773891777-k_rail_field-r0.50-a04"
+      ],
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-second-seed-20261008/shard-A"
+    },
+    {
+      "batch_seed": 20261007,
+      "fixture_subroot": "/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-02",
+      "pose_order": [
+        "b20261007-k_rail_step_field-r0.40-a02",
+        "b20261007-k_rail_step_field-r0.60-a00",
+        "b20261007-k_rail_step_field-r0.30-a06",
+        "b20261007-k_rail_field-r0.50-a04"
+      ],
+      "source_shard": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-r3-settling-pilot-20261008/shard-A"
+    }
+  ]
+}
