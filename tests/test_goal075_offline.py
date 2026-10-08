@@ -14,7 +14,9 @@ from visualnav_transformer.eat_nav.curvature_attainable import generate_goal_lib
 from scripts.eat_nav_goal_bank_review import _read_follower_config, FOLLOWER_CONFIG
 from scripts.eat_nav_goal075_review import (
     verify_inputs, freeze_contract, verify_g0_regression_archive,
-    analyze_group_075,
+    analyze_group_075, terrain_support_gate, variable_group_diagnostic,
+    terrain_pair_from_rows, enrich_group_terrain,
+    decide_075, conditional_p1_proposal,
 )
 
 
@@ -141,3 +143,73 @@ def test_variable_count_uses_mask_without_padding_or_duplicate_ids():
     assert result['valid_mask']==[True,True,True]
     with pytest.raises(ValueError,match='duplicate'):
         variable_count_mask(['d','l','l'],'d')
+
+
+def test_late_only_pair_does_not_satisfy_primary_terrain_gate():
+    groups=[{'state_group_id':f'{seed}-{cls}','seed_label':seed,'terrain_class':cls}
+            for seed in ('first','second') for cls in ('transition','differential','graded')]
+    pairs={g['state_group_id']:[{'distinct':True,'primary_separated':True,'full_separated':True}]
+           for g in groups}
+    assert terrain_support_gate(groups,pairs)['ready']
+    pairs['first-transition']=[{'distinct':True,'primary_separated':False,'full_separated':True}]
+    result=terrain_support_gate(groups,pairs)
+    assert not result['ready']
+    assert result['support']['transition']['first']==0
+
+
+def test_variable_group_uses_real_three_candidates_without_padding():
+    group={'direct_id':'d','compatible_ids':['d','l','r'],
+           'symmetric_targets':{'3':{'feasible':True,'selected_indices':[0,1,2]},
+                                '5':{'feasible':False,'selected_indices':[]}}}
+    result=variable_group_diagnostic(group)
+    assert result['candidate_count']==3
+    assert result['valid_mask']==[True,True,True]
+
+
+def test_late_only_terrain_rms_is_diagnostic_not_primary():
+    stations=np.round(np.linspace(0,.75,16),2)
+    row={'stations_m':stations,'dense':np.stack((stations,np.zeros_like(stations)),axis=1),
+         'arc_length_m':.75}
+    def dem(profile):
+        return {'known_height_profile_m':[[float(s),float(h)] for s,h in zip(stations,profile)],
+                'corridors':{'main_track_sprocket':{
+                    'known_corridor_profile_m':[[float(s),float(h)] for s,h in zip(stations,profile)],
+                    'swept_cells':[[0,i] for i in range(16)],
+                    'known_swept_cells':[[0,i] for i in range(16)]}}}
+    zero=np.zeros(16);late=np.where(stations>.6,.1,0.)
+    result=terrain_pair_from_rows(row,row,dem(zero),dem(zero),dem(zero),dem(late),mode_distinct=True)
+    assert not result['primary_separated']
+    assert result['full_separated']
+
+
+def test_group_terrain_audit_keeps_primary_and_full_coverage_separate():
+    root=os.environ.get('EATNAV_FROZEN_ARTIFACT_ROOT')
+    if not root:pytest.skip('requires preserved EAT-Nav backup root')
+    frozen=verify_inputs(Path(root))
+    anchor=frozen['anchors'][0]
+    curves,failures=generate_goal_library(goal075(20))
+    group=analyze_group_075(anchor,20,curves,failures,_read_follower_config(FOLLOWER_CONFIG))
+    result=enrich_group_terrain(group,anchor)
+    assert result['primary_terrain_separated_pair_count']==0
+    coverage=result['compatible_coverage_summary'][result['direct_id']]
+    assert len(coverage['proxies'])==4
+    assert all({'primary','full','minimum_full_tile_margin_m'}<=set(proxy)
+               for proxy in coverage['proxies'].values())
+
+
+def test_decision_requires_fixed_five_geometry_coverage_and_primary_terrain():
+    assert decide_075(True,False,True,True)=='five_candidate_075m_still_infeasible'
+    assert decide_075(True,True,True,False)=='five_candidate_075m_coverage_fail'
+    assert decide_075(True,True,False,True)=='five_candidate_075m_geometry_pass_terrain_support_fail'
+    assert decide_075(True,True,True,True)=='five_candidate_075m_bank_ready_for_p1_rollout_review'
+    assert decide_075(False,True,True,True)=='source_or_geometry_parity_invalid'
+
+
+def test_conditional_p1_is_only_prepared_after_both_offline_gates():
+    assert not conditional_p1_proposal(False)['prepared']
+    ready=conditional_p1_proposal(True)
+    assert ready['P1_processes']==28
+    assert ready['P2_processes']==56
+    assert ready['P1_candidates_per_group']==5
+    assert ready['direct_repeats_per_group']==3
+    assert not ready['execution_authorized']
