@@ -1,0 +1,265 @@
+{
+  "P1_five_processes": 28,
+  "P1_seven_processes": 36,
+  "P2_five_processes": 56,
+  "P2_requires_P1_gate": true,
+  "P2_seven_processes": 72,
+  "bank_supported": false,
+  "duplicate_direct_repeats_per_group": 3,
+  "forecast_20_percent_margin": {
+    "anon_shmem_reference_gib": 3.72,
+    "automatic_retries": 0,
+    "bank_B_repeat_policy": "shared direct only if SHA-identical and accepted as a common baseline; otherwise independent direct repeats",
+    "cleanup_finalization": "owned PID/start-tick, SHA seal, native exit, zero residual",
+    "external_zenoh_prerequisite": true,
+    "gpu_device_total_cap_mib": 6656,
+    "gpu_peak_reference_mib": 5960,
+    "host_available_reference_gb": 87.7,
+    "not_an_authorization_to_run": true,
+    "sequential_fresh_process_estimates": {
+      "Bank_B_added_five_independent_baseline": {
+        "p95_hours": 3.635144731184351,
+        "p95_plus_20_percent_hours": 4.362173677421222,
+        "point_hours": 3.5287069684830583,
+        "processes": 84,
+        "saved_gb_plus_20_percent": 0.8568,
+        "saved_gb_point": 0.714
+      },
+      "Bank_B_added_five_shared_direct": {
+        "p95_hours": 2.0772255606767724,
+        "p95_plus_20_percent_hours": 2.4926706728121264,
+        "point_hours": 2.0164039819903192,
+        "processes": 48,
+        "saved_gb_plus_20_percent": 0.4896,
+        "saved_gb_point": 0.408
+      },
+      "Bank_B_added_seven_independent_baseline": {
+        "p95_hours": 4.673757511522737,
+        "p95_plus_20_percent_hours": 5.608509013827285,
+        "point_hours": 4.536908959478217,
+        "processes": 108,
+        "saved_gb_plus_20_percent": 1.1016,
+        "saved_gb_point": 0.918
+      },
+      "Bank_B_added_seven_shared_direct": {
+        "p95_hours": 3.1158383410151584,
+        "p95_plus_20_percent_hours": 3.73900600921819,
+        "point_hours": 3.024605972985478,
+        "processes": 72,
+        "saved_gb_plus_20_percent": 0.7344,
+        "saved_gb_point": 0.612
+      },
+      "P1_five": {
+        "p95_hours": 1.2117149103947837,
+        "p95_plus_20_percent_hours": 1.4540578924737404,
+        "point_hours": 1.1762356561610194,
+        "processes": 28,
+        "saved_gb_plus_20_percent": 0.2856,
+        "saved_gb_point": 0.238
+      },
+      "P1_plus_P2_five": {
+        "p95_hours": 3.635144731184351,
+        "p95_plus_20_percent_hours": 4.362173677421222,
+        "point_hours": 3.5287069684830583,
+        "processes": 84,
+        "saved_gb_plus_20_percent": 0.8568,
+        "saved_gb_point": 0.714
+      },
+      "P1_plus_P2_seven": {
+        "p95_hours": 4.673757511522737,
+        "p95_plus_20_percent_hours": 5.608509013827285,
+        "point_hours": 4.536908959478217,
+        "processes": 108,
+        "saved_gb_plus_20_percent": 1.1016,
+        "saved_gb_point": 0.918
+      },
+      "P1_seven": {
+        "p95_hours": 1.5579191705075792,
+        "p95_plus_20_percent_hours": 1.869503004609095,
+        "point_hours": 1.512302986492739,
+        "processes": 36,
+        "saved_gb_plus_20_percent": 0.3672,
+        "saved_gb_point": 0.306
+      },
+      "P2_five": {
+        "p95_hours": 2.4234298207895675,
+        "p95_plus_20_percent_hours": 2.908115784947481,
+        "point_hours": 2.352471312322039,
+        "processes": 56,
+        "saved_gb_plus_20_percent": 0.5712,
+        "saved_gb_point": 0.476
+      },
+      "P2_seven": {
+        "p95_hours": 3.1158383410151584,
+        "p95_plus_20_percent_hours": 3.73900600921819,
+        "point_hours": 3.024605972985478,
+        "processes": 72,
+        "saved_gb_plus_20_percent": 0.7344,
+        "saved_gb_point": 0.612
+      }
+    },
+    "simulator_pss_reference_gib": 5.38,
+    "source_prior_forecast_sha256": null
+  },
+  "four_source_families": [
+    "first-transition",
+    "first-differential",
+    "second-graded",
+    "second-flat-only"
+  ],
+  "frozen_e1_protocol": {
+    "A_to_R_per_group": {
+      "candidate_to_duplicate_ratio_min": 2.0,
+      "minimum_realized_modes": 2,
+      "ratio_denominator_floor_m": 0.001,
+      "realized_xy_rms_above_m": 0.0105
+    },
+    "C_to_A_per_group": {
+      "actor_action_max_abs_above": "max(0.0001, 2 * measured direct-duplicate max_abs)",
+      "actor_input_difference_recorded": true,
+      "minimum_nondirect_actor_action_differences": 1
+    },
+    "P1_to_P2_rule": "all 4 P1 groups satisfy duplicate, P_to_C, C_to_A and A_to_R; at least one group satisfies R_to_Y; every scheduled process is infrastructure-valid; otherwise stop before P2",
+    "P2_only_after_P1_pass": true,
+    "P_to_C_per_group": {
+      "first_command_difference_above_m_per_s": 0.001,
+      "follower_command_rms_above_m_per_s": 0.001,
+      "minimum_command_clusters": 2,
+      "minimum_nondirect_commands_above_noise": 2
+    },
+    "R_to_Y_at_least_one_group": {
+      "categorical_contact_stack_or_termination_difference_accepted": true,
+      "critic_value_difference_min": 0.01,
+      "numeric_difference_above_duplicate_noise": true,
+      "outcome_rank_difference_required": true,
+      "progress_or_endpoint_difference_m_min": 0.02
+    },
+    "duplicate_gate": {
+      "actor_action_max_abs": 0.0001,
+      "actor_input_max_abs": 0.0001,
+      "command_rms_max_m_per_s": 0.001,
+      "critic_value_max_abs": 0.0001,
+      "dem_mask_iou_min": 0.95,
+      "dem_rms_max_m": 0.03,
+      "reward_max_abs": 0.0001,
+      "same_path_sha_and_initial_anchor": true,
+      "xy_rms_max_m": 0.0105
+    },
+    "infrastructure_validity_all_scheduled_processes": {
+      "failed_or_missing_process_policy": "stop before P2; no automatic retry",
+      "host_container_SHA_match": true,
+      "native_exit": 0,
+      "owned_residual_processes": 0,
+      "protocol_valid_marker": true,
+      "run_complete_marker": true
+    },
+    "no_change_after_P1_to": [
+      "Path",
+      "threshold",
+      "candidate_count"
+    ],
+    "numeric_source_path": "/tmp/eatnav-vnt-curvature-attainable/docs/quality-identifiability-gate/candidate-coverage/e1-feasibility/e1-gates.yaml",
+    "numeric_source_sha256": "2bb5f3420426c09f15a7a20ea0fa72ae930a4bc137ca752535f5158570a84ea6",
+    "statistical_unit": "StateGroup; 4 distinct source families in P1",
+    "status": "prospective_only_no_rollout_authorized"
+  },
+  "no_rollout_executed": true,
+  "prior_forecast_sha256": "f40a4be43479e3f47f655f16a16b57f32c2039bccf16681ba4a859278fe6696a",
+  "prior_redesign_forecast": {
+    "anon_shmem_reference_gib": 3.72,
+    "automatic_retries": 0,
+    "bank_B_repeat_policy": "shared direct only if SHA-identical and accepted as a common baseline; otherwise independent direct repeats",
+    "cleanup_finalization": "owned PID/start-tick, SHA seal, native exit, zero residual",
+    "external_zenoh_prerequisite": true,
+    "gpu_device_total_cap_mib": 6656,
+    "gpu_peak_reference_mib": 5960,
+    "host_available_reference_gb": 87.7,
+    "not_an_authorization_to_run": true,
+    "sequential_fresh_process_estimates": {
+      "Bank_B_added_five_independent_baseline": {
+        "p95_hours": 3.635144731184351,
+        "p95_plus_20_percent_hours": 4.362173677421222,
+        "point_hours": 3.5287069684830583,
+        "processes": 84,
+        "saved_gb_plus_20_percent": 0.8568,
+        "saved_gb_point": 0.714
+      },
+      "Bank_B_added_five_shared_direct": {
+        "p95_hours": 2.0772255606767724,
+        "p95_plus_20_percent_hours": 2.4926706728121264,
+        "point_hours": 2.0164039819903192,
+        "processes": 48,
+        "saved_gb_plus_20_percent": 0.4896,
+        "saved_gb_point": 0.408
+      },
+      "Bank_B_added_seven_independent_baseline": {
+        "p95_hours": 4.673757511522737,
+        "p95_plus_20_percent_hours": 5.608509013827285,
+        "point_hours": 4.536908959478217,
+        "processes": 108,
+        "saved_gb_plus_20_percent": 1.1016,
+        "saved_gb_point": 0.918
+      },
+      "Bank_B_added_seven_shared_direct": {
+        "p95_hours": 3.1158383410151584,
+        "p95_plus_20_percent_hours": 3.73900600921819,
+        "point_hours": 3.024605972985478,
+        "processes": 72,
+        "saved_gb_plus_20_percent": 0.7344,
+        "saved_gb_point": 0.612
+      },
+      "P1_five": {
+        "p95_hours": 1.2117149103947837,
+        "p95_plus_20_percent_hours": 1.4540578924737404,
+        "point_hours": 1.1762356561610194,
+        "processes": 28,
+        "saved_gb_plus_20_percent": 0.2856,
+        "saved_gb_point": 0.238
+      },
+      "P1_plus_P2_five": {
+        "p95_hours": 3.635144731184351,
+        "p95_plus_20_percent_hours": 4.362173677421222,
+        "point_hours": 3.5287069684830583,
+        "processes": 84,
+        "saved_gb_plus_20_percent": 0.8568,
+        "saved_gb_point": 0.714
+      },
+      "P1_plus_P2_seven": {
+        "p95_hours": 4.673757511522737,
+        "p95_plus_20_percent_hours": 5.608509013827285,
+        "point_hours": 4.536908959478217,
+        "processes": 108,
+        "saved_gb_plus_20_percent": 1.1016,
+        "saved_gb_point": 0.918
+      },
+      "P1_seven": {
+        "p95_hours": 1.5579191705075792,
+        "p95_plus_20_percent_hours": 1.869503004609095,
+        "point_hours": 1.512302986492739,
+        "processes": 36,
+        "saved_gb_plus_20_percent": 0.3672,
+        "saved_gb_point": 0.306
+      },
+      "P2_five": {
+        "p95_hours": 2.4234298207895675,
+        "p95_plus_20_percent_hours": 2.908115784947481,
+        "point_hours": 2.352471312322039,
+        "processes": 56,
+        "saved_gb_plus_20_percent": 0.5712,
+        "saved_gb_point": 0.476
+      },
+      "P2_seven": {
+        "p95_hours": 3.1158383410151584,
+        "p95_plus_20_percent_hours": 3.73900600921819,
+        "point_hours": 3.024605972985478,
+        "processes": 72,
+        "saved_gb_plus_20_percent": 0.7344,
+        "saved_gb_point": 0.612
+      }
+    },
+    "simulator_pss_reference_gib": 5.38,
+    "source_prior_forecast_sha256": "605243ea904206d5542d10b0d349f9fa9f32595c9d9a823cceba69dcdcde3371"
+  },
+  "source_prior_forecast_sha256": "605243ea904206d5542d10b0d349f9fa9f32595c9d9a823cceba69dcdcde3371",
+  "status": "conditional_only_not_authorized"
+}

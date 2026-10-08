@@ -1,0 +1,4597 @@
+{
+  "breakdown": {
+    "bearing_deg": {
+      "-10": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "-20": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "0": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "10": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "20": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "seed_label": {
+      "first": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "second": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ]
+    },
+    "source_family": {
+      "20261007:boxes": [
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "20261007:k_rail_field": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "20261007:k_rail_step_field": [
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "3773891777:boxes": [
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "3773891777:k_rail_step_field": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "3773891777:pyramid_stairs_inv": [
+        3,
+        5,
+        4,
+        5,
+        3
+      ]
+    },
+    "terrain_class": {
+      "differential": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "flat-only": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "graded": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "transition": [
+        3,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        4,
+        5,
+        3
+      ]
+    }
+  },
+  "finite_library_only_not_continuous_attainability_proof": true,
+  "finite_library_optimal_all_groups": true,
+  "groups": [
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-transition",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-transition",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "first-transition",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-transition",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-transition",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-differential",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-differential",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "first-differential",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 1,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 1
+      }
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-differential",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 10,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 1,
+        "G0A+G1": 7,
+        "G0A+G2": 2
+      }
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-differential",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-graded",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-graded",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "first-graded",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-graded",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-graded",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-flat-only",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-flat-only",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-transition",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-transition",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "second-transition",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-transition",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-transition",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-differential",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 17,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 3,
+        "G0A+G2": 2,
+        "G0A+G3": 12
+      }
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-differential",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 40,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 2,
+        "G0A+G1": 14,
+        "G0A+G2": 5,
+        "G0A+G3": 3,
+        "G1+G1": 2,
+        "G1+G2": 2,
+        "G1+G3": 6,
+        "G2+G3": 6
+      }
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "second-differential",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 81,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 3,
+        "G0A+G1": 36,
+        "G0A+G2": 12,
+        "G0A+G3": 30
+      }
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-differential",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 12,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {
+        "G0A+G0A": 2,
+        "G0A+G1": 5,
+        "G0A+G2": 2,
+        "G0A+G3": 3
+      }
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-differential",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-graded",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-graded",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "second-graded",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-graded",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-graded",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-flat-only",
+      "bearing_deg": -20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "06ccc34f9ed4ed8e3f324a35b88d147e5f1f10b981ec345ff8677e6cf4735e66",
+        "83372b2fe6b3c43dcf42daf521006305340a5b678ae5be91ad456565bb9c6a4f",
+        "f7512db47396a65de21b37f8dc31a355ba648967bd9b0135148759eb5a88dcd3",
+        "1eeffc6da27006afb0011d802bd6f7d9407cf11259ad46df8e5b4c6ea05d3127",
+        "f297ec7d471682bc166651fb82b467ab400a6248c3cf2815fb3d392b1feb28b1",
+        "e1b73d9ad0c868019b0f8002983d47b57b7026f2681757e2b1d7d2a575655573",
+        "09fcfbc9ef8d8a567cdb98239893ef48f50ae3d803413018a430029187574c7c",
+        "f4911e4b801dac67758dabb69c7639c00091b916eb227670a6264c259a2aed22",
+        "2ce78f2a24f508f975f7752d5e8ce7fd38c507f4778c8b541d9d8165497b907d",
+        "b8d23cd80022bba1fc30978aab8f58b82a3d24825e4a6bb204e1ec8b346608a4"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-flat-only",
+      "bearing_deg": -10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c+0.04",
+        "G1:a0.20-b0.14-c+0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G1:a0.20-b0.20-c+0.04",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "d88b7d215a00dbb139efba1e6c220dba189fd92798183398be6eb7daff5d7086",
+        "15ef7f445a25499e52658d87e9ace0f502b3b7daae5836c88a51aeb6ab3e1cee",
+        "b3a6c68bc27892ba494f9d602390dce01fe95c11955ed6c6046c6b0342e018c5",
+        "dac757ec0d8e7d4f97847b47022ff229f1d97a2f66def92431326d76255b5b89",
+        "ea5a259e9840d8fbace5720efe3310b5a507dd4b9c0da99e1999120b42002492",
+        "ed8c3c5974eb7bb49cd76e974157c479a34c6ecd66379bb0af0c4731b1961383",
+        "7344cb9b1df3b7076b2568c32b2adcafb2a1fef1030b7c0cc8f814777ed4deb1",
+        "8318919589511edd8263953a17e5e047e45978d3a8ef1f24c24b8215dac9c7de",
+        "1f8dd95ba43cb56926d7c55e61fdfb55a5cec8e117021ddce25ba44a15720b77",
+        "8ab547665bcc9003704aa72b3e5fa14270b92a6d0186962844cfab1ebb75d35a",
+        "2a3a3e99b6ca25342d28dc248afc1ebe39efff88661919d75764766b6086c76e",
+        "ce214109b7635756cadb0c287a7fc320afc1cf967be2792eecb8d6ca8edd882a",
+        "8708ab490d6be96dfac2b69497632a5987f8fbf1b5f3687a9c816a74e753441d"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 43,
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 0,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 18,
+        "G2": 6,
+        "G3": 15
+      },
+      "compatible_common_goal": 42,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.08-b0.08-c+0.00",
+        "G1:a0.08-b0.14-c+0.00",
+        "G1:a0.08-b0.20-c+0.00",
+        "G1:a0.12-b0.08-c+0.00",
+        "G1:a0.12-b0.14-c+0.00",
+        "G1:a0.12-b0.20-c-0.02",
+        "G1:a0.12-b0.20-c+0.00",
+        "G1:a0.12-b0.20-c+0.02",
+        "G1:a0.16-b0.08-c+0.00",
+        "G1:a0.16-b0.14-c+0.00",
+        "G1:a0.16-b0.20-c-0.02",
+        "G1:a0.16-b0.20-c+0.00",
+        "G1:a0.16-b0.20-c+0.02",
+        "G1:a0.20-b0.08-c+0.00",
+        "G1:a0.20-b0.14-c+0.00",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G1:a0.20-b0.20-c+0.02",
+        "G2:constant",
+        "G2:linear_ramp",
+        "G2:symmetric_ramp",
+        "G2:signchange-L0.60-a-0.4",
+        "G2:signchange-L0.60-a+0.0",
+        "G2:signchange-L0.60-a+0.4",
+        "G3:L0.60-f0.50-0",
+        "G3:L0.60-f0.50-1",
+        "G3:L0.60-f0.50-2",
+        "G3:L0.60-f0.49-0",
+        "G3:L0.60-f0.49-1",
+        "G3:L0.60-f0.49-2",
+        "G3:L0.60-f0.25-0",
+        "G3:L0.60-f0.25-1",
+        "G3:L0.60-f0.25-2",
+        "G3:L0.60-f0.20-0",
+        "G3:L0.60-f0.20-1",
+        "G3:L0.60-f0.20-2",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "55d0beb4ebed244fe848a5cbb6417bcb0570e5f92262d5ed38675691a7f78674",
+        "a80deabcf0eef25489d908bfa5b963cfff22d9663164438be9c24a6f3a43acd0",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "115523f25a126a60022c64b7f27978d8e00a1298cef2d52834aaf481eea6e98e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3eb04abad1ad692eed6635c8bf3e69f39eba4a4460f5191b5649f43b6d1a7b9d",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "96918190a969c1a3c8341c9cbf98db606098e4a698bc5550949dd808d0918376",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "e2564f9a7f5715f543ddb39f2ffe73be2fa94124c87989bb97e2c1e4d03c78c1",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ce339ad76181386331dd95db8187cbf210cb5b2241bd31059b3889470aef4920",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "3f38c7bba9a5610fcc69842c2df889ed4373f73f35246d59718bf5cd2f97aa53",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "6e81ac5f02f24b4eedd62560d64bb53cd4cc50721ca9b2e2e4c8b029af2a19a0",
+        "2fce213f9a347be0ef9b341ff7f04fce79bc0360d7df1e3a3cfe4a74f94c100a",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "033ee468376e0b8b57422cc8caa09c78494b5c0fab9ad30efba00b08cea63378",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0ba8ba8dc06e635b17b2c129b60ba8fac152bd48fccbe285dd50d7a0f5bf12e4",
+        "75b8b3397b78b1d54f685fbd72ef0a72919cf5b9989fa8759948de08bf0b2adb",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "42b17f758448547713b8c34b9eeb301a63d88a652013b5efbeb792b95f741e2b",
+        "21ba318f8dc98116c96d7e5c10bd9349080744de54b43e9e2a7565ba8a60f789",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "0fed270cac5237800e09b5c7c6adad209c3f3ba4ec953b94af1ee9fcd3526c4f",
+        "390dc3d452482e1f25dfeee13278f6e7452d0d95ea1a749fc7ca673324d0efbf",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "ab1ffdf3e3cbb7689667eb07daba64ddadf06252fc54f832bfb34e21c72e8cc3",
+        "d61eb8698ff570cec16f7193d9ff52924103d774aa73503f3166948922f3b20e",
+        "854aadd112ec1a1bb6971cd258b449ca8b627eb8795628de833d02463b5fd2df",
+        "19bc2553d298993a89c5c3404946e15546430615670d5b3ea4f7124636e2ed71",
+        "951669b855cbc0ae8136f594fb739d6c0de020d234c249dc341b5170c749213c"
+      ],
+      "construction_failures": 92,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 71,
+      "first_command_compatible": 151,
+      "generated": 151,
+      "hard_valid": 141,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 108,
+        "eight_point_curvature_screen": 80
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+00",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 14,
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 10,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G1": 5,
+        "G2": 2,
+        "G3": 3
+      },
+      "compatible_common_goal": 13,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G1:a0.16-b0.20-c-0.04",
+        "G1:a0.20-b0.14-c-0.02",
+        "G1:a0.20-b0.20-c-0.04",
+        "G1:a0.20-b0.20-c-0.02",
+        "G1:a0.20-b0.20-c+0.00",
+        "G2:constant",
+        "G2:symmetric_ramp",
+        "G3:L0.60-f0.30-0",
+        "G3:L0.60-f0.30-1",
+        "G3:L0.60-f0.30-2"
+      ],
+      "compatible_path_shas": [
+        "2d996623f8bc438f7f7f79bcf7c25e9f616db0ea69d4d15913d31eca0b06ec38",
+        "adad87c34d51cebdbd5884b1c1da2dc11c2ef7ba7cde5f76a07f022c8fed212b",
+        "18859a820da689d55284810ae9ea6cbc6d1dfebaf14528e8c528ec606181c83c",
+        "5dd2ac4cd8f58462b0bd327500e623d6007613f7767f678476e4a88a69727a51",
+        "d568dbf0edbf2451eff9ee898c659abefd3ef959b4f9d121608358ca85c48dbc",
+        "1fefb8f51a399adc5615363c2e54e97c451b9a85744417eef5e3e266d8369f10",
+        "b47728a6cb9c2c0ac863ce1e1c780282f4601499dfb1672c2b0119e83edda848",
+        "240820b2ab89fb2a82cd582b02d426de40339b4c577c95366765f687b7de56e2",
+        "a979287f4fef56c08f4c2970b997d158b5f5fccaaa42963ce8086530c966672b",
+        "0bc324b015d7009f15a4f5c27699f95b1ef42ce21f315491679026eae54254b2",
+        "cbdca4cf5b1b864a68fd62f355d0b1ded861d91634dae64e168eb7c92c241f09",
+        "c23b1bd9bf9bfe77e0faa8ced5349e1c39dc1b533a32327f181d67613c9e0637",
+        "9c0ff916439c1897616a5e29bce6e17f55664478a61ffee959c3cbfcb712422b"
+      ],
+      "construction_failures": 108,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 51,
+      "first_command_compatible": 135,
+      "generated": 135,
+      "hard_valid": 125,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 5.0,
+        "maximum_mode_count": 5,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 121,
+        "eight_point_curvature_screen": 84
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+10",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    },
+    {
+      "analytic_compatible": 11,
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 20,
+      "compatible_B_ablation": 1,
+      "compatible_by_family": {
+        "G0A": 3,
+        "G2": 1,
+        "G3": 6
+      },
+      "compatible_common_goal": 10,
+      "compatible_ids": [
+        "G0A:A-direct-0.00",
+        "G0A:A-left-0.04",
+        "G0A:A-right-0.04",
+        "G2:constant",
+        "G3:L0.61-f0.50-0",
+        "G3:L0.61-f0.50-1",
+        "G3:L0.61-f0.50-2",
+        "G3:L0.61-f0.49-0",
+        "G3:L0.61-f0.49-1",
+        "G3:L0.61-f0.49-2"
+      ],
+      "compatible_path_shas": [
+        "8d8aef82bb814fdc35d8880121a9058ecf4944a5e4ff70c18bb62483b2ee696f",
+        "4058f67b20f990fcf2700f5e1af8abde6c01b91ef980f1447bfbf0ac15a98ac6",
+        "c343ddf3f62ede1a2f8b8e9976428022993041471fccd5f577b3b981d68b68b7",
+        "18cfa0a51e334a8f9cf55218944fe431df1f1431b960d2c338d80429c2f9f9c1",
+        "5fe9ff4c922323bc3a4f242ea9c4e5da4cf1e00ef6069e71ba3a44fb42c0286d",
+        "4040c88aa4a9a8de9d7423412b9c2f2761e965dc1aedecc63743857ba3446565",
+        "473ca70d024719a5d746678c5ab77cd83e28bee0448ac73ea811128bd526fe87",
+        "64a479c22bb2c509c4c4bfd68caafae6c20bf3c17703c0d7f28c15d359022e58",
+        "6297b5895b8bb605ada0edc3fc5858fa494eac064a98d5fc038ea983be51d91b",
+        "e3bdd80eea1b5b16c448e3e7515a81e8eade3578f34e65e1364f3ad3db4f729f"
+      ],
+      "construction_failures": 106,
+      "distinct_terrain_separated_pair_count": 0,
+      "eight_point_compatible": 13,
+      "first_command_compatible": 137,
+      "generated": 137,
+      "hard_valid": 127,
+      "maximum_distinct_finite_library": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "rejection_reasons": {
+        "analytic_curvature_screen": 126,
+        "eight_point_curvature_screen": 124
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+20",
+      "symmetric_direct_plus_pairs": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            0,
+            1,
+            2
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only",
+      "terrain_pair_by_family": {}
+    }
+  ],
+  "mode_criteria": {
+    "curvature_profile_rms_min_per_m": 0.12,
+    "distinct_path_sha_required": true,
+    "full_rms_min_m": 0.01,
+    "signed_lateral_max_difference_min_m": 0.012,
+    "swept_exclusive_min_m2": 0.01
+  },
+  "symmetric_direct_plus_pairs_groups": {
+    "3": 40,
+    "5": 0,
+    "7": 0
+  },
+  "unconstrained_distinct_min_median_max": [
+    3,
+    4.0,
+    5
+  ],
+  "unconstrained_groups_at_least": {
+    "3": 40,
+    "5": 16,
+    "7": 0
+  }
+}

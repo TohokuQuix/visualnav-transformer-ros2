@@ -1,0 +1,34 @@
+{
+  "bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "curvature_screen_per_m": 1.236,
+  "dense_spacing_max_m": 0.02,
+  "endpoint_tolerance_m": 0.001,
+  "fixed_bank_B_policy": "separate local-endpoint ablation; never combine with common-goal family",
+  "forbidden_inputs": [
+    "Outcome",
+    "reward",
+    "Critic",
+    "learned evaluator"
+  ],
+  "future_path_xy_points": 8,
+  "goal_distance_m": 0.6,
+  "initial_tangent_max_error_rad": 1e-06,
+  "known_corridor_common_bins_min": 5,
+  "known_corridor_rms_min_m": 0.01,
+  "mode_rule": "all five criteria; identical or near C0 alone does not invalidate Path",
+  "mode_separation": {
+    "curvature_profile_rms_min_per_m": 0.12,
+    "distinct_path_sha_required": true,
+    "full_rms_min_m": 0.01,
+    "signed_lateral_max_difference_min_m": 0.012,
+    "swept_exclusive_min_m2": 0.01
+  },
+  "no_rollout": true,
+  "schema": "eatnav_curvature_attainable_v1"
+}

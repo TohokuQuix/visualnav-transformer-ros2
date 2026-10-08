@@ -1,0 +1,116 @@
+{
+  "G0A": "exact prior common-endpoint cubic baseline",
+  "G0A_amplitudes_m": [
+    0.0,
+    0.04,
+    0.08,
+    0.12,
+    0.16,
+    0.2
+  ],
+  "G0B": "exact prior local-endpoint ablation; excluded from common bank",
+  "G0B_offsets_m": [
+    0.0,
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.12
+  ],
+  "G1": "fixed forward start tangent cubic, deterministic control grid",
+  "G1_forward_handles_m": [
+    0.08,
+    0.12,
+    0.16,
+    0.2
+  ],
+  "G1_terminal_handles_m": [
+    0.08,
+    0.14,
+    0.2
+  ],
+  "G1_terminal_lateral_m": [
+    -0.08,
+    -0.06,
+    -0.04,
+    -0.02,
+    0.0,
+    0.02,
+    0.04,
+    0.06,
+    0.08
+  ],
+  "G2": "integrated constant/ramp/symmetric/sign-changing curvature profiles; bounded least-squares endpoint solve",
+  "G2_profiles": [
+    "constant",
+    "linear_ramp",
+    "symmetric_ramp",
+    "sign_change"
+  ],
+  "G2_signchange_a_per_m": [
+    -0.8,
+    -0.4,
+    0.0,
+    0.4,
+    0.8
+  ],
+  "G2_signchange_lengths_m": [
+    0.6,
+    0.66,
+    0.72,
+    0.78
+  ],
+  "G3": "arc-line-arc and biarc with continuous pose/tangent, bounded two-curvature solve",
+  "G3_curvature_initial_seeds": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.7,
+      -0.7
+    ],
+    [
+      -0.7,
+      0.7
+    ]
+  ],
+  "G3_lengths_m": [
+    0.6,
+    0.612,
+    0.62,
+    0.68,
+    0.74,
+    0.8
+  ],
+  "G3_segment_fractions": [
+    [
+      0.5,
+      0.0,
+      0.5
+    ],
+    [
+      0.495,
+      0.01,
+      0.495
+    ],
+    [
+      0.25,
+      0.5,
+      0.25
+    ],
+    [
+      0.2,
+      0.5,
+      0.3
+    ],
+    [
+      0.3,
+      0.5,
+      0.2
+    ]
+  ],
+  "endpoint_projection_allowed": false,
+  "selection_uses_Outcome": false,
+  "solver_endpoint_tolerance_m": 0.001
+}

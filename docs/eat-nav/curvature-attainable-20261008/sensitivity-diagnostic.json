@@ -1,0 +1,394 @@
+{
+  "bearing_isolated_scope": {
+    "bearing_0_five_symmetric_groups": 0,
+    "bearing_0_only_groups": 8,
+    "remove_20_deg_groups_is_not_a_pass_of_frozen_gate": true
+  },
+  "finite_library_observation": {
+    "five_symmetric_groups": 0,
+    "minimum_modes": 3
+  },
+  "frozen": {
+    "bearings_deg": [
+      -20,
+      -10,
+      0,
+      10,
+      20
+    ],
+    "curvature_screen_per_m": 1.236,
+    "goal_distance_m": 0.6,
+    "point_count": 8
+  },
+  "frozen_bearing_analysis": {
+    "-10": {
+      "minimum_screen_for_two_per_side_ignoring_mode_separation": {
+        "left": 0.7209476527260991,
+        "right": 1.777777777777779
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 7
+      },
+      "point_count_discrete_only": {
+        "12": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": true
+        },
+        "16": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": true
+        },
+        "8": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": false
+        }
+      },
+      "unique_side_supply_by_curvature_screen": {
+        "1.236": {
+          "direct": 1,
+          "left": 11,
+          "right": 1
+        },
+        "1.5": {
+          "direct": 1,
+          "left": 16,
+          "right": 1
+        },
+        "1.8": {
+          "direct": 1,
+          "left": 20,
+          "right": 2
+        },
+        "2.0": {
+          "direct": 1,
+          "left": 23,
+          "right": 3
+        },
+        "2.7": {
+          "direct": 1,
+          "left": 31,
+          "right": 6
+        },
+        "3.0": {
+          "direct": 1,
+          "left": 34,
+          "right": 7
+        }
+      }
+    },
+    "-20": {
+      "minimum_screen_for_two_per_side_ignoring_mode_separation": {
+        "left": 1.140067144418914,
+        "right": 1.7777777777777786
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "point_count_discrete_only": {
+        "12": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": true
+        },
+        "16": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": true
+        },
+        "8": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": false
+        }
+      },
+      "unique_side_supply_by_curvature_screen": {
+        "1.236": {
+          "direct": 1,
+          "left": 8,
+          "right": 1
+        },
+        "1.5": {
+          "direct": 1,
+          "left": 10,
+          "right": 1
+        },
+        "1.8": {
+          "direct": 1,
+          "left": 13,
+          "right": 2
+        },
+        "2.0": {
+          "direct": 1,
+          "left": 15,
+          "right": 2
+        },
+        "2.7": {
+          "direct": 1,
+          "left": 22,
+          "right": 3
+        },
+        "3.0": {
+          "direct": 1,
+          "left": 25,
+          "right": 3
+        }
+      }
+    },
+    "0": {
+      "minimum_screen_for_two_per_side_ignoring_mode_separation": {
+        "left": 0.0160825567893242,
+        "right": 0.0160825567893242
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 771,
+        "curvature_profile": 502,
+        "identical_path_sha": 174,
+        "signed_lateral": 764,
+        "swept_exclusive_area": 424
+      },
+      "point_count_discrete_only": {
+        "12": {
+          "analytic_screen_pass": 42,
+          "discrete_screen_pass": 42,
+          "not_source_parity_validated": true
+        },
+        "16": {
+          "analytic_screen_pass": 42,
+          "discrete_screen_pass": 42,
+          "not_source_parity_validated": true
+        },
+        "8": {
+          "analytic_screen_pass": 42,
+          "discrete_screen_pass": 42,
+          "not_source_parity_validated": false
+        }
+      },
+      "unique_side_supply_by_curvature_screen": {
+        "1.236": {
+          "direct": 2,
+          "left": 10,
+          "right": 10
+        },
+        "1.5": {
+          "direct": 2,
+          "left": 12,
+          "right": 12
+        },
+        "1.8": {
+          "direct": 2,
+          "left": 14,
+          "right": 14
+        },
+        "2.0": {
+          "direct": 2,
+          "left": 17,
+          "right": 17
+        },
+        "2.7": {
+          "direct": 2,
+          "left": 24,
+          "right": 24
+        },
+        "3.0": {
+          "direct": 2,
+          "left": 25,
+          "right": 25
+        }
+      }
+    },
+    "10": {
+      "minimum_screen_for_two_per_side_ignoring_mode_separation": {
+        "left": 1.777777777777779,
+        "right": 0.7209476527260991
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 34,
+        "curvature_profile": 5,
+        "signed_lateral": 23,
+        "swept_exclusive_area": 4
+      },
+      "point_count_discrete_only": {
+        "12": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": true
+        },
+        "16": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": true
+        },
+        "8": {
+          "analytic_screen_pass": 13,
+          "discrete_screen_pass": 13,
+          "not_source_parity_validated": false
+        }
+      },
+      "unique_side_supply_by_curvature_screen": {
+        "1.236": {
+          "direct": 1,
+          "left": 1,
+          "right": 11
+        },
+        "1.5": {
+          "direct": 1,
+          "left": 1,
+          "right": 16
+        },
+        "1.8": {
+          "direct": 1,
+          "left": 2,
+          "right": 20
+        },
+        "2.0": {
+          "direct": 1,
+          "left": 3,
+          "right": 23
+        },
+        "2.7": {
+          "direct": 1,
+          "left": 6,
+          "right": 31
+        },
+        "3.0": {
+          "direct": 1,
+          "left": 7,
+          "right": 34
+        }
+      }
+    },
+    "20": {
+      "minimum_screen_for_two_per_side_ignoring_mode_separation": {
+        "left": 1.7777777777777786,
+        "right": 1.140067144418914
+      },
+      "mode_conflict_reasons": {
+        "centerline_rms": 28,
+        "curvature_profile": 21,
+        "signed_lateral": 24,
+        "swept_exclusive_area": 21
+      },
+      "point_count_discrete_only": {
+        "12": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": true
+        },
+        "16": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": true
+        },
+        "8": {
+          "analytic_screen_pass": 10,
+          "discrete_screen_pass": 10,
+          "not_source_parity_validated": false
+        }
+      },
+      "unique_side_supply_by_curvature_screen": {
+        "1.236": {
+          "direct": 1,
+          "left": 1,
+          "right": 8
+        },
+        "1.5": {
+          "direct": 1,
+          "left": 1,
+          "right": 10
+        },
+        "1.8": {
+          "direct": 1,
+          "left": 2,
+          "right": 13
+        },
+        "2.0": {
+          "direct": 1,
+          "left": 2,
+          "right": 15
+        },
+        "2.7": {
+          "direct": 1,
+          "left": 3,
+          "right": 22
+        },
+        "3.0": {
+          "direct": 1,
+          "left": 3,
+          "right": 25
+        }
+      }
+    }
+  },
+  "goal_distance_isolated_geometry_only": {
+    "0.75": {
+      "-20": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 1,
+          "left": 3,
+          "right": 2
+        },
+        "two_per_side_supply_only": true
+      },
+      "0": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 16,
+          "left": 5,
+          "right": 5
+        },
+        "two_per_side_supply_only": true
+      },
+      "20": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 1,
+          "left": 2,
+          "right": 3
+        },
+        "two_per_side_supply_only": true
+      }
+    },
+    "0.9": {
+      "-20": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 1,
+          "left": 5,
+          "right": 3
+        },
+        "two_per_side_supply_only": true
+      },
+      "0": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 16,
+          "left": 5,
+          "right": 5
+        },
+        "two_per_side_supply_only": true
+      },
+      "20": {
+        "not_a_mode_or_readiness_result": true,
+        "screen_compatible_curve_supply_without_DEM_or_C0": {
+          "direct": 1,
+          "left": 3,
+          "right": 5
+        },
+        "two_per_side_supply_only": true
+      }
+    }
+  },
+  "interpretation": "second opposite-side supply at nonzero bearings requires a higher mathematical curvature screen in this library; at zero bearing mode conflicts remain. No single isolated change establishes the five-candidate readiness gate, and DEM/follower constraints require new review.",
+  "no_threshold_or_path_count_changed": true,
+  "status": "diagnostic_only_no_adoption"
+}
