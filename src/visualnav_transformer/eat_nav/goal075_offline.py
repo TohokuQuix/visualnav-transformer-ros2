@@ -4,9 +4,14 @@ import math
 import itertools
 
 import numpy as np
+from scipy.optimize import least_squares
 
 from .curvature_attainable import solve_symmetric_target
-from .goal_bank_offline import audit_geometry, corridor_audit, follower_diagnostic
+from .curvature_attainable import (
+    generate_goal_library, cubic_controls, build_curve, integrate_profile,
+    profile_curve, piecewise_arc_line_arc, piecewise_curve,
+)
+from .goal_bank_offline import audit_geometry, corridor_audit, follower_diagnostic, _sample_grid
 
 
 BEARINGS_DEG = (-20, -10, 0, 10, 20)
@@ -37,7 +42,110 @@ def contract075():
             'candidate_count_primary':5,'candidate_sides':['direct','left','left','right','right'],
             'source_anchor_count':8,'state_group_count':40,
             'separation_frame':'goal-ray-relative',
+            'supplemental_G1_forward_handles_m':[.24,.28],
+            'supplemental_G1_terminal_handles_m':[.12,.20,.28],
+            'supplemental_G1_lateral_m':[-.12,-.08,0.,.08,.12],
+            'supplemental_G2_G3_lengths_m':[.75,.78,.80,.84,.88,.92],
+            'supplemental_G2_signchange_a_per_m':[-1.,-.5,0.,.5,1.],
+            'supplemental_G3_fractions':[[.5,0.,.5],[.25,.5,.25],[.2,.5,.3],[.3,.5,.2]],
             'no_rollout':True}
+
+
+def generate_goal075_library(goal):
+    """Extend the SHA-frozen G0–G3 generator with 0.75 m-relevant lengths."""
+    goal=np.asarray(goal,dtype=float)
+    curves,failures=generate_goal_library(goal)
+    failures=[{**row,'source_parameters':{'frozen_variant_id':row['variant_id'],
+              'parameter_detail':'see SHA-frozen G0–G3 generator source'},
+              'first_failed_constraint':row['reason']} for row in failures]
+    for forward in (.24,.28):
+        for terminal in (.12,.20,.28):
+            for lateral in (-.12,-.08,0.,.08,.12):
+                variant=f'075-a{forward:.2f}-b{terminal:.2f}-c{lateral:+.2f}'
+                params={'forward_handle_m':forward,'terminal_handle_m':terminal,
+                        'terminal_lateral_m':lateral}
+                try:curves.append(build_curve('G1',cubic_controls(goal,forward,terminal,lateral),
+                                              goal,variant=variant))
+                except ValueError as exc:
+                    failures.append({'family':'G1','variant_id':variant,'source_parameters':params,
+                                     'reason':str(exc),'first_failed_constraint':str(exc)})
+    for length in (.75,.78,.80,.84,.88,.92):
+        for a in (-1.,-.5,0.,.5,1.):
+            variant=f'075-signchange-L{length:.2f}-a{a:+.1f}'
+            def profile(b,c):
+                return lambda t:a*np.sin(2*np.pi*t)+b*np.sin(4*np.pi*t)+c
+            def residual(values):return integrate_profile(length,profile(*values))[-1]-goal
+            solved=least_squares(residual,[0.,0.],bounds=([-1.236,-1.236],[1.236,1.236]),
+                                 max_nfev=90,xtol=1e-10,ftol=1e-10,gtol=1e-10)
+            b,c=map(float,solved.x)
+            params={'profile':'sign_change','length_m':length,'a_per_m':a,
+                    'b_per_m':b,'c_per_m':c}
+            error=float(np.linalg.norm(solved.fun))
+            if error>.001:
+                failures.append({'family':'G2','variant_id':variant,'source_parameters':params,
+                                 'reason':'endpoint_solver_residual','first_failed_constraint':'endpoint_tolerance_m',
+                                 'endpoint_error_m':error})
+            else:
+                try:curves.append(profile_curve('G2',variant,goal,length,profile(b,c),params))
+                except ValueError as exc:
+                    failures.append({'family':'G2','variant_id':variant,'source_parameters':params,
+                                     'reason':str(exc),'first_failed_constraint':str(exc)})
+    fractions_list=((.5,0.,.5),(.25,.5,.25),(.2,.5,.3),(.3,.5,.2))
+    for length in (.75,.78,.80,.84,.88,.92):
+        for fractions in fractions_list:
+            for seed_index,initial in enumerate(((0.,0.),(.7,-.7),(-.7,.7))):
+                variant=f'075-L{length:.2f}-f{fractions[0]:.2f}-{seed_index}'
+                def residual(curvatures):
+                    return piecewise_arc_line_arc(length,*curvatures,fractions)[-1]-goal
+                solved=least_squares(residual,initial,bounds=([-1.236,-1.236],[1.236,1.236]),
+                                     max_nfev=90,xtol=1e-10,ftol=1e-10,gtol=1e-10)
+                values=tuple(map(float,solved.x))
+                params={'length_m':length,'curvatures_per_m':values,
+                        'fractions':fractions,'solver_seed_index':seed_index}
+                error=float(np.linalg.norm(solved.fun))
+                if error>.001:
+                    failures.append({'family':'G3','variant_id':variant,'source_parameters':params,
+                                     'reason':'endpoint_solver_residual','first_failed_constraint':'endpoint_tolerance_m',
+                                     'endpoint_error_m':error})
+                else:
+                    try:curves.append(piecewise_curve(variant,goal,length,values,fractions))
+                    except ValueError as exc:
+                        failures.append({'family':'G3','variant_id':variant,'source_parameters':params,
+                                         'reason':str(exc),'first_failed_constraint':str(exc)})
+    return curves,failures
+
+
+def class_proxy_interval(row,height,mask,end_m):
+    """Path-aligned three-band diagnostic, evaluated at a named arc endpoint."""
+    from .radial_interaction import DIFFERENTIAL_M,GRADE_SLOPE,HEIGHT_CHANGE_M,STEP_CHANGE_M
+    clipped=prefix_row(row,end_m)
+    stations=np.linspace(0,end_m,round(end_m/.1)+1)
+    center=np.stack([np.interp(stations,clipped['stations_m'],clipped['dense'][:,axis])
+                     for axis in range(2)],axis=1)
+    tangent=np.gradient(center,axis=0)
+    tangent/=np.linalg.norm(tangent,axis=1)[:,None]
+    normal=np.stack((-tangent[:,1],tangent[:,0]),axis=1)
+    profiles={};coverage={}
+    for name,offset in (('left',.3),('center',0.),('right',-.3)):
+        _,known,values,_,_=_sample_grid(center+offset*normal,np.asarray(height),np.asarray(mask))
+        coverage[name]=float(known.mean())
+        profiles[name]=values if known.all() else None
+    result={'class_proxy':'unknown','band_known_fraction':coverage,
+            'interval_arc_m':[0.,float(end_m)],
+            'method':'path_aligned_3_band_diagnostic_not_frozen_anchor_classifier'}
+    if min(coverage.values())<.5 or any(value is None for value in profiles.values()):
+        return result
+    all_profiles=np.stack([profiles[name] for name in ('left','center','right')])
+    lateral=float(np.max(np.ptp(all_profiles,axis=0)))
+    step=float(np.max(np.abs(np.diff(all_profiles,axis=1))))
+    central=profiles['center'];delta=float(central[-1]-np.median(central[:2]))
+    slope=step/max(float(stations[1]-stations[0]),1e-12)
+    if lateral>=DIFFERENTIAL_M:cls='differential'
+    elif step>=STEP_CHANGE_M and abs(float(central[1]-central[0]))<HEIGHT_CHANGE_M:cls='transition'
+    elif abs(delta)>=HEIGHT_CHANGE_M or slope>=GRADE_SLOPE:cls='graded'
+    else:cls='flat-only'
+    return {**result,'class_proxy':cls,'max_lateral_difference_m':lateral,
+            'maximum_step_m':step,'forward_height_change_m':delta,'maximum_slope':slope}
 
 
 def initial_forward_tangent_valid(tangent):
@@ -169,9 +277,10 @@ def coverage_record(row,height,mask,proxies):
     if set(proxies)!=expected:
         raise ValueError('all four frozen collision proxies required')
     primary=prefix_row(row,.6)
+    full=prefix_row(row,.75)
     dem_primary=corridor_audit(primary,height,mask,proxies)
-    dem_full=corridor_audit(row,height,mask,proxies)
-    curve=np.asarray(row['dense'],dtype=float)
+    dem_full=corridor_audit(full,height,mask,proxies)
+    curve=np.asarray(full['dense'],dtype=float)
     tangent=np.gradient(curve,axis=0)
     tangent/=np.linalg.norm(tangent,axis=1)[:,None]
     normal=np.stack((-tangent[:,1],tangent[:,0]),axis=1)

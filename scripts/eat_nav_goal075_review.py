@@ -34,7 +34,8 @@ from visualnav_transformer.eat_nav.goal_bank_offline import pairwise_audit
 from visualnav_transformer.eat_nav.goal_bank_offline import corridor_class_proxy
 from visualnav_transformer.eat_nav.goal075_offline import (
     contract075, goal075, audit_candidate, side_relative_to_direct,
-    variable_count_mask, prefix_row, coverage_record,
+    variable_count_mask, prefix_row, coverage_record, generate_goal075_library,
+    class_proxy_interval,
 )
 
 BASE_COMMIT='bb85939e716376017b909e564938ec00b11e849b'
@@ -230,6 +231,10 @@ def terrain_support_gate(groups,pairs_by_group):
             'late_only_pairs_never_count':True}
 
 
+def baseline_distinct_terrain_count(pairs):
+    return sum(row['distinct'] and row['terrain_separated'] for row in pairs)
+
+
 def variable_group_diagnostic(group):
     target=group['symmetric_targets']['5'] if group['symmetric_targets']['5']['feasible'] else group['symmetric_targets']['3']
     if not target['feasible']:
@@ -240,15 +245,16 @@ def variable_group_diagnostic(group):
 
 
 def terrain_pair_from_rows(row_a,row_b,primary_a,primary_b,full_a,full_b,*,mode_distinct):
-    def clipped_dem(dem):
-        copy={**dem,'known_height_profile_m':[p for p in dem['known_height_profile_m'] if p[0]<=.6+1e-9]}
+    def clipped_dem(dem,end):
+        copy={**dem,'known_height_profile_m':[p for p in dem['known_height_profile_m'] if p[0]<=end+1e-9]}
         main=dem['corridors']['main_track_sprocket']
         copy['corridors']={**dem['corridors'],'main_track_sprocket':{
-            **main,'known_corridor_profile_m':[p for p in main['known_corridor_profile_m'] if p[0]<=.6+1e-9]}}
+            **main,'known_corridor_profile_m':[p for p in main['known_corridor_profile_m'] if p[0]<=end+1e-9]}}
         return copy
     primary=pairwise_audit(prefix_row(row_a,.6),prefix_row(row_b,.6),
-                           clipped_dem(primary_a),clipped_dem(primary_b))
-    full=pairwise_audit(row_a,row_b,full_a,full_b)
+                           clipped_dem(primary_a,.6),clipped_dem(primary_b,.6))
+    full=pairwise_audit(prefix_row(row_a,.75),prefix_row(row_b,.75),
+                        clipped_dem(full_a,.75),clipped_dem(full_b,.75))
     def separated(metric):
         return (mode_distinct and metric['common_known_corridor_bins']>=5
                 and metric['known_corridor_profile_rms_m'] is not None
@@ -280,8 +286,10 @@ def enrich_group_terrain(group,anchor):
              'arc_length_m':curve['arc_length_m']}
         coverage=coverage_record(row,anchor['dem'][0],anchor['dem'][1],anchor['proxy_bboxes'])
         class_proxy=corridor_class_proxy(row,anchor['dem'][0],anchor['dem'][1])
+        full_class_proxy=class_proxy_interval(row,anchor['dem'][0],anchor['dem'][1],.75)
         record['coverage']={key:value for key,value in coverage.items() if not key.startswith('_')}
         record['path_aligned_class_proxy']=class_proxy
+        record['path_aligned_class_proxy_full_diagnostic']=full_class_proxy
         record['interaction_onset_primary_m']=coverage['_dem_primary']['interaction_onset_station_m']
         record['interaction_onset_full_m']=coverage['_dem_full']['interaction_onset_station_m']
         by_id[record['candidate_id']]=(row,coverage,record)
@@ -374,10 +382,17 @@ def paired_baseline(old_counts,old_records,old_pairs,new_groups):
                        'seed_label':group['seed_label'],'source_family':group['source_family'],
                        'terrain_class':group['terrain_class'],'bearing_deg':group['bearing_deg'],
                        'baseline_060':{'compatible_common_goal':old['compatible_common_goal'],
+                           'compatible_after_new_forward_tangent_screen_diagnostic':sum(
+                               r['initial_tangent_error_rad']<=1e-6 for r in old_compatible),
+                           'G0A_nonforward_compatible_exempted_by_frozen_baseline':sum(
+                               r['family']=='G0A' and r['initial_tangent_error_rad']>1e-6
+                               for r in old_compatible),
                            'maximum_distinct':old['maximum_distinct_finite_library']['maximum_mode_count'],
                            'symmetric':{str(n):old['symmetric_direct_plus_pairs'][str(n)]['feasible']
                                         for n in (3,5,7)},
-                           'terrain_separated_pairs_primary_and_full':sum(p['terrain_separated'] for p in old_pair),
+                           'terrain_separated_pairs_primary_and_full':baseline_distinct_terrain_count(old_pair),
+                           'terrain_separated_but_not_mode_distinct_diagnostic':sum(
+                               p['terrain_separated'] and not p['distinct'] for p in old_pair),
                            'compatible_summary':old_stats,'endpoint_distance_m':.6,
                            'nominal_endpoint_time_s':2.0},
                        'revised_075':{'compatible_common_goal':group['source_compatible_count'],
@@ -400,6 +415,7 @@ def paired_baseline(old_counts,old_records,old_pairs,new_groups):
                      for value in sorted({r[key] for r in output})}
     return {'statistical_unit':'StateGroup; curves/pairs are definitions, not independent trials',
             'paired_state_groups':output,'strata':strata,
+            'screen_comparability_caveat':'Frozen 0.60 m audit exempted G0A from forward-tangent rejection; revised 0.75 m audit does not. Baseline compatible and mode counts remain frozen; same-screen compatible count is diagnostic only.',
             'planning_horizon_m':[.6,.75],'nominal_endpoint_time_s':[2.,2.5],
             'unchanged_teacher_duration_s':2.,
             'old_full_060_is_new_primary_length_but_different_path_geometry':True}
@@ -416,7 +432,7 @@ def _figure_set(output,groups,libraries,baseline,bank,coverage,terrain):
         fig.tight_layout();fig.savefig(figdir/name,dpi=140);plt.close(fig)
     def paths(ax):
         for label,curves,style in (('0.60 m',old_curves,'--'),('0.75 m',new_curves,'-')):
-            for candidate in ('G2:constant','G1:ramp-left-0.10','G1:ramp-right-0.10'):
+            for candidate in ('G2:constant','G0A:A-left-0.12','G0A:A-right-0.12'):
                 if candidate in curves:
                     xy=curves[candidate]['dense'];ax.plot(xy[:,0],xy[:,1],style,label=label+' '+candidate)
         ax.axis('equal');ax.legend(fontsize=6)
@@ -495,7 +511,7 @@ def run_review(backup_root,output_root):
         frozen['old_groups'],frozen['prior']['redesign060']['selected-candidate-definitions.json'])
     write(output_root/'g0-path-regression.json',parity)
     anchor_by={a['anchor_id']:a for a in frozen['anchors']}
-    libraries={bearing:generate_goal_library(goal075(bearing)) for bearing in (-20,-10,0,10,20)}
+    libraries={bearing:generate_goal075_library(goal075(bearing)) for bearing in (-20,-10,0,10,20)}
     library_rows={str(b):{'curves':[{key:plain(value) for key,value in curve.items()}
                                     for curve in libraries[b][0]],
                           'construction_failures':libraries[b][1]}
@@ -541,8 +557,27 @@ def run_review(backup_root,output_root):
                     all(g['hard_valid_count']>=5 and g['source_compatible_count']>=5 and
                         g['symmetric_targets']['5']['feasible'] for g in groups) and
                     all(row['feasible'] for row in bank.values()))
-    mode_rows=[];primary_rows=[];full_rows=[];coverage_rows=[];variable_rows=[]
+    mode_rows=[];primary_rows=[];full_rows=[];coverage_rows=[];variable_rows=[];candidate_audits=[]
     for g in groups:
+        candidate_audits.extend({'state_group_id':g['state_group_id'],
+                                 'candidate_id':r['candidate_id'],
+                                 'family':r['family'],'variant_id':r['variant_id'],
+                                 'hard_valid':r['hard_valid'],'compatible':r['compatible'],
+                                 'reasons':r['reasons'],
+                                 'dense_max_curvature_per_m':r['dense_max_curvature_per_m'],
+                                 'eight_point_max_curvature_per_m':r['eight_point_max_curvature_per_m'],
+                                 'endpoint_error_m':r['endpoint_error_m'],
+                                 'initial_tangent_error_rad':r['initial_tangent_error_rad'],
+                                 'first_command':r['follower']['initial_command_estimate'],
+                                 'turn_in_place_estimate':r['follower']['turn_in_place_entry'],
+                                 'reverse_estimate':r['follower']['reverse_estimate'],
+                                 'path_sha256':r['geometry'].get('path_sha256'),
+                                 'interaction_onset_primary_m':r.get('interaction_onset_primary_m'),
+                                 'interaction_onset_full_m':r.get('interaction_onset_full_m'),
+                                 'path_aligned_class_proxy':r.get('path_aligned_class_proxy'),
+                                 'path_aligned_class_proxy_full_diagnostic':r.get('path_aligned_class_proxy_full_diagnostic'),
+                                 'coverage':r.get('coverage')}
+                                for r in g['_records'])
         mode_rows.append({k:v for k,v in g.items() if k not in
                           ('_records','_compatible','_pair_rows','_conflicts','_terrain_pairs',
                            'compatible_coverage_summary')})
@@ -565,6 +600,9 @@ def run_review(backup_root,output_root):
         'fixed_five_geometry_ready':geometry_ready,
         'mode_rule':PRIOR_CONFIG['mode_separation'],
         'finite_library_only':True})
+    write(output_root/'candidate-audit-075m.json',{
+        'scope':'definition-level records; not independent experimental samples',
+        'groups':40,'records':candidate_audits})
     write(output_root/'terrain-separation-primary-060m.json',{
         'interval_arc_m':[0,.6],'teacher_proxy_not_observed_travel':True,
         'groups':primary_rows})
@@ -638,6 +676,9 @@ def run_review(backup_root,output_root):
         p1['frozen_e1_numeric_gates']=_prospective_P1_P2_gates(Path(__file__).resolve().parents[1])
     write(output_root/'conditional-p1-proposal.json',p1)
     forecast=_forecast(frozen['prior']['goal060']['runtime-storage-forecast.json'])
+    forecast['gpu_peak_plus_20_percent_mib']=1.2*forecast['gpu_peak_reference_mib']
+    forecast['simulator_pss_plus_20_percent_gib']=1.2*forecast['simulator_pss_reference_gib']
+    forecast['anon_shmem_plus_20_percent_gib']=1.2*forecast['anon_shmem_reference_gib']
     write(output_root/'runtime-resource-forecast.json',{
         'conditional_only':True,'prior_distribution_source':frozen['provenance']['archives']['goal060'],
         'prior_numeric_reference':frozen['prior']['goal060']['runtime-storage-forecast.json'],

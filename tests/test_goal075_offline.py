@@ -8,7 +8,8 @@ import pytest
 from visualnav_transformer.eat_nav.goal075_offline import (
     goal075, contract075, initial_forward_tangent_valid,
     side_relative_to_direct, shared_symmetric_bank, audit_candidate,
-    prefix_row, coverage_record, variable_count_mask,
+    prefix_row, coverage_record, variable_count_mask, generate_goal075_library,
+    class_proxy_interval,
 )
 from visualnav_transformer.eat_nav.curvature_attainable import generate_goal_library
 from scripts.eat_nav_goal_bank_review import _read_follower_config, FOLLOWER_CONFIG
@@ -16,7 +17,7 @@ from scripts.eat_nav_goal075_review import (
     verify_inputs, freeze_contract, verify_g0_regression_archive,
     analyze_group_075, terrain_support_gate, variable_group_diagnostic,
     terrain_pair_from_rows, enrich_group_terrain,
-    decide_075, conditional_p1_proposal,
+    decide_075, conditional_p1_proposal, baseline_distinct_terrain_count,
 )
 
 
@@ -30,6 +31,29 @@ def test_goal_contract_separates_path_distance_from_teacher_horizon():
     assert contract['teacher_duration_s']==pytest.approx(2.)
     assert contract['nominal_time_to_endpoint_s']==pytest.approx(2.5)
     assert contract['primary_terrain_arc_end_m']==pytest.approx(.6)
+
+
+def test_supplemental_library_searches_lengths_at_and_above_new_endpoint():
+    curves,failures=generate_goal075_library(goal075(20))
+    attempted={(f['family'],f['source_parameters']['length_m']) for f in failures
+               if f.get('source_parameters',{}).get('length_m') is not None and
+               str(f['variant_id']).startswith('075-')}
+    attempted.update((c['family'],c['source_parameters']['length_m']) for c in curves
+                     if c['variant_id'].startswith('075-') and
+                     c['source_parameters'].get('length_m') is not None)
+    assert ('G2',.75) in attempted
+    assert ('G3',.92) in attempted
+    assert all({'family','variant_id','reason'}<=set(f) for f in failures)
+
+
+def test_full_class_proxy_can_detect_late_terrain_without_changing_primary():
+    stations=np.linspace(0,.75,76)
+    row={'stations_m':stations,'dense':np.stack((stations,np.zeros_like(stations)),axis=1),
+         'arc_length_m':.75}
+    height=np.zeros((20,20));height[:,17:]=.15
+    mask=np.ones((20,20))
+    assert class_proxy_interval(row,height,mask,.6)['class_proxy']=='flat-only'
+    assert class_proxy_interval(row,height,mask,.75)['class_proxy']!='flat-only'
 
 
 def test_nonforward_g0a_tangent_is_not_admitted_even_if_endpoint_matches():
@@ -180,6 +204,34 @@ def test_late_only_terrain_rms_is_diagnostic_not_primary():
     result=terrain_pair_from_rows(row,row,dem(zero),dem(zero),dem(zero),dem(late),mode_distinct=True)
     assert not result['primary_separated']
     assert result['full_separated']
+
+
+def test_full_diagnostic_excludes_arc_length_after_point_seven_five():
+    stations=np.round(np.linspace(0,.9,19),2)
+    row={'stations_m':stations,'dense':np.stack((stations,np.zeros_like(stations)),axis=1),
+         'arc_length_m':.9}
+    def dem(profile):
+        return {'known_height_profile_m':[[float(s),float(h)] for s,h in zip(stations,profile)],
+                'corridors':{'main_track_sprocket':{
+                    'known_corridor_profile_m':[[float(s),float(h)] for s,h in zip(stations,profile)],
+                    'swept_cells':[[0,i] for i in range(19)],
+                    'known_swept_cells':[[0,i] for i in range(19)]}}}
+    zero=np.zeros(19);after=np.where(stations>.75,.1,0.)
+    result=terrain_pair_from_rows(row,row,dem(zero),dem(zero),dem(zero),dem(after),
+                                  mode_distinct=True)
+    assert not result['full_separated']
+    assert result['full_diagnostic']['common_absolute_arc_length_m']==pytest.approx(.75)
+    proxies={name:[[-.05,-.05],[.05,.05]] for name in
+             ('main_track_sprocket','initial_flipper_support','articulated_reach','full_collision_union')}
+    coverage=coverage_record(row,np.zeros((20,20)),np.ones((20,20)),proxies)
+    assert coverage['_dem_full']['known_height_profile_m'][-1][0]==pytest.approx(.75)
+
+
+def test_baseline_terrain_count_requires_geometric_distinctness():
+    pairs=[{'terrain_separated':True,'distinct':False},
+           {'terrain_separated':True,'distinct':True},
+           {'terrain_separated':False,'distinct':True}]
+    assert baseline_distinct_terrain_count(pairs)==1
 
 
 def test_group_terrain_audit_keeps_primary_and_full_coverage_separate():
