@@ -1,0 +1,62 @@
+{
+  "claim_limit": "source graph only; archived-trace relabel fixture remains required",
+  "dataflow": {
+    "Actor observation/action": "obs policy/critic from environment; policy action from captured obs (e1_sim.py:468\u2013509)",
+    "Critic input/value": "obs critic and capture_actor_critic (e1_sim.py:488)",
+    "Path generation": "frozen base_path input; mission goal metadata is not used to build it (e1_sim.py:414\u2013429)",
+    "Path publication": "fixed map Path from base_path and anchor pose to bridge reset (e1_sim.py:436)",
+    "bridge command delivery": "CommandOverride injects follower base_velocity command (e1_sim.py:447\u2013467)",
+    "follower command": "bridge step returns TwistStamped for published Path and pose (e1_sim.py:447\u2013466)",
+    "post-run goal distance": "old e1_analyze.py:129,154\u2013155 uses local Path endpoint; new common-goal label must be recomputed",
+    "reward and termination": "env.step reward and termination manager (e1_sim.py:476\u2013482,509\u2013522); onix rough_env_cfg/rewards.py",
+    "simulator dynamics": "env.step uses Actor action and other frozen env actions (e1_sim.py:506\u2013513)"
+  },
+  "goal_uses": [
+    {
+      "classification": "logging_only",
+      "consumer": "diagnostic_fields",
+      "field": "mission_logged_goal",
+      "source": "scripts/eat_nav_e1_sim.py:256"
+    },
+    {
+      "classification": "logging_only",
+      "consumer": "diagnostic_fields",
+      "field": "goal_xy",
+      "source": "scripts/eat_nav_e1_sim.py:257"
+    },
+    {
+      "classification": "offline_label_only",
+      "consumer": "outcome",
+      "field": "goal_distance",
+      "interpretation": "historic local-endpoint metric cannot substitute for new common-goal label",
+      "source": "scripts/eat_nav_e1_analyze.py:129,154\u2013155"
+    }
+  ],
+  "held_fixed": "anchor, candidate Path, follower and bridge state, random state, RL checkpoint",
+  "relabeling_source_valid": true,
+  "schema": "global_goal_runtime_dependency_audit_v1",
+  "separate_nonrelabelable_dependencies": [
+    {
+      "classification": "physical_execution_dependency",
+      "consumer": "input validation",
+      "field": "state_id/base_path_sha256",
+      "interpretation": "Path identity is frozen and held fixed under relabeling",
+      "source": "scripts/eat_nav_e1_sim.py:321\u2013323"
+    },
+    {
+      "classification": "physical_execution_dependency",
+      "consumer": "pre-Path anchor gate",
+      "field": "selected DEM goal",
+      "interpretation": "historical anchor gate input, not the relabelable global navigation goal",
+      "source": "scripts/eat_nav_e1_sim.py:405\u2013412"
+    }
+  ],
+  "source_sha256": {
+    "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/tasks/locomotion/velocity/config/onix/rough_env_cfg.py": "f357e63f7f8b95caa5b6c6ac064cf1b76cc38a797edd7c435c01f2373d79ac71",
+    "/home/kojima/lib/onix_isaac_lab/source/onix_isaac_lab/onix_isaac_lab/tasks/locomotion/velocity/mdp/rewards.py": "1e8ddec3ec265204eb872081692de36c12959620556c472cf5bef19137bcc535",
+    "/tmp/eatnav-vnt-local-primitives-offline/scripts/eat_nav_e1_analyze.py": "08e78ac58bdef55dba26ad9c2333e64b042f1dfdbd56866ce38ac76dd8e3bf64",
+    "/tmp/eatnav-vnt-local-primitives-offline/scripts/eat_nav_e1_run_one.py": "c1e835e79951ce829ec649d363c42ccb938c5af8b53ef5f664be81bd55518db7",
+    "/tmp/eatnav-vnt-local-primitives-offline/scripts/eat_nav_e1_sim.py": "9e2a40f0b283d4581219302c3f2f0782b00ca825e07653bbe3924dd5c47cec07",
+    "/tmp/eatnav-vnt-local-primitives-offline/scripts/eat_nav_phase_c_ros_bridge.py": "d3bd9bc49593c491cf158c294d32c36ea6b49a7c4365c81853f2e1751b3f6197"
+  }
+}

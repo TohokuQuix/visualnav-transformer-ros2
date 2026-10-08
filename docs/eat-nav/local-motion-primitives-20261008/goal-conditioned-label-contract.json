@@ -1,0 +1,24 @@
+{
+  "direct_reference_rule": "primitive bearing equals common global-goal bearing",
+  "direct_relative_reward": "compare physical runs; never fabricate three repeats for relabeled nonzero goal",
+  "gamma_per_0_05s_control_step": 0.99,
+  "horizon_steps": 40,
+  "local_endpoint_role": "auxiliary Path tracking diagnostic, never goal-reduction teacher",
+  "locomotion_invariant_under_goal_relabel": [
+    "discounted_reward_2s",
+    "contact",
+    "tilt",
+    "effort",
+    "termination",
+    "realized_trajectory"
+  ],
+  "navigation_recomputed_for_common_global_goal": [
+    "goal_distance_reduction_2s",
+    "final_distance_to_global_goal_m",
+    "minimum_distance_to_global_goal_m",
+    "progress_along_goal_ray_m",
+    "signed_lateral_deviation_m",
+    "candidate_endpoint_residual_m"
+  ],
+  "scalar_tradeoff_fitted": false
+}

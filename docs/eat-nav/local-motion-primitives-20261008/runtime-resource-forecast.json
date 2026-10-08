@@ -1,0 +1,38 @@
+{
+  "P1_28_processes": {
+    "artifact_count_estimate": 1232,
+    "p95_per_process_conservative_hours": 1.5041135181556455,
+    "p95_plus_20_percent_hours": 1.8049362217867746,
+    "point_hours": 1.374497870965771,
+    "point_plus_20_percent_hours": 1.649397445158925,
+    "storage_plus_20_percent_gb": 0.32008187290434786,
+    "storage_point_gb": 0.26673489408695655
+  },
+  "gpu_device_total_hard_cap_mib": 6656,
+  "measured_candidate_runs": 23,
+  "measured_cpu_anon_peak_gib": 2.4116172790527344,
+  "measured_gpu_device_peak_mib": 5949.0,
+  "measured_process_tree_anon_plus_shmem_peak_gib": 3.7244033813476562,
+  "not_authorized_to_execute": true,
+  "optional_32_nonzero_goal_aligned_repeats": {
+    "p95_plus_20_percent_hours": 2.0627842534706,
+    "point_hours": 1.5708547096751666,
+    "storage_plus_20_percent_gb": 0.3658078547478261
+  },
+  "per_process_wall_mean_sec": 176.72115483845624,
+  "per_process_wall_p95_sec": 193.38602376286872,
+  "process_tree_resource_source_sha256": "09f7c2044a1aecfb7ec0f6ff5a68a78c9ae02e0a53c120c67a2c5eed92072bd4",
+  "protocol_contract": {
+    "candidate_free_X2": true,
+    "completion_marker": true,
+    "coordinate_frame_correction": true,
+    "external_operator_owned_zenoh": true,
+    "finalization_grace": true,
+    "heartbeat": true,
+    "native_exit_zero": true,
+    "owned_residual_zero": true,
+    "ownership_registry": true,
+    "retry_count": 0
+  },
+  "source": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-expanded-feasibility-ros-continuation-20261005/runs"
+}

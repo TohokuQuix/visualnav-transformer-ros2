@@ -1,0 +1,40 @@
+{
+  "Path": "eight future robot-local XY points; origin implicit",
+  "candidate_order": "increasing_bearing",
+  "common_global_goal_bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "common_global_goal_distance_m": 0.75,
+  "curvature_screen_per_m": 1.236,
+  "full_terrain_diagnostic": "through each complete Path endpoint",
+  "initial_tangent_xy": [
+    1.0,
+    0.0
+  ],
+  "local_endpoint_bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "local_endpoint_chord_distance_m": 0.75,
+  "local_endpoint_is_navigation_teacher": false,
+  "no_rollout_authorized": true,
+  "physical_anchor_count": 8,
+  "physical_definition_count": 40,
+  "potential_correlated_label_count": 200,
+  "primary_terrain_arc_m": [
+    0.0,
+    0.6
+  ],
+  "reverse_allowed": false,
+  "schema": "eatnav_local_motion_primitive_contract_v1",
+  "self_intersection_allowed": false,
+  "teacher_control_steps": 40,
+  "teacher_step_s": 0.05
+}
