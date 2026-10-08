@@ -8,7 +8,9 @@ from visualnav_transformer.eat_nav.curvature_attainable import (
     eight_point_curvature, solve_distinct_modes,
     solve_symmetric_target,
 )
-from scripts.eat_nav_curvature_attainable import row_for, source_visible_path_terms
+from scripts.eat_nav_curvature_attainable import (
+    row_for, source_visible_path_terms, verify_anchor_identity,
+)
 
 
 def test_cubic_has_forward_initial_tangent_and_exact_endpoint():
@@ -77,3 +79,15 @@ def test_source_visible_path_terms_use_eight_actual_points():
     assert terms['nearest_projection_segment_index']==0
     assert terms['remaining_polyline_m']==pytest.approx(.525)
     assert not terms['goal_extension_branch_expected']
+
+
+def test_anchor_freeze_rejects_dem_history_change_even_when_ids_match():
+    frozen=[{'anchor_id':f'a{i}','pose_id':f'p{i}',
+             'dem_history_sha256':[f'd{i}-{j}' for j in range(4)],
+             'source_path_shas':{'pose':f's{i}'},'settled_map_xy_yaw':[0.,0.,0.]}
+            for i in range(8)]
+    current=[dict(row) for row in frozen]
+    assert verify_anchor_identity(current,frozen)['all_fields_match_prior_eight_anchor_freeze']
+    current[2]['dem_history_sha256']=['wrong']*4
+    with pytest.raises(ValueError,match='dem_history_sha256'):
+        verify_anchor_identity(current,frozen)

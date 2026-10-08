@@ -10,6 +10,7 @@ import itertools
 import json
 import math
 from pathlib import Path
+import subprocess
 import tarfile
 
 import matplotlib
@@ -30,6 +31,15 @@ from visualnav_transformer.eat_nav.goal_bank_offline import (
     follower_diagnostic, goal_for_bearing, pairwise_audit, path_sha)
 
 REDESIGN_ARCHIVE_SHA = '36a6b011510a633c16b0bc9ba35b8c7d941e87739dd68cb9b758308b8e619c59'
+BASE_COMMIT = '87b42aa836c213ce78a5c853c64878b14a0e43d1'
+BASE_DECISION_SOURCES = (
+    'src/visualnav_transformer/eat_nav/candidate_bank_geometry.py',
+    'src/visualnav_transformer/eat_nav/goal_bank_offline.py',
+    'src/visualnav_transformer/eat_nav/goal_bank_redesign.py',
+    'src/visualnav_transformer/eat_nav/radial_interaction.py',
+    'scripts/eat_nav_goal_bank_review.py',
+    'scripts/eat_nav_goal_bank_redesign.py',
+)
 MODE = {'full_rms_min_m':.01, 'swept_exclusive_min_m2':.01,
         'signed_lateral_max_difference_min_m':.012,
         'curvature_profile_rms_min_per_m':.12,
@@ -128,6 +138,34 @@ def verify_g0_regression(groups:list[dict],libraries:dict,redesign:Path) -> dict
     return {'matched_selected_prior_paths':matched,'prior_count':len(prior),
             'selected_candidate_definitions_sha256':sha(redesign/'selected-candidate-definitions.json'),
             'G0A_B_exact_path_sha':True}
+
+
+def verify_base_sources(root:Path) -> dict:
+    result={}
+    for relative in BASE_DECISION_SOURCES:
+        expected=subprocess.check_output(['git','show',f'{BASE_COMMIT}:{relative}'],cwd=root)
+        actual=(root/relative).read_bytes()
+        if actual!=expected:
+            raise ValueError('decision dependency differs from base commit: '+relative)
+        result[relative]={'sha256':hashlib.sha256(actual).hexdigest(),
+                          'verified_against_base_commit':BASE_COMMIT}
+    return result
+
+
+def verify_anchor_identity(anchors:list[dict],frozen:list[dict]) -> dict:
+    if len(anchors)!=8 or len(frozen)!=8:
+        raise ValueError('eight anchor identity required')
+    tested=[]
+    for anchor,old in zip(anchors,frozen):
+        differences=[key for key,expected in old.items()
+                     if key not in anchor or plain(anchor[key])!=expected]
+        if differences:
+            raise ValueError(f"frozen anchor mismatch {old.get('anchor_id')}: {differences}")
+        tested.append({'anchor_id':old['anchor_id'],'pose_id':old['pose_id'],
+                       'dem_history_sha256':old['dem_history_sha256'],
+                       'source_path_shas':old['source_path_shas']})
+    return {'all_fields_match_prior_eight_anchor_freeze':True,
+            'anchor_count':8,'verified':tested}
 
 
 def row_for(curve:dict,goal:np.ndarray) -> dict:
@@ -318,8 +356,50 @@ def analyze_group(group:dict,anchor:dict,curves:list[dict],failures:list[dict],
     return record,records,pair_rows
 
 
+def alternative_attainable(curves:list[dict],goal:np.ndarray,anchor:dict,
+                           follower:dict,screen_per_m:float) -> dict:
+    """Diagnostic-only full mode recheck for one anchor and one isolated change."""
+    valid=[]
+    for curve in curves:
+        if curve['family']=='G0B':continue
+        row=row_for(curve,goal)
+        geometry=audit_geometry(row,goal,anchor['settled_map_xy_yaw'])
+        if not geometry['hard_valid'] or curve['endpoint_error_m']>ENDPOINT_TOLERANCE_M:
+            continue
+        if np.linalg.norm(curve['waypoints'][-1]-goal)>ENDPOINT_TOLERANCE_M:
+            continue
+        if max(curve['analytic_or_dense_max_curvature_per_m'],
+               curve['eight_point_max_curvature_per_m'])>screen_per_m:
+            continue
+        command=follower_diagnostic(row,follower)
+        if command['command_mode']!='tracking' or command['reverse_estimate']:
+            continue
+        dem=corridor_audit(row,anchor['dem'][0],anchor['dem'][1],
+                           {'main_track_sprocket':anchor['proxy_bboxes']['main_track_sprocket']})
+        if (dem['centerline_known_fraction']==0 or
+                dem['corridors']['main_track_sprocket']['known_fraction']==0):
+            continue
+        valid.append((curve,dem,signed_side(curve,goal)[0]))
+    conflicts=[]
+    for i,j in itertools.combinations(range(len(valid)),2):
+        if not separation(valid[i][0],valid[j][0],valid[i][1],valid[j][1],goal)['distinct']:
+            conflicts.append((i,j))
+    maximum=solve_distinct_modes(len(valid),conflicts)
+    direct=next((i for i,(curve,_,_) in enumerate(valid)
+                 if curve['family']=='G0A' and curve['variant_id']=='A-direct-0.00'),None)
+    sides=[side for _,_,side in valid]
+    targets={str(1+2*n):solve_symmetric_target(sides,conflicts,pair_count=n,
+               direct_index=direct)['feasible'] if direct is not None else False for n in (1,2,3)}
+    return {'anchor_id':anchor['anchor_id'],'compatible_supply':len(valid),
+            'side_supply':dict(Counter(sides)),
+            'maximum_distinct_finite_library':maximum['maximum_mode_count'],
+            'maximum_solver_optimal':maximum['optimal'],
+            'symmetric_direct_plus_pairs':targets,
+            'not_a_frozen_readiness_result':True}
+
+
 def sensitivity_diagnostic(groups:list[dict],counts:list[dict],libraries:dict,
-                           all_records:list[dict]) -> dict:
+                           all_records:list[dict],anchors_by:dict,follower:dict) -> dict:
     """Isolated mathematical perturbations; never reuse as a frozen experiment."""
     bearing_cases={}
     for bearing in BEARINGS_DEG:
@@ -356,10 +436,16 @@ def sensitivity_diagnostic(groups:list[dict],counts:list[dict],libraries:dict,
              'minimum_screen_for_two_per_side_ignoring_mode_separation':required,
              'point_count_discrete_only':point_count,
              'mode_conflict_reasons':next(c['mode_conflict_reasons'] for c in counts if c['state_group_id']==group['state_group_id'])}
+    anchor=anchors_by[groups[0]['anchor_id']]
+    alternative_screens={}
+    for screen in (1.5,1.8,2.):
+        alternative_screens[str(screen)]={str(b):alternative_attainable(
+            libraries[b][0],np.asarray(goal_for_bearing(b)),anchor,follower,screen)
+            for b in BEARINGS_DEG}
     distances={}
     for distance in (.75,.9):
         distances[str(distance)]={}
-        for bearing in (-20,0,20):
+        for bearing in BEARINGS_DEG:
             goal=np.asarray(goal_for_bearing(bearing))*distance/.6
             curves,_=generate_goal_library(goal)
             usable=[c for c in curves if c['family']!='G0B'
@@ -369,17 +455,20 @@ def sensitivity_diagnostic(groups:list[dict],counts:list[dict],libraries:dict,
             distances[str(distance)][str(bearing)]={
                 'screen_compatible_curve_supply_without_DEM_or_C0':dict(sides),
                 'two_per_side_supply_only':sides['left']>=2 and sides['right']>=2,
-                'not_a_mode_or_readiness_result':True}
+                'representative_anchor_mode_recheck':alternative_attainable(
+                    curves,goal,anchor,follower,CURVATURE_LIMIT_PER_M),
+                'not_a_frozen_readiness_result':True}
     return {'status':'diagnostic_only_no_adoption',
       'frozen':{'goal_distance_m':.6,'bearings_deg':list(BEARINGS_DEG),
                 'curvature_screen_per_m':CURVATURE_LIMIT_PER_M,'point_count':8},
       'finite_library_observation':{'minimum_modes':min(r['maximum_distinct_finite_library']['maximum_mode_count'] for r in counts),
           'five_symmetric_groups':sum(r['symmetric_direct_plus_pairs']['5']['feasible'] for r in counts)},
       'frozen_bearing_analysis':bearing_cases,
+      'changed_curvature_screen_one_anchor_mode_recheck':alternative_screens,
       'goal_distance_isolated_geometry_only':distances,
       'bearing_isolated_scope':{'bearing_0_only_groups':8,'bearing_0_five_symmetric_groups':sum(r['bearing_deg']==0 and r['symmetric_direct_plus_pairs']['5']['feasible'] for r in counts),
                                 'remove_20_deg_groups_is_not_a_pass_of_frozen_gate':True},
-      'interpretation':'second opposite-side supply at nonzero bearings requires a higher mathematical curvature screen in this library; at zero bearing mode conflicts remain. No single isolated change establishes the five-candidate readiness gate, and DEM/follower constraints require new review.',
+      'interpretation':'The representative first-transition anchor reaches symmetric five at a 1.8/m mathematical curvature screen or 0.75m goal distance, when each is changed alone and the same finite-library mode solver is rerun. The former exceeds the frozen production compatibility screen; the latter requires a changed experiment and verification across all 40 physical StateGroups. No altered setting is adopted.',
       'no_threshold_or_path_count_changed':True}
 
 
@@ -411,18 +500,26 @@ def _plot(output:Path,counts:list[dict],examples:dict) -> None:
             if kind in ('curvature','regions','discretization'):
                 ax.axhline(CURVATURE_LIMIT_PER_M,color='red',linestyle='--',label='1.236 screen')
             if kind=='discretization':ax.axvline(CURVATURE_LIMIT_PER_M,color='red',linestyle='--')
+            labels={'curves':('robot-forward x (m)','robot-left y (m)'),
+                    'curvature':('arc length (m)','signed curvature (1/m)'),
+                    'regions':('Path arc length (m)','maximum dense curvature (1/m)'),
+                    'discretization':('maximum dense curvature (1/m)','eight-point curvature (1/m)')}
+            ax.set_xlabel(labels[kind][0]);ax.set_ylabel(labels[kind][1])
         elif kind=='counts':
             for bearing in BEARINGS_DEG:
                 subset=[r['maximum_distinct_finite_library']['maximum_mode_count'] for r in counts if r['bearing_deg']==bearing]
                 ax.scatter([bearing]*len(subset),subset)
             ax.set_xticks(BEARINGS_DEG)
+            ax.set_xlabel('goal bearing (degrees)');ax.set_ylabel('distinct finite-library modes')
         elif kind=='terrain':
             labels=[r['terrain_class'] for r in counts]
             ax.bar(range(len(counts)),[r['distinct_terrain_separated_pair_count'] for r in counts])
             ax.set_xticks(range(len(counts)),labels,rotation=90,fontsize=5)
+            ax.set_xlabel('StateGroup terrain class');ax.set_ylabel('compatible known-terrain pairs')
         elif kind=='gates':
             ax.bar(['3','5','7'],[sum(r['symmetric_direct_plus_pairs'][n]['feasible'] for r in counts) for n in ('3','5','7')])
             ax.axhline(40,color='red',linestyle='--')
+            ax.set_xlabel('direct + symmetric candidate target');ax.set_ylabel('qualifying StateGroups / 40')
         else:
             ax.text(.04,.75,'source SHA + C0 parity → G0–G3 geometry → follower screen',transform=ax.transAxes)
             ax.text(.04,.5,'→ distinct finite-library modes → 3 / 5 / 7 gates',transform=ax.transAxes)
@@ -440,15 +537,19 @@ def run(backup:Path,prior:Path,redesign:Path,output:Path) -> dict:
     anchors,anchor_sources=load_anchor_inputs(backup)
     groups=read(prior/'state-groups.json')
     old_anchors=read(prior/'eight-anchor-freeze.json')
-    if len(anchors)!=8 or len(groups)!=40 or [a['anchor_id'] for a in anchors]!=[a['anchor_id'] for a in old_anchors]:
+    if len(anchors)!=8 or len(groups)!=40:
         raise ValueError('anchor or group freeze mismatch')
+    anchor_identity=verify_anchor_identity(anchors,old_anchors)
     for group in groups:
         if not np.allclose(group['global_goal_base_xy_m'],goal_for_bearing(group['bearing_deg']),atol=1e-12):
             raise ValueError('goal freeze mismatch')
     source_exact=_source_exact_audit(backup,_read_follower_config(FOLLOWER_CONFIG))
     root=Path(__file__).resolve().parents[1]
     gates=_prospective_P1_P2_gates(root)
-    provenance.update({'anchor_source':anchor_sources,'selected_anchors':[
+    provenance.update({'anchor_source':anchor_sources,
+         'frozen_anchor_identity':anchor_identity,
+         'base_decision_source_sha256':verify_base_sources(root),
+         'selected_anchors':[
         {'anchor_id':a['anchor_id'],'pose_id':a['pose_id'],'seed_label':a['seed_label'],
          'source_family':a['source_family'],'dem_history_sha256':a['dem_history_sha256'],
          'source_path_shas':a['source_path_shas']} for a in anchors],
@@ -498,9 +599,12 @@ def run(backup:Path,prior:Path,redesign:Path,output:Path) -> dict:
         all_pairs.extend([{'state_group_id':record['state_group_id'],**pair} for pair in pairs])
         if index==0:
             examples['all_curves']=list(zip(curves,candidates))
+        if group['bearing_deg']==0 and group['anchor_id']==anchors[0]['anchor_id']:
             for family in ('G0A','G0B','G1','G2','G3'):
-                selected=next(((curve,r) for curve,r in zip(curves,candidates) if curve['family']==family and r['combined_compatible']),None)
-                if selected:examples['curves'].append(selected)
+                options=[(curve,r) for curve,r in zip(curves,candidates)
+                         if curve['family']==family and r['combined_compatible']]
+                if options:
+                    examples['curves'].append(max(options,key=lambda pair:abs(pair[1]['signed_mean_lateral_m'])))
         print(f"{index+1}/40 {record['state_group_id']} compatible={record['compatible_common_goal']} distinct={record['maximum_distinct_finite_library']['maximum_mode_count']}",flush=True)
     # Dense per-candidate/per-pair diagnostics remain outside Git.
     write(output/'curve-library-records.json',all_records)
@@ -545,7 +649,8 @@ def run(backup:Path,prior:Path,redesign:Path,output:Path) -> dict:
     else:decision='candidate_diversity_infeasible_under_frozen_follower_contract'
     if not all_optimal:decision='offline_geometry_or_source_parity_invalid'
     # Diagnostic perturbations remain entirely outside the frozen experiment.
-    sensitivity=sensitivity_diagnostic(groups,counts,by_bearing,all_records)
+    sensitivity=sensitivity_diagnostic(groups,counts,by_bearing,all_records,anchor_by,
+                                       _read_follower_config(FOLLOWER_CONFIG))
     write(output/'sensitivity-diagnostic.json',sensitivity)
     forecast_source=read(redesign/'runtime-storage-forecast.json')
     forecast=_forecast(read(prior/'runtime-storage-forecast.json'))
@@ -590,7 +695,7 @@ Compatible common-goal curves by family across 40 groups: {family_stats}. Each c
 
 The exact finite-library independent-set solver reached optimal status in all groups: {all_optimal}. Unconstrained distinct modes have min/median/max {min(values)}/{np.median(values):g}/{max(values)}. By bearing (eight physical anchors each): {by_bearing}. Although 16/40 groups have five unconstrained distinct modes, none has direct plus two mutually distinct left/right pairs. Symmetric 3/5/7 target groups: {target_counts[3]}/{target_counts[5]}/{target_counts[7]} of 40. The five gate is {gates_report['5']['ready']}; the seven gate is {gates_report['7']['ready']}.
 
-At nonzero bearings, the counterbearing side supplies only one candidate under the frozen screen in this library. The second opposite-side Path needs approximately 1.778 m^-1 curvature even before distinct-mode checks. At bearing 0, both side pools exist but pairwise centerline/swept/lateral/curvature-profile separation prevents two left/right pairs. Testing 12 or 16 Path points does not add analytic-compatible supply for this library; production first-command parity for those representations was not established. At 0.75 m distance, a geometry-only library supplies at least two curves per side at -20, 0 and +20 degrees, but DEM coverage, distinct modes and follower command have not been tested for the changed goal, so it is not a readiness result.
+At nonzero bearings, the counterbearing side supplies only one candidate under the frozen screen in this library. The second opposite-side Path needs approximately 1.778 m^-1 curvature even before distinct-mode checks. At bearing 0, both side pools exist but pairwise centerline/swept/lateral/curvature-profile separation prevents two left/right pairs. Testing 12 or 16 Path points does not add analytic-compatible supply for this library; production first-command parity for those representations was not established. As an isolated sensitivity check on the first-transition anchor only, a 1.8 m^-1 mathematical curvature screen or a 0.75 m goal distance reaches symmetric five in all five bearings after rerunning the distinct-mode solver and known-DEM/initial-command checks. The former is outside the production follower screen; the latter is a new goal contract. Neither establishes readiness across 40 groups or changes the frozen result.
 
 ## Terrain and scope
 
