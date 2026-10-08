@@ -18,6 +18,7 @@ from scripts.eat_nav_goal075_review import (
     analyze_group_075, terrain_support_gate, variable_group_diagnostic,
     terrain_pair_from_rows, enrich_group_terrain,
     decide_075, conditional_p1_proposal, baseline_distinct_terrain_count,
+    recompute_baseline_primary_terrain,
 )
 
 
@@ -44,6 +45,9 @@ def test_supplemental_library_searches_lengths_at_and_above_new_endpoint():
     assert ('G2',.75) in attempted
     assert ('G3',.92) in attempted
     assert all({'family','variant_id','reason'}<=set(f) for f in failures)
+    legacy=[f for f in failures if not f['variant_id'].startswith('075-')]
+    assert all(f['source_parameters'].get('optimized_solution') is not None for f in legacy)
+    assert all(f['first_failed_constraint']=='endpoint_tolerance_m' for f in legacy)
 
 
 def test_full_class_proxy_can_detect_late_terrain_without_changing_primary():
@@ -71,6 +75,8 @@ def test_input_freeze_verifies_eight_physical_anchors_and_prior_generator():
     assert len(frozen['old_groups'])==40
     assert frozen['provenance']['prior_curvature_decision']=='candidate_diversity_infeasible_under_frozen_follower_contract'
     assert frozen['provenance']['generator_sha_match']
+    assert len(frozen['provenance']['new_goal075_generator_sha256'])==64
+    assert len(frozen['provenance']['new_goal075_review_runner_sha256'])==64
 
 
 def test_contract_freeze_refuses_preexisting_output_root(tmp_path):
@@ -242,6 +248,16 @@ def test_baseline_terrain_count_requires_geometric_distinctness():
            {'terrain_separated':True,'distinct':True},
            {'terrain_separated':False,'distinct':True}]
     assert baseline_distinct_terrain_count(pairs)==1
+
+
+def test_baseline_primary_terrain_is_recomputed_on_point_six_arc():
+    root=os.environ.get('EATNAV_FROZEN_ARTIFACT_ROOT')
+    if not root:pytest.skip('requires preserved EAT-Nav backup root')
+    frozen=verify_inputs(Path(root))
+    result=recompute_baseline_primary_terrain(frozen)
+    assert len(result)==40
+    assert result['first-transition-b-20']['arc_end_m']==pytest.approx(.6)
+    assert result['first-transition-b-20']['mode_distinct_pair_count']>=0
 
 
 def test_group_terrain_audit_keeps_primary_and_full_coverage_separate():

@@ -2,6 +2,7 @@
 
 import math
 import itertools
+import re
 
 import numpy as np
 from scipy.optimize import least_squares
@@ -55,9 +56,9 @@ def generate_goal075_library(goal):
     """Extend the SHA-frozen G0–G3 generator with 0.75 m-relevant lengths."""
     goal=np.asarray(goal,dtype=float)
     curves,failures=generate_goal_library(goal)
-    failures=[{**row,'source_parameters':{'frozen_variant_id':row['variant_id'],
-              'parameter_detail':'see SHA-frozen G0–G3 generator source'},
-              'first_failed_constraint':row['reason']} for row in failures]
+    failures=[{**row,'source_parameters':_legacy_failure_parameters(goal,row),
+               'first_failed_constraint':('endpoint_tolerance_m' if row['reason']=='endpoint_solver_residual'
+                                          else row['reason'])} for row in failures]
     for forward in (.24,.28):
         for terminal in (.12,.20,.28):
             for lateral in (-.12,-.08,0.,.08,.12):
@@ -113,6 +114,57 @@ def generate_goal075_library(goal):
                         failures.append({'family':'G3','variant_id':variant,'source_parameters':params,
                                          'reason':str(exc),'first_failed_constraint':str(exc)})
     return curves,failures
+
+
+def _legacy_failure_parameters(goal,row):
+    """Recover optimized values omitted by the unchanged historical generator."""
+    family=row['family'];variant=row['variant_id']
+    def verified(solution):
+        if abs(float(np.linalg.norm(solution.fun))-float(row['endpoint_error_m']))>1e-8:
+            raise ValueError('frozen failure reconstruction residual mismatch: '+family+':'+variant)
+        return solution
+    if family=='G2' and variant in ('constant','linear_ramp','symmetric_ramp'):
+        shapes={'constant':lambda t:np.ones_like(t),
+                'linear_ramp':lambda t:t,
+                'symmetric_ramp':lambda t:np.sin(np.pi*t)}
+        shape=shapes[variant];scale=float(np.max(np.abs(shape(np.linspace(0,1,513)))))
+        limit=1.236/scale;beta=math.atan2(goal[1],goal[0])
+        initial=[.62,float(np.clip(2*beta/.62,-limit*.8,limit*.8))]
+        def residual(values):
+            length,k=values
+            return integrate_profile(length,lambda t:k*shape(t))[-1]-goal
+        solved=verified(least_squares(residual,initial,bounds=([.6,-limit],[1.,limit]),
+                             max_nfev=90,xtol=1e-11,ftol=1e-11,gtol=1e-11))
+        return {'profile':variant,'initial_guess':initial,'length_bounds_m':[.6,1.],
+                'amplitude_bounds_per_m':[-limit,limit],
+                'optimized_solution':{'length_m':float(solved.x[0]),
+                                      'amplitude_per_m':float(solved.x[1])}}
+    if family=='G2' and variant.startswith('signchange-'):
+        match=re.fullmatch(r'signchange-L([0-9.]+)-a([+-][0-9.]+)',variant)
+        if match is None:raise ValueError('unknown frozen G2 failure variant '+variant)
+        length=float(match.group(1));a=float(match.group(2))
+        def profile(b,c):return lambda t:a*np.sin(2*np.pi*t)+b*np.sin(4*np.pi*t)+c
+        def residual(values):return integrate_profile(length,profile(*values))[-1]-goal
+        solved=verified(least_squares(residual,[0.,0.],bounds=([-1.236,-1.236],[1.236,1.236]),
+                             max_nfev=90,xtol=1e-10,ftol=1e-10,gtol=1e-10))
+        return {'profile':'sign_change','length_m':length,'a_per_m':a,
+                'b_c_bounds_per_m':[-1.236,1.236],
+                'optimized_solution':{'b_per_m':float(solved.x[0]),'c_per_m':float(solved.x[1])}}
+    if family=='G3':
+        match=re.fullmatch(r'L([0-9.]+)-f([0-9.]+)-([0-9]+)',variant)
+        if match is None:raise ValueError('unknown frozen G3 failure variant '+variant)
+        length=.612 if match.group(1)=='0.61' else float(match.group(1))
+        fractions={'0.50':(.5,0.,.5),'0.49':(.495,.01,.495),
+                   '0.25':(.25,.5,.25),'0.20':(.2,.5,.3),'0.30':(.3,.5,.2)}[match.group(2)]
+        seed_index=int(match.group(3))
+        initial=((0.,0.),(.7,-.7),(-.7,.7))[seed_index]
+        def residual(values):return piecewise_arc_line_arc(length,*values,fractions)[-1]-goal
+        solved=verified(least_squares(residual,initial,bounds=([-1.236,-1.236],[1.236,1.236]),
+                             max_nfev=90,xtol=1e-10,ftol=1e-10,gtol=1e-10))
+        return {'length_m':length,'fractions':fractions,'solver_seed_index':seed_index,
+                'initial_curvatures_per_m':initial,'curvature_bounds_per_m':[-1.236,1.236],
+                'optimized_solution':{'curvatures_per_m':list(map(float,solved.x))}}
+    raise ValueError('unknown frozen construction failure: '+family+':'+variant)
 
 
 def class_proxy_interval(row,height,mask,end_m):

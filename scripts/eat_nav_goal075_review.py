@@ -30,7 +30,7 @@ from visualnav_transformer.eat_nav.curvature_attainable import (
 )
 from visualnav_transformer.eat_nav.goal075_offline import shared_symmetric_bank
 from visualnav_transformer.eat_nav.goal_bank_offline import goal_for_bearing
-from visualnav_transformer.eat_nav.goal_bank_offline import pairwise_audit
+from visualnav_transformer.eat_nav.goal_bank_offline import pairwise_audit, corridor_audit
 from visualnav_transformer.eat_nav.goal_bank_offline import corridor_class_proxy
 from visualnav_transformer.eat_nav.goal075_offline import (
     contract075, goal075, audit_candidate, side_relative_to_direct,
@@ -114,6 +114,8 @@ def verify_inputs(backup_root):
                 'generator_sha_match':generator_sha_match,
                 'generator_source_sha256':current_generator,
                 'prior_runner_source_sha256':current_runner,
+                'new_goal075_generator_sha256':sha(root/'src/visualnav_transformer/eat_nav/goal075_offline.py'),
+                'new_goal075_review_runner_sha256':sha(root/'scripts/eat_nav_goal075_review.py'),
                 'base_decision_source_sha256':base_sources,
                 'frozen_e1_gate_sha256':sha(e1_gate),
                 'source_exact_follower':source_exact,
@@ -235,6 +237,52 @@ def baseline_distinct_terrain_count(pairs):
     return sum(row['distinct'] and row['terrain_separated'] for row in pairs)
 
 
+def recompute_baseline_primary_terrain(frozen):
+    """Re-audit the sealed 0.60 m curves on exactly 0–0.60 m of arc length."""
+    old_records=frozen['prior']['curvature060']['curve-library-records.json']
+    old_pairs=frozen['prior']['curvature060']['compatible-distinct-pairs.json']
+    records_by=defaultdict(list);pairs_by=defaultdict(list)
+    for row in old_records:records_by[row['state_group_id']].append(row)
+    for row in old_pairs:pairs_by[row['state_group_id']].append(row)
+    anchor_by={a['anchor_id']:a for a in frozen['anchors']}
+    libraries={b:{(c['family'],c['variant_id']):c
+                  for c in generate_goal_library(goal_for_bearing(b))[0]}
+               for b in (-20,-10,0,10,20)}
+    result={}
+    for group in frozen['old_groups']:
+        identifier=group['state_group_id'];anchor=anchor_by[group['anchor_id']]
+        curves=libraries[group['bearing_deg']]
+        rows={}
+        for record in records_by[identifier]:
+            if not record['combined_compatible'] or record['family']=='G0B':continue
+            curve=curves[(record['family'],record['variant_id'])]
+            row=prefix_row({'dense':curve['dense'],'stations_m':curve['stations_m'],
+                            'arc_length_m':curve['arc_length_m']},.6)
+            dem=corridor_audit(row,anchor['dem'][0],anchor['dem'][1],anchor['proxy_bboxes'])
+            rows[record['variant_id']]=(row,dem)
+        counted=[];missing=[]
+        for pair in pairs_by[identifier]:
+            if not pair['distinct'] or pair['first_family']=='G0B' or pair['second_family']=='G0B':
+                continue
+            if pair['first'] not in rows or pair['second'] not in rows:
+                missing.append([pair['first'],pair['second']]);continue
+            a,da=rows[pair['first']];b,db=rows[pair['second']]
+            metrics=pairwise_audit(a,b,da,db)
+            separated=(metrics['common_known_corridor_bins']>=5 and
+                       metrics['known_corridor_profile_rms_m'] is not None and
+                       metrics['known_corridor_profile_rms_m']>=.01)
+            counted.append({'first':pair['first'],'second':pair['second'],
+                            'primary_separated':bool(separated),
+                            'common_known_corridor_bins':metrics['common_known_corridor_bins'],
+                            'known_corridor_profile_rms_m':metrics['known_corridor_profile_rms_m']})
+        if missing:raise ValueError('old compatible pair references missing curve: '+identifier)
+        result[identifier]={'arc_end_m':.6,'mode_distinct_pair_count':len(counted),
+                            'primary_terrain_separated_pair_count':sum(p['primary_separated'] for p in counted),
+                            'pairs':counted}
+    if len(result)!=40:raise ValueError('40 baseline primary terrain audits required')
+    return result
+
+
 def variable_group_diagnostic(group):
     target=group['symmetric_targets']['5'] if group['symmetric_targets']['5']['feasible'] else group['symmetric_targets']['3']
     if not target['feasible']:
@@ -340,7 +388,7 @@ def conditional_p1_proposal(ready):
     return proposal
 
 
-def paired_baseline(old_counts,old_records,old_pairs,new_groups):
+def paired_baseline(old_counts,old_records,old_pairs,new_groups,old_primary):
     """Definition-level comparison; StateGroup is the unit, never each curve."""
     previous={row['state_group_id']:row for row in old_counts}
     records=defaultdict(list);pairs=defaultdict(list)
@@ -390,7 +438,8 @@ def paired_baseline(old_counts,old_records,old_pairs,new_groups):
                            'maximum_distinct':old['maximum_distinct_finite_library']['maximum_mode_count'],
                            'symmetric':{str(n):old['symmetric_direct_plus_pairs'][str(n)]['feasible']
                                         for n in (3,5,7)},
-                           'terrain_separated_pairs_primary_and_full':baseline_distinct_terrain_count(old_pair),
+                           'terrain_separated_pairs_primary_060':old_primary[identifier]['primary_terrain_separated_pair_count'],
+                           'terrain_separated_pairs_archived_full_path_diagnostic':baseline_distinct_terrain_count(old_pair),
                            'terrain_separated_but_not_mode_distinct_diagnostic':sum(
                                p['terrain_separated'] and not p['distinct'] for p in old_pair),
                            'compatible_summary':old_stats,'endpoint_distance_m':.6,
@@ -418,7 +467,8 @@ def paired_baseline(old_counts,old_records,old_pairs,new_groups):
             'screen_comparability_caveat':'Frozen 0.60 m audit exempted G0A from forward-tangent rejection; revised 0.75 m audit does not. Baseline compatible and mode counts remain frozen; same-screen compatible count is diagnostic only.',
             'planning_horizon_m':[.6,.75],'nominal_endpoint_time_s':[2.,2.5],
             'unchanged_teacher_duration_s':2.,
-            'old_full_060_is_new_primary_length_but_different_path_geometry':True}
+            'old_primary_060_recomputed_from_SHA_frozen_curves_and_anchor_DEM':True,
+            'archived_old_full_path_may_exceed_060_arc':True}
 
 
 def _figure_set(output,groups,libraries,baseline,bank,coverage,terrain):
@@ -616,10 +666,12 @@ def run_review(backup_root,output_root):
         'available_groups':sum(row['available'] for row in variable_rows),
         'groups':variable_rows,
         'integration_note':'A validity mask could support 3–5 real candidates in a later model/loss revision; no training contract changed.'})
+    old_primary=recompute_baseline_primary_terrain(frozen)
+    write(output_root/'baseline-060-primary-terrain-recomputed.json',old_primary)
     baseline=paired_baseline(
         frozen['prior']['curvature060']['candidate-attainable-counts.json']['groups'],
         frozen['prior']['curvature060']['curve-library-records.json'],
-        frozen['prior']['curvature060']['compatible-distinct-pairs.json'],groups)
+        frozen['prior']['curvature060']['compatible-distinct-pairs.json'],groups,old_primary)
     write(output_root/'baseline-060-vs-075-comparison.json',baseline)
     library_pairs={g['state_group_id']:g['_terrain_pairs'] for g in groups}
     library_support=terrain_support_gate(groups,library_pairs)
@@ -697,6 +749,12 @@ def run_review(backup_root,output_root):
             'source_parity_valid':True,'frozen_contract_sha256':freeze['contract_sha256'],
             'figure_count':len(figures)}
     write(output_root/'final-decision.json',result)
+    bearing_summary={str(b):{'compatible_per_group':[g['source_compatible_count'] for g in groups if g['bearing_deg']==b],
+                             'maximum_distinct_per_group':[g['maximum_distinct']['maximum_mode_count']
+                                                            for g in groups if g['bearing_deg']==b],
+                             'symmetric_three_groups':sum(g['bearing_deg']==b and g['symmetric_targets']['3']['feasible'] for g in groups),
+                             'symmetric_five_groups':sum(g['bearing_deg']==b and g['symmetric_targets']['5']['feasible'] for g in groups)}
+                     for b in (-20,-10,0,10,20)}
     report=f'''# 0.75 m common-goal candidate bank: offline review
 
 Decision: `{decision}`. This is a finite-library geometry and DEM review. It does not authorize P1.
@@ -707,9 +765,13 @@ Eight SHA-verified physical anchors, 40 StateGroups, both seeds and five bearing
 
 The fixed-five geometry gate is **{geometry_ready}**: {sum(g['hard_valid_count']>=5 for g in groups)}/40 groups have five hard-valid candidates, {sum(g['source_compatible_count']>=5 for g in groups)}/40 have five follower-compatible candidates, {sum(g['symmetric_targets']['5']['feasible'] for g in groups)}/40 admit direct plus two left/two right locally, and {sum(row['feasible'] for row in bank.values())}/5 bearings admit a shared five-identity bank across all eight anchors. Exact MILP optimal status: {optimal}. All four DEM footprint proxies and known/unknown/outside fractions are retained. The conservative P4 extent is diagnostic, and unknown cells never supply terrain evidence.
 
+Per-bearing compatible supply, exact distinct mode counts and balanced 3/5 feasibility are in `attainable-mode-counts.json`; compact summary: `{bearing_summary}`. The frozen 0.60 m G0A baseline exempted non-forward initial tangents, while the revised hard-valid screen does not. The baseline table retains its original result and separately reports same-screen compatible counts. The 0.60 m primary terrain metric was recomputed on exactly 0–0.60 m using SHA-frozen curves and DEM; archived full-curve terrain values remain diagnostic.
+
 Selected-bank primary terrain gate is **{terrain_ready}**; compatible-library support by class and seed is `{library_support['support']}`. Terrain separation appearing only after arc 0.60 m is excluded from the primary gate. Selected-bank coverage gate is `{coverage_ready if geometry_ready else 'not evaluable without a bank'}`. Variable 3–5 real-candidate diagnostic is available in {sum(row['available'] for row in variable_rows)}/40 groups, with masks and no padding; it does not change the fixed-five decision or model input contract.
 
 The paired 0.60/0.75 comparison uses StateGroup as the unit; curve and candidate-pair definitions are not independent statistical samples. See `baseline-060-vs-075-comparison.json` for seed, source family, bearing and class strata. The 1.236 m^-1 value is an unchanged offline production-follower compatibility screen, not a physical mobility bound or tracking proof. Only the first command is statically estimated; no follower, router, bridge, simulator, Outcome or training ran. P1/P2 are unexecuted and conditional.
+
+The supplemental deterministic G1/G2/G3 search covers length hypotheses through 0.92 m and preserves every failed construction with family, parameters and first failed constraint. It does not prove infeasibility over the continuous curve space. Conditional fresh-process reference forecasts with 20% margin are in `runtime-resource-forecast.json`; no P1 budget is activated by this failed geometry gate.
 
 Large candidate definitions are kept in this output root and SHA listed in `artifact-sha-ledger.json`; compact review files and ten figures are committed separately.
 '''
