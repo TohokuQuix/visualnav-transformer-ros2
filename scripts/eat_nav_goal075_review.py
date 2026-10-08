@@ -199,6 +199,10 @@ def analyze_group_075(anchor,bearing_deg,curves,failures,follower_config):
             'source_compatible_count':len(compatible),
             'compatible_by_family':dict(Counter(r['family'] for _,r in compatible)),
             'rejection_reasons':dict(Counter(reason for r in all_records for reason in r['reasons'])),
+            'rejection_reasons_by_family':{
+                family:dict(Counter(reason for r in all_records if r['family']==family
+                                    for reason in r['reasons']))
+                for family in ('G0A','G1','G2','G3')},
             'hard_valid_ids':[r['candidate_id'] for r in all_records if r['hard_valid']],
             'compatible_ids':[r['candidate_id'] for _,r in compatible],
             'side_by_id':{r['candidate_id']:r['side'] for _,r in compatible},
@@ -339,14 +343,31 @@ def paired_baseline(old_counts,old_records,old_pairs,new_groups):
         identifier=group['state_group_id'];old=previous[identifier]
         old_compatible=[r for r in records[identifier] if r['combined_compatible'] and r['family']!='G0B']
         new_compatible=[r for _,r in group['_compatible']]
-        def stats(rows,curvature_key,command_key):
+        def stats(rows,curvature_key,command_key,old_version):
             speeds=[abs(float(r[command_key]['initial_command_estimate']['angular_z']))
                     for r in rows if r[command_key]['initial_command_estimate']['angular_z'] is not None]
+            terrain=[r['terrain'] if old_version else r['coverage'] for r in rows]
+            if old_version:
+                classes=[r['terrain']['path_aligned_class_proxy'] for r in rows]
+                known=[r['terrain']['centerline_known_fraction'] for r in rows]
+                unknown=[r['terrain']['centerline_unknown_fraction'] for r in rows]
+                outside=None
+            else:
+                classes=[r['path_aligned_class_proxy']['class_proxy'] for r in rows]
+                known=[r['coverage']['full_centerline_known_fraction'] for r in rows]
+                unknown=[r['coverage']['full_centerline_unknown_fraction'] for r in rows]
+                outside=[r['coverage']['full_centerline_outside_fraction'] for r in rows]
             return {'max_curvature_per_m':max((r[curvature_key] for r in rows),default=None),
                     'max_abs_first_yaw_command_rad_s':max(speeds,default=None),
+                    'turn_in_place_estimate_count':sum(r[command_key]['turn_in_place_entry'] for r in rows),
+                    'reverse_estimate_count':sum(r[command_key]['reverse_estimate'] for r in rows),
+                    'mean_centerline_known_fraction':float(np.mean(known)) if known else None,
+                    'mean_centerline_unknown_fraction':float(np.mean(unknown)) if unknown else None,
+                    'mean_centerline_outside_fraction':float(np.mean(outside)) if outside else None,
+                    'path_aligned_class_counts':dict(Counter(str(c) for c in classes)),
                     'count':len(rows)}
-        old_stats=stats(old_compatible,'analytic_or_dense_max_curvature_per_m','first_command')
-        new_stats=stats(new_compatible,'dense_max_curvature_per_m','follower')
+        old_stats=stats(old_compatible,'analytic_or_dense_max_curvature_per_m','first_command',True)
+        new_stats=stats(new_compatible,'dense_max_curvature_per_m','follower',False)
         new_pair=group['_terrain_pairs']
         old_pair=pairs[identifier]
         output.append({'state_group_id':identifier,'anchor_id':group['anchor_id'],
