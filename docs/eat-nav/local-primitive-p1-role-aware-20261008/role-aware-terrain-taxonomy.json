@@ -1,0 +1,48 @@
+{
+  "schema": "eatnav_local_primitive_role_aware_terrain_taxonomy_v1",
+  "source_commit": "601debf88d43530dfb12ef7bcf1047ce47a80994",
+  "prior_decision_preserved": "local_motion_primitive_terrain_support_fail",
+  "input_contract": {
+    "anchor_count": 8,
+    "physical_eligibility_required": true,
+    "four_dem_frames_and_finite_actor_required": true,
+    "primitive_bearings_deg": [-20, -10, 0, 10, 20],
+    "candidate_count": 5,
+    "local_endpoint_chord_m": 0.75,
+    "primary_path_arc_interval_m": [0.0, 0.6],
+    "common_known_pair_min_bins": 5,
+    "known_corridor_pair_rms_min_m": 0.01,
+    "no_outcome_fields": ["reward", "Critic", "termination", "realized_trajectory", "previous_candidate_Outcome"]
+  },
+  "frozen_classifier": {
+    "source": "visualnav_transformer.eat_nav.goal075_offline.class_proxy_interval and radial_interaction constants",
+    "band_offsets_m": [0.3, 0.0, -0.3],
+    "all_three_bands_must_be_known": true,
+    "height_change_m": 0.04,
+    "step_change_m": 0.05,
+    "grade_slope": 0.12,
+    "lateral_differential_m": 0.04
+  },
+  "role_rules": {
+    "R-differential": "five hard-valid and follower-compatible Paths; at least one pair with five common-known bins and known corridor RMS >= 0.01 m within 0-0.60 m",
+    "R-transition-common": "one or more Path classified transition by frozen per-Path classifier on known 0-0.60 m bands, with known onset <= 0.60 m; pair separation not required",
+    "R-graded-common": "all five Paths are classified graded by the frozen three-band per-Path classifier on 0-0.60 m, with all three DEM bands known; no pair separation required",
+    "R-flat-control": "all five Paths classified flat-only on known 0-0.60 m bands, complete coverage, and no primary terrain-separated pair"
+  },
+  "role_precedence": ["R-differential", "R-transition-common", "R-graded-common", "R-flat-control"],
+  "selection_gate": {
+    "first_seed_differential": 1,
+    "second_seed_differential": 1,
+    "separate_transition_common": 1,
+    "separate_graded_common": 1,
+    "separate_flat_control": 1,
+    "minimum_distinct_seed_source_families": 4,
+    "selected_anchor_count": 5,
+    "physical_ineligible_allowed": 0
+  },
+  "selection_order": ["physical eligibility", "role satisfaction", "minimum known corridor coverage descending", "role margin descending", "distinct source family count descending", "frozen selection rank ascending", "anchor ID lexical ascending"],
+  "primary_role_precedence_applies_before_selection": true,
+  "all_secondary_flags_retained": true,
+  "candidate_outcome_access": false,
+  "gate_replaces_only_the_previous_class_uniform_pair_separation_requirement": true
+}
