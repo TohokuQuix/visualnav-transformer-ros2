@@ -1,0 +1,73 @@
+{
+  "candidate_outcome_read": false,
+  "flat_control": "not_required_for_minimal_p1",
+  "gate_config_sha256": "d5db05e611eba28eeaf5c8e0dd8013bc4b1351bbceff71941ee71aed93b0a05f",
+  "graded_common": "not_required_for_minimal_p1",
+  "physical_anchor_count": 8,
+  "prior_five_role_decision": "role_aware_terrain_support_insufficient",
+  "result": {
+    "alternatives_by_slot": [
+      [
+        {
+          "anchor_id": "first-differential",
+          "first_onset_m": null,
+          "role_margin": 0.03408101225537272,
+          "selection_rank": 4,
+          "source_family": "20261007:boxes"
+        }
+      ],
+      [
+        {
+          "anchor_id": "second-differential",
+          "first_onset_m": null,
+          "role_margin": 0.048055288514139184,
+          "selection_rank": 6,
+          "source_family": "3773891777:k_rail_step_field"
+        }
+      ],
+      [
+        {
+          "anchor_id": "first-graded",
+          "first_onset_m": 0.2,
+          "role_margin": 0.02102861255407333,
+          "selection_rank": 5,
+          "source_family": "20261007:k_rail_step_field"
+        },
+        {
+          "anchor_id": "first-flat-only",
+          "first_onset_m": 0.6,
+          "role_margin": 0.024731830507516858,
+          "selection_rank": 7,
+          "source_family": "20261007:k_rail_field"
+        }
+      ],
+      [
+        {
+          "anchor_id": "second-graded",
+          "first_onset_m": 0.2,
+          "role_margin": 0.020509240031242368,
+          "selection_rank": 34,
+          "source_family": "3773891777:k_rail_step_field"
+        },
+        {
+          "anchor_id": "second-flat-only",
+          "first_onset_m": 0.6,
+          "role_margin": 0.05999995470046997,
+          "selection_rank": 63,
+          "source_family": "3773891777:pyramid_stairs_inv"
+        }
+      ]
+    ],
+    "decision": null,
+    "missing_slots": [],
+    "pass": true,
+    "selected": [
+      "first-differential",
+      "second-differential",
+      "first-flat-only",
+      "second-flat-only"
+    ],
+    "selected_source_identity_count": 4
+  },
+  "schema": "minimal_p1_gate_v1"
+}

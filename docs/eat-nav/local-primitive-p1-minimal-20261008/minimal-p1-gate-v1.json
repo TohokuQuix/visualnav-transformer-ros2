@@ -1,0 +1,42 @@
+{
+  "schema": "minimal_p1_gate_v1",
+  "source_commit": "7f3807eb3adf3a9ace84f84add39747ca501f1df",
+  "prior_role_gate_decision": "role_aware_terrain_support_insufficient",
+  "prior_primitive_gate_decision": "local_motion_primitive_terrain_support_fail",
+  "required_primary_slots": [
+    {"seed_label": "first", "primary_role": "R-differential"},
+    {"seed_label": "second", "primary_role": "R-differential"},
+    {"seed_label": "first", "primary_role": "R-transition-common"},
+    {"seed_label": "second", "primary_role": "R-transition-common"}
+  ],
+  "required_distinct_anchor_count": 4,
+  "required_dem_history_frames": 4,
+  "required_actor_body_state_shape": [22],
+  "required_primitive_count_per_anchor": 5,
+  "known_primary_arc_interval_m": [0.0, 0.6],
+  "differential_pair_common_known_bins_min": 5,
+  "differential_pair_rms_min_m": 0.01,
+  "transition_onset_max_m": 0.6,
+  "transition_margin_definition": "maximum_step_m minus frozen STEP_CHANGE_M=0.05 m among known transition-class Paths; larger is stronger",
+  "selection_order": [
+    "physical eligible",
+    "exact primary-role match",
+    "complete known DEM support",
+    "larger differential max known-pair RMS or larger transition margin",
+    "earlier transition onset",
+    "greater distinct seed/source-family identities",
+    "lower previously frozen R3 rank",
+    "lexical anchor ID"
+  ],
+  "graded_common": "not_required_for_minimal_p1",
+  "flat_control": "not_required_for_minimal_p1",
+  "candidate_outcome_access": false,
+  "bearings_deg": [-20, -10, 0, 10, 20],
+  "repeats_per_bearing": {"-20": 1, "-10": 1, "0": 3, "10": 1, "20": 1},
+  "local_path_chord_m": 0.75,
+  "navigation_global_goal_base_xy_m": [0.75, 0.0],
+  "teacher_control_steps": 40,
+  "teacher_step_s": 0.05,
+  "discount_gamma": 0.99,
+  "candidate_retry_count": 0
+}

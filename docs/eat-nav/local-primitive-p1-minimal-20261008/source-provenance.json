@@ -1,0 +1,92 @@
+{
+  "base_commit": "7f3807eb3adf3a9ace84f84add39747ca501f1df",
+  "branch": "exp/eatnav-local-primitive-p1-minimal",
+  "candidate_outcome_read": false,
+  "durable_anchor_backup_root": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown",
+  "primitive_review": {
+    "ledger_sha256": "621ce27b437ab2de4d1d904931b62c3e2d162f8be994642bc9bdc351427e66b5",
+    "root": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/eat-nav/local-motion-primitives-20261008",
+    "verified_file_count": 26
+  },
+  "role_review": {
+    "ledger_sha256": "ed78cd272065d0ff32ec9fe379446b95b41518f306f8c8542f77ef643987343b",
+    "root": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/eat-nav/local-primitive-p1-role-aware-20261008",
+    "verified_file_count": 10
+  },
+  "schema": "eatnav_minimal_p1_source_provenance_v1",
+  "source_paths": {
+    "bridge": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/scripts/eat_nav_command_delivery_bridge.py",
+      "sha256": "11e046fffa97bd71841f6a382715d49c237ed8c3a0d0c7b8ccf43af4827586aa"
+    },
+    "bridge_client": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/src/visualnav_transformer/eat_nav/phase_c_bridge_client.py",
+      "sha256": "f4dc28eb505d1ab375d4796dd308ddac70629fe57215c7742a54f511dc69b6ce"
+    },
+    "checkpoint_audit_copy": {
+      "path": "/tmp/eatnav-rl-checkpoint-audit-model_10000.pt",
+      "sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d"
+    },
+    "expanded_e1_safety": {
+      "path": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-expanded-feasibility-ros-continuation-20261005/e1-safety-stops.yaml",
+      "sha256": "121ade62ff232e913ed2074fb85b3c6fc9e656ae4ad842808b80025fcbbe8d0b"
+    },
+    "follower_binary": {
+      "path": "/home/kojima/eatnav-backups/2026-10-08-pre-shutdown/eatnav-candidate-coverage/exact-stamp-long-horizon/exact-follower-build/simple_trajectory_follower_node",
+      "sha256": "616097e44d199b8d33f6534aedd299f2d20127ed8e100c18777f9ca7a2da389d"
+    },
+    "follower_params": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/config/onix.yaml",
+      "sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90"
+    },
+    "follower_source": {
+      "path": "/home/kojima/onix/dep/onix_automation/teaching_playback/simple_trajectory_follower/src/simple_trajectory_follower.cpp",
+      "sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be"
+    },
+    "new_freeze_runner": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/scripts/eat_nav_minimal_p1_freeze.py",
+      "sha256": "bb1c225b58f54138794404fb7939ed91e61e2617f74cb36ecc2cc1c7a7f038d9"
+    },
+    "new_gate_config": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/eat-nav/local-primitive-p1-minimal-20261008/minimal-p1-gate-v1.json",
+      "sha256": "d5db05e611eba28eeaf5c8e0dd8013bc4b1351bbceff71941ee71aed93b0a05f"
+    },
+    "new_gate_source": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/src/visualnav_transformer/eat_nav/minimal_p1.py",
+      "sha256": "c4c15a2518797db45b69ed884ccf03efa10dc72b5866c9fa8ab82a10a90b3b8c"
+    },
+    "original_e1_numeric_gates": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/quality-identifiability-gate/candidate-coverage/e1-feasibility/e1-gates.yaml",
+      "sha256": "2bb5f3420426c09f15a7a20ea0fa72ae930a4bc137ca752535f5158570a84ea6"
+    },
+    "previous_primitive_ledger": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/eat-nav/local-motion-primitives-20261008/artifact-sha-ledger.json",
+      "sha256": "621ce27b437ab2de4d1d904931b62c3e2d162f8be994642bc9bdc351427e66b5"
+    },
+    "previous_role_ledger": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/eat-nav/local-primitive-p1-role-aware-20261008/artifact-sha-ledger.json",
+      "sha256": "ed78cd272065d0ff32ec9fe379446b95b41518f306f8c8542f77ef643987343b"
+    },
+    "reference_eat_config": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/docs/quality-identifiability-gate/phase-c/reference-eat.yaml",
+      "sha256": "caa88735e765fc0358930dfa41579ecaac9eb96dc4052dc01a81390377279992"
+    },
+    "role_gate_source": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/src/visualnav_transformer/eat_nav/role_aware_terrain.py",
+      "sha256": "ed068e6213caad7fe783d4fcb5b2956e4637101cd84f5da5b29e46d01762d97a"
+    },
+    "simulator": {
+      "path": "/tmp/eatnav-vnt-local-primitive-p1-minimal/scripts/eat_nav_e1_sim.py",
+      "sha256": "9e2a40f0b283d4581219302c3f2f0782b00ca825e07653bbe3924dd5c47cec07"
+    }
+  },
+  "worktree": "/tmp/eatnav-vnt-local-primitive-p1-minimal",
+  "worktree_status_before_selection": [
+    "?? docs/eat-nav/local-primitive-p1-minimal-20261008/",
+    "?? docs/superpowers/plans/2026-10-08-local-primitive-p1-minimal.md",
+    "?? scripts/eat_nav_minimal_p1_freeze.py",
+    "?? src/visualnav_transformer/eat_nav/minimal_p1.py",
+    "?? tests/test_minimal_p1.py",
+    "?? tests/test_minimal_p1_freeze.py"
+  ]
+}
