@@ -1,0 +1,61 @@
+{
+  "candidate_outcome_read": false,
+  "config_sha256": "d14c598d4824df5c22bb815148efaf0030afcf7a60b9f7990d6c22db615fcd57",
+  "flat_control": "not_tested_in_p1_r3",
+  "graded_common": "not_tested_in_p1_r3",
+  "prior_r2_gate_decision": "p1_measurement_or_protocol_invalid_stop",
+  "result": {
+    "candidate_outcome_access": false,
+    "decision": null,
+    "pass": true,
+    "selected": [
+      "first-differential",
+      "second-differential",
+      "first-graded",
+      "second-graded"
+    ],
+    "slot_audit": [
+      {
+        "eligible_order": [
+          "first-differential"
+        ],
+        "known_onset_m_by_anchor": {},
+        "primary_role": "R-differential",
+        "required_anchor_id": "first-differential",
+        "seed_label": "first"
+      },
+      {
+        "eligible_order": [
+          "second-differential"
+        ],
+        "known_onset_m_by_anchor": {},
+        "primary_role": "R-differential",
+        "required_anchor_id": "second-differential",
+        "seed_label": "second"
+      },
+      {
+        "eligible_order": [
+          "first-graded"
+        ],
+        "known_onset_m_by_anchor": {
+          "first-graded": 0.2
+        },
+        "primary_role": "R-transition-common",
+        "required_anchor_id": "first-graded",
+        "seed_label": "first"
+      },
+      {
+        "eligible_order": [
+          "second-graded"
+        ],
+        "known_onset_m_by_anchor": {
+          "second-graded": 0.2
+        },
+        "primary_role": "R-transition-common",
+        "required_anchor_id": "second-graded",
+        "seed_label": "second"
+      }
+    ]
+  },
+  "schema": "minimal_p1_gate_v2"
+}

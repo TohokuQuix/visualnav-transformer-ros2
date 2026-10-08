@@ -1,0 +1,248 @@
+{
+  "brackets": [
+    {
+      "device_after_bytes": 375521280,
+      "device_before_bytes": 375521280,
+      "gap_bytes": 48513024,
+      "process_sum_bytes": 327008256,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "deduplicated_processes": [
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 2950,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+        "command_line": "/usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3",
+        "container_pid": 2950,
+        "cpu_ticks": 13429,
+        "executable": "/usr/lib/xorg/Xorg",
+        "fd_count": 88,
+        "host_pid": 2950,
+        "namespace_pid_chain": [
+          2950
+        ],
+        "parent_host_pid": 2947,
+        "process_group": 2947,
+        "rss_bytes": 107479040,
+        "session_id": 2947,
+        "start_ticks": 16047,
+        "thread_count": 2,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 145645568
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3155,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service",
+        "command_line": "/usr/bin/gnome-shell",
+        "container_pid": 3155,
+        "cpu_ticks": 23563,
+        "executable": "/usr/bin/gnome-shell",
+        "fd_count": 71,
+        "host_pid": 3155,
+        "namespace_pid_chain": [
+          3155
+        ],
+        "parent_host_pid": 2800,
+        "process_group": 3155,
+        "rss_bytes": 449323008,
+        "session_id": 3155,
+        "start_ticks": 16207,
+        "thread_count": 16,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 27664384
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 4168,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome-code-4129.scope",
+        "command_line": "/usr/share/code/code --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=4151 --enable-crash-reporter=4b7598ea-574e-48b0-ac7f-e2b05ba20fb8,no_channel --user-data-dir=/home/kojima/.config/Code --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15011964905772612706,9576565123508880178,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,14125901453843659362,17781196675957273075,4 --trace-process-track-uuid=3190708988185955192",
+        "container_pid": 4168,
+        "cpu_ticks": 56693,
+        "executable": "/usr/share/code/code",
+        "fd_count": 84,
+        "host_pid": 4168,
+        "namespace_pid_chain": [
+          4168
+        ],
+        "parent_host_pid": 4134,
+        "process_group": 3155,
+        "rss_bytes": 302096384,
+        "session_id": 3155,
+        "start_ticks": 19314,
+        "thread_count": 10,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 71901184
+    },
+    {
+      "container_id": null,
+      "created_after_monitor": true,
+      "existed_before_monitor": false,
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 81992,
+      "kind": "graphics",
+      "kinds": [
+        "graphics"
+      ],
+      "proc": {
+        "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service",
+        "command_line": "/opt/google/chrome/chrome --type=gpu-process --ozone-platform=x11 --crashpad-handler-pid=81955 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=YAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --metrics-shmem-handle=4,i,5838593622374906686,10528012927959880410,262144 --field-trial-handle=3,i,1953880115574397247,1678558347763650030,262144 --variations-seed-version=20261008-010031.548000-production --pseudonymization-salt-handle=7,i,9265378195796720075,13436244629961148344,4 --trace-process-track-uuid=3190708988185955192",
+        "container_pid": 81992,
+        "cpu_ticks": 2796,
+        "executable": "/opt/google/chrome/chrome",
+        "fd_count": 183,
+        "host_pid": 81992,
+        "namespace_pid_chain": [
+          81992
+        ],
+        "parent_host_pid": 81963,
+        "process_group": 3155,
+        "rss_bytes": 330137600,
+        "session_id": 3155,
+        "start_ticks": 1396894,
+        "thread_count": 15,
+        "uid": 1000,
+        "user": "kojima"
+      },
+      "simulator_tree": false,
+      "used_gpu_memory_bytes": 81797120
+    }
+  ],
+  "devices_after": [
+    {
+      "index": 0,
+      "used_bytes": 375521280,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "devices_before": [
+    {
+      "compute_mode": 0,
+      "driver_reserved_bytes": 494469120,
+      "free_bytes": 16224944128,
+      "index": 0,
+      "power_mw": 24185,
+      "temperature_c": 39,
+      "total_bytes": 17094934528,
+      "used_bytes": 375521280,
+      "utilization_percent": 1,
+      "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+    }
+  ],
+  "monotonic_ns": 14643230827715,
+  "nvidia_smi_identity": {
+    "driver_version": "580.173.02",
+    "index": "0",
+    "mig_mode": "[N/A]",
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "temperature_c": 39.0,
+    "total_mib": 16303.0,
+    "used_mib": 359.0,
+    "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+  },
+  "nvidia_smi_identity_stderr": "",
+  "nvidia_smi_identity_stdout": "0, GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26, NVIDIA GeForce RTX 5070 Ti, 16303, 359, 39, 580.173.02, [N/A]\n",
+  "nvml_version": "13.580.173.02",
+  "process_table_sample_finished_ns": 14643212584709,
+  "process_table_sample_started_ns": 14643174191636,
+  "query_timing": {
+    "compute_end_ns": 14643174069970,
+    "compute_start_ns": 14643173964536,
+    "device_after_end_ns": 14643212637871,
+    "device_after_start_ns": 14643212619584,
+    "device_before_end_ns": 14643164402379,
+    "device_before_start_ns": 14643164388541,
+    "graphics_end_ns": 14643174181669,
+    "graphics_start_ns": 14643174070364,
+    "per_gpu": [
+      {
+        "compute_end_ns": 14643174069970,
+        "compute_start_ns": 14643173964536,
+        "device_before_end_ns": 14643164402379,
+        "device_before_start_ns": 14643164388541,
+        "gpu_index": 0,
+        "graphics_end_ns": 14643174181669,
+        "graphics_start_ns": 14643174070364
+      }
+    ],
+    "per_gpu_after": [
+      {
+        "device_after_end_ns": 14643212637871,
+        "device_after_start_ns": 14643212619584,
+        "gpu_index": 0
+      }
+    ]
+  },
+  "raw_gpu_process_rows": [
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 2950,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 145645568
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 3155,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 27664384
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 4168,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 71901184
+    },
+    {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26",
+      "host_pid": 81992,
+      "kind": "graphics",
+      "used_gpu_memory_bytes": 81797120
+    }
+  ],
+  "sample_started_monotonic_ns": 14643164325121,
+  "schema": "eatnav_p1_r3_gpu_bracket_baseline_v1",
+  "simulator_processes_started": 0,
+  "wall_ns": 1791461862529316339
+}

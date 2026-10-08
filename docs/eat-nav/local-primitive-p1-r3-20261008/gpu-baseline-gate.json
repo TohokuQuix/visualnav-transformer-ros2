@@ -1,0 +1,25 @@
+{
+  "contract_schema": "p1_local_primitive_resource_contract_v1",
+  "failures": [
+    "other_process_gpu_over_cap"
+  ],
+  "forecast_fraction_of_total": 0.43788259829479237,
+  "gpu_cap_fraction_of_total": 0.4710789425259155,
+  "historical_uuid_match": true,
+  "pass": false,
+  "raw_sample_sha256": "7571c883d9318cb0252a2b48e2cda4d427350153b1c3487618e83419c1c5cb2d",
+  "sample": {
+    "bracket_gap_mib": 46.265625,
+    "device_used_mib": 358.125,
+    "driver_version": "580.173.02",
+    "mig_mode": "[N/A]",
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "nvml_version": "13.580.173.02",
+    "other_processes_used_mib": 311.859375,
+    "temperature_c": 39,
+    "total_mib": 16303.0,
+    "unresolved_pid_bytes": 0,
+    "uuid": "GPU-e9414d4c-dcc5-7554-bade-d7523dd94a26"
+  },
+  "stage": "immediately_before_X1"
+}
