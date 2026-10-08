@@ -1,0 +1,2921 @@
+{
+  "exact_finite_library_optimal_all_groups": true,
+  "fixed_five_geometry_ready": false,
+  "groups": [
+    {
+      "anchor_id": "first-transition",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 11,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 47,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 12,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-differential",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 11,
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 4,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 4,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 47,
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 12,
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-graded",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 11,
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 47,
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 12,
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 11,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 47,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 12,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "first",
+      "source_compatible_count": 4,
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-transition",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 11,
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 47,
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 12,
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-differential",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 1,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 1,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 30,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 31,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 11,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 47,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 15,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 15,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 12,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-graded",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 11,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 47,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 12,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "bearing_deg": -20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 1,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 1,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "bearing_deg": -10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 2
+      },
+      "full_terrain_separated_pair_count": 18,
+      "hard_valid_count": 142,
+      "late_only_terrain_pair_count": 18,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          8
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 11,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            8
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 0,
+      "compatible_by_family": {
+        "G0A": 1,
+        "G1": 28,
+        "G2": 6,
+        "G3": 12
+      },
+      "full_terrain_separated_pair_count": 169,
+      "hard_valid_count": 157,
+      "late_only_terrain_pair_count": 169,
+      "maximum_distinct": {
+        "dual_bound": 4.0,
+        "maximum_mode_count": 4,
+        "optimal": true,
+        "selected_indices": [
+          8,
+          11,
+          24,
+          26
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 116,
+        "eight_point_curvature_screen": 80,
+        "initial_tangent_error": 10
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 10
+        },
+        "G1": {
+          "dense_curvature_screen": 110,
+          "eight_point_curvature_screen": 74
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 47,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+00",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            19,
+            24,
+            26
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 10,
+      "compatible_by_family": {
+        "G1": 7,
+        "G2": 2,
+        "G3": 3
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 3.0,
+        "maximum_mode_count": 3,
+        "optimal": true,
+        "selected_indices": [
+          0,
+          3,
+          7
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 137,
+        "eight_point_curvature_screen": 82,
+        "initial_tangent_error": 11
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11
+        },
+        "G1": {
+          "dense_curvature_screen": 131,
+          "eight_point_curvature_screen": 76
+        },
+        "G2": {},
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 12,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+10",
+      "symmetric_targets": {
+        "3": {
+          "feasible": true,
+          "selected_indices": [
+            1,
+            3,
+            7
+          ],
+          "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "solver_status": 0
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        }
+      },
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "bearing_deg": 20,
+      "compatible_by_family": {
+        "G1": 3,
+        "G2": 1
+      },
+      "full_terrain_separated_pair_count": 0,
+      "hard_valid_count": 143,
+      "late_only_terrain_pair_count": 0,
+      "maximum_distinct": {
+        "dual_bound": 2.0,
+        "maximum_mode_count": 2,
+        "optimal": true,
+        "selected_indices": [
+          1,
+          2
+        ],
+        "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "solver_status": 0
+      },
+      "primary_terrain_separated_pair_count": 0,
+      "rejection_reasons": {
+        "dense_curvature_screen": 145,
+        "eight_point_curvature_screen": 122,
+        "initial_tangent_error": 11,
+        "source_first_command_turn_in_place": 1,
+        "turn_in_place_estimate": 1
+      },
+      "rejection_reasons_by_family": {
+        "G0A": {
+          "dense_curvature_screen": 6,
+          "eight_point_curvature_screen": 6,
+          "initial_tangent_error": 11,
+          "source_first_command_turn_in_place": 1,
+          "turn_in_place_estimate": 1
+        },
+        "G1": {
+          "dense_curvature_screen": 135,
+          "eight_point_curvature_screen": 112
+        },
+        "G2": {
+          "dense_curvature_screen": 4,
+          "eight_point_curvature_screen": 4
+        },
+        "G3": {}
+      },
+      "seed_label": "second",
+      "source_compatible_count": 4,
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+20",
+      "symmetric_targets": {
+        "3": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+          "solver_status": 2
+        },
+        "5": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        },
+        "7": {
+          "feasible": false,
+          "selected_indices": [],
+          "solver_status": "insufficient_side_supply"
+        }
+      },
+      "terrain_class": "flat-only"
+    }
+  ],
+  "hard_valid_at_least_five_groups": 40,
+  "shared_bank_by_bearing": {
+    "-10": {
+      "feasible": false,
+      "reason": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "selected_ids": [],
+      "solver_status": 2
+    },
+    "-20": {
+      "feasible": false,
+      "reason": "insufficient_side_supply",
+      "selected_ids": [],
+      "solver_status": "insufficient_side_supply"
+    },
+    "0": {
+      "feasible": false,
+      "reason": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "selected_ids": [],
+      "solver_status": 2
+    },
+    "10": {
+      "feasible": false,
+      "reason": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "selected_ids": [],
+      "solver_status": 2
+    },
+    "20": {
+      "feasible": false,
+      "reason": "insufficient_side_supply",
+      "selected_ids": [],
+      "solver_status": "insufficient_side_supply"
+    }
+  },
+  "source_compatible_at_least_five_groups": 24,
+  "symmetric_five_groups": 0
+}

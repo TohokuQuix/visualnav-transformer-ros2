@@ -1,0 +1,552 @@
+{
+  "available_groups": 24,
+  "cannot_override_fixed_five": true,
+  "diagnostic_only": true,
+  "groups": [
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-transition-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-transition-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-transition-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-transition-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-transition-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-differential-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-differential-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-differential-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-differential-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-differential-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-graded-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-graded-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-graded-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-graded-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-graded-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-flat-only-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-flat-only-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-flat-only-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "first-flat-only-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "first-flat-only-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-transition-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-transition-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-transition-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-transition-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-transition-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-differential-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-differential-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-differential-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-differential-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-differential-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-graded-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-graded-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-graded-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-graded-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-graded-b+20",
+      "valid_mask": []
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-flat-only-b-20",
+      "valid_mask": []
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-flat-only-b-10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.28-c-0.08",
+        "G1:075-a0.24-b0.28-c+0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-flat-only-b+00",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": true,
+      "candidate_count": 3,
+      "candidate_ids": [
+        "G2:constant",
+        "G1:075-a0.24-b0.20-c+0.00",
+        "G1:075-a0.28-b0.28-c-0.08"
+      ],
+      "diagnostic_only": true,
+      "loss_reduction": "sum(per_candidate_loss * valid_mask) / sum(valid_mask)",
+      "padding_candidate_count": 0,
+      "state_group_id": "second-flat-only-b+10",
+      "valid_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "available": false,
+      "candidate_ids": [],
+      "reason": "fewer_than_three_balanced_distinct_modes",
+      "state_group_id": "second-flat-only-b+20",
+      "valid_mask": []
+    }
+  ],
+  "integration_note": "A validity mask could support 3\u20135 real candidates in a later model/loss revision; no training contract changed."
+}

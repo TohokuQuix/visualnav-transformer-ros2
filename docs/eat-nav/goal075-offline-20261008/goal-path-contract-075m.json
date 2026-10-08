@@ -1,0 +1,118 @@
+{
+  "bearings_deg": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+  ],
+  "candidate_count_primary": 5,
+  "candidate_sides": [
+    "direct",
+    "left",
+    "left",
+    "right",
+    "right"
+  ],
+  "curvature_screen_per_m": 1.236,
+  "diagnostic_path_arc_end_m": 0.75,
+  "endpoint_tolerance_m": 0.001,
+  "footprint_proxies": [
+    "main_track_sprocket",
+    "initial_flipper_support",
+    "articulated_reach",
+    "full_collision_union"
+  ],
+  "future_path_points": 8,
+  "goal_distance_m": 0.75,
+  "initial_point_xy_m": [
+    0.0,
+    0.0
+  ],
+  "initial_tangent_tolerance_rad": 1e-06,
+  "initial_tangent_xy": [
+    1.0,
+    0.0
+  ],
+  "known_terrain_common_bins_min": 5,
+  "known_terrain_rms_min_m": 0.01,
+  "mode_separation": {
+    "curvature_profile_rms_min_per_m": 0.12,
+    "distinct_path_sha_required": true,
+    "full_rms_min_m": 0.01,
+    "signed_lateral_max_difference_min_m": 0.012,
+    "swept_exclusive_min_m2": 0.01
+  },
+  "no_candidate_outcome_used": true,
+  "no_rollout": true,
+  "nominal_speed_mps": 0.3,
+  "nominal_time_to_endpoint_s": 2.5,
+  "path_dimensions": 2,
+  "path_endpoint": "common_global_goal",
+  "path_frame": "robot-local-base",
+  "primary_bank_fixed_five": true,
+  "primary_terrain_arc_end_m": 0.6,
+  "reverse_estimate_allowed": false,
+  "schema": "eatnav_common_goal075_offline_v1",
+  "separation_frame": "goal-ray-relative",
+  "source_anchor_count": 8,
+  "state_group_count": 40,
+  "supplemental_G1_forward_handles_m": [
+    0.24,
+    0.28
+  ],
+  "supplemental_G1_lateral_m": [
+    -0.12,
+    -0.08,
+    0.0,
+    0.08,
+    0.12
+  ],
+  "supplemental_G1_terminal_handles_m": [
+    0.12,
+    0.2,
+    0.28
+  ],
+  "supplemental_G2_G3_lengths_m": [
+    0.75,
+    0.78,
+    0.8,
+    0.84,
+    0.88,
+    0.92
+  ],
+  "supplemental_G2_signchange_a_per_m": [
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0
+  ],
+  "supplemental_G3_fractions": [
+    [
+      0.5,
+      0.0,
+      0.5
+    ],
+    [
+      0.25,
+      0.5,
+      0.25
+    ],
+    [
+      0.2,
+      0.5,
+      0.3
+    ],
+    [
+      0.3,
+      0.5,
+      0.2
+    ]
+  ],
+  "teacher_duration_s": 2.0,
+  "teacher_step_s": 0.05,
+  "teacher_steps": 40,
+  "turn_in_place_estimate_allowed": false,
+  "variable_count_diagnostic_only": true
+}

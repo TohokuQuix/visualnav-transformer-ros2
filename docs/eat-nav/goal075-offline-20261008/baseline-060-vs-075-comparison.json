@@ -1,0 +1,2854 @@
+{
+  "archived_old_full_path_may_exceed_060_arc": true,
+  "nominal_endpoint_time_s": [
+    2.0,
+    2.5
+  ],
+  "old_primary_060_recomputed_from_SHA_frozen_curves_and_anchor_DEM": true,
+  "paired_state_groups": [
+    {
+      "anchor_id": "first-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "transition": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "graded": 22
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "graded": 27
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "transition": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-transition-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "first-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 42
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 1,
+        "terrain_separated_pairs_primary_060": 1
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 47
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 4,
+        "terrain_separated_pairs_primary_060": 4
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 1,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 10,
+        "terrain_separated_pairs_primary_060": 10
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:boxes",
+      "state_group_id": "first-differential-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "first-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 22
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 27
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_step_field",
+      "state_group_id": "first-graded-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 9,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 22
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 27
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "first-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 9,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "first",
+      "source_family": "20261007:k_rail_field",
+      "state_group_id": "first-flat-only-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "transition": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 42
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 47
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "transition": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-transition",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:boxes",
+      "state_group_id": "second-transition-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "transition"
+    },
+    {
+      "anchor_id": "second-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 1,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 17,
+        "terrain_separated_pairs_primary_060": 17
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 1,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 1,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 13,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 40,
+        "terrain_separated_pairs_primary_060": 40
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 30,
+        "terrain_separated_pairs_primary_060": 31
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 42
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 81,
+        "terrain_separated_pairs_primary_060": 81
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 47
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 12,
+        "terrain_separated_pairs_primary_060": 12
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 15,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 15,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-differential",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-differential-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "differential"
+    },
+    {
+      "anchor_id": "second-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 22
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 27
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 13
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-graded",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 10
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:k_rail_step_field",
+      "state_group_id": "second-graded-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "graded"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.162800289477183,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 9,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 1,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 1,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": -10,
+      "revised_075": {
+        "compatible_common_goal": 11,
+        "compatible_summary": {
+          "count": 11,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.2359999944978297,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 11
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 18,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 18,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b-10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 2,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 40,
+        "compatible_common_goal": 42,
+        "compatible_summary": {
+          "count": 42,
+          "max_abs_first_yaw_command_rad_s": 0.006206392495093668,
+          "max_curvature_per_m": 0.9259259259259259,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 22
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 0,
+      "revised_075": {
+        "compatible_common_goal": 47,
+        "compatible_summary": {
+          "count": 47,
+          "max_abs_first_yaw_command_rad_s": 0.024912384671593048,
+          "max_curvature_per_m": 1.1227888341537016,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 20,
+            "transition": 27
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 169,
+        "maximum_distinct": 4,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 169,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+00",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 10,
+        "compatible_common_goal": 13,
+        "compatible_summary": {
+          "count": 13,
+          "max_abs_first_yaw_command_rad_s": 0.09347285509481014,
+          "max_curvature_per_m": 1.1576545177795352,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 5,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 10,
+      "revised_075": {
+        "compatible_common_goal": 12,
+        "compatible_summary": {
+          "count": 12,
+          "max_abs_first_yaw_command_rad_s": 0.08393093248368476,
+          "max_curvature_per_m": 1.23599999839905,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 12
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+10",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    },
+    {
+      "anchor_id": "second-flat-only",
+      "baseline_060": {
+        "G0A_nonforward_compatible_exempted_by_frozen_baseline": 3,
+        "compatible_after_new_forward_tangent_screen_diagnostic": 7,
+        "compatible_common_goal": 10,
+        "compatible_summary": {
+          "count": 10,
+          "max_abs_first_yaw_command_rad_s": 0.1807393176945266,
+          "max_curvature_per_m": 1.1628002950810954,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": null,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 9,
+            "flat-only": 1
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.6,
+        "maximum_distinct": 3,
+        "nominal_endpoint_time_s": 2.0,
+        "symmetric": {
+          "3": true,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_but_not_mode_distinct_diagnostic": 0,
+        "terrain_separated_pairs_archived_full_path_diagnostic": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "bearing_deg": 20,
+      "revised_075": {
+        "compatible_common_goal": 4,
+        "compatible_summary": {
+          "count": 4,
+          "max_abs_first_yaw_command_rad_s": 0.14229281588575898,
+          "max_curvature_per_m": 1.1492433200037293,
+          "mean_centerline_known_fraction": 1.0,
+          "mean_centerline_outside_fraction": 0.0,
+          "mean_centerline_unknown_fraction": 0.0,
+          "path_aligned_class_counts": {
+            "differential": 4
+          },
+          "reverse_estimate_count": 0,
+          "turn_in_place_estimate_count": 0
+        },
+        "endpoint_distance_m": 0.75,
+        "late_only_pairs": 0,
+        "maximum_distinct": 2,
+        "nominal_endpoint_time_s": 2.5,
+        "symmetric": {
+          "3": false,
+          "5": false,
+          "7": false
+        },
+        "terrain_separated_pairs_full_075": 0,
+        "terrain_separated_pairs_primary_060": 0
+      },
+      "seed_label": "second",
+      "source_family": "3773891777:pyramid_stairs_inv",
+      "state_group_id": "second-flat-only-b+20",
+      "teacher_window_s": [
+        0,
+        2
+      ],
+      "terrain_class": "flat-only"
+    }
+  ],
+  "planning_horizon_m": [
+    0.6,
+    0.75
+  ],
+  "screen_comparability_caveat": "Frozen 0.60 m audit exempted G0A from forward-tangent rejection; revised 0.75 m audit does not. Baseline compatible and mode counts remain frozen; same-screen compatible count is diagnostic only.",
+  "statistical_unit": "StateGroup; curves/pairs are definitions, not independent trials",
+  "strata": {
+    "bearing_deg": {
+      "-10": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 8
+      },
+      "-20": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 8
+      },
+      "0": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 8
+      },
+      "10": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 8
+      },
+      "20": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 8
+      }
+    },
+    "seed_label": {
+      "first": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 20
+      },
+      "second": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 20
+      }
+    },
+    "source_family": {
+      "20261007:boxes": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 5
+      },
+      "20261007:k_rail_field": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      },
+      "20261007:k_rail_step_field": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 5
+      },
+      "3773891777:boxes": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 5
+      },
+      "3773891777:k_rail_step_field": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      },
+      "3773891777:pyramid_stairs_inv": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 5
+      }
+    },
+    "terrain_class": {
+      "differential": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      },
+      "flat-only": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      },
+      "graded": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      },
+      "transition": {
+        "new_symmetric_five": 0,
+        "old_symmetric_five": 0,
+        "state_groups": 10
+      }
+    }
+  },
+  "unchanged_teacher_duration_s": 2.0
+}
