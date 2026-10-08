@@ -55,3 +55,4 @@ def test_startup_owner_resolved_from_same_nvml_bracket(monkeypatch):
                         owner_resolver=lambda rows:{'simulator':find_launcher(rows,'abc','/new/run')})
     assert result['pass']
     assert result['resolved_owned']['simulator']=={'host_pid':101,'start_ticks':27}
+    assert result['process_table_before_wall_ns'] <= result['process_table_after_wall_ns']

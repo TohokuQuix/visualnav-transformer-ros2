@@ -138,14 +138,14 @@ def capture_live(nvml: Nvml, owned: dict, baseline_identities: set[tuple[int,int
     """Take two memory brackets around a live NVML and /proc ownership sample."""
     started=time.monotonic_ns();wall=time.time_ns()
     before,rows=nvml.sample()
-    before_table=proc_table();table_time=time.monotonic_ns()
+    before_table_wall=time.time_ns();before_table=proc_table();table_time=time.monotonic_ns()
     resolved_owned=owned
     if owner_resolver is not None and not owned.get('simulator'):
         try:
             resolved_owned=owner_resolver(before_table)
         except ValueError:
             resolved_owned=owned
-    after=nvml.memory_snapshot();after_table=proc_table()
+    after=nvml.memory_snapshot();after_table_wall=time.time_ns();after_table=proc_table()
     finished=time.monotonic_ns()
     health=subprocess.run(['nvidia-smi','--query-gpu=uuid,name,memory.total,temperature.gpu,driver_version,mig.mode.current',
                            '--format=csv,noheader,nounits'],capture_output=True,text=True,timeout=5)
@@ -159,6 +159,8 @@ def capture_live(nvml: Nvml, owned: dict, baseline_identities: set[tuple[int,int
                             device_cap_mib=device_cap_mib)
     result.update({'wall_ns':wall,'monotonic_ns':started,'sample_finished_monotonic_ns':finished,
                    'process_table_monotonic_ns':table_time,'raw_nvml_rows':rows,
+                   'process_table_before_wall_ns':before_table_wall,
+                   'process_table_after_wall_ns':after_table_wall,
                    'process_table_before':before_table,'process_table_after':after_table,
                    'resolved_owned':resolved_owned,
                    'health_query_stdout':health.stdout,'health_query_stderr':health.stderr,

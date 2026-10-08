@@ -94,9 +94,14 @@ def preflight(coord: Path, identity: dict) -> None:
         app = AppLauncher(headless=True).app
         if not hasattr(app, 'close'):
             raise RuntimeError('SimulationApp_close_API_missing')
-        atomic(coord / 'completion.json', {'schema': SCHEMA, 'run_token': identity['run_token'],
-               'container_pid': identity['container_pid'], 'start_ticks': identity['start_ticks'],
-               'physics_steps': 0, 'control_steps': 0, 'marker_before_close': True})
+        atomic(coord / 'completion.json', {'schema': 'eatnav_p1_terminal_marker_v1',
+               'run_token': identity['run_token'], 'container_pid': identity['container_pid'],
+               'host_pid': identity['host_pid'], 'start_ticks': identity['start_ticks'],
+               'source_sha256': identity['source_sha256'],
+               'config_sha256': identity['config_sha256'],
+               'output_root': identity['output_root'], 'completion_state': 'complete',
+               'physics_steps': 0, 'control_steps': 0,
+               'written_wall_ns': time.time_ns(), 'marker_before_close': True})
     except BaseException as exc:
         atomic(coord / 'failure.json', {'schema': SCHEMA, 'run_token': identity['run_token'],
                'error_type': type(exc).__name__, 'message': str(exc), 'marker_before_close': True})
@@ -137,13 +142,13 @@ def main() -> int:
     identity = self_identity(args)
     atomic(args.coord / 'owner-ready.json', identity)
     try:
-        wait_for_authorization(args.coord, identity, args.authorization_timeout)
+        authorization = wait_for_authorization(args.coord, identity, args.authorization_timeout)
     except BaseException as exc:
         atomic(args.coord / 'failure.json', {'schema': SCHEMA, 'run_token': args.run_token,
                'error_type': type(exc).__name__, 'message': str(exc), 'preauthorization': True})
         raise
     if args.mode == 'preflight':
-        preflight(args.coord, identity)
+        preflight(args.coord, {**identity, 'host_pid': authorization['host_pid']})
         return 0
     sim_args = args.sim_args[1:] if args.sim_args[:1] == ['--'] else args.sim_args
     if '--output' not in sim_args or sim_args[sim_args.index('--output') + 1] != str(args.output):

@@ -57,3 +57,26 @@ def test_stale_authorization_rejected_before_ready(tmp_path, monkeypatch):
         '--mode', 'preflight'])
     with pytest.raises(ValueError, match='stale_coordination_marker'):
         main()
+
+
+def test_preflight_identity_marker_is_written_before_close(tmp_path, monkeypatch):
+    import sys
+    import types
+    from eat_nav_p1_owner_wrapper import preflight
+    identity = {**IDENTITY, 'host_pid': 900, 'source_sha256': 'b' * 64, 'config_sha256': 'c' * 64}
+    observed = []
+    class App:
+        def close(self):
+            marker = json.loads((tmp_path / 'completion.json').read_text())
+            observed.append(marker)
+    package = types.ModuleType('isaaclab')
+    module = types.ModuleType('isaaclab.app')
+    module.AppLauncher = lambda headless: types.SimpleNamespace(app=App())
+    monkeypatch.setitem(sys.modules, 'isaaclab', package)
+    monkeypatch.setitem(sys.modules, 'isaaclab.app', module)
+    preflight(tmp_path, identity)
+    assert observed[0]['source_sha256'] == identity['source_sha256']
+    assert observed[0]['config_sha256'] == identity['config_sha256']
+    assert observed[0]['output_root'] == identity['output_root']
+    assert observed[0]['completion_state'] == 'complete'
+    assert observed[0]['written_wall_ns'] > 0

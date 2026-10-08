@@ -1,0 +1,46 @@
+{
+  "authoritative_root": "/tmp/eatnav-p1-terminal-monitor-20261008-r1",
+  "candidate_control_steps": 0,
+  "candidate_paths_published": 0,
+  "candidate_processes_started": 0,
+  "contract_evidence": {
+    "current_host_runner_modes": [
+      "preflight",
+      "smoke"
+    ],
+    "frozen_simulator_sha256": "9e2a40f0b283d4581219302c3f2f0782b00ca825e07653bbe3924dd5c47cec07",
+    "output_overlay_sha256": "36cfcadcdc639e2550b007c2060956af4537fa0e4c3800a67c5e6715dea58947",
+    "prior_gate_path": "docs/eat-nav/local-primitive-p1-r5-20261008-attempt2/pilot-prelaunch-contract-gate.json",
+    "prior_gate_sha256": "83fd6204344962ffc74716fe35a33d1090aa36a20f3e84e6fbfd0724a644b59c",
+    "selected_radial_anchor_count": 4,
+    "selected_radial_anchors_with_episode_key": 0,
+    "simulator_requires_episode_prefix": true
+  },
+  "decision": "p1_partial_measurement_review_required",
+  "frozen_experiment_inputs_unchanged": true,
+  "frozen_manifest_rows": 28,
+  "lifecycle_test_result": "72 passed",
+  "outcomes_collected": 0,
+  "phase": "stopped_before_pilot_start",
+  "router_operator_owned_and_unchanged": true,
+  "smoke": {
+    "actor_records": 8,
+    "bracket_count": 33,
+    "dem_frames": 16,
+    "gpu_peak_used_mib": 5883.562,
+    "native_exit_code": 0,
+    "owned_residual_count": 0,
+    "peak_bracket_gap_mib": 122.398,
+    "peak_container_anon_shmem_gib": 3.64,
+    "peak_sampled_storage_mib": 24.716,
+    "physics_steps": 200,
+    "pose_count": 4
+  },
+  "subreason": "frozen_E1_simulator_radial_anchor_input_contract_mismatch",
+  "t3_zero_physics_preflight": "pass",
+  "t4_candidate_free_shard_B_smoke": "pass",
+  "t5_cleanup_and_baseline": "pass",
+  "wall_ns": 1791470536511443322,
+  "x1_external_router": "pass",
+  "x2_candidate_free_bridge_and_eight_followers": "pass"
+}

@@ -12,11 +12,15 @@ from eat_nav_g0e_gpu_probe import Nvml, proc_table, proc_info
 from eat_nav_p1_gpu_attribution import capture_live
 from eat_nav_p1_handshake_prepare import WORKTREE, R5, atomic, sha
 from eat_nav_radial_anchor_fixture import verify_source
+from eat_nav_p1_terminal_lifecycle import TerminalLifecycle, completion_envelope, signal_if_exact
+from eat_nav_p1_terminal_prepare import verify_frozen_code
 
 
 CONTAINER = 'isaac-lab-onix'
-ROOT = Path('/tmp/eatnav-p1-handshake-20261008-r1')
+ROOT = Path('/tmp/eatnav-p1-terminal-monitor-20261008-r1')
 PREVIOUS = Path('/tmp/eatnav-p1-resource-rollout-20261008-attempt2/attribution-smoke-manifest.json')
+FROZEN_PRE_CLOSE_SIM_SHA = '4f18acdab53b9cb107c9a224e312a4fcaf357ce1f15806a8c86bcbca3d17c8a5'
+FROZEN_PRE_CLOSE_LOGGER_SHA = '267336721ef37908471c84a2913a3ffa840584044ce2c598191a86f56f208c31'
 
 
 def resolve_owner(table: dict, ready: dict, container_id: str) -> dict:
@@ -66,6 +70,9 @@ def validate_smoke_artifacts(output: Path, expected_pose_count: int) -> dict:
         raise ValueError('smoke_pose_count_invalid')
     for pose_file in pose_files:
         pose = pose_file.stem
+        pose_record = json.loads(pose_file.read_text())
+        if pose_record.get('control_step_count') != 20 or pose_record.get('physics_step_count') != 200:
+            raise ValueError('smoke_control_count_invalid:' + pose)
         trace_file = output / 'trace' / (pose + '.jsonl')
         trace = [json.loads(line) for line in trace_file.read_text().splitlines()]
         if len(trace) != 200 or [row['physics_step'] for row in trace] != list(range(1, 201)):
@@ -98,6 +105,38 @@ def remote_json(path: Path) -> dict | None:
 def remote_sha(path: Path) -> str | None:
     result = docker('exec', CONTAINER, 'sha256sum', str(path), check=False)
     return result.stdout.split()[0] if result.returncode == 0 else None
+
+
+def remote_marker_record(path: Path) -> dict | None:
+    code = ('import hashlib,json,sys; from pathlib import Path; p=Path(sys.argv[1]); '
+            'b=p.read_bytes(); print(json.dumps({"data":json.loads(b),'
+            '"sha256":hashlib.sha256(b).hexdigest(),"mtime_ns":p.stat().st_mtime_ns}))')
+    result = docker('exec', CONTAINER, '/isaac-sim/kit/python/bin/python3',
+                    '-c', code, str(path), check=False)
+    if result.returncode != 0:
+        if 'FileNotFoundError' in result.stderr:
+            return None
+        raise RuntimeError('remote_completion_read_failed:' + result.stderr[-400:])
+    return json.loads(result.stdout)
+
+
+def load_terminal_marker(mode: str, record: dict | None, owner: dict, token: str,
+                         source_sha: str, config_sha: str, output_root: str,
+                         *, before_close_source_verified: bool) -> dict | None:
+    if record is None:
+        return None
+    if mode == 'preflight':
+        marker = record['data']
+        if marker.get('written_wall_ns', 0) > record['mtime_ns']:
+            raise ValueError('preflight_marker_timestamp_after_file_write')
+        return marker
+    if mode != 'smoke':
+        raise ValueError('invalid_mode')
+    return completion_envelope(record['data'], raw_sha=record['sha256'],
+        raw_mtime_ns=record['mtime_ns'], owner=owner, token=token,
+        source_sha=source_sha, config_sha=config_sha, output_root=output_root,
+        expected_physics_steps=200, expected_control_steps=20,
+        before_close_source_verified=before_close_source_verified)
 
 
 def remote_atomic(local: Path, remote: Path) -> None:
@@ -161,6 +200,7 @@ def build_wrapper_command(original: list[str], wrapper_path: str,
 def one_run(root: Path, mode: str) -> dict:
     if mode not in ('preflight', 'smoke'):
         raise ValueError('invalid_mode')
+    verify_frozen_code(root)
     no_prior_owner_live(root)
     target = root / mode
     if target.exists():
@@ -168,6 +208,9 @@ def one_run(root: Path, mode: str) -> dict:
     previous = json.loads(PREVIOUS.read_text())
     source = Path(previous['source_shard'])
     freeze, prelaunch = verify_source(source)
+    if (freeze['sim_source_sha256'] != FROZEN_PRE_CLOSE_SIM_SHA or
+            freeze['source_sha256']['radial_lean_log'] != FROZEN_PRE_CLOSE_LOGGER_SHA):
+        raise RuntimeError('preclose_source_proof_SHA_drift')
     if previous['selected_prior_subroot'] != '/tmp/eatnav-radial-anchor-contract-20261008-r2/shard-00':
         raise RuntimeError('highest_GPU_shard_selection_drift')
     original = list(prelaunch['command'])
@@ -226,6 +269,8 @@ def one_run(root: Path, mode: str) -> dict:
     client = None
     owner = None
     authorized = False
+    lifecycle = None
+    seen_owned = {}
     started = time.monotonic()
     failure = None
     with (target / 'runner.log').open('wb') as log:
@@ -252,20 +297,50 @@ def one_run(root: Path, mode: str) -> dict:
             sample = sample_gpu(nvml, {'simulator': owner}, baseline, contract, container_id, True,
                                 target / 'gpu-brackets.jsonl', 'preauthorization', resource_root=root)
             assert_pre_authorization_gpu_clear(sample)
+            lifecycle = TerminalLifecycle(owner, token, freeze['sim_source_sha256'],
+                prelaunch['freeze_sha256'], str(output),
+                expected_physics_steps=0 if mode == 'preflight' else 200,
+                expected_control_steps=0 if mode == 'preflight' else 20,
+                authorization_wall_ns=0, container_id=container_id,
+                allowed_token_claimants={
+                    (row['host_pid'], row['start_ticks'])
+                    for row in sample['process_table_before'].values()
+                    if container_id in row.get('cgroup', '')
+                    and token in row.get('command_line', '').split()})
+            lifecycle.observe(sample)
             atomic(coord / 'monitor-ready.json', {'run_token': token, 'owner': owner,
                    'bracket_monotonic_ns': sample['monotonic_ns'], 'sample_pass': True})
             authorization = {key: ready[key] for key in ('schema', 'run_token', 'container_pid',
                               'start_ticks', 'output_root', 'source_sha256', 'config_sha256')}
             authorization.update({'host_pid': owner['host_pid'], 'monitor_ready': True,
                                   'bracket_monotonic_ns': sample['monotonic_ns']})
+            lifecycle.authorization_wall_ns = time.time_ns()
+            authorization['authorization_wall_ns'] = lifecycle.authorization_wall_ns
             atomic(coord / 'owner-authorized.json', authorization)
             remote_atomic(coord / 'owner-authorized.json', coord / 'owner-authorized.json')
             authorized = True
-            while client.poll() is None:
+            lifecycle.authorize()
+            marker_path = coord / 'completion.json' if mode == 'preflight' else output / 'sim-finished.json'
+            def observed_bracket(stage: str) -> dict:
                 sample = sample_gpu(nvml, {'simulator': owner}, baseline, contract, container_id, True,
-                                    target / 'gpu-brackets.jsonl', 'authorized', resource_root=root)
-                if not sample['pass']:
-                    raise RuntimeError('resource_attribution_gate:' + ','.join(sample['failures']))
+                                    target / 'gpu-brackets.jsonl', stage, resource_root=root)
+                for pid in sample.get('owned_process_tree_host_pids', []):
+                    row = sample['process_table_before'].get(pid)
+                    if row and container_id in row.get('cgroup', ''):
+                        seen_owned[pid] = row['start_ticks']
+                record = remote_marker_record(marker_path)
+                marker = load_terminal_marker(mode, record, owner, token,
+                    freeze['sim_source_sha256'], prelaunch['freeze_sha256'], str(output),
+                    before_close_source_verified=True)
+                if marker is not None and not (coord / 'terminal-completion-envelope.json').exists():
+                    atomic(coord / 'terminal-completion-envelope.json', marker)
+                phase = lifecycle.observe(sample, marker)
+                with (target / 'lifecycle-events.jsonl').open('a') as stream:
+                    stream.write(json.dumps({**lifecycle.events[-1],
+                        'bracket_wall_ns': sample['wall_ns'], 'observed_phase': phase}, sort_keys=True) + '\n')
+                return sample
+            while client.poll() is None:
+                sample = observed_bracket('authorized')
                 if time.monotonic() - started > contract['per_process_timeout_sec']:
                     raise RuntimeError('per_process_timeout')
                 if mode == 'smoke':
@@ -273,9 +348,19 @@ def one_run(root: Path, mode: str) -> dict:
                     if heartbeat is not None and (time.monotonic_ns() - heartbeat['monotonic_ns']) / 1e9 > contract['heartbeat_stale_sec']:
                         raise RuntimeError('heartbeat_stale')
                 time.sleep(1)
-            sample_gpu(nvml, {}, baseline, contract, container_id, False,
-                       target / 'gpu-brackets.jsonl', 'shutdown', resource_root=root)
+            # The first post-exit bracket records the transition; the second is
+            # an independent terminal resource/ownership check.
+            observed_bracket('exit-transition')
+            observed_bracket('terminal')
             docker('cp', f'{CONTAINER}:{coord}/.', str(coord))
+            coord_sha = []
+            for name in ('launch-intent.json', 'owner-ready.json', 'owner-authorized.json',
+                         'completion.json' if mode == 'preflight' else 'exec-transition.json'):
+                path = coord / name
+                if not path.is_file() or remote_sha(path) != sha(path):
+                    raise RuntimeError('coord_marker_SHA_mismatch:' + name)
+                coord_sha.append({'path': str(path), 'sha256': sha(path)})
+            atomic(target / 'coord-marker-sha-ledger.json', {'files': coord_sha})
             if output.exists():
                 raise RuntimeError('host_output_preexisting')
             if mode == 'smoke':
@@ -299,24 +384,49 @@ def one_run(root: Path, mode: str) -> dict:
                             raise RuntimeError('host_container_SHA_mismatch:' + str(path))
                         ledger.append({'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size})
                 atomic(target / 'raw-sha-ledger.json', {'files': ledger})
+            final_table = proc_table()
+            token_absent = not any(token in row.get('command_line', '') for row in final_table.values())
+            descendants_absent = not any(
+                final_table.get(pid) is not None and final_table[pid].get('start_ticks') == start
+                for pid, start in seen_owned.items())
+            lifecycle.complete(native_exit=client.returncode, output_sha_valid=True,
+                               token_absent=token_absent, descendants_absent=descendants_absent)
+            atomic(target / 'lifecycle-state.json', {'phase': lifecycle.phase,
+                   'events': lifecycle.events, 'token_absent': token_absent,
+                   'descendants_absent': descendants_absent, 'seen_owned': seen_owned})
             result = {'decision': 'p1_startup_preflight_pass' if mode == 'preflight' else 'p1_resource_attribution_pass',
                       'owner': owner, 'run_token': token, 'native_exit_code': client.returncode,
                       'completion_sha256': sha(coord / 'completion.json' if mode == 'preflight' else output / 'sim-finished.json'),
-                      'owned_residual_count': 0, 'authorized': authorized}
+                      'owned_residual_count': 0, 'authorized': authorized,
+                      'lifecycle': lifecycle.phase}
             atomic(target / 'result.json', result)
             return result
         except BaseException as exc:
             failure = {'decision': 'startup_ownership_handshake_fail' if mode == 'preflight' else 'p1_resource_attribution_fail',
                        'first_failing_signal': str(exc), 'authorized': authorized,
                        'owner': owner, 'run_token': token}
+            if lifecycle is not None:
+                failure['lifecycle'] = lifecycle.phase
+                atomic(target / 'lifecycle-state.json', {'phase': lifecycle.phase,
+                       'events': lifecycle.events, 'seen_owned': seen_owned})
             atomic(target / 'result.json', failure)
             raise
         finally:
+            cleanup_signals = []
+            if failure is not None:
+                # A Docker exec client can exit before its simulator process.
+                # Cleanup therefore checks exact registered identities even
+                # when the client has already returned.
+                for pid, start in sorted(seen_owned.items(), reverse=True):
+                    if signal_if_exact({'host_pid': pid, 'start_ticks': start}, proc_info,
+                                       lambda current_pid: os.kill(current_pid, 15)):
+                        cleanup_signals.append(pid)
+                if owner and owner['host_pid'] not in seen_owned:
+                    if signal_if_exact(owner, proc_info, lambda current_pid: os.kill(current_pid, 15)):
+                        cleanup_signals.append(owner['host_pid'])
             if client is not None and client.poll() is None:
-                # Only terminate the exact registered PID. A changed start tick is
-                # a different process and must never receive a signal.
-                if owner and exact_owned_alive(proc_table(), owner):
-                    os.kill(owner['host_pid'], 15)
+                # Only wait on this run's exact registered owner.
+                if owner:
                     for _ in range(40):
                         if not exact_owned_alive(proc_table(), owner):
                             break
@@ -329,6 +439,7 @@ def one_run(root: Path, mode: str) -> dict:
                     client.wait(timeout=10)
             atomic(target / 'cleanup.json', {'owner': owner,
                    'owner_alive': bool(owner and exact_owned_alive(proc_table(), owner)),
+                   'signaled_exact_host_pids': cleanup_signals,
                    'client_exit': None if client is None else client.poll(), 'authorized': authorized,
                    'failure': failure})
 
