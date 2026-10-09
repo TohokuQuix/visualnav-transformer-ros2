@@ -46,6 +46,8 @@ Both output roots are retained separately:
 
 Each root has an atomic decision, SHA ledger and seal. Host and container SHA for the five v2 simulator outputs match. The v2 observed GPU device-total peak was 5,907 MiB against the 7,680 MiB cap; minimum host available RAM was 81.5 GiB against 10 GiB. Monitored active storage peaked at 1.22 MiB, and final host artifacts total 5.76 MiB, against the 1 GiB cap. The owned simulator PID exited, and GPU memory returned to 438 MiB. The 90-second heartbeat and 600-second process caps were not reached.
 
+Both sealed roots were copied to `/home/kojima/eatnav-backups/2026-10-09-p1-batch-prepath-gate/` and every file in both SHA ledgers was verified again from that backup.
+
 ## Next gate
 
 The batch rollout is blocked until a candidate-free 112-env run matches **all 28** settled root/joint, four DEM frames and Actor inputs under the unchanged pre-Path tolerance. The next diagnostic should first save per-tile mesh SHA and per-step root/joint/action-manager/latency/observation-noise state during settling, then locate the first divergence. That diagnostic must retain the sealed v1/v2 attempts and freeze a new source SHA before running. No 8–12 StateGroup expansion proposal is issued because mixed-candidate parity has not passed.
