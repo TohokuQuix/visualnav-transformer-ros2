@@ -20,8 +20,8 @@ def atomic(path, data):
     tmp.replace(path)
 
 
-def prepare(anchor_id,batch_index,root):
-    reference=BASE/f'preflight-{anchor_id}-b{batch_index}-v4'
+def prepare(anchor_id,batch_index,root,*,reference_base=BASE,reference_suffix='-v4'):
+    reference=reference_base/f'preflight-{anchor_id}-b{batch_index}{reference_suffix}'
     seal=json.loads((reference/'host-seal.json').read_text())
     complete=reference/'output/complete.json'
     if sha(complete)!=seal['complete_sha256']:
@@ -29,7 +29,7 @@ def prepare(anchor_id,batch_index,root):
     gate=json.loads((reference/'output/prepath-gate.json').read_text())
     if not gate['pass']:
         raise ValueError('candidate-free initialization failed')
-    other=BASE/f'preflight-{anchor_id}-b{1-batch_index}-v4'
+    other=reference_base/f'preflight-{anchor_id}-b{1-batch_index}{reference_suffix}'
     terrain=json.loads((reference/'output/terrain.json').read_text())
     other_terrain=json.loads((other/'output/terrain.json').read_text())
     if (terrain['fingerprints'][0]['canonical_mesh_sha256']!=

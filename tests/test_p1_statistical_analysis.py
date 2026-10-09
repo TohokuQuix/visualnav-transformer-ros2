@@ -5,7 +5,30 @@ from pathlib import Path
 import pytest
 
 from visualnav_transformer.eat_nav.p1_statistical_protocol import build_assignments
-from visualnav_transformer.eat_nav.p1_statistical_analysis import extract_outcome, analyze
+from visualnav_transformer.eat_nav.p1_statistical_analysis import extract_outcome, extract_diagnostic, analyze
+
+
+def test_analysis_cli_accepts_120_step_candidate_free_trace(tmp_path):
+    from scripts.eat_nav_p1_statistical_analyze import verify_candidate_free
+    from visualnav_transformer.eat_nav.p1_statistical_freeze import sha
+    output=tmp_path/'output'
+    output.mkdir()
+    hashes=[]
+    for slot in range(7):
+        path=output/f'trace-slot-{slot}.jsonl'
+        rows=[]
+        for index in range(120):
+            rows.append({'control_step':index,'actor_input':[0.0]*22,
+                'critic_observation':[0.0]*267,'actor_action':[0.0]*6,
+                'command':[0.0]*3,'root_state':[0,0,.5,1,0,0,0]+[0]*6,
+                'post_root_state':[0,0,.5,1,0,0,0]+[0]*6,
+                'reward':0.0,'terminal':None})
+        path.write_text(''.join(json.dumps(row)+'\n' for row in rows))
+        hashes.append(sha(path))
+    (output/'complete.json').write_text(json.dumps({'Path_publications':0,
+        'control_steps':120,'trace_sha256':hashes}))
+    result=verify_candidate_free(tmp_path)
+    assert result['trace_count']==7 and result['analysis_primary_window_accepted']
 
 
 ROOT = Path(__file__).parents[1]
@@ -43,6 +66,16 @@ def test_short_terminal_trace_is_censored_without_post_reset_values():
     assert result['valid_primary'] is False
     assert result['first_terminal_step'] == 0
     assert result['discounted_reward_2s'] is None
+
+
+def test_six_second_diagnostic_keeps_progress_separate_and_censors_terminal():
+    complete=extract_diagnostic(trace(),(.75,0))
+    assert complete['valid_to_6s']
+    assert complete['global_goal_progress_6s_m']==pytest.approx(.12)
+    interrupted=extract_diagnostic(trace(terminal_step=50)[:51],(.75,0))
+    assert interrupted['valid_to_6s'] is False
+    assert interrupted['first_terminal_step']==50
+    assert interrupted['global_goal_progress_6s_m'] is None
 
 
 def test_pilot_uses_batch_contrasts_and_marks_two_batch_intervals_descriptive():

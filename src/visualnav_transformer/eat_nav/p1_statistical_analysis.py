@@ -18,6 +18,30 @@ def _finite(value):
     return isinstance(value, (int, float)) and math.isfinite(value)
 
 
+def extract_diagnostic(trace: list[dict], goal: tuple[float, float]) -> dict:
+    """Existing six-second global-goal progress/termination auxiliary readout."""
+    if not trace or len(trace)>120 or [row['control_step'] for row in trace]!=list(range(len(trace))):
+        raise ValueError('diagnostic trace step continuity')
+    terminal=next((row for row in trace if row.get('terminal')),None)
+    if terminal is not None:
+        return {'valid_to_6s':False,'global_goal_progress_6s_m':None,
+                'first_terminal_step':terminal['control_step'],
+                'termination_reason':terminal['terminal'].get('termination_reason')}
+    if len(trace)!=120:
+        raise ValueError('unterminated diagnostic trace must reach step 119')
+    first=trace[0]['root_state'];final=trace[119]['post_root_state']
+    if len(first)!=13 or len(final)!=13 or not all(_finite(v) for v in first+final):
+        raise ValueError('diagnostic root state shape/nonfinite')
+    w,x,y,z=first[3:7]
+    yaw=math.atan2(2*(w*z+x*y),1-2*(y*y+z*z))
+    target_x=first[0]+goal[0]*math.cos(yaw)-goal[1]*math.sin(yaw)
+    target_y=first[1]+goal[0]*math.sin(yaw)+goal[1]*math.cos(yaw)
+    return {'valid_to_6s':True,
+            'global_goal_progress_6s_m':math.hypot(*goal)-math.hypot(
+                target_x-final[0],target_y-final[1]),
+            'first_terminal_step':None,'termination_reason':None}
+
+
 def extract_outcome(trace: list[dict], goal: tuple[float, float], gamma: float = .99) -> dict:
     primary=trace[:40]
     if not primary or [row['control_step'] for row in primary] != list(range(len(primary))):

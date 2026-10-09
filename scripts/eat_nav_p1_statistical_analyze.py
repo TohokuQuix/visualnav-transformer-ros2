@@ -8,11 +8,32 @@ import math
 from pathlib import Path
 import statistics
 
-from visualnav_transformer.eat_nav.p1_statistical_analysis import analyze, extract_outcome, METRICS
+from visualnav_transformer.eat_nav.p1_statistical_analysis import analyze, extract_outcome, extract_diagnostic, METRICS
 from visualnav_transformer.eat_nav.p1_statistical_freeze import sha
+from visualnav_transformer.eat_nav.p1_statistical_runtime import validate_candidate_free_trace
 
 
 GROUPS=('first-differential','second-differential','first-graded','second-graded')
+
+
+def verify_candidate_free(root):
+    marker=json.loads((root/'output/complete.json').read_text())
+    if marker.get('Path_publications')!=0 or marker.get('control_steps')!=120 or len(marker.get('trace_sha256',[]))!=7:
+        raise ValueError('candidate-free 120-step contract')
+    summaries=[]
+    for index,digest in enumerate(marker['trace_sha256']):
+        path=root/'output'/f'trace-slot-{index}.jsonl'
+        if sha(path)!=digest:
+            raise ValueError('candidate-free trace SHA mismatch')
+        rows=[json.loads(line) for line in path.read_text().splitlines()]
+        validate_candidate_free_trace(rows)
+        primary=extract_outcome(rows,(.75,0.0),.99)
+        summaries.append({'slot':index,'control_steps':len(rows),
+                          'primary_window_processed':primary['valid_primary'] or
+                              primary['first_terminal_step'] is not None})
+    return {'candidate_free':True,'Path_publications':0,'trace_count':7,
+            'control_steps_per_trace':120,'analysis_primary_window_accepted':all(
+                row['primary_window_processed'] for row in summaries)}
 
 
 def atomic(path,value):
@@ -62,17 +83,24 @@ def verify_one(root,group,batch,manifest,base_config):
         if len(trace)<base_config['diagnostic_control_steps'] and trace[-1].get('terminal') is None:
             raise ValueError('short trace without terminal')
         for item in trace:
-            if len(item['actor_input'])!=22 or len(item['actor_action'])!=6 or len(item['follower_command'])!=3:
+            if (len(item['actor_input'])!=22 or len(item['actor_pre_noise'])!=22 or
+                    len(item['actor_post_noise_pre_delay'])!=22 or
+                    len(item['actor_action'])!=6 or len(item['follower_command'])!=3):
                 raise ValueError('Actor/command dimension drift')
-            if not all(math.isfinite(v) for key in ('actor_input','actor_action','follower_command','root_state','post_root_state') for v in item[key]):
+            if not all(math.isfinite(v) for key in ('actor_input','actor_pre_noise',
+                    'actor_post_noise_pre_delay','actor_action','follower_command',
+                    'root_state','post_root_state') for v in item[key]):
                 raise ValueError('nonfinite pilot trace')
+            if not all(math.isfinite(item[key]) for key in ('reward','critic_value')):
+                raise ValueError('nonfinite reward/Critic value')
             if item['logical_sim_time_ns']!=publication['stamp_ns']+item['control_step']*50_000_000:
                 raise ValueError('trace stamp mismatch')
             if item['policy_action_mode']!='act_inference':
                 raise ValueError('policy action mode drift')
         outcome=extract_outcome(trace,tuple(base_config['common_global_goal_base_xy_m']),
                                 base_config['reward_gamma_per_step'])
-        outcomes.append({**outcome,'trial_id':row['trial_id'],'slot':slot,
+        diagnostic=extract_diagnostic(trace,tuple(base_config['common_global_goal_base_xy_m']))
+        outcomes.append({**outcome,'diagnostic':diagnostic,'trial_id':row['trial_id'],'slot':slot,
                          'anchor_id':group,'batch_index':batch,'path_sha256':row['path_sha256'],
                          'path_identity':row['path_identity'],'trace_sha256':sha(trace_path)})
     terrain=json.loads((root/'output/terrain.json').read_text())
@@ -111,9 +139,17 @@ def direct_slot_diagnostics(outcomes):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--pilot-root',type=Path,required=True)
-    parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--pilot-root',type=Path)
+    parser.add_argument('--candidate-free-root',type=Path)
+    parser.add_argument('--output',type=Path)
     args=parser.parse_args()
+    if args.candidate_free_root is not None:
+        if args.pilot_root is not None or args.output is not None:
+            parser.error('candidate-free validation takes only --candidate-free-root')
+        print(json.dumps(verify_candidate_free(args.candidate_free_root),sort_keys=True))
+        return
+    if args.pilot_root is None or args.output is None:
+        parser.error('pilot analysis requires --pilot-root and --output')
     if args.output.exists():raise FileExistsError(args.output)
     manifest=json.loads((args.pilot_root/'pilot-first-differential-b0-v1/input/assignment.json').read_text())
     config=json.loads((args.pilot_root/'pilot-first-differential-b0-v1/input/statistical-config.json').read_text())

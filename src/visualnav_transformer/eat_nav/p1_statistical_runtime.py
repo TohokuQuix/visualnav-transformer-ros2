@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import math
 
 from .p1_statistical_protocol import initialization_checks, terrain_identity_checks
 
@@ -51,3 +52,21 @@ def require_prepath_gate(records: list[dict], limits: dict) -> dict:
         raise ValueError('controlled_initialization:' + ','.join(initialization['failures']))
     return {'pass': True, 'terrain': terrain, 'initialization': initialization,
             'Path_publications_before_gate': 0}
+
+
+def validate_candidate_free_trace(rows: list[dict]) -> dict:
+    """Check the 120-step logging path without treating it as a Path Outcome."""
+    if len(rows) != 120 or [row.get('control_step') for row in rows] != list(range(120)):
+        raise ValueError('candidate-free trace must cover steps 0..119')
+    fields={'actor_input':22,'critic_observation':267,'actor_action':6,
+            'command':3,'root_state':13,'post_root_state':13}
+    for row in rows:
+        for name,width in fields.items():
+            values=row.get(name)
+            if not isinstance(values,list) or len(values)!=width or not all(
+                    isinstance(value,(int,float)) and math.isfinite(value) for value in values):
+                raise ValueError(f'candidate-free {name} shape/nonfinite')
+        reward=row.get('reward')
+        if not isinstance(reward,(int,float)) or not math.isfinite(reward):
+            raise ValueError('candidate-free reward nonfinite')
+    return {'control_steps':120,'finite':True,'shape':{'actor':22,'critic':267,'action':6}}

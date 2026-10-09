@@ -41,8 +41,11 @@ from onix_isaac_lab.tasks.locomotion.velocity.config.onix.rough_env_cfg import O
 from onix_isaac_lab.tasks.locomotion.velocity.config.onix.eat_nav_env_cfg import EATTerrainGenerator, make_collection_cfg
 from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, clone_internal_branch_state
-from visualnav_transformer.eat_nav.p1_statistical_runtime import CachedTerrainGeometry, require_prepath_gate, jsonable_values
+from visualnav_transformer.eat_nav.phase_c_sim import capture_actor_critic
+from visualnav_transformer.eat_nav.p1_statistical_runtime import CachedTerrainGeometry, require_prepath_gate, jsonable_values, validate_candidate_free_trace
 from visualnav_transformer.eat_nav.p1_statistical_freeze import sha
+from rsl_rl.runners import OnPolicyRunner
+from onix_isaac_lab.tasks.locomotion.velocity.config.onix.agents.rsl_rl_ppo_cfg import OnixRoughPPORunnerCfg
 
 
 def atomic(path, value):
@@ -76,6 +79,8 @@ if len(assigned)!=7 or {row['slot'] for row in assigned}!=set(range(7)):
     raise ValueError('assignment does not cover seven slots')
 if config_json['policy_action_mode']!='act_inference' or config_json['paired_policy_noise']:
     raise ValueError('inference contract drift')
+if config_json['primary_control_steps']!=40 or config_json['diagnostic_control_steps']!=120:
+    raise ValueError('P1 primary/diagnostic window contract')
 
 
 class SevenSameTerrain(EATTerrainGenerator):
@@ -275,12 +280,69 @@ def main():
         atomic(args.output/'prepath-gate.json',gate)
         if tuple(obs['policy'].shape)!=(7,22) or tuple(obs['critic'].shape)!=(7,267):
             raise ValueError('Actor/Critic observation shape drift')
+        checkpoint=Path(config_json['rl_checkpoint'])
+        if sha(checkpoint)!=config_json['rl_checkpoint_sha256']:
+            raise ValueError('RL checkpoint SHA drift')
+        runner=OnPolicyRunner(env,OnixRoughPPORunnerCfg().to_dict(),log_dir=None,device=bare.device)
+        weights=torch.load(checkpoint,map_location='cpu',weights_only=True)['model_state_dict']
+        runner.alg.policy.load_state_dict(weights)
+        policy=runner.alg.policy
+        terminal_capture={}
+        original_reset=bare._reset_idx
+        def capture_reset(env_ids):
+            terms=bare.termination_manager
+            for index in env_ids.detach().cpu().tolist():
+                if 0<=index<7:
+                    terminal_capture[index]={'root_state':values(robot.data.root_state_w[index]),
+                         'termination_reason':[name for name in terms.active_terms
+                             if bool(terms.get_term(name)[index])]}
+            return original_reset(env_ids)
+        bare._reset_idx=capture_reset
+        traces=[[] for _ in range(7)]
+        try:
+            for control_step in range(120):
+                with torch.inference_mode():
+                    actions,_,_=capture_actor_critic(policy,obs['policy'],obs['critic'],latent_layer=6)
+                if tuple(actions.shape)!=(7,6) or not bool(torch.isfinite(actions).all()):
+                    raise ValueError('candidate-free Actor action shape/nonfinite')
+                roots=robot.data.root_state_w.detach().cpu().tolist()
+                commands=bare.command_manager._terms['base_velocity'].vel_command_b.detach().cpu().tolist()
+                actors=obs['policy'].detach().cpu().tolist()
+                critics=obs['critic'].detach().cpu().tolist()
+                capture_actions=actions.detach().cpu().tolist()
+                with torch.inference_mode():
+                    obs,reward,done,_=env.step(actions)
+                for index in range(7):
+                    terminal=None
+                    if bool(done[index]):
+                        if index not in terminal_capture:
+                            raise ValueError('candidate-free terminal state missing')
+                        post=terminal_capture[index]['root_state']
+                        terminal={'termination_reason':terminal_capture[index]['termination_reason']}
+                    else:
+                        post=values(robot.data.root_state_w[index])
+                    traces[index].append({'control_step':control_step,
+                         'actor_input':actors[index],'critic_observation':critics[index],
+                         'actor_action':capture_actions[index],'command':commands[index],
+                         'root_state':roots[index],'post_root_state':post,
+                         'reward':float(reward[index]),'terminal':terminal})
+                terminal_capture.clear()
+                atomic(args.output/'heartbeat.json',{'completed_control_steps':control_step+1,
+                     'elapsed_s':time.monotonic()-started,'Path_publications':0})
+        finally:
+            bare._reset_idx=original_reset
+        for index,rows in enumerate(traces):
+            validate_candidate_free_trace(rows)
+            with (args.output/f'trace-slot-{index}.jsonl').open('x') as stream:
+                for row in rows:
+                    stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+'\n')
         atomic(args.output/'complete.json',{'stage':'candidate_free_complete',
-               'Path_publications':0,'settling_control_steps':20,
+               'Path_publications':0,'settling_control_steps':20,'control_steps':120,
                'anchor_id':args.anchor_id,'batch_index':args.batch_index,
                'initial_state_sha256':sha(args.output/'initial-state.json'),
                'terrain_sha256':sha(args.output/'terrain.json'),
-               'prepath_gate_sha256':sha(args.output/'prepath-gate.json')})
+               'prepath_gate_sha256':sha(args.output/'prepath-gate.json'),
+               'trace_sha256':[sha(args.output/f'trace-slot-{index}.jsonl') for index in range(7)]})
     finally:
         if override is not None: override.close()
         if env is not None: env.close()

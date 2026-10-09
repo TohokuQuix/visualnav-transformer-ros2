@@ -85,7 +85,10 @@ def run(root,anchor_id,batch_index):
         raise ValueError('simulator source SHA changed')
     if sha(root/'input/assignment.json')!=freeze['assignment_sha256']:
         raise ValueError('assignment SHA changed')
-    cap=json.loads((root/'input/statistical-config.json').read_text())['resource_cap']
+    cfg=json.loads((root/'input/statistical-config.json').read_text())
+    if cfg['primary_control_steps']!=40 or cfg['diagnostic_control_steps']!=120:
+        raise ValueError('P1 primary/diagnostic window contract')
+    cap=cfg['resource_cap']
     limits={'gpu_device_total_mib':cap['gpu_device_total_mib'],
             'host_available_min_gib':cap['host_available_min_gib'],
             'active_storage_gib':cap['active_storage_max_gib'],
@@ -148,7 +151,7 @@ def run(root,anchor_id,batch_index):
     if not complete.is_file():
         raise ValueError('simulator completion marker missing')
     marker=json.loads(complete.read_text())
-    if marker['Path_publications']!=0 or marker['settling_control_steps']!=20:
+    if marker['Path_publications']!=0 or marker['settling_control_steps']!=20 or marker['control_steps']!=120:
         raise ValueError('candidate-free completion contract')
     for key,name in (('initial_state_sha256','initial-state.json'),
                      ('terrain_sha256','terrain.json'),('prepath_gate_sha256','prepath-gate.json')):
@@ -159,6 +162,15 @@ def run(root,anchor_id,batch_index):
             raise ValueError('container output SHA mismatch: '+name)
     if owned_identity(container_root) is not None:
         raise ValueError('owned process residual')
+    if len(marker.get('trace_sha256',[]))!=7:
+        raise ValueError('candidate-free trace coverage')
+    for index,digest in enumerate(marker['trace_sha256']):
+        path=root/'output'/f'trace-slot-{index}.jsonl'
+        if sha(path)!=digest:
+            raise ValueError('candidate-free host trace SHA mismatch')
+        remote=docker('sha256sum',f'{container_root}/output/{path.name}')
+        if remote.returncode or remote.stdout.split()[0]!=digest:
+            raise ValueError('candidate-free host/container trace SHA mismatch')
     atomic(root/'host-seal.json',{'schema':'p1_statistical_candidate_free_seal_v1',
            'freeze_sha256':sha(root/'input/freeze.json'),
            'complete_sha256':sha(complete),

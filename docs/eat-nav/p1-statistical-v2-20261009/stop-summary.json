@@ -1,0 +1,61 @@
+{
+  "assignment_sha256": "709fa5ccc98c152e75dc24cbd659dc8ea249c740efeb14bdabe31b5cc5affc69",
+  "candidate_free_gate_sha256": "eff3fcfbc9abf39d2a66623ebb7a78475a37beab341d5efe07d03c04a2ea814e",
+  "completed_pilot_seals": [
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-first-differential-b0-v1",
+      "seal_sha256": "dbf6ec43ec06bff4e6ee46af7e736479e44dd08d46bf9308948efb5613a66a83"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-first-differential-b1-v1",
+      "seal_sha256": "bd4229fe20077be704601b25e2aaf1294783b5597bdb79808ae0af39a6d882fc"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-first-graded-b0-v1",
+      "seal_sha256": "82f1c4bbc6d7fb05ae98c04aaa98c4d6237f47478103a5dc33845cae052b04fb"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-first-graded-b1-v1",
+      "seal_sha256": "8dc06d2966b009ce7c8b8da04efa9f26dea2f1d497744b840ccf088e32c8071f"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-second-differential-b0-v1",
+      "seal_sha256": "519c938989ea6eb2e9413817d5b94ed8e2a9295e7472507f98690b4f6a9a127a"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-second-differential-b1-v1",
+      "seal_sha256": "d0ed95b0979f61da141d31a26a67ca5474e597fe9df556c35843db0d51a9e265"
+    },
+    {
+      "root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-second-graded-b0-v1",
+      "seal_sha256": "bbf799f7515d6e18095e274416fa42bb4c06e4ac149385b114f420faa97807b1"
+    }
+  ],
+  "config_sha256": "20ba502a9e4f3f7de61f05bbc04d7de0d9a5654ae0032be9e2fb16e662e5dec5",
+  "decision": "protocol_invalid",
+  "driver_failure_sha256": "d35328e30dccc4543654f0d1cc6c84a0207609abf61cda950dde902ff9788af7",
+  "external_router_modified": false,
+  "failed_native_exit": 1,
+  "failed_path_publications": 0,
+  "failed_resource_violation": null,
+  "failed_root": "/tmp/eatnav-p1-statistical-v2-20261009/pilot-second-graded-b1-v1",
+  "first_failing_signal": "native segmentation fault in libX11/libxcb XOpenDisplay from libomni.platforminfo.plugin.so",
+  "max_active_storage_gib": 0.012,
+  "max_observed_gpu_mib": 5433,
+  "min_host_available_gib": 82.07,
+  "outcome_comparison_run": false,
+  "owned_residual": 0,
+  "pilot_completed_processes": 7,
+  "pilot_freeze_sha256": "b4fbebec1a7cac1fbd8effe4ebcbae7b9ae47624b26a1abfad6e2205ece97984",
+  "pilot_required_trials": 56,
+  "pilot_sealed_trials": 49,
+  "pilot_simulator_source_sha256": "60b53d58593f304dabafa5be3ee37b70c4706340ea83c932177631fcc189a2c1",
+  "pilot_termination_count": 0,
+  "pilot_traces_120_steps": 49,
+  "preflight_completed": 8,
+  "preflight_eligible": 8,
+  "reason": "eighth simulator process failed during Isaac Sim/Kit startup before Python main and before Path publication",
+  "schema": "p1_statistical_v2_stop_v1",
+  "secondary_host_error": "Docker output copy missing because simulator never created output directory",
+  "static_preflight_sha256": "697b71f26ff8906d627a539d629b3709143d6799361af04b115bfe3f93b61842"
+}

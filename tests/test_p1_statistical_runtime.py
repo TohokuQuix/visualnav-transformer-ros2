@@ -2,6 +2,20 @@ import copy
 
 import pytest
 
+
+def test_candidate_free_trace_requires_120_finite_contiguous_steps():
+    from visualnav_transformer.eat_nav.p1_statistical_runtime import validate_candidate_free_trace
+    rows=[{'control_step':i,'actor_input':[0.0]*22,'critic_observation':[0.0]*267,
+           'actor_action':[0.0]*6,'command':[0.0]*3,
+           'root_state':[0.0]*13,'post_root_state':[0.0]*13,
+           'reward':0.0,'terminal':None} for i in range(120)]
+    assert validate_candidate_free_trace(rows)['control_steps']==120
+    with pytest.raises(ValueError):
+        validate_candidate_free_trace(rows[:80])
+    rows[119]['actor_input'][0]=float('nan')
+    with pytest.raises(ValueError):
+        validate_candidate_free_trace(rows)
+
 from visualnav_transformer.eat_nav.p1_statistical_runtime import (
     CachedTerrainGeometry, require_prepath_gate, jsonable_values,
 )
