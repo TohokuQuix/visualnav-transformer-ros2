@@ -1,0 +1,34 @@
+{
+  "schema": "p1_statistical_protocol_v2",
+  "supersedes": "p1_statistical_protocol_v1_invalid_80_step_diagnostic_window",
+  "policy_action_mode": "act_inference",
+  "paired_policy_noise": false,
+  "batch_seeds": [2026100901, 2026100902],
+  "assignment_randomization_seed": 123,
+  "paths_per_group": 5,
+  "direct_repetitions_per_batch": 3,
+  "pilot_independent_batches": 2,
+  "settling_control_steps": 20,
+  "primary_control_steps": 40,
+  "diagnostic_control_steps": 120,
+  "control_dt_s": 0.05,
+  "reward_gamma_per_step": 0.99,
+  "common_global_goal_base_xy_m": [0.75, 0.0],
+  "minimum_meaningful_progress_m": 0.05,
+  "minimum_meaningful_discounted_reward": 0.5,
+  "initialization_tolerances": {
+    "root_xy_m": 0.005,
+    "root_z_m": 0.002,
+    "root_yaw_rad": 0.01,
+    "root_velocity": 0.01,
+    "joint_position_rad": 0.005,
+    "joint_velocity_radps": 0.02
+  },
+  "resource_cap": {
+    "gpu_device_total_mib": 7680,
+    "host_available_min_gib": 10,
+    "active_storage_max_gib": 1,
+    "heartbeat_stale_s": 90,
+    "process_timeout_s": 600
+  }
+}
