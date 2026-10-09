@@ -1,0 +1,52 @@
+{
+  "schema": "eat_nav_p1_batch_parity_freeze_v1",
+  "golden_backup": "/home/kojima/eatnav-backups/2026-10-09-p1-radial-28-analysis",
+  "golden_backup_seal_sha256": "2cd38096e8b74efafb89ad28329f5695915ca80cf13b8b98cf8ef2816e596808",
+  "follower_source_sha256": "75249a834a90feb25fc2967e2e253eeaeffa498491c68692434bd08099a8d2be",
+  "follower_config_sha256": "ddedff40d13e20416a43309669ad19e7f3a06e2df8cc8c9d3248369e14d40c90",
+  "target_env_count": 28,
+  "scene_env_count": 112,
+  "settling_physics_steps": 200,
+  "dem_frame_physics_steps": [50, 100, 150, 200],
+  "control_dt_s": 0.05,
+  "control_steps": 120,
+  "primary_steps": 40,
+  "primary_labels": ["reward_0_2s_discounted", "common_global_goal_progress_0_2s"],
+  "auxiliary_labels": ["progress_0_6s", "termination_0_6s"],
+  "safety_enabled": false,
+  "coordinate_contract": "source_and_batch_env_local_xy; root_world_xy_compared_after_source_to_batch_tile_translation",
+  "pre_path_tolerance": {
+    "root_position_m": 0.02,
+    "root_orientation_rad": 0.03,
+    "root_velocity_mps_or_radps": 0.0001,
+    "joint_position_rad": 0.0001,
+    "joint_velocity_radps": 0.0001,
+    "dem_height_rms_m": 0.00001,
+    "dem_height_max_abs_m": 0.0001,
+    "dem_mask_iou_min": 1.0,
+    "actor_pre_noise_max_abs": 0.0001,
+    "actor_post_noise_max_abs": 0.0001,
+    "actor_post_delay_max_abs": 0.0001
+  },
+  "step_tolerance": {
+    "command_max_abs": 0.000001,
+    "actor_action_max_abs": 0.0001,
+    "root_position_max_abs_m": 0.02,
+    "root_velocity_max_abs_mps_or_radps": 0.01,
+    "reward_abs": 0.05,
+    "primary_reward_return_abs": 0.1,
+    "primary_global_goal_progress_abs_m": 0.02,
+    "auxiliary_progress_abs_m": 0.05,
+    "direct_clone_command_max_abs": 0.000001,
+    "direct_clone_action_max_abs": 0.0001,
+    "direct_clone_root_position_max_abs_m": 0.02
+  },
+  "resource_cap": {
+    "gpu_device_total_mib": 7680,
+    "host_available_min_gib": 10,
+    "output_storage_max_gib": 1.0,
+    "startup_timeout_s": 600,
+    "heartbeat_stale_s": 90
+  },
+  "on_failure": "stop_without_tolerance_change_or_retry_after_Path"
+}
