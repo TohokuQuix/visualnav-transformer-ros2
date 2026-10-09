@@ -147,7 +147,7 @@ def sample(root,started,heartbeat_state):
             'heartbeat_age_s':age,'elapsed_s':time.monotonic()-started},heartbeat_state
 
 
-def run(root,anchor_id,batch_index):
+def run(root,anchor_id,batch_index,*,branches=8,params=PARAMS):
     root=Path(root).resolve()
     if not (root/'input/freeze.json').is_file() or not (root/'source.py').is_file():
         raise ValueError('frozen source or input missing')
@@ -163,7 +163,7 @@ def run(root,anchor_id,batch_index):
         raise ValueError('P1 primary/diagnostic window contract')
     cap=cfg['resource_cap']
     router_before=router_audit()
-    if (sha(FOLLOWER)!=cfg['follower_sha256'] or sha(PARAMS)!=cfg['follower_params_sha256']
+    if (sha(FOLLOWER)!=cfg['follower_sha256'] or sha(params)!=cfg['follower_params_sha256']
             or sha(Path(__file__).parent/'eat_nav_command_delivery_bridge.py')!=cfg['bridge_sha256']):
         raise ValueError('follower/bridge source SHA mismatch')
     atomic(root/'router-before.json',router_before)
@@ -211,7 +211,7 @@ def run(root,anchor_id,batch_index):
         ros_env['RMW_IMPLEMENTATION']='rmw_zenoh_cpp'
         atomic(root/'bridge-environment.json',env_audit(ros_env,'/usr/bin/python3'))
         bridge_cmd=['/usr/bin/python3',str(Path(__file__).parent/'eat_nav_command_delivery_bridge.py'),
-                    '--branches','8','--follower',str(FOLLOWER),'--params',str(PARAMS),
+                    '--branches',str(branches),'--follower',str(FOLLOWER),'--params',str(params),
                     '--diagnostic-dir',str(root/'follower-logs')]
         with (root/'bridge.log').open('x') as bridge_log:
             bridge=subprocess.Popen(bridge_cmd,env=ros_env,stdout=bridge_log,
