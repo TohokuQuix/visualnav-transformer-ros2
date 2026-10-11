@@ -184,13 +184,14 @@ def verify_shared_artifacts(output: Path, *, require_native: bool = False) -> di
             'ledger_sha256': _sha(output/'prepath-shared-dem-sha-ledger.json')}
 
 
-def diagnose_branch_inputs(actor_pre, actor_post_noise, actor_actual,
-                           critic, contact_current, contact_history) -> dict:
+def diagnose_branch_inputs(actor_pre_noise, actor_post_noise_pre_delay,
+                           actor_actual_post_delay, critic_observation,
+                           contact_current, contact_history) -> dict:
     result = {}
-    for name, values in (('actor_pre_noise', actor_pre),
-                         ('actor_post_noise_pre_delay', actor_post_noise),
-                         ('actor_actual_post_delay', actor_actual),
-                         ('critic_observation', critic),
+    for name, values in (('actor_pre_noise', actor_pre_noise),
+                         ('actor_post_noise_pre_delay', actor_post_noise_pre_delay),
+                         ('actor_actual_post_delay', actor_actual_post_delay),
+                         ('critic_observation', critic_observation),
                          ('contact_current', contact_current),
                          ('contact_history', contact_history)):
         array = np.asarray(values)

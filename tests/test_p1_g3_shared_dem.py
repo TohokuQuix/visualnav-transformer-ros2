@@ -133,6 +133,16 @@ def test_actor_critic_contact_diagnostics_are_separate():
     assert diag['critic_observation']['direct_max_abs'] == 3
     assert diag['contact_current']['direct_max_abs'] == 4
     assert diag['contact_history']['direct_max_abs'] == 4
+    # Use the exact field names emitted by the simulator's pre-Path capture.
+    by_name = diagnose_branch_inputs(**{
+        'actor_pre_noise': actor,
+        'actor_post_noise_pre_delay': actor,
+        'actor_actual_post_delay': actor,
+        'critic_observation': critic,
+        'contact_current': contact,
+        'contact_history': contact[:, None],
+    })
+    assert by_name == diag
     critic[2, 2] = np.nan
     with pytest.raises(ValueError, match='critic_observation shape/nonfinite'):
         diagnose_branch_inputs(actor, actor, actor, critic, contact, contact[:, None])
