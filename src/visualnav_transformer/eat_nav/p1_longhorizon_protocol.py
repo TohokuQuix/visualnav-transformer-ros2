@@ -56,6 +56,33 @@ class SameEpisodeGate:
         return self.next_step == self.steps
 
 
+class G3Exposure:
+    """Freeze a trial at 40 post-arrival steps or right-censor at step 600."""
+
+    def __init__(self):
+        self.arrival_step = None
+        self.stop_exclusive = None
+        self.censored = False
+
+    def observe(self, step: int, goal_reached: bool) -> bool:
+        if step < 0 or step >= 640:
+            raise ValueError('G3 step outside frozen cap')
+        if self.stop_exclusive is not None and step >= self.stop_exclusive:
+            return False
+        if self.arrival_step is None and step < 600 and goal_reached:
+            self.arrival_step = step
+            self.stop_exclusive = step + 41
+        if self.arrival_step is None and step == 599:
+            self.stop_exclusive = 600
+            self.censored = True
+        if self.arrival_step is not None and step >= self.stop_exclusive:
+            return False
+        return True
+
+    def finished_after(self, step: int) -> bool:
+        return self.stop_exclusive is not None and step + 1 >= self.stop_exclusive
+
+
 class DurableTrace:
     def __init__(self, path: Path):
         self.path = Path(path)
