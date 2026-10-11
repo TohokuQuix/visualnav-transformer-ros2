@@ -8,7 +8,7 @@
 
 ## 固定する比較条件と実験単位
 
-提案は **2 StateGroup × 3 seed bundle × 2 fresh-process repeat × 4 env = 12 process / 48 direct trials**。StateGroupは既存の`first-differential`と`second-graded`で、terrain・goal・fixtureを各group内で固定する。seed bundleは既存G3 assignmentの`2026101101–03`と`2026101111–13`を使う。現行sourceではこの`batch_seed`が4-env環境生成とpaired Actor observation noiseの両方へ渡り、terrain fixture側ではanchor固有の`terrain_seed`も設定される。実行前の新manifestには、これらのseedと有効なIsaac scene/reset/RNG seedを**別フィールド**で記録し、同じbundleのrepeat 0/1では全入力を同一にする。複数bundle間ではseedが変わり、実現したinitial root/joint、terrain fingerprint、material、env originも保存する。initial conditionが変わった場合はseed効果と初期条件効果を分離できないと明示する。
+提案は **2 StateGroup × 3 seed bundle × 2 fresh-process repeat × 4 env = 12 process / 48 direct trials**。StateGroupは既存の`first-differential`と`second-graded`で、terrain・goal・fixtureを各group内で固定する。6つのseed bundleはG2の統計pilot `assignment.json` にある`2026101101–03`と`2026101111–13`を使う。旧G3 assignmentは各groupの最初の2 blockのみなので、旧G3 slot 0 のdirect Path SHAをG2のA条件と照合して継承する。現行sourceではこの`batch_seed`が4-env環境生成とpaired Actor observation noiseの両方へ渡り、terrain fixture側ではanchor固有の`terrain_seed`も設定される。実行前の新manifestには、これらのseedと有効なIsaac scene/reset/RNG seedを**別フィールド**で記録し、同じbundleのrepeat 0/1では全入力を同一にする。複数bundle間ではseedが変わり、実現したinitial root/joint、terrain fingerprint、material、env originも保存する。initial conditionが変わった場合はseed効果と初期条件効果を分離できないと明示する。
 
 各processは固定4-env sceneで20-step settling→env 0を基準とする既存visible state clone→追加physicsなし→env 0由来のimmutableな4-frame shared robot-relative DEM→pre-Path physical/shared-input/Actor gateという現行v2手順を使う。**4 env全てへ同じ0.75 m・0° direct Pathを1回だけ公開**し、同じ`act_inference` checkpoint、同じfollower設定、同じnoise streamを使う。native DEM、contact、Criticは別診断として残し、人工的には一致させない。4 branchのfollower/bridge化は新runnerの実装変更であり、production followerと既存runnerを変更しない。全branchのreadiness、stamp、one-publication、40 s episode cap、20 Hz、arrival後40-step hold、未到達600-step censor、step 600で到達した場合の最大640-stepという条件を維持する。
 
@@ -30,13 +30,13 @@ Pre-Pathのphysical equality、shared DEM byte/SHA/frame/time equality、Actor i
 
 seed・env・processの分散は、同一seed/envのrepeat差、各process内env差、seed bundle間のprocess平均差から記述的に分解する。n=3 seed/group・2 repeatなので不安定なvariance componentは`not estimable`とする。Actor noise seedとscene/reset seedが束になって変われば、そのどちらが原因かは識別不能と記録する。env ID差はtile位置・並列solverも含む。
 
-将来のPath差の検出目安として、指標ごとに同一Pathのpaired絶対差の中央値、p90、最大値、fresh-process差のp90を報告し、**探索的noise floor**を両p90の大きい方として示す。24 duplicate pairも24 fresh-process matched pairもcluster相関があるので、このp90を95%検出保証と称さない。候補Pathの効果判定には、後日別途事前固定したbalanced割当と独立条件単位のpaired effectがこのnoise floorを一貫して超えること、およびlocal quality/body responseの差がPath終点の幾何差だけで説明されないことを要する。今回のdirect-only結果は「候補間品質差が識別できた」にはならない。ばらつきが大きい場合は必要効果量または追加反復数を提示し、R0–R3を補助診断として選択する。
+同一Pathのpaired絶対差について中央値、p90、最大値を**記述的repeatability benchmark**として報告する。24 duplicate pairも24 fresh-process matched pairもcluster相関があるので、p90を統計的な検出限界や95%検出保証とは呼ばない。将来のPath比較で検出し得る効果は、独立条件ごとのpaired effectの分散、独立条件数、反復数を使って別途検討する。local quality/body responseの差がPath終点の幾何差だけで説明されないことも必要である。今回のdirect-only結果は「候補間品質差が識別できた」にはならない。ばらつきが大きい場合は追加反復数の検討資料を提示し、原因分析が必要ならR0–R3を補助診断として選択する。
 
 ## 資源・時間見積もりと実行境界
 
 既存のsealed direct 2-branch実績は**52.56 s、8.4 MB、GPU 5194.75 MiB、container anon+shmem 3.50 GiB**。4-env・600-stepのG2実績は**306.02 s、62 MB**。今回の4 follower/4 direct traceはG2よりやや重くなり得る。設計見積もりは1 process **約1–6分**、12 process **約12–72分**、監査・cleanupと20%余裕込み**約1.5–2時間**を計画値とする。既存の1 process 600 s capを全部使う保守的上界は12×600 s=**2時間**、最終監査に15–30分を別途確保する。まず最初の1 processの実測で残り時間を更新するが、試行数・seed・順序・閾値を事後変更しない。
 
-保存はG2の62 MB×12×1.2≒**0.9 GB**を初期見積もりとし、4 follower化と最大640 stepによる上振れを考え、実行前に永続rootの**2 GB以上の空き**を確認する。既存のactive storage 1 GiB/process、GPU device-total 7680 MiB、GPU attribution gap 256 MiB、host available RAM 10 GiB floor、container anon+shmem 6 GiB cap、heartbeat 90 s、600 s/process capを変更しない。GPUの観測値5195 MiBに20%余裕を乗せると約6234 MiB、container RAM 3.50 GiBに20%で4.20 GiBであり既存cap内。ただし4 follower化の追加負荷は未測定なので、最初のprocessをresource calibrationとして測り、cap超過なら停止する。全processを逐次起動し、永続subroot、fsync済みtrace、resource series、SHA ledger、atomic marker、writer終了後sealを残す。既存root/証拠はread-only。
+保存はG2の62 MB×12×1.2≒**0.9 GB**を初期見積もりとし、4 follower化と最大640 stepによる上振れを考え、実行前に永続rootの**2 GB以上の空き**を確認する。既存host monitorのactive storage 1,000,000,000 B/process、GPU device-total 7680 MiB、GPU attribution gap 256 MiB、host available RAM 10 GiB floor、container anon+shmem 6 GiB cap、heartbeat 90 s、600 s/process capを変更しない。GPUの観測値5195 MiBに20%余裕を乗せると約6234 MiB、container RAM 3.50 GiBに20%で4.20 GiBであり既存cap内。ただし4 follower化の追加負荷は未測定なので、最初のprocessをresource calibrationとして測り、cap超過なら停止する。全processを逐次起動し、永続subroot、fsync済みtrace、resource series、SHA ledger、atomic marker、writer終了後sealを残す。既存root/証拠はread-only。
 
 ## 実装前の静的・synthetic確認と承認境界
 
