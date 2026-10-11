@@ -1,0 +1,39 @@
+{
+  "status": "proposal_only_not_approved_for_candidate_rollout",
+  "protocol_version_proposed": "eatnav_p1_g3_path_crossover_v2_material_audit",
+  "predecessor_protocol": "eatnav_p1_g3_path_crossover_v1",
+  "measurement_root": "/home/kojima/eatnav-experiments/p1-long-horizon-v1/g3-material-diagnostic-v1-attempt-0",
+  "measurement_sha256": "9b2c1329c9179a4f64a49aa5509b3a9b5eb5d3dbefdef45fcd0247a5ab98991f",
+  "terrain_required": {
+    "collision_material_binding": "bound_for_every_terrain_collision_prim",
+    "composed_attributes": "all_canonical_fields_resolved_and_equal_to_declared_config",
+    "canonical_fingerprint": "required"
+  },
+  "robot_required": {
+    "usd_binding": "record_bound_or_explicit_unbound_per_collision_prim",
+    "primary_effective_evidence": "post_startup_PhysX_articulation_material_tensor",
+    "tensor_shape": "[4, max_shapes, 3]",
+    "tensor_columns": ["static_friction", "dynamic_friction", "restitution"],
+    "collision_coverage": "per_env_and_per_link_USD_CollisionAPI_count_equals_PhysX_shape_count_and_tensor_slice_length",
+    "correspondence": "exact_single_shape_or_uniform_material_within_a_count_matched_link_set",
+    "exact_shape_index_to_USD_prim": "not_available_from_current_public_PhysX_view; never_claim_exact_for_multishape_links",
+    "ambiguous_nonuniform_multishape_link": "fail_closed",
+    "expected_material": "resolved_frozen_OnixRoughEnvCfg_startup_randomization_ranges_after_make_collection_cfg",
+    "observed_expected_triple": [1.0, 1.0, 0.0],
+    "per_env_canonical_fingerprint": "required_and_equal_across_four_envs_and_periods"
+  },
+  "fail_closed_if": [
+    "terrain_USD_binding_or_attribute_missing",
+    "effective_PhysX_tensor_unavailable_or_nonfinite",
+    "USD_collision_count_or_link_mapping_gap",
+    "material_values_nonuniform_within_a_multishape_link_without_exact_shape_mapping",
+    "post_startup_material_outside_frozen_event_ranges",
+    "four_env_fingerprints_differ_unexpectedly",
+    "material_or_source_SHA_missing_or_different_across_periods"
+  ],
+  "unchanged_experimental_inputs": [
+    "terrain_mesh", "initial_condition", "seed", "Path_geometry", "checkpoint",
+    "physics", "follower", "noise", "outcome_definition", "other_pre_Path_gates"
+  ],
+  "candidate_rollout_authorized": false
+}

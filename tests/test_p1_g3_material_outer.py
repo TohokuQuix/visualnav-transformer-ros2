@@ -1,8 +1,10 @@
 """Seal remains immutable when the outer launcher records late console/exit data."""
 
 import json
+import hashlib
 import sys
 
+from eat_nav_p1_g3_crossover_outer import command_for
 from eat_nav_p1_g3_material_diag_outer import run_outer
 
 
@@ -38,3 +40,22 @@ def test_postseal_batch_write_is_detected(tmp_path):
     assert result['host_exit_code']==0
     assert result['post_launcher_seal_verification'] is None
     assert 'post_seal_mutation' in result['post_launcher_seal_error']
+
+
+def test_crossover_outer_checks_frozen_host_and_period(tmp_path):
+    batch=tmp_path/'batch-first-differential-0-period-0'
+    (batch/'input').mkdir(parents=True)
+    host=tmp_path/'host.py';host.write_text('print("host")\n')
+    (batch/'input/g3-contract.json').write_text(json.dumps({
+        'g3_host_source_sha256':hashlib.sha256(host.read_bytes()).hexdigest()}))
+    command=command_for(batch,'/container/batch',host,tmp_path/'router',
+                        'first-differential',0,0)
+    assert command[-2:]==['--execution-index','0']
+    host.write_text('print("drift")\n')
+    try:
+        command_for(batch,'/container/batch',host,tmp_path/'router',
+                    'first-differential',0,0)
+    except ValueError as exc:
+        assert 'source SHA drift' in str(exc)
+    else:
+        raise AssertionError('host drift was accepted')
