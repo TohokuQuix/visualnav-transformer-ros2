@@ -1,0 +1,69 @@
+{
+  "assignment_sha256": "f5ce459bf26ffe0a2316e37f046f2105d0637060ac17758bacf6da46fe49608f",
+  "batch_wall_cap_s": 600,
+  "candidate_slots_exposed": [
+    "direct_duplicate_0",
+    "direct_duplicate_1"
+  ],
+  "control_dt_s": 0.05,
+  "dem_capture_module_sha256": "25a9513e935687aacb8c1f0e0e28c56b2bbda89b429ba42f496ecf2c3efa6873",
+  "direct_duplicate_gates": {
+    "actor_max_abs": 0.0001,
+    "arrival_time_spread_s": 0.1,
+    "common_goal_progress_2s_spread_m_strict": 0.025,
+    "dem_height_max_abs_m": 0.0001,
+    "dem_height_rms_m": 1e-05,
+    "dem_mask_iou_min": 1.0,
+    "tracking_mean_spread_m": 0.02
+  },
+  "episode_length_s": 40.0,
+  "execution_mode": "direct_duplicate_only",
+  "first_difference_reporting_tolerance": {
+    "action_abs": 1e-06,
+    "actor_abs": 1e-06,
+    "command_abs": 1e-06,
+    "contact_force_N": 0.001,
+    "critic_abs": 1e-06,
+    "root_xy_m": 1e-06,
+    "root_yaw_rad": 1e-06
+  },
+  "follower_branches": 3,
+  "follower_command": "unmodified_A_passthrough",
+  "g3_host_source_sha256": "dca9c6774aad668506be2a5d131c7c3be5c9f251a2b29f3f609e8822e156fa28",
+  "g3_simulator_source_sha256": "1ed15b909023e8248ddbc491a3d0fb59281a427f14bf4530c9f1e75b470c0740",
+  "max_control_steps": 640,
+  "one_Path_publication_per_trial": true,
+  "original_g3_contract_sha256": "8df11767219df842d9b54e427379c1dc3998b0cf0ee7325a4b7afdac11db7736",
+  "original_g3_simulator_source_sha256": "90f7545e344f4921a22b6250bc2bfe167ba3890b15889109586dbbdacee9f201",
+  "physics_envs": 4,
+  "post_arrival_hold_steps": 40,
+  "recorded_trial_branches": 2,
+  "resource_limits_from": "p1-long-horizon-runtime-freeze-20261011.json",
+  "schema": "eatnav_p1_longhorizon_g3_direct_control_v1",
+  "scope": "first-differential_block0_direct_duplicate_only",
+  "shared_dem_contract": {
+    "capture_settling_steps": [
+      4,
+      9,
+      14,
+      19
+    ],
+    "direct_dem_gate": "unchanged_1e-5m_rms_1e-4m_max_iou_1",
+    "frame": "robot_base",
+    "history_role": "shared_experimental_history",
+    "native_sensor_equality": "diagnostic_only",
+    "shape": [
+      2,
+      20,
+      20
+    ],
+    "source_env": 0,
+    "timestamp_ns_rule": "(settling_step+1)*50000000"
+  },
+  "shared_dem_module_sha256": "6c45e38f709630e5c1a5b9f6f703191f440ffcf75b1c4658aa4a5fe5b5049f5b",
+  "source_reference_candidate_free_v2_manifest_sha256": "9632d7c4ced83b6088b5c17f056f6e71a95459b71095b423cf8171fdade78e82",
+  "source_reference_g1_seal_sha256": "c5712eb6bc816f49222f01218bb593f116a38a00f8ce07eb79bd5b637e420609",
+  "source_reference_g2_seal_sha256": "73ec7b6cac44dfdb717a8f8a8dd2a4cce4f19f9dc8d7b565df6055a0f251f1b0",
+  "stage_wall_cap_s": 3000,
+  "unreached_control_step_cap": 600
+}

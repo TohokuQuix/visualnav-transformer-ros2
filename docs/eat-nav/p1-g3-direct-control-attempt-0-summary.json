@@ -1,0 +1,93 @@
+{
+  "decision": "fail",
+  "duplicate_gate": {
+    "arrivals": [
+      {
+        "arrival_step": 48,
+        "right_censored": false,
+        "stop_exclusive": 89
+      },
+      {
+        "arrival_step": 40,
+        "right_censored": false,
+        "stop_exclusive": 81
+      }
+    ],
+    "failures": [
+      "arrival_time_spread",
+      "two_second_common_goal_progress_spread"
+    ],
+    "pass": false,
+    "recovery_categories": [
+      {
+        "angular": false,
+        "linear": false,
+        "modes": [
+          "default"
+        ]
+      },
+      {
+        "angular": false,
+        "linear": false,
+        "modes": [
+          "default"
+        ]
+      }
+    ],
+    "thresholds": {
+      "arrival_time_spread_s": 0.1,
+      "tracking_mean_spread_m": 0.02,
+      "two_second_common_goal_progress_spread_m_strict": 0.025
+    },
+    "tracking_mean_m": [
+      0.03124953013310677,
+      0.02576586959924848
+    ],
+    "two_second_common_goal_progress_m": [
+      0.4463716841402276,
+      0.5624615774977846
+    ]
+  },
+  "first_divergence": {
+    "actor_action_step": 1,
+    "actor_input_step": 1,
+    "contact_force_step": 0,
+    "critic_observation_step": 0,
+    "follower_command_step": 1,
+    "postphysics_xy_delta_m": 0.001075012943430872,
+    "postphysics_xy_step": 0
+  },
+  "host_seal_sha256": "5bda703cc76c464664143067a22c6592c20fbf4e35873412eebd294431a36409",
+  "native_exit": 0,
+  "owned_residual_zero": true,
+  "prepath": {
+    "actor_input_equal": true,
+    "contact_force_max_abs_N": 176.83460998535156,
+    "critic_value_abs": 0.10733413696289062,
+    "native_dem_equal": false,
+    "physical_state_equal": true,
+    "shared_dem_equal": true
+  },
+  "protocol_manifest_sha256": "6ff0af4a6a55498e1bd7c2240e1b7d360b3563cda4c575de08bab752af5fde79",
+  "resource": {
+    "container_anon_peak_gb": 3.496558592,
+    "gpu_gap_peak_mib": 103.9765625,
+    "gpu_peak_mib": 5194.75,
+    "host_available_min_gb": 88.788365312,
+    "owned_gpu_samples": 60,
+    "persistent_storage_peak_mb": 7.947394,
+    "wall_s": 52.56019748799736
+  },
+  "retries": 0,
+  "schema": "eatnav_p1_g3_direct_control_analysis_v1",
+  "scope": "first-differential/noise-block-0/direct-duplicate-only",
+  "seal_valid": true,
+  "trace_rows_per_branch": [
+    89,
+    89
+  ],
+  "trace_sha256": [
+    "cf88b69b320c69a4465c29591068dd0ff1b0747cc51e719d91142bd93085225a",
+    "e0eb2b94e60d6cb9ed4384e88b468b7484d1ba4d3cfdbba3c3f0b66a9c7a5807"
+  ]
+}
