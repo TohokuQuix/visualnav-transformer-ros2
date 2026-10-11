@@ -37,9 +37,10 @@ BASE = ':'.join(('/tmp/eatnav-train/src', '/tmp/eatnav-extended/isaac-source',
 
 
 def build_wrapper_command(*, remote: str, container_id: str, token: str,
-                          source_sha: str, config_sha: str, anchor_id: str, batch_index: int) -> list[str]:
+                          source_sha: str, config_sha: str, anchor_id: str, batch_index: int,
+                          dem_diagnostic: bool = False) -> list[str]:
     """Keep the simulator paused until its exact host PID is monitored."""
-    return ['docker','exec','-e',f'PYTHONPATH={remote}/src:{BASE}',CONTAINER,
+    command=['docker','exec','-e',f'PYTHONPATH={remote}/src:{BASE}',CONTAINER,
             'timeout','600s','/isaac-sim/python.sh',f'{remote}/owner-wrapper.py',
             '--coord',f'{remote}/coord','--run-token',token,
             '--container-id',container_id,'--source',f'{remote}/source.py',
@@ -48,6 +49,8 @@ def build_wrapper_command(*, remote: str, container_id: str, token: str,
             '--','--headless','--input',f'{remote}/input',
             '--output',f'{remote}/output','--anchor-id',anchor_id,
             '--batch-index',str(batch_index)]
+    if dem_diagnostic: command.append('--gate1-probe')
+    return command
 
 
 def digest(path):
@@ -376,6 +379,40 @@ def validate_g3_output(root: pathlib.Path, remote: str, g3_contract: dict) -> di
             'trace_sha256':marker['trace_sha256']}
 
 
+def validate_dem_diagnostic_output(root: pathlib.Path, remote: str) -> dict:
+    output=root/'output'
+    marker=json.loads((output/'gate1-probe-complete.json').read_text())
+    heartbeat=json.loads((output/'heartbeat.json').read_text())
+    gate=json.loads((output/'prepath-gate.json').read_text())
+    if (marker.get('stage')!='pre_Path_instrumentation_probe' or
+            marker.get('Path_publications')!=0 or heartbeat.get('Path_publications')!=0 or
+            heartbeat.get('completed_control_steps')!=20 or not gate.get('pass') or
+            len(gate.get('direct_dem',[]))!=4 or (output/'path-publication.json').exists() or
+            (output/'complete.json').exists()):
+        raise ValueError('candidate-free DEM diagnostic completion invalid')
+    ledger=json.loads((output/'prepath-dem-sha-ledger.json').read_text())
+    frame_files=[name for name in ledger if re.fullmatch(r'prepath-dem-env-[0-3]-frame-[0-3]\.npz',name)]
+    diff_files=[name for name in ledger if re.fullmatch(r'prepath-dem-diff-frame-[0-3]\.npz',name)]
+    if len(frame_files)!=16 or len(diff_files)!=4:
+        raise ValueError('candidate-free DEM raw/diff file count')
+    for name,expected in ledger.items():
+        if pathlib.Path(name).name!=name or digest(output/name)!=expected:
+            raise ValueError('candidate-free DEM SHA mismatch:'+name)
+    names=['gate1-probe-complete.json','prepath-gate.json','prepath-dem-sha-ledger.json',
+           *sorted(ledger)]
+    result=subprocess.run(['docker','exec',CONTAINER,'sha256sum',
+                           *[f'{remote}/output/{name}' for name in names]],
+                          capture_output=True,text=True,check=True)
+    container_sha={path.rsplit('/',1)[-1]:value for value,path,*_ in
+                   (line.split() for line in result.stdout.splitlines())}
+    for name in names:
+        if container_sha.get(name)!=digest(output/name):
+            raise ValueError('candidate-free DEM host/container SHA mismatch:'+name)
+    return {'settling_steps':20,'envs':4,'frames_per_env':4,'Path_publications':0,
+            'dem_gate':'pass','raw_files':len(frame_files),'diff_files':len(diff_files),
+            'dem_ledger_sha256':digest(output/'prepath-dem-sha-ledger.json')}
+
+
 def main():
     global ROOT, REMOTE, STAGE_ROOT
     parser=argparse.ArgumentParser()
@@ -383,6 +420,7 @@ def main():
     parser.add_argument('--remote',required=True)
     parser.add_argument('--anchor-id',choices=('first-differential','second-graded'),required=True)
     parser.add_argument('--batch-index',type=int,choices=(0,1),required=True)
+    parser.add_argument('--dem-diagnostic',action='store_true')
     args=parser.parse_args()
     ROOT=args.root.resolve();REMOTE=args.remote;STAGE_ROOT=ROOT.parent
     if ROOT.name not in ('batch-0','batch-1','batch-2','batch-3') or (ROOT/'output').exists() or (ROOT/'host-seal.json').exists():
@@ -397,6 +435,10 @@ def main():
             or g3['control_dt_s']!=0.05
             or digest(ROOT/'source.py')!=g3['g3_simulator_source_sha256']):
         raise ValueError('frozen G3 source/contract mismatch')
+    if args.dem_diagnostic != (g3.get('execution_mode')=='candidate_free_20_step_dem'):
+        raise ValueError('DEM diagnostic mode/contract mismatch')
+    if args.dem_diagnostic and (args.anchor_id!='first-differential' or args.batch_index!=0):
+        raise ValueError('DEM diagnostic restricted to first-differential/block 0')
     if digest(ROOT/'input/g3-assignment.json')!=g3['assignment_sha256']:
         raise ValueError('G3 assignment SHA drift')
     rows=[x for x in assignment['trials'] if x['anchor_id']==args.anchor_id and
@@ -415,8 +457,8 @@ def main():
         raise ValueError('frozen diagnostic bridge SHA mismatch')
     params=ROOT/'follower-debug.yaml'
     diagnostic_params(PARAMS,params,cfg['follower_params_sha256'])
-    router_before=router_audit()
-    atomic(ROOT/'router-before.json',router_before)
+    router_before=None if args.dem_diagnostic else router_audit()
+    if router_before is not None:atomic(ROOT/'router-before.json',router_before)
     inspect=json.loads(command(['docker','inspect',CONTAINER]))[0]
     if inspect['State']['Status']!='running':raise RuntimeError('container not running')
     if subprocess.run(['docker','exec',CONTAINER,'test','-d',REMOTE],capture_output=True).returncode:
@@ -436,6 +478,8 @@ def main():
     if shutil.disk_usage(ROOT).free<2_000_000_000:
         raise RuntimeError('G2 host disk free floor')
     atomic(ROOT/'g3-prelaunch.json',{'container_id':inspect['Id'],'image_id':inspect['Image'],
+        'execution_mode':'candidate_free_20_step_dem' if args.dem_diagnostic else 'g3_pilot',
+        'external_router_used':not args.dem_diagnostic,
         'source_sha256':digest(ROOT/'source.py'),'g3_contract_sha256':digest(ROOT/'input/g3-contract.json'),
         'host_launcher_sha256':digest(__file__),
         'frozen_params_sha256':digest(params),'follower_binary_sha256':digest(FOLLOWER),
@@ -453,15 +497,18 @@ def main():
         'wrapper_sha256':digest(ROOT/'owner-wrapper.py')})
     cmd=build_wrapper_command(remote=REMOTE,container_id=inspect['Id'],token=token,
                               source_sha=source_sha,config_sha=config_sha,
-                              anchor_id=args.anchor_id,batch_index=args.batch_index)
+                              anchor_id=args.anchor_id,batch_index=args.batch_index,
+                              dem_diagnostic=args.dem_diagnostic)
     atomic(ROOT/'g3-command.json',{'argv':cmd,'wrapper_sha256':digest(ROOT/'owner-wrapper.py')})
-    ros_env=build_ros_host_env(repo=pathlib.Path(__file__).resolve().parents[1])
-    ros_env['RMW_IMPLEMENTATION']='rmw_zenoh_cpp'
-    atomic(ROOT/'bridge-environment.json',env_audit(ros_env,'/usr/bin/python3'))
-    bridge_cmd=['/usr/bin/python3',str(pathlib.Path(__file__).with_name('eat_nav_p1_paired_bridge.py')),
-        '--branches','5','--follower',str(FOLLOWER),'--params',str(params),
-        '--diagnostic-dir',str(ROOT/'follower-logs')]
-    atomic(ROOT/'bridge-command.json',{'argv':bridge_cmd})
+    ros_env=None;bridge_cmd=None
+    if not args.dem_diagnostic:
+        ros_env=build_ros_host_env(repo=pathlib.Path(__file__).resolve().parents[1])
+        ros_env['RMW_IMPLEMENTATION']='rmw_zenoh_cpp'
+        atomic(ROOT/'bridge-environment.json',env_audit(ros_env,'/usr/bin/python3'))
+        bridge_cmd=['/usr/bin/python3',str(pathlib.Path(__file__).with_name('eat_nav_p1_paired_bridge.py')),
+            '--branches','5','--follower',str(FOLLOWER),'--params',str(params),
+            '--diagnostic-dir',str(ROOT/'follower-logs')]
+        atomic(ROOT/'bridge-command.json',{'argv':bridge_cmd})
     gate=G1Lifecycle(token=token,container_id=inspect['Id'],source_sha=source_sha,
         config_sha=config_sha,output_root=f'{REMOTE}/output',gpu_uuid=GPU_UUID)
     started=time.monotonic();failure=None;owner=None;client=None;bridge=None;bridge_tick=None
@@ -472,23 +519,25 @@ def main():
          (ROOT/'resource-series.jsonl').open('x') as resources, \
          (ROOT/'owner-polls.jsonl').open('x') as polls:
         try:
-            bridge=subprocess.Popen(bridge_cmd,env=ros_env,stdout=bridge_log,
-                                    stderr=subprocess.STDOUT,start_new_session=True)
-            bridge_tick=process_tick(bridge.pid)
-            if not isinstance(bridge_tick,int):raise RuntimeError('bridge PID/start tick unresolved')
-            atomic(ROOT/'bridge-owner.json',{'pid':bridge.pid,'start_tick':bridge_tick})
-            deadline=time.monotonic()+20
-            while True:
-                if bridge.poll() is not None:raise RuntimeError('bridge exited before listening')
-                try:
-                    with socket.create_connection(('127.0.0.1',47819),timeout=.2):break
-                except OSError:
-                    if time.monotonic()>deadline:raise TimeoutError('bridge listener timeout')
-                    time.sleep(.1)
+            if not args.dem_diagnostic:
+                bridge=subprocess.Popen(bridge_cmd,env=ros_env,stdout=bridge_log,
+                                        stderr=subprocess.STDOUT,start_new_session=True)
+                bridge_tick=process_tick(bridge.pid)
+                if not isinstance(bridge_tick,int):raise RuntimeError('bridge PID/start tick unresolved')
+                atomic(ROOT/'bridge-owner.json',{'pid':bridge.pid,'start_tick':bridge_tick})
+                deadline=time.monotonic()+20
+                while True:
+                    if bridge.poll() is not None:raise RuntimeError('bridge exited before listening')
+                    try:
+                        with socket.create_connection(('127.0.0.1',47819),timeout=.2):break
+                    except OSError:
+                        if time.monotonic()>deadline:raise TimeoutError('bridge listener timeout')
+                        time.sleep(.1)
             client=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
             deadline=time.monotonic()+45
             while owner is None:
-                if bridge.poll() is not None:raise RuntimeError('bridge exited before simulator authorization')
+                if bridge is not None and bridge.poll() is not None:
+                    raise RuntimeError('bridge exited before simulator authorization')
                 if client.poll() is not None:raise RuntimeError('wrapper exited before owner readiness')
                 if time.monotonic()>deadline:raise TimeoutError('owner mapping timeout')
                 ready_path=coord/'owner-ready.json'
@@ -516,7 +565,8 @@ def main():
                                                'authorization_wall_ns':time.time_ns()})
             atomic(coord/'owner-authorized.json',auth)
             while client.poll() is None:
-                if bridge.poll() is not None:raise RuntimeError('bridge exited during G3')
+                if bridge is not None and bridge.poll() is not None:
+                    raise RuntimeError('bridge exited during G3')
                 gpu,row=sample(started,nvml,{'simulator':owner},baseline_identities,inspect['Id'])
                 append_jsonl(resources,row);brackets+=1
                 if violation:=validate_sample(row):
@@ -556,11 +606,12 @@ def main():
             for stream in (polls,resources,log,bridge_log):
                 stream.flush();os.fsync(stream.fileno())
     try:
-        router_after=router_audit()
-        atomic(ROOT/'router-after.json',router_after)
-        if any(router_after[k]!=router_before[k] for k in
-               ('pid','start_tick','launcher_pid','launcher_start_tick','zid','endpoints')):
-            raise ValueError('external router identity changed')
+        if router_before is not None:
+            router_after=router_audit()
+            atomic(ROOT/'router-after.json',router_after)
+            if any(router_after[k]!=router_before[k] for k in
+                   ('pid','start_tick','launcher_pid','launcher_start_tick','zid','endpoints')):
+                raise ValueError('external router identity changed')
     except BaseException as exc:
         failure=failure or (type(exc).__name__+':'+str(exc))
     final_table=proc_table()
@@ -574,7 +625,8 @@ def main():
     validation=None
     if failure is None:
         try:
-            validation=validate_g3_output(ROOT,REMOTE,g3)
+            validation=(validate_dem_diagnostic_output(ROOT,REMOTE) if args.dem_diagnostic else
+                        validate_g3_output(ROOT,REMOTE,g3))
             gate.complete(native_exit=native_exit,owner_alive=bool(residual),
                           writers_closed=all(writer_state.values()))
         except BaseException as exc:failure=type(exc).__name__+':'+str(exc)
@@ -587,7 +639,9 @@ def main():
         'owned_simulator_residual':bool(residual),'lifecycle_phase':gate.phase,
         'validation':validation})
     if all(writer_state.values()):
-        stage='G3_batch_protocol_valid' if failure is None else 'G3_batch_failed_or_inconclusive'
+        stage=('G3_DEM_diagnostic_protocol_valid' if failure is None else
+               'G3_DEM_diagnostic_failed_or_inconclusive') if args.dem_diagnostic else (
+               'G3_batch_protocol_valid' if failure is None else 'G3_batch_failed_or_inconclusive')
         seal_after_writers(ROOT,writer_state=writer_state,stage=stage,reason=failure)
         time.sleep(.1);verify_seal(ROOT)
     else:

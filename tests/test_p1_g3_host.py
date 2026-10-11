@@ -28,6 +28,14 @@ def test_g3_command_uses_frozen_four_slot_batch():
     assert '--gate1-probe' not in command
 
 
+def test_dem_diagnostic_command_never_enters_path_publication():
+    command=host.build_wrapper_command(remote='/persistent/diagnostic/batch-0',
+        container_id='container',token='a'*64,source_sha='b'*64,config_sha='c'*64,
+        anchor_id='first-differential',batch_index=0,dem_diagnostic=True)
+    assert command[-1]=='--gate1-probe'
+    assert command[command.index('--anchor-id')+1]=='first-differential'
+
+
 def test_direct_duplicate_gate_accepts_matching_outcome_and_rejects_arrival_spread():
     traces=[_rows() for _ in range(4)]
     summary={'arrivals':[{'arrival_step':48,'right_censored':False}]*4}

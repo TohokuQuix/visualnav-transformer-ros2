@@ -28,6 +28,9 @@ def _frame(env, step, height_delta=0.0, invalid=False):
         'sensor_is_outdated':False,'sensor_update_period_s':.25,
         'env_origin_w':np.array([env*8,0,0],dtype=np.float32),
         'robot_pose_w':np.array([env*8,.5,.3,1,0,0,0],dtype=np.float32),
+        'root_state_w':np.array([env*8,.5,.3,1,0,0,0,0,0,0,0,0,0],dtype=np.float32),
+        'joint_pos':np.zeros(6,dtype=np.float32),
+        'joint_vel':np.zeros(6,dtype=np.float32),
         'ray_hits_w':hits,'ray_starts_w':starts,
         'source_height':hits[:,2].reshape(20,20),
         'source_valid':np.isfinite(hits[:,2]).reshape(20,20),
@@ -51,16 +54,21 @@ def test_raw_frames_and_difference_maps_are_durable_before_gate_rejects(tmp_path
     with np.load(tmp_path/'prepath-dem-env-1-frame-0.npz') as data:
         assert np.isinf(data['ray_hits_w'][0,2])
         assert data['env_origin_w'].tolist()==[8.,0.,0.]
+        assert 'root_state_w' in data and 'joint_pos' in data and 'joint_vel' in data
     metrics=json.loads((tmp_path/'prepath-dem-comparison.json').read_text())['frames'][0]
     assert metrics['height_max_abs_m']==pytest.approx(.01)
     assert metrics['height_rms_m']==pytest.approx(.0005)
     assert metrics['mask_iou']==pytest.approx(399/400)
     assert metrics['mask_difference_cells']==1
     assert metrics['height_difference_cells']==1
+    assert 'ray_hit_world_max_abs_m' in metrics
+    assert 'root_state_tile_local_max_abs' in metrics
     with np.load(tmp_path/'prepath-dem-diff-frame-0.npz') as data:
         assert data['height_signed'][0,0]==pytest.approx(-.01)
         assert data['mask_difference'][0,0]
         assert np.max(np.abs(data['ray_origin_tile_local_delta']))<2e-6
+        assert 'ray_hit_world_delta' in data
+        assert 'ray_hit_tile_local_delta' in data
 
 
 def test_gate_receives_same_transformed_frames_after_persistence(tmp_path):

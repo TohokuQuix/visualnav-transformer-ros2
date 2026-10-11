@@ -11,7 +11,8 @@ import numpy as np
 
 
 ARRAY_FIELDS = ('ray_hits_w', 'ray_starts_w', 'source_height', 'source_valid',
-                'transformed', 'env_origin_w', 'robot_pose_w')
+                'transformed', 'env_origin_w', 'robot_pose_w', 'root_state_w',
+                'joint_pos', 'joint_vel')
 
 
 def _sha(path: Path) -> str:
@@ -70,6 +71,22 @@ def compare_direct_frames(first: dict, second: dict) -> tuple[dict, dict]:
     origin_a, origin_b = np.asarray(first['env_origin_w']), np.asarray(second['env_origin_w'])
     world_delta = starts_a - starts_b
     tile_local_delta = (starts_a - origin_a) - (starts_b - origin_b)
+    hits_a, hits_b = np.asarray(first['ray_hits_w']), np.asarray(second['ray_hits_w'])
+    if hits_a.shape != starts_a.shape or hits_b.shape != starts_b.shape:
+        raise ValueError('direct ray hit shape mismatch')
+    hit_finite = np.isfinite(hits_a).all(axis=1) & np.isfinite(hits_b).all(axis=1)
+    hit_world_delta = np.full(hits_a.shape, np.nan, dtype=np.float64)
+    hit_local_delta = np.full(hits_a.shape, np.nan, dtype=np.float64)
+    hit_world_delta[hit_finite] = hits_a[hit_finite] - hits_b[hit_finite]
+    hit_local_delta[hit_finite] = ((hits_a[hit_finite] - origin_a) -
+                                    (hits_b[hit_finite] - origin_b))
+    root_a, root_b = np.asarray(first['root_state_w']), np.asarray(second['root_state_w'])
+    root_local_a, root_local_b = root_a.copy(), root_b.copy()
+    root_local_a[:3] -= origin_a
+    root_local_b[:3] -= origin_b
+    def finite_max(value):
+        finite = np.isfinite(value)
+        return float(np.max(np.abs(value[finite]))) if finite.any() else None
     metrics = {'identity': first['identity'], 'timestamp_ns': first['timestamp_ns'],
         'height_rms_m': float(np.sqrt(np.mean(heights ** 2))),
         'height_max_abs_m': float(np.max(np.abs(heights))),
@@ -78,12 +95,23 @@ def compare_direct_frames(first: dict, second: dict) -> tuple[dict, dict]:
         'mask_iou': iou, 'mask_difference_cells': int(mask_diff.sum()),
         'ray_origin_world_max_abs_m': float(np.max(np.abs(world_delta))),
         'ray_origin_tile_local_max_abs_m': float(np.max(np.abs(tile_local_delta))),
+        'ray_hit_finite_pair_count': int(hit_finite.sum()),
+        'ray_hit_valid_difference_count': int(np.count_nonzero(
+            np.isfinite(hits_a[:, 2]) ^ np.isfinite(hits_b[:, 2]))),
+        'ray_hit_world_max_abs_m': finite_max(hit_world_delta),
+        'ray_hit_tile_local_max_abs_m': finite_max(hit_local_delta),
+        'root_state_tile_local_max_abs': finite_max(root_local_a-root_local_b),
+        'joint_pos_max_abs': finite_max(np.asarray(first['joint_pos'])-np.asarray(second['joint_pos'])),
+        'joint_vel_max_abs': finite_max(np.asarray(first['joint_vel'])-np.asarray(second['joint_vel'])),
         'sensor_update_timestamp_s': [float(first['sensor_update_timestamp_s']),
                                       float(second['sensor_update_timestamp_s'])]}
     maps = {'height_signed': heights.astype(np.float32),
         'mask_difference': mask_diff,
         'ray_origin_world_delta': world_delta.astype(np.float32),
-        'ray_origin_tile_local_delta': tile_local_delta.astype(np.float32)}
+        'ray_origin_tile_local_delta': tile_local_delta.astype(np.float32),
+        'ray_hit_world_delta': hit_world_delta.astype(np.float32),
+        'ray_hit_tile_local_delta': hit_local_delta.astype(np.float32),
+        'ray_hit_finite_pair': hit_finite}
     return metrics, maps
 
 
