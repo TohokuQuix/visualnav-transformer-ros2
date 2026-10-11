@@ -1,0 +1,966 @@
+{
+  "analysis_sources": {
+    "module_sha256": "b2bb609f47fb477424d933c9ea6ee1188a842a382dcf9fbad72fa9205f883422",
+    "script_sha256": "a12d9271e6c6972e738c55e658f408c836314b5118e0db726559d1c91840ba8f"
+  },
+  "common_goal_base_xy_m": [
+    0.75,
+    0.0
+  ],
+  "crossover_design": {
+    "balance": {
+      "direct": 24,
+      "left_20": 24,
+      "right_20": 24
+    },
+    "processes": [
+      {
+        "assignment_period": 0,
+        "execution_index": 0,
+        "seed": 2026101101,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 1,
+        "seed": 2026101101,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 2,
+        "seed": 2026101101,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 0,
+        "seed": 2026101102,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 1,
+        "seed": 2026101102,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 0,
+        "execution_index": 2,
+        "seed": 2026101102,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 0,
+        "seed": 2026101103,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 0,
+        "execution_index": 1,
+        "seed": 2026101103,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 2,
+        "seed": 2026101103,
+        "state_group": "first-differential",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      },
+      {
+        "assignment_period": 0,
+        "execution_index": 0,
+        "seed": 2026101111,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 1,
+        "seed": 2026101111,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 2,
+        "seed": 2026101111,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 0,
+        "seed": 2026101112,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 1,
+        "seed": 2026101112,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 0,
+        "execution_index": 2,
+        "seed": 2026101112,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 2,
+        "execution_index": 0,
+        "seed": 2026101113,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "left_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 0,
+        "execution_index": 1,
+        "seed": 2026101113,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 1,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 2,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 3,
+            "path_role": "right_20"
+          }
+        ]
+      },
+      {
+        "assignment_period": 1,
+        "execution_index": 2,
+        "seed": 2026101113,
+        "state_group": "second-graded",
+        "trials": [
+          {
+            "env_id": 0,
+            "path_role": "left_20"
+          },
+          {
+            "env_id": 1,
+            "path_role": "right_20"
+          },
+          {
+            "env_id": 2,
+            "path_role": "direct"
+          },
+          {
+            "env_id": 3,
+            "path_role": "direct"
+          }
+        ]
+      }
+    ],
+    "schema": "eatnav_p1_g3_path_crossover_design_v1",
+    "status": "design_only_no_rollout_authorized"
+  },
+  "frozen_evidence": {
+    "legacy_aggregate_sha256": "b75aa65549ca25d186ea2c93542e99f490908b22ce303c170b2dd562b33fb3e3",
+    "manifest_sha256": "39b19cec76e03d0a15daa0e297229ef9c9a9e1325462d786c9d7e2248dd00874",
+    "original_g3_assignment_sha256": "f5ce459bf26ffe0a2316e37f046f2105d0637060ac17758bacf6da46fe49608f",
+    "source_contract_sha256": "d0a394d40e37c6b406658caec85f1392edf1b74c0db1bbf7195d3320f74e53db"
+  },
+  "material": {
+    "canonical_declared_sha256": "ff1c75072f159375d7f3fd74cd3f7e2f445df9430dede14d7ca8184b18023836",
+    "declared_terrain_values": {
+      "compliant_contact_damping": 0.0,
+      "compliant_contact_stiffness": 0.0,
+      "dynamic_friction": 1.0,
+      "friction_combine_mode": "multiply",
+      "restitution": 0.0,
+      "restitution_combine_mode": "multiply",
+      "static_friction": 1.0
+    },
+    "env_cfg_source_sha256": "b671838626c2f05332cf2e31f9e1bec429e78a294cee04a99d2af22d0e220cdd",
+    "isaac_material_cfg_source_sha256": "0be87dcc50cac3e83d14845064b0dd1f5d7dbeffc09570dd00b0353c5909775f",
+    "robot_contact_material": "startup_randomization_declares_fixed_0.8_static_0.6_dynamic_0_restitution; historical_live_values_not_recorded",
+    "scope": "current_source_static_declaration_not_historical_live_PhysX_measurement"
+  },
+  "path_geometry": {
+    "direct": {
+      "bearing_deg": 0,
+      "endpoint_base_xy_m": [
+        0.75,
+        0.0
+      ],
+      "max_discrete_curvature_per_m": 0.0,
+      "max_discrete_turn_rad": 0.0,
+      "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+      "point_count": 8,
+      "polyline_length_m": 0.75
+    },
+    "left_20": {
+      "bearing_deg": 20,
+      "endpoint_base_xy_m": [
+        0.7047694655894313,
+        0.25651510749425155
+      ],
+      "max_discrete_curvature_per_m": 0.9123431834227279,
+      "max_discrete_turn_rad": 0.08726646259971847,
+      "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+      "point_count": 8,
+      "polyline_length_m": 0.7652073402671256
+    },
+    "right_20": {
+      "bearing_deg": -20,
+      "endpoint_base_xy_m": [
+        0.7047694655894313,
+        -0.25651510749425155
+      ],
+      "max_discrete_curvature_per_m": 0.9123431834227279,
+      "max_discrete_turn_rad": 0.08726646259971847,
+      "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+      "point_count": 8,
+      "polyline_length_m": 0.7652073402671256
+    }
+  },
+  "reanalysis": {
+    "actual_material_verified_pairs": 0,
+    "actual_physx_material_status": "not_recorded_in_frozen_v1_artifacts",
+    "actual_physx_material_verified": false,
+    "declared_material_match_all": null,
+    "declared_material_sha256": "ff1c75072f159375d7f3fd74cd3f7e2f445df9430dede14d7ca8184b18023836",
+    "historical_declared_material_values_verified": false,
+    "independent_seed_conditions": 6,
+    "legacy_material_sha_count": 12,
+    "pairs": [
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fb59d9fdb782a0f682fb8e628a9bc36be99c0545fa398354544d67f971681c89",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fe7aa75c4e9c5b04d8decb4d1e5210f44b349be12d5ef2cd4bc0d9992b2acd50"
+        ],
+        "seed": 2026101101,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fb59d9fdb782a0f682fb8e628a9bc36be99c0545fa398354544d67f971681c89",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fe7aa75c4e9c5b04d8decb4d1e5210f44b349be12d5ef2cd4bc0d9992b2acd50"
+        ],
+        "seed": 2026101101,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fb59d9fdb782a0f682fb8e628a9bc36be99c0545fa398354544d67f971681c89",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fe7aa75c4e9c5b04d8decb4d1e5210f44b349be12d5ef2cd4bc0d9992b2acd50"
+        ],
+        "seed": 2026101101,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fb59d9fdb782a0f682fb8e628a9bc36be99c0545fa398354544d67f971681c89",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:fe7aa75c4e9c5b04d8decb4d1e5210f44b349be12d5ef2cd4bc0d9992b2acd50"
+        ],
+        "seed": 2026101101,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:705c0cdfef4027594d5edc1df1fe2a7d9c0a8254d324580de0ed91b717a205a8",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:f465ca8d20f66db89e6d295cdc953e1fbe24d91f39ab2476fea149d0c8fe0421"
+        ],
+        "seed": 2026101102,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:705c0cdfef4027594d5edc1df1fe2a7d9c0a8254d324580de0ed91b717a205a8",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:f465ca8d20f66db89e6d295cdc953e1fbe24d91f39ab2476fea149d0c8fe0421"
+        ],
+        "seed": 2026101102,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:705c0cdfef4027594d5edc1df1fe2a7d9c0a8254d324580de0ed91b717a205a8",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:f465ca8d20f66db89e6d295cdc953e1fbe24d91f39ab2476fea149d0c8fe0421"
+        ],
+        "seed": 2026101102,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:705c0cdfef4027594d5edc1df1fe2a7d9c0a8254d324580de0ed91b717a205a8",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:f465ca8d20f66db89e6d295cdc953e1fbe24d91f39ab2476fea149d0c8fe0421"
+        ],
+        "seed": 2026101102,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:84491a0b762e8c0bb0f0b85f43f8b06b5678a8282f8038e79e0208f3753b1314",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:8dc1a3d2fd3bacc78e28a430ad0027e92d9ea85ea8fa9351429037e7d5ca8ada"
+        ],
+        "seed": 2026101103,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:84491a0b762e8c0bb0f0b85f43f8b06b5678a8282f8038e79e0208f3753b1314",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:8dc1a3d2fd3bacc78e28a430ad0027e92d9ea85ea8fa9351429037e7d5ca8ada"
+        ],
+        "seed": 2026101103,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:84491a0b762e8c0bb0f0b85f43f8b06b5678a8282f8038e79e0208f3753b1314",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:8dc1a3d2fd3bacc78e28a430ad0027e92d9ea85ea8fa9351429037e7d5ca8ada"
+        ],
+        "seed": 2026101103,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:84491a0b762e8c0bb0f0b85f43f8b06b5678a8282f8038e79e0208f3753b1314",
+          "de82a5be9ef487ac63d2c6d4bb6aa3626997795a990a38a499b62fb5ba494a07:8dc1a3d2fd3bacc78e28a430ad0027e92d9ea85ea8fa9351429037e7d5ca8ada"
+        ],
+        "seed": 2026101103,
+        "state_group": "first-differential"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c40243dd499642a91abcc1e40216810aee7a4749d3f76996db9fe2d2effd42b2",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:09e4e11d4983eb0b8015ac3e669ad2ad76fa8dcd0888b5cc6d62fee2f3209869"
+        ],
+        "seed": 2026101111,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c40243dd499642a91abcc1e40216810aee7a4749d3f76996db9fe2d2effd42b2",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:09e4e11d4983eb0b8015ac3e669ad2ad76fa8dcd0888b5cc6d62fee2f3209869"
+        ],
+        "seed": 2026101111,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c40243dd499642a91abcc1e40216810aee7a4749d3f76996db9fe2d2effd42b2",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:09e4e11d4983eb0b8015ac3e669ad2ad76fa8dcd0888b5cc6d62fee2f3209869"
+        ],
+        "seed": 2026101111,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c40243dd499642a91abcc1e40216810aee7a4749d3f76996db9fe2d2effd42b2",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:09e4e11d4983eb0b8015ac3e669ad2ad76fa8dcd0888b5cc6d62fee2f3209869"
+        ],
+        "seed": 2026101111,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c845c6ea905b97e4e8fa6565923f4a94f4bc1d1ae616ea898e99fed5ff2ecb66",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:ba32ab9dbd124d9689597252dccf8b41f551b83da227fcc0fa79355d524f6aec"
+        ],
+        "seed": 2026101112,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c845c6ea905b97e4e8fa6565923f4a94f4bc1d1ae616ea898e99fed5ff2ecb66",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:ba32ab9dbd124d9689597252dccf8b41f551b83da227fcc0fa79355d524f6aec"
+        ],
+        "seed": 2026101112,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c845c6ea905b97e4e8fa6565923f4a94f4bc1d1ae616ea898e99fed5ff2ecb66",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:ba32ab9dbd124d9689597252dccf8b41f551b83da227fcc0fa79355d524f6aec"
+        ],
+        "seed": 2026101112,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c845c6ea905b97e4e8fa6565923f4a94f4bc1d1ae616ea898e99fed5ff2ecb66",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:ba32ab9dbd124d9689597252dccf8b41f551b83da227fcc0fa79355d524f6aec"
+        ],
+        "seed": 2026101112,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 0,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c0c50d87e15eaecf624167c230892f53040c01dcfa8e2482b63c07b203f54520",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:d7e24b2691999a2bd875b0db7fe22f5d39916483f39b1f5eb5665d41b7e70aba"
+        ],
+        "seed": 2026101113,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 1,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c0c50d87e15eaecf624167c230892f53040c01dcfa8e2482b63c07b203f54520",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:d7e24b2691999a2bd875b0db7fe22f5d39916483f39b1f5eb5665d41b7e70aba"
+        ],
+        "seed": 2026101113,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 2,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c0c50d87e15eaecf624167c230892f53040c01dcfa8e2482b63c07b203f54520",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:d7e24b2691999a2bd875b0db7fe22f5d39916483f39b1f5eb5665d41b7e70aba"
+        ],
+        "seed": 2026101113,
+        "state_group": "second-graded"
+      },
+      {
+        "differences_repeat1_minus_repeat0": {
+          "applied_torque_mean_abs": 0.0,
+          "arrival_time_s": 0.0,
+          "common_goal_progress_2s_m": 0.0,
+          "contact_force_mean_N": 0.0,
+          "recovery_count": 0.0,
+          "tracking_mean_m": 0.0,
+          "two_second_progress_m": 0.0
+        },
+        "env_id": 3,
+        "legacy_condition_keys": [
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:c0c50d87e15eaecf624167c230892f53040c01dcfa8e2482b63c07b203f54520",
+          "23053704825ed5ec44510d93623f007b1b62021220516b49f49c3e450357032a:d7e24b2691999a2bd875b0db7fe22f5d39916483f39b1f5eb5665d41b7e70aba"
+        ],
+        "seed": 2026101113,
+        "state_group": "second-graded"
+      }
+    ],
+    "seed_env_mesh_correspondence_pairs": 24,
+    "terrain_mesh_match_all": true,
+    "trace_replay": {
+      "first_mismatch_by_pair": [],
+      "numeric_trace_exact_pairs": 24,
+      "pairs_checked": 24
+    }
+  },
+  "schema": "eatnav_p1_g3_path_crossover_preparation_v2",
+  "status": "offline_only_no_new_path_rollout"
+}
