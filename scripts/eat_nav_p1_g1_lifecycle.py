@@ -29,6 +29,7 @@ def diagnose_owner_resolution(ready: dict, table: dict, container_id: str) -> st
     token=ready.get('run_token')
     rows=[row for row in rows if token in row.get('command_line','').split()]
     if not rows:return 'token_or_command_mismatch'
+    if len(rows)==1:return 'matched'
     return 'ambiguous_or_other_identity_mismatch'
 
 

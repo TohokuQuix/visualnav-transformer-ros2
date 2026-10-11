@@ -77,6 +77,10 @@ def test_owner_resolution_diagnostic_is_specific(change,expected):
     assert diagnose_owner_resolution(ready(),table(**change),CONTAINER) == expected
 
 
+def test_owner_resolution_diagnostic_reports_exact_single_match():
+    assert diagnose_owner_resolution(ready(),table(),CONTAINER) == 'matched'
+
+
 def test_short_simulator_without_nvml_owned_sample_cannot_pass():
     gate=new_gate()
     gate.register_ready(ready(),table())
