@@ -1,0 +1,895 @@
+{
+  "independent_seed_conditions": 6,
+  "pilot_process_ids": [
+    "batch-first-differential-0-period-0",
+    "batch-first-differential-0-period-1",
+    "batch-first-differential-0-period-2"
+  ],
+  "process_count": 18,
+  "processes": [
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 0,
+      "batch_index": 0,
+      "batch_seed": 2026101101,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101101-period-0-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101101-period-0-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101101-period-0-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101101-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 1,
+      "batch_index": 0,
+      "batch_seed": 2026101101,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101101-period-1-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101101-period-1-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101101-period-1-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101101-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 2,
+      "batch_index": 0,
+      "batch_seed": 2026101101,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101101-period-2-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101101-period-2-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101101-period-2-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101101-period-2-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 1,
+      "batch_index": 1,
+      "batch_seed": 2026101102,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101102-period-0-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101102-period-0-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101102-period-0-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101102-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 2,
+      "batch_index": 1,
+      "batch_seed": 2026101102,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101102-period-1-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101102-period-1-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101102-period-1-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101102-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 0,
+      "batch_index": 1,
+      "batch_seed": 2026101102,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101102-period-2-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101102-period-2-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101102-period-2-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101102-period-2-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 2,
+      "batch_index": 2,
+      "batch_seed": 2026101103,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101103-period-0-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101103-period-0-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101103-period-0-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101103-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 0,
+      "batch_index": 2,
+      "batch_seed": 2026101103,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101103-period-1-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101103-period-1-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101103-period-1-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101103-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 1,
+      "batch_index": 2,
+      "batch_seed": 2026101103,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "first-differential-seed-2026101103-period-2-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "first-differential-seed-2026101103-period-2-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "first-differential-seed-2026101103-period-2-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "first-differential-seed-2026101103-period-2-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 0,
+      "batch_index": 0,
+      "batch_seed": 2026101111,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101111-period-0-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101111-period-0-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101111-period-0-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101111-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 1,
+      "batch_index": 0,
+      "batch_seed": 2026101111,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101111-period-1-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101111-period-1-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101111-period-1-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101111-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 2,
+      "batch_index": 0,
+      "batch_seed": 2026101111,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101111-period-2-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101111-period-2-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101111-period-2-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101111-period-2-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 1,
+      "batch_index": 1,
+      "batch_seed": 2026101112,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101112-period-0-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101112-period-0-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101112-period-0-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101112-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 2,
+      "batch_index": 1,
+      "batch_seed": 2026101112,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101112-period-1-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101112-period-1-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101112-period-1-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101112-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 0,
+      "batch_index": 1,
+      "batch_seed": 2026101112,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101112-period-2-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101112-period-2-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101112-period-2-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101112-period-2-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 2,
+      "batch_index": 2,
+      "batch_seed": 2026101113,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101113-period-0-env-0"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101113-period-0-env-1"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101113-period-0-env-2"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101113-period-0-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 0,
+      "batch_index": 2,
+      "batch_seed": 2026101113,
+      "execution_index": 1,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101113-period-1-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101113-period-1-env-1"
+        },
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101113-period-1-env-2"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101113-period-1-env-3"
+        }
+      ]
+    },
+    {
+      "anchor_id": "second-graded",
+      "assignment_period": 1,
+      "batch_index": 2,
+      "batch_seed": 2026101113,
+      "execution_index": 2,
+      "trials": [
+        {
+          "bearing_deg": 20,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "left_20",
+          "path_sha256": "01c33ca38a4e1dcd883714ac63033f22fae685e6a1d1b24f7f5cf8c42c3c95e2",
+          "slot": 0,
+          "trial_id": "second-graded-seed-2026101113-period-2-env-0"
+        },
+        {
+          "bearing_deg": -20,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "right_20",
+          "path_sha256": "b0a721766cbc4ac03bf24e41d46cd0cecd5b7bbe5b6578ec8c16348a3648f403",
+          "slot": 1,
+          "trial_id": "second-graded-seed-2026101113-period-2-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "second-graded-seed-2026101113-period-2-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "second-graded-seed-2026101113-period-2-env-3"
+        }
+      ]
+    }
+  ],
+  "schema": "eatnav_p1_g3_path_crossover_v1_assignment",
+  "trial_count": 72
+}
