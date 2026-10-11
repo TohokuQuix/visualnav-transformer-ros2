@@ -7,13 +7,19 @@ import hashlib
 import json
 import os
 import pathlib
+import secrets
 import shutil
+import signal
 import subprocess
 import time
-from eat_nav_g0e_gpu_probe import Nvml, proc_table
+from eat_nav_g0e_gpu_probe import Nvml, proc_info, proc_table
 from eat_nav_p1_gpu_attribution import capture_live
-from eat_nav_p1_longhorizon_gpu import capture_sample, resolve_simulator
+from eat_nav_p1_longhorizon_gpu import capture_sample
 from eat_nav_p1_owner_host import initial_graphics_identities
+from eat_nav_p1_g1_lifecycle import (
+    G1Lifecycle, diagnose_owner_resolution, residual_identities,
+    seal_after_writers, verify_seal,
+)
 
 CONTAINER = 'isaac-lab-onix'
 ROOT = None
@@ -22,6 +28,20 @@ BASE = ':'.join(('/tmp/eatnav-train/src', '/tmp/eatnav-extended/isaac-source',
                  '/workspace/isaaclab/source/isaaclab', '/workspace/isaaclab/source/isaaclab_rl',
                  '/workspace/isaaclab/source/isaaclab_tasks',
                  '/workspace/isaaclab_onix/source/onix_isaac_lab'))
+
+
+def build_wrapper_command(*, remote: str, container_id: str, token: str,
+                          source_sha: str, config_sha: str) -> list[str]:
+    """Keep the simulator paused until its exact host PID is monitored."""
+    return ['docker','exec','-e',f'PYTHONPATH={remote}/src:{BASE}',CONTAINER,
+            'timeout','600s','/isaac-sim/python.sh',f'{remote}/owner-wrapper.py',
+            '--coord',f'{remote}/coord','--run-token',token,
+            '--container-id',container_id,'--source',f'{remote}/source.py',
+            '--source-sha',source_sha,'--config',f'{remote}/input/freeze.json',
+            '--config-sha',config_sha,'--output',f'{remote}/output','--mode','smoke',
+            '--','--headless','--input',f'{remote}/input',
+            '--output',f'{remote}/output','--anchor-id','first-differential',
+            '--batch-index','0','--gate1-probe']
 
 
 def digest(path):
@@ -65,12 +85,10 @@ def anon_shmem():
 
 
 def root_bytes():
-    return sum(p.stat().st_size for p in ROOT.parent.rglob('*') if p.is_file())
+    return sum(p.stat().st_size for p in ROOT.rglob('*') if p.is_file())
 
 
-def sample(started, nvml, owned, baseline, container_id, source_path):
-    gpu = capture_sample(nvml, owned, baseline, GPU_CONTRACT,
-                         container_id=container_id, source_path=source_path)
+def resource_row(started, gpu):
     # Keep the bracket evidence small enough to stay inside the frozen storage cap.
     audit = {key: gpu[key] for key in ('pass','failures','gpu_uuid','device_before_bytes',
              'device_after_bytes','device_total_bytes','processes','owned_gpu_pids',
@@ -83,6 +101,12 @@ def sample(started, nvml, owned, baseline, container_id, source_path):
             'persistent_root_bytes': root_bytes()}
 
 
+def sample(started, nvml, owned, baseline, container_id):
+    gpu = capture_sample(nvml, owned, baseline, GPU_CONTRACT,
+                         container_id=container_id, require_owned_gpu=False)
+    return gpu, resource_row(started, gpu)
+
+
 def validate_sample(row):
     if not row['gpu_attribution']['pass']: return 'gpu_attribution:' + ','.join(row['gpu_attribution']['failures'])
     if row['gpu_device_total_mib'] > 7680: return 'gpu_device_total_cap'
@@ -92,14 +116,29 @@ def validate_sample(row):
     return None
 
 
-def seal(stage, *, reason=None, physics_steps=None):
-    files = sorted(p for p in ROOT.rglob('*') if p.is_file()
-                   and p.name not in ('host-seal.json', 'sha-ledger.json'))
-    ledger = {str(p.relative_to(ROOT)): digest(p) for p in files}
-    atomic(ROOT / 'sha-ledger.json', {'file_sha256': ledger})
-    atomic(ROOT / 'host-seal.json', {'stage': stage, 'reason': reason,
-           'physics_steps': physics_steps, 'file_sha256': ledger,
-           'sha_ledger_sha256': digest(ROOT / 'sha-ledger.json')})
+def append_jsonl(stream, value):
+    stream.write(json.dumps(value, sort_keys=True, allow_nan=False) + '\n')
+    stream.flush(); os.fsync(stream.fileno())
+
+
+def exact_owner_alive(owner):
+    if owner is None:return False
+    row=proc_info(owner['host_pid'])
+    return bool(row and row.get('start_ticks')==owner['start_ticks'])
+
+
+def stop_exact_owner(owner, evidence):
+    if not exact_owner_alive(owner):return
+    os.kill(owner['host_pid'],signal.SIGTERM)
+    evidence.append({'signal':'SIGTERM','host_pid':owner['host_pid'],
+                     'start_ticks':owner['start_ticks']})
+    for _ in range(50):
+        if not exact_owner_alive(owner):return
+        time.sleep(.1)
+    if exact_owner_alive(owner):
+        os.kill(owner['host_pid'],signal.SIGKILL)
+        evidence.append({'signal':'SIGKILL','host_pid':owner['host_pid'],
+                         'start_ticks':owner['start_ticks']})
 
 
 def main():
@@ -150,81 +189,127 @@ def main():
                                   'processes','bracket_gap_bytes','owned_gpu_pids')},
         'path_publications': 0,
     })
-    cmd = ['docker', 'exec', '-e', f'PYTHONPATH={REMOTE}/src:{BASE}', CONTAINER,
-           'timeout', '600s', '/isaac-sim/python.sh', f'{REMOTE}/source.py', '--headless',
-           '--input', f'{REMOTE}/input', '--output', f'{REMOTE}/output',
-           '--anchor-id', 'first-differential', '--batch-index', '0', '--gate1-probe']
-    atomic(ROOT / 'g1-command.json', {'argv': cmd})
-    started = time.monotonic()
-    failure = None
-    with (ROOT / 'runner.log').open('x') as log, (ROOT / 'resource-series.jsonl').open('x') as resources:
-        proc = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
-        owner=None
-        owner_deadline=time.monotonic()+10
-        while proc.poll() is None and time.monotonic()<owner_deadline:
-            try:
-                owner=resolve_simulator(proc_table(),source_path=f'{REMOTE}/source.py',
-                                        container_id=inspect['Id'])
-                break
-            except ValueError:
-                time.sleep(.02)
-        if owner is None:
-            failure='simulator_pid_start_tick_unresolved_at_startup'
-            proc.terminate()
-        samples=0
-        while proc.poll() is None and failure is None:
-            try:
-                row = sample(started,nvml,owner,baseline_identities,inspect['Id'],f'{REMOTE}/source.py')
-                resources.write(json.dumps(row, sort_keys=True) + '\n')
-                resources.flush(); os.fsync(resources.fileno())
-                samples+=1
-                failure = validate_sample(row)
-                if row['elapsed_s'] > 600:
-                    failure = 'process_wall_timeout'
-                heartbeat = ROOT / 'output/heartbeat.json'
-                if heartbeat.is_file() and time.time() - heartbeat.stat().st_mtime > 90:
-                    failure = 'heartbeat_stale'
-            except Exception as exc:
-                failure = 'resource_monitor_error:' + repr(exc)
-            if failure:
-                # Preserve ownership evidence and stop only the Docker exec launched here.
-                proc.terminate()
-                break
-            time.sleep(2)
-        try: rc = proc.wait(timeout=30)
-        except subprocess.TimeoutExpired:
-            proc.kill(); rc = proc.wait(timeout=10)
-    if samples==0 and failure is None:
-        failure='no_live_GPU_bracket'
-    survivor=proc_table().get(owner['simulator']['host_pid']) if owner else None
-    if survivor and survivor.get('start_ticks')==owner['simulator']['start_ticks']:
-        failure=failure or 'owned_simulator_residual'
-    atomic(ROOT / 'g1-host-status.json', {'native_exit': rc, 'failure': failure,
-                                         'elapsed_s': time.monotonic() - started,
-                                         'gpu_bracket_count':samples,
-                                         'owned_simulator':owner,
-                                         'owned_simulator_residual':bool(survivor and owner and
-                                             survivor.get('start_ticks')==owner['simulator']['start_ticks'])})
-    if failure or rc:
-        seal('G1_failed_or_inconclusive', reason=failure or f'native_exit_{rc}')
-        raise RuntimeError(f'G1 process failed: native_exit={rc} failure={failure}')
-    try:
-        output = ROOT / 'output'
-        marker = json.loads((output / 'gate1-probe-complete.json').read_text())
-        if marker['Path_publications'] != 0:
-            raise RuntimeError('G1 Path publication')
-        rows = [json.loads(x) for x in (output / 'g1-physics-trace.jsonl').read_text().splitlines()]
-        if [r['physics_step'] for r in rows] != list(range(20)):
-            raise RuntimeError('G1 physics trace incomplete')
-        if any(len(r['root_state']) != 4 or len(r['actor_policy']) != 4 or
-               len(r['contact_net_forces_w']) != 4 or not all(any(mask) for mask in r['dem_finite_mask'])
-               for r in rows):
-            raise RuntimeError('G1 Actor/DEM/contact incomplete')
-    except Exception as exc:
-        seal('G1_failed_or_inconclusive', reason='artifact_validation:'+repr(exc))
-        raise
-    seal('G1_protocol_valid', physics_steps=20)
-    print('G1_PASS', str(ROOT / 'host-seal.json'))
+    # The wrapper writes owner-ready and waits; Python main and physics cannot
+    # start until the host has resolved PID/start-tick and accepted an NVML bracket.
+    wrapper_source=pathlib.Path(__file__).with_name('eat_nav_p1_owner_wrapper.py')
+    wrapper_target=ROOT/'owner-wrapper.py'
+    shutil.copy2(wrapper_source,wrapper_target)
+    coord=ROOT/'coord';coord.mkdir()
+    token=secrets.token_hex(32)
+    source_sha=digest(ROOT/'source.py');config_sha=digest(ROOT/'input/freeze.json')
+    atomic(coord/'launch-intent.json',{'schema':'eatnav_p1_g1_start_v2',
+        'run_token':token,'container_id':inspect['Id'],'output_root':f'{REMOTE}/output',
+        'source_sha256':source_sha,'config_sha256':config_sha,
+        'wrapper_sha256':digest(wrapper_target)})
+    cmd=build_wrapper_command(remote=REMOTE,container_id=inspect['Id'],token=token,
+                              source_sha=source_sha,config_sha=config_sha)
+    atomic(ROOT/'g1-command.json',{'argv':cmd,'wrapper_sha256':digest(wrapper_target)})
+    gate=G1Lifecycle(token=token,container_id=inspect['Id'],source_sha=source_sha,
+                     config_sha=config_sha,output_root=f'{REMOTE}/output',gpu_uuid=GPU_UUID)
+    started=time.monotonic();failure=None;owner=None;ready=None;client=None
+    native_exit=None;brackets=0;cleanup_signals=[];owned_identities={}
+    with (ROOT/'runner.log').open('xb') as log, \
+         (ROOT/'resource-series.jsonl').open('x') as resources, \
+         (ROOT/'owner-polls.jsonl').open('x') as polls:
+        try:
+            client=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
+            deadline=time.monotonic()+45
+            while owner is None:
+                if client.poll() is not None:
+                    raise RuntimeError('wrapper_exit_before_owner_ready')
+                if time.monotonic()>deadline:
+                    raise RuntimeError('owner_ready_or_mapping_timeout')
+                ready_path=coord/'owner-ready.json'
+                if not ready_path.is_file():
+                    time.sleep(.05);continue
+                ready=json.loads(ready_path.read_text())
+                table=proc_table()
+                diagnostic=diagnose_owner_resolution(ready,table,inspect['Id'])
+                candidates=[{'host_pid':p['host_pid'],'container_pid':p['container_pid'],
+                             'start_ticks':p['start_ticks'],'namespace_pid_chain':p['namespace_pid_chain'],
+                             'cgroup':p['cgroup'],'command_line':p['command_line']}
+                            for p in table.values() if p.get('container_pid')==ready.get('container_pid')
+                            or token in p.get('command_line','').split()]
+                append_jsonl(polls,{'wall_ns':time.time_ns(),'diagnostic':diagnostic,
+                                   'ready':ready,'candidates':candidates})
+                try:owner=gate.register_ready(ready,table)
+                except ValueError as exc:
+                    if str(exc) != 'owner_pid_mapping_missing_or_ambiguous':
+                        raise
+                    time.sleep(.1)
+            atomic(coord/'registered-owner.json',owner)
+            gpu=capture_live(nvml,{'simulator':owner},baseline_identities,GPU_CONTRACT,
+                             container_id=inspect['Id'],expected_simulator_alive=True)
+            row=resource_row(started,gpu);append_jsonl(resources,row);brackets+=1
+            if violation:=validate_sample(row):raise RuntimeError('preauthorization_'+violation)
+            gate.pre_authorization(gpu)
+            authorization=gate.authorize()
+            authorization.update({'bracket_monotonic_ns':gpu['monotonic_ns'],
+                                  'authorization_wall_ns':time.time_ns()})
+            atomic(coord/'owner-authorized.json',authorization)
+            while client.poll() is None:
+                gpu,row=sample(started,nvml,{'simulator':owner},baseline_identities,inspect['Id'])
+                append_jsonl(resources,row);brackets+=1
+                if violation:=validate_sample(row):raise RuntimeError(violation)
+                gate.observe(gpu)
+                for pid in gpu.get('owned_process_tree_host_pids',[]):
+                    proc=gpu['process_table_before'].get(pid)
+                    if proc:owned_identities[pid]=proc['start_ticks']
+                if row['elapsed_s']>600:raise RuntimeError('process_wall_timeout')
+                heartbeat=ROOT/'output/heartbeat.json'
+                if heartbeat.is_file() and time.time()-heartbeat.stat().st_mtime>90:
+                    raise RuntimeError('heartbeat_stale')
+                time.sleep(.5)
+            native_exit=client.wait(timeout=30)
+        except BaseException as exc:
+            failure=type(exc).__name__+':'+str(exc)
+            if owner is not None:
+                stop_exact_owner(owner,cleanup_signals)
+            if client is not None and client.poll() is None:
+                client.terminate()
+            if client is not None:
+                try:native_exit=client.wait(timeout=30)
+                except subprocess.TimeoutExpired:
+                    client.kill();native_exit=client.wait(timeout=10)
+        finally:
+            for stream in (polls,resources,log):
+                stream.flush();os.fsync(stream.fileno())
+    # No file is sealed while a simulator, heartbeat, resource or log writer lives.
+    final_table=proc_table()
+    residual=residual_identities(final_table,owner=owner,known=owned_identities,
+                                 token=token,container_id=inspect['Id'])
+    writer_state={'simulator':not residual and (client is None or client.poll() is not None),
+                  'heartbeat':not residual,'resource':True,'log':True}
+    if failure is None:
+        try:
+            marker=json.loads((ROOT/'output/gate1-probe-complete.json').read_text())
+            rows=[json.loads(line) for line in (ROOT/'output/g1-physics-trace.jsonl').read_text().splitlines()]
+            if marker.get('Path_publications')!=0 or [r['physics_step'] for r in rows]!=list(range(20)):
+                raise ValueError('G1_path_or_step_count_invalid')
+            if any(len(r['root_state'])!=4 or len(r['actor_policy'])!=4 or
+                   len(r['contact_net_forces_w'])!=4 or not all(any(mask) for mask in r['dem_finite_mask'])
+                   for r in rows):raise ValueError('G1_Actor_DEM_contact_incomplete')
+            gate.complete(native_exit=native_exit,owner_alive=bool(residual),
+                          writers_closed=all(writer_state.values()))
+        except BaseException as exc:
+            failure=type(exc).__name__+':'+str(exc)
+    atomic(ROOT/'cleanup-evidence.json',{'signals':cleanup_signals,'owned_residual':residual,
+        'writer_state':writer_state,'native_exit':native_exit})
+    atomic(ROOT/'g1-host-status.json',{'native_exit':native_exit,'failure':failure,
+        'elapsed_s':time.monotonic()-started,'gpu_bracket_count':brackets,
+        'owned_gpu_bracket_count':gate.live_gpu_samples,'owned_simulator':owner,
+        'owned_simulator_residual':bool(residual),'lifecycle_phase':gate.phase})
+    if all(writer_state.values()):
+        stage='G1_protocol_valid' if failure is None else 'G1_failed_or_inconclusive'
+        seal_after_writers(ROOT,writer_state=writer_state,stage=stage,reason=failure)
+        time.sleep(.1)
+        verify_seal(ROOT)
+    else:
+        atomic(ROOT/'unsealed-evidence.json',{'reason':'writer_or_owned_residual',
+                                             'failure':failure,'writer_state':writer_state})
+        raise RuntimeError('G1 cannot seal while owned writer remains')
+    if failure is not None:raise RuntimeError('G1 failed or inconclusive: '+failure)
+    print('G1_PASS',str(ROOT/'host-seal.json'))
 
 
 if __name__ == '__main__':

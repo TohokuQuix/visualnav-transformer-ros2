@@ -22,6 +22,17 @@ def test_full_identity_and_gap_are_recorded():
     assert result['processes'][0]['start_ticks'] == 111
 
 
+def test_pre_gpu_startup_bracket_keeps_owner_identity_without_imputing_gpu_memory():
+    d, rows, table, owned, baseline, contract = inputs()
+    rows[:] = [row for row in rows if row['host_pid'] != 100]
+    d['used_bytes'] = 400*MIB
+    result = assess_sample(d, rows, table, d, table, owned, baseline, contract,
+                           container_id='container-id', require_owned_gpu=False)
+    assert result['pass']
+    assert result['owned_gpu_pids'] == []
+    assert result['process_sum_bytes'] == 400*MIB
+
+
 def test_any_unresolved_pid_fails_even_when_reported_memory_zero():
     d, rows, table, owned, baseline, contract = inputs()
     rows.append({'gpu_uuid': d['uuid'], 'host_pid': 999, 'kind': 'graphics',

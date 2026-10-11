@@ -17,13 +17,13 @@ def resolve_simulator(table, *, source_path: str, container_id: str) -> dict:
 
 
 def assess_sample(before, rows, table_before, after, table_after, owned, baseline,
-                  contract, *, container_id):
+                  contract, *, container_id, require_owned_gpu=True):
     result = classify_bracket(before, rows, table_before, after, table_after,
                               owned, baseline, contract, container_id=container_id,
                               expected_simulator_alive=True, health_ok=True,
                               accounting_mode='g1_nvml_per_pid_required')
     failures = set(result['failures'])
-    if not result['owned_gpu_pids']:
+    if require_owned_gpu and not result['owned_gpu_pids']:
         failures.add('owned_gpu_pid_missing')
     if any(row['start_ticks'] is None or row['classification'] == 'unresolved'
            for row in result['processes']):
@@ -39,7 +39,8 @@ def assess_sample(before, rows, table_before, after, table_after, owned, baselin
     return result
 
 
-def capture_sample(nvml, owned, baseline, contract, *, container_id, source_path=None):
+def capture_sample(nvml, owned, baseline, contract, *, container_id, source_path=None,
+                   require_owned_gpu=True):
     # NVML and /proc exceptions propagate: callers must stop, never assume zero use.
     result = capture_live(nvml, owned, baseline, contract,
                           container_id=container_id, expected_simulator_alive=True,
@@ -47,7 +48,7 @@ def capture_sample(nvml, owned, baseline, contract, *, container_id, source_path
                               table, source_path=source_path, container_id=container_id))
                           if source_path else None)
     failures = set(result['failures'])
-    if not result['owned_gpu_pids']:
+    if require_owned_gpu and not result['owned_gpu_pids']:
         failures.add('owned_gpu_pid_missing')
     if any(row['start_ticks'] is None or row['classification'] == 'unresolved'
            for row in result['processes']):

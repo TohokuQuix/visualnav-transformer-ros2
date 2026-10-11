@@ -49,10 +49,11 @@ def test_g1_host_uses_new_root_and_live_per_pid_nvml():
 
 
 def test_g1_failure_seal_preserves_sha_evidence(tmp_path, monkeypatch):
-    import eat_nav_p1_g1_gpu_host as host
-    monkeypatch.setattr(host, 'ROOT', tmp_path)
+    from eat_nav_p1_g1_lifecycle import seal_after_writers
     (tmp_path / 'resource-series.jsonl').write_text('{"sample":1}\n')
-    host.seal('G1_failed_or_inconclusive', reason='synthetic_monitor_failure')
+    seal_after_writers(tmp_path,writer_state={'simulator':True,'heartbeat':True,
+        'resource':True,'log':True},stage='G1_failed_or_inconclusive',
+        reason='synthetic_monitor_failure')
     ledger=json.loads((tmp_path / 'sha-ledger.json').read_text())['file_sha256']
     assert 'resource-series.jsonl' in ledger
     assert ledger['resource-series.jsonl'] == hashlib.sha256(
