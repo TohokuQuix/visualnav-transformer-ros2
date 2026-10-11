@@ -96,7 +96,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, required=True)
     args = parser.parse_args()
-    if args.root.resolve().parent != BASE:
+    if args.root.resolve().parent != BASE.resolve():
         raise ValueError('G3 v2 root must be a fresh persistent subdirectory')
     if digest(BASE/'g1-attempt-2/host-seal.json') != G1_SEAL or \
             digest(G2/'host-seal.json') != G2_SEAL:
