@@ -92,6 +92,16 @@ def validate_sample(row):
     return None
 
 
+def seal(stage, *, reason=None, physics_steps=None):
+    files = sorted(p for p in ROOT.rglob('*') if p.is_file()
+                   and p.name not in ('host-seal.json', 'sha-ledger.json'))
+    ledger = {str(p.relative_to(ROOT)): digest(p) for p in files}
+    atomic(ROOT / 'sha-ledger.json', {'file_sha256': ledger})
+    atomic(ROOT / 'host-seal.json', {'stage': stage, 'reason': reason,
+           'physics_steps': physics_steps, 'file_sha256': ledger,
+           'sha_ledger_sha256': digest(ROOT / 'sha-ledger.json')})
+
+
 def main():
     global ROOT, REMOTE
     parser=argparse.ArgumentParser()
@@ -196,23 +206,24 @@ def main():
                                          'owned_simulator_residual':bool(survivor and owner and
                                              survivor.get('start_ticks')==owner['simulator']['start_ticks'])})
     if failure or rc:
+        seal('G1_failed_or_inconclusive', reason=failure or f'native_exit_{rc}')
         raise RuntimeError(f'G1 process failed: native_exit={rc} failure={failure}')
-    output = ROOT / 'output'
-    marker = json.loads((output / 'gate1-probe-complete.json').read_text())
-    if marker['Path_publications'] != 0:
-        raise RuntimeError('G1 Path publication')
-    rows = [json.loads(x) for x in (output / 'g1-physics-trace.jsonl').read_text().splitlines()]
-    if [r['physics_step'] for r in rows] != list(range(20)):
-        raise RuntimeError('G1 physics trace incomplete')
-    if any(len(r['root_state']) != 4 or len(r['actor_policy']) != 4 or
-           len(r['contact_net_forces_w']) != 4 or not all(any(mask) for mask in r['dem_finite_mask'])
-           for r in rows):
-        raise RuntimeError('G1 Actor/DEM/contact incomplete')
-    files = sorted(p for p in ROOT.rglob('*') if p.is_file() and p.name != 'host-seal.json')
-    ledger = {str(p.relative_to(ROOT)): digest(p) for p in files}
-    atomic(ROOT / 'host-seal.json', {'stage': 'G1_protocol_valid', 'native_exit': 0,
-                                     'physics_steps': 20, 'Path_publications': 0,
-                                     'file_sha256': ledger})
+    try:
+        output = ROOT / 'output'
+        marker = json.loads((output / 'gate1-probe-complete.json').read_text())
+        if marker['Path_publications'] != 0:
+            raise RuntimeError('G1 Path publication')
+        rows = [json.loads(x) for x in (output / 'g1-physics-trace.jsonl').read_text().splitlines()]
+        if [r['physics_step'] for r in rows] != list(range(20)):
+            raise RuntimeError('G1 physics trace incomplete')
+        if any(len(r['root_state']) != 4 or len(r['actor_policy']) != 4 or
+               len(r['contact_net_forces_w']) != 4 or not all(any(mask) for mask in r['dem_finite_mask'])
+               for r in rows):
+            raise RuntimeError('G1 Actor/DEM/contact incomplete')
+    except Exception as exc:
+        seal('G1_failed_or_inconclusive', reason='artifact_validation:'+repr(exc))
+        raise
+    seal('G1_protocol_valid', physics_steps=20)
     print('G1_PASS', str(ROOT / 'host-seal.json'))
 
 

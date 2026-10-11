@@ -46,3 +46,18 @@ def test_g1_host_uses_new_root_and_live_per_pid_nvml():
     assert 'capture_sample(nvml' in host
     assert 'gpu_bracket_count' in host
     assert "'owned_simulator_residual'" in host
+
+
+def test_g1_failure_seal_preserves_sha_evidence(tmp_path, monkeypatch):
+    import eat_nav_p1_g1_gpu_host as host
+    monkeypatch.setattr(host, 'ROOT', tmp_path)
+    (tmp_path / 'resource-series.jsonl').write_text('{"sample":1}\n')
+    host.seal('G1_failed_or_inconclusive', reason='synthetic_monitor_failure')
+    ledger=json.loads((tmp_path / 'sha-ledger.json').read_text())['file_sha256']
+    assert 'resource-series.jsonl' in ledger
+    assert ledger['resource-series.jsonl'] == hashlib.sha256(
+        (tmp_path / 'resource-series.jsonl').read_bytes()).hexdigest()
+    seal=json.loads((tmp_path / 'host-seal.json').read_text())
+    assert seal['reason'] == 'synthetic_monitor_failure'
+    assert seal['sha_ledger_sha256'] == hashlib.sha256(
+        (tmp_path / 'sha-ledger.json').read_bytes()).hexdigest()
