@@ -48,8 +48,9 @@ def prepare(repo: Path):
     if G3.exists():raise FileExistsError('G3 root already exists; no retry or overwrite')
     source=repo/'scripts/eat_nav_p1_g3_pilot_sim.py'
     protocol=repo/'src/visualnav_transformer/eat_nav/p1_longhorizon_protocol.py'
+    dem_capture=repo/'src/visualnav_transformer/eat_nav/p1_dem_capture.py'
     host=repo/'scripts/eat_nav_p1_g3_pilot_host.py'
-    if not all(p.is_file() for p in (source,protocol,host)):
+    if not all(p.is_file() for p in (source,protocol,dem_capture,host)):
         raise FileNotFoundError('G3 frozen source missing')
     old=json.loads((G2/'input/assignment.json').read_text())
     geometry=json.loads((G2/'input/source-contract.json').read_text())
@@ -92,6 +93,7 @@ def prepare(repo: Path):
         shutil.copy2(source,batch/'source.py')
         shutil.copytree(G2/'src',batch/'src',ignore=shutil.ignore_patterns('__pycache__'))
         shutil.copy2(protocol,batch/'src/visualnav_transformer/eat_nav/p1_longhorizon_protocol.py')
+        shutil.copy2(dem_capture,batch/'src/visualnav_transformer/eat_nav/p1_dem_capture.py')
         inputs=batch/'input';inputs.mkdir()
         for name in ('assignment.json','freeze.json','statistical-config.json',
                      'source-contract.json','anchor-fixtures.json','eat_nav.yaml'):

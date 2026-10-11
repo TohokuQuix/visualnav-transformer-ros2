@@ -39,6 +39,7 @@ from onix_isaac_lab.tasks.locomotion.velocity.config.onix.rough_env_cfg import O
 from onix_isaac_lab.tasks.locomotion.velocity.config.onix.eat_nav_env_cfg import EATTerrainGenerator, make_collection_cfg
 from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
+from visualnav_transformer.eat_nav.p1_dem_capture import persist_then_gate
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, clone_internal_branch_state
 from visualnav_transformer.eat_nav.phase_c_sim import ObservationCapture, capture_actor_critic
 from visualnav_transformer.eat_nav.phase_c_bridge_client import FollowerBridgeClient
@@ -222,9 +223,11 @@ def dem_frame(bare,index,config,settling_step):
     robot,scanner=bare.scene['robot'],bare.scene['height_scanner_eat']
     pos=robot.data.root_pos_w[index].detach().cpu().numpy()
     _,_,yaw=euler_xyz_from_quat(robot.data.root_quat_w[index:index+1])
-    hits=scanner.data.ray_hits_w[index,:,2].detach().cpu().numpy().reshape(20,20)
+    ray_hits_w=scanner.data.ray_hits_w[index].detach().cpu().numpy().copy()
+    hits=ray_hits_w[:,2].reshape(20,20)
     valid=np.isfinite(hits)
-    start=scanner._ray_starts_w[index,0,:2].detach().cpu().numpy()
+    ray_starts_w=scanner._ray_starts_w[index].detach().cpu().numpy().copy()
+    start=ray_starts_w[0,:2]
     source=SourceGrid(height=np.where(valid,hits,0).astype(np.float32),valid=valid,
         origin_xy=(float(start[0]),float(start[1])),resolution_m=config.dem_resolution_m,
         start_index_xy=(0,0),frame_id=config.reference_frame,stamp_ns=settling_step*STEP_NS)
@@ -234,7 +237,14 @@ def dem_frame(bare,index,config,settling_step):
     return {'identity':f'settling_step_{settling_step}','timestamp_ns':settling_step*STEP_NS,
         'shape':[2,20,20],'frame':'robot_base','resolution_m':float(config.dem_resolution_m),
         'raw_sha256':hashlib.sha256(hits.tobytes()).hexdigest(),
-        'transformed':transformed.tolist()}
+        'transformed':transformed,'ray_hits_w':ray_hits_w,'ray_starts_w':ray_starts_w,
+        'source_height':hits.copy(),'source_valid':valid.copy(),
+        'env_origin_w':bare.scene.env_origins[index].detach().cpu().numpy().copy(),
+        'robot_pose_w':robot.data.root_state_w[index].detach().cpu().numpy().copy(),
+        'sensor_timestamp_s':float(scanner._timestamp[index].item()),
+        'sensor_update_timestamp_s':float(scanner._timestamp_last_update[index].item()),
+        'sensor_is_outdated':bool(scanner._is_outdated[index].item()),
+        'sensor_update_period_s':float(scanner.cfg.update_period)}
 
 
 def direct_dem_gate(frames):
@@ -362,8 +372,12 @@ def main():
                           collision['sha256'],material) for i in range(4)]
         atomic(args.output/'initial-state.json',records)
         gate=require_prepath_gate(records,config_json['initialization_tolerances'])
-        gate['direct_dem']=direct_dem_gate(dem_history)
-        atomic(args.output/'prepath-dem-history.json',dem_history)
+        gate['direct_dem']=persist_then_gate(args.output,dem_history,direct_dem_gate)
+        atomic(args.output/'prepath-dem-history.json',[[
+            {key:value for key,value in frame.items() if key in
+                ('identity','timestamp_ns','shape','frame','resolution_m','raw_sha256')} |
+            {'transformed':frame['transformed'].tolist()} for frame in history]
+            for history in dem_history])
         atomic(args.output/'prepath-gate.json',gate)
         if tuple(obs['policy'].shape)!=(4,22) or tuple(obs['critic'].shape)!=(4,267):
             raise ValueError('Actor/Critic observation shape drift')
@@ -640,6 +654,7 @@ def main():
                'terrain_sha256':sha(args.output/'terrain.json'),
                'prepath_gate_sha256':sha(args.output/'prepath-gate.json'),
                'prepath_dem_history_sha256':sha(args.output/'prepath-dem-history.json'),
+               'prepath_dem_ledger_sha256':sha(args.output/'prepath-dem-sha-ledger.json'),
                'direct_actor_gate_sha256':sha(args.output/'direct-actor-gate.json'),
                'path_publication_sha256':sha(args.output/'path-publication.json'),
                'pilot_summary_sha256':sha(args.output/'pilot-summary.json'),

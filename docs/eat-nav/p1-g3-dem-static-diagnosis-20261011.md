@@ -1,0 +1,26 @@
+# P1 G3 pre-Path DEM mismatch: static diagnosis
+
+## Decision and evidence boundary
+
+G3 attempt-0 remains a stopped, sealed measurement. `batch-0/output/diagnostic-error.json` records `ValueError: direct DEM numeric gate`, zero Path publications, and no candidate trials. The batch host recorded a separate terminal GPU-attribution failure, `owned_start_tick_mismatch,simulator_disappeared_in_bracket`, while `native_exit` was 0. The final one of 22 resource samples flagged PID loss; the preceding 21 passed. The original host seal SHA-256 is `7bdf0a995fe70d99a8511b4dd6b45896e09256c31defef4070cf445a69cd597f`; read-only seal verification covered 229 files and passed. No original artifact was changed. Execution-quality identifiability is **not assessable**.
+
+## Static comparison and causal hypotheses
+
+| Mechanism | Verified from source or original evidence | Still unverified |
+|---|---|---|
+| Capture order / raycaster history | G3 captures frames at settling steps 4, 9, 14, 19 **before** branch-state cloning; the direct DEM gate runs after cloning. `clone_internal_branch_state` explicitly lists `raycaster_history` as unreplicated (`phase_c_sim.py:149-235`). G2 also clones after 20 settling steps but does not capture or gate DEM history (`eat_nav_p1_g2_diagnostic_runner.py:300-314`). | Whether the historical frame mismatch alone accounts for the observed gate failure, and at which frame/cell it first appears. The attempt-0 source raised before storing the DEM arrays. |
+| Terrain sampling | G3 terrain fingerprint and seed are identical across the four slots in `terrain.json`; composed terrain collision was checked before settling. The EAT scanner targets `/World/ground`, uses world-aligned rays, and updates at the configured DEM-history interval (`eat_nav_env_cfg.py:211-238`). | Whether ray-hit heights and valid masks are tile-local identical at each sensor refresh. A mesh fingerprint does not prove identical ray hits at distinct world origins. |
+| Physics and initial state | G3 writes the same nominal root/joint initial conditions relative to each tile and clones visible state after settling; `initial-state.json` then shows the clone result. | Per-step root/joint divergence during the preceding 20 steps, PhysX contact warm-start differences, and numerical effects of different world coordinates. Equality **after** cloning cannot establish equality at frame-capture time. |
+| DEM transform / capture | G3 uses `ray_hits_w[...,2]`, `isfinite`, first ray-start XY as the source-grid origin, and `robot_dem`. `robot_dem` bilinearly samples in robot yaw coordinates and subtracts a scalar median reference height (`dem.py:76-110`). Its source stamp was synthetic `settling_step*50 ms`, rather than the sensor's actual last-update timestamp. | Whether differences originate in raw rays/masks, ray origins, robot poses, sensor refresh age, bilinear interpolation, or scalar reference height. |
+
+The capture-before-clone ordering is the leading explanation for why equal anchor root/joint states and equal terrain fingerprints can coexist with unequal DEM history. It is a source-level hypothesis, **not a measured root-cause proof**.
+
+## Diagnostic implementation
+
+`p1_dem_capture.py` durably writes all four frames for each of four envs before invoking the unchanged G3 `direct_dem_gate`. Each NPZ preserves raw world ray hits, ray starts, source heights and validity, transformed height and mask, env origin, and robot pose. Per-frame metadata preserves identity, synthetic logical stamp, shape, frame, resolution, sensor clock, last actual sensor update, outdated flag, and update period. It writes direct-duplicate height RMS/max, mask IoU, exact and frozen-threshold difference-cell counts, world and tile-local ray-origin differences, four difference-map NPZ files, and a SHA ledger. NPZ/JSON files and parent directories are fsynced before gate evaluation. The existing gate thresholds remain RMS `1e-5 m`, max `1e-4 m`, mask IoU `1.0`.
+
+The G3 host now treats `diagnostic-error.json` as failure even if native exit is 0. A terminal GPU PID-disappearance sample is only recognized as a normal completion race if the Docker client has exited and a completion marker exists. Disappearance while the process is running remains fail-closed. The monitor violation is retained separately in host status. Successful G3 validation additionally checks the raw DEM ledger and all referenced SHA values. New staging includes the diagnostic module; a future run needs a fresh output root and newly frozen source/contract SHA. This is not a G3 retry authorization.
+
+## Verification and remaining runtime uncertainty
+
+Synthetic/static tests verify persistence and SHA before a rejected frozen gate, per-frame differences, unchanged gate input, diagnostic-marker propagation despite exit 0, terminal-versus-running PID loss, and source/staging placement. The relevant suite passed 34/34 tests; Python compilation and `git diff --check` passed. No Isaac process was launched. The new capture path, internal sensor timestamps, and host finalization have **not** been verified against live Isaac Lab in this change. A future authorized candidate-free 20-step diagnostic for first-differential/block 0 is required to identify the first differing signal and frame. No Path should be published in that diagnostic.

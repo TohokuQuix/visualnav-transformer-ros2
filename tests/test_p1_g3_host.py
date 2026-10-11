@@ -1,6 +1,7 @@
 """Offline tests for the frozen G3 batch and duplicate decisions."""
 import copy
 import ast
+import json
 from pathlib import Path
 
 import eat_nav_p1_g3_pilot_host as host
@@ -54,3 +55,33 @@ def test_g3_source_has_single_path_publication_and_640_step_cap():
     assert "steps=g3_contract['max_control_steps']" in text
     assert "cfg.episode_length_s=g3_contract['episode_length_s']" in text
     assert "conditions != ['A']*4" in text
+
+
+def test_simulator_error_marker_is_failure_even_with_zero_native_exit(tmp_path):
+    output=tmp_path/'output';output.mkdir()
+    (output/'diagnostic-error.json').write_text(json.dumps({'type':'ValueError',
+        'message':'direct DEM numeric gate','Path_publications':0}))
+    assert host.simulator_artifact_failure(output,0)==\
+        'simulator_diagnostic_error:ValueError:direct DEM numeric gate'
+    assert host.simulator_artifact_failure(output,1).startswith('simulator_diagnostic_error:')
+
+
+def test_terminal_gpu_disappearance_is_distinguished_from_live_loss(tmp_path):
+    output=tmp_path/'output';output.mkdir()
+    failure='gpu_attribution:owned_start_tick_mismatch,simulator_disappeared_in_bracket'
+    assert host.classify_monitor_violation(failure,None,output)==failure
+    assert host.classify_monitor_violation(failure,0,output)=='simulator_completion_marker_missing'
+    (output/'complete.json').write_text('{}')
+    assert host.classify_monitor_violation(failure,0,output) is None
+    (output/'diagnostic-error.json').write_text(json.dumps({'type':'ValueError',
+        'message':'numeric gate'}))
+    assert host.classify_monitor_violation(failure,0,output).startswith('simulator_diagnostic_error:')
+
+
+def test_dem_evidence_is_durable_before_frozen_gate_in_source():
+    source=Path(__file__).resolve().parents[1]/'scripts/eat_nav_p1_g3_pilot_sim.py'
+    text=source.read_text()
+    assert 'persist_then_gate(args.output,dem_history,direct_dem_gate)' in text
+    assert 'gate[\'direct_dem\']=direct_dem_gate(dem_history)' not in text
+    stage=Path(__file__).resolve().parents[1]/'scripts/eat_nav_p1_g3_stage.py'
+    assert "shutil.copy2(dem_capture,batch/'src/visualnav_transformer/eat_nav/p1_dem_capture.py')" in stage.read_text()

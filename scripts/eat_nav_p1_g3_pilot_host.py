@@ -180,6 +180,31 @@ def validate_sample(row):
     return None
 
 
+def simulator_artifact_failure(output: pathlib.Path, native_exit: int | None) -> str | None:
+    """A simulator diagnostic marker is a protocol failure regardless of shell exit."""
+    marker=output/'diagnostic-error.json'
+    if marker.is_file():
+        try:
+            error=json.loads(marker.read_text())
+            return 'simulator_diagnostic_error:'+str(error['type'])+':'+str(error['message'])
+        except (ValueError, KeyError, TypeError) as exc:
+            return 'simulator_diagnostic_error_marker_invalid:'+type(exc).__name__
+    if native_exit is not None and native_exit != 0:
+        return 'simulator_native_exit:'+str(native_exit)
+    if native_exit is not None and not (output/'complete.json').is_file():
+        return 'simulator_completion_marker_missing'
+    return None
+
+
+def classify_monitor_violation(violation: str, client_exit: int | None,
+                               output: pathlib.Path) -> str | None:
+    """Only a verified terminal marker can resolve an end-of-process PID race."""
+    if client_exit is None or 'simulator_disappeared_in_bracket' not in violation:
+        return violation
+    artifact=simulator_artifact_failure(output,client_exit)
+    return artifact if artifact is not None else None
+
+
 def append_jsonl(stream, value):
     stream.write(json.dumps(value, sort_keys=True, allow_nan=False) + '\n')
     stream.flush(); os.fsync(stream.fileno())
@@ -289,11 +314,18 @@ def validate_g3_output(root: pathlib.Path, remote: str, g3_contract: dict) -> di
     for key,name in (('initial_state_sha256','initial-state.json'),
                      ('terrain_sha256','terrain.json'),('prepath_gate_sha256','prepath-gate.json'),
                      ('prepath_dem_history_sha256','prepath-dem-history.json'),
+                     ('prepath_dem_ledger_sha256','prepath-dem-sha-ledger.json'),
                      ('direct_actor_gate_sha256','direct-actor-gate.json'),
                      ('path_publication_sha256','path-publication.json'),
                      ('pilot_summary_sha256','pilot-summary.json'),
                      ('contact_body_names_sha256','contact-body-names.json')):
         if digest(output/name)!=marker[key]:raise ValueError('G3 referenced SHA mismatch:'+name)
+    dem_ledger=json.loads((output/'prepath-dem-sha-ledger.json').read_text())
+    if len([name for name in dem_ledger if name.startswith('prepath-dem-env-')])!=16:
+        raise ValueError('G3 raw DEM frame count invalid')
+    for name,expected in dem_ledger.items():
+        if pathlib.Path(name).name!=name or digest(output/name)!=expected:
+            raise ValueError('G3 raw DEM evidence SHA mismatch:'+name)
     if not json.loads((output/'prepath-gate.json').read_text())['pass']:
         raise ValueError('G3 pre-Path state gate failed')
     traces=[]
@@ -434,6 +466,7 @@ def main():
         config_sha=config_sha,output_root=f'{REMOTE}/output',gpu_uuid=GPU_UUID)
     started=time.monotonic();failure=None;owner=None;client=None;bridge=None;bridge_tick=None
     native_exit=None;brackets=0;cleanup_signals=[];owned_identities={};bridge_residual=[]
+    monitor_failure=None
     with (ROOT/'runner.log').open('xb') as log, \
          (ROOT/'bridge.log').open('xb') as bridge_log, \
          (ROOT/'resource-series.jsonl').open('x') as resources, \
@@ -486,7 +519,11 @@ def main():
                 if bridge.poll() is not None:raise RuntimeError('bridge exited during G3')
                 gpu,row=sample(started,nvml,{'simulator':owner},baseline_identities,inspect['Id'])
                 append_jsonl(resources,row);brackets+=1
-                if violation:=validate_sample(row):raise RuntimeError(violation)
+                if violation:=validate_sample(row):
+                    monitor_failure=violation
+                    classified=classify_monitor_violation(violation,client.poll(),ROOT/'output')
+                    if classified is not None:raise RuntimeError(classified)
+                    break
                 gate.observe(gpu)
                 for pid in gpu.get('owned_process_tree_host_pids',[]):
                     proc=gpu['process_table_before'].get(pid)
@@ -531,6 +568,9 @@ def main():
                                  token=token,container_id=inspect['Id'])
     writer_state={'simulator':not residual and (client is None or client.poll() is not None),
         'heartbeat':not residual,'resource':True,'log':not bridge_residual}
+    artifact_failure=simulator_artifact_failure(ROOT/'output',native_exit)
+    if artifact_failure is not None:
+        failure=artifact_failure if failure is None else artifact_failure+'; host_observation='+failure
     validation=None
     if failure is None:
         try:
@@ -541,6 +581,7 @@ def main():
     atomic(ROOT/'cleanup-evidence.json',{'signals':cleanup_signals,'owned_residual':residual,
         'bridge_residual':bridge_residual,'writer_state':writer_state,'native_exit':native_exit})
     atomic(ROOT/'g3-host-status.json',{'failure':failure,'native_exit':native_exit,
+        'monitor_failure':monitor_failure,
         'elapsed_s':time.monotonic()-started,'gpu_bracket_count':brackets,
         'owned_gpu_bracket_count':gate.live_gpu_samples,'owned_simulator':owner,
         'owned_simulator_residual':bool(residual),'lifecycle_phase':gate.phase,
