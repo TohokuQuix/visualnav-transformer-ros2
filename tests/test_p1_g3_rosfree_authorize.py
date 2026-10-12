@@ -22,7 +22,7 @@ def test_attempt_only_authorizes_one_process_and_preserves_preparation(tmp_path)
     before = sha(preparation/'stage-complete.json')
     host_bind = tmp_path/'host-bind'
     host_bind.mkdir()
-    destination = host_bind/'.eatnav-p1-g3-rosfree-direct-core-v2-attempt-1'
+    destination = host_bind/'.eatnav-p1-g3-rosfree-direct-core-v3-attempt-2'
     report = create_attempt(preparation, destination,
                             host_bind_source=str(host_bind),
                             container_bind_destination=str(tmp_path/'container-bind'))

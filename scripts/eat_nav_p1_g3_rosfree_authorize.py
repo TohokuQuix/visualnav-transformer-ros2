@@ -64,8 +64,8 @@ def create_attempt(preparation, destination, *, host_bind_source=HOST_BIND,
     if (manifest['schema'] != SCHEMA or
             destination.parent != Path(host_bind_source) or
             destination.parent.is_symlink() or
-            not destination.name.startswith('.eatnav-p1-g3-rosfree-direct-core-v2-attempt-')):
-        raise ValueError('attempt must use the frozen ROS-free v2 bind root')
+            not destination.name.startswith('.eatnav-p1-g3-rosfree-direct-core-v3-attempt-')):
+        raise ValueError('attempt must use the frozen ROS-free v3 bind root')
     if destination.exists():
         raise FileExistsError(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)

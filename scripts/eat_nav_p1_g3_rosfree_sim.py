@@ -66,7 +66,7 @@ from visualnav_transformer.eat_nav.p1_path_crossover_v2 import fingerprint_mater
 from visualnav_transformer.eat_nav.p1_g3_material_gate_v2 import SCHEMA, assess_material_gate, prepare_shared_output_dir
 from visualnav_transformer.eat_nav.p1_longhorizon_protocol import DurableTrace, G3Exposure, STEP_NS
 
-ROSFREE_SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v2'
+ROSFREE_SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v3'
 
 
 def atomic(path, value):
@@ -711,7 +711,8 @@ def main():
             return values(bare.command_manager._terms['base_velocity'].vel_command_b[:4])
         applied=control.inject(core_rows,inject_rows,stamp=logical_t0)
         injection_steady_ns=time.monotonic_ns()
-        command_obs=reconcile_command_observation(obs,observed,bare,applied,latency_prev)
+        obs,observed,command_obs=reconcile_command_observation(
+            obs,observed,bare,applied,latency_prev)
         terminal_capture={}
         original_reset=bare._reset_idx
         def capture_reset(env_ids):
@@ -879,7 +880,8 @@ def main():
                     applied=control.inject(core_rows,inject_rows,stamp=next_stamp,
                                            suppressed_envs=suppressed)
                     injection_steady_ns=time.monotonic_ns()
-                    command_obs=reconcile_command_observation(next_obs,observed,bare,applied,latency_prev)
+                    obs,observed,command_obs=reconcile_command_observation(
+                        next_obs,observed,bare,applied,latency_prev)
         finally:
             bare._reset_idx=original_reset
             for stream in trace_streams:stream.__exit__(None,None,None)

@@ -17,7 +17,7 @@ def fixture(tmp_path):
     container_bind = tmp_path/'container-bind'
     host_bind.mkdir()
     container_bind.mkdir()
-    attempt = '.eatnav-p1-g3-rosfree-direct-core-v2-attempt-1'
+    attempt = '.eatnav-p1-g3-rosfree-direct-core-v3-attempt-2'
     root = container_bind/attempt
     batch = root/PROCESS
     (batch/'input').mkdir(parents=True)
@@ -25,7 +25,7 @@ def fixture(tmp_path):
     host_root = host_bind/attempt
     (host_root/PROCESS/'input').mkdir(parents=True)
     manifest = {
-        'schema': 'eatnav_p1_g3_rosfree_direct_core_v2',
+        'schema': 'eatnav_p1_g3_rosfree_direct_core_v3',
         'runtime_authorized': True,
         'automatic_continuation': False,
         'authorized_process_ids': [PROCESS],

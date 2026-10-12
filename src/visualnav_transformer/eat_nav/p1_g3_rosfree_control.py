@@ -131,7 +131,7 @@ def command_term_slice(manager, group):
 
 
 def reconcile_command_observation(obs, observed, bare, commands, previous_raw):
-    """Replace only generated-command terms after injection, without a second obs sample.
+    """Return owned observations with this stamp's command, without resampling.
 
     The previous env.step produced obs before the next pose-dependent Path command
     existed. Actor and Critic must see this stamp's command. Other observation
@@ -154,24 +154,39 @@ def reconcile_command_observation(obs, observed, bare, commands, previous_raw):
         prior_raw = previous_raw[:4, actor].clone()
         alpha = (bare._onix_latency_seconds[:4] / max(float(bare.step_dt), 1e-9)).clamp(0., 1.)
         delayed = target + alpha * (prior_raw - target)
+        if previous.is_inference():
+            # env.step may have created this buffer under inference_mode(). The
+            # next env.step still needs its corrected raw command at this stamp.
+            with torch.inference_mode(False):
+                previous = previous.clone()
+            bare._latency_policy_obs_prev = previous
         previous[:4, actor] = target
     else:
         prior_raw = target.clone()
         alpha = torch.zeros((4, 1), dtype=target.dtype, device=target.device)
         delayed = target
-    obs['policy'][:4, actor] = delayed
-    obs['critic'][:4, critic] = target
+    with torch.inference_mode(False):
+        corrected = dict(obs)
+        corrected['policy'] = obs['policy'].clone()
+        corrected['critic'] = obs['critic'].clone()
+        captured = dict(observed)
+        for key in ('policy_pre_noise', 'policy_post_noise_pre_delay',
+                    'policy_actor_input', 'critic_observation'):
+            captured[key] = observed[key].clone()
+    corrected['policy'][:4, actor] = delayed
+    corrected['critic'][:4, critic] = target
     for key in ('policy_pre_noise', 'policy_post_noise_pre_delay'):
-        observed[key][:4, actor] = target
-    observed['policy_actor_input'][:4, actor] = delayed
-    observed['critic_observation'][:4, critic] = target
-    return {'actor_slice': [actor.start, actor.stop],
+        captured[key][:4, actor] = target
+    captured['policy_actor_input'][:4, actor] = delayed
+    captured['critic_observation'][:4, critic] = target
+    detail = {'actor_slice': [actor.start, actor.stop],
             'critic_slice': [critic.start, critic.stop],
             'injected': target.detach().cpu().tolist(),
             'actor_seen': delayed.detach().cpu().tolist(),
             'previous_raw': prior_raw.detach().cpu().tolist(),
             'latency_alpha': alpha.detach().cpu().reshape(4).tolist(),
             'observation_sample_count_added': 0}
+    return corrected, captured, detail
 
 
 class RosFreeSameEpisodeGate:

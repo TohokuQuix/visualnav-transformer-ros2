@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 
-SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v2'
+SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v3'
 PROCESS_ID = 'batch-first-differential-0-period-0'
 HOST_BIND = '/home/kojima/lib/onix_isaac_lab'
 CONTAINER_BIND = '/workspace/isaaclab_onix'
@@ -31,7 +31,7 @@ def _identity(manifest, expected_bind):
         raise ValueError('runtime authorization or protocol mismatch')
     attempt = manifest.get('attempt_id')
     if not isinstance(attempt, str) or not attempt.startswith(
-            '.eatnav-p1-g3-rosfree-direct-core-v2-attempt-') or '/' in attempt or attempt in ('.','..'):
+            '.eatnav-p1-g3-rosfree-direct-core-v3-attempt-') or '/' in attempt or attempt in ('.','..'):
         raise ValueError('attempt identity mismatch')
     host_bind, container_bind = expected_bind
     if (manifest.get('host_bind_source') != host_bind or

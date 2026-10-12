@@ -146,11 +146,93 @@ def test_command_reconciliation_uses_prior_step_not_overwritten_buffer():
         _onix_latency_seconds=torch.full((4, 1), .025), step_dt=.05,
     )
     previous = torch.cat([torch.zeros((4, 3)), old], dim=1)
-    result = reconcile_command_observation(
+    corrected, diagnostics, result = reconcile_command_observation(
         {'policy': policy, 'critic': critic}, observed, bare, target.tolist(), previous)
     expected = target + .5 * (old - target)
-    assert torch.allclose(policy[:, 3:6], expected)
-    assert torch.allclose(critic[:, :3], target)
+    assert torch.allclose(corrected['policy'][:, 3:6], expected)
+    assert torch.allclose(corrected['critic'][:, :3], target)
+    assert torch.equal(policy, torch.zeros_like(policy))
+    assert torch.equal(critic, torch.zeros_like(critic))
+    assert torch.allclose(diagnostics['policy_actor_input'][:, 3:6], expected)
     assert torch.allclose(bare._latency_policy_obs_prev[:, 3:6], target)
     assert result['observation_sample_count_added'] == 0
     assert result['previous_raw'] == old.tolist()
+
+
+def test_reconciliation_owns_inference_observations_and_latency_across_steps():
+    """A model-owned inference tensor must stay immutable through multi-env updates."""
+    torch = pytest.importorskip('torch')
+    from types import SimpleNamespace
+
+    class Cfg:
+        noise = None
+        scale = 1.0
+
+    manager = SimpleNamespace(
+        _group_obs_term_names={'policy': ['body', 'velocity_commands', 'joints'],
+                               'critic': ['velocity_commands', 'body']},
+        _group_obs_term_dim={'policy': [(2,), (3,), (2,)], 'critic': [(3,), (2,)]},
+        _group_obs_term_cfgs={'policy': [Cfg(), Cfg(), Cfg()],
+                              'critic': [Cfg(), Cfg()]},
+    )
+    commands = torch.tensor([[.2, .0, .1], [.4, .1, -.1],
+                             [.6, -.1, .2], [.0, .0, .0]], dtype=torch.float64)
+    bare = SimpleNamespace(
+        observation_manager=manager,
+        command_manager=SimpleNamespace(_terms={
+            'base_velocity': SimpleNamespace(vel_command_b=commands.clone())}),
+        _onix_latency_seconds=torch.tensor([[.0], [.025], [.05], [.025]], dtype=torch.float64),
+        step_dt=.05,
+    )
+    with torch.inference_mode():
+        bare._latency_policy_obs_prev = torch.full((4, 7), .7, dtype=torch.float64)
+    previous_raw = torch.zeros((4, 7), dtype=torch.float64)
+    previous_raw[:, 2:5] = torch.tensor([[.8, .0, .0], [.1, .0, .1],
+                                         [-.2, .2, .0], [.3, .0, .0]], dtype=torch.float64)
+
+    for step in range(3):
+        with torch.inference_mode():
+            original_policy = torch.arange(28, dtype=torch.float64).reshape(4, 7) + step
+            original_critic = torch.arange(20, dtype=torch.float64).reshape(4, 5) + step
+            obs = {'policy': original_policy, 'critic': original_critic}
+            observed = {'policy_pre_noise': original_policy.clone(),
+                        'policy_post_noise_pre_delay': original_policy.clone(),
+                        'policy_actor_input': original_policy.clone(),
+                        'critic_observation': original_critic.clone()}
+        saved_policy = original_policy.clone()
+        saved_critic = original_critic.clone()
+        saved_diagnostics = {key: value.clone() for key, value in observed.items()}
+        expected_alpha = torch.tensor([[0.], [.5], [1.], [.5]], dtype=torch.float64)
+        expected_actor = commands + expected_alpha * (previous_raw[:, 2:5] - commands)
+        buffer_before = bare._latency_policy_obs_prev
+        version_before = None if buffer_before.is_inference() else buffer_before._version
+        corrected, captured, detail = reconcile_command_observation(
+            obs, observed, bare, commands.tolist(), previous_raw)
+
+        assert corrected['policy'].dtype == original_policy.dtype
+        assert corrected['policy'].device == original_policy.device
+        assert corrected['policy'].data_ptr() != original_policy.data_ptr()
+        assert torch.equal(original_policy, saved_policy)
+        assert torch.equal(original_critic, saved_critic)
+        assert all(torch.equal(observed[key], value) for key, value in saved_diagnostics.items())
+        assert torch.equal(corrected['policy'][:, :2], saved_policy[:, :2])
+        assert torch.equal(corrected['policy'][:, 5:], saved_policy[:, 5:])
+        assert torch.equal(corrected['critic'][:, 3:], saved_critic[:, 3:])
+        assert torch.equal(corrected['policy'][:, 2:5], expected_actor)
+        assert torch.equal(corrected['critic'][:, :3], commands)
+        assert torch.equal(captured['policy_pre_noise'][:, 2:5], commands)
+        assert torch.equal(captured['policy_post_noise_pre_delay'][:, 2:5], commands)
+        assert torch.equal(captured['policy_actor_input'][:, 2:5], expected_actor)
+        assert detail['actor_seen'] == expected_actor.tolist()
+        assert torch.equal(bare._latency_policy_obs_prev[:, 2:5], commands)
+        assert torch.equal(bare._latency_policy_obs_prev[:, :2],
+                           torch.full((4, 2), .7, dtype=torch.float64))
+        assert not bare._latency_policy_obs_prev.is_inference()
+        if version_before is None:
+            assert bare._latency_policy_obs_prev.data_ptr() != buffer_before.data_ptr()
+        else:
+            assert bare._latency_policy_obs_prev._version == version_before + 1
+        previous_raw = bare._latency_policy_obs_prev.clone()
+        commands = torch.tensor([[.0, .0, .0], [.5, .0, .0],
+                                 [.25, .0, -.25], [.0, .0, .0]], dtype=torch.float64)
+        bare.command_manager._terms['base_velocity'].vel_command_b = commands.clone()

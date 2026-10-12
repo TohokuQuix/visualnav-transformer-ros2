@@ -12,7 +12,7 @@ from .p1_g3_shared_dem import verify_shared_artifacts
 from .p1_longhorizon_protocol import G3Exposure
 
 
-SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v2'
+SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v3'
 EVENTS = ['pose', 'core', 'command_injection', 'actor', 'physics', 'next_pose']
 STEADY = ['pose_capture_steady_ns', 'core_call_steady_ns',
           'command_injection_steady_ns', 'actor_begin_steady_ns',
