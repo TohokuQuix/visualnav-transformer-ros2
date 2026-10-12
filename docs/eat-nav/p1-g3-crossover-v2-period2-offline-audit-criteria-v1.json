@@ -1,0 +1,14 @@
+{
+  "analysis_version": "eatnav_p1_g3_crossover_period2_offline_audit_v1",
+  "scope": "read-only sealed evidence; no Isaac execution or original seal promotion",
+  "decision_order": ["verify immutable source and seals", "verify frozen assignment and all pre-Path gates", "replay all post-Path gates with the assignment-only validator", "verify host and container SHA plus resource and cleanup evidence", "classify", "only then inspect Outcome and build a separate analysis dataset"],
+  "accepted_validator_change": "Replace a fixed count of three unique Path SHA values per period with exact four-slot role and SHA equality against the frozen assignment; use the same function before and after Path publication.",
+  "required_gates": ["period0_period1_valid_seals", "period2_failed_seal_sha_valid", "frozen_manifest_source_assignment_shas", "path_role_sha_and_publication_count", "cross_period_strict_prepath", "live_material", "four_follower_readiness", "exact_stamp_clock_tf_command_bridge_physics", "same_episode_reset_termination", "arrival_censor_hold_trace_completeness", "resource_caps_native_exit_cleanup", "host_container_sha"],
+  "classification": {
+    "audit_pass": "Every required gate is independently verified from sealed evidence after removing only the erroneous fixed Path-kind count.",
+    "audit_inconclusive": "At least one required gate cannot be verified from available evidence, and no actual mismatch is established.",
+    "audit_fail": "A required gate has a verified protocol mismatch."
+  },
+  "missing_evidence_policy": "Never infer or fill missing measurements; classify audit_inconclusive unless a verified mismatch establishes audit_fail.",
+  "provenance_policy": "Keep original failed seal invalid; mark period 2 as offline_audit_pass_candidate only in a new analysis version."
+}
