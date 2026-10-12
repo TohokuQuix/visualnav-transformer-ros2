@@ -12,6 +12,10 @@ import os
 from pathlib import Path
 import shutil
 
+from visualnav_transformer.eat_nav.p1_g3_rosfree_path_contract import (
+    HOST_BIND, CONTAINER_BIND, SCHEMA,
+)
+
 
 PROCESS_ID = 'batch-first-differential-0-period-0'
 
@@ -52,10 +56,16 @@ def verify_preparation(root):
     return manifest, marker, ledger
 
 
-def create_attempt(preparation, destination):
+def create_attempt(preparation, destination, *, host_bind_source=HOST_BIND,
+                   container_bind_destination=CONTAINER_BIND):
     preparation = Path(preparation)
     destination = Path(destination)
     manifest, marker, old_ledger = verify_preparation(preparation)
+    if (manifest['schema'] != SCHEMA or
+            destination.parent != Path(host_bind_source) or
+            destination.parent.is_symlink() or
+            not destination.name.startswith('.eatnav-p1-g3-rosfree-direct-core-v2-attempt-')):
+        raise ValueError('attempt must use the frozen ROS-free v2 bind root')
     if destination.exists():
         raise FileExistsError(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -70,6 +80,11 @@ def create_attempt(preparation, destination):
         'preparation_manifest_sha256': marker['manifest_sha256'],
         'preparation_stage_marker_sha256': sha(preparation/'stage-complete.json'),
         'attempt_id': destination.name,
+        'host_bind_source': str(host_bind_source),
+        'container_bind_destination': str(container_bind_destination),
+        'attempt_host_root': str(destination),
+        'attempt_container_root': str(Path(container_bind_destination)/destination.name),
+        'authorization_source_sha256': sha(Path(__file__)),
     })
     for path in (destination/'manifest.json', batch/'input/g3-contract.json'):
         path.unlink()
@@ -95,8 +110,11 @@ def create_attempt(preparation, destination):
         'attempt_assignment_sha256': sha(destination/'g3-assignment.json'),
         'simulator_source_sha256': sha(batch/'source.py'),
         'host_source_sha256': sha(batch/'host-runner.py'),
+        'authorization_source_sha256': sha(Path(__file__)),
         'source_input_file_count': len(ledger),
         'authorized_process_ids': [PROCESS_ID],
+        'host_bind_source': str(host_bind_source),
+        'container_bind_destination': str(container_bind_destination),
     })
     verify_preparation(preparation)
     assert all(sha(batch/path) == value for path, value in ledger.items())

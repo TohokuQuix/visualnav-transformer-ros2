@@ -20,7 +20,8 @@ SOURCE_MODULES = ('p1_g3_shared_dem.py','p1_dem_capture.py','p1_longhorizon_prot
                   'p1_path_crossover_v2.py','p1_g3_material_diagnostic.py',
                   'p1_g3_material_gate_v2.py','p1_g3_assignment.py',
                   'p1_follower_core.cpp','p1_follower_core.py',
-                  'p1_g3_rosfree_control.py','p1_g3_rosfree_evidence.py')
+                  'p1_g3_rosfree_control.py','p1_g3_rosfree_evidence.py',
+                  'p1_g3_rosfree_path_contract.py')
 INPUTS = ('assignment.json','freeze.json','statistical-config.json',
           'source-contract.json','anchor-fixtures.json','eat_nav.yaml')
 PROCESS_ID = 'batch-first-differential-0-period-0'
@@ -87,7 +88,8 @@ def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment:
         'p1_follower_core.cpp':'cpp_core_source_sha256',
         'p1_follower_core.py':'python_core_source_sha256',
         'p1_g3_rosfree_control.py':'rosfree_control_source_sha256',
-        'p1_g3_rosfree_evidence.py':'rosfree_evidence_source_sha256'}
+        'p1_g3_rosfree_evidence.py':'rosfree_evidence_source_sha256',
+        'p1_g3_rosfree_path_contract.py':'rosfree_path_contract_source_sha256'}
     manifest.update({key:sha(source/name) for name,key in key_map.items()})
     return manifest
 

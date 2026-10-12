@@ -20,6 +20,7 @@ from eat_nav_p1_g1_lifecycle import (
 )
 from visualnav_transformer.eat_nav.p1_g3_assignment import validate_frozen_assignment
 from visualnav_transformer.eat_nav.p1_g3_rosfree_evidence import SCHEMA, validate_output
+from visualnav_transformer.eat_nav.p1_g3_rosfree_path_contract import validate_host_bind
 from visualnav_transformer.eat_nav.p1_g3_material_gate_v2 import MATERIAL_SCHEMA
 
 CONTAINER = 'isaac-lab-onix'
@@ -260,6 +261,9 @@ def validate_staged(root: pathlib.Path, args) -> tuple[dict,dict,list[dict]]:
             ('src/visualnav_transformer/eat_nav/p1_g3_rosfree_evidence.py','rosfree_evidence_source_sha256')):
         if digest(root/name) != manifest[key]:
             raise ValueError('ROS-free source SHA mismatch: '+name)
+    if digest(root/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_path_contract.py') != \
+            manifest['rosfree_path_contract_source_sha256']:
+        raise ValueError('ROS-free path contract source SHA mismatch')
     if digest(__file__) != manifest['g3_host_source_sha256']:
         raise ValueError('host source SHA drift')
     ledger = json.loads((root/'input-sha-ledger.json').read_text())
@@ -306,8 +310,14 @@ def main():
             raise ValueError('frozen P1 input SHA mismatch: '+name)
     inspect=json.loads(command(['docker','inspect',CONTAINER]))[0]
     if inspect['State']['Status']!='running':raise RuntimeError('Isaac container not running')
+    bind_evidence=validate_host_bind(inspect,manifest,ROOT,REMOTE)
     if subprocess.run(['docker','exec',CONTAINER,'test','-d',REMOTE],capture_output=True).returncode:
         raise RuntimeError('persistent root not visible in container')
+    for relative in ('source.py','input/g3-contract.json',
+                     'src/visualnav_transformer/eat_nav/p1_g3_rosfree_path_contract.py'):
+        container_sha=command(['docker','exec',CONTAINER,'sha256sum',f'{REMOTE}/{relative}']).split()[0]
+        if container_sha!=digest(ROOT/relative):
+            raise ValueError('host/container bind file SHA mismatch: '+relative)
     checkpoint=command(['docker','exec',CONTAINER,'sha256sum',cfg['rl_checkpoint']]).split()[0]
     if checkpoint!=cfg['rl_checkpoint_sha256'] or checkpoint!=manifest['rl_checkpoint_sha256']:
         raise ValueError('RL checkpoint SHA mismatch')
@@ -322,6 +332,7 @@ def main():
         raise RuntimeError('persistent disk free floor')
     atomic(ROOT/'rosfree-prelaunch.json',{'container_id':inspect['Id'],'image_id':inspect['Image'],
         'backend':'ros_free_cpp_core','external_router_used':False,
+        'bind_mapping':bind_evidence,
         'source_sha256':digest(ROOT/'source.py'),'host_sha256':digest(__file__),
         'checkpoint_sha256':checkpoint,'gpu_uuid':GPU_UUID})
     wrapper=pathlib.Path(__file__).with_name('eat_nav_p1_owner_wrapper.py')

@@ -12,7 +12,7 @@ from .p1_g3_shared_dem import verify_shared_artifacts
 from .p1_longhorizon_protocol import G3Exposure
 
 
-SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v1'
+SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v2'
 EVENTS = ['pose', 'core', 'command_injection', 'actor', 'physics', 'next_pose']
 STEADY = ['pose_capture_steady_ns', 'core_call_steady_ns',
           'command_injection_steady_ns', 'actor_begin_steady_ns',
@@ -127,6 +127,8 @@ def validate_output(output: Path, manifest: dict, assigned: list[dict]) -> dict:
             ('prepath_approval_sha256','prepath-approval.json')):
         if digest(output/name) != marker[key]:
             raise ValueError('referenced output SHA mismatch: '+name)
+    if digest(output/'path-contract.json') != marker['path_contract_sha256']:
+        raise ValueError('frozen attempt path contract SHA mismatch')
     for name in ('prepath-dem-sha-ledger.json','prepath-shared-dem-sha-ledger.json'):
         ledger = json.loads((output/name).read_text())
         for relative, expected in ledger.items():

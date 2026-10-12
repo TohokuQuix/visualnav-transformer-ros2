@@ -53,6 +53,9 @@ from visualnav_transformer.eat_nav.p1_follower_core import compile_core
 from visualnav_transformer.eat_nav.p1_g3_rosfree_control import (
     RosFreeG3Control, RosFreeSameEpisodeGate, reconcile_command_observation,
 )
+from visualnav_transformer.eat_nav.p1_g3_rosfree_path_contract import (
+    validate_simulator_paths, mount_points_from_proc,
+)
 from rsl_rl.runners import OnPolicyRunner
 from onix_isaac_lab.tasks.locomotion.velocity.config.onix.agents.rsl_rl_ppo_cfg import OnixRoughPPORunnerCfg
 from visualnav_transformer.eat_nav.p1_statistical_runtime import CachedTerrainGeometry, require_prepath_gate, jsonable_values
@@ -63,7 +66,7 @@ from visualnav_transformer.eat_nav.p1_path_crossover_v2 import fingerprint_mater
 from visualnav_transformer.eat_nav.p1_g3_material_gate_v2 import SCHEMA, assess_material_gate, prepare_shared_output_dir
 from visualnav_transformer.eat_nav.p1_longhorizon_protocol import DurableTrace, G3Exposure, STEP_NS
 
-ROSFREE_SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v1'
+ROSFREE_SCHEMA = 'eatnav_p1_g3_rosfree_direct_core_v2'
 
 
 def atomic(path, value):
@@ -112,7 +115,8 @@ if sha(Path(__file__).resolve().parent/'src/visualnav_transformer/eat_nav/p1_pat
     raise ValueError('G3 crossover material module SHA drift')
 for name,key in (('p1_follower_core.cpp','cpp_core_source_sha256'),
                  ('p1_follower_core.py','python_core_source_sha256'),
-                 ('p1_g3_rosfree_control.py','rosfree_control_source_sha256')):
+                 ('p1_g3_rosfree_control.py','rosfree_control_source_sha256'),
+                 ('p1_g3_rosfree_path_contract.py','rosfree_path_contract_source_sha256')):
     if sha(Path(__file__).resolve().parent/'src/visualnav_transformer/eat_nav'/name) != g3_contract[key]:
         raise ValueError('ROS-free core source SHA drift: '+name)
 if (g3_contract['unreached_control_step_cap'] != 600 or g3_contract['post_arrival_hold_steps'] != 40
@@ -379,10 +383,11 @@ def direct_dem_gate(frames):
 
 
 def main():
-    persistent_parent=Path('/workspace/isaaclab_onix/.eatnav-p1-long-horizon-v1')
-    if not args.output.is_relative_to(persistent_parent):
-        raise ValueError('G3 output must be under the host-backed persistent root')
+    path_contract=validate_simulator_paths(
+        g3_contract,args.input,args.output,Path(__file__),
+        mount_points_from_proc(Path('/proc/self/mountinfo').read_text()))
     prepare_shared_output_dir(args.output)
+    atomic(args.output/'path-contract.json',path_contract)
     started=time.monotonic()
     pid=os.getpid()
     tick=int(Path('/proc/self/stat').read_text().rsplit(')',1)[1].split()[19])
@@ -915,6 +920,7 @@ def main():
                'prepath_dem_ledger_sha256':sha(args.output/'prepath-dem-sha-ledger.json'),
                'direct_actor_gate_sha256':sha(args.output/'direct-actor-gate.json'),
                'path_activation_sha256':sha(args.output/'path-activation.json'),
+               'path_contract_sha256':sha(args.output/'path-contract.json'),
                'pilot_summary_sha256':sha(args.output/'pilot-summary.json'),
                'contact_body_names_sha256':sha(args.output/'contact-body-names.json'),
                'trace_sha256':[sha(args.output/f'trace-slot-{i}.jsonl') for i in range(4)],

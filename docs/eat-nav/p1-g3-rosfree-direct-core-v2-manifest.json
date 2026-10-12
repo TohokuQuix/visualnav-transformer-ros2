@@ -1,0 +1,155 @@
+{
+  "assignment_sha256": "e41c4a86652472bc3cd4298a789e8ccc0e1846026fa3794d59c9c500fe4acbaa",
+  "authorized_process_ids": [],
+  "automatic_continuation": false,
+  "batch_seeds": {
+    "first-differential": [
+      2026101101,
+      2026101102,
+      2026101103
+    ],
+    "second-graded": [
+      2026101111,
+      2026101112,
+      2026101113
+    ]
+  },
+  "control_backend": "ros_free_cpp_core",
+  "control_dt_s": 0.05,
+  "cpp_core_source_sha256": "f92004fe2c3d958b166ce718260c8c46c90f0e236af4495c72c69bfee4c78ff7",
+  "crossover_runtime_module_sha256": "8a365245350705291ed23209e9c68b76bedb79c162317d599a95e58f6a586833",
+  "declared_terrain_material_sha256": "ff1c75072f159375d7f3fd74cd3f7e2f445df9430dede14d7ca8184b18023836",
+  "direct_duplicate_gates": {
+    "actor_max_abs": 0.0001,
+    "arrival_time_spread_s": 0.1,
+    "common_goal_progress_2s_spread_m_strict": 0.025,
+    "dem_height_max_abs_m": 0.0001,
+    "dem_height_rms_m": 1e-05,
+    "dem_mask_iou_min": 1.0,
+    "recovery_category": "exact_match",
+    "tracking_mean_spread_m": 0.02
+  },
+  "direct_repeat_module_sha256": "630cb5f802dd577b3932c7638cb1327a4dc0e74e2f5eb50500979377c17ddba8",
+  "episode_length_s": 40.0,
+  "execution_mode": "path_crossover_four_env_rosfree",
+  "external_router_required": false,
+  "g3_host_source_sha256": "2261ed37eab4621e24c7d7098da4b8d5c7a107dbdde6ba901b8131dd1881e34c",
+  "g3_simulator_source_sha256": "7bb4cb2872109bf2ee3dffd41e52be3c2f1e433cf6f689060df0c5743e680d0d",
+  "live_material": {
+    "coverage": "link_counts_and_uniform_multishape_values",
+    "resolved_startup_randomization": {
+      "dynamic_friction_range": [
+        1.0,
+        1.0
+      ],
+      "make_consistent": true,
+      "num_buckets": 128,
+      "restitution_range": [
+        0.0,
+        0.0
+      ],
+      "static_friction_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "robot_USD_binding_status_recorded_per_collision": true,
+    "robot_effective_PhysX_tensor_required": true,
+    "terrain_composed_USD_binding_required": true
+  },
+  "material_diagnostic_module_sha256": "2376f5b3b2f84e59bb9b333133e4987395e932ac7f9c7bf98871a2775e106f40",
+  "material_gate_module_sha256": "ab7e1f88330375b5a6c5ae87177b6332d749a33c279cdbb0c383f8275003b22a",
+  "material_schema": "eatnav_p1_g3_path_crossover_v2_material_audit",
+  "max_control_steps": 640,
+  "native_dem_equality": "diagnostic_only",
+  "owner_wrapper_sha256": "021b3117eef205b88cafce72240a2cb9b7f9c44255abb543de0cf74c5ee134ce",
+  "parent_crossover_manifest_sha256": "dfd7b0063b94ea1ca25217fdc8fdd459ea77faead041cdbaa2eedfcbf973929e",
+  "path_crossover_module_sha256": "b2bb609f47fb477424d933c9ea6ee1188a842a382dcf9fbad72fa9205f883422",
+  "physics_envs": 4,
+  "policy_action_mode": "act_inference",
+  "post_arrival_hold_steps": 40,
+  "process_count": 1,
+  "processes": [
+    {
+      "anchor_id": "first-differential",
+      "assignment_period": 0,
+      "batch_index": 0,
+      "batch_seed": 2026101101,
+      "execution_index": 0,
+      "trials": [
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_0",
+          "condition": "A",
+          "env_id": 0,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 0,
+          "trial_id": "rosfree-first-differential-seed-2026101101-env-0"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_1",
+          "condition": "A",
+          "env_id": 1,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 1,
+          "trial_id": "rosfree-first-differential-seed-2026101101-env-1"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_2",
+          "condition": "A",
+          "env_id": 2,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 2,
+          "trial_id": "rosfree-first-differential-seed-2026101101-env-2"
+        },
+        {
+          "bearing_deg": 0,
+          "candidate_slot": "crossover_3",
+          "condition": "A",
+          "env_id": 3,
+          "path_role": "direct",
+          "path_sha256": "4ec126da6c09e7ebc02f2febba35666ef57a334cec9745301554a13aa1d0155e",
+          "slot": 3,
+          "trial_id": "rosfree-first-differential-seed-2026101101-env-3"
+        }
+      ]
+    }
+  ],
+  "python_core_source_sha256": "5d71fb602d59cedc8eb0bc8da0a139e06263205a9273835aeb887b1f6e1ec9e1",
+  "resource_cap": {
+    "active_storage_max_bytes_per_process": 1000000000,
+    "container_anon_plus_shmem_max_bytes": 6442450944,
+    "gpu_attribution_gap_mib": 256,
+    "gpu_device_total_mib": 7680,
+    "heartbeat_stale_s": 90,
+    "host_available_min_bytes": 10095421850,
+    "persistent_free_floor_bytes": 2000000000,
+    "process_timeout_s": 600
+  },
+  "rl_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "rosfree_control_source_sha256": "29cc13f4dfee605ca3194aa7d8c0ddf0500e38ac26b28fa313fe8036e0191aab",
+  "rosfree_evidence_source_sha256": "6046db2e5d8798bee9ee208108fed3543c37c329f27ac6902b4e189df0e574e8",
+  "rosfree_path_contract_source_sha256": "97fbcbc572056090fe4876a411a120e233718c8a0cbf8e825d06b16d706a6b51",
+  "runtime_authorized": false,
+  "runtime_scope": "offline_preparation_only",
+  "schema": "eatnav_p1_g3_rosfree_direct_core_v2",
+  "settling_steps": 20,
+  "shared_dem_module_sha256": "6c45e38f709630e5c1a5b9f6f703191f440ffcf75b1c4658aa4a5fe5b5049f5b",
+  "shared_dem_source_env": 0,
+  "source_input_sha256": {
+    "anchor-fixtures.json": "8912dd3986f445955349c6755f1cacb2f265df9be7b9704717a469614136b8f8",
+    "assignment.json": "033b2056ef0e56aa1cadb1ee3f3b2ced66eb1060fb2012bbbb45c756eb0d9c80",
+    "eat_nav.yaml": "b7cd7f9227939498bb902d5e5bb5f7a65275db40fe48f7cb46d23b1570640e0b",
+    "freeze.json": "78ddf5e8181b75f630241beb613817bc4a333a9791147157507aa35575166edd",
+    "source-contract.json": "d0a394d40e37c6b406658caec85f1392edf1b74c0db1bbf7195d3320f74e53db",
+    "statistical-config.json": "01a69e372e01eca4e9e3f9a565d7350758ba77260721dfcbc8ae7b199a85b652"
+  },
+  "staging_source_sha256": "e5ab0d418b9d064365bd0e9d5eca90c98b687c06646400c01c88ec4eb530c9d2",
+  "trial_count": 4,
+  "unreached_control_step_cap": 600
+}
