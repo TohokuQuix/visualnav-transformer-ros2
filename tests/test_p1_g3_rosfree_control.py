@@ -1,0 +1,156 @@
+import pytest
+from dataclasses import replace
+
+from visualnav_transformer.eat_nav.p1_g3_rosfree_control import (
+    RosFreeG3Control, RosFreeSameEpisodeGate, command_term_slice,
+    reconcile_command_observation,
+)
+
+
+def paths():
+    return [[[0, 0], [1, 0]] for _ in range(4)]
+
+
+def poses():
+    return [(0, 0, 0) for _ in range(4)]
+
+
+class FakeFollower:
+    created = []
+
+    def __init__(self, path, *, library):
+        self.calls = []
+        FakeFollower.created.append(self)
+
+    def step_diagnostic(self, x, y, yaw, stamp):
+        self.calls.append(stamp)
+        return ((0, 0, 0) if x >= 1 else (.3, 0, 0)), {'goal_reached': x >= 1}
+
+
+def test_four_independent_cores_and_exact_step_order():
+    FakeFollower.created.clear()
+    controller = RosFreeG3Control(paths(), library='unused', follower_type=FakeFollower)
+    assert len({id(x) for x in FakeFollower.created}) == 4
+    events = []
+    initial = controller.issue(2_000_000_000, poses(), frame='tile_local')
+    assert [x.command for x in initial] == [(.3, 0, 0)] * 4
+    controller.inject(initial, lambda commands: (events.append(('inject', commands)), commands)[1], stamp=2_000_000_000)
+    controller.mark_actor(2_000_000_000, lambda: events.append(('actor', None)))
+    controller.mark_physics(2_000_000_000, lambda: events.append(('physics', None)))
+    controller.issue(2_050_000_000, poses(), frame='tile_local')
+    assert [name for name, _ in events] == ['inject', 'actor', 'physics']
+    assert all(f.calls == [2_000_000_000, 2_050_000_000] for f in FakeFollower.created)
+
+
+def test_duplicate_stamp_wrong_order_and_frame_fail_closed():
+    controller = RosFreeG3Control(paths(), library='unused', follower_type=FakeFollower)
+    with pytest.raises(ValueError, match='frame'):
+        controller.issue(2_000_000_000, poses(), frame='base')
+    rows = controller.issue(2_000_000_000, poses(), frame='tile_local')
+    with pytest.raises(ValueError, match='phase'):
+        controller.mark_actor(2_000_000_000, lambda: None)
+    controller.inject(rows, lambda commands: commands, stamp=2_000_000_000)
+    with pytest.raises(ValueError, match='phase'):
+        controller.mark_physics(2_000_000_000, lambda: None)
+    controller.mark_actor(2_000_000_000, lambda: None)
+    controller.mark_physics(2_000_000_000, lambda: None)
+    with pytest.raises(ValueError, match='duplicate'):
+        controller.issue(2_000_000_000, poses(), frame='tile_local')
+    with pytest.raises(ValueError, match='50 ms'):
+        controller.issue(2_100_000_000, poses(), frame='tile_local')
+
+
+def test_goal_zero_hold_and_episode_reset():
+    controller = RosFreeG3Control(paths(), library='unused', follower_type=FakeFollower)
+    rows = controller.issue(2_000_000_000, [(1, 0, 0)] * 4, frame='tile_local')
+    assert all(row.command == (0, 0, 0) and row.diagnostic['goal_reached'] for row in rows)
+    controller.inject(rows, lambda commands: commands, stamp=2_000_000_000)
+    controller.mark_actor(2_000_000_000, lambda: None)
+    controller.mark_physics(2_000_000_000, lambda: None)
+    assert all(row.command == (0, 0, 0) for row in controller.issue(
+        2_050_000_000, [(1, 0, 0)] * 4, frame='tile_local'))
+    controller.reset_episode(paths())
+    assert controller.issue(12_000_000_000, poses(), frame='tile_local')[0].command == (.3, 0, 0)
+
+
+def test_same_episode_gate_rejects_reset_and_step_gap():
+    controller = RosFreeG3Control(paths(), library='unused', follower_type=FakeFollower)
+    rows = controller.issue(2_000_000_000, poses(), frame='tile_local')
+    gate = RosFreeSameEpisodeGate([20] * 4, 800)
+    gate.accept(0, 2_000_000_000, rows, [20] * 4, [21] * 4, [False] * 4, [])
+    with pytest.raises(ValueError, match='noncontiguous'):
+        gate.accept(2, 2_100_000_000, rows, [22] * 4, [23] * 4, [False] * 4, [])
+    next_rows = tuple(replace(row, stamp_ns=2_050_000_000) for row in rows)
+    with pytest.raises(ValueError, match='reset'):
+        gate.accept(1, 2_050_000_000, next_rows, [21] * 4, [22] * 4, [False] * 4, [0])
+
+
+def test_four_env_640_step_unreached_control_has_no_stamp_or_episode_gap():
+    controller = RosFreeG3Control(paths(), library='unused', follower_type=FakeFollower)
+    gate = RosFreeSameEpisodeGate([20] * 4, 800)
+    for step in range(640):
+        stamp = 2_000_000_000 + step * 50_000_000
+        rows = controller.issue(stamp, poses(), frame='tile_local')
+        controller.inject(rows, lambda commands: commands, stamp=stamp)
+        controller.mark_actor(stamp, lambda: None)
+        controller.mark_physics(stamp, lambda: None)
+        gate.accept(step, stamp, rows, [20 + step] * 4, [21 + step] * 4,
+                    [False] * 4, [])
+    assert gate.next_step == 640
+    assert all(len(core.calls) == 640 for core in controller.followers)
+
+
+def test_command_term_is_resolved_from_observation_contract():
+    class Cfg:
+        noise = None
+        scale = 1.0
+
+    class Manager:
+        _group_obs_term_names = {'policy': ['gravity', 'velocity_commands', 'joints']}
+        _group_obs_term_dim = {'policy': [(3,), (3,), (4,)]}
+        _group_obs_term_cfgs = {'policy': [Cfg(), Cfg(), Cfg()]}
+
+    assert command_term_slice(Manager(), 'policy') == slice(3, 6)
+    Manager._group_obs_term_cfgs['policy'][1].noise = object()
+    with pytest.raises(ValueError, match='noise'):
+        command_term_slice(Manager(), 'policy')
+
+
+def test_command_reconciliation_uses_prior_step_not_overwritten_buffer():
+    torch = pytest.importorskip('torch')
+    from types import SimpleNamespace
+
+    class Cfg:
+        noise = None
+        scale = 1.0
+
+    manager = SimpleNamespace(
+        _group_obs_term_names={'policy': ['gravity', 'velocity_commands'],
+                               'critic': ['velocity_commands', 'joints']},
+        _group_obs_term_dim={'policy': [(3,), (3,)], 'critic': [(3,), (2,)]},
+        _group_obs_term_cfgs={'policy': [Cfg(), Cfg()], 'critic': [Cfg(), Cfg()]},
+    )
+    target = torch.tensor([[.3, 0., .1]] * 4)
+    old = torch.tensor([[.1, 0., -.2]] * 4)
+    raw_after_env_step = torch.tensor([[.8, .8, .8]] * 4)
+    policy = torch.zeros((4, 6))
+    critic = torch.zeros((4, 5))
+    observed = {key: policy.clone() for key in
+                ('policy_pre_noise', 'policy_post_noise_pre_delay', 'policy_actor_input')}
+    observed['critic_observation'] = critic.clone()
+    bare = SimpleNamespace(
+        observation_manager=manager,
+        command_manager=SimpleNamespace(_terms={
+            'base_velocity': SimpleNamespace(vel_command_b=target.clone())}),
+        _latency_policy_obs_prev=torch.cat([torch.zeros((4, 3)), raw_after_env_step], dim=1),
+        _onix_latency_seconds=torch.full((4, 1), .025), step_dt=.05,
+    )
+    previous = torch.cat([torch.zeros((4, 3)), old], dim=1)
+    result = reconcile_command_observation(
+        {'policy': policy, 'critic': critic}, observed, bare, target.tolist(), previous)
+    expected = target + .5 * (old - target)
+    assert torch.allclose(policy[:, 3:6], expected)
+    assert torch.allclose(critic[:, :3], target)
+    assert torch.allclose(bare._latency_policy_obs_prev[:, 3:6], target)
+    assert result['observation_sample_count_added'] == 0
+    assert result['previous_raw'] == old.tolist()

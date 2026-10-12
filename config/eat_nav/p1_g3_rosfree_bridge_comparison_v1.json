@@ -1,0 +1,40 @@
+{
+  "schema": "eatnav_p1_g3_rosfree_bridge_comparison_v1",
+  "reference_protocol": "eatnav_p1_longhorizon_g3_direct_repeat_v1",
+  "new_protocol": "eatnav_p1_g3_rosfree_direct_core_v1",
+  "reference_process": "first-differential / batch 0 / repeat 0",
+  "identity_fields_exact": [
+    "StateGroup", "batch_seed", "terrain_seed", "terrain_mesh_sha256",
+    "terrain_material_sha256", "robot_material_sha256", "checkpoint_sha256",
+    "direct_path_sha256", "initial_condition_fixture_sha256", "paired_noise_key",
+    "control_dt_ns", "episode_length_s", "shared_dem_source_frame_sha256"
+  ],
+  "prepath_gate": "apply frozen physical/shared-DEM/Actor/material gates independently in each protocol; compare strict snapshot fields and report native contact/Critic separately",
+  "offline_pose_replay": {
+    "command_max_abs": 1e-6,
+    "carrot_max_abs_while_tracking_m": 1e-6,
+    "heading_max_abs_while_tracking_rad": 1e-6,
+    "goal_transition_step_tolerance": 0,
+    "recovery_transition_step_tolerance": 0,
+    "motion_scalar_max_abs": 1e-6,
+    "motion_window_counts_and_stamps": "exact"
+  },
+  "closed_loop_strict_equivalence_screen": {
+    "logical_step_ns": 50000000,
+    "initial_command_max_abs": 1e-6,
+    "arrival_time_spread_s": 0.1,
+    "common_goal_progress_2s_spread_m_strict": 0.025,
+    "tracking_mean_spread_m": 0.02,
+    "recovery_category": "exact_match"
+  },
+  "closed_loop_diagnostics": [
+    "per_step_pose_xy_distance_m", "per_step_command_max_abs",
+    "per_step_actor_input_max_abs", "per_step_action_max_abs",
+    "first_divergence_step", "arrival_or_censor", "local_progress_2s_m",
+    "common_goal_progress_2s_m", "tracking_error_m", "recovery_events",
+    "contact_force_N", "applied_torque"
+  ],
+  "interpretation": "The strict screen reuses frozen duplicate tolerances and is not a statistical equivalence guarantee. A failed closed-loop screen does not overwrite either protocol; compare per-step evidence and natural env variation before any migration claim.",
+  "measured_recovery_parity": "unverified",
+  "closed_loop_parity": "unverified"
+}
