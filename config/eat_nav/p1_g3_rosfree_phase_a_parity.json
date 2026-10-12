@@ -1,0 +1,14 @@
+{
+  "protocol": "eatnav_p1_g3_rosfree_phase_a_v1",
+  "logical_step_ns": 50000000,
+  "command_max_abs": 1e-6,
+  "geometry_max_abs": 1e-6,
+  "heading_max_abs": 1e-6,
+  "motion_scalar_max_abs": 1e-6,
+  "geometry_applicability": "tracking rows only; ROS exact-stamp diagnostic retains its previous carrot and heading after Goal, while control command is zero",
+  "transition_step_tolerance": 0,
+  "diagnostic_boolean_mismatch_tolerance": 0,
+  "time_origin": "first exact-stamp command; elapsed time = current stamp minus first stamp",
+  "boundary": "stuck/progress trigger at elapsed >= 20.0 s; angular boost active while elapsed < boost_until; prune samples with age > 20.0 s",
+  "missing_ros_diagnostic": "not assessed, never imputed"
+}
