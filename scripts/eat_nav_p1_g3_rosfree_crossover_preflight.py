@@ -25,9 +25,12 @@ def audit_staged_attempt(batch, inspect, *, expected_bind=None):
     root=batch.parent
     manifest=json.loads((root/'manifest.json').read_text())
     marker=json.loads((root/'stage-complete.json').read_text())
+    period=manifest.get('authorized_period_index')
+    if period not in (0,1,2) or batch.name!=f'batch-first-differential-0-period-{period}':
+        raise ValueError('authorized period/batch mismatch')
     if (manifest.get('runtime_authorized') is not True or
             manifest.get('authorized_process_ids') != [batch.name] or
-            manifest.get('periods_1_2_authorized') is not False or
+            manifest.get('periods_1_2_authorized') is not bool(period) or
             sha(root/'manifest.json') != marker['manifest_sha256'] or
             sha(root/'g3-assignment.json') != marker['assignment_sha256'] or
             sha(batch/'input-sha-ledger.json') != marker['batch_input_ledger_sha256']):
@@ -75,7 +78,7 @@ def audit_staged_attempt(batch, inspect, *, expected_bind=None):
     class Args:
         anchor_id='first-differential'
         batch_index=0
-        execution_index=0
+        execution_index=period
     staged.validate_staged(batch,Args())
     remote=Path(manifest['attempt_container_root'])/batch.name
     bind=validate_host_bind(inspect,manifest,batch,remote,
@@ -84,7 +87,7 @@ def audit_staged_attempt(batch, inspect, *, expected_bind=None):
     command=staged.build_wrapper_command(remote=str(remote),container_id='preflight',
         token='0'*64,source_sha=sha(batch/'source.py'),
         config_sha=sha(batch/'input/freeze.json'),anchor_id='first-differential',
-        batch_index=0,execution_index=0)
+        batch_index=0,execution_index=period)
     if (str(remote/'owner-wrapper.py') not in command or
             str(remote/'source.py') not in command or
             str(remote/'input/freeze.json') not in command):

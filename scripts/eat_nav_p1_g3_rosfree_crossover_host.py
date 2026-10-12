@@ -202,8 +202,8 @@ def stop_exact_owner(owner, evidence):
                          'start_ticks':owner['start_ticks']})
 
 
-def approve_prepath(root: pathlib.Path) -> dict:
-    """Period zero establishes the sealed comparison baseline before Path activation."""
+def approve_prepath(root: pathlib.Path, manifest: dict, execution_index: int) -> dict:
+    """Approve Path activation only after the frozen cross-period state check."""
     output = root/'output'
     ready = json.loads((output/'prepath-ready.json').read_text())
     snapshot = output/'prepath-crossover-snapshot.json'
@@ -223,10 +223,28 @@ def approve_prepath(root: pathlib.Path) -> dict:
             not material.get('robot_effective_physx',{}).get('canonical_sha256')):
         raise ValueError('pre-Path physical/Actor/DEM/material gate failed')
     current=json.loads(snapshot.read_text())
-    cross = {**validate_crossover_prepath(current,None,0),
+    reference=None
+    reference_evidence=None
+    if execution_index:
+        reference_evidence=manifest.get('sealed_period_zero_reference')
+        if not isinstance(reference_evidence,dict):
+            raise ValueError('sealed period-0 pre-Path reference missing')
+        reference_batch=pathlib.Path(reference_evidence['host_root'])/reference_evidence['process_id']
+        if (reference_evidence['process_id']!='batch-first-differential-0-period-0' or
+                digest(reference_batch/'host-seal.json')!=reference_evidence['host_seal_sha256'] or
+                digest(pathlib.Path(reference_evidence['host_root'])/'manifest.json')!=
+                reference_evidence['manifest_sha256'] or
+                verify_seal(reference_batch)['stage']!='G3_rosfree_crossover_protocol_valid'):
+            raise ValueError('sealed period-0 reference verification failed')
+        reference_path=reference_batch/'output/prepath-crossover-snapshot.json'
+        if digest(reference_path)!=reference_evidence['snapshot_sha256']:
+            raise ValueError('sealed period-0 snapshot changed')
+        reference=json.loads(reference_path.read_text())
+    cross = {**validate_crossover_prepath(current,reference,execution_index),
              'snapshot_sha256': digest(snapshot),
              'material_sha256': digest(material_path),
-             'Path_activations': 0}
+             'Path_activations': 0,
+             'reference': reference_evidence}
     atomic(output/'cross-period-prepath-gate.json', cross)
     approval = {'pass': True, 'snapshot_sha256': digest(snapshot),
                 'gate_sha256': digest(output/'cross-period-prepath-gate.json'),
@@ -247,14 +265,19 @@ def validate_staged(root: pathlib.Path, args) -> tuple[dict,dict,list[dict]]:
                (row['anchor_id'], row['batch_index'], row['execution_index']) ==
                (args.anchor_id, args.batch_index, args.execution_index)]
     if len(matched) != 1 or len(manifest['processes']) != 3 or \
-            (args.anchor_id,args.batch_index,args.execution_index) != ('first-differential',0,0) or \
-            manifest.get('periods_1_2_authorized') is not False:
-        raise ValueError('period-zero-only crossover assignment missing')
+            args.anchor_id!='first-differential' or args.batch_index!=0 or \
+            args.execution_index not in (0,1,2) or \
+            manifest.get('authorized_period_index') != args.execution_index or \
+            manifest.get('periods_1_2_authorized') is not bool(args.execution_index):
+        raise ValueError('single-period crossover authorization missing')
     assigned = sorted(matched[0]['trials'], key=lambda row: row['slot'])
-    frozen = sorted(manifest['processes'][0]['trials'],key=lambda row: row['slot'])
+    frozen = sorted(manifest['processes'][args.execution_index]['trials'],key=lambda row: row['slot'])
     validate_frozen_assignment(frozen, assigned, stage='prelaunch')
-    if [row['path_role'] for row in assigned] != ['direct','direct','left_20','right_20']:
-        raise ValueError('period-zero frozen Path roles drift')
+    roles=(('direct','direct','left_20','right_20'),
+           ('left_20','right_20','direct','direct'),
+           ('right_20','left_20','right_20','left_20'))
+    if tuple(row['path_role'] for row in assigned) != roles[args.execution_index]:
+        raise ValueError('period frozen Path roles drift')
     for name,key in (
             ('source.py','g3_simulator_source_sha256'),
             ('host-runner.py','g3_host_source_sha256'),
@@ -409,7 +432,7 @@ def main():
                     if proc:owned_identities[pid]=proc['start_ticks']
                 if row['elapsed_s']>600:raise TimeoutError('G3 process wall cap')
                 if not prepath_approved and (ROOT/'output/prepath-ready.json').is_file():
-                    approve_prepath(ROOT);prepath_approved=True
+                    approve_prepath(ROOT,manifest,args.execution_index);prepath_approved=True
                 heartbeat=ROOT/'output/heartbeat.json'
                 if heartbeat.is_file() and time.time()-heartbeat.stat().st_mtime>90:
                     raise TimeoutError('G3 heartbeat stale')

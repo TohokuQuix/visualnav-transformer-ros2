@@ -24,9 +24,13 @@ def _clean_absolute(path, label):
 
 
 def _identity(manifest, expected_bind):
+    period = manifest.get('authorized_period_index', 0)
+    if period not in (0, 1, 2) or isinstance(period, bool):
+        raise ValueError('authorized period invalid')
+    process_id = f'batch-first-differential-0-period-{period}'
     if (manifest.get('schema') != SCHEMA or
             manifest.get('runtime_authorized') is not True or
-            manifest.get('authorized_process_ids') != [PROCESS_ID] or
+            manifest.get('authorized_process_ids') != [process_id] or
             manifest.get('automatic_continuation') is not False):
         raise ValueError('runtime authorization or protocol mismatch')
     attempt = manifest.get('attempt_id')
@@ -39,7 +43,7 @@ def _identity(manifest, expected_bind):
             manifest.get('attempt_host_root') != str(Path(host_bind)/attempt) or
             manifest.get('attempt_container_root') != str(Path(container_bind)/attempt)):
         raise ValueError('attempt identity or bind mapping mismatch')
-    return attempt
+    return attempt, process_id
 
 
 def mount_points_from_proc(text: str) -> set[str]:
@@ -54,12 +58,12 @@ def mount_points_from_proc(text: str) -> set[str]:
 
 def validate_simulator_paths(manifest, input_dir, output_dir, source_path,
                              mount_points, *, expected_bind=(HOST_BIND, CONTAINER_BIND)):
-    attempt = _identity(manifest, expected_bind)
+    attempt, process_id = _identity(manifest, expected_bind)
     input_dir = _clean_absolute(input_dir, 'input')
     output_dir = _clean_absolute(output_dir, 'output')
     source_path = _clean_absolute(source_path, 'source')
     container_root = Path(manifest['attempt_container_root'])
-    batch = container_root/PROCESS_ID
+    batch = container_root/process_id
     if (input_dir != batch/'input' or output_dir != batch/'output' or
             source_path != batch/'source.py'):
         raise ValueError('output/input/source differs from frozen attempt root')
@@ -71,7 +75,7 @@ def validate_simulator_paths(manifest, input_dir, output_dir, source_path,
         raise ValueError('missing source/input or sealed evidence root')
     if output_dir.exists():
         raise ValueError('output directory already exists; fresh attempt required')
-    return {'attempt_id': attempt, 'process_id': PROCESS_ID,
+    return {'attempt_id': attempt, 'process_id': process_id,
             'container_root': str(container_root),
             'bind_destination': manifest['container_bind_destination'],
             'bind_mapping_verified': True}
@@ -79,11 +83,11 @@ def validate_simulator_paths(manifest, input_dir, output_dir, source_path,
 
 def validate_host_bind(inspect, manifest, host_batch, container_batch,
                        *, expected_bind=(HOST_BIND, CONTAINER_BIND)):
-    attempt = _identity(manifest, expected_bind)
+    attempt, process_id = _identity(manifest, expected_bind)
     host_batch = _clean_absolute(host_batch, 'host batch')
     container_batch = _clean_absolute(container_batch, 'container batch')
-    if (host_batch != Path(manifest['attempt_host_root'])/PROCESS_ID or
-            container_batch != Path(manifest['attempt_container_root'])/PROCESS_ID):
+    if (host_batch != Path(manifest['attempt_host_root'])/process_id or
+            container_batch != Path(manifest['attempt_container_root'])/process_id):
         raise ValueError('host/container attempt bind root mismatch')
     matches = [mount for mount in inspect.get('Mounts', ()) if
                mount.get('Type') == 'bind' and mount.get('RW') is True and

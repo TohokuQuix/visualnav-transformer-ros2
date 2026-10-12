@@ -28,6 +28,12 @@ INPUTS = ('assignment.json','freeze.json','statistical-config.json',
 PROCESS_ID = 'batch-first-differential-0-period-0'
 
 
+def process_id(period_index):
+    if period_index not in (0, 1, 2) or isinstance(period_index, bool):
+        raise ValueError('crossover period invalid')
+    return f'batch-first-differential-0-period-{period_index}'
+
+
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -66,8 +72,10 @@ def build_assignment(base):
             'meaning':'frozen_balanced_crossover_period_zero_only_authorized'}
 
 
-def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment: dict):
+def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment: dict,
+                   *, period_index: int = 0):
     repo,reference=Path(repo),Path(reference)
+    selected=process_id(period_index)
     base=json.loads((repo/'docs/eat-nav/p1-g3-crossover-v2-manifest.json').read_text())
     source=repo/'src/visualnav_transformer/eat_nav'
     input_root=reference/'batch-first-differential-0-repeat-0/input'
@@ -87,7 +95,8 @@ def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment:
         'runtime_scope':'offline_preparation_only','runtime_authorized':False,
         'authorized_process_ids':[],'automatic_continuation':False,
         'process_count':3,'trial_count':12,'processes':assignment['processes'],
-        'runtime_pilot_process_id':PROCESS_ID,'periods_1_2_authorized':False,
+        'runtime_pilot_process_id':selected,'periods_1_2_authorized':False,
+        'prepared_period_index':period_index,
         'assignment_sha256':assignment_sha,
         'g3_simulator_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_sim.py'),
         'g3_host_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_host.py'),
@@ -114,10 +123,13 @@ def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment:
     return manifest
 
 
-def stage_one(repo, reference, root, assignment, manifest):
+def stage_one(repo, reference, root, assignment, manifest, *, period_index: int = 0):
     repo,reference,root=Path(repo),Path(reference),Path(root)
+    selected=process_id(period_index)
+    if manifest['runtime_pilot_process_id'] != selected:
+        raise ValueError('prepared period/manifest mismatch')
     if root.exists():raise FileExistsError('fresh ROS-free evidence root required')
-    batch=root/PROCESS_ID;batch.mkdir(parents=True)
+    batch=root/selected;batch.mkdir(parents=True)
     write_new(root/'manifest.json',manifest)
     write_new(root/'g3-assignment.json',assignment)
     shutil.copy2(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_sim.py',batch/'source.py')
@@ -141,7 +153,7 @@ def stage_one(repo, reference, root, assignment, manifest):
     write_new(batch/'input-sha-ledger.json',
               {str(path.relative_to(batch)):sha(path) for path in paths})
     write_new(root/'stage-complete.json',{'schema':SCHEMA,'runtime_authorized':False,
-        'process_id':PROCESS_ID,'manifest_sha256':sha(root/'manifest.json'),
+        'process_id':selected,'manifest_sha256':sha(root/'manifest.json'),
         'assignment_sha256':sha(root/'g3-assignment.json'),
         'batch_input_ledger_sha256':sha(batch/'input-sha-ledger.json')})
     return {'root':str(root),'manifest_sha256':sha(root/'manifest.json'),
@@ -153,15 +165,18 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--manifest-output',type=Path,required=True)
     parser.add_argument('--stage-root',type=Path,required=True)
+    parser.add_argument('--period-index',type=int,choices=(0,1,2),default=0)
     args=parser.parse_args()
     repo=Path(__file__).resolve().parents[1]
     base=json.loads((repo/'docs/eat-nav/p1-g3-crossover-v2-manifest.json').read_text())
     assignment=build_assignment(base)
     serialized=json.dumps(assignment,sort_keys=True,indent=2,allow_nan=False)+'\n'
     assignment_sha=hashlib.sha256(serialized.encode()).hexdigest()
-    manifest=build_manifest(repo,REFERENCE,assignment_sha,assignment)
+    manifest=build_manifest(repo,REFERENCE,assignment_sha,assignment,
+                            period_index=args.period_index)
     write_new(args.manifest_output,manifest)
-    print(json.dumps(stage_one(repo,REFERENCE,args.stage_root,assignment,manifest),sort_keys=True))
+    print(json.dumps(stage_one(repo,REFERENCE,args.stage_root,assignment,manifest,
+                              period_index=args.period_index),sort_keys=True))
 
 
 if __name__=='__main__':main()
