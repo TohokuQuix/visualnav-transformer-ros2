@@ -630,6 +630,7 @@ def main():
             or digest(ROOT/'src/visualnav_transformer/eat_nav/p1_g3_crossover_runtime.py')!=g3['crossover_runtime_module_sha256']
             or digest(ROOT/'src/visualnav_transformer/eat_nav/p1_path_crossover_v2.py')!=g3['path_crossover_module_sha256']
             or digest(ROOT/'src/visualnav_transformer/eat_nav/p1_g3_material_gate_v2.py')!=g3['material_gate_module_sha256']
+            or digest(ROOT/'src/visualnav_transformer/eat_nav/p1_g3_assignment.py')!=g3['g3_assignment_module_sha256']
             or digest(ROOT/'src/visualnav_transformer/eat_nav/p1_g3_material_diagnostic.py')!=g3['material_diagnostic_module_sha256']):
         raise ValueError('frozen G3 source/contract mismatch')
     if digest(__file__)!=g3['g3_host_source_sha256'] or \
