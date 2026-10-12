@@ -1,6 +1,8 @@
 """Frozen ROS-free crossover preparation, without an Isaac runtime."""
 
 import json
+import hashlib
+import importlib.util
 from pathlib import Path
 
 import pytest
@@ -9,6 +11,7 @@ import eat_nav_p1_g3_rosfree_crossover_prepare as prepare
 import eat_nav_p1_g3_rosfree_crossover_authorize as authorize
 import eat_nav_p1_g3_rosfree_crossover_host as host
 from eat_nav_p1_g3_rosfree_crossover_analyze import validate_trial_assignment
+from eat_nav_p1_g3_rosfree_crossover_preflight import audit_staged_attempt
 from visualnav_transformer.eat_nav.p1_g3_assignment import validate_frozen_assignment
 from visualnav_transformer.eat_nav.p1_g3_rosfree_crossover_contract import (
     validate_crossover_prepath,
@@ -34,6 +37,10 @@ def test_three_period_assignment_preserves_frozen_roles_and_sha():
     for env in range(4):
         assert {process['trials'][env]['path_role'] for process in assignment['processes']} == \
                {'direct', 'left_20', 'right_20'}
+    assert {role: sum(row['path_role'] == role for process in assignment['processes']
+                      for row in process['trials'])
+            for role in ('direct', 'left_20', 'right_20')} == \
+           {'direct': 4, 'left_20': 4, 'right_20': 4}
     assert assignment['processes'][0]['trials'] == base['processes'][0]['trials']
 
 
@@ -91,6 +98,55 @@ def test_period_zero_attempt_scope_is_one_process(tmp_path):
     checked, process, assigned = host.validate_staged(attempt/prepare.PROCESS_ID, Args())
     assert checked['authorized_process_ids'] == [prepare.PROCESS_ID]
     assert [r['path_role'] for r in assigned] == ['direct','direct','left_20','right_20']
+    batch=attempt/prepare.PROCESS_ID
+    wrapper=batch/'eat_nav_p1_owner_wrapper.py'
+    staged_host=batch/'host-runner.py'
+    assert wrapper.is_file()
+    assert staged_host.is_file()
+    assert prepare.sha(wrapper) == manifest['owner_wrapper_sha256']
+    assert prepare.sha(staged_host) == prepare.sha(REPO/'scripts/eat_nav_p1_g3_rosfree_crossover_host.py')
+    assert prepare.sha(wrapper) == prepare.sha(REPO/'scripts/eat_nav_p1_owner_wrapper.py')
+    assert json.loads((batch/'input-sha-ledger.json').read_text())['eat_nav_p1_owner_wrapper.py'] == \
+           prepare.sha(wrapper)
+    spec=importlib.util.spec_from_file_location('staged_crossover_host',staged_host)
+    staged=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(staged)
+    assert Path(staged.__file__).with_name('eat_nav_p1_owner_wrapper.py') == wrapper
+    staged.validate_staged(batch, Args())
+    command=staged.build_wrapper_command(remote=str(tmp_path/'container-bind'/attempt/'batch'),
+        container_id='test',token='a'*64,source_sha='b'*64,config_sha='c'*64,
+        anchor_id='first-differential',batch_index=0,execution_index=0)
+    assert command[command.index('timeout')+3].endswith('/owner-wrapper.py')
+    inspect={'Mounts':[{'Type':'bind','RW':True,'Source':str(bind),
+                       'Destination':str(tmp_path/'container-bind')}]}
+    audit=audit_staged_attempt(batch,inspect,
+        expected_bind=(str(bind),str(tmp_path/'container-bind')))
+    assert audit['pass'] and audit['wrapper_resolves_from_staged___file__']
+    assert audit['authorized_process_ids'] == [prepare.PROCESS_ID]
+    with pytest.raises(ValueError,match='bind'):
+        audit_staged_attempt(batch,{'Mounts':[]},
+            expected_bind=(str(bind),str(tmp_path/'container-bind')))
+    (batch/'host-seal.json').write_text('{}')
+    with pytest.raises(ValueError,match='sealed'):
+        audit_staged_attempt(batch,inspect,
+            expected_bind=(str(bind),str(tmp_path/'container-bind')))
+    (batch/'host-seal.json').unlink()
+    wrapper.write_text('drift')
+    with pytest.raises(ValueError,match='wrapper'):
+        staged.validate_staged(batch, Args())
+
+
+def test_wrapper_prelaunch_dependencies_are_standard_library_only():
+    import ast
+    tree=ast.parse((REPO/'scripts/eat_nav_p1_owner_wrapper.py').read_text())
+    imports=[]
+    for node in tree.body:
+        if isinstance(node,ast.Import):
+            imports.extend(alias.name for alias in node.names)
+        elif isinstance(node,ast.ImportFrom):
+            imports.append(node.module or '')
+    assert set(imports) <= {'__future__','argparse','ast','hashlib','json','os',
+                            'pathlib','sys','time'}
 
 
 def test_wrong_role_or_sha_cannot_be_published():

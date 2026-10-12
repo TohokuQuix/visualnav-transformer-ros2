@@ -91,6 +91,9 @@ def build_manifest(repo: Path, reference: Path, assignment_sha: str, assignment:
         'assignment_sha256':assignment_sha,
         'g3_simulator_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_sim.py'),
         'g3_host_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_host.py'),
+        'staged_host_runner_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_host.py'),
+        'staged_owner_wrapper_sha256':sha(repo/'scripts/eat_nav_p1_owner_wrapper.py'),
+        'preflight_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_preflight.py'),
         'analysis_source_sha256':sha(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_analyze.py'),
         'staging_source_sha256':sha(Path(__file__)),
         'owner_wrapper_sha256':sha(repo/'scripts/eat_nav_p1_owner_wrapper.py'),
@@ -119,6 +122,8 @@ def stage_one(repo, reference, root, assignment, manifest):
     write_new(root/'g3-assignment.json',assignment)
     shutil.copy2(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_sim.py',batch/'source.py')
     shutil.copy2(repo/'scripts/eat_nav_p1_g3_rosfree_crossover_host.py',batch/'host-runner.py')
+    shutil.copy2(repo/'scripts/eat_nav_p1_owner_wrapper.py',
+                 batch/'eat_nav_p1_owner_wrapper.py')
     old=reference/'batch-first-differential-0-repeat-0'
     shutil.copytree(old/'src',batch/'src',ignore=shutil.ignore_patterns('__pycache__'))
     module=batch/'src/visualnav_transformer/eat_nav'
@@ -130,6 +135,7 @@ def stage_one(repo, reference, root, assignment, manifest):
     write_new(input_dir/'g3-assignment.json',assignment)
     write_new(input_dir/'g3-contract.json',manifest)
     paths=[batch/'source.py',batch/'host-runner.py',
+           batch/'eat_nav_p1_owner_wrapper.py',
            *sorted(path for path in (batch/'src').rglob('*') if path.is_file()),
            *sorted(input_dir.iterdir())]
     write_new(batch/'input-sha-ledger.json',

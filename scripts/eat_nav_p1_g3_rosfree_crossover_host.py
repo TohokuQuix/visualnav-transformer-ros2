@@ -268,6 +268,10 @@ def validate_staged(root: pathlib.Path, args) -> tuple[dict,dict,list[dict]]:
     if digest(root/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_crossover_path_contract.py') != \
             manifest['rosfree_path_contract_source_sha256']:
         raise ValueError('ROS-free path contract source SHA mismatch')
+    if (digest(root/'host-runner.py') != manifest['staged_host_runner_sha256'] or
+            digest(root/'eat_nav_p1_owner_wrapper.py') != manifest['staged_owner_wrapper_sha256'] or
+            digest(root/'eat_nav_p1_owner_wrapper.py') != manifest['owner_wrapper_sha256']):
+        raise ValueError('staged owner wrapper/host SHA mismatch')
     if digest(root/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_crossover_contract.py') != \
             manifest['rosfree_crossover_contract_source_sha256']:
         raise ValueError('ROS-free crossover contract source SHA mismatch')

@@ -47,7 +47,10 @@ def verify_preparation(root):
             sha(root/'g3-assignment.json') != marker['assignment_sha256'] or
             sha(batch/'input-sha-ledger.json') != marker['batch_input_ledger_sha256'] or
             sha(batch/'source.py') != manifest['g3_simulator_source_sha256'] or
-            sha(batch/'host-runner.py') != manifest['g3_host_source_sha256']):
+            sha(batch/'host-runner.py') != manifest['g3_host_source_sha256'] or
+            sha(batch/'host-runner.py') != manifest['staged_host_runner_sha256'] or
+            sha(batch/'eat_nav_p1_owner_wrapper.py') != manifest['owner_wrapper_sha256'] or
+            sha(batch/'eat_nav_p1_owner_wrapper.py') != manifest['staged_owner_wrapper_sha256']):
         raise ValueError('preparation identity mismatch')
     for relative, expected in ledger.items():
         relative = Path(relative)
@@ -65,7 +68,7 @@ def create_attempt(preparation, destination, *, host_bind_source=HOST_BIND,
             destination.parent != Path(host_bind_source) or
             destination.parent.is_symlink() or
             not destination.name.startswith('.eatnav-p1-g3-rosfree-crossover-v1-attempt-')):
-        raise ValueError('attempt must use the frozen ROS-free v3 bind root')
+        raise ValueError('attempt must use the frozen ROS-free crossover bind root')
     if destination.exists():
         raise FileExistsError(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
