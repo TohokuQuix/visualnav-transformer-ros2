@@ -1,0 +1,19 @@
+{
+  "schema": "eatnav_p1_g3_crossover_v4_monitoring_contract",
+  "router_ownership": "external_only",
+  "observer_interval_s": 0.5,
+  "observer_max_sample_gap_s": 1.5,
+  "observer_window": "ready_before_inner_host_launch_through_sample_after_inner_host_exit_and_cleanup",
+  "observer_failure_policy": "any_missing_sample_identity_log_listener_or_endpoint_is_protocol_invalid_or_inconclusive; no interpolation",
+  "pid_reuse_policy": "exact_pid_and_start_tick_change_is_fail_closed",
+  "router_log_copy": "read pathname or launcher open fd, fsync experiment_owned_copy_each_sample; original never modified",
+  "router_evidence_scope": "sampled_process_lifecycle_not_guaranteed_continuous_network_connectivity",
+  "communication_evidence": "all_env_all_step_20Hz_exact_stamp_clock_tf_command_bridge_acceptance_physics_plus_no_gaps_duplicates_rejects_timeouts",
+  "combined_validity": "router_lifecycle_and_per_step_communication_both_required; neither substitutes_for_other",
+  "gpu_active": "any_owned_pid_loss_reuse_unknown_pid_or_attribution_gap_fails_closed",
+  "gpu_after_verified_completion": "only_expected_owned_process_exit_flags_may_be_waived; resource_caps_still_enforced",
+  "gpu_overlap": "sample_start_before_marker_and_sample_end_after_marker_is_inconclusive_if_exit_flag_present",
+  "gpu_unknown_exit_or_marker": "fail_closed; no terminal exemption",
+  "frozen_numeric_gates": "unchanged_from_v3",
+  "runtime_authorized": false
+}
