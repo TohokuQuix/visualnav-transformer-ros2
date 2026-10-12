@@ -1,0 +1,35 @@
+--- period0_1_host.py
++++ period2_host.py
+@@ -251,6 +251,17 @@
+               'material_sha256':digest(material_path),'Path_publications':0}
+     atomic(output/'prepath-approval.json',approval)
+     return approval
++
++
++def validate_period_assignment(assigned_rows: list[dict], frozen_rows: list[dict]) -> None:
++    """Check one period against its frozen row without demanding all three roles."""
++    if (len(assigned_rows)!=4 or
++            [x['slot'] for x in assigned_rows]!=list(range(4)) or
++            [x['candidate_slot'] for x in assigned_rows]!=[f'crossover_{i}' for i in range(4)] or
++            {x['condition'] for x in assigned_rows}!={'A'} or
++            any(x['path_role'] not in ('direct','left_20','right_20') for x in assigned_rows) or
++            assigned_rows!=sorted(frozen_rows,key=lambda x:x['slot'])):
++        raise ValueError('crossover four-branch assignment invalid')
+ 
+ 
+ def simulator_artifact_failure(output: pathlib.Path, native_exit: int | None,
+@@ -640,10 +651,10 @@
+     if len(matched)!=1 or matched[0]['batch_seed']!=json.loads((ROOT/'input/assignment.json').read_text())['batch_seeds'][args.anchor_id][args.batch_index]:
+         raise ValueError('crossover process seed invalid')
+     assigned_rows=sorted(matched[0]['trials'],key=lambda x:x['slot'])
+-    if len(assigned_rows)!=4 or [x['slot'] for x in assigned_rows]!=list(range(4)) or \
+-            [x['candidate_slot'] for x in assigned_rows]!=[f'crossover_{i}' for i in range(4)] or \
+-            {x['path_role'] for x in assigned_rows}!={'direct','left_20','right_20'} or {x['condition'] for x in assigned_rows}!={'A'}:
+-        raise ValueError('crossover four-branch assignment invalid')
++    frozen_process=next((x for x in g3['processes'] if x['anchor_id']==args.anchor_id and
++                         x['batch_index']==args.batch_index and
++                         x['execution_index']==args.execution_index),None)
++    validate_period_assignment(assigned_rows,[] if frozen_process is None else frozen_process['trials'])
+     for name,key in (('assignment.json','assignment_sha256'),
+                      ('statistical-config.json','config_sha256'),
+                      ('source-contract.json','source_contract_sha256')):

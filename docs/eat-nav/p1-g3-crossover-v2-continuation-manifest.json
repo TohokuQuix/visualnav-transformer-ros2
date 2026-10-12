@@ -1,0 +1,69 @@
+{
+  "assignment_sha256": "859e5d4f31125ca975a1c0f5cb79bc627b0dd2e6c234c77c8a62b01106af54f8",
+  "authorized_process_count": 1,
+  "comparison_basis": "same simulator source, assignment, Path SHA, checkpoint, terrain, seed, physics, follower, material gate, strict pre-Path fields and Outcome contract; host validation source differs and is retained per period",
+  "continuation_analyzer_source_sha256": "5deb6f3d3ac60aa73b1072e2949782da5e508810e43936c76f4d53f36576b89a",
+  "continuation_outer_source_sha256": "7b8a45eae4e178ee998a941e0bd0caac817a2a5266865e4f07eecd52bb11f32f",
+  "continuation_stage_source_sha256": "4c298bfa7403d47e2171c356876474e0465c69fd93f897352212070f26763256",
+  "host_validator_change": "per-period rows compared directly with frozen manifest; no per-period three-role requirement",
+  "original_manifest_sha256": "1099036714055ccf424bf71ab00ce8f65dea597a8d2407f062dcaef8fe01c623",
+  "path_roles_by_period": {
+    "0": [
+      "direct",
+      "direct",
+      "left_20",
+      "right_20"
+    ],
+    "1": [
+      "left_20",
+      "right_20",
+      "direct",
+      "direct"
+    ],
+    "2": [
+      "right_20",
+      "left_20",
+      "right_20",
+      "left_20"
+    ]
+  },
+  "period2_host_source_sha256": "a5b5b580e31633c23d7fdd599b5f82de02252dc67d139d614ab97739461ddf63",
+  "period2_manifest_sha256": "a3a4d63aff1746682a3f836a8619317121d981cf23449a4a3ba7404fbf08b81a",
+  "period2_simulator_source_sha256": "9c4a8838f0fa6fc1a86ca5c5244bb0b4ebd9a76378fc47253fb6148ca57b21b3",
+  "prior_periods": [
+    {
+      "host_source_sha256": "ef988448e66dda2e4cc5b6611a185caa4fce45003045957d72aad1212bcc0712",
+      "manifest_sha256": "1099036714055ccf424bf71ab00ce8f65dea597a8d2407f062dcaef8fe01c623",
+      "path_roles": [
+        "direct",
+        "direct",
+        "left_20",
+        "right_20"
+      ],
+      "period": 0,
+      "root": "/home/kojima/lib/onix_isaac_lab/.eatnav-p1-long-horizon-v1/g3-crossover-v2-pilot-attempt-2/batch-first-differential-0-period-0",
+      "seal_sha256": "43481f2ee59c58a352ef2e41a777d6009b11b47a5ce7e6ead10468a81d612e90",
+      "simulator_source_sha256": "9c4a8838f0fa6fc1a86ca5c5244bb0b4ebd9a76378fc47253fb6148ca57b21b3",
+      "snapshot_sha256": "22b8721e7a3498c6fee55502eefd21db8670be36bfa4271fb6463fa5f57d59c9"
+    },
+    {
+      "host_source_sha256": "ef988448e66dda2e4cc5b6611a185caa4fce45003045957d72aad1212bcc0712",
+      "manifest_sha256": "1099036714055ccf424bf71ab00ce8f65dea597a8d2407f062dcaef8fe01c623",
+      "path_roles": [
+        "left_20",
+        "right_20",
+        "direct",
+        "direct"
+      ],
+      "period": 1,
+      "root": "/home/kojima/lib/onix_isaac_lab/.eatnav-p1-long-horizon-v1/g3-crossover-v2-pilot-attempt-2/batch-first-differential-0-period-1",
+      "seal_sha256": "50e02055999d7acd7c1d973befa9a297f17b9bbb9937d993c8e8077349dc3a80",
+      "simulator_source_sha256": "9c4a8838f0fa6fc1a86ca5c5244bb0b4ebd9a76378fc47253fb6148ca57b21b3",
+      "snapshot_sha256": "22b8721e7a3498c6fee55502eefd21db8670be36bfa4271fb6463fa5f57d59c9"
+    }
+  ],
+  "schema": "eatnav_p1_g3_crossover_v2_period2_continuation_v1",
+  "scope": "first-differential/batch-0/period-2-only",
+  "single_source_across_periods_claimed": false,
+  "validator_diff_sha256": "f0aed0a659f871c446bace51cfd930b344a3468e7962e713d915f7ff568bfb05"
+}
