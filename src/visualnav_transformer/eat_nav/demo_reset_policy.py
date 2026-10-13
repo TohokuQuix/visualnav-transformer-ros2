@@ -29,6 +29,34 @@ def configure_demo_reset_policy(cfg) -> None:
     if event is None:
         raise ValueError('reset flipper fold mode event missing')
     event.params = {'modes': (0.,), 'probabilities': (1.,)}
+    # The reset event uses [rear-right, rear-left, front-right, front-left]
+    # and chooses [neutral, front-folded, rear-folded]. Apply this both at
+    # initial env.reset() and at each tilt-triggered reset.
+    joints = cfg.events.reset_robot_joints
+    if joints is None or tuple(joints.params.get('pose_probabilities', ())) != (0., .5, .5):
+        raise ValueError('unexpected/missing demo flipper pose reset event')
+    if len(joints.params.get('flipper_joint_names', ())) != 4 or not math.isclose(
+            float(joints.params.get('front_rest_angle', float('nan'))), 0.):
+        raise ValueError('unexpected demo flipper joint reset geometry')
+    joints.params['pose_probabilities'] = (0., 1., 0.)
+
+
+def assert_demo_flipper_pose(robot, cfg, env_ids) -> list[list[float]]:
+    """Verify the actual post-reset joint state, rear extended/front folded."""
+    import torch
+
+    params = cfg.events.reset_robot_joints.params
+    joint_ids, _ = robot.find_joints(list(params['flipper_joint_names']), preserve_order=True)
+    if len(joint_ids) != 4:
+        raise ValueError('demo flipper pose requires four joints')
+    actual = robot.data.joint_pos[env_ids][:, joint_ids]
+    expected = torch.tensor([0., 0., float(params['folded_angle']),
+                             float(params['folded_angle'])],
+                            device=actual.device, dtype=actual.dtype)
+    if not bool(torch.isfinite(actual).all()) or not bool(torch.all(
+            torch.abs(actual - expected) <= 1e-3)):
+        raise ValueError(f'demo flipper pose mismatch: {actual.detach().cpu().tolist()}')
+    return actual.detach().cpu().tolist()
 
 
 @dataclass

@@ -7,6 +7,7 @@ import pytest
 from visualnav_transformer.eat_nav.demo_contract import sensor_stamp_valid
 from visualnav_transformer.eat_nav.demo_reset_policy import (
     DemoSensorClock,
+    assert_demo_flipper_pose,
     assert_finite_sim_state,
     configure_demo_reset_policy,
 )
@@ -16,8 +17,17 @@ def test_only_tilt_can_reset_and_fold_mode_is_zero_after_each_reset():
     tilt = object()
     cfg = SimpleNamespace(
         terminations=SimpleNamespace(time_out=object(), non_finite_state=object(), tilt_over=tilt),
-        events=SimpleNamespace(reset_flipper_fold_mode=SimpleNamespace(
-            params={'modes': (0., 1., -1.), 'probabilities': (1., 1., 1.)})),
+        events=SimpleNamespace(
+            reset_flipper_fold_mode=SimpleNamespace(
+                params={'modes': (0., 1., -1.), 'probabilities': (1., 1., 1.)}),
+            reset_robot_joints=SimpleNamespace(params={
+                'flipper_joint_names': ['rr', 'rl', 'fr', 'fl'],
+                'pose_probabilities': (0., .5, .5),
+                'folded_angle': 3.14159265359,
+                'front_rest_angle': 0.,
+                'velocity_range': (0., 0.),
+            }),
+        ),
     )
     configure_demo_reset_policy(cfg)
     assert cfg.terminations.tilt_over is tilt
@@ -25,6 +35,33 @@ def test_only_tilt_can_reset_and_fold_mode_is_zero_after_each_reset():
     assert cfg.terminations.non_finite_state is None
     assert cfg.events.reset_flipper_fold_mode.params == {
         'modes': (0.,), 'probabilities': (1.,)}
+    assert cfg.events.reset_robot_joints.params == {
+        'flipper_joint_names': ['rr', 'rl', 'fr', 'fl'],
+        'pose_probabilities': (0., 1., 0.),
+        'folded_angle': 3.14159265359,
+        'front_rest_angle': 0.,
+        'velocity_range': (0., 0.),
+    }
+
+
+def test_flipper_pose_checks_initial_and_fall_reset_positions():
+    import torch
+
+    class Robot:
+        data = SimpleNamespace(joint_pos=torch.tensor([[0., 0., 3.1415927, 3.1415927]]))
+
+        @staticmethod
+        def find_joints(names, preserve_order=False):
+            assert names == ['rr', 'rl', 'fr', 'fl'] and preserve_order
+            return [0, 1, 2, 3], names
+
+    cfg = SimpleNamespace(events=SimpleNamespace(reset_robot_joints=SimpleNamespace(
+        params={'flipper_joint_names': ['rr', 'rl', 'fr', 'fl'],
+                'folded_angle': 3.14159265359, 'front_rest_angle': 0.})))
+    assert assert_demo_flipper_pose(Robot(), cfg, [0]) == [[0., 0., 3.1415927410125732, 3.1415927410125732]]
+    Robot.data.joint_pos[0, 0] = 3.1415927
+    with pytest.raises(ValueError, match='flipper pose'):
+        assert_demo_flipper_pose(Robot(), cfg, [0])
 
 
 def test_unexpected_termination_term_fails_closed():

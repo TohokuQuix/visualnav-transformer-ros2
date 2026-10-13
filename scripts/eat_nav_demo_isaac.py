@@ -53,7 +53,7 @@ from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
 from visualnav_transformer.eat_nav.demo_isaac_env_cfg import make_collection_cfg
 from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrain
 from visualnav_transformer.eat_nav.demo_reset_policy import (
-    DemoSensorClock, assert_finite_sim_state, configure_demo_reset_policy,
+    DemoSensorClock, assert_demo_flipper_pose, assert_finite_sim_state, configure_demo_reset_policy,
 )
 from visualnav_transformer.eat_nav.demo_turn_escape import TurnStuckEscape
 from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
@@ -68,8 +68,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v5_sensor_age'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v6_sensor_age'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v6_front_folded'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v7_front_folded'
 
 
 def durable_json(path, value):
@@ -232,6 +232,7 @@ def main():
         policy = runner.alg.policy
         robot = bare.scene['robot']
         assert_finite_sim_state(robot)
+        initial_flipper_pose = assert_demo_flipper_pose(robot, cfg, list(range(args.num_envs)))
         if not bool(torch.all(bare._onix_flipper_fold_mode == 0)):
             raise ValueError('demo flipper fold mode must be zero')
         override = CommandOverride(bare.command_manager, args.num_envs)
@@ -273,6 +274,8 @@ def main():
             'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
             'terrain_level': args.terrain_level, 'reset_policy': 'tilt_over_only',
             'flipper_fold_modes': bare._onix_flipper_fold_mode.detach().cpu().tolist(),
+            'flipper_joint_pose_order': ['rear_right', 'rear_left', 'front_right', 'front_left'],
+            'flipper_joint_pose_rad': initial_flipper_pose,
             'turn_escape': 'policy_preprocessing_bridge_launch_defaults'})
         wire = GoalWire(args.port)
         trace = (args.output/'trace.jsonl').open('x')
@@ -400,6 +403,7 @@ def main():
             assert_finite_sim_state(robot)
             reset_env_ids = torch.nonzero(done, as_tuple=False).flatten().tolist()
             if reset_env_ids:
+                reset_flipper_pose = assert_demo_flipper_pose(robot, cfg, reset_env_ids)
                 if bool(torch.any(bare.reset_time_outs)) or not bool(torch.all(
                         bare._onix_flipper_fold_mode == 0)):
                     raise ValueError('unexpected demo reset reason or flipper mode')
@@ -421,6 +425,7 @@ def main():
                                         'stamp_ns': stamp_ns + STEP_NS,
                                         'env_ids': reset_env_ids,
                                         'sensor_epoch_origin_ns': sensor_clock.episode_origin_ns,
+                                        'flipper_joint_pose_rad': reset_flipper_pose,
                                         'flipper_fold_mode': 0.0}) + '\n')
             obs = next_obs
             post_pose = pose_map(robot)

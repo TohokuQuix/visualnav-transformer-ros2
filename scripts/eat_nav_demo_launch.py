@@ -61,7 +61,7 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v6-sensor-age' if args.residual_diagnostics else 'terrain-v5-sensor-age'
+    series = 'cancel-residual-v7-front-folded' if args.residual_diagnostics else 'terrain-v6-front-folded'
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -75,7 +75,7 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v5_sensor_age', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v6_front_folded', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'rl_checkpoint_sha256': sha(RL),
@@ -96,6 +96,7 @@ def main():
                 'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
                 'terrain_level': args.terrain_level,
                 'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0,
+                'reset_flipper_pose': 'front_folded_rear_extended',
                 'turn_escape': 'policy_preprocessing_bridge_launch_defaults',
                 'residual_diagnostics': args.residual_diagnostics,
                 'terrain_selection_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_terrain.py')}

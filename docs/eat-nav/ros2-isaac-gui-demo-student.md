@@ -44,7 +44,7 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v5-sensor-age-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v6-front-folded-*`.
 The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
 preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and
