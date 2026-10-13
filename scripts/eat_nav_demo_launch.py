@@ -57,10 +57,12 @@ def main():
         'k_rail_step_field', 'pyramid_stairs', 'pyramid_stairs_inv',
         'random_rough', 'boxes', 'hf_pyramid_slope', 'k_rail_field'), default='boxes')
     parser.add_argument('--terrain-level', type=int, choices=range(5), default=0)
+    parser.add_argument('--residual-diagnostics', action='store_true')
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    attempt = '.eatnav-ros2-gui-demo-terrain-v2-' + datetime.now().strftime('%Y%m%d-%H%M%S')
+    series = 'cancel-residual-v3' if args.residual_diagnostics else 'terrain-v2'
+    attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
     staging = f'/tmp/eatnav-demo-terrain-v2-{attempt.removeprefix(".eatnav-")}'
@@ -91,6 +93,7 @@ def main():
                 'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
                 'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
                 'terrain_level': args.terrain_level,
+                'residual_diagnostics': args.residual_diagnostics,
                 'terrain_selection_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_terrain.py')}
     (root/'launch-manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n')
     # The simulator's sealed output is separate from launcher logs and manifest.
@@ -107,6 +110,8 @@ def main():
                '--terrain-level', str(args.terrain_level)]
     if args.headless:
         sim_cmd.append('--headless')
+    if args.residual_diagnostics:
+        sim_cmd.append('--residual-diagnostics')
     frontend_cmd = ['/usr/bin/python3', str(REPO/'scripts/eat_nav_demo_ros_frontend.py'),
                     '--port', str(args.port)]
     sim = frontend = None

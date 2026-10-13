@@ -24,7 +24,7 @@ From this repository:
   --max-steps 3000 --replan-steps 10
 ```
 
-In another terminal, run `scripts/eat_nav_demo_rviz.sh` and select the
+In another terminal, run `bash scripts/eat_nav_demo_rviz.sh` and select the
 `2D Goal Pose` tool in RViz. The goal is transformed to `map` and accepted
 only with a recent simulation stamp. For a repeatable 0.75 m forward goal:
 

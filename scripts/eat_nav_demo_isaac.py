@@ -33,6 +33,7 @@ parser.add_argument('--replan-steps', type=int, default=10)
 parser.add_argument('--num-envs', type=int, choices=(1, 4), default=1)
 parser.add_argument('--terrain-type', default='boxes')
 parser.add_argument('--terrain-level', type=int, choices=range(5), default=0)
+parser.add_argument('--residual-diagnostics', action='store_true')
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
 simulation_app = AppLauncher(args).app
@@ -51,6 +52,7 @@ from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
 from visualnav_transformer.eat_nav.demo_isaac_env_cfg import make_collection_cfg
 from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrain
+from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
 from visualnav_transformer.eat_nav.demo_contract import (
     CHECKPOINT_SHA256, DATASET_SHA256, RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
     select_best, sensor_stamp_valid, sha256, validate_evaluator_sample,
@@ -63,6 +65,7 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 STEP_NS = 50_000_000
 PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v2'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v3'
 
 
 def durable_json(path, value):
@@ -140,14 +143,16 @@ def main():
     if args.output.exists():
         raise FileExistsError('fresh persistent output root required')
     args.output.mkdir(parents=True)
-    ledger = {'protocol': PROTOCOL, 'source_sha256': sha256(__file__),
+    protocol = RESIDUAL_PROTOCOL if args.residual_diagnostics else PROTOCOL
+    ledger = {'protocol': protocol, 'source_sha256': sha256(__file__),
               'checkpoint_sha256': sha256(args.checkpoint),
               'rl_checkpoint_sha256': sha256(args.rl_checkpoint),
               'bank_sha256': sha256(args.bank),
               'eat_config_sha256': sha256(args.eat_config), 'seed': args.seed,
               'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
-              'terrain_level': args.terrain_level}
+              'terrain_level': args.terrain_level,
+              'residual_diagnostics': args.residual_diagnostics}
     durable_json(args.output/'input-ledger.json', ledger)
     if ledger['checkpoint_sha256'] != CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
@@ -245,7 +250,7 @@ def main():
             **terrain_selection, 'selected_tiles': selected_tiles,
             'terrain_config_sha256': sha256(args.output/'terrain-config.json'),
             'simulator_source_sha256': sha256(__file__)})
-        durable_json(args.output/'startup-ready.json', {'protocol': PROTOCOL,
+        durable_json(args.output/'startup-ready.json', {'protocol': protocol,
             'actor_shape': list(obs['policy'].shape), 'critic_shape': list(obs['critic'].shape),
             'control_dt_s': float(bare.step_dt), 'checkpoint_sha256': ledger['checkpoint_sha256'],
             'rl_checkpoint_sha256': ledger['rl_checkpoint_sha256'],
@@ -292,6 +297,12 @@ def main():
                 else:
                     raise ValueError('unknown ROS transport message')
             pose = pose_map(robot)
+            if args.residual_diagnostics:
+                try:
+                    contact_sensor = bare.scene['contact_forces']
+                except KeyError:
+                    contact_sensor = None
+                physical_pre = capture_physical_state(robot, contact_sensor)
             if step % 5 == 0:
                 frame, sensor_stamp = dem_from_sensor(bare, eat_cfg, stamp_ns)
                 history.append((stamp_ns, frame, sensor_stamp))
@@ -336,6 +347,18 @@ def main():
             override.set(commands)
             obs, observed, command_detail = reconcile_command_observation(
                 obs, observed, bare, commands, latency_prev_for_reconcile)
+            diagnostic_extra_pre = {}
+            if args.residual_diagnostics:
+                actor_slice = slice(*command_detail['actor_slice'])
+                diagnostic_extra_pre = {
+                    'physical_pre': physical_pre,
+                    'command_injected': command_detail['injected'][0],
+                    'actor_pre_noise_command': observed['policy_pre_noise'][0, actor_slice].detach().cpu().tolist(),
+                    'actor_post_noise_pre_delay_command': observed['policy_post_noise_pre_delay'][0, actor_slice].detach().cpu().tolist(),
+                    'actor_post_delay_command': command_detail['actor_seen'][0],
+                    'latency_alpha': command_detail['latency_alpha'][0],
+                    'observation_sample_count_added': command_detail['observation_sample_count_added'],
+                }
             if not bool(torch.isfinite(obs['policy']).all()):
                 raise ValueError('Actor input nonfinite')
             with torch.inference_mode():
@@ -360,6 +383,13 @@ def main():
                 history.clear()
             obs = next_obs
             post_pose = pose_map(robot)
+            diagnostic_extra = {}
+            if args.residual_diagnostics:
+                diagnostic_extra = {
+                    **diagnostic_extra_pre,
+                    'physical_post': capture_physical_state(robot, contact_sensor),
+                    'episode_length_post': int(bare.episode_length_buf[0]),
+                }
             status = 'arrived' if arrived else ('active' if follower is not None else 'idle')
             state = {'type': 'state', 'stamp_ns': stamp_ns + STEP_NS,
                      'pose_map': post_pose,
@@ -381,7 +411,8 @@ def main():
                                     'follower': diagnostic, 'reward': float(reward[0]),
                                     'done': bool(done[0]), 'selected': selected,
                                     'dem_sensor_update_ns': history[-1][2] if history else None,
-                                    'dem_sensor_age_ns': stamp_ns - history[-1][2] if history else None},
+                                    'dem_sensor_age_ns': stamp_ns - history[-1][2] if history else None,
+                                    **diagnostic_extra},
                                    allow_nan=False) + '\n')
             trace.flush()
             os.fsync(trace.fileno())

@@ -1,0 +1,455 @@
+{
+  "B_cancel_summary": {
+    "action_mean_abs": [
+      0.34053164486658205,
+      0.4591852172037189,
+      3.907363053118245,
+      3.234394279758582,
+      0.11085124486753864,
+      0.11408666776639692
+    ],
+    "cancel_pose_map": [
+      -15.175280570983887,
+      0.23400764167308807,
+      -0.21745847165584564
+    ],
+    "cancel_step": 191,
+    "cancel_time_s": 9.55,
+    "cumulative_xy_m": 0.3349830429427938,
+    "last_0_5s_mean_xy_speed_mps": 0.07648555149637919,
+    "last_pose_map": [
+      -14.978591918945312,
+      0.1526772677898407,
+      -0.7621219158172607
+    ],
+    "last_root_velocity_source": "robot.data.root_lin_vel_w_post",
+    "last_xy_speed_mps": 0.030596036157308857,
+    "max_xy_displacement_m": 0.22232694762509855,
+    "net_xy_m": 0.21284044624257895,
+    "post_cancel_actor_input_nonzero_steps": 0,
+    "post_cancel_command_nonzero_steps": 0,
+    "post_cancel_done_steps": 0,
+    "post_cancel_steps": 89,
+    "segments_m": {
+      "0.0-0.5": 0.03660124221890542,
+      "0.5-1.0": 0.03861159033178797,
+      "1.0-2.0": 0.08050939881730987,
+      "2.0+": 0.17926081157479032
+    },
+    "source_step_count": 280,
+    "yaw_change_rad": -0.5446634441614151
+  },
+  "analysis_source_sha256": "5e08cbe15d03f53c4be819236525d7eea6df5979ada4d0917bdb4a905bf8dcba",
+  "cancel_step_B": 191,
+  "independent_process_count": 3,
+  "input_sha256": {
+    "bank_sha256": "8fbb3883058d13772880acf490ac929f4df2a176ca318f92bea7c430156d0f8e",
+    "checkpoint_sha256": "329341fbf56ccb6bbc2f05b3db6b143cc1a1e9553ba2796e3dec3c785f30e470",
+    "eat_config_sha256": "b7cd7f9227939498bb902d5e5bb5f7a65275db40fe48f7cb46d23b1570640e0b",
+    "max_steps": 280,
+    "num_envs": 1,
+    "replan_steps": 10,
+    "rl_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+    "seed": 2026101101,
+    "source_sha256": "8c13430c8e1d610319bf0ae2c96c5640b9f948651019b5a6ce11739179191387",
+    "terrain_level": 0,
+    "terrain_type": "boxes"
+  },
+  "paired_AB_exact_fields": {
+    "actor_action": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "actor_input_command": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "command": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "dem_sensor_update_ns": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "done": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "physical_post": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "physical_pre": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "pose_post": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "pose_pre": {
+      "equal": true,
+      "first_mismatch_step": null
+    },
+    "reward": {
+      "equal": true,
+      "first_mismatch_step": null
+    }
+  },
+  "repeats_per_condition": 1,
+  "runs": {
+    "A": {
+      "all_280_steps": {
+        "actor_action_mean_abs": [
+          0.33127492433912786,
+          0.36175085258936246,
+          4.020181139877864,
+          3.2967503296477454,
+          0.11965850693855568,
+          0.1481114849448204
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7770664660734058,
+        "net_xy_m": 1.0379446066463098,
+        "nonzero_actor_command_steps": 41,
+        "nonzero_follower_command_steps": 39,
+        "path_length_xy_m": 1.271190474836973,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.09469440072515427,
+        "sprocket_applied_torque_mean_abs_Nm": 93.34209352079779,
+        "sprocket_joint_velocity_mean_abs_radps": 1.9711876143061091,
+        "sum_body_contact_net_force_norm_mean_N": 525.4683612385447,
+        "yaw_change_rad": -1.2571888267993927
+      },
+      "event_steps": [
+        [
+          "goal",
+          25
+        ],
+        [
+          "selection",
+          30
+        ],
+        [
+          "selection",
+          40
+        ],
+        [
+          "selection",
+          50
+        ],
+        [
+          "selection",
+          60
+        ],
+        [
+          "selection",
+          70
+        ],
+        [
+          "selection",
+          80
+        ]
+      ],
+      "inner_seal_sha256": "1e0449860dcb0cc6d20c1de4adad218d32c4d1f9acc341d8c34fb4a58e1454f4",
+      "outer_seal_sha256": "536b110aed7ef182f2ec7efc391f53286c15dc4d2fce894dc3c4bae10f34388f",
+      "root": "/home/kojima/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-cancel-residual-v3-20261013-181140",
+      "steps_191_to_279": {
+        "actor_action_mean_abs": [
+          0.34053164486658205,
+          0.4591852172037189,
+          3.907363053118245,
+          3.234394279758582,
+          0.11085124486753864,
+          0.11408666776639692
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.8596948805576442,
+        "net_xy_m": 0.21284044624257895,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.3349830429427938,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.07786814638848999,
+        "sprocket_applied_torque_mean_abs_Nm": 90.43606706231498,
+        "sprocket_joint_velocity_mean_abs_radps": 1.7024858435916745,
+        "sum_body_contact_net_force_norm_mean_N": 514.858656442727,
+        "yaw_change_rad": -0.5446634441614151
+      },
+      "steps_240_to_279": {
+        "actor_action_mean_abs": [
+          0.3452151325996965,
+          0.45001808665692805,
+          3.887519210577011,
+          3.2244962096214294,
+          0.11599851153441705,
+          0.1138191762380302
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.8490213706274516,
+        "net_xy_m": 0.06594396540730456,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.15024761073702977,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.07812183618820812,
+        "sprocket_applied_torque_mean_abs_Nm": 61.84285734631121,
+        "sprocket_joint_velocity_mean_abs_radps": 1.6665491219086106,
+        "sum_body_contact_net_force_norm_mean_N": 512.343882107137,
+        "yaw_change_rad": -0.20571660995483398
+      },
+      "steps_70_to_190": {
+        "actor_action_mean_abs": [
+          0.3260321831369141,
+          0.3294556138513625,
+          4.041506550528786,
+          3.2524784793538495,
+          0.10931627751782166,
+          0.11887850138274106
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7214871132448085,
+        "net_xy_m": 0.257738575408734,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.2962224592071608,
+        "root_xy_speed_final_mps": 0.10520355325849261,
+        "root_xy_speed_mean_mps": 0.05350721581825104,
+        "sprocket_applied_torque_mean_abs_Nm": 92.4984044230674,
+        "sprocket_joint_velocity_mean_abs_radps": 1.6877648761170754,
+        "sum_body_contact_net_force_norm_mean_N": 550.5996699313134,
+        "yaw_change_rad": -0.5961693674325943
+      }
+    },
+    "B": {
+      "all_280_steps": {
+        "actor_action_mean_abs": [
+          0.33127492433912786,
+          0.36175085258936246,
+          4.020181139877864,
+          3.2967503296477454,
+          0.11965850693855568,
+          0.1481114849448204
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7770664660734058,
+        "net_xy_m": 1.0379446066463098,
+        "nonzero_actor_command_steps": 41,
+        "nonzero_follower_command_steps": 39,
+        "path_length_xy_m": 1.271190474836973,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.09469440072515427,
+        "sprocket_applied_torque_mean_abs_Nm": 93.34209352079779,
+        "sprocket_joint_velocity_mean_abs_radps": 1.9711876143061091,
+        "sum_body_contact_net_force_norm_mean_N": 525.4683612385447,
+        "yaw_change_rad": -1.2571888267993927
+      },
+      "event_steps": [
+        [
+          "goal",
+          25
+        ],
+        [
+          "selection",
+          30
+        ],
+        [
+          "selection",
+          40
+        ],
+        [
+          "selection",
+          50
+        ],
+        [
+          "selection",
+          60
+        ],
+        [
+          "selection",
+          70
+        ],
+        [
+          "selection",
+          80
+        ],
+        [
+          "cancel",
+          191
+        ]
+      ],
+      "inner_seal_sha256": "15fadd1706e7c69f6694a0381bea54186bee505c6fbaa14eb49f4f58b118ea79",
+      "outer_seal_sha256": "292d42c3d27c438694866f7ed9db88942795ae1a0db35776fe907c865c2a1d11",
+      "root": "/home/kojima/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-cancel-residual-v3-20261013-181325",
+      "steps_191_to_279": {
+        "actor_action_mean_abs": [
+          0.34053164486658205,
+          0.4591852172037189,
+          3.907363053118245,
+          3.234394279758582,
+          0.11085124486753864,
+          0.11408666776639692
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.8596948805576442,
+        "net_xy_m": 0.21284044624257895,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.3349830429427938,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.07786814638848999,
+        "sprocket_applied_torque_mean_abs_Nm": 90.43606706231498,
+        "sprocket_joint_velocity_mean_abs_radps": 1.7024858435916745,
+        "sum_body_contact_net_force_norm_mean_N": 514.858656442727,
+        "yaw_change_rad": -0.5446634441614151
+      },
+      "steps_240_to_279": {
+        "actor_action_mean_abs": [
+          0.3452151325996965,
+          0.45001808665692805,
+          3.887519210577011,
+          3.2244962096214294,
+          0.11599851153441705,
+          0.1138191762380302
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.8490213706274516,
+        "net_xy_m": 0.06594396540730456,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.15024761073702977,
+        "root_xy_speed_final_mps": 0.030596036157308857,
+        "root_xy_speed_mean_mps": 0.07812183618820812,
+        "sprocket_applied_torque_mean_abs_Nm": 61.84285734631121,
+        "sprocket_joint_velocity_mean_abs_radps": 1.6665491219086106,
+        "sum_body_contact_net_force_norm_mean_N": 512.343882107137,
+        "yaw_change_rad": -0.20571660995483398
+      },
+      "steps_70_to_190": {
+        "actor_action_mean_abs": [
+          0.3260321831369141,
+          0.3294556138513625,
+          4.041506550528786,
+          3.2524784793538495,
+          0.10931627751782166,
+          0.11887850138274106
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7214871132448085,
+        "net_xy_m": 0.257738575408734,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.2962224592071608,
+        "root_xy_speed_final_mps": 0.10520355325849261,
+        "root_xy_speed_mean_mps": 0.05350721581825104,
+        "sprocket_applied_torque_mean_abs_Nm": 92.4984044230674,
+        "sprocket_joint_velocity_mean_abs_radps": 1.6877648761170754,
+        "sum_body_contact_net_force_norm_mean_N": 550.5996699313134,
+        "yaw_change_rad": -0.5961693674325943
+      }
+    },
+    "C": {
+      "all_280_steps": {
+        "actor_action_mean_abs": [
+          0.327218151348643,
+          0.323841132898815,
+          4.0057330821241655,
+          3.2405812506164824,
+          0.1067888683128071,
+          0.11685587125165121
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7397175435277599,
+        "net_xy_m": 0.5226400052274696,
+        "nonzero_actor_command_steps": 1,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.712213859326995,
+        "root_xy_speed_final_mps": 0.029786894619021585,
+        "root_xy_speed_mean_mps": 0.05628892684282858,
+        "sprocket_applied_torque_mean_abs_Nm": 95.43215076018657,
+        "sprocket_joint_velocity_mean_abs_radps": 1.6261419044923968,
+        "sum_body_contact_net_force_norm_mean_N": 519.7892496956745,
+        "yaw_change_rad": -1.2423868477344513
+      },
+      "event_steps": [],
+      "inner_seal_sha256": "3f5c0f14cc3002e3d0569875451fedc07d9bb053c4aabdd47f01be1a77b8f158",
+      "outer_seal_sha256": "582d5ed294e26009bb067236e4d9e714921378482a15881571a048b78e8049f1",
+      "root": "/home/kojima/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-cancel-residual-v3-20261013-181456",
+      "steps_191_to_279": {
+        "actor_action_mean_abs": [
+          0.3393232239713746,
+          0.30687859049590116,
+          4.035283594988705,
+          3.244140533918745,
+          0.10339027524695554,
+          0.11911943090263377
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7037022802296531,
+        "net_xy_m": 0.17357891133246736,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.2078713144012226,
+        "root_xy_speed_final_mps": 0.029786894619021585,
+        "root_xy_speed_mean_mps": 0.052883491537658235,
+        "sprocket_applied_torque_mean_abs_Nm": 76.57391523310308,
+        "sprocket_joint_velocity_mean_abs_radps": 1.5845937936715886,
+        "sum_body_contact_net_force_norm_mean_N": 515.2382641964191,
+        "yaw_change_rad": -0.4494801461696625
+      },
+      "steps_240_to_279": {
+        "actor_action_mean_abs": [
+          0.321334671555087,
+          0.3296212524175644,
+          4.016473007202149,
+          3.2457729995250704,
+          0.10114826817880385,
+          0.11495405109599233
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.6943510916316882,
+        "net_xy_m": 0.06838204459043007,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.08440406607988452,
+        "root_xy_speed_final_mps": 0.029786894619021585,
+        "root_xy_speed_mean_mps": 0.048552810834065735,
+        "sprocket_applied_torque_mean_abs_Nm": 69.12915179133415,
+        "sprocket_joint_velocity_mean_abs_radps": 1.5436734869057545,
+        "sum_body_contact_net_force_norm_mean_N": 531.8768073916881,
+        "yaw_change_rad": -0.2200968861579895
+      },
+      "steps_70_to_190": {
+        "actor_action_mean_abs": [
+          0.3198981572689165,
+          0.33793557488382603,
+          4.000460482825917,
+          3.258886611166079,
+          0.10545125724613082,
+          0.11280804087430978
+        ],
+        "done_steps": 0,
+        "flipper_joint_velocity_mean_abs_radps": 0.7371168520483419,
+        "net_xy_m": 0.24051599609916213,
+        "nonzero_actor_command_steps": 0,
+        "nonzero_follower_command_steps": 0,
+        "path_length_xy_m": 0.3272485597616067,
+        "root_xy_speed_final_mps": 0.04023812458331852,
+        "root_xy_speed_mean_mps": 0.05941387013379362,
+        "sprocket_applied_torque_mean_abs_Nm": 109.33880858763683,
+        "sprocket_joint_velocity_mean_abs_radps": 1.5901191653279696,
+        "sum_body_contact_net_force_norm_mean_N": 515.1532628802764,
+        "yaw_change_rad": -0.5586861670017242
+      }
+    }
+  },
+  "schema": "eatnav_cancel_residual_abc_comparison_v1",
+  "terrain_tile": {
+    "difficulty": 0.09648210976798452,
+    "geometry_sha256": "e694887dde930372ddf9b2eee714a9167e2fd8debc6fb5282a228cbaa233b1ef",
+    "seed": 2503494032,
+    "terrain_type": "boxes",
+    "tile_index": 0
+  }
+}

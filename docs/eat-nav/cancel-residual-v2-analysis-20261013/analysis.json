@@ -1,0 +1,53 @@
+{
+  "available": {
+    "applied_torque": false,
+    "contact_force": false,
+    "joint_velocity": false,
+    "root_velocity_tensor": false
+  },
+  "cancel_summary": {
+    "action_mean_abs": [
+      0.3125207179159458,
+      0.421715689769813,
+      3.928833396094186,
+      3.2519377061298917,
+      0.10933124048169703,
+      0.11809070546712194
+    ],
+    "cancel_pose_map": [
+      -15.178709983825684,
+      0.23344194889068604,
+      -0.2151380330324173
+    ],
+    "cancel_step": 190,
+    "cancel_time_s": 9.5,
+    "cumulative_xy_m": 0.26236796601617146,
+    "last_0_5s_mean_xy_speed_mps": 0.07688447732135997,
+    "last_pose_map": [
+      -14.980499267578125,
+      0.1512424349784851,
+      -0.6555888056755066
+    ],
+    "last_root_velocity_source": "finite_difference_pose",
+    "last_xy_speed_mps": 0.07291622541252438,
+    "max_xy_displacement_m": 0.21457923506894208,
+    "net_xy_m": 0.21457923506894208,
+    "post_cancel_actor_input_nonzero_steps": 0,
+    "post_cancel_command_nonzero_steps": 0,
+    "post_cancel_done_steps": 0,
+    "post_cancel_steps": 70,
+    "segments_m": {
+      "0.0-0.5": 0.035004326251455525,
+      "0.5-1.0": 0.04119845823769128,
+      "1.0-2.0": 0.07937882070691465,
+      "2.0+": 0.10678636082010999
+    },
+    "source_step_count": 260,
+    "yaw_change_rad": -0.4404507726430893
+  },
+  "reference_step": 190,
+  "source_root": "/home/kojima/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v2-20261013-173938",
+  "source_seal_sha256": "9179ae0725448c7755b0464f0dd580089808c7cd419c90a3fb9820f974e24b20",
+  "source_trace_sha256": "49eb4ef5d71d62f3861dd297454b56444c602e4cdae45e2b955bc6d404a7cae8",
+  "step_count": 260
+}
