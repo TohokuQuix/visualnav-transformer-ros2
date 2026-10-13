@@ -44,7 +44,7 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v3-fall-only-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v4-turn-escape-*`.
 The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
 preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and
@@ -85,6 +85,13 @@ and is independent of env count.
   Timeout is disabled; an invalid numeric state stops the run rather than
   resetting. On a fall reset, the Goal and Path are cleared, and the operator
   must send a new Goal. Flipper fold mode is fixed to `0` at every reset.
+- The demo applies a ROS-free turn-stall command preprocessor after the
+  follower and before the RL Actor. It uses the production bridge launch
+  thresholds (2 s at at most 50% yaw-rate response, then up to 0.2 m/s
+  alternating forward/backward offset every 1 s). The measured input is
+  Isaac body yaw rate, a proxy for the production bridge's IMU yaw rate.
+  Trace rows distinguish `follower_command`, processed `command`, and the
+  `turn_escape` diagnostic.
 - The single-env demo disables the stock startup USD sprocket filtered-pairs
   edit. That edit is already skipped in multi-env mode and otherwise
   invalidates the single-env PhysX tensor view during reset. Reset events,

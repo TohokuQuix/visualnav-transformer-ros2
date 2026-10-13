@@ -11,7 +11,7 @@ the tests is `/home/kojima/lib/onix_isaac_lab` at
 handoff. Keep the worktree and experiment roots in persistent storage before
 a reboot; `/tmp` worktrees may be removed by the host.
 
-The current demo protocol is `eatnav_ros2_isaac_gui_demo_terrain_v3_fall_only`.
+The current demo protocol is `eatnav_ros2_isaac_gui_demo_terrain_v4_turn_escape`.
 Only the existing 85-degree tilt termination resets the robot. The 40 s
 episode length remains in the RL configuration, but its timeout termination
 is disabled for the demo. An invalid numeric robot state stops the run with
@@ -21,6 +21,15 @@ the flipper angle, speed, and front/rear interference limits still apply.
 After a fall, the Goal, selected Path, and DEM history are cleared; a new
 Goal must be sent. The ROS `/clock` continues, while the reset raycaster's
 episode-local update time is mapped onto that continuous clock.
+Before the command reaches the RL Actor, a ROS-free command preprocessor
+checks the follower's requested yaw rate against the robot's measured body
+yaw rate. With the production bridge launch defaults, a response of at most
+50% for 2 s adds up to 0.2 m/s longitudinal motion and reverses that offset
+every 1 s. This preprocessor persists across Path replans and clears on a
+new Goal, Cancel, or fall reset. The trace stores both the raw follower
+command and the processed command. Isaac body angular velocity is used as a
+proxy for the production bridge's IMU yaw-rate input; exact IMU parity is
+not asserted.
 
 ## Installed environment checked on 2026-10-13
 
@@ -117,8 +126,8 @@ The 20 Hz loop publishes `/clock`, `/eat_nav/odom`, TF `map→base_link`,
 `sim-output/complete.json`, `sim-output/sha-ledger.json`, and
 `sim-output/host-seal.json`. A `failure.json` means the run did not pass.
 The trace uses one row per control step with `stamp_ns=step×50 ms`.
-New roots use `.eatnav-ros2-gui-demo-terrain-v3-fall-only-*`; earlier
-`terrain-v2` roots remain separate evidence.
+New roots use `.eatnav-ros2-gui-demo-terrain-v4-turn-escape-*`; earlier
+`terrain-v2` and `terrain-v3-fall-only` roots remain separate evidence.
 
 `--terrain-type` accepts `k_rail_step_field`, `pyramid_stairs`,
 `pyramid_stairs_inv`, `random_rough`, `boxes`, `hf_pyramid_slope`, and

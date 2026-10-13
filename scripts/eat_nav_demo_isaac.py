@@ -55,6 +55,7 @@ from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrai
 from visualnav_transformer.eat_nav.demo_reset_policy import (
     DemoSensorClock, assert_finite_sim_state, configure_demo_reset_policy,
 )
+from visualnav_transformer.eat_nav.demo_turn_escape import TurnStuckEscape
 from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
 from visualnav_transformer.eat_nav.demo_contract import (
     CHECKPOINT_SHA256, DATASET_SHA256, RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
@@ -67,8 +68,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v3_fall_only'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v4_fall_only'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v4_turn_escape'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v5_turn_escape'
 
 
 def durable_json(path, value):
@@ -157,7 +158,8 @@ def main():
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
               'terrain_level': args.terrain_level,
               'residual_diagnostics': args.residual_diagnostics,
-              'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0}
+              'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0,
+              'turn_escape_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_turn_escape.py')}
     durable_json(args.output/'input-ledger.json', ledger)
     if ledger['checkpoint_sha256'] != CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
@@ -212,6 +214,7 @@ def main():
     capture = None
     wire = None
     follower = None
+    turn_escape = TurnStuckEscape()
     trace = None
     try:
         env = RslRlVecEnvWrapper(gym.make('Isaac-Velocity-Rough-Onix-v0', cfg=cfg))
@@ -265,7 +268,8 @@ def main():
             'rl_checkpoint_sha256': ledger['rl_checkpoint_sha256'],
             'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
             'terrain_level': args.terrain_level, 'reset_policy': 'tilt_over_only',
-            'flipper_fold_modes': bare._onix_flipper_fold_mode.detach().cpu().tolist()})
+            'flipper_fold_modes': bare._onix_flipper_fold_mode.detach().cpu().tolist(),
+            'turn_escape': 'policy_preprocessing_bridge_launch_defaults'})
         wire = GoalWire(args.port)
         trace = (args.output/'trace.jsonl').open('x')
         history = collections.deque(maxlen=4)
@@ -292,6 +296,7 @@ def main():
                     if follower is not None:
                         follower.close()
                         follower = None
+                    turn_escape.reset()
                     trace.write(json.dumps({'event': 'cancel', 'step': step, 'stamp_ns': stamp_ns})+'\n')
                 elif message.get('type') == 'goal':
                     age = stamp_ns - int(message.get('stamp_ns', -1))
@@ -302,6 +307,7 @@ def main():
                         continue
                     goal_map = value
                     arrived = False
+                    turn_escape.reset()
                     last_replan_step = step - args.replan_steps
                     trace.write(json.dumps({'event': 'goal', 'step': step, 'stamp_ns': stamp_ns,
                                             'goal_map': value.tolist()})+'\n')
@@ -354,6 +360,10 @@ def main():
                 if diagnostic['goal_reached'] and goal_map is not None and \
                         np.linalg.norm(np.asarray(pose[:2]) - goal_map) <= .15:
                     arrived = True
+            follower_command = command
+            measured_yaw_rate = float(robot.data.root_ang_vel_b[0, 2])
+            command, turn_escape_diagnostic = turn_escape.apply(
+                follower_command, measured_yaw_rate, stamp_ns)
             commands = torch.zeros((args.num_envs, 3), device=bare.device)
             commands[0] = torch.tensor(command, dtype=commands.dtype, device=commands.device)
             override.set(commands)
@@ -401,6 +411,7 @@ def main():
                     if follower is not None:
                         follower.close()
                         follower = None
+                    turn_escape.reset()
                     history.clear()
                 trace.write(json.dumps({'event': 'fall_reset', 'step': step,
                                         'stamp_ns': stamp_ns + STEP_NS,
@@ -427,10 +438,13 @@ def main():
                      'dem_sensor_update_ns': history[-1][2] if history else None,
                      'selected': selected, 'candidate_paths_map': {k: v.tolist() for k, v in paths_map.items()},
                      'scores_m': scores, 'goal_map': goal_map.tolist() if goal_map is not None else None,
-                     'command': command, 'status': status}
+                     'command': command, 'follower_command': follower_command,
+                     'turn_escape': turn_escape_diagnostic, 'status': status}
             wire.send(state)
             trace.write(json.dumps({'event': 'step', 'step': step, 'stamp_ns': stamp_ns,
                                     'pose_pre': pose, 'pose_post': post_pose, 'command': command,
+                                    'follower_command': follower_command,
+                                    'turn_escape': turn_escape_diagnostic,
                                     'actor_action': action[0].detach().cpu().tolist(),
                                     'actor_input_command': command_detail['actor_seen'][0],
                                     'follower': diagnostic, 'reward': float(reward[0]),

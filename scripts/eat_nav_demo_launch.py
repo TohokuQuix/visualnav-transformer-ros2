@@ -61,7 +61,7 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v4-fall-only' if args.residual_diagnostics else 'terrain-v3-fall-only'
+    series = 'cancel-residual-v5-turn-escape' if args.residual_diagnostics else 'terrain-v4-turn-escape'
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -75,7 +75,7 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v3_fall_only', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v4_turn_escape', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'rl_checkpoint_sha256': sha(RL),
@@ -86,6 +86,7 @@ def main():
                 'contract_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_contract.py'),
                 'env_cfg_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py'),
                 'reset_policy_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_reset_policy.py'),
+                'turn_escape_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_turn_escape.py'),
                 'follower_core_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_follower_core.py'),
                 'observation_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py'),
                 'bank_sha256': sha(REPO/'config/eat_nav_demo_p1_bank.json'),
@@ -95,6 +96,7 @@ def main():
                 'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
                 'terrain_level': args.terrain_level,
                 'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0,
+                'turn_escape': 'policy_preprocessing_bridge_launch_defaults',
                 'residual_diagnostics': args.residual_diagnostics,
                 'terrain_selection_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_terrain.py')}
     (root/'launch-manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n')
