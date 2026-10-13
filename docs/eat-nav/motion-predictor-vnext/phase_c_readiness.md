@@ -1,0 +1,3 @@
+# Phase C readiness after B-MI Stage 1
+
+**Blocked.** Motion feasibility has limited evidence from B-R0, but candidate-induced motion identifiability (MI-A) remains unmeasured under the new protocol. Motion predictability (MI-B) and offline navigation utility (MI-C) were not run. No provisional Forward/Reverse Arc can be promoted to an adopted motion alternative from this attempt. The prior B-R1 Fail is unchanged. Required next evidence is a newly reviewed mirror/paired-condition protocol and successful primary 2 s multi-seed candidate rollouts. Full collection, full retraining and GUI integration remain outside the completed work.

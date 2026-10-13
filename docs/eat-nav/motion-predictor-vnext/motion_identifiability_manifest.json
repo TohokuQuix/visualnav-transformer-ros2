@@ -1,0 +1,30 @@
+{
+  "schema": "eatnav_motion_identifiability_v1",
+  "phase": "MI-A_stage1",
+  "base_commit": "797f3c0699fdf9bbd784c2d3fba4f806be4ea46a",
+  "primary_horizon_steps": 40,
+  "step_seconds": 0.05,
+  "num_envs": 4,
+  "repeats": [0, 1],
+  "candidate_order": ["forward_direct", "reverse_direct", "forward_-30", "forward_+30", "reverse_-30", "reverse_+30"],
+  "schedule_order": "seed listed order, then repeat listed order, then candidate listed order",
+  "terrain_groups": [
+    {"seed": 2026101305, "terrain_type": "pyramid_stairs", "terrain_level": 2, "condition": "mirror"},
+    {"seed": 2026101306, "terrain_type": "pyramid_stairs", "terrain_level": 2, "condition": "mirror"},
+    {"seed": 2026101301, "terrain_type": "random_rough", "terrain_level": 2, "condition": "rough"},
+    {"seed": 2026101302, "terrain_type": "random_rough", "terrain_level": 2, "condition": "rough"},
+    {"seed": 2026101303, "terrain_type": "random_rough", "terrain_level": 2, "condition": "rough"},
+    {"seed": 2026101304, "terrain_type": "random_rough", "terrain_level": 2, "condition": "rough"}
+  ],
+  "primary_thresholds": {"relative_signed_yaw_rad": 0.05, "relative_signed_lateral_m": 0.03,
+    "bootstrap_draws": 10000, "bootstrap_rng_seed": 130013,
+    "adjusted_one_sided_tail": 0.0125, "aligned_seed_min": 5,
+    "repeat_p90_multiplier": 2.0},
+  "mirror_thresholds": {"tile_local_y_abs_m": 0.02, "yaw_abs_rad": 0.02,
+    "mask_iou_min": 0.99, "height_rms_max_m": 0.005},
+  "resource_caps": {"gpu_device_total_mib": 6656, "host_mem_available_min_kib": 2097152,
+    "batch_storage_bytes": 800000000, "wall_seconds_per_process": 600},
+  "model_checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "eat_config_sha256": "b7cd7f9227939498bb902d5e5bb5f7a65275db40fe48f7cb46d23b1570640e0b",
+  "path_bank_sha256": "a5f5474598b97dd836a02acf48e506ed4c6baea8818448280880176877d669f6"
+}

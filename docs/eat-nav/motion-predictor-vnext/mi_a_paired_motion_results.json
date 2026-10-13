@@ -1,0 +1,23 @@
+{
+  "schema": "eatnav_motion_identifiability_v1",
+  "stage": "MI-A_stage1",
+  "mi_a_gate": "inconclusive",
+  "status": "not_assessable_protocol_stop",
+  "completed_candidate_processes": 0,
+  "candidate_outcome_rows": 0,
+  "scheduled_processes": 72,
+  "first_attempt": "00-seed2026101305-r0-forward_direct",
+  "first_failing_gate": "pre_path_mirror_audit",
+  "path_published": false,
+  "failure_summary": {
+    "yaw_abs_rad_limit": 0.02,
+    "observed_yaw_abs_rad": [0.035928232688769046, 0.09553737251287367, 0.06267129115776487, 0.03584070201786295],
+    "mask_iou_limit": 0.99,
+    "observed_mask_iou": 0.8181818181818182,
+    "height_rms_m_max": 7.9334766008529e-08,
+    "height_rms_m_limit": 0.005
+  },
+  "evidence_root": "/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/mi-a-v1-20261013",
+  "old_b_r1_status": "fail_unchanged",
+  "phase_c_status": "blocked"
+}

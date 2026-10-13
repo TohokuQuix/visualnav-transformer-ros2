@@ -1,0 +1,37 @@
+# Phase B-MI: Motion Identifiability Gate v1
+
+## Purpose and boundaries
+
+Measure whether the unchanged Isaac Lab robot, RL Actor, command manager and C++ PureFollower produce candidate-specific motion that can eventually support a goal-independent Motion Predictor. B-MI is independent of B-R1: the frozen B-R1 absolute-yaw-sign failure remains Fail. Phase C remains blocked. No robot, contact, mass, friction, Actor, checkpoint, follower, noise, latency or control-period tuning is permitted.
+
+MI-A (actual candidate-induced motion), MI-B (held-out prediction of that motion), and MI-C (offline goal-selection utility) are separate decisions. MI-B requires an MI-A Pass; MI-C requires an MI-B Pass. A one-seed descriptive effect cannot satisfy MI-A.
+
+## Pilot assignment and independent units
+
+The primary 2 s MI-A pilot uses Forward/Reverse Direct and ±30° only (six Paths). Six *new* terrain seeds, each with four generated env tiles, receive all six Paths in independent fresh processes. Each seed×Path is repeated once in a second fresh process: 72 processes, 288 40-step traces. Each four-env process is a cluster, and the terrain seed is the independent unit for cross-seed uncertainty; env and repeat rows are paired observations within that unit. Four seeds use `random_rough` level 2; two use `pyramid_stairs` level 2 as a left/right symmetric terrain control. Seed assignment and order are fixed in the manifest before any rollout.
+
+For the symmetric terrain control only, reset pose x=y=yaw=0 is specified in the *new diagnostic configuration* for every candidate; this changes an initial condition stratum, not the robot or controller. The underlying pyramid-stairs generator is symmetric under local y→−y by construction. The actual pre-Path tile-local y and yaw must be within 0.02 m and 0.02 rad; the DEM mask reflected about y must have IoU≥0.99 and finite-height RMS≤0.005 m. A failure makes the mirror stratum unavailable, and it is never called a physically equivalent mirror. Left/right robot geometry is not assumed symmetric; any robot asymmetry is part of the measured embodiment response. If the symmetry audit cannot be established, MI-A is Inconclusive for mirror support.
+
+For every candidate, source, Path bytes, checkpoint, config, seed, terrain metadata, initial root/joint, Actor pre/post-noise and post-delay, DEM history, material, initial command, latency state and RNG provenance are recorded. All candidate pre-Path states within a seed×repeat are compared with the Direct reference before Path activation. The same seed×env fresh-process repeat is compared separately; no process is silently reused as an independent sample. A container stage is addressed by full attempt-path digest. Host and simulator manifests, failure markers and inner/outer seals are checked before promotion.
+
+## Outcome and estimands
+
+Each candidate is published once. The controller is called exactly once at each 50 ms stamp for 40 steps. The primary label is the world displacement rotated into the **initial** body frame: `(Δx, Δy)` in metres, plus wrapped `Δyaw` in radians. Reverse X is never sign-flipped. Terminal/reset before step 40 yields an unavailable label with reason. Raw traces also retain body velocity, yaw, command v/ω, follower travel direction and goal state, Actor action, sprocket velocities, Path tracking, and terminal reason.
+
+Within each StateGroup (seed×env×repeat), subtract Forward Direct from Forward Arc and Reverse Direct from Reverse Arc. Yaw difference is wrapped. The prespecified signed quantities for each ±30° arc are `sign(angle) × relative Δyaw` and `direction × sign(angle) × relative Δy`; positive values correspond to the requested turn in the path's travel frame. Raw vector differences and X change are reported without a forced expected sign. Report env-level and seed-level means, standard deviations, 5/50/95% quantiles, left/right pairing and terrain-stratified results. Do not treat the four envs or the two repeats as 48 independent seeds.
+
+## Frozen MI-A decision
+
+The practical minimum is a signed candidate-relative yaw difference of **0.05 rad** or travel-left lateral difference of **0.03 m** at 2 s. These are respectively about 3° and 4% of the 0.75 m Path, below the already observed Forward ±30° yaw differences but above the prior Reverse +30° +0.031 rad one-seed diagnostic. For each of four arc contrasts, average envs and repeats within each seed, then bootstrap the six seed clusters 10,000 times with fixed analysis seed 130013. Use the 1.25th percentile as a one-sided Bonferroni-adjusted lower bound for each candidate and measure. A candidate is distinguishable only if (a) the lower bound exceeds the appropriate practical minimum, (b) at least five of six seed estimates have the expected sign, (c) its mean effect exceeds twice the p90 absolute same-seed fresh-process repeat difference for the same measure, and (d) at least one protocol-valid symmetric-terrain seed supports the same sign. Repeatability is descriptive; the p90 is not a statistical detection guarantee.
+
+Forward and Reverse receive independent MI-A decisions. Overall MI-A Pass requires at least one distinguishable ±30° candidate in **each** direction. If every protocol-valid candidate has an upper 98.75% seed-bootstrap bound below both practical minima, MI-A Fail. Otherwise MI-A Inconclusive. Missing mirror evidence, fewer than six independent seed clusters, broken pairing, or unbounded repeat noise also yield Inconclusive. No outcome-dependent threshold changes are allowed. Weak absolute yaw sign alone is not a failure in this new protocol.
+
+## Horizon and conditional stages
+
+2 s remains primary. The 0.75 m Path ends at a finite Goal; PureFollower's `goal_reached` latch commands zero after reaching the endpoint or passing its extension. Before any 4/6 s run, verify the exact Goal transition and 40 s diagnostic episode cap. A separate versioned 80/120-step *diagnostic-only* protocol may then compare the same candidates at 4/6 s, recording first Goal step, stop duration, termination and censoring. It does not retroactively change the 2 s gate. There is no replanning.
+
+Only after Stage 1 MI-A Pass may ±60°/±90° be added as Stage 2, with new candidate-specific feasibility evidence. Only an adopted subset with valid paired labels may enter Stage 3 MI-B. Train/validation/test are split by StateGroup and independent terrain seed; normalization uses train only. Compare State-only, Direction-only and Path+Direction models under matched training conditions and multiple training seeds. Test is not used for checkpoint selection. MI-C evaluates the same measured outcomes under multiple virtual body-frame Goals, with seed-clustered regret versus oracle and Direct-only; virtual Goals are not independent robot trials. No full collection, full retraining or GUI integration is part of B-MI.
+
+## Resource and stop contract
+
+Prior B-R1 valid six-process wall time was 141 s, peak GPU 5,776 MiB, and disk 6.88 MB. The 72-process estimate is roughly 28–40 min and 85–110 MB, allowing startup and seal overhead; first process calibrates the estimate. Per-process frozen caps remain GPU device-total 6,656 MiB, host available RAM ≥2 GiB, storage ≤0.8 GB and wall ≤600 s. Each run has a fresh persistent host root, raw trace, resource series, native exit, inner/outer SHA seal and source/input manifest. Stop the schedule on protocol/resource/seal failure; preserve all attempts. Do not advance to MI-B or MI-C on Fail/Inconclusive.
