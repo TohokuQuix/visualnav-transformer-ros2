@@ -1,8 +1,9 @@
-"""Demo-only fall reset policy and mapping of episode-local sensor time."""
+"""Demo-only fall reset policy and drift-safe sensor time mapping."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
 
 def assert_finite_sim_state(robot) -> None:
@@ -32,7 +33,7 @@ def configure_demo_reset_policy(cfg) -> None:
 
 @dataclass
 class DemoSensorClock:
-    """Place Isaac sensor timestamps on the uninterrupted demo /clock timeline."""
+    """Map the raycaster's float32 sample age to the integer demo /clock."""
 
     step_ns: int
     episode_origin_ns: int = 0
@@ -41,10 +42,14 @@ class DemoSensorClock:
         if self.step_ns <= 0:
             raise ValueError('step duration must be positive')
 
-    def global_sensor_stamp(self, episode_sensor_ns: int) -> int:
-        if episode_sensor_ns < 0:
-            raise ValueError('sensor timestamp must be nonnegative')
-        return self.episode_origin_ns + episode_sensor_ns
+    def sensor_update_on_logical_clock(
+            self, logical_ns: int, sensor_now_s: float, sensor_update_s: float) -> int:
+        """Use two readings of the same Isaac clock so accumulated drift cancels."""
+        if not all(math.isfinite(value) and value >= 0 for value in
+                   (sensor_now_s, sensor_update_s)) or sensor_update_s > sensor_now_s:
+            raise ValueError('sensor clock values are invalid or reversed')
+        age_ns = round((sensor_now_s - sensor_update_s) * 1e9)
+        return int(logical_ns) - age_ns
 
     def after_fall(self, completed_step: int) -> None:
         new_origin = (completed_step + 1) * self.step_ns

@@ -39,26 +39,55 @@ def test_unexpected_termination_term_fails_closed():
 
 def test_sensor_clock_survives_timeout_boundary_and_fall_reset():
     clock = DemoSensorClock(step_ns=50_000_000)
-    assert clock.global_sensor_stamp(39_750_000_000) == 39_750_000_000
+    assert clock.sensor_update_on_logical_clock(39_750_000_000, 39.75, 39.75) == 39_750_000_000
     # No timeout reset at the old 800-step boundary: sensor time continues.
-    assert clock.global_sensor_stamp(40_000_000_000) == 40_000_000_000
+    assert clock.sensor_update_on_logical_clock(40_000_000_000, 40.0, 40.0) == 40_000_000_000
     clock.after_fall(completed_step=924)
-    assert clock.global_sensor_stamp(0) == 46_250_000_000
-    assert sensor_stamp_valid(46_250_000_000, clock.global_sensor_stamp(0))
-    assert sensor_stamp_valid(46_450_000_000, clock.global_sensor_stamp(0))
-    assert not sensor_stamp_valid(46_600_000_000, clock.global_sensor_stamp(0))
-    assert clock.global_sensor_stamp(250_000_000) == 46_500_000_000
+    assert clock.sensor_update_on_logical_clock(46_250_000_000, 0.0, 0.0) == 46_250_000_000
+    assert sensor_stamp_valid(46_450_000_000, clock.sensor_update_on_logical_clock(
+        46_450_000_000, .2, 0.0))
+    assert not sensor_stamp_valid(46_600_000_000, clock.sensor_update_on_logical_clock(
+        46_600_000_000, .35, 0.0))
+    assert clock.sensor_update_on_logical_clock(46_500_000_000, .25, .25) == 46_500_000_000
     clock.after_fall(completed_step=1000)
-    assert clock.global_sensor_stamp(0) == 50_050_000_000
+    assert clock.sensor_update_on_logical_clock(50_050_000_000, 0.0, 0.0) == 50_050_000_000
 
 
 def test_sensor_clock_rejects_invalid_or_nonmonotonic_episode_origin():
     clock = DemoSensorClock(step_ns=50_000_000)
     with pytest.raises(ValueError, match='sensor'):
-        clock.global_sensor_stamp(-1)
+        clock.sensor_update_on_logical_clock(0, -1, 0)
     clock.after_fall(completed_step=10)
     with pytest.raises(ValueError, match='reset'):
         clock.after_fall(completed_step=9)
+
+
+def test_sensor_stamp_uses_same_float_clock_age_instead_of_drifting_absolute_time():
+    import torch
+
+    clock = DemoSensorClock(step_ns=50_000_000)
+    sensor_now = torch.zeros((), dtype=torch.float32)
+    for _ in range(9600):
+        sensor_now += 0.005
+    # Isaac's accumulated float32 clock has drifted by more than the frozen
+    # 1 ms future-stamp allowance, even when the raycaster updated just now.
+    logical_ns = 960 * clock.step_ns
+    assert round(float(sensor_now) * 1e9) - logical_ns > 1_000_000
+    mapped = clock.sensor_update_on_logical_clock(
+        logical_ns, float(sensor_now), float(sensor_now))
+    assert mapped == logical_ns
+    assert sensor_stamp_valid(logical_ns, mapped)
+
+
+def test_sensor_age_mapping_survives_fall_reset_and_rejects_stale_or_future_data():
+    clock = DemoSensorClock(step_ns=50_000_000)
+    clock.after_fall(completed_step=924)
+    logical_ns = 925 * clock.step_ns
+    assert clock.sensor_update_on_logical_clock(logical_ns, 0.25, 0.0) == logical_ns - 250_000_000
+    assert not sensor_stamp_valid(logical_ns, clock.sensor_update_on_logical_clock(
+        logical_ns, 0.35, 0.0))
+    with pytest.raises(ValueError, match='sensor'):
+        clock.sensor_update_on_logical_clock(logical_ns, 0.0, 0.1)
 
 
 def test_nonfinite_robot_state_is_fatal_instead_of_reset():

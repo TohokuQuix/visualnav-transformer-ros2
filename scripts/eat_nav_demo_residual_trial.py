@@ -61,7 +61,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', choices=('A', 'B', 'C'), required=True)
     args = parser.parse_args()
-    pattern = '.eatnav-ros2-gui-demo-cancel-residual-v5-turn-escape-*'
+    pattern = '.eatnav-ros2-gui-demo-cancel-residual-v6-sensor-age-*'
     before = set(ONIX.glob(pattern))
     cmd = ['/usr/bin/python3', str(REPO/'scripts/eat_nav_demo_launch.py'),
            '--residual-diagnostics', '--headless', '--num-envs', '1',

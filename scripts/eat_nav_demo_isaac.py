@@ -68,8 +68,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v4_turn_escape'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v5_turn_escape'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v5_sensor_age'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v6_sensor_age'
 
 
 def durable_json(path, value):
@@ -99,8 +99,12 @@ def dem_from_sensor(bare, eat_cfg, stamp_ns, sensor_clock):
                         eat_cfg.dem_resolution_m, (0, 0), eat_cfg.reference_frame,
                         int(stamp_ns))
     result = robot_dem(source, pose, eat_cfg)
-    episode_update_ns = round(float(scanner._timestamp_last_update[0]) * 1e9)
-    actual_update_ns = sensor_clock.global_sensor_stamp(episode_update_ns)
+    sensor_now_s = float(scanner._timestamp[0])
+    sensor_update_s = float(scanner._timestamp_last_update[0])
+    # Both values use Isaac's same accumulated float32 sensor clock. Their
+    # difference is stable after the absolute clock drifts beyond 1 ms.
+    actual_update_ns = sensor_clock.sensor_update_on_logical_clock(
+        stamp_ns, sensor_now_s, sensor_update_s)
     # The raycaster updates every 250 ms, independently of the 50 ms control
     # boundary. Its latest sample can be one sensor period old at that boundary.
     # Preserve both clocks and reject a missing update beyond period + one step.
