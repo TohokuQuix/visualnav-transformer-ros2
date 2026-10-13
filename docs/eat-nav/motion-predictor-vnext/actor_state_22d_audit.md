@@ -1,0 +1,7 @@
+# MI-FI v1 Actor state 22D audit
+
+The checkpoint environment records `use_last_action_obs=false`, `use_joint_effort_obs=true`, `use_height_scan_obs=false`. The resolved policy observation order is: base angular velocity (3, ×0.25), projected gravity (3, ×1), velocity command (3), flipper fold mode (1), relative flipper joint position in RR/RL/FR/FL order (4, ×1), right/left track mean velocity (2, ×0.05), flipper effort plus right/left track summed effort (6, ×0.01). This totals 22 dimensions. Base linear velocity and height scan are not in the policy observation. Relative joint position is measured position minus the asset default, which is zero for these joints. Position has uniform observation noise ±0.01 rad in the policy input and no such noise in the pre-noise capture.
+
+The four flipper angles are therefore individually distinguishable in the pre-noise Actor state. Roll/pitch orientation is represented indirectly by projected gravity; angular velocity is present. The post-delay Actor input is saved after the 20-step settling at Path activation. The four DEM frames are a separate Motion Predictor input. Whether a trained Motion Predictor can exploit this information is a future MI-B question, not established by this static audit.
+
+Sources: `rough_env_cfg.py` `OnixObservationsCfg.CommonCfg/PolicyCfg`, `velocity_env_cfg.py` `ObservationsCfg.PolicyCfg`, `observations.py` `joint_effort_with_track_sum` and `track_mean_velocity`, checkpoint `params/env.yaml`, and MI-A v2 `ObservationCapture`.

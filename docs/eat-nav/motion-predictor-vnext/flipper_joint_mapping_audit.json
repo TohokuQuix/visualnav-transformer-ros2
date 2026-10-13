@@ -1,0 +1,86 @@
+{
+  "action_soft_clip_rad": [
+    -1.57079632679,
+    4.71238898038
+  ],
+  "actor_training_fold_modes": [
+    0,
+    1,
+    -1
+  ],
+  "actor_training_pose_probabilities": [
+    0,
+    0.5,
+    0.5
+  ],
+  "contact_sensor": {
+    "direct_flipper_terrain_attribution": false,
+    "history_length": 3,
+    "prim_path": "{ENV_REGEX_NS}/onix_chassis/.*"
+  },
+  "experiment_fold_mode": 0,
+  "order": [
+    "chassis_rr_flipper_joint",
+    "chassis_rl_flipper_joint",
+    "chassis_fr_flipper_joint",
+    "chassis_fl_flipper_joint"
+  ],
+  "reset_event_pose_indices": {
+    "front_folded": 1,
+    "rear_folded": 2
+  },
+  "resolved_reset_angles_rad": {
+    "front_folded": [
+      0,
+      0,
+      3.14159265359,
+      3.14159265359
+    ],
+    "rear_folded": [
+      3.14159265359,
+      3.14159265359,
+      0,
+      0
+    ]
+  },
+  "runtime_remaining": [
+    "measured_reset_joint_position",
+    "soft_joint_limits",
+    "post_settling_joint_position",
+    "contact_force_body_mapping"
+  ],
+  "schema": "mi_fi_v1_static_flipper_mapping_audit",
+  "sources": [
+    "onix_isaac_lab/assets/onix.py",
+    "onix_isaac_lab/assets/data/urdf/onix2.urdf",
+    "onix_isaac_lab/tasks/locomotion/velocity/config/onix/rough_env_cfg.py",
+    "onix_isaac_lab/tasks/locomotion/velocity/mdp/events.py",
+    "checkpoint params/env.yaml"
+  ],
+  "urdf_axes": {
+    "front_left": [
+      0,
+      -1,
+      0
+    ],
+    "front_right": [
+      0,
+      -1,
+      0
+    ],
+    "rear_left": [
+      0,
+      1,
+      0
+    ],
+    "rear_right": [
+      0,
+      1,
+      0
+    ]
+  },
+  "urdf_joint_limits_rad": [
+    -6.283185307179586,
+    6.283185307179586
+  ]
+}
