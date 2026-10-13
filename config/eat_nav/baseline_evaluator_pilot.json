@@ -1,0 +1,17 @@
+{
+  "schema": "eatnav_baseline_pilot_config_v1",
+  "label_type": "common_goal_progress",
+  "seed": 123,
+  "max_epochs": 300,
+  "batch_size": 12,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "device": "cpu",
+  "model": {
+    "dem_channels": 8,
+    "state_dim": 22,
+    "path_points": 8,
+    "feature_dim": 64
+  },
+  "interpretation": "one paired StateGroup-seed; train-only overfit and pipeline smoke"
+}
