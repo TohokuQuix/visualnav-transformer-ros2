@@ -44,7 +44,9 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v2-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v3-fall-only-*`.
+The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
+preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and
 host seal allow a run to be audited. The old v1 roots are independent.
 
@@ -79,6 +81,10 @@ and is independent of env count.
 - Cancel and local Goal set the command to zero. The trained RL policy and
   physics can still produce residual motion after zero command; zero
   command alone is not proof of a physical emergency stop.
+- The current demo resets only when the existing tilt threshold is reached.
+  Timeout is disabled; an invalid numeric state stops the run rather than
+  resetting. On a fall reset, the Goal and Path are cleared, and the operator
+  must send a new Goal. Flipper fold mode is fixed to `0` at every reset.
 - The single-env demo disables the stock startup USD sprocket filtered-pairs
   edit. That edit is already skipped in multi-env mode and otherwise
   invalidates the single-env PhysX tensor view during reset. Reset events,

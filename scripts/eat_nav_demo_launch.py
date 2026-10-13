@@ -61,11 +61,11 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v3' if args.residual_diagnostics else 'terrain-v2'
+    series = 'cancel-residual-v4-fall-only' if args.residual_diagnostics else 'terrain-v3-fall-only'
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
-    staging = f'/tmp/eatnav-demo-terrain-v2-{attempt.removeprefix(".eatnav-")}'
+    staging = f'/tmp/eatnav-demo-{attempt.removeprefix(".eatnav-")}'
     run('docker', 'exec', 'isaac-lab-onix', 'mkdir', '-p', staging+'/src', staging+'/config')
     run('docker', 'cp', str(REPO/'src/visualnav_transformer'), 'isaac-lab-onix:'+staging+'/src/')
     for source, target in (
@@ -75,7 +75,7 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v2', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v3_fall_only', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'rl_checkpoint_sha256': sha(RL),
@@ -85,6 +85,7 @@ def main():
                 'rviz_config_sha256': sha(REPO/'config/eat_nav_demo.rviz'),
                 'contract_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_contract.py'),
                 'env_cfg_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py'),
+                'reset_policy_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_reset_policy.py'),
                 'follower_core_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_follower_core.py'),
                 'observation_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py'),
                 'bank_sha256': sha(REPO/'config/eat_nav_demo_p1_bank.json'),
@@ -93,6 +94,7 @@ def main():
                 'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
                 'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
                 'terrain_level': args.terrain_level,
+                'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0,
                 'residual_diagnostics': args.residual_diagnostics,
                 'terrain_selection_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_terrain.py')}
     (root/'launch-manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n')

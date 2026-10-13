@@ -52,6 +52,9 @@ from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
 from visualnav_transformer.eat_nav.demo_isaac_env_cfg import make_collection_cfg
 from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrain
+from visualnav_transformer.eat_nav.demo_reset_policy import (
+    DemoSensorClock, assert_finite_sim_state, configure_demo_reset_policy,
+)
 from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
 from visualnav_transformer.eat_nav.demo_contract import (
     CHECKPOINT_SHA256, DATASET_SHA256, RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
@@ -64,8 +67,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v2'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v3'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v3_fall_only'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v4_fall_only'
 
 
 def durable_json(path, value):
@@ -84,7 +87,7 @@ def pose_map(robot):
     return (float(position[0]), float(position[1]), float(yaw.item()))
 
 
-def dem_from_sensor(bare, eat_cfg, stamp_ns):
+def dem_from_sensor(bare, eat_cfg, stamp_ns, sensor_clock):
     robot, scanner = bare.scene['robot'], bare.scene['height_scanner_eat']
     hits = scanner.data.ray_hits_w[0, :, 2].detach().cpu().numpy().reshape(20, 20)
     valid = np.isfinite(hits)
@@ -95,7 +98,8 @@ def dem_from_sensor(bare, eat_cfg, stamp_ns):
                         eat_cfg.dem_resolution_m, (0, 0), eat_cfg.reference_frame,
                         int(stamp_ns))
     result = robot_dem(source, pose, eat_cfg)
-    actual_update_ns = round(float(scanner._timestamp_last_update[0]) * 1e9)
+    episode_update_ns = round(float(scanner._timestamp_last_update[0]) * 1e9)
+    actual_update_ns = sensor_clock.global_sensor_stamp(episode_update_ns)
     # The raycaster updates every 250 ms, independently of the 50 ms control
     # boundary. Its latest sample can be one sensor period old at that boundary.
     # Preserve both clocks and reject a missing update beyond period + one step.
@@ -152,7 +156,8 @@ def main():
               'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
               'terrain_level': args.terrain_level,
-              'residual_diagnostics': args.residual_diagnostics}
+              'residual_diagnostics': args.residual_diagnostics,
+              'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0}
     durable_json(args.output/'input-ledger.json', ledger)
     if ledger['checkpoint_sha256'] != CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
@@ -177,6 +182,7 @@ def main():
                ('use_last_action_obs', 'use_joint_effort_obs', 'use_height_scan_obs')}
     cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), eat_cfg, args.seed, args.num_envs)
     cfg.episode_length_s = 40.0
+    configure_demo_reset_policy(cfg)
     # The stock startup USD FilteredPairs edit runs only in a single-env
     # scene and invalidates the active PhysX articulation tensor view. It is
     # already skipped by the stock event for the existing four-env demo.
@@ -218,6 +224,9 @@ def main():
         runner.alg.policy.load_state_dict(weights)
         policy = runner.alg.policy
         robot = bare.scene['robot']
+        assert_finite_sim_state(robot)
+        if not bool(torch.all(bare._onix_flipper_fold_mode == 0)):
+            raise ValueError('demo flipper fold mode must be zero')
         override = CommandOverride(bare.command_manager, args.num_envs)
         capture = ObservationCapture(bare.observation_manager)
         library = compile_core(args.output/'core-build')
@@ -255,10 +264,12 @@ def main():
             'control_dt_s': float(bare.step_dt), 'checkpoint_sha256': ledger['checkpoint_sha256'],
             'rl_checkpoint_sha256': ledger['rl_checkpoint_sha256'],
             'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
-            'terrain_level': args.terrain_level})
+            'terrain_level': args.terrain_level, 'reset_policy': 'tilt_over_only',
+            'flipper_fold_modes': bare._onix_flipper_fold_mode.detach().cpu().tolist()})
         wire = GoalWire(args.port)
         trace = (args.output/'trace.jsonl').open('x')
         history = collections.deque(maxlen=4)
+        sensor_clock = DemoSensorClock(STEP_NS)
         goal_map = None
         arrived = False
         selected = None
@@ -297,6 +308,7 @@ def main():
                 else:
                     raise ValueError('unknown ROS transport message')
             pose = pose_map(robot)
+            assert_finite_sim_state(robot)
             if args.residual_diagnostics:
                 try:
                     contact_sensor = bare.scene['contact_forces']
@@ -304,7 +316,7 @@ def main():
                     contact_sensor = None
                 physical_pre = capture_physical_state(robot, contact_sensor)
             if step % 5 == 0:
-                frame, sensor_stamp = dem_from_sensor(bare, eat_cfg, stamp_ns)
+                frame, sensor_stamp = dem_from_sensor(bare, eat_cfg, stamp_ns, sensor_clock)
                 history.append((stamp_ns, frame, sensor_stamp))
             if goal_map is not None and not arrived and len(history) == 4 and step % args.replan_steps == 0 and \
                     step - last_replan_step >= args.replan_steps:
@@ -371,16 +383,30 @@ def main():
             with torch.inference_mode():
                 next_obs, reward, done, _ = env.step(action)
             observed = capture.finish_step(next_obs)
-            if bool(torch.any(done)):
-                goal_map = None
-                arrived = False
-                selected = None
-                paths_map = {}
-                scores = {}
-                if follower is not None:
-                    follower.close()
-                    follower = None
-                history.clear()
+            assert_finite_sim_state(robot)
+            reset_env_ids = torch.nonzero(done, as_tuple=False).flatten().tolist()
+            if reset_env_ids:
+                if bool(torch.any(bare.reset_time_outs)) or not bool(torch.all(
+                        bare._onix_flipper_fold_mode == 0)):
+                    raise ValueError('unexpected demo reset reason or flipper mode')
+                if 0 in reset_env_ids:
+                    sensor_clock.after_fall(step)
+                    latency_prev_for_reconcile = (bare._latency_policy_obs_prev.detach().clone()
+                                                  if bare._latency_policy_obs_prev is not None else None)
+                    goal_map = None
+                    arrived = False
+                    selected = None
+                    paths_map = {}
+                    scores = {}
+                    if follower is not None:
+                        follower.close()
+                        follower = None
+                    history.clear()
+                trace.write(json.dumps({'event': 'fall_reset', 'step': step,
+                                        'stamp_ns': stamp_ns + STEP_NS,
+                                        'env_ids': reset_env_ids,
+                                        'sensor_epoch_origin_ns': sensor_clock.episode_origin_ns,
+                                        'flipper_fold_mode': 0.0}) + '\n')
             obs = next_obs
             post_pose = pose_map(robot)
             diagnostic_extra = {}
@@ -388,7 +414,6 @@ def main():
                 diagnostic_extra = {
                     **diagnostic_extra_pre,
                     'physical_post': capture_physical_state(robot, contact_sensor),
-                    'episode_length_post': int(bare.episode_length_buf[0]),
                 }
             status = 'arrived' if arrived else ('active' if follower is not None else 'idle')
             state = {'type': 'state', 'stamp_ns': stamp_ns + STEP_NS,
@@ -410,6 +435,9 @@ def main():
                                     'actor_input_command': command_detail['actor_seen'][0],
                                     'follower': diagnostic, 'reward': float(reward[0]),
                                     'done': bool(done[0]), 'selected': selected,
+                                    'episode_length_post': int(bare.episode_length_buf[0]),
+                                    'flipper_fold_mode': float(bare._onix_flipper_fold_mode[0]),
+                                    'sensor_epoch_origin_ns': sensor_clock.episode_origin_ns,
                                     'dem_sensor_update_ns': history[-1][2] if history else None,
                                     'dem_sensor_age_ns': stamp_ns - history[-1][2] if history else None,
                                     **diagnostic_extra},

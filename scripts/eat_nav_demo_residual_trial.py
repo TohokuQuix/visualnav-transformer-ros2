@@ -61,7 +61,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', choices=('A', 'B', 'C'), required=True)
     args = parser.parse_args()
-    before = set(ONIX.glob('.eatnav-ros2-gui-demo-cancel-residual-v3-*'))
+    pattern = '.eatnav-ros2-gui-demo-cancel-residual-v4-fall-only-*'
+    before = set(ONIX.glob(pattern))
     cmd = ['/usr/bin/python3', str(REPO/'scripts/eat_nav_demo_launch.py'),
            '--residual-diagnostics', '--headless', '--num-envs', '1',
            '--terrain-type', 'boxes', '--terrain-level', '0', '--seed', '2026101101',
@@ -72,7 +73,7 @@ def main():
     try:
         deadline = time.monotonic() + 120
         while root is None:
-            fresh = set(ONIX.glob('.eatnav-ros2-gui-demo-cancel-residual-v3-*')) - before
+            fresh = set(ONIX.glob(pattern)) - before
             if len(fresh) > 1:
                 raise ValueError('more than one new attempt root')
             if fresh:
