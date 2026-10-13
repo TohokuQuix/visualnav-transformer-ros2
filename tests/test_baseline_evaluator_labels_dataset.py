@@ -1,9 +1,11 @@
 import math
+import hashlib
+import json
 
 import pytest
 
 from visualnav_transformer.eat_nav.evaluator.labels import LABELS, labels_from_trace, pain_from_trace
-from visualnav_transformer.eat_nav.evaluator.dataset import validate_group_split
+from visualnav_transformer.eat_nav.evaluator.dataset import validate_group_split, verify_host_seal
 
 
 def row(step):
@@ -58,3 +60,16 @@ def test_synthetic_pain_formula_is_available_only_with_verified_provenance():
                             env_origin_xy=(0.,0.),pain_allowables=settings)
     assert label['availability'][3]
     assert label['values'][3]==pytest.approx(-1.25)
+
+
+def test_host_seal_read_only_verification_detects_mutation(tmp_path):
+    evidence=tmp_path/'raw.txt';evidence.write_text('original')
+    digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+    ledger=tmp_path/'sha-ledger.json'
+    ledger.write_text(json.dumps({'file_sha256':{'raw.txt':digest(evidence)}}))
+    (tmp_path/'host-seal.json').write_text(json.dumps({'stage':'G3_rosfree_crossover_protocol_valid',
+                                                        'sha_ledger_sha256':digest(ledger)}))
+    assert verify_host_seal(tmp_path)[1]=='G3_rosfree_crossover_protocol_valid'
+    evidence.write_text('changed')
+    with pytest.raises(ValueError,match='seal'):
+        verify_host_seal(tmp_path)

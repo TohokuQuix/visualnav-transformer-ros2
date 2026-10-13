@@ -1,0 +1,162 @@
+{
+  "candidate_count": 3,
+  "checkpoint_sha256": "329341fbf56ccb6bbc2f05b3db6b143cc1a1e9553ba2796e3dec3c785f30e470",
+  "cpu_single_candidate_latency_ms_mean_100_calls": 0.3714359100558795,
+  "dataset_sha256": "bcf94bec2e7578532fd85a0ba64fabb6f018f9b5ff8d92ae73dedc883ffb5a8a",
+  "env_display_groups": [
+    {
+      "env_id": 0,
+      "oracle_role": "direct",
+      "pairwise_ranking_agreement": 1.0,
+      "predicted_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ],
+      "predicted_scores": [
+        0.5218017101287842,
+        0.3692737817764282,
+        0.42623454332351685
+      ],
+      "regret": 0.0,
+      "roles": [
+        "direct",
+        "left_20",
+        "right_20"
+      ],
+      "sample_ids": [
+        "first-differential-2026101101-period-0-env-0",
+        "first-differential-2026101101-period-1-env-0",
+        "first-differential-2026101101-period-2-env-0"
+      ],
+      "selected_role": "direct",
+      "teacher_labels": [
+        0.4938390552997589,
+        0.36949440836906433,
+        0.4081897735595703
+      ],
+      "teacher_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ]
+    },
+    {
+      "env_id": 1,
+      "oracle_role": "direct",
+      "pairwise_ranking_agreement": 1.0,
+      "predicted_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ],
+      "predicted_scores": [
+        0.5218017101287842,
+        0.3692737817764282,
+        0.42623454332351685
+      ],
+      "regret": 0.0,
+      "roles": [
+        "direct",
+        "left_20",
+        "right_20"
+      ],
+      "sample_ids": [
+        "first-differential-2026101101-period-0-env-1",
+        "first-differential-2026101101-period-2-env-1",
+        "first-differential-2026101101-period-1-env-1"
+      ],
+      "selected_role": "direct",
+      "teacher_labels": [
+        0.5368956327438354,
+        0.34755659103393555,
+        0.41330909729003906
+      ],
+      "teacher_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ]
+    },
+    {
+      "env_id": 2,
+      "oracle_role": "direct",
+      "pairwise_ranking_agreement": 1.0,
+      "predicted_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ],
+      "predicted_scores": [
+        0.5218017101287842,
+        0.3692737817764282,
+        0.42623454332351685
+      ],
+      "regret": 0.0,
+      "roles": [
+        "direct",
+        "left_20",
+        "right_20"
+      ],
+      "sample_ids": [
+        "first-differential-2026101101-period-1-env-2",
+        "first-differential-2026101101-period-0-env-2",
+        "first-differential-2026101101-period-2-env-2"
+      ],
+      "selected_role": "direct",
+      "teacher_labels": [
+        0.5735567212104797,
+        0.36112773418426514,
+        0.5150938034057617
+      ],
+      "teacher_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ]
+    },
+    {
+      "env_id": 3,
+      "oracle_role": "direct",
+      "pairwise_ranking_agreement": 0.6666666666666666,
+      "predicted_order": [
+        "direct",
+        "right_20",
+        "left_20"
+      ],
+      "predicted_scores": [
+        0.5218017101287842,
+        0.3692737817764282,
+        0.42623454332351685
+      ],
+      "regret": 0.0,
+      "roles": [
+        "direct",
+        "left_20",
+        "right_20"
+      ],
+      "sample_ids": [
+        "first-differential-2026101101-period-1-env-3",
+        "first-differential-2026101101-period-2-env-3",
+        "first-differential-2026101101-period-0-env-3"
+      ],
+      "selected_role": "direct",
+      "teacher_labels": [
+        0.48291173577308655,
+        0.39889711141586304,
+        0.3683190941810608
+      ],
+      "teacher_order": [
+        "direct",
+        "left_20",
+        "right_20"
+      ]
+    }
+  ],
+  "independent_group_count": 1,
+  "interpretation": "train-set-only, one independent paired StateGroup-seed; no generalization claim",
+  "label_type": "common_goal_progress",
+  "mean_pairwise_ranking_agreement": 0.9166666666666666,
+  "mean_regret": 0.0,
+  "schema": "eatnav_baseline_ranking_diagnostic_v1"
+}
