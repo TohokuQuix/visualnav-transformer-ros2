@@ -1,0 +1,7 @@
+# MI-FI v1 recommendation for MI-A collection
+
+**Recommendation: Option B, conditional on an independently seeded design review.** Balance Front-folded and Rear-folded across StateGroups in the formal MI-A schedule. Set the reset pose from a recorded StateGroup seed; execute all Path candidates from the same settled state within that group. Keep the 2 s labels, Path-relative contrasts, mode 0, Actor checkpoint, follower and physics fixed. Include post-settling flipper angles, root pose, terrain seed and initialization mode in dataset metadata.
+
+Reason: in this one-seed pilot, Rear-folded changed Reverse Direct distance by −0.200 m on average and changed Reverse +30°/−30° Arc-minus-Direct yaw by +0.155/−0.114 rad relative to Front-folded. Both conditions were present in the checkpoint's reset-pose training configuration, and the 22D Actor input explicitly contains the four measured flipper angles. The four tiles share a terrain seed; these observations are insufficient to set a population-level effect size or decide whether a Motion Predictor learns the interaction.
+
+Before formal collection, freeze independent terrain seed count, paired StateGroup assignment, terrain-level coverage and a seed-clustered uncertainty analysis. Keep a separate ablation for whether the Motion Predictor needs explicit flipper positions, since this pilot verifies observability but does not train a predictor. No 72-run MI-A schedule, MI-B learning, goal-selection or Phase C collection is authorized by this result.
