@@ -1,0 +1,113 @@
+{
+  "adopted_candidate_set": null,
+  "angle_semantics": "tangent turn along travel; positive turn to travel-left; reverse path rotates travel frame by pi; body yaw change geometric sign equals angle",
+  "arc_length_m": 0.75,
+  "audit_sha256": "77b498220e26dc9b12cdde65645a9065952fb65acac58c765a36d9a5e92c7cc2",
+  "candidate_count_target": 14,
+  "candidates": [
+    {
+      "arc_angle_deg": 0,
+      "arc_id": "forward_+0",
+      "direction": 1,
+      "path_sha256": "3ade37354311d43ec60dd7b4fd32eeec644823552e481b17bf6569a490be3fa6",
+      "status": "offline_geometry_and_initial_command_pass"
+    },
+    {
+      "arc_angle_deg": -30,
+      "arc_id": "forward_-30",
+      "direction": 1,
+      "path_sha256": "973feb907eefff2ed29977732735a91ef7b5cca43cd77087c3a1c834d94ac779",
+      "status": "offline_geometry_and_initial_command_pass"
+    },
+    {
+      "arc_angle_deg": 30,
+      "arc_id": "forward_+30",
+      "direction": 1,
+      "path_sha256": "e5f3fbc654f4f34a8bdbaaf927b15a828dd4856b80b8787beab2e9b4c6ca1b10",
+      "status": "offline_geometry_and_initial_command_pass"
+    },
+    {
+      "arc_angle_deg": -60,
+      "arc_id": "forward_-60",
+      "direction": 1,
+      "path_sha256": "542bed0adf835b5be7693d84162dd6be0996e6b949eee349ab76857b51260eae",
+      "status": "forward_only_prior_stage_b_observed_reverse_pair_not_run"
+    },
+    {
+      "arc_angle_deg": 60,
+      "arc_id": "forward_+60",
+      "direction": 1,
+      "path_sha256": "3fd351612b24fc9adc7c4fec5f1e63c0e873c341ae8f9490612edfa3a47e4e3f",
+      "status": "forward_only_prior_stage_b_observed_reverse_pair_not_run"
+    },
+    {
+      "arc_angle_deg": -90,
+      "arc_id": "forward_-90",
+      "direction": 1,
+      "path_sha256": "3a7dda9e7d2fea9b0be01352b65b0ad25f66a2c775a3ea02ad3e85f47f7a7150",
+      "status": "forward_only_prior_stage_b_observed_reverse_pair_not_run"
+    },
+    {
+      "arc_angle_deg": 90,
+      "arc_id": "forward_+90",
+      "direction": 1,
+      "path_sha256": "3393c918fac700388c4d88ed1074deb916cc7364b06aeaa92532e1919dad5ff7",
+      "status": "forward_only_prior_stage_b_observed_reverse_pair_not_run"
+    },
+    {
+      "arc_angle_deg": 0,
+      "arc_id": "reverse_+0",
+      "direction": -1,
+      "path_sha256": "ff37939577e605a22bfbf062b60201596d99f225b4d2ea26a5e011dd6ea6672d",
+      "status": "b_r0_pass_one_seed_plus_independent_seed_direct"
+    },
+    {
+      "arc_angle_deg": -30,
+      "arc_id": "reverse_-30",
+      "direction": -1,
+      "path_sha256": "7e4c016628a8e77207e7b4decbc94540b9e10a891d4e08d8d85c184e3561fa6a",
+      "status": "b_r1_protocol_valid_but_stage_gate_fail"
+    },
+    {
+      "arc_angle_deg": 30,
+      "arc_id": "reverse_+30",
+      "direction": -1,
+      "path_sha256": "96240a6442e7b657f0917c8def8a61ec969d32bad23fd6346688a08f06582d52",
+      "status": "b_r1_protocol_valid_but_stage_gate_fail"
+    },
+    {
+      "arc_angle_deg": -60,
+      "arc_id": "reverse_-60",
+      "direction": -1,
+      "path_sha256": "9c45517d4714193aeedb87f41793d4ebbb08e0f423bd21ef3a65682a16125d28",
+      "status": "offline_only_b_r1_not_run"
+    },
+    {
+      "arc_angle_deg": 60,
+      "arc_id": "reverse_+60",
+      "direction": -1,
+      "path_sha256": "4592c365737ef612c37740612b7b85c895b9c28b570d0688071fe9b58a2f1374",
+      "status": "offline_only_b_r1_not_run"
+    },
+    {
+      "arc_angle_deg": -90,
+      "arc_id": "reverse_-90",
+      "direction": -1,
+      "path_sha256": "6b81f10a598eb3ef736810cd8beafe96515bd9dc50dc7bb11b543c4b308d64b8",
+      "status": "offline_only_b_r1_not_run"
+    },
+    {
+      "arc_angle_deg": 90,
+      "arc_id": "reverse_+90",
+      "direction": -1,
+      "path_sha256": "f80348d0ca5f5ca906ff64adcc7d7e286a483b5de55de465b663b3fbd13729cf",
+      "status": "offline_only_b_r1_not_run"
+    }
+  ],
+  "explicit_direction_for_model": true,
+  "follower_direction_inferred_from_path": true,
+  "geometry_version": "eatnav_forward_reverse_path_bank_v1",
+  "phase_c": "blocked_by_b_r1_gate",
+  "schema": "eatnav_forward_reverse_path_bank_manifest_v1_provisional",
+  "waypoints": 8
+}

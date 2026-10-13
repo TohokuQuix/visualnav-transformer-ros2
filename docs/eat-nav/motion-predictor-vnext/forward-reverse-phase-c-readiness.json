@@ -1,0 +1,16 @@
+{
+  "b_r0_actual_reverse_motion": true,
+  "b_r0_commandable": true,
+  "b_r0_repeatability": "direction-consistent across two terrain seeds; identical-initial-condition repeated process not measured",
+  "b_r1_stage_30": "fail",
+  "b_r1_stage_60": "not_run",
+  "b_r1_stage_90": "not_run",
+  "bank_manifest_sha256": "fb9f05741a08913ad17e2d4e3e55b43cc79484dec73af521de817491a2920243",
+  "gate_analysis_sha256": "3843b8c3a4a7b67704f6a829682f14b123571d761d93d13f93251af297e743de",
+  "learnability": "unknown_no_training",
+  "motion_predictor_direction_input": "implemented_and_synthetic_tested_untrained",
+  "phase_c_collection": "blocked",
+  "required_next_decision": "Review physical yaw bias and candidate-specific yaw response on independent StateGroups; do not change frozen B-R1 gate post hoc.",
+  "schema": "eatnav_forward_reverse_phase_c_readiness_v1",
+  "training": "not_started"
+}
