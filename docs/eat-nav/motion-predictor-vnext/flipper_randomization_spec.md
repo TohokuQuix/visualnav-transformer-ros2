@@ -1,0 +1,11 @@
+# Flipper initialization by run mode
+
+The RR/RL/FR/FL reset pose uses the existing Onix reset event: Front-folded `[0,0,π,π]` or Rear-folded `[π,π,0,0]` radians. Fold mode stays 0. The policy may move the joints after reset; there is no forced posture during rollout.
+
+`demo` is the default and always selects Front-folded. The ROS/RViz Goal, Path generation, follower, Actor, visualization, existing reset and control code are unchanged. The DEMO entrypoint continues to call its original front-folded reset policy; a collection allocation is never loaded there.
+
+`collection` is opt-in on the bidirectional and Arc collection entrypoints. It requires `--run-mode collection`, `--state-group-id` and a frozen `--flipper-assignment-manifest`. The manifest contains the complete StateGroup roster, randomization seed and a deterministic balanced assignment. The assignment is verified against the roster before Isaac startup and again inside the simulator. A terrain/seed/level mismatch fails. All Path runs in a StateGroup must use the same manifest and ID; candidate-wise random draws are forbidden. Without these explicit inputs, the pre-existing Front-folded behavior is retained.
+
+`evaluation` uses the explicit MI-A v3 assignment table. The same terrain seed and four tiles are measured once per Front/Rear posture; the posture conditions are separate Gate P groups. A fresh process replays the same seed for every candidate in that posture. The outer assignment row links the simulator's immutable input manifest, pre-Path arrays, trace and labels to `run_mode`, `state_group_id`, `terrain_type`, `terrain_seed`, `terrain_level`, `env_tile_ids`, `candidate_id`, `travel_direction`, `flipper_initialization_mode` and `flipper_initialization_seed`. Measured reset and post-settling flipper positions and root pose are stored in each sealed simulator output. Posture metadata is not a proposed Motion Predictor input; the measured Actor state is the portable input.
+
+The supplied roster has 12 independent terrain seeds across four terrain types. The collection assignment is 6 Front / 6 Rear and each three-seed terrain stratum contains both conditions. Formal evaluation deliberately measures both conditions on every seed. No full data collection is authorized by this specification.

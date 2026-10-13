@@ -12,6 +12,7 @@ import subprocess
 import time
 
 from visualnav_transformer.eat_nav.bidirectional_bank import ANGLES
+from visualnav_transformer.eat_nav.mi_a_v3 import validate_collection_manifest
 
 
 REPO = Path(__file__).resolve().parents[1]
@@ -93,12 +94,24 @@ def verify_sim_seal(output):
             'file_count': len(actual), 'trace_count': 4}
 
 
-def execute(root, *, direction, angle, seed, terrain_type, terrain_level, reference):
+def execute(root, *, direction, angle, seed, terrain_type, terrain_level, reference,
+            run_mode='demo', state_group_id=None, flipper_assignment_manifest=None):
     root = Path(root).resolve()
     if root.exists():
         raise FileExistsError('fresh persistent Arc attempt required')
     if direction not in (-1, 0, 1) or angle not in ANGLES or (direction == 0 and angle != 0):
         raise ValueError('Path direction/angle not frozen')
+    if run_mode == 'collection':
+        if not state_group_id or flipper_assignment_manifest is None:
+            raise ValueError('collection requires frozen StateGroup assignment')
+        assignment_path = Path(flipper_assignment_manifest).resolve()
+        allocation = validate_collection_manifest(json.loads(assignment_path.read_text()))
+        if state_group_id not in allocation:
+            raise ValueError('StateGroup absent from collection assignment')
+    elif run_mode == 'demo' and state_group_id is None and flipper_assignment_manifest is None:
+        assignment_path = None
+    else:
+        raise ValueError('invalid run mode/assignment')
     source = REPO/'scripts/eat_nav_bidirectional_collect_sim.py'
     eat_config = REPO/'config/eat_nav.yaml'
     reference = Path(reference).resolve() if reference else None
@@ -110,6 +123,8 @@ def execute(root, *, direction, angle, seed, terrain_type, terrain_level, refere
     manifest = {'schema': 'eatnav_forward_reverse_r0_host_v1', 'direction': direction,
                 'angle_deg': angle,
                 'seed': seed, 'terrain_type': terrain_type, 'terrain_level': terrain_level,
+                'run_mode': run_mode, 'state_group_id': state_group_id,
+                'flipper_assignment_sha256': sha(assignment_path) if assignment_path else None,
                 'source_sha256': sha(source), 'host_source_sha256': sha(__file__),
                 'bank_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/bidirectional_bank.py'),
                 'rl_checkpoint_sha256': sha(RL), 'eat_config_sha256': sha(eat_config),
@@ -126,6 +141,9 @@ def execute(root, *, direction, angle, seed, terrain_type, terrain_level, refere
         run('docker', 'cp', str(REPO/'src/visualnav_transformer'), 'isaac-lab-onix:'+stage+'/src/')
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+stage+'/sim.py')
         run('docker', 'cp', str(eat_config), 'isaac-lab-onix:'+stage+'/config/eat_nav.yaml')
+        if assignment_path:
+            run('docker', 'cp', str(assignment_path),
+                'isaac-lab-onix:'+stage+'/config/flipper-assignment.json')
         if reference:
             run('docker', 'exec', 'isaac-lab-onix', 'mkdir', '-p', stage+'/reference')
             for name in ('prepath.npz', 'prepath-identity.json'):
@@ -144,6 +162,10 @@ def execute(root, *, direction, angle, seed, terrain_type, terrain_level, refere
                    '--direction', str(direction),
                    '--seed', str(seed), '--terrain-type', terrain_type,
                    '--terrain-level', str(terrain_level), '--headless']
+        command.extend(['--run-mode', run_mode])
+        if assignment_path:
+            command.extend(['--state-group-id', state_group_id,
+                            '--flipper-assignment-manifest', stage+'/config/flipper-assignment.json'])
         if reference:
             command.extend(['--reference-prepath', stage+'/reference'])
         durable_json(root/'launch-command.json', command)
@@ -209,10 +231,15 @@ def main():
     parser.add_argument('--terrain-type', required=True)
     parser.add_argument('--terrain-level', type=int, required=True)
     parser.add_argument('--reference-prepath', type=Path)
+    parser.add_argument('--run-mode', choices=('demo', 'collection'), default='demo')
+    parser.add_argument('--state-group-id')
+    parser.add_argument('--flipper-assignment-manifest', type=Path)
     args = parser.parse_args()
     print(execute(args.root, direction=args.direction, angle=args.arc_angle, seed=args.seed,
                   terrain_type=args.terrain_type, terrain_level=args.terrain_level,
-                  reference=args.reference_prepath))
+                  reference=args.reference_prepath, run_mode=args.run_mode,
+                  state_group_id=args.state_group_id,
+                  flipper_assignment_manifest=args.flipper_assignment_manifest))
 
 
 if __name__ == '__main__':

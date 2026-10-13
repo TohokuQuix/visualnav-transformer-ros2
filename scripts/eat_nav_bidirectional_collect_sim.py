@@ -26,6 +26,9 @@ parser.add_argument('--seed', type=int, required=True)
 parser.add_argument('--terrain-type', required=True)
 parser.add_argument('--terrain-level', type=int, required=True)
 parser.add_argument('--reference-prepath', type=Path)
+parser.add_argument('--run-mode', choices=('demo', 'collection'), default='demo')
+parser.add_argument('--state-group-id')
+parser.add_argument('--flipper-assignment-manifest', type=Path)
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
 simulation_app = AppLauncher(args).app
@@ -45,7 +48,7 @@ from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
 from visualnav_transformer.eat_nav.demo_isaac_env_cfg import make_collection_cfg
 from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrain
-from visualnav_transformer.eat_nav.demo_reset_policy import configure_demo_reset_policy
+from visualnav_transformer.eat_nav.mi_a_v3 import configure_run_mode, validate_collection_manifest
 from visualnav_transformer.eat_nav.motion_collector import body_path_to_tile_local, compare_prepath
 from visualnav_transformer.eat_nav.bidirectional_labels import motion_label_with_yaw
 from visualnav_transformer.eat_nav.p1_follower_core import PureFollower, compile_core, SOURCE as CORE_SOURCE
@@ -135,6 +138,21 @@ def main():
     if args.output.exists():
         raise FileExistsError('fresh Arc collection output required')
     args.output.mkdir(parents=True)
+    if args.run_mode == 'collection':
+        if not args.flipper_assignment_manifest or not args.state_group_id:
+            raise ValueError('collection requires StateGroup and assignment manifest')
+        collection_manifest = json.loads(args.flipper_assignment_manifest.read_text())
+        collection_assignment = validate_collection_manifest(collection_manifest)
+        groups = [group for group in collection_manifest['state_groups']
+                  if group['state_group_id'] == args.state_group_id]
+        if len(groups) != 1 or any(groups[0][key] != value for key, value in (
+                ('terrain_seed', args.seed), ('terrain_type', args.terrain_type),
+                ('terrain_level', args.terrain_level))):
+            raise ValueError('collection StateGroup terrain/seed mismatch')
+    else:
+        if args.flipper_assignment_manifest or args.state_group_id:
+            raise ValueError('demo cannot use collection assignment')
+        collection_assignment = None
     if args.direction == 0 and args.arc_angle != 0:
         raise ValueError('zero control requires direct angle')
     path_candidate = candidate(args.direction if args.direction else 1, args.arc_angle)
@@ -151,6 +169,9 @@ def main():
         'checkpoint_sha256': sha(args.rl_checkpoint), 'eat_config_sha256': sha(args.eat_config),
         'seed': args.seed, 'terrain_type': args.terrain_type,
         'terrain_level': args.terrain_level, 'num_envs': NUM_ENVS,
+        'run_mode': args.run_mode, 'state_group_id': args.state_group_id,
+        'flipper_assignment_sha256': sha(args.flipper_assignment_manifest)
+            if args.flipper_assignment_manifest else None,
         'reference_prepath_sha256': sha(args.reference_prepath/'prepath.npz')
             if args.reference_prepath else None})
     env = override = capture = None
@@ -166,7 +187,8 @@ def main():
                    ('use_last_action_obs', 'use_joint_effort_obs', 'use_height_scan_obs')}
         cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), eat_cfg, args.seed, NUM_ENVS)
         cfg.episode_length_s = 40.0
-        configure_demo_reset_policy(cfg)
+        initialization = configure_run_mode(cfg, args.run_mode,
+            state_group_id=args.state_group_id, assignment=collection_assignment)
         cfg.events.ignore_sprocket_self_collision = None
         generator = cfg.scene.terrain.terrain_generator
         generator.seed = args.seed
@@ -212,6 +234,10 @@ def main():
                     (settling_step + 1) * STEP_NS) for index in range(NUM_ENVS)]))
         identity, arrays = prepath_state(bare, observed, history, args.seed,
                                         bare.scene.terrain.cfg.terrain_generator.eat_nav_tile_metadata)
+        identity.update({'run_mode': args.run_mode,
+                         'state_group_id': args.state_group_id,
+                         'flipper_initialization_mode': initialization,
+                         'flipper_initialization_seed': args.seed})
         write_json(args.output/'prepath-identity.json', identity)
         write_npz(args.output/'prepath.npz', **arrays)
         if args.reference_prepath:
