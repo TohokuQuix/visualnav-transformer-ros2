@@ -84,8 +84,23 @@ def test_schedule_balanced_and_candidate_pairing():
         validate_evaluation_schedule(broken, groups())
 
 
+@pytest.mark.parametrize('seed', [0, 2**32 - 1])
+def test_numpy_seed_boundary_is_accepted(seed):
+    one = groups()[:1]
+    one[0]['terrain_seed'] = seed
+    assert len(build_evaluation_schedule(one)) == 16
+
+
+@pytest.mark.parametrize('seed', [-1, 2**32, 202610140101])
+def test_numpy_seed_outside_boundary_is_rejected_before_isaac(seed):
+    one = groups()[:1]
+    one[0]['terrain_seed'] = seed
+    with pytest.raises(ValueError, match='seed'):
+        build_evaluation_schedule(one)
+
+
 def test_frozen_execution_manifest_and_collection_allocation():
-    from scripts.eat_nav_mi_a_v3_run import load_frozen
+    from scripts.eat_nav_mi_a_v31_run import load_frozen, COLLECTION
     manifest = load_frozen()
     assert manifest['num_processes'] == 192
     assert manifest['candidate_trials'] == 576
@@ -93,7 +108,7 @@ def test_frozen_execution_manifest_and_collection_allocation():
     assert len(set(manifest['smoke_state_groups'])) == 2
     assert len({g['terrain_type'] for g in manifest['state_groups']
                 if g['state_group_id'] in manifest['smoke_state_groups']}) == 2
-    path = Path(__file__).resolve().parents[1]/'docs/eat-nav/motion-predictor-vnext/collection_randomization_audit.json'
+    path = COLLECTION
     from visualnav_transformer.eat_nav.mi_a_v3 import validate_collection_manifest
     assignment = validate_collection_manifest(json.loads(path.read_text()))
     assert len(assignment) == 12

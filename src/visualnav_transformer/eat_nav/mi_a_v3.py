@@ -35,7 +35,7 @@ def _validate_groups(groups: list[dict]) -> None:
     seeds = set()
     for g in groups:
         if g['terrain_type'] not in TERRAINS or g['terrain_level'] not in range(5) or \
-                not isinstance(g['terrain_seed'], int) or g['terrain_seed'] <= 0 or \
+                not isinstance(g['terrain_seed'], int) or not 0 <= g['terrain_seed'] <= 2**32-1 or \
                 g['env_tile_ids'] != [0, 1, 2, 3]:
             raise ValueError('terrain/seed/tile group contract')
         if g['terrain_seed'] in seeds:
