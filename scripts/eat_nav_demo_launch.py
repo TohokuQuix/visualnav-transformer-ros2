@@ -52,13 +52,18 @@ def main():
     parser.add_argument('--seed', type=int, default=2026101101)
     parser.add_argument('--max-steps', type=int, default=3000)
     parser.add_argument('--replan-steps', type=int, default=10)
+    parser.add_argument('--num-envs', type=int, choices=(1, 4), default=1)
+    parser.add_argument('--terrain-type', choices=(
+        'k_rail_step_field', 'pyramid_stairs', 'pyramid_stairs_inv',
+        'random_rough', 'boxes', 'hf_pyramid_slope', 'k_rail_field'), default='boxes')
+    parser.add_argument('--terrain-level', type=int, choices=range(5), default=0)
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    attempt = '.eatnav-ros2-gui-demo-v1-' + datetime.now().strftime('%Y%m%d-%H%M%S')
+    attempt = '.eatnav-ros2-gui-demo-terrain-v2-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
-    staging = f'/tmp/eatnav-demo-v1-{attempt.removeprefix(".eatnav-")}'
+    staging = f'/tmp/eatnav-demo-terrain-v2-{attempt.removeprefix(".eatnav-")}'
     run('docker', 'exec', 'isaac-lab-onix', 'mkdir', '-p', staging+'/src', staging+'/config')
     run('docker', 'cp', str(REPO/'src/visualnav_transformer'), 'isaac-lab-onix:'+staging+'/src/')
     for source, target in (
@@ -68,7 +73,7 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_v1', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v2', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'rl_checkpoint_sha256': sha(RL),
@@ -83,7 +88,10 @@ def main():
                 'bank_sha256': sha(REPO/'config/eat_nav_demo_p1_bank.json'),
                 'eat_config_sha256': sha(REPO/'config/eat_nav.yaml'),
                 'headless': args.headless, 'seed': args.seed, 'port': args.port,
-                'max_steps': args.max_steps, 'replan_steps': args.replan_steps}
+                'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
+                'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
+                'terrain_level': args.terrain_level,
+                'terrain_selection_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_terrain.py')}
     (root/'launch-manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True)+'\n')
     # The simulator's sealed output is separate from launcher logs and manifest.
     output = root/'sim-output'
@@ -94,7 +102,9 @@ def main():
                '--rl-checkpoint', '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
                '--bank', staging+'/config/bank.json', '--eat-config', staging+'/config/eat_nav.yaml',
                '--seed', str(args.seed), '--max-steps', str(args.max_steps),
-               '--replan-steps', str(args.replan_steps), '--port', str(args.port)]
+               '--replan-steps', str(args.replan_steps), '--port', str(args.port),
+               '--num-envs', str(args.num_envs), '--terrain-type', args.terrain_type,
+               '--terrain-level', str(args.terrain_level)]
     if args.headless:
         sim_cmd.append('--headless')
     frontend_cmd = ['/usr/bin/python3', str(REPO/'scripts/eat_nav_demo_ros_frontend.py'),
@@ -105,6 +115,8 @@ def main():
             sim = subprocess.Popen(sim_cmd, stdout=sim_log, stderr=subprocess.STDOUT)
             deadline = time.monotonic() + 240
             while not (output/'startup-ready.json').exists():
+                if (output/'failure.json').exists():
+                    raise RuntimeError('Isaac startup diagnostic failed; inspect sim-output/failure.json')
                 if sim.poll() is not None:
                     raise RuntimeError(f'Isaac startup failed, exit={sim.returncode}; inspect simulator.log')
                 if time.monotonic() > deadline:

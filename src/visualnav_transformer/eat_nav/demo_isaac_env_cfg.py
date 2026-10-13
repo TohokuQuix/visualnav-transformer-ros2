@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import dataclass
+import hashlib
 from math import ceil, sqrt
 from typing import Sequence
 
@@ -129,7 +130,13 @@ class EATTerrainGenerator(TerrainGenerator):
             np.random.seed(tile_seed)
             mesh, origin = super()._get_terrain_mesh(difficulty, cfg)
             name = next((key for key, item in self.cfg.sub_terrains.items() if item is cfg), type(cfg).__name__)
-            self.tile_metadata.append({"tile_index": self._tile_index - 1, "seed": tile_seed, "terrain_type": name, "difficulty": float(difficulty)})
+            digest = hashlib.sha256()
+            for array in (np.ascontiguousarray(mesh.vertices), np.ascontiguousarray(mesh.faces)):
+                digest.update(str((array.shape, array.dtype)).encode())
+                digest.update(array.tobytes())
+            self.tile_metadata.append({"tile_index": self._tile_index - 1, "seed": tile_seed,
+                                       "terrain_type": name, "difficulty": float(difficulty),
+                                       "geometry_sha256": digest.hexdigest()})
             return mesh, origin
         finally:
             self.cfg.seed = old_cfg_seed
@@ -144,8 +151,15 @@ class EATTerrainImporter(TerrainImporter):
         if num_envs > rows * cols:
             raise ValueError("not enough terrain tiles for EAT envs")
         ids = torch.arange(num_envs, device=self.device)
-        self.terrain_levels = ids // cols
-        self.terrain_types = ids % cols
+        selected = getattr(self.cfg, "eat_nav_selected_level", None)
+        if selected is None:
+            self.terrain_levels = ids // cols
+            self.terrain_types = ids % cols
+        else:
+            if not 0 <= int(selected) < rows or num_envs > cols:
+                raise ValueError("selected terrain row/column mismatch")
+            self.terrain_levels = torch.full_like(ids, int(selected))
+            self.terrain_types = ids
         self.max_terrain_level = rows
         return origins[self.terrain_levels, self.terrain_types].clone()
 

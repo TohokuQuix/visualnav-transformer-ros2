@@ -143,16 +143,18 @@ def reconcile_command_observation(obs, observed, bare, commands, previous_raw):
     actor = command_term_slice(manager, 'policy')
     critic = command_term_slice(manager, 'critic')
     target = torch.as_tensor(commands, dtype=obs['policy'].dtype, device=obs['policy'].device)
-    if tuple(target.shape) != (4, 3) or not bool(torch.isfinite(target).all()):
+    num_envs = obs['policy'].shape[0]
+    if tuple(target.shape) != (num_envs, 3) or obs['critic'].shape[0] != num_envs or \
+            not bool(torch.isfinite(target).all()):
         raise ValueError('invalid commands for Actor observation')
     if not bool(torch.allclose(
-            bare.command_manager._terms['base_velocity'].vel_command_b[:4], target,
+            bare.command_manager._terms['base_velocity'].vel_command_b[:num_envs], target,
             atol=1e-6, rtol=0)):
         raise ValueError('Actor command term differs from injected command')
     previous = bare._latency_policy_obs_prev
     if previous is not None and previous_raw is not None:
-        prior_raw = previous_raw[:4, actor].clone()
-        alpha = (bare._onix_latency_seconds[:4] / max(float(bare.step_dt), 1e-9)).clamp(0., 1.)
+        prior_raw = previous_raw[:num_envs, actor].clone()
+        alpha = (bare._onix_latency_seconds[:num_envs] / max(float(bare.step_dt), 1e-9)).clamp(0., 1.)
         delayed = target + alpha * (prior_raw - target)
         if previous.is_inference():
             # env.step may have created this buffer under inference_mode(). The
@@ -160,10 +162,10 @@ def reconcile_command_observation(obs, observed, bare, commands, previous_raw):
             with torch.inference_mode(False):
                 previous = previous.clone()
             bare._latency_policy_obs_prev = previous
-        previous[:4, actor] = target
+        previous[:num_envs, actor] = target
     else:
         prior_raw = target.clone()
-        alpha = torch.zeros((4, 1), dtype=target.dtype, device=target.device)
+        alpha = torch.zeros((num_envs, 1), dtype=target.dtype, device=target.device)
         delayed = target
     with torch.inference_mode(False):
         corrected = dict(obs)
@@ -173,18 +175,18 @@ def reconcile_command_observation(obs, observed, bare, commands, previous_raw):
         for key in ('policy_pre_noise', 'policy_post_noise_pre_delay',
                     'policy_actor_input', 'critic_observation'):
             captured[key] = observed[key].clone()
-    corrected['policy'][:4, actor] = delayed
-    corrected['critic'][:4, critic] = target
+    corrected['policy'][:num_envs, actor] = delayed
+    corrected['critic'][:num_envs, critic] = target
     for key in ('policy_pre_noise', 'policy_post_noise_pre_delay'):
-        captured[key][:4, actor] = target
-    captured['policy_actor_input'][:4, actor] = delayed
-    captured['critic_observation'][:4, critic] = target
+        captured[key][:num_envs, actor] = target
+    captured['policy_actor_input'][:num_envs, actor] = delayed
+    captured['critic_observation'][:num_envs, critic] = target
     detail = {'actor_slice': [actor.start, actor.stop],
             'critic_slice': [critic.start, critic.stop],
             'injected': target.detach().cpu().tolist(),
             'actor_seen': delayed.detach().cpu().tolist(),
             'previous_raw': prior_raw.detach().cpu().tolist(),
-            'latency_alpha': alpha.detach().cpu().reshape(4).tolist(),
+            'latency_alpha': alpha.detach().cpu().reshape(num_envs).tolist(),
             'observation_sample_count_added': 0}
     return corrected, captured, detail
 

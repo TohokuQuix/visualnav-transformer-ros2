@@ -30,6 +30,9 @@ parser.add_argument('--port', type=int, default=29553)
 parser.add_argument('--seed', type=int, default=2026101101)
 parser.add_argument('--max-steps', type=int, default=3000)
 parser.add_argument('--replan-steps', type=int, default=10)
+parser.add_argument('--num-envs', type=int, choices=(1, 4), default=1)
+parser.add_argument('--terrain-type', default='boxes')
+parser.add_argument('--terrain-level', type=int, choices=range(5), default=0)
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
 simulation_app = AppLauncher(args).app
@@ -47,6 +50,7 @@ from rsl_rl.runners import OnPolicyRunner
 from visualnav_transformer.eat_nav.config import load_eat_config
 from visualnav_transformer.eat_nav.dem import SourceGrid, robot_dem
 from visualnav_transformer.eat_nav.demo_isaac_env_cfg import make_collection_cfg
+from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrain
 from visualnav_transformer.eat_nav.demo_contract import (
     CHECKPOINT_SHA256, DATASET_SHA256, RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
     select_best, sensor_stamp_valid, sha256, validate_evaluator_sample,
@@ -58,7 +62,7 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_v1'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v2'
 
 
 def durable_json(path, value):
@@ -141,7 +145,9 @@ def main():
               'rl_checkpoint_sha256': sha256(args.rl_checkpoint),
               'bank_sha256': sha256(args.bank),
               'eat_config_sha256': sha256(args.eat_config), 'seed': args.seed,
-              'max_steps': args.max_steps, 'replan_steps': args.replan_steps}
+              'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
+              'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
+              'terrain_level': args.terrain_level}
     durable_json(args.output/'input-ledger.json', ledger)
     if ledger['checkpoint_sha256'] != CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
@@ -164,16 +170,27 @@ def main():
                       Loader=yaml.BaseLoader)
     toggles = {name: saved[name].lower() == 'true' for name in
                ('use_last_action_obs', 'use_joint_effort_obs', 'use_height_scan_obs')}
-    cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), eat_cfg, args.seed, 4)
+    cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), eat_cfg, args.seed, args.num_envs)
     cfg.episode_length_s = 40.0
+    # The stock startup USD FilteredPairs edit runs only in a single-env
+    # scene and invalidates the active PhysX articulation tensor view. It is
+    # already skipped by the stock event for the existing four-env demo.
+    # Disable this edit here so one-env uses the same effective collision
+    # setup as the verified four-env path; reset events and dynamics remain.
+    cfg.events.ignore_sprocket_self_collision = None
     generator = cfg.scene.terrain.terrain_generator
-    generator.num_rows, generator.num_cols = 2, 2
-    generator.curriculum = False
-    generator.difficulty_range = (.5, .5)
-    generator.use_cache = False
     generator.seed = args.seed
-    generator.sub_terrains = {'boxes': generator.sub_terrains['boxes']}
-    cfg.scene.terrain.max_init_terrain_level = 0
+    terrain_selection = configure_selected_terrain(
+        generator, cfg.scene.terrain, args.terrain_type, args.terrain_level, args.num_envs)
+    # This demo fixes the selected row over episode resets; the original
+    # terrain generator still determines the difficulty within that row.
+    terrain_config = {
+        **terrain_selection, 'seed': args.seed,
+        'single_env_startup_stage_edit': 'disabled_to_match_multi_env_effective_collisions',
+        'generator_config': generator.to_dict(),
+        'selected_subterrain_config': generator.sub_terrains[args.terrain_type].to_dict(),
+    }
+    durable_json(args.output/'terrain-config.json', json.loads(json.dumps(terrain_config, default=str)))
     cfg.viewer.origin_type = 'asset_root'
     cfg.viewer.asset_name = 'robot'
     cfg.viewer.env_index = 0
@@ -196,10 +213,10 @@ def main():
         runner.alg.policy.load_state_dict(weights)
         policy = runner.alg.policy
         robot = bare.scene['robot']
-        override = CommandOverride(bare.command_manager, 4)
+        override = CommandOverride(bare.command_manager, args.num_envs)
         capture = ObservationCapture(bare.observation_manager)
         library = compile_core(args.output/'core-build')
-        zeros = torch.zeros((4, 3), device=bare.device)
+        zeros = torch.zeros((args.num_envs, 3), device=bare.device)
         override.set(zeros)
         latency_prev_for_reconcile = (bare._latency_policy_obs_prev.detach().clone()
                                       if bare._latency_policy_obs_prev is not None else None)
@@ -207,12 +224,33 @@ def main():
         raw = bare.observation_manager.compute()
         obs = bare._apply_policy_observation_latency(raw)
         observed = capture.finish_step(obs)
-        if tuple(obs['policy'].shape) != (4, 22) or tuple(obs['critic'].shape) != (4, 267):
+        if tuple(obs['policy'].shape) != (args.num_envs, 22) or tuple(obs['critic'].shape) != (args.num_envs, 267):
             raise ValueError('Actor observation contract mismatch')
+        terrain_importer = bare.scene.terrain
+        tile_metadata = terrain_importer.cfg.terrain_generator.eat_nav_tile_metadata
+        selected_tiles = []
+        for env_index in range(args.num_envs):
+            row = int(terrain_importer.terrain_levels[env_index])
+            col = int(terrain_importer.terrain_types[env_index])
+            if row != args.terrain_level or col != env_index:
+                raise ValueError('terrain tile selection mismatch')
+            tile = tile_metadata[col * generator.num_rows + row]
+            if tile['terrain_type'] != args.terrain_type:
+                raise ValueError('generated terrain type mismatch')
+            selected_tiles.append({'env_id': env_index, 'row': row, 'col': col,
+                                   'tile': tile,
+                                   'terrain_origin': bare.scene.env_origins[env_index].detach().cpu().tolist(),
+                                   'robot_spawn_pose': robot.data.root_pos_w[env_index].detach().cpu().tolist()})
+        durable_json(args.output/'terrain-provenance.json', {
+            **terrain_selection, 'selected_tiles': selected_tiles,
+            'terrain_config_sha256': sha256(args.output/'terrain-config.json'),
+            'simulator_source_sha256': sha256(__file__)})
         durable_json(args.output/'startup-ready.json', {'protocol': PROTOCOL,
             'actor_shape': list(obs['policy'].shape), 'critic_shape': list(obs['critic'].shape),
             'control_dt_s': float(bare.step_dt), 'checkpoint_sha256': ledger['checkpoint_sha256'],
-            'rl_checkpoint_sha256': ledger['rl_checkpoint_sha256']})
+            'rl_checkpoint_sha256': ledger['rl_checkpoint_sha256'],
+            'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
+            'terrain_level': args.terrain_level})
         wire = GoalWire(args.port)
         trace = (args.output/'trace.jsonl').open('x')
         history = collections.deque(maxlen=4)
@@ -238,6 +276,7 @@ def main():
                     if follower is not None:
                         follower.close()
                         follower = None
+                    trace.write(json.dumps({'event': 'cancel', 'step': step, 'stamp_ns': stamp_ns})+'\n')
                 elif message.get('type') == 'goal':
                     age = stamp_ns - int(message.get('stamp_ns', -1))
                     if message.get('frame') != 'map' or not 0 <= age <= 500_000_000:
@@ -248,6 +287,8 @@ def main():
                     goal_map = value
                     arrived = False
                     last_replan_step = step - args.replan_steps
+                    trace.write(json.dumps({'event': 'goal', 'step': step, 'stamp_ns': stamp_ns,
+                                            'goal_map': value.tolist()})+'\n')
                 else:
                     raise ValueError('unknown ROS transport message')
             pose = pose_map(robot)
@@ -290,7 +331,7 @@ def main():
                 if diagnostic['goal_reached'] and goal_map is not None and \
                         np.linalg.norm(np.asarray(pose[:2]) - goal_map) <= .15:
                     arrived = True
-            commands = torch.zeros((4, 3), device=bare.device)
+            commands = torch.zeros((args.num_envs, 3), device=bare.device)
             commands[0] = torch.tensor(command, dtype=commands.dtype, device=commands.device)
             override.set(commands)
             obs, observed, command_detail = reconcile_command_observation(
@@ -299,7 +340,7 @@ def main():
                 raise ValueError('Actor input nonfinite')
             with torch.inference_mode():
                 action = policy.act_inference(obs)
-            if tuple(action.shape) != (4, 6) or not bool(torch.isfinite(action).all()):
+            if tuple(action.shape) != (args.num_envs, 6) or not bool(torch.isfinite(action).all()):
                 raise ValueError('Actor action shape/nonfinite')
             latency_prev_for_reconcile = (bare._latency_policy_obs_prev.detach().clone()
                                           if bare._latency_policy_obs_prev is not None else None)

@@ -2,6 +2,9 @@
 
 This repository is a port of [visualnav-transformer](https://github.com/robodhruv/visualnav-transformer) to ROS2. Its purpose is to make running the models more straightforward by providing a Dockerfile with all dependencies set up. For more details on the models, please refer to the original repository.
 
+For the Onix EAT-Nav one-robot ROS2 + Isaac Sim GUI demonstration with
+selectable terrain, see [the student runbook](docs/eat-nav/ros2-isaac-gui-demo-student.md).
+
 ### Running the code
 
 1. Clone the repository:

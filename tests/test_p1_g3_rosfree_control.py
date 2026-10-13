@@ -159,6 +159,46 @@ def test_command_reconciliation_uses_prior_step_not_overwritten_buffer():
     assert result['previous_raw'] == old.tolist()
 
 
+def test_command_reconciliation_one_env_preserves_latency_and_other_observations():
+    torch = pytest.importorskip('torch')
+    from types import SimpleNamespace
+
+    class Cfg:
+        noise = None
+        scale = 1.0
+
+    manager = SimpleNamespace(
+        _group_obs_term_names={'policy': ['body', 'velocity_commands', 'joints'],
+                               'critic': ['velocity_commands', 'body']},
+        _group_obs_term_dim={'policy': [(2,), (3,), (2,)], 'critic': [(3,), (2,)]},
+        _group_obs_term_cfgs={'policy': [Cfg(), Cfg(), Cfg()],
+                              'critic': [Cfg(), Cfg()]},
+    )
+    command = torch.tensor([[.3, 0., .1]])
+    with torch.inference_mode():
+        policy = torch.arange(7, dtype=torch.float32).reshape(1, 7)
+        critic = torch.arange(5, dtype=torch.float32).reshape(1, 5)
+        buffer = torch.zeros((1, 7))
+    observed = {'policy_pre_noise': policy, 'policy_post_noise_pre_delay': policy,
+                'policy_actor_input': policy, 'critic_observation': critic}
+    bare = SimpleNamespace(observation_manager=manager,
+        command_manager=SimpleNamespace(_terms={
+            'base_velocity': SimpleNamespace(vel_command_b=command.clone())}),
+        _latency_policy_obs_prev=buffer,
+        _onix_latency_seconds=torch.tensor([[.025]]), step_dt=.05)
+    previous = torch.zeros((1, 7))
+    previous[:, 2:5] = torch.tensor([[.1, 0., -.1]])
+    corrected, captured, detail = reconcile_command_observation(
+        {'policy': policy, 'critic': critic}, observed, bare, command, previous)
+    assert corrected['policy'].shape == (1, 7)
+    assert torch.equal(corrected['policy'][:, :2], policy[:, :2])
+    assert torch.equal(corrected['policy'][:, 5:], policy[:, 5:])
+    assert torch.allclose(corrected['policy'][:, 2:5], torch.tensor([[.2, 0., 0.]]))
+    assert torch.equal(captured['critic_observation'][:, :3], command)
+    assert torch.equal(bare._latency_policy_obs_prev[:, 2:5], command)
+    assert detail['observation_sample_count_added'] == 0
+
+
 def test_reconciliation_owns_inference_observations_and_latency_across_steps():
     """A model-owned inference tensor must stay immutable through multi-env updates."""
     torch = pytest.importorskip('torch')
