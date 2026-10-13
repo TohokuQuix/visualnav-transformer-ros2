@@ -1,0 +1,16 @@
+{
+  "schema": "eatnav_motion_paired_pilot_v1",
+  "terrain_type": "random_rough",
+  "terrain_level": 2,
+  "num_envs": 4,
+  "arc_angles_deg": [0, -30, 30, -60, 60, -90, 90, -120, 120, -150, 150, -180, 180],
+  "split_by_base_terrain_seed": {
+    "train": [2026101102],
+    "validation": [2026101103],
+    "test": [2026101104]
+  },
+  "independent_group_unit": "seed_plus_env_tile_and_prepath_state",
+  "repeat_policy": "no_automatic_retry",
+  "execution_gate": "blocked_pending_stage_b_bank_review",
+  "persistent_parent": "/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence"
+}

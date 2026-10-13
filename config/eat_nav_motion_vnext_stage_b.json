@@ -1,0 +1,16 @@
+{
+  "schema": "eatnav_motion_arc_stage_b_v1",
+  "purpose": "offline_geometry_followed_by_rosfree_physics_feasibility_not_training",
+  "seed": 2026101101,
+  "terrain_type": "random_rough",
+  "terrain_level": 2,
+  "num_envs": 4,
+  "control_steps": 40,
+  "ordered_angles_deg": [0, -30, 30, -60, 60, -90, 90, -120, 120, -150, 150, -180, 180],
+  "persistent_parent": "/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence",
+  "reference_basename": "b-stage-random-rough-seed2026101101-direct",
+  "prepath_abs_tolerance": 1e-6,
+  "gpu_device_total_cap_mib": 6656,
+  "wall_cap_seconds_per_process": 600,
+  "automatic_retry": false
+}

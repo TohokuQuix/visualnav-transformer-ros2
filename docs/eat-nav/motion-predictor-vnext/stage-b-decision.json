@@ -1,0 +1,15 @@
+{
+  "schema": "eatnav_motion_stage_b_decision_v1",
+  "decision": "stop_before_phase_c",
+  "geometry_gate": "pass_13_of_13",
+  "runtime_protocol_gate": "pass_13_of_13_processes_52_of_52_trials",
+  "cross_candidate_prepath_gate": "pass_max_abs_zero_for_root_joint_actor_dem",
+  "all_13_arc_bank_feasibility_gate": "not_passed",
+  "reason": "The +120, +150 and +180 degree arcs commanded zero forward velocity for all 40 control steps in all four envs. Mean 2 s body displacement was 0.019, 0.022 and 0.023 m respectively; +90 degrees averaged 0.052 m. These paths are valid geometry and finite runs, but this one-seed evidence does not support useful two-second Path traversal over the intended directional bank.",
+  "scope": "one random_rough level-2 terrain seed, four env tiles, 20-step settling and 40-step Path execution",
+  "next_action": "Review bank or follower compatibility without changing the unchanged follower or physics; freeze a new bank/protocol before any independent-StateGroup pilot collection.",
+  "phase_c_started": false,
+  "phase_d_started": false,
+  "full_collection_started": false,
+  "gui_integration_started": false
+}

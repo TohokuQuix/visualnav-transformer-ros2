@@ -1,0 +1,274 @@
+{
+  "schema": "eatnav_motion_source_audit_v1",
+  "label_schema": "eatnav_body_frame_delta_xy_2s_v1",
+  "trial_count": 12,
+  "available_40_step_labels": 12,
+  "independent_state_group_count": 1,
+  "held_out_claim_permitted": false,
+  "records": [
+    {
+      "period": 0,
+      "env_id": 0,
+      "sample_id": "first-differential-2026101101-period-0-env-0",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "direct",
+      "trace_sha256": "247c60a37c204bd76b73744107a841a0eb712ddda8c712885edf34c71741a84a",
+      "host_seal_sha256": "c398e8825a242d1ee40a4c83a9225ec1d36cfadd45e4de4a790fcda51edfe6a4",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.494826946423254,
+          -0.02247539072657409
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 0,
+      "env_id": 1,
+      "sample_id": "first-differential-2026101101-period-0-env-1",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "direct",
+      "trace_sha256": "c6fbd0b1ee50d47cdf10c7a39c3f2956791c00ad3cb2cae96a0f580dd330eccf",
+      "host_seal_sha256": "c398e8825a242d1ee40a4c83a9225ec1d36cfadd45e4de4a790fcda51edfe6a4",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.5381702992074058,
+          -0.02327340221999208
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 0,
+      "env_id": 2,
+      "sample_id": "first-differential-2026101101-period-0-env-2",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "left_20",
+      "trace_sha256": "a4c10ea02c93d9089cda4f06d47d430eb2819ecce83999988efb137ce31ed6ed",
+      "host_seal_sha256": "c398e8825a242d1ee40a4c83a9225ec1d36cfadd45e4de4a790fcda51edfe6a4",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.361133580766999,
+          -0.002130067066334118
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 0,
+      "env_id": 3,
+      "sample_id": "first-differential-2026101101-period-0-env-3",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "right_20",
+      "trace_sha256": "40a9b9be649c55761d6ac6b9e9c98423205cadf0c2da642cac6e433ff5dc56c2",
+      "host_seal_sha256": "c398e8825a242d1ee40a4c83a9225ec1d36cfadd45e4de4a790fcda51edfe6a4",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.3697982200948432,
+          -0.03356965307691574
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 1,
+      "env_id": 0,
+      "sample_id": "first-differential-2026101101-period-1-env-0",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "left_20",
+      "trace_sha256": "2cb68bd85052ddc98b1e0b0c87078fa15f10dfdb361aae67cddd4de694959462",
+      "host_seal_sha256": "38b91f7d3c7f2fd1dde0dfb05717557af0167947809a70dc1b7bdf15f3b94113",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.3695517066176925,
+          -0.006603098340203825
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 1,
+      "env_id": 1,
+      "sample_id": "first-differential-2026101101-period-1-env-1",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "right_20",
+      "trace_sha256": "9eb050b109cd20b377f6bfcd385832c01b5a3dbd917798d102af14c93475a229",
+      "host_seal_sha256": "38b91f7d3c7f2fd1dde0dfb05717557af0167947809a70dc1b7bdf15f3b94113",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.4150639260878542,
+          -0.03433066291944979
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 1,
+      "env_id": 2,
+      "sample_id": "first-differential-2026101101-period-1-env-2",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "direct",
+      "trace_sha256": "780228ee28aed4abf888653b64df400e7cf4fd5beb9fac88bb1e546d4ada173b",
+      "host_seal_sha256": "38b91f7d3c7f2fd1dde0dfb05717557af0167947809a70dc1b7bdf15f3b94113",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.5739956997210081,
+          0.012438456048109392
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 1,
+      "env_id": 3,
+      "sample_id": "first-differential-2026101101-period-1-env-3",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "direct",
+      "trace_sha256": "41f560e13bca9a32b10d8403c827dc24515ad1362a4a499a0adf2a687abe7704",
+      "host_seal_sha256": "38b91f7d3c7f2fd1dde0dfb05717557af0167947809a70dc1b7bdf15f3b94113",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.48397583330839167,
+          -0.023817783125075292
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 2,
+      "env_id": 0,
+      "sample_id": "first-differential-2026101101-period-2-env-0",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "right_20",
+      "trace_sha256": "7a7136bb528ad75aa2abde6d3585752e348ecdaaf9ae79a855d3a483c0f99c34",
+      "host_seal_sha256": "0947485ac69679e534f0575818f1de6c9c917a490bedaca17886a546932d1eba",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.4101042244733279,
+          -0.03612620267013135
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 2,
+      "env_id": 1,
+      "sample_id": "first-differential-2026101101-period-2-env-1",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "left_20",
+      "trace_sha256": "be8249216191b4bcbb7acdf971036f59d888b6f282d51dd3237a0e70868d4b3b",
+      "host_seal_sha256": "0947485ac69679e534f0575818f1de6c9c917a490bedaca17886a546932d1eba",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.3475770420152573,
+          -0.004056660264232237
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 2,
+      "env_id": 2,
+      "sample_id": "first-differential-2026101101-period-2-env-2",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "right_20",
+      "trace_sha256": "9e9993fe060168c26fe238bee3b00f81683ce887c0e8eaa6e4e97cff49956960",
+      "host_seal_sha256": "0947485ac69679e534f0575818f1de6c9c917a490bedaca17886a546932d1eba",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.5171181697652256,
+          -0.030772722143004444
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    },
+    {
+      "period": 2,
+      "env_id": 3,
+      "sample_id": "first-differential-2026101101-period-2-env-3",
+      "state_group": "first-differential",
+      "terrain_seed": 2026101101,
+      "path_role": "left_20",
+      "trace_sha256": "176bef87b98c9928b30cae17538643d697c165ecc5c992ef3b29bc47469822df",
+      "host_seal_sha256": "0947485ac69679e534f0575818f1de6c9c917a490bedaca17886a546932d1eba",
+      "host_seal_stage": "G3_rosfree_crossover_protocol_valid",
+      "label": {
+        "schema": "eatnav_body_frame_delta_xy_2s_v1",
+        "available": true,
+        "delta_body_xy_m": [
+          0.3989693041733119,
+          0.007119850561110447
+        ],
+        "window_steps": 40,
+        "last_control_step": 39,
+        "termination_reason": null
+      }
+    }
+  ]
+}
