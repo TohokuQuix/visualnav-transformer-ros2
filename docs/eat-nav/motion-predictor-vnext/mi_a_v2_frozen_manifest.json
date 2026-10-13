@@ -1,0 +1,33 @@
+{
+  "schema": "mi_a_protocol_v2",
+  "base_commit": "8e29f7dc7d20b98fe1cdedb52a95706f8eeadf25",
+  "state_group": "pyramid_stairs_level2_seed2026101305",
+  "terrain_seed": 2026101305,
+  "terrain_type": "pyramid_stairs",
+  "terrain_level": 2,
+  "condition": "ordinary_paired",
+  "num_envs": 4,
+  "settling_steps": 20,
+  "candidate_control_steps": 40,
+  "step_seconds": 0.05,
+  "pilot_order": [
+    {"index": 0, "stage": "prepath", "candidate": null, "repeat": 0},
+    {"index": 1, "stage": "prepath", "candidate": null, "repeat": 1},
+    {"index": 2, "stage": "candidate", "candidate": "forward_direct", "repeat": 0},
+    {"index": 3, "stage": "candidate", "candidate": "forward_+30", "repeat": 0},
+    {"index": 4, "stage": "candidate", "candidate": "forward_-30", "repeat": 0},
+    {"index": 5, "stage": "candidate", "candidate": "reverse_direct", "repeat": 0},
+    {"index": 6, "stage": "candidate", "candidate": "reverse_+30", "repeat": 0},
+    {"index": 7, "stage": "candidate", "candidate": "reverse_-30", "repeat": 0},
+    {"index": 8, "stage": "repeat", "candidate": "forward_direct", "repeat": 1}
+  ],
+  "numeric_gate_abs": 0.000001,
+  "primary_horizon_s": 2.0,
+  "future_practical_min_yaw_rad": 0.05,
+  "future_practical_min_lateral_m": 0.03,
+  "resource_caps": {"gpu_device_total_mib": 6656, "host_mem_available_min_kib": 2097152,
+    "batch_storage_bytes": 800000000, "wall_seconds_per_process": 600},
+  "checkpoint_sha256": "b789f3ab4820a62fffeaaf5a600e5a1479cc624240e5d027772bb3fee8d51a3d",
+  "eat_config_sha256": "b7cd7f9227939498bb902d5e5bb5f7a65275db40fe48f7cb46d23b1570640e0b",
+  "bank_source_sha256": "a5f5474598b97dd836a02acf48e506ed4c6baea8818448280880176877d669f6"
+}
