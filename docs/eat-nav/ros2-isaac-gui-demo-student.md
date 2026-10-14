@@ -2,7 +2,7 @@
 
 ## Current handoff: ROS-separated 14-candidate demo
 
-Use branch `exp/eatnav-ros2-gui-demo-terrain` after the ROS-separated integration. Start the external Zenoh router separately, then run from this repository:
+Use branch `exp/eatnav-ros2-gui-demo-terrain` after the ROS-separated integration. Install Git LFS, run `git lfs pull`, then verify the packaged checkpoints with `/usr/bin/python3 scripts/eat_nav_verify_checkpoints.py`. Start the external Zenoh router separately, then run from this repository:
 
 ```bash
 unset ROS_DOMAIN_ID
@@ -13,7 +13,7 @@ RMW_IMPLEMENTATION=rmw_zenoh_cpp /usr/bin/python3 \
 
 The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. For an RViz goal, add `--manual-goal` and open `config/eat_nav_phase3_gui.rviz` with the same ROS middleware and no domain override. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
 
-This version uses the Stage C adopted 14-candidate Motion Predictor (`motion-14-training-20261014-04/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
+This version uses the Stage C adopted 14-candidate Motion Predictor (`checkpoints/eat_nav/motion14/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
 
 | Signal | Current demo topic | Real robot relationship |
 | --- | --- | --- |

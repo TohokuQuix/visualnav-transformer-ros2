@@ -17,13 +17,12 @@ import time
 
 REPO = Path(__file__).resolve().parents[1]
 ONIX = Path('/home/kojima/lib/onix_isaac_lab')
-CHECKPOINT = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-                  'motion-14-training-20261014-04/training/full-seed123/best.pt')
+CHECKPOINT = REPO/'checkpoints/eat_nav/motion14/training/full-seed123/best.pt'
 TRAINING_ROOT = CHECKPOINT.parents[2]
 DEMO_CANDIDATE_ORDER = tuple(json.loads((REPO/'docs/eat-nav/motion-predictor-vnext/'
                                          'motion_14_training_contract.json').read_text())['candidate_order'])
 DEMO_CANDIDATE_COUNT = len(DEMO_CANDIDATE_ORDER)
-RL = ONIX/'logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt'
+RL = REPO/'checkpoints/eat_nav/rl_actor/model_10000.pt'
 
 
 def run(*cmd):
@@ -66,6 +65,8 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
+    from eat_nav_verify_checkpoints import verify as verify_checkpoints
+    verify_checkpoints()
     results = json.loads((TRAINING_ROOT/'results.json').read_text())
     if DEMO_CANDIDATE_COUNT != 14 or results['demo_adoption']['decision'] != 'pass' or \
             results['selected_full_seed'] != 123 or \
@@ -84,6 +85,7 @@ def main():
         (REPO/'scripts/eat_nav_demo_isaac.py', staging+'/sim.py'),
         (REPO/'config/eat_nav.yaml', staging+'/config/eat_nav.yaml'),
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
+        (RL, staging+'/config/rl_actor.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
     manifest = {'schema': schema, 'attempt': attempt,
@@ -127,7 +129,7 @@ def main():
                'isaac-lab-onix', '/isaac-sim/python.sh', staging+'/sim.py',
                '--output', '/workspace/isaaclab_onix/'+attempt+'/sim-output',
                '--checkpoint', staging+'/config/checkpoint.pt',
-               '--rl-checkpoint', '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
+               '--rl-checkpoint', staging+'/config/rl_actor.pt',
                '--eat-config', staging+'/config/eat_nav.yaml',
                '--seed', str(args.seed), '--max-steps', str(args.max_steps),
                '--replan-steps', str(args.replan_steps), '--port', str(args.port),

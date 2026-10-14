@@ -21,10 +21,9 @@ import time
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO/'src'))
 ONIX = Path('/home/kojima/lib/onix_isaac_lab')
-TRAIN = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-             'motion-14-training-20261014-04')
+TRAIN = REPO/'checkpoints/eat_nav/motion14'
 CHECKPOINT = TRAIN/'training/full-seed123/best.pt'
-RL = ONIX/'logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt'
+RL = REPO/'checkpoints/eat_nav/rl_actor/model_10000.pt'
 ROUTER_PID = Path('/home/kojima/eatnav-router-logs/eatnav-p1-paired-noise-20261010-v7/router.pid')
 ROS_OVERLAY = Path('/tmp/eatnav-ros2-adapter-build/install-v4/setup.bash')
 
@@ -99,6 +98,8 @@ def main():
                                             (args.auto_goal_dx,args.auto_goal_dy))):
         raise ValueError('invalid bounded GUI attempt')
     from visualnav_transformer.eat_nav.ros2_phase2.predictor_client import validate_adoption_artifacts
+    from eat_nav_verify_checkpoints import verify as verify_checkpoints
+    verify_checkpoints()
     validate_adoption_artifacts(TRAIN/'results.json',CHECKPOINT)
     if not RL.is_file():
         raise FileNotFoundError(RL)
@@ -116,6 +117,7 @@ def main():
       'ros_nodes':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/nodes.py',
       'gui_contract':REPO/'src/visualnav_transformer/eat_nav/ros2_phase3_gui_contract.py',
       'phase2_cli':REPO/'scripts/eat_nav_ros2_phase2.py',
+      'checkpoint_manifest':REPO/'checkpoints/eat_nav/manifest.json',
       'checkpoint':CHECKPOINT,'results':TRAIN/'results.json',
       'normalization':TRAIN/'normalization.json','rl_checkpoint':RL,
       'eat_config':REPO/'config/eat_nav.yaml',
@@ -140,10 +142,12 @@ def main():
         'isaac-lab-onix:'+stage+'/src/')
     for source,target in ((files['simulator'],staged_sim),
                           (files['eat_config'],stage+'/config/eat_nav.yaml'),
-                          (CHECKPOINT,stage+'/config/checkpoint.pt')):
+                          (CHECKPOINT,stage+'/config/checkpoint.pt'),
+                          (RL,stage+'/config/rl_actor.pt')):
         run('docker','cp',str(source),'isaac-lab-onix:'+target)
     for source,target in ((files['simulator'],staged_sim),
-                          (CHECKPOINT,stage+'/config/checkpoint.pt')):
+                          (CHECKPOINT,stage+'/config/checkpoint.pt'),
+                          (RL,stage+'/config/rl_actor.pt')):
         digest=subprocess.check_output(['docker','exec','isaac-lab-onix','sha256sum',target],text=True).split()[0]
         if digest != sha(source):
             raise ValueError('host/container staging SHA mismatch')
@@ -155,7 +159,7 @@ def main():
        'isaac-lab-onix','/isaac-sim/python.sh',staged_sim,
        '--output','/workspace/isaaclab_onix/.eatnav-ros2-phase3-evidence/'+attempt+'/sim-output',
        '--checkpoint',stage+'/config/checkpoint.pt','--rl-checkpoint',
-       '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
+       stage+'/config/rl_actor.pt',
        '--eat-config',stage+'/config/eat_nav.yaml', '--seed',str(args.seed),
        '--max-steps',str(args.max_steps),'--replan-steps','10','--port',str(args.port),
        '--num-envs','1','--terrain-type',args.terrain_type,

@@ -9,8 +9,7 @@ from visualnav_transformer.eat_nav.motion_14_predictor import CANDIDATE_IDS
 from visualnav_transformer.eat_nav import demo_motion_14
 
 
-CHECKPOINT = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-                  'motion-14-training-20261014-04/training/full-seed123/best.pt')
+CHECKPOINT = Path(__file__).resolve().parents[1]/'checkpoints/eat_nav/motion14/training/full-seed123/best.pt'
 
 
 def test_demo_uses_frozen_fourteen_paths_and_body_to_map_transform():

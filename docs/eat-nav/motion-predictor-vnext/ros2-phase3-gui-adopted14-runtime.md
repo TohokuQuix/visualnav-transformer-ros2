@@ -4,6 +4,7 @@
 
 - Branch: `exp/eatnav-ros2-adapter-design`; baseline GUI Motion-14 integration cherry-pick: `b62a97d4`.
 - Adopted Stage C checkpoint: `motion-14-training-20261014-04/training/full-seed123/best.pt`, SHA-256 `83a565f0c1b662c278da20ce851297d890f974f39a86df73b971fd0a2c0d22fa`. Stage C adoption decision is `pass`; normalization is train-only.
+- The handoff checkout stores the same bytes at `checkpoints/eat_nav/motion14/training/full-seed123/best.pt` and the RL Actor at `checkpoints/eat_nav/rl_actor/model_10000.pt`. Both `.pt` files use Git LFS. `scripts/eat_nav_verify_checkpoints.py` checks SHA-256 before launch; the Stage C source, result, normalization and dataset ledgers remain available under `checkpoints/eat_nav/motion14/` for the adoption gate.
 - The model runs in the ROS-separated Model Worker. Isaac publishes measured DEM and Actor state, receives the selected frozen body-frame Path, runs the existing pure C++ follower, and applies only the Supervisor-gated command to the RL Actor. The production follower, robot topics, and external router were not modified.
 - The bounded check used a private ROS domain (227), one GUI Isaac environment, `boxes` level 0, seed 2026101101, 20 Hz control, the frozen 14-Path bank, and an automatically published map goal 2 m ahead of the initial XY position.
 

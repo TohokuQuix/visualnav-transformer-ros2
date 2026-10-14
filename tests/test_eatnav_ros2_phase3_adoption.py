@@ -12,8 +12,7 @@ from visualnav_transformer.eat_nav.ros2_phase2.predictor_client import (
 )
 
 
-ROOT = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-            'motion-14-training-20261014-04')
+ROOT = Path(__file__).resolve().parents[1]/'checkpoints/eat_nav/motion14'
 CHECKPOINT = ROOT/'training/full-seed123/best.pt'
 WORKER_PYTHON = Path('/home/kojima/anaconda3/envs/tinyvla/bin/python')
 

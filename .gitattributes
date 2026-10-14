@@ -1,0 +1,5 @@
+checkpoints/eat_nav/rl_actor/model_10000.pt filter=lfs diff=lfs merge=lfs -text
+checkpoints/eat_nav/motion14/training/full-seed123/best.pt filter=lfs diff=lfs merge=lfs -text
+checkpoints/eat_nav/motion14/grouped.npz filter=lfs diff=lfs merge=lfs -text
+checkpoints/eat_nav/motion14/test-predictions.npz filter=lfs diff=lfs merge=lfs -text
+checkpoints/eat_nav/** !text !filter !merge !diff

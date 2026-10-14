@@ -14,8 +14,7 @@ from visualnav_transformer.eat_nav.ros2_phase2.wire import CANDIDATE_IDS, BANK_S
 COLLECTION = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
                   'motion-14-collection-20261014-05/'
                   '0000-pyramid_stairs-level1-seed1456788336-front_folded-prepath-0')
-TRAINING = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-                'motion-14-training-20261014-04')
+TRAINING = Path(__file__).resolve().parents[1]/'checkpoints/eat_nav/motion14'
 PYTHON = Path('/home/kojima/anaconda3/envs/tinyvla/bin/python')
 
 
