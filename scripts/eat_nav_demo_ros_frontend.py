@@ -114,10 +114,7 @@ class DemoFrontend(Node):
         erase = Marker()
         erase.action = Marker.DELETEALL
         bundle.markers.append(erase)
-        for idx, role in enumerate(('direct', 'left_20', 'right_20')):
-            if role not in candidates:
-                continue
-            points = candidates[role]
+        for idx, (role, points) in enumerate(candidates.items()):
             color = (0.1, 1., 0.2) if selected == role else ((.2, .6, 1.) if idx == 0 else (1., .55, .1))
             marker = Marker()
             marker.header.frame_id = 'map'
@@ -135,7 +132,7 @@ class DemoFrontend(Node):
             label.scale.z = .075
             label.color.r = label.color.g = label.color.b = label.color.a = 1.
             label.pose.position.x = float(points[-1][0]) + .22
-            label.pose.position.y = float(points[-1][1]) + (idx - 1) * .35
+            label.pose.position.y = float(points[-1][1])
             label.pose.position.z = .25
             label.text = f'{role}={scores.get(role, float("nan")):.2f}m'
             bundle.markers.append(label)

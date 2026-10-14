@@ -23,7 +23,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--checkpoint', type=Path, required=True)
 parser.add_argument('--rl-checkpoint', type=Path, required=True)
-parser.add_argument('--bank', type=Path, required=True)
 parser.add_argument('--eat-config', type=Path, required=True)
 parser.add_argument('--port', type=int, default=29553)
 parser.add_argument('--seed', type=int, default=2026101101)
@@ -57,8 +56,11 @@ from visualnav_transformer.eat_nav.demo_reset_policy import (
 from visualnav_transformer.eat_nav.demo_turn_escape import TurnStuckEscape
 from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
 from visualnav_transformer.eat_nav.demo_contract import (
-    RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
+    RL_CHECKPOINT_SHA256,
     select_best, sensor_stamp_valid, sha256, validate_evaluator_sample,
+)
+from visualnav_transformer.eat_nav.demo_arc_candidates import (
+    DEMO_ARC_ROLES, candidates_from_body_arcs,
 )
 from visualnav_transformer.eat_nav.demo_motion_predictor import (
     DEMO_CHECKPOINT_SHA256, load_demo_motion_predictor,
@@ -69,8 +71,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v6_front_folded'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v7_front_folded'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v9_body_arcs'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v10_body_arcs'
 
 
 def durable_json(path, value):
@@ -157,7 +159,8 @@ def main():
     ledger = {'protocol': protocol, 'source_sha256': sha256(__file__),
               'checkpoint_sha256': sha256(args.checkpoint),
               'rl_checkpoint_sha256': sha256(args.rl_checkpoint),
-              'bank_sha256': sha256(args.bank),
+              'arc_bank_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/arc_bank.py'),
+              'demo_arc_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_arc_candidates.py'),
               'eat_config_sha256': sha256(args.eat_config), 'seed': args.seed,
               'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
@@ -171,7 +174,6 @@ def main():
         raise ValueError('MI-B predictor/RL checkpoint SHA mismatch')
     if args.replan_steps < 5 or args.replan_steps % 5 or args.max_steps <= 20:
         raise ValueError('replan interval must align to 250 ms DEM history')
-    bank = load_bank(args.bank)
     eat_cfg = load_eat_config(args.eat_config)
     predictor = load_demo_motion_predictor(args.checkpoint)
     if eat_cfg.dem_frame_count != 4 or eat_cfg.dem_resolution_m != .1:
@@ -327,8 +329,8 @@ def main():
                 history.append((stamp_ns, frame, sensor_stamp))
             if goal_map is not None and not arrived and len(history) == 4 and step % args.replan_steps == 0 and \
                     step - last_replan_step >= args.replan_steps:
-                body, paths_map, candidate_info = candidates_for_goal(bank, pose, goal_map)
-                candidate_paths = np.stack([body[name] for name in ('direct', 'left_20', 'right_20')])
+                body, paths_map, candidate_info = candidates_from_body_arcs(pose)
+                candidate_paths = np.stack([body[name] for name in DEMO_ARC_ROLES])
                 dem = np.stack([row[1] for row in history])
                 actor_state = observed['policy_pre_noise'][0].detach().cpu().numpy()
                 validate_evaluator_sample(dem, actor_state, candidate_paths,
@@ -338,10 +340,9 @@ def main():
                 predicted_motion, result = predictor.predict(
                     dem, actor_state, candidate_paths, pose, goal_map)
                 elapsed_ms = (time.monotonic_ns() - begin) / 1e6
-                selected = select_best(result)
-                scores = dict(zip(('direct', 'left_20', 'right_20'), map(float, result)))
-                predicted_motion_m = dict(zip(
-                    ('direct', 'left_20', 'right_20'), predicted_motion.tolist()))
+                selected = select_best(result, roles=DEMO_ARC_ROLES)
+                scores = dict(zip(DEMO_ARC_ROLES, map(float, result)))
+                predicted_motion_m = dict(zip(DEMO_ARC_ROLES, predicted_motion.tolist()))
                 tile_origin = bare.scene.env_origins[0, :2].detach().cpu().numpy()
                 selected_tile = paths_map[selected] - tile_origin
                 if follower is not None:

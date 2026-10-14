@@ -62,7 +62,9 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v9-mi-b-global-goal' if args.residual_diagnostics else 'terrain-v8-mi-b-global-goal'
+    series = 'cancel-residual-v10-body-arcs' if args.residual_diagnostics else 'terrain-v9-body-arcs'
+    schema = ('eatnav_ros2_isaac_gui_demo_cancel_residual_v10_body_arcs'
+              if args.residual_diagnostics else 'eatnav_ros2_isaac_gui_demo_terrain_v9_body_arcs')
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -71,17 +73,17 @@ def main():
     run('docker', 'cp', str(REPO/'src/visualnav_transformer'), 'isaac-lab-onix:'+staging+'/src/')
     for source, target in (
         (REPO/'scripts/eat_nav_demo_isaac.py', staging+'/sim.py'),
-        (REPO/'config/eat_nav_demo_p1_bank.json', staging+'/config/bank.json'),
         (REPO/'config/eat_nav.yaml', staging+'/config/eat_nav.yaml'),
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v8_mi_b_global_goal', 'attempt': attempt,
+    manifest = {'schema': schema, 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'predictor': 'MI-B Pilot Full seed 456; lowest aggregate validation loss',
                 'selection_metric': 'predicted_2s_global_goal_distance_reduction_m',
                 'candidate_geometry_matches_mi_b_training': False,
+                'candidate_bank': 'robot_forward_direct_and_left_right_30_60_90',
                 'rl_checkpoint_sha256': sha(RL),
                 'source_sha256': sha(REPO/'scripts/eat_nav_demo_isaac.py'),
                 'frontend_sha256': sha(REPO/'scripts/eat_nav_demo_ros_frontend.py'),
@@ -95,7 +97,8 @@ def main():
                 'turn_escape_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_turn_escape.py'),
                 'follower_core_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_follower_core.py'),
                 'observation_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py'),
-                'bank_sha256': sha(REPO/'config/eat_nav_demo_p1_bank.json'),
+                'arc_bank_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/arc_bank.py'),
+                'demo_arc_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_arc_candidates.py'),
                 'eat_config_sha256': sha(REPO/'config/eat_nav.yaml'),
                 'headless': args.headless, 'seed': args.seed, 'port': args.port,
                 'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
@@ -114,7 +117,7 @@ def main():
                '--output', '/workspace/isaaclab_onix/'+attempt+'/sim-output',
                '--checkpoint', staging+'/config/checkpoint.pt',
                '--rl-checkpoint', '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt',
-               '--bank', staging+'/config/bank.json', '--eat-config', staging+'/config/eat_nav.yaml',
+               '--eat-config', staging+'/config/eat_nav.yaml',
                '--seed', str(args.seed), '--max-steps', str(args.max_steps),
                '--replan-steps', str(args.replan_steps), '--port', str(args.port),
                '--num-envs', str(args.num_envs), '--terrain-type', args.terrain_type,

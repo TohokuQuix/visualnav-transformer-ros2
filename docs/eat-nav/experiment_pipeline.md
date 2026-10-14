@@ -18,11 +18,12 @@ flowchart TD
     F <-->|localhost JSON IPC| S[Isaac Lab / Isaac Sim]
     S --> T[Terrain + root/joint state]
     T --> D[4-frame robot-relative DEM]
-    G --> P[Direct / Left / Right candidate generator]
+    T --> P[Robot-forward Direct and ±30/60/90 degree Arc candidates]
     D --> E[MI-B Pilot Motion Predictor CNN + MLP]
     T --> E
     P --> E
-    E --> C[Selected Path, map to tile-local]
+    G --> C
+    E --> C[Global-goal score and selected Path, map to tile-local]
     C --> PF[C++ PureFollower per env]
     PF --> CM[CommandManager]
     CM --> AO[Actor observation: noise + latency]
@@ -47,8 +48,8 @@ scores, and status use simulation stamps.
 | ROS frontend | `scripts/eat_nav_demo_ros_frontend.py:DemoFrontend` | `/goal_pose` or `/eat_nav/cancel` → validated map goal/Cancel over IPC; simulator state → ROS display topics | Goal stamp within 0.5 s of simulation `/clock`; `map` and `base_link` |
 | Terrain/state | `demo_isaac_env_cfg.py:EATTerrainGenerator/EATTerrainImporter` | seed, type, row → mesh, tile SHA, origin, robot state | world/map frame; selected row held fixed on reset |
 | DEM | `scripts/eat_nav_demo_isaac.py:dem_from_sensor`, `dem.py:robot_dem` | raycaster → `[4,2,20,20]` history | robot-base-yaw, 0.1 m/cell; four chronological frames at 250 ms intervals; actual sensor update stamp is recorded separately |
-| Path bank | `demo_contract.py:candidates_for_goal` | current map pose + map goal + frozen bank → `[K,8,2]` robot-local candidates and map Paths | current pre-Path pose; 0.75 m local radius, Direct/Left +20°/Right −20° |
-| Motion Predictor | `demo_motion_predictor.py:DemoMotionPredictor.predict` | DEM, pre-noise state, three Paths → predicted body XY `[3,2]` → global-goal progress scores `[3]` | pre-Path input; largest predicted 2 s distance reduction is selected |
+| Path bank | `demo_arc_candidates.py:candidates_from_body_arcs` | current map pose → seven fixed robot-local candidates and map Paths | 0.75 m path length; Direct and left/right 30°, 60°, 90° total tangent changes |
+| Motion Predictor | `demo_motion_predictor.py:DemoMotionPredictor.predict` | DEM, pre-noise state, seven Paths → predicted body XY `[7,2]` → global-goal progress scores `[7]` | pre-Path input; largest predicted 2 s distance reduction is selected |
 | Follower | `p1_follower_core.py:PureFollower` | selected tile-local Path + tile-local pose + logical time → `[vx,vy,wz]` and diagnostics | one call per 50 ms control step; one instance for the selected Path |
 | Command/Actor | `phase_c_sim.py:CommandOverride`, `p1_g3_rosfree_control.py:reconcile_command_observation` | follower command → observed command after noise/latency → Actor action `[B,6]` | body velocity command; Actor observation `[B,22]`, Critic `[B,267]` |
 | Physics/log | `scripts/eat_nav_demo_isaac.py` | action → next robot state, reward, done, trace | 50 ms control boundary; new trace row after physics |
@@ -59,18 +60,19 @@ The launcher stages sealed `training/full-seed456/best.pt` from the MI-B
 Pilot evidence root; seed 456 has the lower aggregate validation loss of the
 two Full initializations. `demo_motion_predictor.py` verifies the checkpoint
 SHA and training-model source SHA, applies train-only DEM/Actor normalization,
-and reverses the target normalization to return three predicted body-frame
-XY displacements in metres. The three GUI Paths occupy the forward slots
-of the six-candidate model; the remaining slots are masked. For each Path,
+and reverses the target normalization to return seven predicted body-frame
+XY displacements in metres. The seven forward GUI Paths are evaluated in two
+batches of the six-slot model; unused slots are masked. For each Path,
 the selector transforms the full map-frame global goal into the current body
 frame, then scores the reduction in distance to that global goal after the
-predicted displacement. The Path bank still uses a local subgoal no farther
-than 0.75 m. The `/eat_nav/scores` topic reports
+predicted displacement. Candidate geometry is fixed in the robot body frame
+and does not rotate toward the goal. The `/eat_nav/scores` topic reports
 `predicted_global_goal_progress_m`.
 No goal is fed into the Motion Predictor itself.
 
 The MI-B training Paths were forward/reverse Direct and ±30° Arcs, whereas
-the GUI keeps Direct and ±20° Arcs rotated/scaled toward the RViz goal.
+the GUI now uses robot-forward Direct and ±30°/±60°/±90° Arcs. The larger
+turns are outside the measured MI-B training geometry.
 This distribution difference and the new goal-based selection rule make
 the GUI an exploratory demonstration, not a measured MI-B online result.
 
@@ -96,8 +98,8 @@ the MI-B checkpoint SHA and model source provenance.
 
 The old P1 stored Path `map_xy` is tile-local. `evaluator/dataset.py` subtracts
 the tile origin and applies `body_local_path` with the pre-Path root yaw.
-During the GUI demo, `candidates_for_goal` creates robot-local paths from
-the frozen bank and transforms them into map Paths; the selected Path is
+During the GUI demo, `candidates_from_body_arcs` creates robot-local paths
+from the audited Arc Bank and transforms them into map Paths; the selected Path is
 converted back to tile-local for the C++ follower. No post-Path outcome enters
 the Evaluator input. The current demo logs the selected candidate and scores,
 but its `trace.jsonl` is **not** automatically a new teacher dataset.

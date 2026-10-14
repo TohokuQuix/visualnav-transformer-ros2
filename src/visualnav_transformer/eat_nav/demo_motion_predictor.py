@@ -1,8 +1,8 @@
-"""Pinned MI-B Pilot motion inference for the three-Path GUI demonstration.
+"""Pinned MI-B Pilot motion inference for the robot-forward GUI Arc Bank.
 
-The pilot learned six candidate slots. The GUI keeps its three bank Paths in
-the forward slots and masks three unused slots. This is an experimental input distribution,
-not a validated MI-B navigation selector.
+The model has six fixed slots; the GUI evaluates its seven forward Paths in
+two model batches. This is an experimental input distribution, not a validated
+MI-B navigation selector.
 """
 
 from __future__ import annotations
@@ -33,7 +33,9 @@ def prepare_demo_motion_inputs(dem, state, paths, normalization):
     """Normalize measured inputs and mask unused MI-B candidate slots."""
     dem = _finite_shape(dem, (4, 2, 20, 20), 'DEM')
     state = _finite_shape(state, (22,), 'Actor state')
-    paths = _finite_shape(paths, (3, 8, 2), 'candidate Paths')
+    paths = np.asarray(paths, dtype=np.float32)
+    if paths.ndim != 3 or paths.shape[1:] != (8, 2) or len(paths) == 0 or not np.isfinite(paths).all():
+        raise ValueError('candidate Paths shape/nonfinite')
     if not np.isin(dem[:, 1], (0., 1.)).all():
         raise ValueError('DEM valid mask')
     height_mean = float(normalization['dem_height_mean'])
@@ -48,11 +50,14 @@ def prepare_demo_motion_inputs(dem, state, paths, normalization):
     height[valid] = (height[valid] - height_mean) / height_std
     height[~valid] = 0.
     scaled_state = (state - state_mean) / state_std
-    six_paths = np.zeros((1, 6, 8, 2), dtype=np.float32)
-    six_paths[0, :3] = paths
-    direction = np.asarray([1, 1, 1, -1, -1, -1], np.float32).reshape(1, 6, 1)
-    mask = np.asarray([[True, True, True, False, False, False]], dtype=bool)
-    return scaled_dem[None], scaled_state[None], six_paths, direction, mask
+    batches = (len(paths) + 5) // 6
+    six_paths = np.zeros((batches, 6, 8, 2), dtype=np.float32)
+    six_paths.reshape(-1, 8, 2)[:len(paths)] = paths
+    direction = np.ones((batches, 6, 1), dtype=np.float32)
+    mask = np.zeros((batches, 6), dtype=bool)
+    mask.reshape(-1)[:len(paths)] = True
+    return np.repeat(scaled_dem[None], batches, axis=0), \
+        np.repeat(scaled_state[None], batches, axis=0), six_paths, direction, mask
 
 
 def global_goal_body_xy(robot_pose_map, goal_map):
@@ -71,7 +76,8 @@ def global_goal_progress(predicted_body_xy, goal_body_xy):
     """Score predicted 2 s body displacement against the full global goal."""
     predicted = np.asarray(predicted_body_xy, dtype=np.float32)
     goal = _finite_shape(goal_body_xy, (2,), 'global goal in body frame')
-    if predicted.shape != (3, 2) or not np.isfinite(predicted).all() or np.linalg.norm(goal) <= 0:
+    if predicted.ndim != 2 or predicted.shape[1] != 2 or len(predicted) == 0 or \
+            not np.isfinite(predicted).all() or np.linalg.norm(goal) <= 0:
         raise ValueError('predicted motion/global goal contract')
     return (np.linalg.norm(goal) - np.linalg.norm(goal[None] - predicted, axis=1)).astype(np.float32)
 
@@ -86,7 +92,7 @@ class DemoMotionPredictor:
     def predict(self, dem, state, paths, robot_pose_map, goal_map):
         values = prepare_demo_motion_inputs(dem, state, paths, self.normalization)
         tensors = tuple(torch.from_numpy(value) for value in values)
-        scaled = self.model(*tensors)[0, :3].cpu().numpy()
+        scaled = self.model(*tensors).reshape(-1, 2)[:len(paths)].cpu().numpy()
         mean = _finite_shape(self.normalization['target_mean'], (2,), 'target mean')
         std = _finite_shape(self.normalization['target_std'], (2,), 'target std')
         if (std <= 0).any():

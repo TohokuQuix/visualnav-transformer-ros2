@@ -1,12 +1,13 @@
 # EAT-Nav one-robot ROS2 + Isaac GUI demo
 
-This demonstration connects an RViz2 goal to three frozen Path candidates,
+This demonstration connects an RViz2 goal to seven robot-forward Path candidates,
 the MI-B Pilot Motion Predictor, the C++ `PureFollower`, the trained RL Actor, and Isaac
 physics. It is a pipeline demonstration, not a validated navigation policy.
 The predictor estimates 2 s body-frame XY displacement for each candidate.
 The demo selects the candidate with the largest predicted distance reduction
-to the full global goal. The candidate Paths still target a local subgoal up
-to 0.75 m away. This selection rule has not been validated by
+to the full global goal. Direct points along the robot's current heading;
+the other Paths turn left or right by 30°, 60°, or 90° over 0.75 m of arc
+length. This selection rule has not been validated by
 MI-B's held-out motion-prediction metrics.
 
 ## Setup
@@ -49,7 +50,7 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v8-mi-b-global-goal-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v9-body-arcs-*`.
 The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
 preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and
@@ -70,11 +71,12 @@ and robot spawn pose. The generator's terrain parameters are unchanged.
 
 `--num-envs 4` is retained as an optional compatibility mode. Each robot
 uses a different column of the selected terrain row; only env 0 follows
-the RViz goal, as in the original demo. Candidate count remains three
+the RViz goal, as in the original demo. Candidate count remains seven
 and is independent of env count.
 The MI-B model was trained with six candidates and ±30° Arcs. This demo
-uses its three forward slots with the other three masked, while retaining the
-existing ±20° goal-rotated and scaled bank. The resulting selector is an
+uses two six-slot inference batches to score seven forward Paths and masks
+unused slots. The ±60° and ±90° inputs extend beyond the measured training
+geometry. The resulting selector is an
 exploratory demo with a different input distribution, not an MI-B Gate result.
 
 ## Checks and limitations
