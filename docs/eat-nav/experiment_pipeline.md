@@ -3,13 +3,16 @@
 ## What is runnable today
 
 The GUI demo is an online **inference** pipeline. The current offline
-Evaluator preparation/training scripts consume a small, sealed ROS-free P1
+**Baseline Evaluator** preparation/training scripts consume a small, sealed ROS-free P1
 crossover; they do not collect fresh independent StateGroups. The existing
-checkpoint is a one-StateGroup×one-seed **train-set smoke test** for the
+GUI checkpoint is a one-StateGroup×one-seed **train-set smoke test** for the
 40-step (2 s) common-goal progress label. Its validation/test splits are
-empty. A student changing the teacher, inputs, or architecture must version
-the dataset, model, checkpoint, and evaluation protocol before drawing
-generalization conclusions.
+empty. Separately, the **MI-B Motion Predictor Pilot** was trained offline
+on sealed MI-A v3.1 trials with terrain-seed train/validation/test splits.
+It predicts 2 s body-frame XY motion, is not the GUI scoring checkpoint,
+and has not been used to select Paths online. A student changing the teacher,
+inputs, or architecture must version the dataset, model, checkpoint, and
+evaluation protocol before drawing generalization conclusions.
 
 ```mermaid
 flowchart TD
@@ -79,6 +82,43 @@ converted back to tile-local for the C++ follower. No post-Path outcome enters
 the Evaluator input. The current demo logs the selected candidate and scores,
 but its `trace.jsonl` is **not** automatically a new teacher dataset.
 
+## MI-A / MI-B offline evidence and reproducibility
+
+MI-A v3.1 formally measured Path-dependent 2 s body-frame XY motion:
+192/192 processes and 576/576 candidate trials were protocol-valid across
+12 terrain seeds, four terrain types and Front/Rear initial flipper poses.
+The frozen exploratory MI-A Gate passed. Terrain type, level and seed are
+coupled, so this does not establish transfer to unseen terrain. The
+[formal result report](motion-predictor-vnext/mi_a_v31_formal_result_report.md)
+retains the Gate, bootstrap and resource details. Its sealed aggregate is
+`/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/mi-a-v31-formal-20261014-03/`;
+see `formal-analysis-sha-ledger.json` and `formal-analysis-seal.json`.
+
+The MI-B Pilot imported those 576 trials read-only and formed 96 paired
+examples. Its raw tensor contract is DEM `[B,4,2,20,20]`, pre-noise Actor
+state `[B,22]`, candidate Path `[B,K,8,2]`, direction `[B,K,1]`, mask
+`[B,K]`, and 2 s body-frame XY output `[B,K,2]`. Train, validation and
+test each contain four distinct terrain seeds, 32 paired groups and 192
+candidate trials; normalizers use train only, checkpoint selection uses
+aggregate validation loss, and the held-out test is used only for evaluation.
+The small overfit test passed. Held-out Arc−Direct XY RMSE was
+`0.0713/0.0724 m` for Full versus `0.0834 m` for the train-only
+Direction mean. No Path did not improve on that baseline; No DEM performed
+similarly to Full, while the Actor-state contribution and Front/Rear
+interaction prediction remain unclear. Reverse +30° and `random_rough`
+retain notable error. The predeclared exploratory MI-B Pilot criterion
+passed; **a formal MI-B Gate is not defined**. See the
+[MI-B report](motion-predictor-vnext/mi_b_pilot_report.md),
+[fixed contract](motion-predictor-vnext/mi_b_pilot_contract.json), and
+`/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/mi-b-pilot-20261014-01/`
+(`audit.json`, `overfit-result.json`, `pilot-results.json`,
+`pilot-subgroups-v2.json`, `artifact-ledger.json`, `artifact-seal.json`).
+
+These source roots are read-only evidence, not output directories. The
+[student roadmap](research_roadmap.md) states the current open question and
+next-meeting assignment. Phase C collection, MI-C and deployment are outside
+the present approved work.
+
 ## Existing offline preparation and training commands
 
 These are the implemented scripts and their historical source roots. Use a
@@ -122,6 +162,8 @@ record the actual prior run.
 | Dataset | `scripts/eat_nav_baseline_prepare.py`, `evaluator/dataset.py`: three sealed crossover periods → `samples.npz`, `metadata.json` | Verifies seals, Path assignment, pre-Path equality, DEM SHA, and group split; 12 samples, train only |
 | Training | `scripts/eat_nav_baseline_train.py`, `config/eat_nav/baseline_evaluator_pilot.json` → `checkpoint.pt`, `result.json` | Checks dataset SHA, group split, normalization from train only, finite loss; no independent validation |
 | Offline ranking | `scripts/eat_nav_baseline_evaluate.py` → ranking JSON | Train-set diagnostic only; check source and checkpoint SHA |
+| MI-A motion evidence | `scripts/eat_nav_mi_a_v31_analyze.py`, sealed formal root → 192 process / 576 trial result | Frozen exploratory MI-A Gate Pass; no unseen-terrain claim |
+| MI-B offline Motion Predictor | `scripts/eat_nav_mi_b_pilot.py`, `src/visualnav_transformer/eat_nav/mi_b_pilot.py`, sealed MI-B root → grouped dataset, checkpoints, held-out metrics | Small overfit and exploratory Pilot Pass; formal MI-B Gate undefined; not connected to GUI |
 | GUI inference | `eat_nav_demo_launch.py`, `eat_nav_demo_isaac.py`, ROS frontend → new trace, score, GUI/ROS topics | Check input SHA, `startup-ready.json`, `complete.json`, `failure.json`, host seal, finite Actor/action, physical root motion |
 
 Labels currently defined in `evaluator/labels.py` are negative normalized
@@ -136,13 +178,15 @@ research alternatives, not trained heads in the current checkpoint.
 
 ## What must be built for a research dataset
 
-The existing adapter deliberately requires exactly one independent
-StateGroup×seed and train-only split. Before a general Evaluator experiment,
-collect additional independent StateGroups/terrain seeds with paired Path
-conditions; version the collector and dataset adapter; split by independent
-group so siblings never cross train/validation/test; compute labels from
-sealed full traces; fit normalization on train only; select checkpoints on
-held-out validation; evaluate on untouched test terrain/seeds. The current
+The **Baseline Evaluator adapter** described above deliberately requires exactly one independent
+StateGroup×seed and train-only split. A future general Evaluator experiment
+would require additional independent StateGroups/terrain seeds with paired Path
+conditions, a versioned collector and dataset adapter, group-level splits,
+sealed full traces, train-only normalization, validation checkpoint selection
+and untouched test evaluation. The current
 demo's short, selected-Path-only trace does not contain counterfactual
 outcomes for unselected Paths. No script in this handoff automatically
 creates that broader dataset or trains a generalizable Evaluator.
+This historical limitation does not describe the separate MI-B offline
+Motion Predictor dataset. Additional collection is not approved for the
+current student assignment.
