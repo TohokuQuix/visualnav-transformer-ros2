@@ -1,0 +1,47 @@
+{
+  "schema": "eatnav_mi_b_pilot_v1",
+  "source_evidence_root": "/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/mi-a-v31-formal-20261014-03",
+  "source_manifest_sha256": "5d3ccdc70b45c534ec27f60fe9b2a959c69f41ec9093cc07b9f879fbdbf4ee7a",
+  "split_by_terrain_seed": {
+    "train": [2026101401, 2026101502, 2026101603, 2026101701],
+    "validation": [2026101402, 2026101503, 2026101601, 2026101702],
+    "test": [2026101403, 2026101501, 2026101602, 2026101703]
+  },
+  "input": {
+    "dem": [4, 2, 20, 20],
+    "actor_pre_noise": 22,
+    "candidate_path": [8, 2],
+    "direction": 1,
+    "candidates_per_group": 6,
+    "path_order": ["forward_direct", "forward_+30", "forward_-30", "reverse_direct", "reverse_+30", "reverse_-30"]
+  },
+  "target": "40-step body-frame XY displacement, no relabeling",
+  "normalization": "fit DEM height, Actor state and XY label on train seeds only; preserve DEM mask; path metres and direction raw",
+  "training": {
+    "training_seeds": [123, 456],
+    "batch_groups": 16,
+    "max_epochs": 240,
+    "patience": 35,
+    "min_delta": 0.0,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "loss": "normalized absolute XY MSE + normalized four Arc-minus-Direct XY MSE",
+    "selection": "lowest aggregate validation loss; test evaluated only after all selections",
+    "variants": ["full", "no_dem", "no_body", "no_path"],
+    "same_architecture_for_ablations": true
+  },
+  "overfit": {
+    "train_group_count": 2,
+    "seed": 123,
+    "max_steps": 1500,
+    "target_max_absolute_xy_error_m": 0.015,
+    "target_max_arc_minus_direct_xy_error_m": 0.015
+  },
+  "evaluation": {
+    "primary": "test Arc-minus-same-direction-Direct XY RMSE in metres",
+    "secondary": ["absolute XY RMSE/MSE", "per-candidate vector", "posture", "terrain", "direction", "per-seed error"],
+    "uncertainty": "descriptive seed-level distribution; four env tiles are paired replicates; no population-wide significance claim",
+    "baseline": "train-only direction-specific mean XY displacement",
+    "pilot_interpretation": "Pass if full test contrast RMSE improves on direction-mean baseline and no-path, and small overfit passes; otherwise Fail or Inconclusive based on audit/training support. This is not a formal MI-B gate."
+  }
+}
