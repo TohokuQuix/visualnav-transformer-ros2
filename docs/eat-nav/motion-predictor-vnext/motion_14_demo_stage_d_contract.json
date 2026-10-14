@@ -1,0 +1,31 @@
+{
+  "schema": "eatnav_motion_14_demo_stage_d_contract_v1",
+  "activation_condition": "Stage C demo_adoption.decision == pass on the frozen twelve-seed held-out evaluation",
+  "candidate_bank": "eatnav_forward_reverse_path_bank_v1",
+  "candidate_count": 14,
+  "candidate_order": [
+    "forward_direct", "forward_-30", "forward_+30", "forward_-60", "forward_+60", "forward_-90", "forward_+90",
+    "reverse_direct", "reverse_-30", "reverse_+30", "reverse_-60", "reverse_+60", "reverse_-90", "reverse_+90"
+  ],
+  "path_frame": "robot body frame; no rotation of the bank toward a goal",
+  "path_points": 8,
+  "path_arc_length_m": 0.75,
+  "predictor_target": "two-second body-frame XY displacement per Path",
+  "predictor_goal_input": false,
+  "selection_goal": "global goal in current robot body frame",
+  "selection_score": "norm(global_goal_body_xy) - norm(global_goal_body_xy - predicted_two_second_body_xy)",
+  "selection_score_unit": "metres of predicted global-goal distance reduction",
+  "selection_tie_break": "frozen candidate order",
+  "legacy_fallback": "explicit old MI-B Full seed-456 checkpoint with its existing seven-forward-arc demo mode",
+  "mode_compatibility": "never feed fourteen Paths to the six-slot legacy model or silently load a checkpoint with a different candidate count/order",
+  "demo_flipper_initialization": "front-folded only",
+  "runtime_verification": [
+    "checkpoint and input provenance",
+    "all fourteen candidate Paths and RViz visualization",
+    "body/map transforms and timestamp freshness",
+    "forward and reverse Path publication to the follower core",
+    "Goal, Cancel, Timeout and fall-reset behavior",
+    "GUI startup through Isaac motion and explicit legacy fallback"
+  ],
+  "interpretation": "GUI integration is conditional on Stage C adoption; a successful load or unit test alone does not establish driving performance"
+}
