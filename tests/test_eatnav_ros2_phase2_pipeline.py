@@ -68,6 +68,11 @@ class PipelineTest(unittest.TestCase):
                     commands[-1].twist.linear.x != 0.):
                 ex.spin_once(timeout_sec=.02)
             self.assertFalse(statuses[-1].command_gate_open)
+            # Status is delivered independently to the observer and robot;
+            # wait for the latter's callback before checking its held Path.
+            deadline=time.monotonic()+.5
+            while time.monotonic()<deadline and robot.interface.held_path_generation is not None:
+                ex.spin_once(timeout_sec=.02)
             self.assertIsNone(robot.interface.held_path_generation)
             self.assertEqual(robot.interface.tick(observer.get_clock().now().nanoseconds),
                              (0.,0.))

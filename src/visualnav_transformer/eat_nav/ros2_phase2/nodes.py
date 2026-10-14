@@ -6,6 +6,8 @@ from pathlib import Path
 
 import numpy as np
 import rclpy
+from rclpy.clock import Clock
+from rclpy.clock_type import ClockType
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
 from rclpy.time import Time
@@ -103,12 +105,18 @@ def build_model_evaluation(history, actor, now_ns, generation,
 class InferenceNode(Node):
     """Transport/mock path; real 14-model selection uses separate gated worker."""
     def __init__(self, *, mode='mock14_transport', checkpoint=None,
-                 python=None, results=None, normalization=None):
+                 python=None, results=None, normalization=None, sim_time=False,
+                 evaluation_period_ns=None):
         super().__init__('eat_nav_phase2_inference')
+        if sim_time:
+            self.set_parameters([rclpy.parameter.Parameter('use_sim_time', value=True)])
         validate_mode(mode,14 if mode!='legacy6_demo' else 7,checkpoint)
         if mode!='mock14_transport' and python is None:
             raise ValueError('model worker interpreter required')
         self.mode=mode
+        self.evaluation_period_ns=evaluation_period_ns
+        if evaluation_period_ns is not None and evaluation_period_ns <= 0:
+            raise ValueError('evaluation period')
         self.checkpoint=checkpoint
         self.python=python
         self.results=results
@@ -119,6 +127,7 @@ class InferenceNode(Node):
         self.goal = None
         self.goal_generation = None
         self.last_eval_stamp = -1
+        self.pending_actor = None
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer,self)
         self.bank_pub = self.create_publisher(CandidateBank,'/eat_nav/bank',BANK_QOS)
@@ -127,26 +136,45 @@ class InferenceNode(Node):
         self.create_subscription(DemFrame,'/eat_nav/dem',self._dem,QOS)
         self.create_subscription(ActorState22,'/eat_nav/actor22',self._actor,QOS)
         self.create_subscription(GoalState,'/eat_nav/goal_state',self._goal,QOS)
+        if sim_time:
+            # TF, DEM, and Actor arrive on independent ROS topics. Retry the
+            # same measured stamp while Isaac is paused for the selection.
+            self.create_timer(.01, self._try_evaluate,
+                              clock=Clock(clock_type=ClockType.STEADY_TIME))
 
     def _goal(self,msg):
         if self.goal_generation != int(msg.generation):
             self.history.clear()
             self.last_eval_stamp = -1
+            self.pending_actor = None
             self.goal_generation = int(msg.generation)
         self.goal = msg if msg.active else None
         if not msg.active:
             self.history.clear()
+            self.pending_actor = None
 
     def _dem(self,msg):
         try:
             self.history.push(msg)
+            if self.pending_actor is not None:
+                self._try_evaluate()
         except ValueError as error:
             self.get_logger().warn(f'DEM rejected: {error}')
 
     def _actor(self,msg):
+        self.pending_actor = msg
+        self._try_evaluate()
+
+    def _try_evaluate(self):
+        msg = self.pending_actor
+        if msg is None:
+            return
         if self.goal is None:
             return
         stamp = stamp_ns(msg.header.stamp)
+        if self.evaluation_period_ns is not None and \
+                stamp % self.evaluation_period_ns:
+            return
         if stamp <= self.last_eval_stamp or \
                 self.get_clock().now().nanoseconds-stamp > 300_000_000:
             return
@@ -167,6 +195,7 @@ class InferenceNode(Node):
                     worker=self.worker))
             self.eval_pub.publish(evaluation)
             self.last_eval_stamp = stamp
+            self.pending_actor = None
         except Exception as error:
             self.get_logger().warn(f'inference deferred: {error}')
 
@@ -178,8 +207,12 @@ class InferenceNode(Node):
 
 class SupervisorGatewayNode(Node):
     """Mock interface only. No production Path or velocity publisher exists."""
-    def __init__(self, *, mode='mock14_transport', checkpoint=None, results=None):
+    def __init__(self, *, mode='mock14_transport', checkpoint=None, results=None,
+                 sim_time=False, simulator_event_driven=False):
         super().__init__('eat_nav_phase2_supervisor')
+        if sim_time:
+            self.set_parameters([rclpy.parameter.Parameter('use_sim_time', value=True)])
+        self.simulator_event_driven = bool(simulator_event_driven)
         validate_mode(mode,7 if mode=='legacy6_demo' else 14,checkpoint)
         if mode=='learned14_adopted':
             validate_adoption_artifacts(results,checkpoint)
@@ -209,6 +242,10 @@ class SupervisorGatewayNode(Node):
             return
         self.follower_command=(msg.twist.linear.x,msg.twist.angular.z)
         self.follower_command_stamp_ns=stamp_ns(msg.header.stamp)
+        # Phase 3 simulation asks for a gate decision at the same logical
+        # stamp. Phase 2 retains timer-only behavior by default.
+        if self.simulator_event_driven:
+            self._tick()
 
     def _publish_goal(self,active,now):
         m=GoalState()
@@ -303,7 +340,9 @@ def main(role, **kwargs):
     node = InferenceNode(**kwargs) if role == 'inference' else \
         SupervisorGatewayNode(mode=kwargs.get('mode','mock14_transport'),
                               checkpoint=kwargs.get('checkpoint'),
-                              results=kwargs.get('results'))
+                              results=kwargs.get('results'),
+                              sim_time=kwargs.get('sim_time',False),
+                              simulator_event_driven=(role=='supervisor_gui'))
     try:
         rclpy.spin(node)
     finally:

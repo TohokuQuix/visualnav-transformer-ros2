@@ -1,6 +1,6 @@
 # EAT-Nav ROS2 node separation — Phase 3 verification plan
 
-Status: **plan only; execution not authorized**. Start only after Stage B and Stage C have finished, their sealed adoption decision has been reviewed, and the user has separately authorized Phase 3. Phase 2 is complete within its CPU/mock scope; see the [completion record](ros2-node-separation-phase2-completion.md). This plan does not change Stage B/C, the GUI DEMO, the production follower or the real robot.
+Status: **partially executed under separate approval**. Stage C adoption passed and a bounded ROS-separated Isaac GUI closed-loop check was completed; see the [runtime record](ros2-phase3-gui-adopted14-runtime.md). The full stop/fault and live tensor parity gates below remain open. Phase 2 is complete within its CPU/mock scope; see the [completion record](ros2-node-separation-phase2-completion.md). This plan does not change Stage B/C, the production follower or the real robot.
 
 ## Decision boundary and evidence discipline
 
