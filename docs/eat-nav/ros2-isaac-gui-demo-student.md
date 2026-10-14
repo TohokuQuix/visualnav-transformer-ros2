@@ -2,16 +2,43 @@
 
 ## Current handoff: ROS-separated 14-candidate demo
 
-Use branch `exp/eatnav-ros2-gui-demo-terrain` after the ROS-separated integration. Install Git LFS, run `git lfs pull`, then verify the packaged checkpoints with `/usr/bin/python3 scripts/eat_nav_verify_checkpoints.py`. Start the external Zenoh router separately, then run from this repository:
+Use the local handoff worktree on branch `exp/eatnav-ros2-gui-demo-terrain`. This branch has not been pushed; the commands below assume the existing checkout at `~/lib/visualnav-transformer-ros2-handoff`. On an Ubuntu host with ROS2 Jazzy, the `isaac-lab-onix` container, and the external router installed, prepare the packaged checkpoints:
 
 ```bash
+cd ~/lib/visualnav-transformer-ros2-handoff
+git branch --show-current  # exp/eatnav-ros2-gui-demo-terrain
+# If git-lfs is not installed: sudo apt-get update && sudo apt-get install git-lfs
+git lfs install --local
+git lfs pull
+/usr/bin/python3 scripts/eat_nav_verify_checkpoints.py
+```
+
+In a separate terminal, start the external Zenoh router if it is not already running, and keep that terminal open:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run rmw_zenoh_cpp rmw_zenohd
+```
+
+Then start the demo from the handoff checkout:
+
+```bash
+cd ~/lib/visualnav-transformer-ros2-handoff
 unset ROS_DOMAIN_ID
 RMW_IMPLEMENTATION=rmw_zenoh_cpp /usr/bin/python3 \
   scripts/eat_nav_phase3_gui_launch.py \
-  --terrain-type boxes --terrain-level 0 --max-steps 300000
+  --terrain-type boxes --terrain-level 0 --max-steps 300000 \
+  --manual-goal
 ```
 
-The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. For an RViz goal, add `--manual-goal` and open `config/eat_nav_phase3_gui.rviz` with the same ROS middleware and no domain override. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
+After the demo has started, open a third terminal and launch the 14-candidate RViz layout. Select **2D Goal Pose** in RViz to publish a goal:
+
+```bash
+cd ~/lib/visualnav-transformer-ros2-handoff
+bash scripts/eat_nav_phase3_gui_rviz.sh
+```
+
+The RViz script uses `config/eat_nav_phase3_gui.rviz`, simulation time, `rmw_zenoh_cpp`, and no ROS domain override. The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. Omit `--manual-goal` only when you want the launcher's automatic goal. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
 
 This version uses the Stage C adopted 14-candidate Motion Predictor (`checkpoints/eat_nav/motion14/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
 
