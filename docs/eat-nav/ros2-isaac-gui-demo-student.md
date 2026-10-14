@@ -5,7 +5,8 @@ the MI-B Pilot Motion Predictor, the C++ `PureFollower`, the trained RL Actor, a
 physics. It is a pipeline demonstration, not a validated navigation policy.
 The predictor estimates 2 s body-frame XY displacement for each candidate.
 The demo selects the candidate with the largest predicted distance reduction
-to the current local subgoal. This selection rule has not been validated by
+to the full global goal. The candidate Paths still target a local subgoal up
+to 0.75 m away. This selection rule has not been validated by
 MI-B's held-out motion-prediction metrics.
 
 ## Setup
@@ -48,7 +49,7 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v7-mi-b-motion-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v8-mi-b-global-goal-*`.
 The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
 preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and

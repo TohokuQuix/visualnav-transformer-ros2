@@ -8,6 +8,7 @@ not a validated MI-B navigation selector.
 from __future__ import annotations
 
 import hashlib
+import math
 from pathlib import Path
 
 import numpy as np
@@ -54,12 +55,24 @@ def prepare_demo_motion_inputs(dem, state, paths, normalization):
     return scaled_dem[None], scaled_state[None], six_paths, direction, mask
 
 
-def local_goal_progress(predicted_body_xy, goal_body_xy):
-    """Score the predicted 2 s body displacement against the current subgoal."""
+def global_goal_body_xy(robot_pose_map, goal_map):
+    """Express the full map-frame global goal relative to the current robot body."""
+    pose = np.asarray(robot_pose_map, dtype=np.float64)
+    goal = np.asarray(goal_map, dtype=np.float64)
+    if pose.shape != (3,) or goal.shape != (2,) or not np.isfinite(pose).all() or not np.isfinite(goal).all():
+        raise ValueError('robot pose/global goal contract')
+    delta = goal - pose[:2]
+    c, s = math.cos(pose[2]), math.sin(pose[2])
+    return np.asarray([c * delta[0] + s * delta[1],
+                       -s * delta[0] + c * delta[1]], dtype=np.float32)
+
+
+def global_goal_progress(predicted_body_xy, goal_body_xy):
+    """Score predicted 2 s body displacement against the full global goal."""
     predicted = np.asarray(predicted_body_xy, dtype=np.float32)
-    goal = _finite_shape(goal_body_xy, (2,), 'local goal')
+    goal = _finite_shape(goal_body_xy, (2,), 'global goal in body frame')
     if predicted.shape != (3, 2) or not np.isfinite(predicted).all() or np.linalg.norm(goal) <= 0:
-        raise ValueError('predicted motion/local goal contract')
+        raise ValueError('predicted motion/global goal contract')
     return (np.linalg.norm(goal) - np.linalg.norm(goal[None] - predicted, axis=1)).astype(np.float32)
 
 
@@ -70,7 +83,7 @@ class DemoMotionPredictor:
         self.checkpoint_sha256 = checkpoint_sha256
 
     @torch.no_grad()
-    def predict(self, dem, state, paths, goal_body_xy):
+    def predict(self, dem, state, paths, robot_pose_map, goal_map):
         values = prepare_demo_motion_inputs(dem, state, paths, self.normalization)
         tensors = tuple(torch.from_numpy(value) for value in values)
         scaled = self.model(*tensors)[0, :3].cpu().numpy()
@@ -81,7 +94,8 @@ class DemoMotionPredictor:
         motion = scaled * std + mean
         if not np.isfinite(motion).all():
             raise ValueError('predicted motion nonfinite')
-        return motion, local_goal_progress(motion, goal_body_xy)
+        goal_body_xy = global_goal_body_xy(robot_pose_map, goal_map)
+        return motion, global_goal_progress(motion, goal_body_xy)
 
 
 def load_demo_motion_predictor(path):

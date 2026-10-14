@@ -4,7 +4,7 @@
 
 The GUI demo is an online **inference** pipeline using the sealed MI-B Pilot
 Full seed-456 Motion Predictor checkpoint. It predicts 2 s body-frame XY
-motion; the GUI converts that prediction into local-subgoal distance
+motion; the GUI converts that prediction into global-goal distance
 reduction and chooses the largest score. This selector is experimental:
 MI-B's held-out motion accuracy does not establish online Path-selection
 benefit. The older **Baseline Evaluator** GUI checkpoint was a
@@ -48,7 +48,7 @@ scores, and status use simulation stamps.
 | Terrain/state | `demo_isaac_env_cfg.py:EATTerrainGenerator/EATTerrainImporter` | seed, type, row → mesh, tile SHA, origin, robot state | world/map frame; selected row held fixed on reset |
 | DEM | `scripts/eat_nav_demo_isaac.py:dem_from_sensor`, `dem.py:robot_dem` | raycaster → `[4,2,20,20]` history | robot-base-yaw, 0.1 m/cell; four chronological frames at 250 ms intervals; actual sensor update stamp is recorded separately |
 | Path bank | `demo_contract.py:candidates_for_goal` | current map pose + map goal + frozen bank → `[K,8,2]` robot-local candidates and map Paths | current pre-Path pose; 0.75 m local radius, Direct/Left +20°/Right −20° |
-| Motion Predictor | `demo_motion_predictor.py:DemoMotionPredictor.predict` | DEM, pre-noise state, three Paths → predicted body XY `[3,2]` → local-subgoal progress scores `[3]` | pre-Path input; largest predicted 2 s distance reduction is selected |
+| Motion Predictor | `demo_motion_predictor.py:DemoMotionPredictor.predict` | DEM, pre-noise state, three Paths → predicted body XY `[3,2]` → global-goal progress scores `[3]` | pre-Path input; largest predicted 2 s distance reduction is selected |
 | Follower | `p1_follower_core.py:PureFollower` | selected tile-local Path + tile-local pose + logical time → `[vx,vy,wz]` and diagnostics | one call per 50 ms control step; one instance for the selected Path |
 | Command/Actor | `phase_c_sim.py:CommandOverride`, `p1_g3_rosfree_control.py:reconcile_command_observation` | follower command → observed command after noise/latency → Actor action `[B,6]` | body velocity command; Actor observation `[B,22]`, Critic `[B,267]` |
 | Physics/log | `scripts/eat_nav_demo_isaac.py` | action → next robot state, reward, done, trace | 50 ms control boundary; new trace row after physics |
@@ -62,9 +62,11 @@ SHA and training-model source SHA, applies train-only DEM/Actor normalization,
 and reverses the target normalization to return three predicted body-frame
 XY displacements in metres. The three GUI Paths occupy the forward slots
 of the six-candidate model; the remaining slots are masked. For each Path,
-the selector scores the reduction in distance from the current pose to the
-0.75 m-or-closer local subgoal after that predicted displacement. The
-`/eat_nav/scores` topic reports `predicted_local_subgoal_progress_m`.
+the selector transforms the full map-frame global goal into the current body
+frame, then scores the reduction in distance to that global goal after the
+predicted displacement. The Path bank still uses a local subgoal no farther
+than 0.75 m. The `/eat_nav/scores` topic reports
+`predicted_global_goal_progress_m`.
 No goal is fed into the Motion Predictor itself.
 
 The MI-B training Paths were forward/reverse Direct and ±30° Arcs, whereas

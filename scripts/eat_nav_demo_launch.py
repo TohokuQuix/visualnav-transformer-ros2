@@ -62,7 +62,7 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v8-mi-b-motion' if args.residual_diagnostics else 'terrain-v7-mi-b-motion'
+    series = 'cancel-residual-v9-mi-b-global-goal' if args.residual_diagnostics else 'terrain-v8-mi-b-global-goal'
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -76,11 +76,11 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v7_mi_b_motion', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v8_mi_b_global_goal', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
                 'predictor': 'MI-B Pilot Full seed 456; lowest aggregate validation loss',
-                'selection_metric': 'predicted_2s_local_subgoal_distance_reduction_m',
+                'selection_metric': 'predicted_2s_global_goal_distance_reduction_m',
                 'candidate_geometry_matches_mi_b_training': False,
                 'rl_checkpoint_sha256': sha(RL),
                 'source_sha256': sha(REPO/'scripts/eat_nav_demo_isaac.py'),

@@ -10,7 +10,6 @@ import argparse
 import collections
 import hashlib
 import json
-import math
 import os
 from pathlib import Path
 import select
@@ -336,12 +335,8 @@ def main():
                                           dem_stamps_ns=[row[0] for row in history],
                                           state_stamp_ns=stamp_ns, now_ns=stamp_ns)
                 begin = time.monotonic_ns()
-                bearing = candidate_info['bearing_body_rad']
-                radius = candidate_info['subgoal_distance_m']
-                local_goal = np.asarray([radius * math.cos(bearing),
-                                         radius * math.sin(bearing)], dtype=np.float32)
                 predicted_motion, result = predictor.predict(
-                    dem, actor_state, candidate_paths, local_goal)
+                    dem, actor_state, candidate_paths, pose, goal_map)
                 elapsed_ms = (time.monotonic_ns() - begin) / 1e6
                 selected = select_best(result)
                 scores = dict(zip(('direct', 'left_20', 'right_20'), map(float, result)))
@@ -355,7 +350,7 @@ def main():
                 last_replan_step = step
                 trace.write(json.dumps({'event': 'selection', 'step': step, 'stamp_ns': stamp_ns,
                                         'selected': selected, 'scores_m': scores,
-                                        'score_definition': 'predicted_2s_local_subgoal_distance_reduction_m',
+                                        'score_definition': 'predicted_2s_global_goal_distance_reduction_m',
                                         'predicted_body_xy_m': predicted_motion_m,
                                         'candidate_geometry_matches_mi_b_training': False,
                                         'goal_map': goal_map.tolist(), 'candidate_info': candidate_info,
@@ -451,7 +446,7 @@ def main():
                      'dem_sensor_update_ns': history[-1][2] if history else None,
                      'selected': selected, 'candidate_paths_map': {k: v.tolist() for k, v in paths_map.items()},
                      'scores_m': scores,
-                     'score_definition': 'predicted_2s_local_subgoal_distance_reduction_m',
+                     'score_definition': 'predicted_2s_global_goal_distance_reduction_m',
                      'goal_map': goal_map.tolist() if goal_map is not None else None,
                      'command': command, 'follower_command': follower_command,
                      'turn_escape': turn_escape_diagnostic, 'status': status}

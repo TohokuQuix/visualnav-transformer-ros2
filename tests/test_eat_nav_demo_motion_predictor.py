@@ -3,10 +3,10 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from visualnav_transformer.eat_nav import demo_motion_predictor as motion_adapter
 from visualnav_transformer.eat_nav.demo_motion_predictor import (
     DEMO_CHECKPOINT_SHA256,
     load_demo_motion_predictor,
-    local_goal_progress,
     prepare_demo_motion_inputs,
 )
 
@@ -45,12 +45,18 @@ def test_three_forward_paths_are_padded_to_six_without_mutating_inputs():
         assert np.array_equal(actual, expected)
 
 
-def test_local_goal_progress_uses_predicted_body_xy_and_current_subgoal():
+def test_global_goal_is_transformed_to_current_body_frame_without_distance_clipping():
+    goal = motion_adapter.global_goal_body_xy(np.asarray([2., 3., np.pi / 2]),
+                                              np.asarray([2., 5.]))
+    assert np.allclose(goal, [2., 0.], atol=1e-6)
+
+
+def test_global_goal_progress_uses_full_goal_distance():
     predicted = np.asarray([[.4, 0], [.25, .15], [-.2, 0]], np.float32)
-    scores = local_goal_progress(predicted, np.asarray([.75, 0], np.float32))
-    assert np.allclose(scores, [.4, .75 - np.hypot(.5, -.15), -.2])
+    scores = motion_adapter.global_goal_progress(predicted, np.asarray([2., 0], np.float32))
+    assert np.allclose(scores, [.4, 2. - np.hypot(1.75, -.15), -.2])
     with pytest.raises(ValueError):
-        local_goal_progress(predicted, np.asarray([0, 0], np.float32))
+        motion_adapter.global_goal_progress(predicted, np.asarray([0, 0], np.float32))
 
 
 def test_pinned_full_checkpoint_loads_and_predicts_finite_motion():
@@ -63,11 +69,14 @@ def test_pinned_full_checkpoint_loads_and_predicts_finite_motion():
     paths[:, :, 0] = np.linspace(.09375, .75, 8)
     paths[1, :, 1] = .1
     paths[2, :, 1] = -.1
+    pose = np.asarray([1., 2., np.pi / 2], np.float32)
+    goal_map = np.asarray([1., 4.], np.float32)
     motion, scores = predictor.predict(dem, np.zeros(22, np.float32), paths,
-                                       np.asarray([.75, 0], np.float32))
+                                       pose, goal_map)
     assert predictor.checkpoint_sha256 == DEMO_CHECKPOINT_SHA256
     assert motion.shape == (3, 2) and np.isfinite(motion).all()
     assert scores.shape == (3,) and np.isfinite(scores).all()
+    assert np.allclose(scores, motion_adapter.global_goal_progress(motion, [2., 0.]), atol=1e-6)
 
 
 def test_checkpoint_sha_mismatch_fails_closed(tmp_path):
