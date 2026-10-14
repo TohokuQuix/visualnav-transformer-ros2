@@ -58,7 +58,7 @@ flowchart LR
   V --> UI
 ```
 
-The Isaac and real source adapters are alternatives. The inference component owns the four-frame assembler, frozen bank, strict checkpoint loader, model and global-goal scorer in one process. A separate supervisor owns Goal/Cancel/Timeout, replanning, turn-stuck state and safe stop. The follower gateway owns only Path frame conversion, direction validation, publication and connection status. It does not implement a new follower. The GUI subscribes to telemetry and never owns navigation state. If the GUI process exits, navigation continues.
+The Isaac and real source adapters are alternatives. The inference component owns the four-frame assembler, frozen bank, strict checkpoint loader, model and global-goal scorer in one process. A separate supervisor owns Goal/Cancel/Timeout, replanning and turn-stuck state. The follower gateway owns Path frame conversion, direction validation, publication and the **command safety gate** downstream of the follower. It does not implement a new follower. The GUI subscribes to telemetry and never owns navigation state. If the GUI process exits, navigation continues.
 
 ## 4. ROS2 wire contract proposal
 
@@ -116,7 +116,36 @@ Supervisor states: `IDLE → WAITING_INPUT → ACTIVE → ARRIVED`, with `CANCEL
 
 The present demo applies `TurnStuckEscape` **after** PureFollower and before CommandOverride (`eat_nav_demo_isaac.py:359-378`); the preprocessing detects low yaw response for 2 s and alternates longitudinal offset every 1 s (`demo_turn_escape.py:24-55`). This belongs to the supervisor/command adapter, not the follower core. Phase 2 can test the state machine offline, but any real actuation requires separate validation. The collection protocol's single Path/40-step target and the demo's replanning/turn escape are different closed-loop conditions. Both simulator demo and Stage B use the same `PureFollower` wrapper/core; the real `simple_trajectory_follower` is a different implementation. Existing command parity is useful reference evidence, not proof of real closed-loop equivalence. Follower unification and control-law changes are outside scope.
 
-The gateway output contract is `Path(map, stamped, eight poses) + expected direction + selection generation`. It verifies body/map round-trip, first tangent, topic and QoS, and reverse interpretation. It observes follower readiness and command/feedback age. In Phase 2 tests the output is bound to a **mock robot interface**, never to real velocity topics. The production follower's handling of empty Path, timeout and transient-local retained Path must be reviewed and tested before actual connection; an unproven stop handshake blocks deployment.
+The gateway output contract is `Path(map, stamped, eight poses) + expected direction + selection generation`. It verifies body/map round-trip, first tangent, topic and QoS, and reverse interpretation. It observes follower readiness and command/feedback age. The command safety gate is the sole proposed route from follower `cmd_vel` to the policy command input; it passes a fresh follower command only while the supervisor holds a valid Path lease, and otherwise emits zero command at 20 Hz. No follower output may bypass it. In Phase 2 the gateway and safety gate are bound to a **mock robot interface**, never to real velocity topics. The production follower's handling of empty Path, timeout and transient-local retained Path must be reviewed and tested before actual connection; an unproven stop handshake blocks deployment.
+
+### 8.1 DEM delay versus outage — frozen Phase 2 policy
+
+The 250 ms DEM cadence is the learning/input contract. Track both the last **distinct valid sensor update stamp** and the last successful model inference. A duplicate stamp does not refresh either clock. A new quartet is accepted only when its four source frames and Actor/TF pass the same parity and time gates.
+
+| Condition at a 0.5 s replan opportunity | Supervisor decision | Existing Path |
+|---|---|---|
+| New valid quartet ready; newest sensor update age ≤300 ms | Infer and select | Replace once with new generation; renew 500 ms Path lease |
+| No quartet yet; last distinct valid update age ≤300 ms | Normal jitter: defer replan | Continue only while prior 500 ms Path lease and follower/command feedback remain healthy; never republish |
+| Update age >300 ms but ≤500 ms | Degraded/missed update: defer and diagnose | Continue only until the **earlier** of the 500 ms Path-lease deadline and 500 ms sensor-age deadline; no new inference |
+| Update age >500 ms, Path lease expired, episode changed, or feedback stale | Sensor outage or unsafe state: enter `STALE_INPUT`/`ERROR` | Invalidate Path generation, close command safety gate and request stop; require a fresh four-frame history before resuming |
+
+The 300 ms age is the existing simulator sensor-age gate (`demo_contract.py:25-33`); 500 ms is one current replan interval (`eat_nav_demo_launch.py:55`). These are **proposed Phase 2 supervisor thresholds**, not changes to Stage B/C. A truly slower real map will fail this contract instead of silently repeating frames. A one-off missing frame can defer a replan; repeated loss reaches the bounded stop deadline. Phase 2 synthetic tests exercise both branches and boundary times.
+
+### 8.2 Cancel, timeout and communication loss — stop ownership
+
+On Cancel, goal timeout, stale input, follower disconnect, or loss of supervisor heartbeat, the **supervisor** revokes the goal generation and Path lease. The **follower gateway** then (1) ceases selected-Path publication, (2) publishes an empty/invalidation Path only if the existing follower's callback semantics are proven safe, (3) closes the command safety gate immediately, and (4) publishes zero command at each 20 Hz tick until a fresh goal and Path generation pass all gates. The command safety gate additionally times out its supervisor lease and follower command independently; a dead supervisor cannot leave a nonzero command latched. The mock interface acknowledges invalidation and records both the would-be follower output and the final zero output. A new Path or old transient-local sample cannot reopen the gate without a newer generation and fresh timestamps. If invalidation/zero-command acknowledgement is absent, status is `STOP_UNCONFIRMED` and no actuation interface may be attached.
+
+Phase 2 proves this contract with the mock only. It does **not** claim the existing production follower clears its internal Path on empty message, nor does it connect the safety gate to the robot. Actual follower invalidation and physical zero velocity require a later integration gate. The production follower control law is unchanged.
+
+### 8.3 Three explicitly separated predictor modes
+
+| Mode | Purpose | Candidate/checkpoint rule | May claim 14-Path driving performance? |
+|---|---|---|---|
+| `mock14_transport` | Phase 2 ROS messages, synchronization, selector/gateway and GUI-less wiring | Deterministic mock emits 14 finite body XY predictions; no learned checkpoint; output tagged `mock` | No |
+| `legacy6_demo` | Preserve current GUI fallback, even if Stage C fails | Pinned MI-B Full seed456 six-slot model; current seven forward Paths in two batches; explicit legacy provenance | No; separate legacy demonstration only |
+| `learned14_adopted` | New model evaluation after Stage C adoption Pass | Strict 14-slot Full loader, exact bank/order, normalization and source SHA; no implicit fallback | Only after separate Isaac runtime and closed-loop validation |
+
+The ROS2 node graph and mock interface are complete and testable without any Stage C checkpoint. `legacy6_demo` and `mock14_transport` never use the new checkpoint or masquerade as its predictions. Stage C Fail/Inconclusive disables `learned14_adopted` but does not block completion of Phase 2 communication and parity work.
 
 ## 9. Phase 2 tests and gates (proposed; not executed)
 
@@ -125,14 +154,16 @@ The gateway output contract is `Path(map, stamped, eight poses) + expected direc
 3. **GridMap geometry.** Synthetic 20×20 map with asymmetric negative/positive pattern, holes, four circular-buffer start indices and non-zero yaw. Compare decoded `SourceGrid → robot_dem()` against a separately indexed cell-centre oracle. Mask equality exact, valid heights `atol=1e-5 m`, invalid height exactly zero. Reject wrong axis, origin, resolution, source frame or TF stamp. A saved **real** GridMap message is additionally required to confirm actual layout before declaring real adapter parity.
 4. **Actor term replay.** Feed stored policy term values through the real Actor adapter; compare each of 22 elements against sealed `actor_pre_noise`, including scaling/clipping, fold mode, track mean and summed effort. Transport float32 is bitwise; calculations get a predeclared `1e-6` absolute tolerance. A missing term, wrong source stamp or raw/post-noise substitution fails.
 5. **Bank and scoring.** Exact 14 ID/order, direction, body/path SHA; body→map→body round-trip `atol=1e-6 m`; inverse target normalization; predicted XY and global-goal scores `atol=1e-6 m`, deterministic tie-breaking, mask exclusion. Old six-slot and new 14-slot checkpoints must reject each other's mode.
-6. **Negative cases.** Missing/reversed DEM frame; stale Actor; DEM/Actor time mismatch; TF unavailable; candidate reorder/direction/SHA mismatch; all-invalid or <25%-valid map; nonfinite height; checkpoint mismatch; Cancel/Timeout/follower disconnect. Assert no inference selection or Path actuation and a diagnostic status with first failing reason.
+6. **Negative cases.** Missing/reversed DEM frame; one-frame jitter versus repeated loss at 300/500 ms boundaries; stale Actor; DEM/Actor time mismatch; TF unavailable; candidate reorder/direction/SHA mismatch; all-invalid or <25%-valid map; nonfinite height; checkpoint mismatch; Cancel/Timeout/follower disconnect/supervisor heartbeat loss. Assert bounded Path lease, invalidation and final zero mock command, with the first failing reason.
 7. **ROS-only integration.** Replay sealed/synthetic messages over ROS2 to the actual decoder and mock follower. Verify node start/stop, QoS, Goal/Cancel, generation invalidation, stale-input stop, GUI-less operation and optional RViz output. No Isaac, GPU or real robot actuation. Store source/input SHA and test logs outside Stage B/C roots.
 
-Phase 2 passes only with all required numerical, message, negative-case and mock-control gates. Real-source parity remains `Unknown` until measured GridMap and 22D term evidence exist. Phase 3 requires a distinct approval and both Stage B/C jobs complete, regardless of whether Phase 2 passes.
+Phase 2 passes only with all required numerical, message, negative-case and mock-control gates in `mock14_transport` mode; the `legacy6_demo` path is checked separately. `learned14_adopted` remains pending Stage C. Real-source parity remains `Unknown` until measured GridMap and 22D term evidence exist. Phase 3 requires a distinct approval and both Stage B/C jobs complete, regardless of whether Phase 2 passes.
 
 ## 10. Proposed change boundary and interference controls
 
 Phase 2 would add a new ROS interface package, source adapters, inference/supervisor/gateway modules, launch files and tests **in a separate worktree**. It should import or copy immutable verified calculation functions (`robot_dem`, `bank`, normalization, global-goal score) under an explicit source SHA; it must not edit modules used by the running Stage B/C process. Build/install/log and generated artifacts get separate paths. Existing DEMO and production ROS node remain intact until Phase 3 integration review. CPU-only Phase 2 tests use small sealed samples and avoid bulk evidence scans.
+
+Phase 2 environment audit found ROS Jazzy `rclpy` in system Python 3.12 and the available PyTorch environment in `tinyvla` Python 3.10; directly importing both into one interpreter is not supported. Keep the logical inference component but split its transport process (ROS Python 3.12) from a CPU model worker (Python 3.10) through a local versioned, length-bounded request/response channel. The worker has no ROS import, checks model/checkpoint mode and input SHA, and may be replaced by a deterministic mock. This is an implementation boundary inside the inference process group, not a change to model tensors or Stage C runtime. The worker must never auto-connect to the robot or GPU.
 
 ## 11. Open decisions and evidence required before implementation/deployment
 
@@ -146,4 +177,4 @@ Phase 2 would add a new ROS interface package, source adapters, inference/superv
 | Stage C 14-model checkpoint and adoption decision | Pending collection/training | Do not select as default until frozen adoption Pass and strict loader validation |
 | Real sensor timestamp jitter and max age | Unmeasured | Freeze practical sampling tolerance from measured trace before real deployment; simulator parity retains exact 250 ms target |
 
-**Review request:** approve or revise the recommended four-process grouping, typed wire contract, stop handshake and test tolerances before Phase 2. This document authorizes no ROS code, Isaac runtime, production follower changes or Stage B/C intervention.
+**Phase 1 disposition:** the user approved the four-process grouping and Phase 2 CPU-only implementation, conditional on Sections 8.1–8.3 above. This design does not authorize Isaac runtime, real follower connection, production follower changes or Stage B/C intervention.
