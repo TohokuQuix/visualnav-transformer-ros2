@@ -5,4 +5,5 @@ string bank_source_sha256
 string checkpoint_sha256
 float32[28] predicted_body_xy_m
 float32[14] scores_m
+bool[14] mask
 uint8 selected_index

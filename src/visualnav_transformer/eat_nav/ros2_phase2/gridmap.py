@@ -13,6 +13,7 @@ class GridMapLayout:
     layer: str
     memory_order: str  # C or F
     raw_axes: str  # yx or xy, in outer/inner storage order
+    dimension_labels: tuple[str, str] = ('row','col')
 
 
 def source_grid_from_gridmap(message, layout: GridMapLayout) -> SourceGrid:
@@ -28,6 +29,8 @@ def source_grid_from_gridmap(message, layout: GridMapLayout) -> SourceGrid:
     layer = message.data[message.layers.index(layout.layer)]
     if len(layer.data) != 400 or len(layer.layout.dim) != 2 or \
             any(int(dim.size) != 20 for dim in layer.layout.dim) or \
+            tuple(dim.label for dim in layer.layout.dim) != layout.dimension_labels or \
+            tuple(int(dim.stride) for dim in layer.layout.dim) != (400,20) or \
             int(layer.layout.data_offset) != 0:
         raise ValueError('GridMap dimensions/offset')
     raw = np.asarray(layer.data, dtype=np.float32).reshape(20, 20,
@@ -43,6 +46,10 @@ def source_grid_from_gridmap(message, layout: GridMapLayout) -> SourceGrid:
     center = (float(message.info.pose.position.x), float(message.info.pose.position.y))
     if not np.isfinite(center).all():
         raise ValueError('GridMap center')
+    rotation = message.info.pose.orientation
+    if not np.allclose([rotation.x,rotation.y,rotation.z,rotation.w],
+                       [0.,0.,0.,1.],atol=1e-6,rtol=0):
+        raise ValueError('GridMap rotated/invalid orientation needs audited transform')
     valid = np.isfinite(storage)
     height = np.where(valid, storage, 0).astype(np.float32)
     origin = (center[0]-9.5*resolution, center[1]-9.5*resolution)

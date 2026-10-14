@@ -39,7 +39,9 @@ class DemHistory:
         if any(b-a != 250_000_000 for a, b in zip(stamps, stamps[1:])) or \
                 stamps[-1] != actor['stamp_ns'] or \
                 not 0 <= now_ns-stamps[-1] <= 300_000_000 or \
-                not 0 <= stamps[-1]-self.last_valid_sensor_ns <= 300_000_000:
+                not 0 <= stamps[-1]-self.last_valid_sensor_ns <= 300_000_000 or \
+                any(not 0 <= stamps[-1]-source <= 300_000_000
+                    for source in actor['sources'].values()):
             raise ValueError('DEM/Actor timing mismatch/stale')
         return np.stack([frame for frame, _ in self.frames]), state, \
             {'episode_id': self.episode_id, 'dem_stamps_ns': stamps,

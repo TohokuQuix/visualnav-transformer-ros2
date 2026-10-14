@@ -1,0 +1,60 @@
+{
+  "base_commit": "0e74f6746006aef55ed9b6c54943d5940b82dea2",
+  "frozen_dependency_sha256": {
+    "scripts/eat_nav_motion_14_train.py": "8beb193968571279c01eaf44386166636b6147be6fac782ca057f08e47ff023c",
+    "src/visualnav_transformer/eat_nav/bidirectional_bank.py": "a5f5474598b97dd836a02acf48e506ed4c6baea8818448280880176877d669f6",
+    "src/visualnav_transformer/eat_nav/dem.py": "cd68932c7859986d7b4a600561e52d813fffb8e516ef573bb91daefef320a4e3",
+    "src/visualnav_transformer/eat_nav/motion_14_predictor.py": "a4737ed81cc4cc1b87c2ca19c83fdb7c7e919ee53ba8e9c5bc6fd0ad97db2678"
+  },
+  "legacy_checkpoint_sha256": "ff6cd2e03ee2c4832e35e2d4a935815bbd4ecb0717a8a34d445fc48e6d77bb2d",
+  "read_only_fixture": {
+    "outer_seal_sha256": "c0b088b9bf47b1b330f7ea4de2c005874931485dd86014b825a7963caba54d26",
+    "prepath_sha256": "6e53572f9f2f0b15275a1c0ab05d006cfff96cb5f53f3fe02e2859e752effc57"
+  },
+  "schema": "eatnav_ros2_phase2_cpu_source_ledger_v1",
+  "source_sha256": {
+    "ros2/eat_nav_interfaces/CMakeLists.txt": "f6d1288225e83c88a1bf229d5b4442a5b59f2806c7f0e675c9cacd79d1783888",
+    "ros2/eat_nav_interfaces/msg/ActorState22.msg": "c96b068f6a1588f6c05b77a6b121a32ad2496d91b0ce4459744fe878ddb93dfe",
+    "ros2/eat_nav_interfaces/msg/CandidateBank.msg": "f2ceadb299a2af2bff259ebe5631a4a069e06dd1f366d22099697064da2f8ad6",
+    "ros2/eat_nav_interfaces/msg/CandidateEvaluation.msg": "370bf7aeeb03ef5e4995c30c60ca61113a3eef29ea9e8361b0009f8af0f1e1bd",
+    "ros2/eat_nav_interfaces/msg/DemFrame.msg": "a61b96cb3ebbe8b21b966b39f2d8901b0ddf903a2997f38a943f4a528730ce3d",
+    "ros2/eat_nav_interfaces/msg/GoalState.msg": "0309c7bf050c7a0dc1960069c58f42bbe20cce6c2b6ae30f2557048caa03913a",
+    "ros2/eat_nav_interfaces/msg/NavigationStatus.msg": "975731f1fa597c5f3a53edb30a41f0c97a970b67f37bf3a8362ad5ca5676731d",
+    "ros2/eat_nav_interfaces/msg/PathSelection.msg": "b40db9ddaeaf9763e6eed6985d7d92d8d01cfd5bc39fdb4cb9e0ac49f43ceed0",
+    "ros2/eat_nav_interfaces/package.xml": "20716888ecdc6dfc06db88ede5c34f43ca72bed5be85c3b7e59a09ba62242cac",
+    "scripts/eat_nav_ros2_phase2.py": "104a6717b6602f15baf7aada98811e49e5159903dbc86b5af47232992f3e57fe",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/__init__.py": "8712fe3fb10af07dbbbf4c0c189d54a356a75afb9b1d6f9c0a210d82a4c68c98",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/actor_state.py": "53c91afd92461a226545c0f7a6148eb47089c9b36fe0b19b42db489487195371",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/display_node.py": "9be54c60511bac58e28d2a4e33b82bccbfbbff8c5479b74bb1a7cfb3172da324",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/gateway.py": "7847c73bc8538afa6799f3c076be0b17c6976a1b23875d62bec1825b5616c733",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/gridmap.py": "985d0d52f286acc657dda7b341da0eb336e35bd19bc3289cf305a41fa3ef81c5",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/history.py": "c437d7e142ddaaa48e7d78778935cce8df41ecbacd447c09e3eda058e02e5237",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/mock_robot.py": "1097ebc4cf25bb8ca94ebb3b58461d8c8cc3d9c80d131fcf86672591d77b9c04",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/model_worker.py": "7270de7cf79b4e6ceee420c2145a8367716b4ae59b03b39308c62af675ecf72e",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/model_worker_server.py": "0dae265c67734a0d9a61b5bdee321e76430d7f6ca011661e00b65c05094e3254",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/nodes.py": "352303ae56f67e585146f8b1a2966191b0e11c808f72e7a67e90701c9f26d1b2",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/persistent_worker.py": "d625dd1a08651d70c5c40258bcaad0bdf50d4ad2e22f20d15ec72b41e7637d4a",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/predictor_client.py": "fe9cb707ae085cb8f7a26820b64c85751de8f4a886268a9b48b0cc9903295cde",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/replay.py": "41357f04e288fa0d39ded979556b94d8a053967ebbe1ff1df659520849e28eef",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/selection.py": "3205df8885c44ec130ea9b69aa69cef9c3aebcd4a29f30c54d3bccff8b4386e7",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/source_nodes.py": "73c6c43af81ff0aa41f0dafb922edb32e45e83e5ecade56b9388fafae5feec95",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/supervisor.py": "6a5404b9142f4dfeb7425313e9a725a3a9db8b773490a79fc3d4985cd895796a",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/wire.py": "6353e7d18bdb7e1c2a56708b3170e730523cf00d0307ab2b6f360a991264d449"
+  },
+  "system_python_tests": 29,
+  "test_sha256": {
+    "tests/test_eatnav_ros2_phase2_display.py": "252ad9352b0ffd272c9a4e066bc77a4a7ae3d18fc1fdf9786144b9098b14dd41",
+    "tests/test_eatnav_ros2_phase2_inputs.py": "cc9d7a17ac90fa0ecf33989bd71ad3b4bed53eae11ad3961f2a7624c50ead0f6",
+    "tests/test_eatnav_ros2_phase2_integration.py": "712c79ad6d5b705d351d088a69668a5791f6e6526eaa21c58ad4098acc7ec2a9",
+    "tests/test_eatnav_ros2_phase2_mock_robot.py": "1b89b43abebe1654e09f4870ed4837c725e7148e03148940f4a9aaba91a639cc",
+    "tests/test_eatnav_ros2_phase2_persistent_worker.py": "9b76fd1569aac825cb4f47fe96c856c63d921674320038520bd7bcca4cff7791",
+    "tests/test_eatnav_ros2_phase2_pipeline.py": "b8b85df3073fb0e4df76dfca64fe8f10cbc5640e5a58610401291f88c6fba738",
+    "tests/test_eatnav_ros2_phase2_predictor.py": "27cdedc65f2b5ff0448739e7b6c59146d9a510227d4ec737fc50ae267e979179",
+    "tests/test_eatnav_ros2_phase2_replay.py": "47bfcf1b37eab554363c7f24ec85ae9f12bbf8c4d4d071f6af00facb9b6c317d",
+    "tests/test_eatnav_ros2_phase2_safety.py": "8661b7c56e3bf44e088849bdfea11a8876a5d3c8b545e4ba2787bd2a6d498fcc",
+    "tests/test_eatnav_ros2_phase2_topics.py": "cd5a6ed5135e5af98f4231a45882ed1c569eff78a19b356f5aec6578b7ffee96",
+    "tests/test_eatnav_ros2_phase2_wire.py": "7a72f8b5e1b1048cbad28b7c1979ac18500e4239f6d39320aec9c679163c3728",
+    "tests/test_eatnav_ros2_phase2_worker.py": "aab75bf854937a152953f1701f95da6a144f6a7985fc140f1628feb3a1d933ed"
+  },
+  "worker_python_tests": 2
+}
