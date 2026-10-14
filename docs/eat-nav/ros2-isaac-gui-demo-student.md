@@ -1,5 +1,33 @@
 # EAT-Nav one-robot ROS2 + Isaac GUI demo
 
+## Current handoff: ROS-separated 14-candidate demo
+
+Use branch `exp/eatnav-ros2-gui-demo-terrain` after the ROS-separated integration. Start the external Zenoh router separately, then run from this repository:
+
+```bash
+unset ROS_DOMAIN_ID
+RMW_IMPLEMENTATION=rmw_zenoh_cpp /usr/bin/python3 \
+  scripts/eat_nav_phase3_gui_launch.py \
+  --terrain-type boxes --terrain-level 0 --max-steps 300000
+```
+
+The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. For an RViz goal, add `--manual-goal` and open `config/eat_nav_phase3_gui.rviz` with the same ROS middleware and no domain override. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
+
+This version uses the Stage C adopted 14-candidate Motion Predictor (`motion-14-training-20261014-04/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
+
+| Signal | Current demo topic | Real robot relationship |
+| --- | --- | --- |
+| Goal `PoseStamped` | `/goal_pose` | Same name and message type as the real planner input. |
+| Odometry `Odometry` | `/odom` | Same name and type; the demo publishes in `map`, so verify frame semantics. |
+| Selected Path | `/eat_nav/selected_path` | Visualization only. The real follower's `/teaching_playback/path` is deliberately not published on the shared domain. |
+| Model DEM / Actor22 | `/eat_nav/dem`, `/eat_nav/actor22` | Demo-specific typed inputs; real sensor parity is not yet established. |
+| DEM image | `/eat_nav/dem/height` | Visualization only; it is not the metric model input. |
+| Follower and gated commands | `/eat_nav/mock/*` | Isaac-only transport; no `/cmd_vel_auto` or controller command is published. |
+
+When using the default ROS domain, run only one EAT-Nav GUI instance and ensure that unrelated goal publishers are not sending `/goal_pose`. The selected Path display does not command a physical follower. A matching topic name alone does not establish real-robot input parity or an emergency stop guarantee.
+
+## Legacy seven-candidate GUI demo
+
 This demonstration connects an RViz2 goal to seven robot-forward Path candidates,
 the MI-B Pilot Motion Predictor, the C++ `PureFollower`, the trained RL Actor, and Isaac
 physics. It is a pipeline demonstration, not a validated navigation policy.

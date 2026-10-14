@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""One bounded Isaac GUI attempt through separated ROS2 Motion-14 nodes.
+"""One Isaac GUI attempt through separated ROS2 Motion-14 nodes.
 
-The external Zenoh router is observed only. No production robot topic is used.
+The external Zenoh router is observed only. Actuator topics remain mock-only.
 """
 
 from __future__ import annotations
@@ -61,9 +61,9 @@ def _ros_environment():
     env=dict(item.decode().split('=',1) for item in result.stdout.split(b'\0')
              if item and b'=' in item)
     env['RMW_IMPLEMENTATION']='rmw_zenoh_cpp'
-    # Keep unrelated RViz/manual demos on their existing domain from injecting
-    # goals into this bounded validation attempt.
-    env['ROS_DOMAIN_ID']='227'
+    # Use the default ROS domain; never inherit a stale private-domain value
+    # from the launcher shell or the ROS overlay.
+    env.pop('ROS_DOMAIN_ID',None)
     env['PYTHONPATH']=str(REPO/'src')+':'+str(REPO/'scripts')+':'+env.get('PYTHONPATH','')
     return env
 
@@ -82,7 +82,7 @@ def _router_identity():
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--max-steps',type=int,default=220)
+    parser.add_argument('--max-steps',type=int,default=300000)
     parser.add_argument('--terrain-type',default='boxes',choices=(
         'k_rail_step_field','pyramid_stairs','pyramid_stairs_inv','random_rough',
         'boxes','hf_pyramid_slope','k_rail_field'))
@@ -92,7 +92,7 @@ def main():
     parser.add_argument('--auto-goal-dx',type=float,default=2.)
     parser.add_argument('--auto-goal-dy',type=float,default=0.)
     parser.add_argument('--manual-goal',action='store_true',
-                        help='Wait for a PoseStamped goal on /goal_pose in ROS domain 227')
+                        help='Wait for a PoseStamped goal on /goal_pose')
     parser.add_argument('--headless',action='store_true')
     args=parser.parse_args()
     if args.max_steps < 120 or not all(map(lambda x: abs(x)<20,
@@ -131,7 +131,7 @@ def main():
                   args.auto_goal_dx,args.auto_goal_dy] if not args.manual_goal else None,
               'headless':args.headless,'num_envs':1,
               'checkpoint_mode':'learned14_adopted',
-              'ros_domain_id':227,
+              'ros_domain_id':None,
               'selection':'predicted_global_goal_progress',
               'runtime_authorization':'one GUI closed-loop integration attempt'}
     (root/'manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')

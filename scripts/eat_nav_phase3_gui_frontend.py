@@ -61,7 +61,7 @@ class Phase3GuiFrontend(Node):
         self.selection_count = 0
         self.gated_count = 0
         self.clock_pub = self.create_publisher(Clock, '/clock', 10)
-        self.odom_pub = self.create_publisher(Odometry, '/eat_nav/odom', QOS)
+        self.odom_pub = self.create_publisher(Odometry, '/odom', QOS)
         self.dem_image_pub = self.create_publisher(Image, '/eat_nav/dem/height', QOS)
         self.selected_path_pub = self.create_publisher(Path, '/eat_nav/selected_path', QOS)
         self.dem_pub = self.create_publisher(DemFrame, '/eat_nav/dem', QOS)
