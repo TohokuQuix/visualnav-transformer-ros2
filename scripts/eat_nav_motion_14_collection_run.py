@@ -33,8 +33,18 @@ SOURCES = {
     'schedule': 'src/visualnav_transformer/eat_nav/motion_14_collection.py',
     'bank': 'src/visualnav_transformer/eat_nav/bidirectional_bank.py',
     'gate': 'src/visualnav_transformer/eat_nav/mi_fi_v1.py',
+    'gate_numeric': 'src/visualnav_transformer/eat_nav/mi_a_v2.py',
     'core': 'src/visualnav_transformer/eat_nav/p1_follower_core.py',
+    'core_cpp': 'src/visualnav_transformer/eat_nav/p1_follower_core.cpp',
     'observation_adapter': 'src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py',
+    'dem': 'src/visualnav_transformer/eat_nav/dem.py',
+    'environment': 'src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py',
+    'terrain': 'src/visualnav_transformer/eat_nav/demo_terrain.py',
+    'reset': 'src/visualnav_transformer/eat_nav/demo_reset_policy.py',
+    'path_transform': 'src/visualnav_transformer/eat_nav/motion_collector.py',
+    'labels': 'src/visualnav_transformer/eat_nav/bidirectional_labels.py',
+    'label_base': 'src/visualnav_transformer/eat_nav/motion_vnext.py',
+    'command_and_capture': 'src/visualnav_transformer/eat_nav/phase_c_sim.py',
     'config': 'config/eat_nav.yaml',
 }
 
