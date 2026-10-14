@@ -1,4 +1,4 @@
-"""Isaac-owned EAT demo: ROS goals, MI-B motion prediction, follower, RL Actor.
+"""Isaac-owned EAT demo: ROS goals, adopted Motion-14 prediction, follower, RL Actor.
 
 This is a demonstration series. It does not reuse sealed G3 comparisons or make
 claims about predictor generalization. ROS transports goal/state only.
@@ -59,11 +59,9 @@ from visualnav_transformer.eat_nav.demo_contract import (
     RL_CHECKPOINT_SHA256,
     select_best, sensor_stamp_valid, sha256, validate_evaluator_sample,
 )
-from visualnav_transformer.eat_nav.demo_arc_candidates import (
-    DEMO_ARC_ROLES, candidates_from_body_arcs,
-)
-from visualnav_transformer.eat_nav.demo_motion_predictor import (
-    DEMO_CHECKPOINT_SHA256, load_demo_motion_predictor,
+from visualnav_transformer.eat_nav.motion_14_predictor import CANDIDATE_IDS
+from visualnav_transformer.eat_nav.demo_motion_14 import (
+    DEMO_CHECKPOINT_SHA256, candidates_from_frozen_bank, load_motion_14_demo_predictor,
 )
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, ObservationCapture
 from visualnav_transformer.eat_nav.p1_follower_core import PureFollower, compile_core
@@ -71,8 +69,8 @@ from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_comman
 
 
 STEP_NS = 50_000_000
-PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v9_body_arcs'
-RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v10_body_arcs'
+PROTOCOL = 'eatnav_ros2_isaac_gui_demo_terrain_v10_motion14'
+RESIDUAL_PROTOCOL = 'eatnav_ros2_isaac_gui_demo_cancel_residual_v11_motion14'
 
 
 def durable_json(path, value):
@@ -159,8 +157,10 @@ def main():
     ledger = {'protocol': protocol, 'source_sha256': sha256(__file__),
               'checkpoint_sha256': sha256(args.checkpoint),
               'rl_checkpoint_sha256': sha256(args.rl_checkpoint),
-              'arc_bank_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/arc_bank.py'),
-              'demo_arc_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_arc_candidates.py'),
+              'candidate_bank_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/bidirectional_bank.py'),
+              'motion_model_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/motion_14_predictor.py'),
+              'motion_adapter_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_motion_14.py'),
+              'candidate_order': list(CANDIDATE_IDS),
               'eat_config_sha256': sha256(args.eat_config), 'seed': args.seed,
               'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
@@ -171,11 +171,11 @@ def main():
     durable_json(args.output/'input-ledger.json', ledger)
     if ledger['checkpoint_sha256'] != DEMO_CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
-        raise ValueError('MI-B predictor/RL checkpoint SHA mismatch')
+        raise ValueError('Motion-14 predictor/RL checkpoint SHA mismatch')
     if args.replan_steps < 5 or args.replan_steps % 5 or args.max_steps <= 20:
         raise ValueError('replan interval must align to 250 ms DEM history')
     eat_cfg = load_eat_config(args.eat_config)
-    predictor = load_demo_motion_predictor(args.checkpoint)
+    predictor = load_motion_14_demo_predictor(args.checkpoint)
     if eat_cfg.dem_frame_count != 4 or eat_cfg.dem_resolution_m != .1:
         raise ValueError('DEM history config mismatch')
     saved = yaml.load(Path('/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml').read_text(),
@@ -329,8 +329,8 @@ def main():
                 history.append((stamp_ns, frame, sensor_stamp))
             if goal_map is not None and not arrived and len(history) == 4 and step % args.replan_steps == 0 and \
                     step - last_replan_step >= args.replan_steps:
-                body, paths_map, candidate_info = candidates_from_body_arcs(pose)
-                candidate_paths = np.stack([body[name] for name in DEMO_ARC_ROLES])
+                body, paths_map, candidate_info = candidates_from_frozen_bank(pose)
+                candidate_paths = np.stack([body[name] for name in CANDIDATE_IDS])
                 dem = np.stack([row[1] for row in history])
                 actor_state = observed['policy_pre_noise'][0].detach().cpu().numpy()
                 validate_evaluator_sample(dem, actor_state, candidate_paths,
@@ -338,11 +338,11 @@ def main():
                                           state_stamp_ns=stamp_ns, now_ns=stamp_ns)
                 begin = time.monotonic_ns()
                 predicted_motion, result = predictor.predict(
-                    dem, actor_state, candidate_paths, pose, goal_map)
+                    dem, actor_state, body, pose, goal_map)
                 elapsed_ms = (time.monotonic_ns() - begin) / 1e6
-                selected = select_best(result, roles=DEMO_ARC_ROLES)
-                scores = dict(zip(DEMO_ARC_ROLES, map(float, result)))
-                predicted_motion_m = dict(zip(DEMO_ARC_ROLES, predicted_motion.tolist()))
+                selected = select_best(result, roles=CANDIDATE_IDS)
+                scores = dict(zip(CANDIDATE_IDS, map(float, result)))
+                predicted_motion_m = dict(zip(CANDIDATE_IDS, predicted_motion.tolist()))
                 tile_origin = bare.scene.env_origins[0, :2].detach().cpu().numpy()
                 selected_tile = paths_map[selected] - tile_origin
                 if follower is not None:
@@ -353,7 +353,7 @@ def main():
                                         'selected': selected, 'scores_m': scores,
                                         'score_definition': 'predicted_2s_global_goal_distance_reduction_m',
                                         'predicted_body_xy_m': predicted_motion_m,
-                                        'candidate_geometry_matches_mi_b_training': False,
+                                        'candidate_geometry_matches_training': True,
                                         'goal_map': goal_map.tolist(), 'candidate_info': candidate_info,
                                         'inference_latency_ms': elapsed_ms}, allow_nan=False) + '\n')
             command = (0., 0., 0.)

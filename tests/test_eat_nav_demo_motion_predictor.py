@@ -126,10 +126,3 @@ def test_checkpoint_sha_mismatch_fails_closed(tmp_path):
     path.write_bytes(b'not the frozen MI-B checkpoint')
     with pytest.raises(ValueError, match='SHA'):
         load_demo_motion_predictor(path)
-
-
-def test_demo_launcher_stages_validation_selected_mi_b_checkpoint():
-    from scripts import eat_nav_demo_launch
-
-    assert eat_nav_demo_launch.CHECKPOINT == CHECKPOINT
-    assert eat_nav_demo_launch.sha(eat_nav_demo_launch.CHECKPOINT) == DEMO_CHECKPOINT_SHA256

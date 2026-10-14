@@ -18,7 +18,11 @@ import time
 REPO = Path(__file__).resolve().parents[1]
 ONIX = Path('/home/kojima/lib/onix_isaac_lab')
 CHECKPOINT = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
-                  'mi-b-pilot-20261014-01/training/full-seed456/best.pt')
+                  'motion-14-training-20261014-04/training/full-seed123/best.pt')
+TRAINING_ROOT = CHECKPOINT.parents[2]
+DEMO_CANDIDATE_ORDER = tuple(json.loads((REPO/'docs/eat-nav/motion-predictor-vnext/'
+                                         'motion_14_training_contract.json').read_text())['candidate_order'])
+DEMO_CANDIDATE_COUNT = len(DEMO_CANDIDATE_ORDER)
 RL = ONIX/'logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt'
 
 
@@ -62,9 +66,14 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v10-body-arcs' if args.residual_diagnostics else 'terrain-v9-body-arcs'
-    schema = ('eatnav_ros2_isaac_gui_demo_cancel_residual_v10_body_arcs'
-              if args.residual_diagnostics else 'eatnav_ros2_isaac_gui_demo_terrain_v9_body_arcs')
+    results = json.loads((TRAINING_ROOT/'results.json').read_text())
+    if DEMO_CANDIDATE_COUNT != 14 or results['demo_adoption']['decision'] != 'pass' or \
+            results['selected_full_seed'] != 123 or \
+            results['variants']['full']['123']['checkpoint_sha256'] != sha(CHECKPOINT):
+        raise ValueError('adopted fourteen-Path checkpoint/result mismatch')
+    series = 'cancel-residual-v11-motion14' if args.residual_diagnostics else 'terrain-v10-motion14'
+    schema = ('eatnav_ros2_isaac_gui_demo_cancel_residual_v11_motion14'
+              if args.residual_diagnostics else 'eatnav_ros2_isaac_gui_demo_terrain_v10_motion14')
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -80,25 +89,27 @@ def main():
     manifest = {'schema': schema, 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
-                'predictor': 'MI-B Pilot Full seed 456; lowest aggregate validation loss',
+                'predictor': 'adopted Motion-14 Full seed 123; lowest aggregate validation loss',
                 'selection_metric': 'predicted_2s_global_goal_distance_reduction_m',
-                'candidate_geometry_matches_mi_b_training': False,
-                'candidate_bank': 'robot_forward_direct_and_left_right_30_60_90',
+                'candidate_geometry_matches_training': True,
+                'candidate_bank': 'eatnav_forward_reverse_path_bank_v1',
+                'candidate_count': DEMO_CANDIDATE_COUNT,
+                'candidate_order': list(DEMO_CANDIDATE_ORDER),
+                'training_results_sha256': sha(TRAINING_ROOT/'results.json'),
                 'rl_checkpoint_sha256': sha(RL),
                 'source_sha256': sha(REPO/'scripts/eat_nav_demo_isaac.py'),
                 'frontend_sha256': sha(REPO/'scripts/eat_nav_demo_ros_frontend.py'),
                 'launcher_sha256': sha(__file__),
                 'rviz_config_sha256': sha(REPO/'config/eat_nav_demo.rviz'),
                 'contract_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_contract.py'),
-                'motion_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_motion_predictor.py'),
-                'motion_model_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/mi_b_pilot.py'),
+                'motion_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_motion_14.py'),
+                'motion_model_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/motion_14_predictor.py'),
                 'env_cfg_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py'),
                 'reset_policy_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_reset_policy.py'),
                 'turn_escape_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_turn_escape.py'),
                 'follower_core_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_follower_core.py'),
                 'observation_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py'),
-                'arc_bank_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/arc_bank.py'),
-                'demo_arc_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_arc_candidates.py'),
+                'candidate_bank_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/bidirectional_bank.py'),
                 'eat_config_sha256': sha(REPO/'config/eat_nav.yaml'),
                 'headless': args.headless, 'seed': args.seed, 'port': args.port,
                 'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
