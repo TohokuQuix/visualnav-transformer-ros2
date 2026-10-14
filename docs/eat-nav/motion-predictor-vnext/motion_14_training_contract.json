@@ -1,0 +1,47 @@
+{
+  "schema": "eatnav_motion_14_training_v1",
+  "source_collection_schema": "eatnav_motion_14_collection_v1",
+  "candidate_count": 14,
+  "candidate_order": [
+    "forward_direct", "forward_-30", "forward_+30", "forward_-60", "forward_+60", "forward_-90", "forward_+90",
+    "reverse_direct", "reverse_-30", "reverse_+30", "reverse_-60", "reverse_+60", "reverse_-90", "reverse_+90"
+  ],
+  "split_unit": "terrain_seed",
+  "split_design": "one disjoint seed per terrain_type x terrain_level x split; 12 independent seeds per split",
+  "input_modalities": ["robot-relative 4-frame DEM height+valid", "pre-noise Actor state 22D", "body-frame 8-point Path", "direction", "candidate mask"],
+  "goal_input": false,
+  "primary_target": "2-second body-frame XY displacement per candidate",
+  "auxiliary_diagnostic": "2-second body yaw displacement; not trained in v1",
+  "normalization": "train split only; DEM valid height, Actor state and XY target; Path metres and direction unscaled",
+  "checkpoint_selection": "minimum aggregate validation loss; choose Full training initialization by validation loss, tie-break smaller seed; test not used",
+  "training": {
+    "variants": ["full", "no_dem", "no_body", "no_path"],
+    "training_seeds": [123, 456],
+    "batch_groups": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 240,
+    "patience": 35,
+    "min_delta": 0.0,
+    "scheduler": null,
+    "loss": "train-normalized vector XY MSE plus mean of twelve same-direction Arc-minus-Direct vector XY MSE terms"
+  },
+  "small_overfit": {
+    "train_group_count": 2,
+    "max_steps": 1500,
+    "max_absolute_xy_error_m": 0.015,
+    "max_arc_minus_direct_xy_error_m": 0.015
+  },
+  "primary_metrics": ["absolute_xy_vector_rmse_m", "arc_minus_direct_xy_vector_rmse_m", "seed_clustered_uncertainty"],
+  "diagnostics": ["angle_magnitude", "direction", "posture", "posture_path_interaction", "terrain_type", "terrain_level", "candidate_vector", "legacy_common_six_only"],
+  "bootstrap": {"unit": "terrain_seed", "replicates": 1000, "random_seed": 20261014},
+  "demo_adoption_gate": {
+    "selected_full_all14_contrast_rmse_ratio_to_train_direction_baseline_max": 0.95,
+    "selected_full_absolute_rmse_ratio_to_train_direction_baseline_max": 1.0,
+    "selected_full_abs90_contrast_rmse_ratio_to_baseline_max": 1.1,
+    "selected_full_common6_contrast_rmse_ratio_to_old_mib_full_seed456_max": 1.05,
+    "all_twelve_test_seeds_present": true,
+    "all_fourteen_candidate_predictions_finite": true,
+    "interpretation": "descriptive adoption gate for experimental GUI demo, not proof of unknown-terrain generalization or DEM/body-state usefulness"
+  }
+}
