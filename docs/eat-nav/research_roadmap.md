@@ -8,9 +8,9 @@ MI-A v3.1正式評価では、12 terrain seeds、4 terrain types、Front-folded�
 
 MI-B Pilotでは、上記の576 trialを用いてMotion Predictorを学習した。少数例へのsmall overfitはPass。4 held-out terrain seedsでの主要指標、Arc−Directの2秒後XY変位差RMSEは、Fullモデルの2初期化で **0.0713／0.0724 m**、train-only Direction平均baselineで **0.0834 m**（約13～15%改善）だった。No Pathはbaselineから改善せず、Path入力の寄与が確認できた。一方、No DEMはFullと同程度で、一方の初期化ではFullを上回る。No Bodyとの差も小さく、DEMとActor stateの寄与はまだ明確でない。Front/RearによるPath応答差の予測も十分ではなく、Reverse +30°と `random_rough` などに誤差が残る。**MI-B Pilotは事前定義した探索的基準でPassしたが、正式MI-B Gateは未定義であり、正式Passではない。** [MI-B Pilot報告](motion-predictor-vnext/mi_b_pilot_report.md)とsealed evidenceの `pilot-results.json`、`pilot-subgroups-v2.json` を参照。
 
-上記のMotion Predictorはoffline研究用であり、GUIに組み込まれた旧Baseline Evaluatorとは別物である。GUI demoはROS2 goalから候補score、C++ PureFollower command、RL Actor action、Isaac motionまでのソフトウェア経路を示す。旧Baseline Evaluator checkpointは**1 StateGroup×1 seed、12 trialのtrain-set smoke test**で、独立したvalidation/testがない。35 terrain条件は生成とorigin選択を確認したもので、35条件のnavigation benchmarkではない。GUI制御にはROS-free C++ follower coreを使い、production ROS followerは実行しない。実機転移は未検証である。
+MI-B Motion Predictorはoffline学習済みであり、現在のGUI demoはそのFull seed-456 checkpointを使って予測XY変位から局所ゴールへの進捗を計算する。この選択規則の効果は未検証で、MI-B Pilotの予測精度をGUIでのPath選択性能と読み替えない。旧Baseline Evaluatorは別物で、そのcheckpointは**1 StateGroup×1 seed、12 trialのtrain-set smoke test**であり、独立したvalidation/testがない。GUI demoはROS2 goalから候補選択、C++ PureFollower command、RL Actor action、Isaac motionまでのソフトウェア経路を示す。35 terrain条件は生成とorigin選択を確認したもので、35条件のnavigation benchmarkではない。GUI制御にはROS-free C++ follower coreを使い、production ROS followerは実行しない。実機転移は未検証である。
 
-GUIの現行bankはDirect、Left +20°、Right −20°で、各8点。global RViz goalは0.75 m以内のlocal subgoalに変換される。回転・スケーリング後の入力は旧smoke trainingの分布外になりうる。MI-A／MI-Bの前進・後退Path実験とGUI bankの結果を同じ評価結果として混ぜないこと。DEMOの初期姿勢はFront-folded固定。将来の学習データ収集でFront/RearをStateGroup単位でランダム化する方針は維持するが、Phase C収集は未承認である。
+GUIの現行bankはDirect、Left +20°、Right −20°で、各8点。global RViz goalは0.75 m以内のlocal subgoalに変換される。MI-Bは前進・後退の6候補と±30°Arcで学習したため、GUIの3候補・±20°・ゴール方向への回転と長さの変更は学習条件と異なる。MI-A／MI-BのPath実験とGUI bankの結果を同じ評価結果として混ぜないこと。DEMOの初期姿勢はFront-folded固定。将来の学習データ収集でFront/RearをStateGroup単位でランダム化する方針は維持するが、Phase C収集は未承認である。
 
 ## 研究課題と比較の観点
 
@@ -49,7 +49,7 @@ GUIの現行bankはDirect、Left +20°、Right −20°で、各8点。global RVi
 
 - MI-BのPath入力効果は見えたが、DEM・Actor stateの効果、Front/Rear応答差の予測は未確定。Reverse +30°と `random_rough` に残る誤差も、原因を断定できない。
 - MI-B held-outは4独立seedで、各terrainに1 seedのみ。terrain levelとseed／splitが交絡するため、未知地形への一般化を主張しない。
-- 旧GUI Baseline Evaluatorのtrain-set scoreとMI-B held-out Motion Predictorの指標は別系列であり、GUIでPath選択が改善した証拠ではない。
+- 旧Baseline Evaluatorのtrain-set scoreとMI-B held-out Motion Predictorの指標は別系列である。MI-B checkpointをGUIに接続しても、Path選択が改善した証拠にはならない。
 - `k_rail_field` level 2の短いGUI demoではgoal progressが低かったが、1 runだけでは地形、bank、modelのどれが原因か分からない。
 - GUI候補はRViz goalへ向けて回転・スケーリングされるため、凍結済みP1 teacher bankと入力分布が一致するとは限らない。
 - ROS2 clock／TF／goal transportはローカルで試験したが、production follower、hardware latency、実機DEM整合性はGUI demoでは検証されていない。

@@ -2,17 +2,15 @@
 
 ## What is runnable today
 
-The GUI demo is an online **inference** pipeline. The current offline
-**Baseline Evaluator** preparation/training scripts consume a small, sealed ROS-free P1
-crossover; they do not collect fresh independent StateGroups. The existing
-GUI checkpoint is a one-StateGroup×one-seed **train-set smoke test** for the
-40-step (2 s) common-goal progress label. Its validation/test splits are
-empty. Separately, the **MI-B Motion Predictor Pilot** was trained offline
-on sealed MI-A v3.1 trials with terrain-seed train/validation/test splits.
-It predicts 2 s body-frame XY motion, is not the GUI scoring checkpoint,
-and has not been used to select Paths online. A student changing the teacher,
-inputs, or architecture must version the dataset, model, checkpoint, and
-evaluation protocol before drawing generalization conclusions.
+The GUI demo is an online **inference** pipeline using the sealed MI-B Pilot
+Full seed-456 Motion Predictor checkpoint. It predicts 2 s body-frame XY
+motion; the GUI converts that prediction into local-subgoal distance
+reduction and chooses the largest score. This selector is experimental:
+MI-B's held-out motion accuracy does not establish online Path-selection
+benefit. The older **Baseline Evaluator** GUI checkpoint was a
+one-StateGroup×one-seed train-set smoke test for 2 s common-goal progress,
+with empty validation/test splits. Its preparation/training commands below
+remain for historical reproduction.
 
 ```mermaid
 flowchart TD
@@ -21,7 +19,7 @@ flowchart TD
     S --> T[Terrain + root/joint state]
     T --> D[4-frame robot-relative DEM]
     G --> P[Direct / Left / Right candidate generator]
-    D --> E[Pilot Evaluator CNN + MLP]
+    D --> E[MI-B Pilot Motion Predictor CNN + MLP]
     T --> E
     P --> E
     E --> C[Selected Path, map to tile-local]
@@ -50,12 +48,31 @@ scores, and status use simulation stamps.
 | Terrain/state | `demo_isaac_env_cfg.py:EATTerrainGenerator/EATTerrainImporter` | seed, type, row → mesh, tile SHA, origin, robot state | world/map frame; selected row held fixed on reset |
 | DEM | `scripts/eat_nav_demo_isaac.py:dem_from_sensor`, `dem.py:robot_dem` | raycaster → `[4,2,20,20]` history | robot-base-yaw, 0.1 m/cell; four chronological frames at 250 ms intervals; actual sensor update stamp is recorded separately |
 | Path bank | `demo_contract.py:candidates_for_goal` | current map pose + map goal + frozen bank → `[K,8,2]` robot-local candidates and map Paths | current pre-Path pose; 0.75 m local radius, Direct/Left +20°/Right −20° |
-| Evaluator | `evaluator/inference.py:Evaluator.predict` | DEM, pre-noise state, Paths, mask → scores `[B,K]` | pre-Path input; larger predicted 2 s progress is better |
+| Motion Predictor | `demo_motion_predictor.py:DemoMotionPredictor.predict` | DEM, pre-noise state, three Paths → predicted body XY `[3,2]` → local-subgoal progress scores `[3]` | pre-Path input; largest predicted 2 s distance reduction is selected |
 | Follower | `p1_follower_core.py:PureFollower` | selected tile-local Path + tile-local pose + logical time → `[vx,vy,wz]` and diagnostics | one call per 50 ms control step; one instance for the selected Path |
 | Command/Actor | `phase_c_sim.py:CommandOverride`, `p1_g3_rosfree_control.py:reconcile_command_observation` | follower command → observed command after noise/latency → Actor action `[B,6]` | body velocity command; Actor observation `[B,22]`, Critic `[B,267]` |
 | Physics/log | `scripts/eat_nav_demo_isaac.py` | action → next robot state, reward, done, trace | 50 ms control boundary; new trace row after physics |
 
-### Evaluator input and checkpoint contract
+### Current GUI Motion Predictor contract
+
+The launcher stages sealed `training/full-seed456/best.pt` from the MI-B
+Pilot evidence root; seed 456 has the lower aggregate validation loss of the
+two Full initializations. `demo_motion_predictor.py` verifies the checkpoint
+SHA and training-model source SHA, applies train-only DEM/Actor normalization,
+and reverses the target normalization to return three predicted body-frame
+XY displacements in metres. The three GUI Paths occupy the forward slots
+of the six-candidate model; the remaining slots are masked. For each Path,
+the selector scores the reduction in distance from the current pose to the
+0.75 m-or-closer local subgoal after that predicted displacement. The
+`/eat_nav/scores` topic reports `predicted_local_subgoal_progress_m`.
+No goal is fed into the Motion Predictor itself.
+
+The MI-B training Paths were forward/reverse Direct and ±30° Arcs, whereas
+the GUI keeps Direct and ±20° Arcs rotated/scaled toward the RViz goal.
+This distribution difference and the new goal-based selection rule make
+the GUI an exploratory demonstration, not a measured MI-B online result.
+
+### Historical Baseline Evaluator input and checkpoint contract
 
 | Tensor | Raw shape | Meaning |
 | --- | --- | --- |
@@ -71,8 +88,9 @@ in `evaluator/model.py:BaselineEvaluator` has a three-layer convolutional DEM
 encoder, separate Path and state MLPs, and an MLP fusion head. The saved
 train-only normalization and label transform are part of the checkpoint.
 `evaluator/inference.py:load_checkpoint` checks schema, input dimensions,
-label type, dataset SHA, and normalization. The GUI additionally pins
-checkpoint SHA and `common_goal_progress` label.
+label type, dataset SHA, and normalization. The historical GUI additionally
+pinned checkpoint SHA and `common_goal_progress` label. The current GUI pins
+the MI-B checkpoint SHA and model source provenance.
 
 The old P1 stored Path `map_xy` is tile-local. `evaluator/dataset.py` subtracts
 the tile origin and applies `body_local_path` with the pre-Path root yaw.
@@ -163,7 +181,7 @@ record the actual prior run.
 | Training | `scripts/eat_nav_baseline_train.py`, `config/eat_nav/baseline_evaluator_pilot.json` → `checkpoint.pt`, `result.json` | Checks dataset SHA, group split, normalization from train only, finite loss; no independent validation |
 | Offline ranking | `scripts/eat_nav_baseline_evaluate.py` → ranking JSON | Train-set diagnostic only; check source and checkpoint SHA |
 | MI-A motion evidence | `scripts/eat_nav_mi_a_v31_analyze.py`, sealed formal root → 192 process / 576 trial result | Frozen exploratory MI-A Gate Pass; no unseen-terrain claim |
-| MI-B offline Motion Predictor | `scripts/eat_nav_mi_b_pilot.py`, `src/visualnav_transformer/eat_nav/mi_b_pilot.py`, sealed MI-B root → grouped dataset, checkpoints, held-out metrics | Small overfit and exploratory Pilot Pass; formal MI-B Gate undefined; not connected to GUI |
+| MI-B offline Motion Predictor | `scripts/eat_nav_mi_b_pilot.py`, `src/visualnav_transformer/eat_nav/mi_b_pilot.py`, sealed MI-B root → grouped dataset, checkpoints, held-out metrics | Small overfit and exploratory Pilot Pass; formal MI-B Gate undefined; Full seed-456 checkpoint now drives exploratory GUI scoring |
 | GUI inference | `eat_nav_demo_launch.py`, `eat_nav_demo_isaac.py`, ROS frontend → new trace, score, GUI/ROS topics | Check input SHA, `startup-ready.json`, `complete.json`, `failure.json`, host seal, finite Actor/action, physical root motion |
 
 Labels currently defined in `evaluator/labels.py` are negative normalized

@@ -17,7 +17,8 @@ import time
 
 REPO = Path(__file__).resolve().parents[1]
 ONIX = Path('/home/kojima/lib/onix_isaac_lab')
-CHECKPOINT = Path('/home/kojima/eatnav-experiments/baseline-evaluator-pilot-20261013/train-common-goal-v1/checkpoint.pt')
+CHECKPOINT = Path('/home/kojima/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/'
+                  'mi-b-pilot-20261014-01/training/full-seed456/best.pt')
 RL = ONIX/'logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt'
 
 
@@ -61,7 +62,7 @@ def main():
     parser.add_argument('--port', type=int, default=29553)
     parser.add_argument('--output-root', type=Path, default=ONIX)
     args = parser.parse_args()
-    series = 'cancel-residual-v7-front-folded' if args.residual_diagnostics else 'terrain-v6-front-folded'
+    series = 'cancel-residual-v8-mi-b-motion' if args.residual_diagnostics else 'terrain-v7-mi-b-motion'
     attempt = f'.eatnav-ros2-gui-demo-{series}-' + datetime.now().strftime('%Y%m%d-%H%M%S')
     root = args.output_root/attempt
     root.mkdir(mode=0o755)
@@ -75,15 +76,20 @@ def main():
         (CHECKPOINT, staging+'/config/checkpoint.pt'),
     ):
         run('docker', 'cp', str(source), 'isaac-lab-onix:'+target)
-    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v6_front_folded', 'attempt': attempt,
+    manifest = {'schema': 'eatnav_ros2_isaac_gui_demo_terrain_v7_mi_b_motion', 'attempt': attempt,
                 'source_git_head': git_head(),
                 'container_staging': staging, 'checkpoint_sha256': sha(CHECKPOINT),
+                'predictor': 'MI-B Pilot Full seed 456; lowest aggregate validation loss',
+                'selection_metric': 'predicted_2s_local_subgoal_distance_reduction_m',
+                'candidate_geometry_matches_mi_b_training': False,
                 'rl_checkpoint_sha256': sha(RL),
                 'source_sha256': sha(REPO/'scripts/eat_nav_demo_isaac.py'),
                 'frontend_sha256': sha(REPO/'scripts/eat_nav_demo_ros_frontend.py'),
                 'launcher_sha256': sha(__file__),
                 'rviz_config_sha256': sha(REPO/'config/eat_nav_demo.rviz'),
                 'contract_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_contract.py'),
+                'motion_adapter_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_motion_predictor.py'),
+                'motion_model_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/mi_b_pilot.py'),
                 'env_cfg_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py'),
                 'reset_policy_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_reset_policy.py'),
                 'turn_escape_source_sha256': sha(REPO/'src/visualnav_transformer/eat_nav/demo_turn_escape.py'),

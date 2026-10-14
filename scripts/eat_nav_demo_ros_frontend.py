@@ -156,7 +156,8 @@ class DemoFrontend(Node):
         if selected in candidates:
             path.poses = [pose_message(xy, 0., 'map', stamp_ns) for xy in candidates[selected]]
         self.selected_pub.publish(path)
-        self.score_pub.publish(String(data=json.dumps({'selected': selected, 'predicted_common_goal_progress_m': scores},
+        self.score_pub.publish(String(data=json.dumps({'selected': selected,
+                                                       'predicted_local_subgoal_progress_m': scores},
                                                        allow_nan=False)))
 
     def publish_state(self, item):

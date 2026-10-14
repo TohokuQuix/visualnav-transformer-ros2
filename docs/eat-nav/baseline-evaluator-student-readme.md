@@ -3,9 +3,10 @@
 This page documents the **older GUI Baseline Evaluator** and preserves its
 technical reproduction steps. The later [MI-A formal motion evaluation](motion-predictor-vnext/mi_a_v31_formal_result_report.md)
 and [MI-B offline Motion Predictor Pilot](motion-predictor-vnext/mi_b_pilot_report.md)
-are separate experiments. MI-B has held-out terrain-seed evaluation but
-does not replace this GUI checkpoint or establish online Path-selection
-performance. For the current research question and next student assignment,
+are separate experiments. The current GUI demo uses the MI-B Full seed-456
+checkpoint for exploratory Path scoring; the old checkpoint described here
+is retained for reproduction. MI-B's held-out motion accuracy does not
+establish online Path-selection performance. For the current research question and next student assignment,
 see the [student roadmap](research_roadmap.md).
 
 This package scores candidate local Paths without importing ROS2, Isaac Lab, or PhysX. It is a student handoff baseline for changing labels, inputs, and network structure. The pilot checkpoint is a **train-set smoke test on one StateGroup and one seed**, with no independent validation or generalization estimate.

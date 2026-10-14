@@ -1,7 +1,7 @@
-"""Isaac-owned EAT demo: ROS goals over IPC, frozen evaluator, C++ follower, RL Actor.
+"""Isaac-owned EAT demo: ROS goals, MI-B motion prediction, follower, RL Actor.
 
 This is a demonstration series. It does not reuse sealed G3 comparisons or make
-claims about evaluator generalization. ROS transports goal/state only.
+claims about predictor generalization. ROS transports goal/state only.
 """
 
 from __future__ import annotations
@@ -58,10 +58,12 @@ from visualnav_transformer.eat_nav.demo_reset_policy import (
 from visualnav_transformer.eat_nav.demo_turn_escape import TurnStuckEscape
 from visualnav_transformer.eat_nav.demo_residual import capture_physical_state
 from visualnav_transformer.eat_nav.demo_contract import (
-    CHECKPOINT_SHA256, DATASET_SHA256, RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
+    RL_CHECKPOINT_SHA256, candidates_for_goal, load_bank,
     select_best, sensor_stamp_valid, sha256, validate_evaluator_sample,
 )
-from visualnav_transformer.eat_nav.evaluator.inference import load_checkpoint
+from visualnav_transformer.eat_nav.demo_motion_predictor import (
+    DEMO_CHECKPOINT_SHA256, load_demo_motion_predictor,
+)
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, ObservationCapture
 from visualnav_transformer.eat_nav.p1_follower_core import PureFollower, compile_core
 from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_command_observation
@@ -165,21 +167,14 @@ def main():
               'reset_policy': 'tilt_over_only', 'flipper_fold_mode': 0.0,
               'turn_escape_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_turn_escape.py')}
     durable_json(args.output/'input-ledger.json', ledger)
-    if ledger['checkpoint_sha256'] != CHECKPOINT_SHA256 or \
+    if ledger['checkpoint_sha256'] != DEMO_CHECKPOINT_SHA256 or \
             ledger['rl_checkpoint_sha256'] != RL_CHECKPOINT_SHA256:
-        raise ValueError('Evaluator/RL checkpoint SHA mismatch')
+        raise ValueError('MI-B predictor/RL checkpoint SHA mismatch')
     if args.replan_steps < 5 or args.replan_steps % 5 or args.max_steps <= 20:
         raise ValueError('replan interval must align to 250 ms DEM history')
     bank = load_bank(args.bank)
     eat_cfg = load_eat_config(args.eat_config)
-    # PyTorch 2.7 defaults to weights_only=True. The SHA-pinned pilot carries
-    # TorchVersion metadata; allow exactly that class without changing the
-    # evaluator loader or enabling arbitrary pickle objects.
-    from torch.torch_version import TorchVersion
-    with torch.serialization.safe_globals([TorchVersion]):
-        evaluator, payload = load_checkpoint(args.checkpoint, device='cpu',
-                                             expected_label_type='common_goal_progress',
-                                             expected_dataset_sha256=DATASET_SHA256)
+    predictor = load_demo_motion_predictor(args.checkpoint)
     if eat_cfg.dem_frame_count != 4 or eat_cfg.dem_resolution_m != .1:
         raise ValueError('DEM history config mismatch')
     saved = yaml.load(Path('/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml').read_text(),
@@ -341,11 +336,17 @@ def main():
                                           dem_stamps_ns=[row[0] for row in history],
                                           state_stamp_ns=stamp_ns, now_ns=stamp_ns)
                 begin = time.monotonic_ns()
-                result = evaluator.predict(dem, actor_state, candidate_paths,
-                                           np.ones((1, 3), dtype=bool))[0]
+                bearing = candidate_info['bearing_body_rad']
+                radius = candidate_info['subgoal_distance_m']
+                local_goal = np.asarray([radius * math.cos(bearing),
+                                         radius * math.sin(bearing)], dtype=np.float32)
+                predicted_motion, result = predictor.predict(
+                    dem, actor_state, candidate_paths, local_goal)
                 elapsed_ms = (time.monotonic_ns() - begin) / 1e6
                 selected = select_best(result)
                 scores = dict(zip(('direct', 'left_20', 'right_20'), map(float, result)))
+                predicted_motion_m = dict(zip(
+                    ('direct', 'left_20', 'right_20'), predicted_motion.tolist()))
                 tile_origin = bare.scene.env_origins[0, :2].detach().cpu().numpy()
                 selected_tile = paths_map[selected] - tile_origin
                 if follower is not None:
@@ -354,6 +355,9 @@ def main():
                 last_replan_step = step
                 trace.write(json.dumps({'event': 'selection', 'step': step, 'stamp_ns': stamp_ns,
                                         'selected': selected, 'scores_m': scores,
+                                        'score_definition': 'predicted_2s_local_subgoal_distance_reduction_m',
+                                        'predicted_body_xy_m': predicted_motion_m,
+                                        'candidate_geometry_matches_mi_b_training': False,
                                         'goal_map': goal_map.tolist(), 'candidate_info': candidate_info,
                                         'inference_latency_ms': elapsed_ms}, allow_nan=False) + '\n')
             command = (0., 0., 0.)
@@ -446,7 +450,9 @@ def main():
                      'dem_stamp_ns': history[-1][0] if history else None,
                      'dem_sensor_update_ns': history[-1][2] if history else None,
                      'selected': selected, 'candidate_paths_map': {k: v.tolist() for k, v in paths_map.items()},
-                     'scores_m': scores, 'goal_map': goal_map.tolist() if goal_map is not None else None,
+                     'scores_m': scores,
+                     'score_definition': 'predicted_2s_local_subgoal_distance_reduction_m',
+                     'goal_map': goal_map.tolist() if goal_map is not None else None,
                      'command': command, 'follower_command': follower_command,
                      'turn_escape': turn_escape_diagnostic, 'status': status}
             wire.send(state)

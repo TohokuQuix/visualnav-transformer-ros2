@@ -1,8 +1,12 @@
 # EAT-Nav one-robot ROS2 + Isaac GUI demo
 
 This demonstration connects an RViz2 goal to three frozen Path candidates,
-the pilot Evaluator, the C++ `PureFollower`, the trained RL Actor, and Isaac
+the MI-B Pilot Motion Predictor, the C++ `PureFollower`, the trained RL Actor, and Isaac
 physics. It is a pipeline demonstration, not a validated navigation policy.
+The predictor estimates 2 s body-frame XY displacement for each candidate.
+The demo selects the candidate with the largest predicted distance reduction
+to the current local subgoal. This selection rule has not been validated by
+MI-B's held-out motion-prediction metrics.
 
 ## Setup
 
@@ -10,8 +14,8 @@ physics. It is a pipeline demonstration, not a validated navigation policy.
   the running `isaac-lab-onix` Docker container with the Onix Isaac Lab source.
 - Start the external Zenoh router in a separate terminal before the demo:
   `ros2 run rmw_zenoh_cpp rmw_zenohd`. The launcher never manages it.
-- Pilot Evaluator checkpoint:
-  `~/eatnav-experiments/baseline-evaluator-pilot-20261013/train-common-goal-v1/checkpoint.pt`.
+- MI-B Pilot Full seed-456 checkpoint (selected by aggregate validation loss):
+  `~/lib/visualnav-transformer-ros2/.eatnav-motion-vnext-evidence/mi-b-pilot-20261014-01/training/full-seed456/best.pt`.
 - RL Actor checkpoint:
   `~/lib/onix_isaac_lab/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/model_10000.pt`.
   The launcher/simulator verify their frozen SHA-256 values.
@@ -44,7 +48,7 @@ The selected Path and scores are visible on `/eat_nav/selected_path`,
 `/eat_nav/candidates`, and `/eat_nav/scores`; robot pose, DEM, and status
 are published on `/eat_nav/odom`, `/eat_nav/dem/height`, and
 `/eat_nav/status`. Ctrl+C stops the launcher. All run roots are created
-under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v6-front-folded-*`.
+under `~/lib/onix_isaac_lab/.eatnav-ros2-gui-demo-terrain-v7-mi-b-motion-*`.
 The earlier `terrain-v2` roots use the old 40 s timeout behavior and are
 preserved as separate evidence.
 `sim-output/trace.jsonl`, terrain provenance, input/SHA ledgers, and
@@ -67,6 +71,10 @@ and robot spawn pose. The generator's terrain parameters are unchanged.
 uses a different column of the selected terrain row; only env 0 follows
 the RViz goal, as in the original demo. Candidate count remains three
 and is independent of env count.
+The MI-B model was trained with six candidates and ±30° Arcs. This demo
+uses its three forward slots with the other three masked, while retaining the
+existing ±20° goal-rotated and scaled bank. The resulting selector is an
+exploratory demo with a different input distribution, not an MI-B Gate result.
 
 ## Checks and limitations
 
