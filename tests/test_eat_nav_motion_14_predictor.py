@@ -1,10 +1,13 @@
 import numpy as np
 import torch
+import json
+from pathlib import Path
 
 from visualnav_transformer.eat_nav.motion_14_predictor import (
-    Motion14Predictor, contrast_indices, normalized_pair_loss,
+    CANDIDATE_IDS, Motion14Predictor, contrast_indices, normalized_pair_loss,
     validate_grouped_arrays,
 )
+from visualnav_transformer.eat_nav.mi_b_pilot import PilotPredictor
 
 
 def fake_arrays(n=2, k=14):
@@ -28,6 +31,17 @@ def test_fourteen_slot_shape_and_six_pairs_per_direction():
     assert output.shape == (2, 14, 2)
     assert torch.isfinite(output).all()
     assert normalized_pair_loss(output, output, values[-1]).item() == 0
+
+
+def test_architecture_matches_mi_b_and_training_order_is_frozen():
+    old = PilotPredictor('full').state_dict()
+    new = Motion14Predictor('full').state_dict()
+    assert set(old) == set(new)
+    assert all(old[name].shape == new[name].shape for name in old)
+    contract = json.loads((Path(__file__).resolve().parents[1]/'docs/eat-nav/'
+                           'motion-predictor-vnext/motion_14_training_contract.json').read_text())
+    assert contract['candidate_count'] == 14
+    assert contract['candidate_order'] == list(CANDIDATE_IDS)
 
 
 def test_no_path_cannot_separate_arcs_within_direction():
