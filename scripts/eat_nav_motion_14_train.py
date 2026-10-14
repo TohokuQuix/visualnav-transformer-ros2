@@ -78,6 +78,17 @@ def load(root: Path):
     validate_grouped_arrays(arrays)
     metadata = json.loads((root/'metadata.json').read_text())['rows']
     contract = json.loads((root/'contract.json').read_text())
+    provenance = json.loads((root/'provenance.json').read_text())
+    for key, actual in (
+        ('collection_manifest_sha256', sha(COLLECTION_MANIFEST)),
+        ('contract_sha256', sha(CONTRACT)),
+        ('model_source_sha256', sha(REPO/'src/visualnav_transformer/eat_nav/motion_14_predictor.py')),
+        ('dataset_source_sha256', sha(REPO/'src/visualnav_transformer/eat_nav/motion_14_dataset.py')),
+        ('training_source_sha256', sha(Path(__file__))),
+        ('legacy_checkpoint_sha256', sha(LEGACY)),
+    ):
+        if provenance.get(key) != actual:
+            raise ValueError(f'training provenance mismatch: {key}')
     frozen = load_frozen()
     if len(metadata) != len(arrays['dem']) or contract['candidate_order'] != list(CANDIDATE_IDS):
         raise ValueError('training metadata/candidate mismatch')
@@ -285,29 +296,43 @@ def evaluate(root: Path) -> None:
                                     'old': old_metrics, 'new': new_metrics,
                                     'indices_in_new_bank': list(LEGACY_COMMON_SIX)}
     gate = contract['demo_adoption_gate']
+    def ratio(numerator, denominator):
+        return float(numerator / denominator) if denominator > 1e-12 else None
+
     ratios = {'all14_contrast_to_direction_baseline':
-                  new['contrast_rmse_m']/results['baseline']['contrast_rmse_m'],
+                  ratio(new['contrast_rmse_m'], results['baseline']['contrast_rmse_m']),
               'absolute_to_direction_baseline':
-                  new['absolute_xy_rmse_m']/results['baseline']['absolute_xy_rmse_m'],
+                  ratio(new['absolute_xy_rmse_m'], results['baseline']['absolute_xy_rmse_m']),
               'abs90_contrast_to_direction_baseline':
-                  new['angle_contrast_rmse_m']['90']/results['baseline']['angle_contrast_rmse_m']['90'],
+                  ratio(new['angle_contrast_rmse_m']['90'],
+                        results['baseline']['angle_contrast_rmse_m']['90']),
               'common6_contrast_to_old_checkpoint':
-                  new_metrics['contrast_rmse_m']/old_metrics['contrast_rmse_m']}
+                  ratio(new_metrics['contrast_rmse_m'], old_metrics['contrast_rmse_m'])}
     criteria = {
-        'all14_contrast': ratios['all14_contrast_to_direction_baseline'] <=
+        'all14_contrast': ratios['all14_contrast_to_direction_baseline'] is not None and
+            ratios['all14_contrast_to_direction_baseline'] <=
             gate['selected_full_all14_contrast_rmse_ratio_to_train_direction_baseline_max'],
-        'absolute': ratios['absolute_to_direction_baseline'] <=
+        'absolute': ratios['absolute_to_direction_baseline'] is not None and
+            ratios['absolute_to_direction_baseline'] <=
             gate['selected_full_absolute_rmse_ratio_to_train_direction_baseline_max'],
-        'abs90': ratios['abs90_contrast_to_direction_baseline'] <=
+        'abs90': ratios['abs90_contrast_to_direction_baseline'] is not None and
+            ratios['abs90_contrast_to_direction_baseline'] <=
             gate['selected_full_abs90_contrast_rmse_ratio_to_baseline_max'],
-        'common6_legacy': ratios['common6_contrast_to_old_checkpoint'] <=
+        'common6_legacy': ratios['common6_contrast_to_old_checkpoint'] is not None and
+            ratios['common6_contrast_to_old_checkpoint'] <=
             gate['selected_full_common6_contrast_rmse_ratio_to_old_mib_full_seed456_max'],
+        'validation_plateau': new['best_epoch'] <=
+            contract['training']['max_epochs'] -
+            gate['selected_full_best_epoch_must_precede_max_epoch_by_at_least'],
         'twelve_test_seeds': len(results['test_seed_ids']) == 12,
         'finite_predictions': all(np.isfinite(value).all() for name, value in
                                   prediction_artifact.items() if name.startswith('full-seed')),
     }
     results['selected_full_seed'] = selected
-    results['demo_adoption'] = {'decision': 'pass' if all(criteria.values()) else 'fail',
+    decision = ('inconclusive' if not criteria['validation_plateau'] or
+                any(value is None for value in ratios.values()) else
+                ('pass' if all(criteria.values()) else 'fail'))
+    results['demo_adoption'] = {'decision': decision,
                                 'criteria': criteria, 'ratios': ratios,
                                 'contract_sha256': sha(CONTRACT)}
     np.savez_compressed(root/'test-predictions.npz', **prediction_artifact,
