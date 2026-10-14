@@ -79,7 +79,7 @@ def _router_identity():
             'stderr_sha256':sha(ROUTER_PID.parent/'router.stderr.log')}
 
 
-def main():
+def build_parser():
     parser=argparse.ArgumentParser()
     parser.add_argument('--max-steps',type=int,default=300000)
     parser.add_argument('--terrain-type',default='boxes',choices=(
@@ -93,7 +93,22 @@ def main():
     parser.add_argument('--manual-goal',action='store_true',
                         help='Wait for a PoseStamped goal on /goal_pose')
     parser.add_argument('--headless',action='store_true')
+    parser.add_argument('--predictor-zero-velocity-command',
+                        action=argparse.BooleanOptionalAction, default=True,
+                        help='Zero Actor indices 6–8 only for Motion Predictor input')
+    return parser
+
+
+def predictor_command_cli_args(enabled):
+    return ['--predictor-zero-velocity-command' if enabled else
+            '--no-predictor-zero-velocity-command']
+
+
+def main():
+    parser=build_parser()
     args=parser.parse_args()
+    print('Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
+          % ('ON' if args.predictor_zero_velocity_command else 'OFF'), flush=True)
     if args.max_steps < 120 or not all(map(lambda x: abs(x)<20,
                                             (args.auto_goal_dx,args.auto_goal_dy))):
         raise ValueError('invalid bounded GUI attempt')
@@ -133,6 +148,7 @@ def main():
                   args.auto_goal_dx,args.auto_goal_dy] if not args.manual_goal else None,
               'headless':args.headless,'num_envs':1,
               'checkpoint_mode':'learned14_adopted',
+              'predictor_zero_velocity_command':args.predictor_zero_velocity_command,
               'ros_domain_id':None,
               'selection':'predicted_global_goal_progress',
               'runtime_authorization':'one GUI closed-loop integration attempt'}
@@ -169,7 +185,8 @@ def main():
     model_args=['--mode','learned14_adopted','--checkpoint',str(CHECKPOINT),
                 '--results',str(TRAIN/'results.json'), '--normalization',
                 str(TRAIN/'normalization.json'), '--worker-python',
-                '/home/kojima/anaconda3/envs/tinyvla/bin/python','--sim-time']
+                '/home/kojima/anaconda3/envs/tinyvla/bin/python','--sim-time',
+                *predictor_command_cli_args(args.predictor_zero_velocity_command)]
     commands={
         'inference':['/usr/bin/python3',str(files['phase2_cli']),'inference',*model_args,
                      '--evaluation-period-ns','500000000'],

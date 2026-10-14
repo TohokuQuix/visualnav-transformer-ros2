@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 
-def main():
+def build_parser():
     parser=argparse.ArgumentParser()
     parser.add_argument('role',choices=('sealed_source','inference','supervisor','supervisor_gui',
                                         'display','mock_robot'))
@@ -19,6 +19,14 @@ def main():
     parser.add_argument('--normalization',type=Path)
     parser.add_argument('--sim-time', action='store_true')
     parser.add_argument('--evaluation-period-ns', type=int)
+    parser.add_argument('--predictor-zero-velocity-command',
+                        action=argparse.BooleanOptionalAction, default=True,
+                        help='Zero Actor indices 6–8 only for the adopted Motion Predictor')
+    return parser
+
+
+def main():
+    parser=build_parser()
     args=parser.parse_args()
     if args.role=='sealed_source':
         if args.sealed_root is None:
@@ -36,7 +44,8 @@ def main():
         run(args.role,mode=args.mode,checkpoint=args.checkpoint,
             python=args.worker_python,results=args.results,
             normalization=args.normalization,sim_time=args.sim_time,
-            evaluation_period_ns=args.evaluation_period_ns)
+            evaluation_period_ns=args.evaluation_period_ns,
+            predictor_zero_velocity_command=args.predictor_zero_velocity_command)
 
 
 if __name__=='__main__': main()

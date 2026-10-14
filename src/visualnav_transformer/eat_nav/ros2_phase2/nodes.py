@@ -60,7 +60,8 @@ def build_mock_evaluation(history, actor, now_ns, generation,
 
 def build_model_evaluation(history, actor, now_ns, generation,
                            robot_pose_map, goal_map, *, mode, checkpoint,
-                           python, results=None, normalization=None, worker=None):
+                           python, results=None, normalization=None, worker=None,
+                           predictor_zero_velocity_command=True):
     dem,state,_=history.assemble(actor,now_ns)
     validate_mode(mode,14 if mode=='learned14_adopted' else 7,checkpoint)
     if mode=='legacy6_demo':
@@ -79,12 +80,18 @@ def build_model_evaluation(history, actor, now_ns, generation,
     else:
         if not all((results,normalization)):
             raise ValueError('adopted model requires results and normalization')
+        # Stage C used zero velocity commands. Copy only the predictor input;
+        # the original observation remains available to the RL Actor.
+        predictor_state = (np.asarray(state, np.float32).copy()
+                           if predictor_zero_velocity_command else state)
+        if predictor_zero_velocity_command:
+            predictor_state[6:9] = 0.0
         if worker:
-            prediction,checkpoint_sha=worker.predict_adopted(dem,state)
+            prediction,checkpoint_sha=worker.predict_adopted(dem,predictor_state)
         else:
             result=json.loads(Path(results).read_text())
             norm=json.loads(Path(normalization).read_text())
-            values=prepare_model_input(dem,state,PATHS,
+            values=prepare_model_input(dem,predictor_state,PATHS,
                                        np.asarray([1]*7+[-1]*7,np.float32),norm)
             prediction,checkpoint_sha=worker_request(python,checkpoint,results,
                                                      result['source'],values,norm)
@@ -106,7 +113,7 @@ class InferenceNode(Node):
     """Transport/mock path; real 14-model selection uses separate gated worker."""
     def __init__(self, *, mode='mock14_transport', checkpoint=None,
                  python=None, results=None, normalization=None, sim_time=False,
-                 evaluation_period_ns=None):
+                 evaluation_period_ns=None, predictor_zero_velocity_command=True):
         super().__init__('eat_nav_phase2_inference')
         if sim_time:
             self.set_parameters([rclpy.parameter.Parameter('use_sim_time', value=True)])
@@ -114,6 +121,10 @@ class InferenceNode(Node):
         if mode!='mock14_transport' and python is None:
             raise ValueError('model worker interpreter required')
         self.mode=mode
+        self.predictor_zero_velocity_command=bool(predictor_zero_velocity_command)
+        self.get_logger().info(
+            'Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
+            % ('ON' if self.predictor_zero_velocity_command else 'OFF'))
         self.evaluation_period_ns=evaluation_period_ns
         if evaluation_period_ns is not None and evaluation_period_ns <= 0:
             raise ValueError('evaluation period')
@@ -192,7 +203,8 @@ class InferenceNode(Node):
                 else build_model_evaluation(*args,mode=self.mode,
                     checkpoint=self.checkpoint,python=self.python,
                     results=self.results,normalization=self.normalization,
-                    worker=self.worker))
+                    worker=self.worker,
+                    predictor_zero_velocity_command=self.predictor_zero_velocity_command))
             self.eval_pub.publish(evaluation)
             self.last_eval_stamp = stamp
             self.pending_actor = None

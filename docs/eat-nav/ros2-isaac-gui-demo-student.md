@@ -15,6 +15,10 @@ The default maximum is 300000 control steps; use a smaller `--max-steps` for a b
 
 This version uses the Stage C adopted 14-candidate Motion Predictor (`checkpoints/eat_nav/motion14/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
 
+The adopted Motion Predictor now receives a copy of the 22D Actor observation with velocity-command indices 6–8 fixed to zero **before Stage C normalization**. This is ON in the standard command above. The original Actor observation, RL Actor command, and follower command are unchanged. Stage C trained on zero velocity commands; feeding nonzero commands to the old demo caused large normalized input shifts and implausible predicted displacement. To reproduce the old predictor input explicitly, add `--no-predictor-zero-velocity-command` to the GUI launch command. `--predictor-zero-velocity-command` explicitly selects the new default. Startup logs and the run manifest record the setting.
+
+The H4 check on boxes level 0, seed 2026101101 reduced predicted displacement scale and improved closed-loop goal approach, but did not establish goal arrival within 600 steps or generalization across terrains and seeds. Collection for repeated replanning, predictor retraining, removing velocity-command inputs from the network, broader goal-arrival evaluation, and real-robot verification remain unperformed. The handoff demo uses the XY predictor; a yaw predictor is not part of this branch's standard launch.
+
 | Signal | Current demo topic | Real robot relationship |
 | --- | --- | --- |
 | Goal `PoseStamped` | `/goal_pose` | Same name and message type as the real planner input. |
