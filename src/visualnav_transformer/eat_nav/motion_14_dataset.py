@@ -25,6 +25,32 @@ def build_grouped_dataset(evidence_root: Path, *, smoke_only: bool = False):
 
     evidence_root = Path(evidence_root)
     frozen = load_frozen()
+    continuation_audit = None
+    continuation_file = evidence_root/'continuation-provenance.json'
+    if continuation_file.is_file():
+        from scripts.eat_nav_motion_14_collection_resume_v2 import CONTINUATION
+        continuation = json.loads(CONTINUATION.read_text())
+        provenance = json.loads(continuation_file.read_text())
+        if provenance.get('continuation_manifest_sha256') != sha(CONTINUATION) or \
+                provenance.get('scientific_manifest_sha256') != sha(MANIFEST) or \
+                continuation['scientific_manifest_sha256'] != sha(MANIFEST) or \
+                continuation['reused_valid_prefix_count'] != 32:
+            raise ValueError('continuation provenance/manifest mismatch')
+        source = Path(continuation['source_root'])
+        for item in continuation['reused_valid_prefix_outer_seals']:
+            row = frozen['assignment'][item['index']]
+            name = row_name(row)
+            if sha(source/name/'outer-seal.json') != item['outer_seal_sha256'] or \
+                    sha(evidence_root/name/'outer-seal.json') != item['outer_seal_sha256']:
+                raise ValueError('copied valid prefix diverged from original')
+        failed = source/row_name(frozen['assignment'][continuation['excluded_failed_attempt_index']])
+        if sha(failed/'outer-seal.json') != continuation['excluded_failed_outer_seal_sha256']:
+            raise ValueError('excluded failed attempt changed')
+        continuation_audit = {'continuation_manifest_sha256': sha(CONTINUATION),
+                              'original_source_root': str(source),
+                              'reused_valid_prefix_count': 32,
+                              'excluded_failed_attempt_index': 32,
+                              'failed_attempt_retained_outside_dataset': True}
     status = json.loads((evidence_root/'status.json').read_text())
     if smoke_only:
         if status.get('state') != 'smoke_pass' or status.get('completed') != 32:
@@ -109,7 +135,8 @@ def build_grouped_dataset(evidence_root: Path, *, smoke_only: bool = False):
              'source_manifest_sha256': sha(MANIFEST), 'source_root': str(evidence_root),
              'verified_process_count': len(seals), 'candidate_trial_count': len(metadata) * 14,
              'group_count': len(metadata), 'source_outer_seals': seals,
-             'split_group_count': {name: len(ids) for name, ids in split.items()} if split else None}
+             'split_group_count': {name: len(ids) for name, ids in split.items()} if split else None,
+             'continuation': continuation_audit}
     return arrays, metadata, audit
 
 
