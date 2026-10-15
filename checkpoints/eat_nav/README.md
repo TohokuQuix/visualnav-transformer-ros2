@@ -11,6 +11,12 @@ seed-123 `best.pt` from `motion-14-training-20261014-04`. Neither file was
 retrained or converted for this package. Their SHA-256 values are frozen in
 `manifest.json`.
 
+The `motion14_heading/h2a-seed123/best.pt` checkpoint is a separately trained
+two-second yaw head over the frozen Stage C XY model. The ROS-separated GUI
+uses it only to orient the candidate prediction arrows in RViz; Path selection
+continues to use predicted XY progress to the global goal. Its SHA-256 and
+base-checkpoint provenance are verified at startup.
+
 No Google Drive download is needed when the Git remote supports LFS. If an
 external artifact store replaces LFS later, keep the same relative paths and
 verify every file against `manifest.json` before running the demo.

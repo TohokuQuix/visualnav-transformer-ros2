@@ -4,6 +4,8 @@ string predictor_mode
 string bank_source_sha256
 string checkpoint_sha256
 float32[28] predicted_body_xy_m
+bool predicted_yaw_valid
+float32[14] predicted_delta_yaw_rad
 float32[14] scores_m
 bool[14] mask
 uint8 selected_index

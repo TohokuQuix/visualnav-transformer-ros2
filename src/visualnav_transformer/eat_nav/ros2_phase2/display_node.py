@@ -1,5 +1,6 @@
 """Independent RViz-only display; it cannot publish selections or commands."""
 
+import math
 import numpy as np
 import rclpy
 from rclpy.node import Node
@@ -52,8 +53,10 @@ def path_markers(paths, stamp, selected=-1):
 
 def prediction_markers(msg):
     values = np.asarray(msg.predicted_body_xy_m, np.float32)
+    yaw = np.asarray(msg.predicted_delta_yaw_rad, np.float32)
     if msg.header.frame_id != 'chassis/body' or msg.bank_source_sha256 != BANK_SHA or \
             values.shape != (28,) or not np.isfinite(values).all() or \
+            yaw.shape != (14,) or (msg.predicted_yaw_valid and not np.isfinite(yaw).all()) or \
             len(msg.mask) != 14 or not 0 <= msg.selected_index < 14:
         raise ValueError('candidate prediction display contract')
     points = values.reshape(14, 2)
@@ -65,14 +68,21 @@ def prediction_markers(msg):
         sphere.header = msg.header
         sphere.ns = 'eat_nav_predicted_xy'
         sphere.id = index
-        sphere.type = Marker.SPHERE
+        sphere.type = Marker.ARROW if msg.predicted_yaw_valid else Marker.SPHERE
         sphere.action = Marker.ADD
-        size = .09 if index == msg.selected_index else .055
-        sphere.scale.x = sphere.scale.y = sphere.scale.z = size
+        if msg.predicted_yaw_valid:
+            sphere.scale.x = .18 if index == msg.selected_index else .13
+            sphere.scale.y = .03
+            sphere.scale.z = .05
+            sphere.pose.orientation.z = math.sin(float(yaw[index]) / 2)
+            sphere.pose.orientation.w = math.cos(float(yaw[index]) / 2)
+        else:
+            size = .09 if index == msg.selected_index else .055
+            sphere.scale.x = sphere.scale.y = sphere.scale.z = size
+            sphere.pose.orientation.w = 1.0
         sphere.pose.position.x = float(x)
         sphere.pose.position.y = float(y)
         sphere.pose.position.z = .06
-        sphere.pose.orientation.w = 1.0
         _color(sphere, index)
         out.markers.append(sphere)
 

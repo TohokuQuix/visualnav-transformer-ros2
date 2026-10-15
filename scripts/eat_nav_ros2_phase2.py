@@ -17,6 +17,7 @@ def build_parser():
     parser.add_argument('--worker-python',type=Path)
     parser.add_argument('--results',type=Path)
     parser.add_argument('--normalization',type=Path)
+    parser.add_argument('--heading-checkpoint',type=Path)
     parser.add_argument('--sim-time', action='store_true')
     parser.add_argument('--evaluation-period-ns', type=int)
     parser.add_argument('--predictor-zero-velocity-command',
@@ -45,7 +46,8 @@ def main():
             python=args.worker_python,results=args.results,
             normalization=args.normalization,sim_time=args.sim_time,
             evaluation_period_ns=args.evaluation_period_ns,
-            predictor_zero_velocity_command=args.predictor_zero_velocity_command)
+            predictor_zero_velocity_command=args.predictor_zero_velocity_command,
+            heading_checkpoint=args.heading_checkpoint)
 
 
 if __name__=='__main__': main()

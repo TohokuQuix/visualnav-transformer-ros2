@@ -13,6 +13,19 @@ git lfs pull
 /usr/bin/python3 scripts/eat_nav_verify_checkpoints.py
 ```
 
+The yaw arrow display extends the ROS message contract. Build its private ROS2 interface once before launching the demo (repeat after `/tmp` is cleared):
+
+```bash
+source /opt/ros/jazzy/setup.bash
+cd ~/lib/visualnav-transformer-ros2-handoff
+PATH="/usr/bin:$PATH" colcon \
+  --log-base /tmp/eatnav-ros2-adapter-build/log-v5 \
+  build --base-paths "$PWD/ros2" --packages-select eat_nav_interfaces \
+  --build-base /tmp/eatnav-ros2-adapter-build/build-v5 \
+  --install-base /tmp/eatnav-ros2-adapter-build/install-v5 \
+  --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3
+```
+
 In a separate terminal, start the external Zenoh router if it is not already running, and keep that terminal open:
 
 ```bash
@@ -40,13 +53,13 @@ bash scripts/eat_nav_phase3_gui_rviz.sh
 
 The RViz script uses `config/eat_nav_phase3_gui.rviz`, simulation time, `rmw_zenoh_cpp`, and no ROS domain override. The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. Omit `--manual-goal` only when you want the launcher's automatic goal. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
 
-RViz shows all 14 candidate Paths on `/eat_nav/display/paths` and each candidate's predicted body-frame XY position after 2 s on `/eat_nav/display/predicted_positions`. Each predicted dot and ID label uses the same fixed color as its Path; the selected candidate has a thicker line and larger dot. These are model predictions in the robot frame, not measured future positions. The separate single-Path overlay is disabled in the standard layout because its fixed green color would obscure the candidate color mapping.
+RViz shows all 14 candidate Paths on `/eat_nav/display/paths` and each candidate's predicted body-frame pose after 2 s on `/eat_nav/display/predicted_positions`. Each arrow starts at the predicted XY position and points in the yaw-head's predicted body-relative orientation; the arrow and candidate ID label use the same fixed color as its Path. The selected candidate has a thicker line and larger arrow. These are model predictions, not measured future poses. The yaw head is used for display only: Path selection still scores predicted XY progress to the global goal, with no heading weight. The separate single-Path overlay is disabled in the standard layout because its fixed green color would obscure the candidate color mapping.
 
 This version uses the Stage C adopted 14-candidate Motion Predictor (`checkpoints/eat_nav/motion14/training/full-seed123/best.pt`), not the older MI-B Pilot six-slot checkpoint. It ranks predicted 2 s body-frame XY displacement by **global goal** distance reduction, then executes the selected Path with the ROS-free C++ `PureFollower` in Isaac Lab. The 14 candidates comprise forward and reverse Direct and ±30°/±60°/±90° arcs, each with eight points. This is a software integration demonstration; goal-directed quality and real-robot behavior remain unverified. See the [sealed GUI run and limits](motion-predictor-vnext/ros2-phase3-gui-adopted14-runtime.md).
 
 The adopted Motion Predictor now receives a copy of the 22D Actor observation with velocity-command indices 6–8 fixed to zero **before Stage C normalization**. This is ON in the standard command above. The original Actor observation, RL Actor command, and follower command are unchanged. Stage C trained on zero velocity commands; feeding nonzero commands to the old demo caused large normalized input shifts and implausible predicted displacement. To reproduce the old predictor input explicitly, add `--no-predictor-zero-velocity-command` to the GUI launch command. `--predictor-zero-velocity-command` explicitly selects the new default. Startup logs and the run manifest record the setting.
 
-The H4 check on boxes level 0, seed 2026101101 reduced predicted displacement scale and improved closed-loop goal approach, but did not establish goal arrival within 600 steps or generalization across terrains and seeds. Collection for repeated replanning, predictor retraining, removing velocity-command inputs from the network, broader goal-arrival evaluation, and real-robot verification remain unperformed. The handoff demo uses the XY predictor; a yaw predictor is not part of this branch's standard launch.
+The H4 check on boxes level 0, seed 2026101101 reduced predicted displacement scale and improved closed-loop goal approach, but did not establish goal arrival within 600 steps or generalization across terrains and seeds. Collection for repeated replanning, predictor retraining, removing velocity-command inputs from the network, broader goal-arrival evaluation, and real-robot verification remain unperformed. The standard launch uses the adopted XY predictor for Path selection and the separately trained H4 yaw head for RViz arrows only. The yaw head's generalization and its usefulness for selection have not been verified.
 
 | Signal | Current demo topic | Real robot relationship |
 | --- | --- | --- |

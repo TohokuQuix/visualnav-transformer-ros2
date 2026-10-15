@@ -20,7 +20,7 @@ def _module(path, name):
 def test_package_matches_manifest_and_launchers_use_repo_paths():
     verifier = _module(ROOT/'scripts/eat_nav_verify_checkpoints.py', 'checkpoint_verifier')
     manifest = verifier.verify()
-    assert len(manifest['files_sha256']) == 13
+    assert len(manifest['files_sha256']) == 14
     for filename in ('eat_nav_demo_launch.py', 'eat_nav_phase3_gui_launch.py'):
         launcher = _module(ROOT/'scripts'/filename, filename.removesuffix('.py'))
         assert launcher.CHECKPOINT == ROOT/'checkpoints/eat_nav/motion14/training/full-seed123/best.pt'

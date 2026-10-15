@@ -33,6 +33,8 @@ class DisplayTest(unittest.TestCase):
             set_stamp(evaluation.header.stamp,1_000_000_000)
             evaluation.bank_source_sha256=BANK_SHA
             evaluation.predicted_body_xy_m=[0.] * 28
+            evaluation.predicted_yaw_valid=True
+            evaluation.predicted_delta_yaw_rad=[0.] * 14
             evaluation.mask=[True] * 14
             evaluation.selected_index=0
             display._evaluation(evaluation)
@@ -41,6 +43,8 @@ class DisplayTest(unittest.TestCase):
                 if predicted:break
             self.assertTrue(predicted)
             self.assertEqual(len(predicted[-1].markers),28)
+            self.assertEqual(predicted[-1].markers[0].type,
+                             predicted[-1].markers[0].ARROW)
             self.assertIsNone(display.last_status)
         finally:
             ex.shutdown();display.destroy_node();observer.destroy_node();rclpy.shutdown()

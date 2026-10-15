@@ -52,6 +52,8 @@ def build_mock_evaluation(history, actor, now_ns, generation,
     msg.bank_source_sha256 = BANK_SHA
     msg.checkpoint_sha256 = ''
     msg.predicted_body_xy_m = prediction.reshape(-1).tolist()
+    msg.predicted_yaw_valid = False
+    msg.predicted_delta_yaw_rad = [0.0] * 14
     msg.scores_m = result['scores_m'].tolist()
     msg.mask = [True]*14
     msg.selected_index = result['index']
@@ -61,9 +63,13 @@ def build_mock_evaluation(history, actor, now_ns, generation,
 def build_model_evaluation(history, actor, now_ns, generation,
                            robot_pose_map, goal_map, *, mode, checkpoint,
                            python, results=None, normalization=None, worker=None,
-                           predictor_zero_velocity_command=True):
+                           predictor_zero_velocity_command=True,
+                           predict_yaw=False):
     dem,state,_=history.assemble(actor,now_ns)
     validate_mode(mode,14 if mode=='learned14_adopted' else 7,checkpoint)
+    yaw=np.zeros(14,np.float32)
+    if predict_yaw and mode!='learned14_adopted':
+        raise ValueError('yaw prediction requires adopted fourteen-Path predictor')
     if mode=='legacy6_demo':
         motion7,scores7,checkpoint_sha=(
             worker.predict_legacy(dem,state,robot_pose_map,goal_map)
@@ -86,7 +92,13 @@ def build_model_evaluation(history, actor, now_ns, generation,
                            if predictor_zero_velocity_command else state)
         if predictor_zero_velocity_command:
             predictor_state[6:9] = 0.0
-        if worker:
+        if predict_yaw:
+            if worker is None:
+                raise ValueError('yaw prediction requires persistent worker')
+            prediction,yaw,checkpoint_sha=worker.predict_heading(dem,predictor_state)
+            if np.asarray(yaw).shape!=(14,) or not np.isfinite(yaw).all():
+                raise ValueError('predicted yaw shape/nonfinite')
+        elif worker:
             prediction,checkpoint_sha=worker.predict_adopted(dem,predictor_state)
         else:
             result=json.loads(Path(results).read_text())
@@ -104,6 +116,8 @@ def build_model_evaluation(history, actor, now_ns, generation,
     msg.bank_source_sha256=BANK_SHA
     msg.checkpoint_sha256=checkpoint_sha
     msg.predicted_body_xy_m=prediction.reshape(-1).tolist()
+    msg.predicted_yaw_valid=bool(predict_yaw)
+    msg.predicted_delta_yaw_rad=yaw.tolist()
     msg.scores_m=scores.tolist(); msg.mask=mask
     msg.selected_index=int(np.argmax(scores))
     return msg
@@ -113,7 +127,8 @@ class InferenceNode(Node):
     """Transport/mock path; real 14-model selection uses separate gated worker."""
     def __init__(self, *, mode='mock14_transport', checkpoint=None,
                  python=None, results=None, normalization=None, sim_time=False,
-                 evaluation_period_ns=None, predictor_zero_velocity_command=True):
+                 evaluation_period_ns=None, predictor_zero_velocity_command=True,
+                 heading_checkpoint=None):
         super().__init__('eat_nav_phase2_inference')
         if sim_time:
             self.set_parameters([rclpy.parameter.Parameter('use_sim_time', value=True)])
@@ -122,6 +137,9 @@ class InferenceNode(Node):
             raise ValueError('model worker interpreter required')
         self.mode=mode
         self.predictor_zero_velocity_command=bool(predictor_zero_velocity_command)
+        self.predict_yaw=heading_checkpoint is not None
+        if self.predict_yaw and mode!='learned14_adopted':
+            raise ValueError('heading checkpoint requires adopted predictor')
         self.get_logger().info(
             'Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
             % ('ON' if self.predictor_zero_velocity_command else 'OFF'))
@@ -133,7 +151,8 @@ class InferenceNode(Node):
         self.results=results
         self.normalization=normalization
         self.worker=(None if mode=='mock14_transport' else ModelWorkerClient(
-            python,mode,checkpoint,results=results,normalization=normalization))
+            python,mode,checkpoint,results=results,normalization=normalization,
+            heading_checkpoint=heading_checkpoint))
         self.history = DemHistory()
         self.goal = None
         self.goal_generation = None
@@ -204,7 +223,8 @@ class InferenceNode(Node):
                     checkpoint=self.checkpoint,python=self.python,
                     results=self.results,normalization=self.normalization,
                     worker=self.worker,
-                    predictor_zero_velocity_command=self.predictor_zero_velocity_command))
+                    predictor_zero_velocity_command=self.predictor_zero_velocity_command,
+                    predict_yaw=self.predict_yaw))
             self.eval_pub.publish(evaluation)
             self.last_eval_stamp = stamp
             self.pending_actor = None

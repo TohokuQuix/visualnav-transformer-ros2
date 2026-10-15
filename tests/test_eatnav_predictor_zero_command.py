@@ -108,3 +108,23 @@ def test_zeroing_precedes_stage_c_normalization_and_off_reproduces_old_input(tmp
     np.testing.assert_allclose(received[1][0], original / np.asarray(norm['state_std']),
                                atol=1e-4, rtol=1e-7)
     assert np.array_equal(history.state, original)
+
+
+def test_yaw_display_uses_same_private_input_without_changing_xy_score():
+    class HeadingWorker(Worker):
+        def predict_heading(self, dem, state):
+            self.inputs.append(state.copy())
+            return np.zeros((14, 2), np.float32), np.arange(14, dtype=np.float32), 'sha'
+
+    history = History()
+    original = history.state.copy()
+    worker = HeadingWorker()
+    xy_only = evaluate(history, worker)
+    with_yaw = evaluate(history, worker, predict_yaw=True)
+    assert with_yaw.predicted_yaw_valid
+    assert np.array_equal(with_yaw.predicted_delta_yaw_rad,
+                          np.arange(14, dtype=np.float32))
+    assert np.array_equal(with_yaw.scores_m, xy_only.scores_m)
+    assert with_yaw.selected_index == xy_only.selected_index
+    assert np.array_equal(worker.inputs[0], worker.inputs[1])
+    assert np.array_equal(history.state, original)

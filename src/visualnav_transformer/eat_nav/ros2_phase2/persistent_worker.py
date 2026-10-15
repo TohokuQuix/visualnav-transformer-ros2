@@ -15,13 +15,16 @@ from .predictor_client import (validate_mode, inverse_target,
 
 class ModelWorkerClient:
     def __init__(self, python, mode, checkpoint, *, results=None,
-                 normalization=None, timeout_s=10):
+                 normalization=None, heading_checkpoint=None, timeout_s=10):
         validate_mode(mode,7 if mode=='legacy6_demo' else 14,checkpoint)
         if mode=='mock14_transport':
             raise ValueError('mock uses no worker')
         self.mode=mode
         self.timeout_s=timeout_s
         self.norm=(json.loads(Path(normalization).read_text()) if normalization else None)
+        self.heading_checkpoint=heading_checkpoint
+        if heading_checkpoint is not None and mode!='learned14_adopted':
+            raise ValueError('heading requires adopted fourteen-Path model')
         if mode=='learned14_adopted':
             checked_results,checked_norm=validate_adoption_artifacts(results,checkpoint)
             if checked_norm!=self.norm:
@@ -40,6 +43,8 @@ class ModelWorkerClient:
                     raise ValueError('adopted worker needs results/normalization')
                 init['results']=str(results)
                 init['normalization']=self.norm
+                if heading_checkpoint is not None:
+                    init['heading_checkpoint']=str(heading_checkpoint)
             result=self._request(init)
             if result.get('status')!='ready':
                 raise RuntimeError('model worker not ready')
@@ -82,6 +87,17 @@ class ModelWorkerClient:
                                    np.asarray([1]*7+[-1]*7,np.float32),self.norm)
         result=self._request({'op':'predict','arrays':[v.tolist() for v in values]})
         return inverse_target(result['scaled_xy'],self.norm),self.checkpoint_sha256
+
+    def predict_heading(self,dem,state):
+        if self.mode!='learned14_adopted' or self.heading_checkpoint is None:
+            raise ValueError('heading worker not configured')
+        values=prepare_model_input(dem,state,PATHS,
+                                   np.asarray([1]*7+[-1]*7,np.float32),self.norm)
+        result=self._request({'op':'predict','arrays':[v.tolist() for v in values]})
+        yaw=np.asarray(result['yaw_rad'],np.float32)
+        if yaw.shape!=(14,) or not np.isfinite(yaw).all():
+            raise ValueError('heading worker output')
+        return inverse_target(result['scaled_xy'],self.norm),yaw,self.checkpoint_sha256
 
     def close(self):
         if self.process.poll() is None:

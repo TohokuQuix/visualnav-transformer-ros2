@@ -11,6 +11,7 @@ PACKAGE = REPO/'checkpoints/eat_nav'
 REQUIRED = {
     'rl_actor/model_10000.pt',
     'motion14/training/full-seed123/best.pt',
+    'motion14_heading/h2a-seed123/best.pt',
     'motion14/training/source.json',
     'motion14/results.json',
     'motion14/results-ledger.json',
@@ -32,7 +33,7 @@ def sha256(path):
 def verify(package=PACKAGE):
     package = Path(package)
     manifest = json.loads((package/'manifest.json').read_text())
-    if manifest.get('schema') != 'eatnav_gui_checkpoints_v1':
+    if manifest.get('schema') != 'eatnav_gui_checkpoints_v2':
         raise ValueError('checkpoint package schema mismatch')
     files = manifest.get('files_sha256')
     if not isinstance(files, dict) or not REQUIRED.issubset(files):

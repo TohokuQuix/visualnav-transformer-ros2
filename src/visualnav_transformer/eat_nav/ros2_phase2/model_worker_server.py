@@ -12,6 +12,7 @@ from visualnav_transformer.eat_nav.arc_bank import arc_waypoints
 from visualnav_transformer.eat_nav.demo_arc_candidates import DEMO_ARC_ROLES, DEMO_ARC_ANGLES
 from visualnav_transformer.eat_nav.demo_motion_predictor import load_demo_motion_predictor
 from visualnav_transformer.eat_nav.motion_14_predictor import Motion14Predictor
+from visualnav_transformer.eat_nav.heading_predictor import load_heading_model
 import visualnav_transformer.eat_nav.motion_14_predictor as model_source
 from .predictor_client import (validate_checkpoint_metadata,
                                CANDIDATE_IDS, PATHS)
@@ -43,6 +44,9 @@ def _serve():
         predictor.load_state_dict(payload['model_state'],strict=True)
         predictor.eval()
         digest=hashlib.sha256(checkpoint.read_bytes()).hexdigest()
+        if init.get('heading_checkpoint'):
+            predictor=load_heading_model(predictor,payload['normalization'],
+                                         digest,init['heading_checkpoint'])
     else:
         raise ValueError('worker mode unsupported')
     _emit({'status':'ready','checkpoint_sha256':digest})
@@ -68,7 +72,11 @@ def _serve():
             with torch.no_grad():
                 output=predictor(*(torch.from_numpy(a) for a in arrays))[0].numpy()
             if not np.isfinite(output).all(): raise ValueError('model nonfinite')
-            _emit({'scaled_xy':output.tolist()})
+            if output.shape == (14,3):
+                _emit({'scaled_xy':output[:,:2].tolist(),
+                       'yaw_rad':output[:,2].tolist()})
+            else:
+                _emit({'scaled_xy':output.tolist()})
 
 
 if __name__=='__main__':

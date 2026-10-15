@@ -23,9 +23,10 @@ sys.path.insert(0, str(REPO/'src'))
 ONIX = Path('/home/kojima/lib/onix_isaac_lab')
 TRAIN = REPO/'checkpoints/eat_nav/motion14'
 CHECKPOINT = TRAIN/'training/full-seed123/best.pt'
+HEADING_CHECKPOINT = REPO/'checkpoints/eat_nav/motion14_heading/h2a-seed123/best.pt'
 RL = REPO/'checkpoints/eat_nav/rl_actor/model_10000.pt'
 ROUTER_PID = Path('/home/kojima/eatnav-router-logs/eatnav-p1-paired-noise-20261010-v7/router.pid')
-ROS_OVERLAY = Path('/tmp/eatnav-ros2-adapter-build/install-v4/setup.bash')
+ROS_OVERLAY = Path('/tmp/eatnav-ros2-adapter-build/install-v5/setup.bash')
 
 
 def sha(path):
@@ -109,6 +110,8 @@ def main():
     args=parser.parse_args()
     print('Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
           % ('ON' if args.predictor_zero_velocity_command else 'OFF'), flush=True)
+    print('Two-second yaw head enabled for RViz arrows; Path selection remains XY-only',
+          flush=True)
     if args.max_steps < 120 or not all(map(lambda x: abs(x)<20,
                                             (args.auto_goal_dx,args.auto_goal_dy))):
         raise ValueError('invalid bounded GUI attempt')
@@ -130,14 +133,19 @@ def main():
       'frontend':REPO/'scripts/eat_nav_phase3_gui_frontend.py',
       'launcher':Path(__file__),
       'ros_nodes':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/nodes.py',
+      'ros_display':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/display_node.py',
+      'ros_worker':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/model_worker_server.py',
+      'heading_model':REPO/'src/visualnav_transformer/eat_nav/heading_predictor.py',
+      'evaluation_interface':REPO/'ros2/eat_nav_interfaces/msg/CandidateEvaluation.msg',
       'gui_contract':REPO/'src/visualnav_transformer/eat_nav/ros2_phase3_gui_contract.py',
       'phase2_cli':REPO/'scripts/eat_nav_ros2_phase2.py',
       'checkpoint_manifest':REPO/'checkpoints/eat_nav/manifest.json',
       'checkpoint':CHECKPOINT,'results':TRAIN/'results.json',
+      'heading_checkpoint':HEADING_CHECKPOINT,
       'normalization':TRAIN/'normalization.json','rl_checkpoint':RL,
       'eat_config':REPO/'config/eat_nav.yaml',
     }
-    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_v1',
+    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_yaw_display_v2',
               'attempt':attempt,'source_git_head':subprocess.check_output(
                   ['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),
               'files_sha256':{key:sha(value) for key,value in files.items()},
@@ -151,6 +159,7 @@ def main():
               'predictor_zero_velocity_command':args.predictor_zero_velocity_command,
               'ros_domain_id':None,
               'selection':'predicted_global_goal_progress',
+              'yaw_visualization_only':True,
               'runtime_authorization':'one GUI closed-loop integration attempt'}
     (root/'manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
     run('docker','exec','isaac-lab-onix','mkdir','-p',stage+'/src',stage+'/config')
@@ -189,7 +198,8 @@ def main():
                 *predictor_command_cli_args(args.predictor_zero_velocity_command)]
     commands={
         'inference':['/usr/bin/python3',str(files['phase2_cli']),'inference',*model_args,
-                     '--evaluation-period-ns','500000000'],
+                     '--evaluation-period-ns','500000000',
+                     '--heading-checkpoint',str(HEADING_CHECKPOINT)],
         'supervisor':['/usr/bin/python3',str(files['phase2_cli']),'supervisor_gui',*model_args],
         'display':['/usr/bin/python3',str(files['phase2_cli']),'display'],
         'frontend':['/usr/bin/python3',str(files['frontend']),'--port',str(args.port)] +
