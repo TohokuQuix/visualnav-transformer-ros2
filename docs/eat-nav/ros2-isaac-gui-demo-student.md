@@ -7,9 +7,6 @@ Use the local handoff worktree on branch `exp/eatnav-ros2-gui-demo-terrain`. Thi
 ```bash
 cd ~/lib/visualnav-transformer-ros2-handoff
 git branch --show-current  # exp/eatnav-ros2-gui-demo-terrain
-# If git-lfs is not installed: sudo apt-get update && sudo apt-get install git-lfs
-git lfs install --local
-git lfs pull
 /usr/bin/python3 scripts/eat_nav_verify_checkpoints.py
 ```
 

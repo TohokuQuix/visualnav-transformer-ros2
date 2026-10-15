@@ -1,8 +1,9 @@
 # EAT-Nav demo checkpoints
 
-These files are pinned inputs for the GUI demos. `git lfs pull` retrieves the
-`.pt` and `.npz` files after checkout; the remaining Stage C files are small provenance
-artifacts used by `validate_adoption_artifacts()` at startup. Run
+These files are pinned inputs for the GUI demos. The `.pt` and `.npz` files
+are stored as ordinary Git blobs because the public fork cannot accept new
+Git LFS uploads. Stage C provenance artifacts are used by
+`validate_adoption_artifacts()` at startup. Run
 `/usr/bin/python3 scripts/eat_nav_verify_checkpoints.py` before launching.
 
 The RL Actor checkpoint is the Onix rough `model_10000.pt` from
@@ -18,6 +19,6 @@ scoring is selected, to reward predicted terminal alignment with the global
 goal. Its SHA-256 and
 base-checkpoint provenance are verified at startup.
 
-No Google Drive download is needed when the Git remote supports LFS. If an
-external artifact store replaces LFS later, keep the same relative paths and
-verify every file against `manifest.json` before running the demo.
+No separate download is needed after checkout. If an external artifact store
+is used later, keep the same relative paths and verify every file against
+`manifest.json` before running the demo.
