@@ -10,6 +10,7 @@ REPO = Path(__file__).resolve().parents[1]
 PACKAGE = REPO/'checkpoints/eat_nav'
 REQUIRED = {
     'rl_actor/model_10000.pt',
+    'rl_actor/env.yaml',
     'motion14/training/full-seed123/best.pt',
     'motion14_heading/h2a-seed123/best.pt',
     'motion14/training/source.json',

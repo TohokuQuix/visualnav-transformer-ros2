@@ -24,6 +24,7 @@ parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--checkpoint', type=Path, required=True)
 parser.add_argument('--rl-checkpoint', type=Path, required=True)
 parser.add_argument('--eat-config', type=Path, required=True)
+parser.add_argument('--rl-env-config', type=Path, required=True)
 parser.add_argument('--port', type=int, default=29553)
 parser.add_argument('--seed', type=int, default=2026101101)
 parser.add_argument('--max-steps', type=int, default=3000)
@@ -164,6 +165,7 @@ def main():
               'motion_adapter_source_sha256': sha256(Path(__file__).parent/'src/visualnav_transformer/eat_nav/demo_motion_14.py'),
               'candidate_order': list(CANDIDATE_IDS),
               'eat_config_sha256': sha256(args.eat_config), 'seed': args.seed,
+              'rl_env_config_sha256': sha256(args.rl_env_config),
               'max_steps': args.max_steps, 'replan_steps': args.replan_steps,
               'num_envs': args.num_envs, 'terrain_type': args.terrain_type,
               'terrain_level': args.terrain_level,
@@ -181,7 +183,7 @@ def main():
     # process verifies its bytes for provenance but never runs inference.
     if eat_cfg.dem_frame_count != 4 or eat_cfg.dem_resolution_m != .1:
         raise ValueError('DEM history config mismatch')
-    saved = yaml.load(Path('/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml').read_text(),
+    saved = yaml.load(args.rl_env_config.read_text(),
                       Loader=yaml.BaseLoader)
     toggles = {name: saved[name].lower() == 'true' for name in
                ('use_last_action_obs', 'use_joint_effort_obs', 'use_height_scan_obs')}

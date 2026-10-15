@@ -2,19 +2,20 @@
 
 ## Current handoff: ROS-separated 14-candidate demo
 
-Use the local handoff worktree on branch `exp/eatnav-ros2-gui-demo-terrain`. This branch has not been pushed; the commands below assume the existing checkout at `~/lib/visualnav-transformer-ros2-handoff`. On an Ubuntu host with ROS2 Jazzy, the `isaac-lab-onix` container, and the external router installed, prepare the packaged checkpoints:
+Use branch `exp/eatnav-ros2-gui-demo-terrain` in your own checkout. On an Ubuntu host with ROS2 Jazzy, the running `isaac-lab-onix` container, and the external router installed, prepare the packaged checkpoints:
 
 ```bash
-cd ~/lib/visualnav-transformer-ros2-handoff
+cd ~/visualnav-transformer-ros2
 git branch --show-current  # exp/eatnav-ros2-gui-demo-terrain
 /usr/bin/python3 scripts/eat_nav_verify_checkpoints.py
+docker inspect --format '{{range .Mounts}}{{if eq .Destination "/workspace/isaaclab_onix"}}{{.Source}}{{end}}{{end}}' isaac-lab-onix
 ```
 
 The yaw arrow display extends the ROS message contract. Build its private ROS2 interface once before launching the demo (repeat after `/tmp` is cleared):
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-cd ~/lib/visualnav-transformer-ros2-handoff
+cd ~/visualnav-transformer-ros2
 PATH="/usr/bin:$PATH" colcon \
   --log-base /tmp/eatnav-ros2-adapter-build/log-v5 \
   build --base-paths "$PWD/ros2" --packages-select eat_nav_interfaces \
@@ -33,7 +34,7 @@ ros2 run rmw_zenoh_cpp rmw_zenohd
 Then start the demo from the handoff checkout:
 
 ```bash
-cd ~/lib/visualnav-transformer-ros2-handoff
+cd ~/visualnav-transformer-ros2
 unset ROS_DOMAIN_ID
 RMW_IMPLEMENTATION=rmw_zenoh_cpp /usr/bin/python3 \
   scripts/eat_nav_phase3_gui_launch.py \
@@ -44,11 +45,13 @@ RMW_IMPLEMENTATION=rmw_zenoh_cpp /usr/bin/python3 \
 After the demo has started, open a third terminal and launch the 14-candidate RViz layout. Select **2D Goal Pose** in RViz to publish a goal:
 
 ```bash
-cd ~/lib/visualnav-transformer-ros2-handoff
+cd ~/visualnav-transformer-ros2
 bash scripts/eat_nav_phase3_gui_rviz.sh
 ```
 
-The RViz script uses `config/eat_nav_phase3_gui.rviz`, simulation time, `rmw_zenoh_cpp`, and no ROS domain override. The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. Omit `--manual-goal` only when you want the launcher's automatic goal. The launcher reads the external router but never starts or stops it. It writes a new persistent run under `~/lib/onix_isaac_lab/.eatnav-ros2-phase3-evidence/`; inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` there.
+The launcher finds exactly one running `rmw_zenohd` process. If multiple routers are running, pass `--router-pid PID` or `--router-pid-file /path/to/router.pid`. Router logs are optional; their SHA is recorded when a PID file and neighboring `router.stdout.log`/`router.stderr.log` exist. The router remains externally managed. The Motion Predictor worker Python is discovered in `~/anaconda3/envs/tinyvla`, `~/miniconda3/envs/tinyvla`, or `~/.conda/envs/tinyvla`; otherwise pass `--worker-python /path/to/python` (it must import `torch`).
+
+The `isaac-lab-onix` container must bind mount the host Onix source directory at `/workspace/isaaclab_onix`; the launcher reads that mount to select the persistent evidence root. It does not assume another user's home directory. The packaged RL `env.yaml` is SHA checked and staged with the checkpoint. Inspect `result.json`, `sim-output/trace.jsonl`, `simulator.log`, and `host-seal.json` under `<Onix bind-mount source>/.eatnav-ros2-phase3-evidence/`. The RViz script uses `config/eat_nav_phase3_gui.rviz`, simulation time, `rmw_zenoh_cpp`, and no ROS domain override. The default maximum is 300000 control steps; use a smaller `--max-steps` for a bounded check. Omit `--manual-goal` only when you want the launcher's automatic goal.
 
 RViz shows all 14 candidate Paths on `/eat_nav/display/paths` and each candidate's predicted body-frame pose after 2 s on `/eat_nav/display/predicted_positions`. Each arrow starts at the predicted XY position and points in the yaw-head's predicted body-relative orientation; the arrow and candidate ID label use the same fixed color as its Path. The selected candidate has a thicker line and larger arrow. These are model predictions, not measured future poses. The separate single-Path overlay is disabled in the standard layout because its fixed green color would obscure the candidate color mapping.
 
