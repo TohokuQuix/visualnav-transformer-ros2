@@ -18,6 +18,8 @@ def build_parser():
     parser.add_argument('--results',type=Path)
     parser.add_argument('--normalization',type=Path)
     parser.add_argument('--heading-checkpoint',type=Path)
+    parser.add_argument('--scoring-mode',choices=('xy_only','xy_heading'),default='xy_only')
+    parser.add_argument('--heading-reward-weight-m',type=float,default=2.0)
     parser.add_argument('--sim-time', action='store_true')
     parser.add_argument('--evaluation-period-ns', type=int)
     parser.add_argument('--predictor-zero-velocity-command',
@@ -47,7 +49,9 @@ def main():
             normalization=args.normalization,sim_time=args.sim_time,
             evaluation_period_ns=args.evaluation_period_ns,
             predictor_zero_velocity_command=args.predictor_zero_velocity_command,
-            heading_checkpoint=args.heading_checkpoint)
+            heading_checkpoint=args.heading_checkpoint,
+            scoring_mode=args.scoring_mode,
+            heading_reward_weight_m=args.heading_reward_weight_m)
 
 
 if __name__=='__main__': main()

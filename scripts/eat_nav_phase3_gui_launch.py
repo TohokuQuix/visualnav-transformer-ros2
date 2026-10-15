@@ -94,6 +94,8 @@ def build_parser():
     parser.add_argument('--manual-goal',action='store_true',
                         help='Wait for a PoseStamped goal on /goal_pose')
     parser.add_argument('--headless',action='store_true')
+    parser.add_argument('--scoring-mode',choices=('xy_only','xy_heading'),default='xy_heading')
+    parser.add_argument('--heading-reward-weight-m',type=float,default=2.0)
     parser.add_argument('--predictor-zero-velocity-command',
                         action=argparse.BooleanOptionalAction, default=True,
                         help='Zero Actor indices 6–8 only for Motion Predictor input')
@@ -110,8 +112,8 @@ def main():
     args=parser.parse_args()
     print('Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
           % ('ON' if args.predictor_zero_velocity_command else 'OFF'), flush=True)
-    print('Two-second yaw head enabled for RViz arrows; Path selection remains XY-only',
-          flush=True)
+    print('Two-second yaw head enabled for RViz arrows; selection mode %s, heading weight %.3f m'
+          % (args.scoring_mode,args.heading_reward_weight_m),flush=True)
     if args.max_steps < 120 or not all(map(lambda x: abs(x)<20,
                                             (args.auto_goal_dx,args.auto_goal_dy))):
         raise ValueError('invalid bounded GUI attempt')
@@ -136,6 +138,7 @@ def main():
       'ros_display':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/display_node.py',
       'ros_worker':REPO/'src/visualnav_transformer/eat_nav/ros2_phase2/model_worker_server.py',
       'heading_model':REPO/'src/visualnav_transformer/eat_nav/heading_predictor.py',
+      'heading_score':REPO/'src/visualnav_transformer/eat_nav/heading_score.py',
       'evaluation_interface':REPO/'ros2/eat_nav_interfaces/msg/CandidateEvaluation.msg',
       'gui_contract':REPO/'src/visualnav_transformer/eat_nav/ros2_phase3_gui_contract.py',
       'phase2_cli':REPO/'scripts/eat_nav_ros2_phase2.py',
@@ -145,7 +148,7 @@ def main():
       'normalization':TRAIN/'normalization.json','rl_checkpoint':RL,
       'eat_config':REPO/'config/eat_nav.yaml',
     }
-    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_yaw_display_v2',
+    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_heading_score_v3',
               'attempt':attempt,'source_git_head':subprocess.check_output(
                   ['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),
               'files_sha256':{key:sha(value) for key,value in files.items()},
@@ -158,8 +161,11 @@ def main():
               'checkpoint_mode':'learned14_adopted',
               'predictor_zero_velocity_command':args.predictor_zero_velocity_command,
               'ros_domain_id':None,
-              'selection':'predicted_global_goal_progress',
-              'yaw_visualization_only':True,
+              'selection':('predicted_global_goal_progress' if args.scoring_mode=='xy_only'
+                           else 'predicted_global_goal_progress_plus_heading'),
+              'scoring_mode':args.scoring_mode,
+              'heading_reward_weight_m':args.heading_reward_weight_m,
+              'yaw_visualization_only':args.scoring_mode=='xy_only',
               'runtime_authorization':'one GUI closed-loop integration attempt'}
     (root/'manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
     run('docker','exec','isaac-lab-onix','mkdir','-p',stage+'/src',stage+'/config')
@@ -195,6 +201,8 @@ def main():
                 '--results',str(TRAIN/'results.json'), '--normalization',
                 str(TRAIN/'normalization.json'), '--worker-python',
                 '/home/kojima/anaconda3/envs/tinyvla/bin/python','--sim-time',
+                '--scoring-mode',args.scoring_mode,
+                '--heading-reward-weight-m',str(args.heading_reward_weight_m),
                 *predictor_command_cli_args(args.predictor_zero_velocity_command)]
     commands={
         'inference':['/usr/bin/python3',str(files['phase2_cli']),'inference',*model_args,

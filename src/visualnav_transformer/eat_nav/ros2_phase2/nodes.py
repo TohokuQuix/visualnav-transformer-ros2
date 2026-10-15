@@ -25,6 +25,7 @@ from .predictor_client import (mock14_predict, legacy_worker_request,
                                prepare_model_input, worker_request, validate_mode,
                                sha_file, validate_adoption_artifacts)
 from .selection import score_global_goal
+from visualnav_transformer.eat_nav.heading_score import score_body_goal
 from .supervisor import Supervisor
 from .wire import (BANK_SHA, WIRE_SHA, CANDIDATE_IDS, PATHS,
                    bank_to_message, set_stamp, stamp_ns)
@@ -64,10 +65,15 @@ def build_model_evaluation(history, actor, now_ns, generation,
                            robot_pose_map, goal_map, *, mode, checkpoint,
                            python, results=None, normalization=None, worker=None,
                            predictor_zero_velocity_command=True,
-                           predict_yaw=False):
+                           predict_yaw=False, scoring_mode='xy_only',
+                           heading_reward_weight_m=2.0):
     dem,state,_=history.assemble(actor,now_ns)
     validate_mode(mode,14 if mode=='learned14_adopted' else 7,checkpoint)
     yaw=np.zeros(14,np.float32)
+    if scoring_mode not in ('xy_only','xy_heading'):
+        raise ValueError('scoring mode')
+    if scoring_mode=='xy_heading' and not predict_yaw:
+        raise ValueError('heading selection requires predicted yaw')
     if predict_yaw and mode!='learned14_adopted':
         raise ValueError('yaw prediction requires adopted fourteen-Path predictor')
     if mode=='legacy6_demo':
@@ -107,8 +113,13 @@ def build_model_evaluation(history, actor, now_ns, generation,
                                        np.asarray([1]*7+[-1]*7,np.float32),norm)
             prediction,checkpoint_sha=worker_request(python,checkpoint,results,
                                                      result['source'],values,norm)
-        scores=score_global_goal(prediction,robot_pose_map,goal_map,
-                                 np.ones(14,bool))['scores_m']
+        position_result=score_global_goal(prediction,robot_pose_map,goal_map,
+                                          np.ones(14,bool))
+        scores=position_result['scores_m']
+        if scoring_mode=='xy_heading':
+            heading_result=score_body_goal(prediction,yaw,
+                position_result['goal_body_xy_m'],heading_reward_weight_m)
+            scores=scores+heading_result['weighted_heading_score_m'].astype(np.float32)
         mask=[True]*14
     msg=CandidateEvaluation()
     msg.header.frame_id='chassis/body'; msg.header.stamp=actor.header.stamp
@@ -128,7 +139,8 @@ class InferenceNode(Node):
     def __init__(self, *, mode='mock14_transport', checkpoint=None,
                  python=None, results=None, normalization=None, sim_time=False,
                  evaluation_period_ns=None, predictor_zero_velocity_command=True,
-                 heading_checkpoint=None):
+                 heading_checkpoint=None, scoring_mode='xy_only',
+                 heading_reward_weight_m=2.0):
         super().__init__('eat_nav_phase2_inference')
         if sim_time:
             self.set_parameters([rclpy.parameter.Parameter('use_sim_time', value=True)])
@@ -140,6 +152,11 @@ class InferenceNode(Node):
         self.predict_yaw=heading_checkpoint is not None
         if self.predict_yaw and mode!='learned14_adopted':
             raise ValueError('heading checkpoint requires adopted predictor')
+        if scoring_mode not in ('xy_only','xy_heading') or \
+                (scoring_mode=='xy_heading' and not self.predict_yaw):
+            raise ValueError('heading selection configuration')
+        self.scoring_mode=scoring_mode
+        self.heading_reward_weight_m=heading_reward_weight_m
         self.get_logger().info(
             'Motion Predictor command-zero %s; predictor input only, Actor indices 6–8'
             % ('ON' if self.predictor_zero_velocity_command else 'OFF'))
@@ -224,7 +241,8 @@ class InferenceNode(Node):
                     results=self.results,normalization=self.normalization,
                     worker=self.worker,
                     predictor_zero_velocity_command=self.predictor_zero_velocity_command,
-                    predict_yaw=self.predict_yaw))
+                    predict_yaw=self.predict_yaw,scoring_mode=self.scoring_mode,
+                    heading_reward_weight_m=self.heading_reward_weight_m))
             self.eval_pub.publish(evaluation)
             self.last_eval_stamp = stamp
             self.pending_actor = None

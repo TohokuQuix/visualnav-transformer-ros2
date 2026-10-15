@@ -13,8 +13,9 @@ retrained or converted for this package. Their SHA-256 values are frozen in
 
 The `motion14_heading/h2a-seed123/best.pt` checkpoint is a separately trained
 two-second yaw head over the frozen Stage C XY model. The ROS-separated GUI
-uses it only to orient the candidate prediction arrows in RViz; Path selection
-continues to use predicted XY progress to the global goal. Its SHA-256 and
+uses it to orient the candidate prediction arrows in RViz and, when heading
+scoring is selected, to reward predicted terminal alignment with the global
+goal. Its SHA-256 and
 base-checkpoint provenance are verified at startup.
 
 No Google Drive download is needed when the Git remote supports LFS. If an
