@@ -223,7 +223,7 @@ def main():
       'normalization':TRAIN/'normalization.json','rl_checkpoint':RL,
       'eat_config':REPO/'config/eat_nav.yaml',
     }
-    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_heading_score_v3',
+    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_heading_score_v4_bidirectional',
               'attempt':attempt,'source_git_head':subprocess.check_output(
                   ['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),
               'files_sha256':{key:sha(value) for key,value in files.items()},

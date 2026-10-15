@@ -25,9 +25,11 @@ def score_body_goal(xy, delta_yaw, goal_body_xy, heading_weight_m,
     heading = np.zeros(len(xy), dtype=np.float64)
     outside = distance > radius
     if np.linalg.norm(goal) > radius:
-        initial_alignment = goal[0] / np.linalg.norm(goal)
+        # Forward and reverse arrival are equally acceptable. The heading
+        # penalty is largest at 90 degrees and recedes toward 180 degrees.
+        initial_alignment = abs(goal[0] / np.linalg.norm(goal))
         target_bearing = np.arctan2(residual[outside, 1], residual[outside, 0])
-        heading[outside] = np.cos(target_bearing - yaw[outside]) - initial_alignment
+        heading[outside] = np.abs(np.cos(target_bearing - yaw[outside])) - initial_alignment
     total = position + weight * heading
     total[~valid] = -np.inf
     return {'index': int(np.argmax(total)), 'position_score_m': position,
