@@ -154,7 +154,8 @@ class Phase3GuiFrontend(Node):
             self.gated_count += 1
             self.pending_command = None
             self.pending_final = None
-        elif not status_open and actual == (0., 0.) and wanted == (0., 0.):
+        elif self.status[3] == request['stamp_ns'] and \
+                not self.status[2] and actual == (0., 0.):
             self._send({'type': 'gated_command', 'stamp_ns': request['stamp_ns'],
                         'generation': request['generation'], 'gate_open': False,
                         'command': [0., 0.]})

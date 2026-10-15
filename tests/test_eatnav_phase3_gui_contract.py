@@ -4,7 +4,8 @@ import numpy as np
 
 from visualnav_transformer.eat_nav.ros2_phase2.wire import CANDIDATE_IDS, PATHS, WIRE_SHA
 from visualnav_transformer.eat_nav.ros2_phase3_gui_contract import (
-    validate_selection, validate_gated_command, validate_source_frame,
+    validate_selection, validate_gated_command, validate_gated_stop,
+    validate_source_frame,
 )
 
 
@@ -40,6 +41,15 @@ class Phase3GuiContractTest(unittest.TestCase):
             validate_gated_command({**command, 'stamp_ns': 950_000_000}, 1_000_000_000, 1)
         with self.assertRaises(ValueError):
             validate_gated_command({**command, 'gate_open': False}, 1_000_000_000, 1)
+
+    def test_closed_gate_accepts_only_exact_stamped_zero_stop(self):
+        stop = {'type': 'gated_command', 'stamp_ns': 31_100_000_000,
+                'generation': 2, 'gate_open': False, 'command': [0., 0.]}
+        self.assertEqual(validate_gated_stop(stop, 31_100_000_000, 2), (0., 0.))
+        for replacement in ({'command': [0.2, 0.]}, {'stamp_ns': 31_050_000_000},
+                            {'generation': 3}, {'gate_open': True}):
+            with self.assertRaises(ValueError):
+                validate_gated_stop({**stop, **replacement}, 31_100_000_000, 2)
 
 
 if __name__ == '__main__':

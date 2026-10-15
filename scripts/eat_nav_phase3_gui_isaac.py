@@ -64,7 +64,8 @@ from visualnav_transformer.eat_nav.demo_motion_14 import (
     DEMO_CHECKPOINT_SHA256, candidates_from_frozen_bank,
 )
 from visualnav_transformer.eat_nav.ros2_phase3_gui_contract import (
-    validate_selection, validate_gated_command, validate_source_frame,
+    validate_selection, validate_gated_command, validate_gated_stop,
+    validate_source_frame,
 )
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, ObservationCapture
 from visualnav_transformer.eat_nav.p1_follower_core import PureFollower, compile_core
@@ -419,10 +420,15 @@ def main():
                            'generation': selected_generation,
                            'command': [float(command[0]), float(command[2])]})
                 gated = await_ipc('gated_command', stamp_ns, step)
-                vx, wz = validate_gated_command(gated, stamp_ns, selected_generation)
-                if abs(vx-command[0]) > 1e-6 or abs(wz-command[2]) > 1e-6:
-                    raise ValueError('ROS command gate altered active follower command')
-                command = (vx, 0., wz)
+                if gated.get('gate_open') is False:
+                    validate_gated_stop(gated, stamp_ns, selected_generation)
+                    process_ipc({'type': 'invalidate'}, stamp_ns, step)
+                    command = (0., 0., 0.)
+                else:
+                    vx, wz = validate_gated_command(gated, stamp_ns, selected_generation)
+                    if abs(vx-command[0]) > 1e-6 or abs(wz-command[2]) > 1e-6:
+                        raise ValueError('ROS command gate altered active follower command')
+                    command = (vx, 0., wz)
             commands = torch.zeros((args.num_envs, 3), device=bare.device)
             commands[0] = torch.tensor(command, dtype=commands.dtype, device=commands.device)
             override.set(commands)

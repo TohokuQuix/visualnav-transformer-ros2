@@ -11,6 +11,20 @@ from visualnav_transformer.eat_nav.ros2_phase2.wire import (
 
 
 class FrontendSerializationTest(unittest.TestCase):
+    def test_closed_supervisor_gate_acknowledges_zero_with_nonzero_request(self):
+        class Sink:
+            pending_command = {'stamp_ns': 31_100_000_000, 'generation': 2,
+                               'command': [0.25, 0.1]}
+            pending_final = (0., 0.)
+            status = (3, 'TIMEOUT', False, 31_100_000_000)
+            def _send(self, value):
+                self.sent = value
+        sink = Sink()
+        Phase3GuiFrontend._finish_command_if_ready(sink)
+        self.assertEqual(sink.sent['command'], [0., 0.])
+        self.assertFalse(sink.sent['gate_open'])
+        self.assertIsNone(sink.pending_command)
+
     def test_numpy_float32_path_is_json_transportable(self):
         message = PathSelection()
         set_stamp(message.header.stamp, 2_000_000_000)

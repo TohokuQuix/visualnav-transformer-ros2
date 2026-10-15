@@ -53,6 +53,14 @@ def verify_inner_seal(root):
     return len(ledger)
 
 
+def simulator_failure_message(output):
+    marker = Path(output)/'failure.json'
+    if not marker.is_file():
+        return None
+    failure = json.loads(marker.read_text())
+    return f"Isaac {failure.get('type', 'diagnostic failure')}: {failure.get('message', 'see failure.json')}"
+
+
 def _ros_environment():
     if not ROS_OVERLAY.is_file():
         raise FileNotFoundError('ROS interface build missing')
@@ -223,7 +231,7 @@ def main():
       'normalization':TRAIN/'normalization.json','rl_checkpoint':RL,
       'eat_config':REPO/'config/eat_nav.yaml',
     }
-    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_heading_score_v4_bidirectional',
+    manifest={'protocol':'eatnav_ros2_phase3_gui_adopted14_heading_score_v5_stop_ack',
               'attempt':attempt,'source_git_head':subprocess.check_output(
                   ['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),
               'files_sha256':{key:sha(value) for key,value in files.items()},
@@ -329,6 +337,9 @@ def main():
                     '--format=csv,noheader,nounits'],capture_output=True,text=True,timeout=5)
                 snapshot['gpu']=gpu.stdout.strip() if gpu.returncode==0 else None
                 resource.write(json.dumps(snapshot)+'\n');resource.flush();os.fsync(resource.fileno())
+                sim_failure = simulator_failure_message(output)
+                if sim_failure:
+                    raise RuntimeError(sim_failure)
                 if any(processes[key].poll() is not None for key in ('inference','supervisor')) or \
                         (processes['frontend'].poll() is not None and
                          not (output/'complete.json').exists()):
@@ -336,6 +347,9 @@ def main():
                 if not snapshot['router_live']:
                     raise RuntimeError('external router disappeared')
                 time.sleep(.5)
+        sim_failure = simulator_failure_message(output)
+        if sim_failure:
+            raise RuntimeError(sim_failure)
         if processes['simulator'].returncode != 0 or not (output/'complete.json').is_file():
             raise RuntimeError('simulator incomplete/failed')
         inner_count=verify_inner_seal(output)

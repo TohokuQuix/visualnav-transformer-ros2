@@ -57,3 +57,10 @@ def test_no_author_specific_runtime_path():
     source = (ROOT/'scripts/eat_nav_phase3_gui_launch.py').read_text()
     assert '/home/kojima' not in source
     assert '/home/kojima' not in (ROOT/'scripts/eat_nav_phase3_gui_isaac.py').read_text()
+
+
+def test_simulator_failure_is_reported_before_frontend_exit(tmp_path):
+    output = tmp_path/'sim-output'
+    output.mkdir()
+    (output/'failure.json').write_text('{"type":"TimeoutError","message":"gate missing"}')
+    assert gui.simulator_failure_message(output) == 'Isaac TimeoutError: gate missing'

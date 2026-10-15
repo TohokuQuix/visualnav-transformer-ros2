@@ -73,3 +73,12 @@ def validate_gated_command(value: dict, stamp_ns: int, generation: int) -> tuple
             not all(isinstance(x, (int, float)) and math.isfinite(x) for x in command):
         raise ValueError('command shape/nonfinite')
     return float(command[0]), float(command[1])
+
+
+def validate_gated_stop(value: dict, stamp_ns: int, generation: int) -> tuple[float, float]:
+    """Accept a supervisor stop only at the requested stamp and at zero speed."""
+    if value.get('type') != 'gated_command' or value.get('stamp_ns') != stamp_ns or \
+            value.get('generation') != generation or value.get('gate_open') is not False or \
+            value.get('command') != [0., 0.]:
+        raise ValueError('invalid supervisor stop command')
+    return 0., 0.
