@@ -7,10 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /TF1/Tree1
-        - /Candidate Paths and predicted scores1
         - /Selected Path1/Offset1
-        - /Local DEM height1
-        - /Axes1
       Splitter Ratio: 0.5
     Tree Height: 502
   - Class: rviz_common/Selection
@@ -59,8 +56,6 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
-          Value: true
         chassis/body:
           Value: true
         map:
@@ -72,20 +67,34 @@ Visualization Manager:
       Show Names: false
       Tree:
         map:
-          {}
+          chassis/body:
+            {}
       Update Interval: 0
       Value: true
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
-      Name: Candidate Paths and predicted scores
+      Name: "Candidate Paths "
       Namespaces:
-        {}
+        eat_nav_phase2_bank: true
       Topic:
         Depth: 10
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /eat_nav/candidates
+        Value: /eat_nav/display/paths
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: predicted scores
+      Namespaces:
+        eat_nav_predicted_ids: true
+        eat_nav_predicted_xy: true
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /eat_nav/display/predicted_positions
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -152,7 +161,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /eat_nav/odom
+        Value: odom
       Value: true
     - Class: rviz_default_plugins/Image
       Enabled: true
@@ -193,7 +202,7 @@ Visualization Manager:
       Length: 1
       Name: Axes
       Radius: 0.10000000149011612
-      Reference Frame: base_link
+      Reference Frame: chassis/body
       Value: false
   Enabled: true
   Global Options:
@@ -240,7 +249,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 1.484999418258667
+      Angle: 0
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -250,11 +259,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 31.122480392456055
-      Target Frame: base_link
+      Scale: 24.140106201171875
+      Target Frame: chassis/body
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 2.1860156059265137
-      Y: 0.6968778967857361
+      X: 1.2995117902755737
+      Y: -0.43655458092689514
     Saved: ~
 Window Geometry:
   Displays:
