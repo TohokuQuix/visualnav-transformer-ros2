@@ -67,10 +67,18 @@ The H4 check on boxes level 0, seed 2026101101 reduced predicted displacement sc
 | --- | --- | --- |
 | Goal `PoseStamped` | `/goal_pose` | Same name and message type as the real planner input. |
 | Odometry `Odometry` | `/odom` | Same name and type; the demo publishes in `map`, so verify frame semantics. |
+| Active goal `GoalState` | `/eat_nav/goal_state` | The Supervisor's goal and generation sent to the inference node; `/goal_pose` is the operator input. |
+| Candidate bank `CandidateBank` | `/eat_nav/bank` | The fixed 14 Path definitions and their IDs; this is geometry, not a prediction. |
+| Evaluation `CandidateEvaluation` | `/eat_nav/evaluation` | Predicted 2 s body-frame XY (and optional yaw) for 14 candidates, scores, mask, selected index, and model/bank provenance. |
+| Path decision `PathSelection` | `/eat_nav/mock/selection` | The Supervisor's selected candidate, direction, Path points and expiry for the Isaac-only gateway. |
 | Selected Path | `/eat_nav/selected_path` | Visualization only. The real follower's `/teaching_playback/path` is deliberately not published on the shared domain. |
 | Model DEM / Actor22 | `/eat_nav/dem`, `/eat_nav/actor22` | Demo-specific typed inputs; real sensor parity is not yet established. |
 | DEM image | `/eat_nav/dem/height` | Visualization only; it is not the metric model input. |
 | Follower and gated commands | `/eat_nav/mock/*` | Isaac-only transport; no `/cmd_vel_auto` or controller command is published. |
+
+The inference node subscribes to `DemFrame` on `/eat_nav/dem`, `ActorState22` on `/eat_nav/actor22`, and the Supervisor's `GoalState` on `/eat_nav/goal_state`. It also looks up the `map` to `chassis/body` TF at the Actor observation stamp. It assembles four measured DEM frames and evaluates the fixed bank; `/eat_nav/bank` publishes the candidate definitions. The learned Motion Predictor produces one 2 s displacement for each candidate; the separate yaw head supplies the optional orientation estimate. The node scores those predictions against the global goal and publishes `CandidateEvaluation` on `/eat_nav/evaluation`. The Supervisor checks that evaluation and publishes `PathSelection` on `/eat_nav/mock/selection`. The model worker runs as a child process of the inference node, so there is no separate ROS topic carrying the model input tensor or raw worker output.
+
+`/eat_nav/evaluation` contains **predictions and selection scores**, not measured future motion or RL Actor actions. `/eat_nav/selected_path` and `/eat_nav/display/paths` are displays of the decision and bank, not inputs to the predictor. `/eat_nav/dem/height` is an image for RViz, not the height-and-validity tensor sent on `/eat_nav/dem`. For the exact message fields, timestamp and stale-input rules, see [the ROS node separation contract](motion-predictor-vnext/ros2-node-separation-phase1-design.md#4-ros2-wire-contract-proposal); the real robot's DEM and Actor22 input parity remains unverified.
 
 When using the default ROS domain, run only one EAT-Nav GUI instance and ensure that unrelated goal publishers are not sending `/goal_pose`. The selected Path display does not command a physical follower. A matching topic name alone does not establish real-robot input parity or an emergency stop guarantee.
 
