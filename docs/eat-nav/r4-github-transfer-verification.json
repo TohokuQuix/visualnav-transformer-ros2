@@ -1,0 +1,29 @@
+{
+  "date_jst": "2026-10-27",
+  "focused_tests": {
+    "passed": 207,
+    "elapsed_seconds": 24.4
+  },
+  "checkpoint_sha_and_loader_checks": {
+    "passed": 24,
+    "total": 24
+  },
+  "full_suite": {
+    "status": "not_completed_missing_dependency",
+    "dependency": "diffusers",
+    "collection_errors": [
+      "tests/eat_nav/test_candidate_coverage_offline_runner.py",
+      "tests/eat_nav/test_model.py",
+      "tests/eat_nav/test_phase_c_remediation_analysis.py",
+      "tests/eat_nav/test_phase_c_runner.py",
+      "tests/eat_nav/test_quality_casebook.py",
+      "tests/eat_nav/test_quality_followup_training.py",
+      "tests/eat_nav/test_quality_gate_layers.py",
+      "tests/eat_nav/test_quality_gate_overfit.py",
+      "tests/eat_nav/test_training.py"
+    ]
+  },
+  "source_snapshot_matches_working_copy": true,
+  "datasets_included": false,
+  "raw_rollouts_included": false
+}

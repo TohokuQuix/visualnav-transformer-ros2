@@ -56,7 +56,8 @@ def test_raw_dem_capture_preserves_native_hits_and_valid_mask():
 
         def __getitem__(self, key):
             return {'height_scanner_eat': SimpleNamespace(
-                        data=SimpleNamespace(ray_hits_w=hits), _ray_starts_w=starts),
+                        data=SimpleNamespace(ray_hits_w=hits, pos_w=torch.zeros((4, 3))),
+                        ray_starts=starts),
                     'robot': SimpleNamespace(data=SimpleNamespace(
                         root_state_w=torch.zeros((4, 13))))}[key]
 
@@ -65,3 +66,41 @@ def test_raw_dem_capture_preserves_native_hits_and_valid_mask():
     assert raw['ray_valid'].shape == (4, 400)
     assert not raw['ray_valid'][1, 25]
     assert np.isinf(raw['ray_hits_w'][1, 25, 2])
+
+
+def test_pre_reset_snapshot_keeps_natural_termination_state():
+    import ast
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parents[1]/'scripts/eat_nav_motion_14_collection_sim.py'
+    tree = ast.parse(path.read_text())
+    function = next(node for node in tree.body if isinstance(node, ast.FunctionDef)
+                    and node.name == 'capture_pre_reset_state')
+    module = ast.Module(body=[function], type_ignores=[])
+    namespace = {}
+    exec(compile(ast.fix_missing_locations(module), str(path), 'exec'), namespace)
+    terms = {'tilt_over': torch.tensor([False, True]),
+             'time_out': torch.tensor([False, False])}
+
+    class Scene:
+        def __getitem__(self, key):
+            if key == 'robot':
+                return SimpleNamespace(data=SimpleNamespace(
+                    root_state_w=torch.arange(26).reshape(2, 13),
+                    joint_pos=torch.ones((2, 4)), joint_vel=torch.full((2, 4), 2.),
+                    applied_torque=torch.full((2, 4), 3.)))
+            return SimpleNamespace(data=SimpleNamespace(
+                net_forces_w=torch.full((2, 5, 3), 4.)))
+
+    manager = SimpleNamespace(active_terms=list(terms), get_term=lambda name: terms[name])
+    bare = SimpleNamespace(scene=Scene(), termination_manager=manager,
+                            episode_length_buf=torch.tensor([10, 11]))
+    snapshot = namespace['capture_pre_reset_state'](bare, 1, 27)
+    assert snapshot['control_step'] == 27
+    assert snapshot['termination_reasons'] == ['tilt_over']
+    assert snapshot['episode_length_steps'] == 11
+    assert snapshot['root_state'] == list(range(13, 26))
+    assert snapshot['joint_position'] == [1., 1., 1., 1.]
+    assert snapshot['joint_velocity'] == [2., 2., 2., 2.]
+    assert snapshot['applied_torque'] == [3., 3., 3., 3.]
+    assert snapshot['contact_net_forces_w'][0] == [4., 4., 4.]

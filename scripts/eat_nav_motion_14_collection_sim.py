@@ -19,6 +19,8 @@ from isaaclab.app import AppLauncher
 parser = argparse.ArgumentParser()
 parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--rl-checkpoint', type=Path, required=True)
+parser.add_argument('--actor-env-yaml', type=Path, default=Path(
+    '/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml'))
 parser.add_argument('--eat-config', type=Path, required=True)
 parser.add_argument('--arc-angle', type=int, required=True)
 parser.add_argument('--direction', type=int, choices=(-1, 0, 1), required=True)
@@ -29,6 +31,8 @@ parser.add_argument('--reference-prepath', type=Path)
 parser.add_argument('--condition', choices=('front_folded', 'rear_folded'), required=True)
 parser.add_argument('--repeat', type=int, choices=(0, 1), required=True)
 parser.add_argument('--protocol-sha256', required=True)
+parser.add_argument('--control-steps', type=int, default=40)
+parser.add_argument('--replan-every-steps', type=int, default=0)
 parser.add_argument('--prepath-only', action='store_true')
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
@@ -52,6 +56,7 @@ from visualnav_transformer.eat_nav.demo_terrain import configure_selected_terrai
 from visualnav_transformer.eat_nav.demo_reset_policy import configure_demo_reset_policy
 from visualnav_transformer.eat_nav.motion_collector import body_path_to_tile_local
 from visualnav_transformer.eat_nav.bidirectional_labels import motion_label_with_yaw
+from visualnav_transformer.eat_nav.long_horizon_labels import label_traces
 from visualnav_transformer.eat_nav.p1_follower_core import PureFollower, compile_core, SOURCE as CORE_SOURCE
 from visualnav_transformer.eat_nav.p1_g3_rosfree_control import reconcile_command_observation
 from visualnav_transformer.eat_nav.phase_c_sim import CommandOverride, ObservationCapture
@@ -94,7 +99,7 @@ def capture_dem(bare, eat_cfg, index, logical_stamp_ns):
     scanner = bare.scene['height_scanner_eat']
     hit = scanner.data.ray_hits_w[index, :, 2].detach().cpu().numpy().reshape(20, 20)
     valid = np.isfinite(hit)
-    starts = scanner._ray_starts_w[index].detach().cpu().numpy()
+    starts = (scanner.ray_starts[index] + scanner.data.pos_w[index]).detach().cpu().numpy()
     source = SourceGrid(np.where(valid, hit, 0).astype(np.float32), valid,
                         (float(starts[0, 0]), float(starts[0, 1])),
                         eat_cfg.dem_resolution_m, (0, 0), eat_cfg.reference_frame,
@@ -110,7 +115,7 @@ def capture_raw_dem(bare):
     scanner = bare.scene['height_scanner_eat']
     robot = bare.scene['robot']
     hits = scanner.data.ray_hits_w.detach().cpu().numpy().copy()
-    starts = scanner._ray_starts_w.detach().cpu().numpy().copy()
+    starts = (scanner.ray_starts + scanner.data.pos_w.unsqueeze(1)).detach().cpu().numpy().copy()
     root = robot.data.root_state_w.detach().cpu().numpy().copy()
     origins = bare.scene.env_origins.detach().cpu().numpy().copy()
     if hits.shape != starts.shape or hits.shape[:2] != (NUM_ENVS, 400) or \
@@ -119,6 +124,25 @@ def capture_raw_dem(bare):
         raise ValueError('raw DEM ray geometry shape/finite contract')
     return {'ray_hits_w': hits, 'ray_starts_w': starts, 'root_state_w': root,
             'env_origins_w': origins, 'ray_valid': np.isfinite(hits[:, :, 2])}
+
+
+def capture_pre_reset_state(bare, index, control_step):
+    """Snapshot a naturally terminated env before Isaac applies its reset."""
+    robot = bare.scene['robot']
+    manager = bare.termination_manager
+    reasons = [name for name in manager.active_terms
+               if bool(manager.get_term(name)[index])]
+    return {
+        'control_step': int(control_step),
+        'termination_reasons': reasons,
+        'episode_length_steps': int(bare.episode_length_buf[index].item()),
+        'root_state': robot.data.root_state_w[index].detach().cpu().tolist(),
+        'joint_position': robot.data.joint_pos[index].detach().cpu().tolist(),
+        'joint_velocity': robot.data.joint_vel[index].detach().cpu().tolist(),
+        'applied_torque': robot.data.applied_torque[index].detach().cpu().tolist(),
+        'contact_net_forces_w': bare.scene['contact_forces'].data.net_forces_w[
+            index].detach().cpu().tolist(),
+    }
 
 
 def sensor_update_stamp(bare):
@@ -210,6 +234,9 @@ def prepath_state(bare, observed, history, seed, terrain_metadata, origins):
 def main():
     if args.output.exists():
         raise FileExistsError('fresh MI-A v2 output required')
+    if not 40 <= args.control_steps <= 780 or args.replan_every_steps < 0 or \
+            (args.replan_every_steps and args.replan_every_steps % 5):
+        raise ValueError('control steps must be between 40 and 780 after settling')
     args.output.mkdir(parents=True)
     if args.direction not in (-1, 1) or args.arc_angle not in ANGLES:
         raise ValueError('unfrozen collection direction or angle')
@@ -225,7 +252,10 @@ def main():
         'path_body_sha256': hashlib.sha256(path_body.astype('<f8').tobytes()).hexdigest(),
         'source_sha256': sha(__file__), 'core_source_sha256': sha(CORE_SOURCE),
         'checkpoint_sha256': sha(args.rl_checkpoint), 'eat_config_sha256': sha(args.eat_config),
+        'actor_env_sha256': sha(args.actor_env_yaml),
         'seed': args.seed, 'condition': args.condition, 'repeat': args.repeat,
+        'control_steps': args.control_steps,
+        'replan_every_steps': args.replan_every_steps,
         'mode': 'prepath_only' if args.prepath_only else 'candidate',
         'protocol_sha256': args.protocol_sha256, 'terrain_type': args.terrain_type,
         'terrain_level': args.terrain_level, 'num_envs': NUM_ENVS,
@@ -234,12 +264,13 @@ def main():
     env = override = capture = None
     followers = []
     streams = []
+    reset_snapshots = {}
+    active_control_step = -1
     try:
         eat_cfg = load_eat_config(args.eat_config)
         if eat_cfg.dem_frame_count != 4 or eat_cfg.dem_resolution_m != .1:
             raise ValueError('DEM input config mismatch')
-        saved = yaml.load(Path('/workspace/isaaclab_onix/logs/rsl_rl/onix_rough/2026-07-24_18-20-16/params/env.yaml').read_text(),
-                          Loader=yaml.BaseLoader)
+        saved = yaml.load(args.actor_env_yaml.read_text(), Loader=yaml.BaseLoader)
         toggles = {name: saved[name].lower() == 'true' for name in
                    ('use_last_action_obs', 'use_joint_effort_obs', 'use_height_scan_obs')}
         cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), eat_cfg, args.seed, NUM_ENVS)
@@ -257,6 +288,18 @@ def main():
             raise ValueError('20 Hz / 40 s environment contract')
         env.reset()
         robot = bare.scene['robot']
+        original_reset_idx = bare._reset_idx
+
+        def capture_before_reset(env_ids):
+            indices = (range(NUM_ENVS) if env_ids is None else
+                       env_ids.detach().cpu().tolist() if isinstance(env_ids, torch.Tensor) else
+                       list(env_ids))
+            for index in indices:
+                reset_snapshots[int(index)] = capture_pre_reset_state(
+                    bare, int(index), active_control_step)
+            return original_reset_idx(env_ids)
+
+        bare._reset_idx = capture_before_reset
         flipper_ids, flipper_names = robot.find_joints(
             list(cfg.events.reset_robot_joints.params['flipper_joint_names']), preserve_order=True)
         if len(flipper_ids) != 4:
@@ -384,8 +427,15 @@ def main():
         for index in range(NUM_ENVS):
             streams.append((args.output/f'trace-env-{index}.jsonl').open('x'))
         traces = [[] for _ in range(NUM_ENVS)]
-        for step in range(40):
+        for step in range(args.control_steps):
+            active_control_step = step
             stamp = 1_000_000_000 + step * STEP_NS
+            if args.replan_every_steps and step and step % args.replan_every_steps == 0:
+                for index in range(NUM_ENVS):
+                    followers[index].close()
+                    path_tile = body_path_to_tile_local(
+                        path_body, pose_world(robot, index), origins[index])
+                    followers[index] = PureFollower(path_tile.tolist(), library=library)
             root_pre = robot.data.root_state_w.detach().cpu().numpy().copy()
             commands = []
             diagnostics = []
@@ -423,9 +473,15 @@ def main():
             joint_velocity = robot.data.joint_vel.detach().cpu().numpy()
             joint_position = robot.data.joint_pos.detach().cpu().numpy()
             for index, stream in enumerate(streams):
+                terminal_snapshot = reset_snapshots.pop(index, None)
                 row = {'control_step': step, 'logical_sim_time_ns': stamp,
+                       'candidate_cycle': (step // args.replan_every_steps
+                                           if args.replan_every_steps else 0),
+                       'candidate_replan': bool(args.replan_every_steps and step and
+                                                step % args.replan_every_steps == 0),
                        'root_state': root_pre[index].tolist(),
-                       'post_root_state': root_post[index].tolist(),
+                       'post_root_state': (terminal_snapshot['root_state']
+                                           if terminal_snapshot else root_post[index].tolist()),
                        'follower_command': list(commands[index]),
                        'follower_diagnostic': diagnostics[index],
                        'path_tracking_error_m': diagnostics[index].get('cross_track_error', None),
@@ -437,6 +493,8 @@ def main():
                        'actor_action': action[index].detach().cpu().tolist(),
                        'reward': float(reward[index]), 'contact_net_forces_w': contact[index].tolist(),
                        'applied_torque': torque[index].tolist(),
+                       'body_angular_velocity_radps': robot.data.root_ang_vel_b[
+                           index].detach().cpu().tolist(),
                        'flipper_joint_position': joint_position[index, flipper_ids].tolist(),
                        'flipper_joint_velocity': joint_velocity[index, flipper_ids].tolist(),
                        'flipper_applied_torque': torque[index, flipper_ids].tolist(),
@@ -445,20 +503,48 @@ def main():
                            soft_limits[index, :, 1] - joint_position[index, flipper_ids]).tolist(),
                        'joint_velocity': joint_velocity[index].tolist(),
                        'body_velocity_xy_mps': root_pre[index, 7:9].tolist(),
-                       'terminal': {'termination_reason': 'reset_or_termination'} if bool(done[index]) else None}
+                       'terminal': ({'termination_reason': '|'.join(
+                                         terminal_snapshot['termination_reasons']) or 'unknown',
+                                     'termination_reasons': terminal_snapshot['termination_reasons'],
+                                     'pre_reset_state': terminal_snapshot}
+                                    if bool(done[index]) and terminal_snapshot else
+                                    {'termination_reason': 'pre_reset_snapshot_missing'}
+                                    if bool(done[index]) else
+                                    {'termination_reason': 'parallel_env_censored_by_other_env'}
+                                    if bool(done.any()) else None)}
                 stream.write(json.dumps(row, allow_nan=False, separators=(',', ':')) + '\n')
                 stream.flush()
                 os.fsync(stream.fileno())
                 traces[index].append(row)
             if bool(done.any()):
-                raise ValueError('reset/termination before 40-step label completion')
+                break
         labels = [motion_label_with_yaw(trace) for trace in traces]
-        if not all(label['available'] for label in labels):
-            raise ValueError('unavailable 40-step motion label')
+        if any(not label['available'] and not label['termination_reason'] for label in labels):
+            raise ValueError('unavailable motion label without terminal or censor reason')
         write_json(args.output/'motion-labels.json', {'schema': SCHEMA, 'labels': labels})
+        event_labels = label_traces(traces, control_hz=20, horizons_sec=(1, 2, 5))
+        write_json(args.output/'long-horizon-event-labels.json', {
+            'schema': event_labels[0]['schema'],
+            'control_hz': 20,
+            'candidate_cycle_sec': args.replan_every_steps / 20 if args.replan_every_steps else None,
+            'trials': event_labels,
+        })
+        trace_lengths = [len(trace) for trace in traces]
+        terminated_envs = [index for index, trace in enumerate(traces)
+                           if any(row['terminal'] and row['terminal'].get('pre_reset_state')
+                                  for row in trace)]
+        censored_envs = [index for index, trace in enumerate(traces)
+                         if any(row['terminal'] and
+                                row['terminal'].get('termination_reason') ==
+                                'parallel_env_censored_by_other_env' for row in trace)]
         write_json(args.output/'complete.json', {'schema': SCHEMA, 'status': 'complete',
                   'mode': 'candidate',
-                  'control_steps': 40, 'env_count': NUM_ENVS,
+                  'control_steps': max(trace_lengths), 'requested_control_steps': args.control_steps,
+                  'replan_every_steps': args.replan_every_steps,
+                  'trace_lengths': trace_lengths, 'terminated_envs': terminated_envs,
+                  'censored_envs': censored_envs,
+                  'stop_reason': 'natural_termination' if terminated_envs else 'horizon_complete',
+                  'env_count': NUM_ENVS,
                   'prepath_sha256': sha(args.output/'prepath.npz'),
                   'raw_dem_sha256': sha(args.output/'raw-dem.npz'),
                   'trace_sha256': [sha(args.output/f'trace-env-{i}.jsonl') for i in range(NUM_ENVS)]})

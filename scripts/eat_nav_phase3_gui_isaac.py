@@ -96,7 +96,7 @@ def dem_from_sensor(bare, eat_cfg, stamp_ns, sensor_clock):
     robot, scanner = bare.scene['robot'], bare.scene['height_scanner_eat']
     hits = scanner.data.ray_hits_w[0, :, 2].detach().cpu().numpy().reshape(20, 20)
     valid = np.isfinite(hits)
-    starts = scanner._ray_starts_w[0].detach().cpu().numpy()
+    starts = (scanner.ray_starts[0] + scanner.data.pos_w[0]).detach().cpu().numpy()
     pose = pose_map(robot)
     source = SourceGrid(np.where(valid, hits, 0).astype(np.float32), valid,
                         (float(starts[0, 0]), float(starts[0, 1])),

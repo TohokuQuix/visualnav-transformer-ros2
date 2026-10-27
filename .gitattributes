@@ -1,2 +1,7 @@
 # The packaged EAT-Nav checkpoints and arrays are ordinary Git blobs.
 checkpoints/eat_nav/** -text
+
+# Preserve byte-identical sealed Evaluator artifacts on every platform.
+docs/eat-nav/all-fields-learning-20261023/models/** -text
+docs/eat-nav/command-free-learning-20261021/artifacts/** -text
+docs/eat-nav/current-dataset-learning-20261021/artifacts/** -text
