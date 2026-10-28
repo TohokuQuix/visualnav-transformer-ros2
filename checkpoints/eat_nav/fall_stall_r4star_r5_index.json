@@ -1,0 +1,243 @@
+{
+  "schema": "eatnav_r4star_r5_transfer_v1",
+  "date_jst": "2026-10-28",
+  "checkpoint_count": 12,
+  "shared_weights": true,
+  "training_candidate_count": 14,
+  "evaluation_candidate_count": 14,
+  "checkpoints": [
+    {
+      "field": "boxes",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/boxes/seed123/checkpoint.pt",
+      "sha256": "c1401b2054c772910c6e10e672874f967d725e7080f1fdcf615e1907a5e77dc9",
+      "size_bytes": 480245,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "hf_pyramid_slope",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/hf_pyramid_slope/seed123/checkpoint.pt",
+      "sha256": "d988ccd4d00aee0d651eafcd712ac364827d080df460af4ba9e5b32378967eb0",
+      "size_bytes": 480757,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 101112,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed101112/checkpoint.pt",
+      "sha256": "252eefd10584486c2358b0cf2a6c7ba0b908bbb6d4096e1e83d88cd25f268402",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed123/checkpoint.pt",
+      "sha256": "f0cff6e4be23406b5ce471cb206b50a102d9ab7f16b9fc0e63e2f80a826b8c61",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 131415,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed131415/checkpoint.pt",
+      "sha256": "a679a3fb3fae6b9a8745fe470a4f5d25dfda841a3aefc8205e7ca190d2bee5f4",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 161718,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed161718/checkpoint.pt",
+      "sha256": "7f8b4bb5e665ee4907a59788cdbe2c89a8b1de6343555fbcc2ba689770a69f3f",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 456,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed456/checkpoint.pt",
+      "sha256": "c329ed7e87e90cf2618b5ec9e8c4928ae3389304b6a7e201c7441a0c14fddf65",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_field",
+      "model_seed": 789,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed789/checkpoint.pt",
+      "sha256": "729d07feeddbfeb4e5b15bb1a551452f0e4df2fc75fd556e6bc6344717b6e367",
+      "size_bytes": 463157,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "k_rail_step_field",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_step_field/seed123/checkpoint.pt",
+      "sha256": "90b4ed47263c8d176e3156fd17500e89920b61fe8630260d0fdea8d484f40301",
+      "size_bytes": 480629,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "pyramid_stairs",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs/seed123/checkpoint.pt",
+      "sha256": "35983bedb9654b0ae5098f9d58bc258aae4a238e7202aabf58588030893c10de",
+      "size_bytes": 480565,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "pyramid_stairs_inv",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs_inv/seed123/checkpoint.pt",
+      "sha256": "bff3ce3e085f34015cd0cdefb28fc2a58e6964a4ce37fb921addce21e1569026",
+      "size_bytes": 480693,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    },
+    {
+      "field": "random_rough",
+      "model_seed": 123,
+      "path": "docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/random_rough/seed123/checkpoint.pt",
+      "sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421",
+      "size_bytes": 480501,
+      "conditions": [
+        "R4*",
+        "R5"
+      ]
+    }
+  ],
+  "profiles": {
+    "R4*": {
+      "guard_module": "eat_nav_r4_star14_eval",
+      "guard_class": "R4Star14Guard",
+      "config": {
+        "active_risk_weights": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "candidate_count": 14,
+        "candidate_ids": [
+          "forward_direct",
+          "forward_-30",
+          "forward_+30",
+          "forward_-60",
+          "forward_+60",
+          "forward_-90",
+          "forward_+90",
+          "reverse_direct",
+          "reverse_-30",
+          "reverse_+30",
+          "reverse_-60",
+          "reverse_+60",
+          "reverse_-90",
+          "reverse_+90"
+        ],
+        "direction_confirmations": 2,
+        "measured_tilt_release_enabled": false,
+        "measured_tilt_stop_enabled": false,
+        "minimum_candidate_dwell_steps": 80,
+        "minimum_stop_steps": 40,
+        "near_release": null,
+        "near_trip": null,
+        "resume_confirmations": 2,
+        "schema": "eatnav_r4_star_fourteen_eval_v1",
+        "stall_progress_max_m": 0.05,
+        "stall_trip": 0.95,
+        "switch_score_margin": 0.15,
+        "tilt_release_deg": null,
+        "tilt_trip_deg": null,
+        "tip_release": null,
+        "tip_trip": null
+      },
+      "required_risk_heads": [
+        2
+      ]
+    },
+    "R5": {
+      "guard_module": "eat_nav_r5_14",
+      "guard_class": "R5FourteenGuard",
+      "config": {
+        "schema": "eatnav_r5_fourteen_stall_only_v1",
+        "tip_trip": null,
+        "near_trip": null,
+        "tip_release": null,
+        "near_release": null,
+        "stall_trip": 0.95,
+        "stall_progress_max_m": 0.05,
+        "tilt_trip_deg": null,
+        "tilt_release_deg": null,
+        "minimum_stop_steps": 40,
+        "resume_confirmations": 2,
+        "minimum_candidate_dwell_steps": 80,
+        "switch_score_margin": 0.15,
+        "direction_confirmations": 2,
+        "active_risk_weights": [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        "measured_tilt_stop_enabled": false,
+        "measured_tilt_release_enabled": false,
+        "candidate_ids": [
+          "forward_direct",
+          "forward_-30",
+          "forward_+30",
+          "forward_-60",
+          "forward_+60",
+          "forward_-90",
+          "forward_+90",
+          "reverse_direct",
+          "reverse_-30",
+          "reverse_+30",
+          "reverse_-60",
+          "reverse_+60",
+          "reverse_-90",
+          "reverse_+90"
+        ],
+        "candidate_count": 14
+      },
+      "required_risk_heads": [
+        2,
+        3
+      ]
+    }
+  },
+  "datasets_included": false,
+  "raw_traces_included": false
+}

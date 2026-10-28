@@ -1,3 +1,5 @@
+> Historical R4 transfer snapshot (2026-10-27). For the completed 14-candidate R4*/R5 transfer on this branch, see [r4star-r5-github-transfer.md](r4star-r5-github-transfer.md).
+
 # R4 code and checkpoint transfer
 
 This branch preserves the implementation snapshot used through R4 and the current follow-up code. It includes 24 completed Evaluator checkpoints, their embedded normalization/provenance and an SHA-256 index, and the already packaged RL Actor. R4* collection is ongoing; R5 is queued awaiting R4* completion. No newly trained R4*/R5 model is claimed.

@@ -1,0 +1,103 @@
+{
+  "schema": "eatnav_r4star_r5_transfer_v1",
+  "checkpoint_index": "checkpoints/eat_nav/fall_stall_r4star_r5_index.json",
+  "profiles": {
+    "R4*": {
+      "guard_module": "eat_nav_r4_star14_eval",
+      "guard_class": "R4Star14Guard",
+      "config": {
+        "active_risk_weights": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "candidate_count": 14,
+        "candidate_ids": [
+          "forward_direct",
+          "forward_-30",
+          "forward_+30",
+          "forward_-60",
+          "forward_+60",
+          "forward_-90",
+          "forward_+90",
+          "reverse_direct",
+          "reverse_-30",
+          "reverse_+30",
+          "reverse_-60",
+          "reverse_+60",
+          "reverse_-90",
+          "reverse_+90"
+        ],
+        "direction_confirmations": 2,
+        "measured_tilt_release_enabled": false,
+        "measured_tilt_stop_enabled": false,
+        "minimum_candidate_dwell_steps": 80,
+        "minimum_stop_steps": 40,
+        "near_release": null,
+        "near_trip": null,
+        "resume_confirmations": 2,
+        "schema": "eatnav_r4_star_fourteen_eval_v1",
+        "stall_progress_max_m": 0.05,
+        "stall_trip": 0.95,
+        "switch_score_margin": 0.15,
+        "tilt_release_deg": null,
+        "tilt_trip_deg": null,
+        "tip_release": null,
+        "tip_trip": null
+      },
+      "required_risk_heads": [
+        2
+      ]
+    },
+    "R5": {
+      "guard_module": "eat_nav_r5_14",
+      "guard_class": "R5FourteenGuard",
+      "config": {
+        "schema": "eatnav_r5_fourteen_stall_only_v1",
+        "tip_trip": null,
+        "near_trip": null,
+        "tip_release": null,
+        "near_release": null,
+        "stall_trip": 0.95,
+        "stall_progress_max_m": 0.05,
+        "tilt_trip_deg": null,
+        "tilt_release_deg": null,
+        "minimum_stop_steps": 40,
+        "resume_confirmations": 2,
+        "minimum_candidate_dwell_steps": 80,
+        "switch_score_margin": 0.15,
+        "direction_confirmations": 2,
+        "active_risk_weights": [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        "measured_tilt_stop_enabled": false,
+        "measured_tilt_release_enabled": false,
+        "candidate_ids": [
+          "forward_direct",
+          "forward_-30",
+          "forward_+30",
+          "forward_-60",
+          "forward_+60",
+          "forward_-90",
+          "forward_+90",
+          "reverse_direct",
+          "reverse_-30",
+          "reverse_+30",
+          "reverse_-60",
+          "reverse_+60",
+          "reverse_-90",
+          "reverse_+90"
+        ],
+        "candidate_count": 14
+      },
+      "required_risk_heads": [
+        2,
+        3
+      ]
+    }
+  }
+}

@@ -1,0 +1,1416 @@
+{
+  "schema": "eatnav_r5_same_trained_models_fourteen_v2",
+  "evaluation_candidate_count": 14,
+  "evaluation_candidate_ids": [
+    "forward_direct",
+    "forward_-30",
+    "forward_+30",
+    "forward_-60",
+    "forward_+60",
+    "forward_-90",
+    "forward_+90",
+    "reverse_direct",
+    "reverse_-30",
+    "reverse_+30",
+    "reverse_-60",
+    "reverse_+60",
+    "reverse_-90",
+    "reverse_+90"
+  ],
+  "condition": "R5",
+  "config": {
+    "schema": "eatnav_r5_fourteen_stall_only_v1",
+    "tip_trip": null,
+    "near_trip": null,
+    "tip_release": null,
+    "near_release": null,
+    "stall_trip": 0.95,
+    "stall_progress_max_m": 0.05,
+    "tilt_trip_deg": null,
+    "tilt_release_deg": null,
+    "minimum_stop_steps": 40,
+    "resume_confirmations": 2,
+    "minimum_candidate_dwell_steps": 80,
+    "switch_score_margin": 0.15,
+    "direction_confirmations": 2,
+    "active_risk_weights": [
+      0.0,
+      0.0,
+      1.0,
+      0.5
+    ],
+    "measured_tilt_stop_enabled": false,
+    "measured_tilt_release_enabled": false,
+    "candidate_ids": [
+      "forward_direct",
+      "forward_-30",
+      "forward_+30",
+      "forward_-60",
+      "forward_+60",
+      "forward_-90",
+      "forward_+90",
+      "reverse_direct",
+      "reverse_-30",
+      "reverse_+30",
+      "reverse_-60",
+      "reverse_+60",
+      "reverse_-90",
+      "reverse_+90"
+    ],
+    "candidate_count": 14
+  },
+  "fields": [
+    "k_rail_field",
+    "k_rail_step_field",
+    "pyramid_stairs",
+    "pyramid_stairs_inv",
+    "random_rough",
+    "boxes",
+    "hf_pyramid_slope"
+  ],
+  "runs": [
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-001",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-007",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-013",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed123/checkpoint.pt",
+      "model_sha256": "f0cff6e4be23406b5ce471cb206b50a102d9ab7f16b9fc0e63e2f80a826b8c61",
+      "previous_folder": "evaluation-runtime/evaluate-000",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 456,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-002",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-008",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-014",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed456/checkpoint.pt",
+      "model_sha256": "c329ed7e87e90cf2618b5ec9e8c4928ae3389304b6a7e201c7441a0c14fddf65",
+      "previous_folder": "evaluation-runtime/evaluate-001",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 789,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-003",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-009",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-015",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed789/checkpoint.pt",
+      "model_sha256": "729d07feeddbfeb4e5b15bb1a551452f0e4df2fc75fd556e6bc6344717b6e367",
+      "previous_folder": "evaluation-runtime/evaluate-002",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 101112,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-004",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-010",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-016",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed101112/checkpoint.pt",
+      "model_sha256": "252eefd10584486c2358b0cf2a6c7ba0b908bbb6d4096e1e83d88cd25f268402",
+      "previous_folder": "evaluation-runtime/evaluate-003",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 131415,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-005",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-011",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-017",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed131415/checkpoint.pt",
+      "model_sha256": "a679a3fb3fae6b9a8745fe470a4f5d25dfda841a3aefc8205e7ca190d2bee5f4",
+      "previous_folder": "evaluation-runtime/evaluate-004",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 161718,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-006",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-012",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-018",
+          "state": "completed"
+        }
+      },
+      "seed": 1791182661,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed161718/checkpoint.pt",
+      "model_sha256": "7f8b4bb5e665ee4907a59788cdbe2c89a8b1de6343555fbcc2ba689770a69f3f",
+      "previous_folder": "evaluation-runtime/evaluate-005",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-019",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-025",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-031",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed123/checkpoint.pt",
+      "model_sha256": "f0cff6e4be23406b5ce471cb206b50a102d9ab7f16b9fc0e63e2f80a826b8c61",
+      "previous_folder": "evaluation-runtime/evaluate-006",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 456,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-020",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-026",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-032",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed456/checkpoint.pt",
+      "model_sha256": "c329ed7e87e90cf2618b5ec9e8c4928ae3389304b6a7e201c7441a0c14fddf65",
+      "previous_folder": "evaluation-runtime/evaluate-007",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 789,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-021",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-027",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-033",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed789/checkpoint.pt",
+      "model_sha256": "729d07feeddbfeb4e5b15bb1a551452f0e4df2fc75fd556e6bc6344717b6e367",
+      "previous_folder": "evaluation-runtime/evaluate-008",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 101112,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-022",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-028",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-034",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed101112/checkpoint.pt",
+      "model_sha256": "252eefd10584486c2358b0cf2a6c7ba0b908bbb6d4096e1e83d88cd25f268402",
+      "previous_folder": "evaluation-runtime/evaluate-009",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 131415,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-023",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-029",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-035",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed131415/checkpoint.pt",
+      "model_sha256": "a679a3fb3fae6b9a8745fe470a4f5d25dfda841a3aefc8205e7ca190d2bee5f4",
+      "previous_folder": "evaluation-runtime/evaluate-010",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 161718,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-024",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-030",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-036",
+          "state": "completed"
+        }
+      },
+      "seed": 1831975652,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed161718/checkpoint.pt",
+      "model_sha256": "7f8b4bb5e665ee4907a59788cdbe2c89a8b1de6343555fbcc2ba689770a69f3f",
+      "previous_folder": "evaluation-runtime/evaluate-011",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-051",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-038",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-044",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed123/checkpoint.pt",
+      "model_sha256": "f0cff6e4be23406b5ce471cb206b50a102d9ab7f16b9fc0e63e2f80a826b8c61",
+      "previous_folder": "evaluation-runtime/evaluate-012",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 456,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-052",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-039",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-045",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed456/checkpoint.pt",
+      "model_sha256": "c329ed7e87e90cf2618b5ec9e8c4928ae3389304b6a7e201c7441a0c14fddf65",
+      "previous_folder": "evaluation-runtime/evaluate-013",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 789,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-053",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-040",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-046",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed789/checkpoint.pt",
+      "model_sha256": "729d07feeddbfeb4e5b15bb1a551452f0e4df2fc75fd556e6bc6344717b6e367",
+      "previous_folder": "evaluation-runtime/evaluate-014",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 101112,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-054",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-041",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-047",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed101112/checkpoint.pt",
+      "model_sha256": "252eefd10584486c2358b0cf2a6c7ba0b908bbb6d4096e1e83d88cd25f268402",
+      "previous_folder": "evaluation-runtime/evaluate-015",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 131415,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-055",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-042",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-048",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed131415/checkpoint.pt",
+      "model_sha256": "a679a3fb3fae6b9a8745fe470a4f5d25dfda841a3aefc8205e7ca190d2bee5f4",
+      "previous_folder": "evaluation-runtime/evaluate-016",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_field",
+      "model_seed": 161718,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-056",
+          "state": "failed"
+        },
+        "R2": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-043",
+          "state": "failed"
+        },
+        "R3": {
+          "comparison_eligible": false,
+          "folder": "evaluation-runtime/evaluate-049",
+          "state": "failed"
+        }
+      },
+      "seed": 423440295,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_field/seed161718/checkpoint.pt",
+      "model_sha256": "7f8b4bb5e665ee4907a59788cdbe2c89a8b1de6343555fbcc2ba689770a69f3f",
+      "previous_folder": "evaluation-runtime/evaluate-017",
+      "previous_state": "failed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_step_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-058",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-059",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-060",
+          "state": "completed"
+        }
+      },
+      "seed": 1752506436,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_step_field/seed123/checkpoint.pt",
+      "model_sha256": "90b4ed47263c8d176e3156fd17500e89920b61fe8630260d0fdea8d484f40301",
+      "previous_folder": "evaluation-runtime/evaluate-018",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_step_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-061",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-062",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-063",
+          "state": "completed"
+        }
+      },
+      "seed": 779651991,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_step_field/seed123/checkpoint.pt",
+      "model_sha256": "90b4ed47263c8d176e3156fd17500e89920b61fe8630260d0fdea8d484f40301",
+      "previous_folder": "evaluation-runtime/evaluate-019",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "k_rail_step_field",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-068",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-065",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-066",
+          "state": "completed"
+        }
+      },
+      "seed": 2177554285,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/k_rail_step_field/seed123/checkpoint.pt",
+      "model_sha256": "90b4ed47263c8d176e3156fd17500e89920b61fe8630260d0fdea8d484f40301",
+      "previous_folder": "evaluation-runtime/evaluate-020",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-070",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-071",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-072",
+          "state": "completed"
+        }
+      },
+      "seed": 2153479260,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs/seed123/checkpoint.pt",
+      "model_sha256": "35983bedb9654b0ae5098f9d58bc258aae4a238e7202aabf58588030893c10de",
+      "previous_folder": "evaluation-runtime/evaluate-021",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-073",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-074",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-075",
+          "state": "completed"
+        }
+      },
+      "seed": 2465645667,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs/seed123/checkpoint.pt",
+      "model_sha256": "35983bedb9654b0ae5098f9d58bc258aae4a238e7202aabf58588030893c10de",
+      "previous_folder": "evaluation-runtime/evaluate-022",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-080",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-077",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-078",
+          "state": "completed"
+        }
+      },
+      "seed": 1005734882,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs/seed123/checkpoint.pt",
+      "model_sha256": "35983bedb9654b0ae5098f9d58bc258aae4a238e7202aabf58588030893c10de",
+      "previous_folder": "evaluation-runtime/evaluate-023",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs_inv",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-082",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-083",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-084",
+          "state": "completed"
+        }
+      },
+      "seed": 565464307,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs_inv/seed123/checkpoint.pt",
+      "model_sha256": "bff3ce3e085f34015cd0cdefb28fc2a58e6964a4ce37fb921addce21e1569026",
+      "previous_folder": "evaluation-runtime/evaluate-024",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs_inv",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-085",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-086",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-087",
+          "state": "completed"
+        }
+      },
+      "seed": 4270400402,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs_inv/seed123/checkpoint.pt",
+      "model_sha256": "bff3ce3e085f34015cd0cdefb28fc2a58e6964a4ce37fb921addce21e1569026",
+      "previous_folder": "evaluation-runtime/evaluate-025",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "pyramid_stairs_inv",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-092",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-089",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-090",
+          "state": "completed"
+        }
+      },
+      "seed": 2340268683,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/pyramid_stairs_inv/seed123/checkpoint.pt",
+      "model_sha256": "bff3ce3e085f34015cd0cdefb28fc2a58e6964a4ce37fb921addce21e1569026",
+      "previous_folder": "evaluation-runtime/evaluate-026",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "random_rough",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-094",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-095",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-096",
+          "state": "completed"
+        }
+      },
+      "seed": 1796165707,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/random_rough/seed123/checkpoint.pt",
+      "model_sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421",
+      "previous_folder": "evaluation-runtime/evaluate-027",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "random_rough",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-097",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-098",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-099",
+          "state": "completed"
+        }
+      },
+      "seed": 1870190470,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/random_rough/seed123/checkpoint.pt",
+      "model_sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421",
+      "previous_folder": "evaluation-runtime/evaluate-028",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "random_rough",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-104",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-101",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-102",
+          "state": "completed"
+        }
+      },
+      "seed": 1137732034,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/random_rough/seed123/checkpoint.pt",
+      "model_sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421",
+      "previous_folder": "evaluation-runtime/evaluate-029",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "boxes",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-106",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-107",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-108",
+          "state": "completed"
+        }
+      },
+      "seed": 2113840787,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/boxes/seed123/checkpoint.pt",
+      "model_sha256": "c1401b2054c772910c6e10e672874f967d725e7080f1fdcf615e1907a5e77dc9",
+      "previous_folder": "evaluation-runtime/evaluate-030",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "boxes",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-109",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-110",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-111",
+          "state": "completed"
+        }
+      },
+      "seed": 2399893319,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/boxes/seed123/checkpoint.pt",
+      "model_sha256": "c1401b2054c772910c6e10e672874f967d725e7080f1fdcf615e1907a5e77dc9",
+      "previous_folder": "evaluation-runtime/evaluate-031",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "boxes",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-116",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-113",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-114",
+          "state": "completed"
+        }
+      },
+      "seed": 3298388622,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/boxes/seed123/checkpoint.pt",
+      "model_sha256": "c1401b2054c772910c6e10e672874f967d725e7080f1fdcf615e1907a5e77dc9",
+      "previous_folder": "evaluation-runtime/evaluate-032",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "hf_pyramid_slope",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-118",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-119",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-120",
+          "state": "completed"
+        }
+      },
+      "seed": 2353927512,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/hf_pyramid_slope/seed123/checkpoint.pt",
+      "model_sha256": "d988ccd4d00aee0d651eafcd712ac364827d080df460af4ba9e5b32378967eb0",
+      "previous_folder": "evaluation-runtime/evaluate-033",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "hf_pyramid_slope",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-121",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-122",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-123",
+          "state": "completed"
+        }
+      },
+      "seed": 2685046136,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/hf_pyramid_slope/seed123/checkpoint.pt",
+      "model_sha256": "d988ccd4d00aee0d651eafcd712ac364827d080df460af4ba9e5b32378967eb0",
+      "previous_folder": "evaluation-runtime/evaluate-034",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    },
+    {
+      "condition": "R5",
+      "field": "hf_pyramid_slope",
+      "model_seed": 123,
+      "phase": "evaluate",
+      "references": {
+        "R1": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-128",
+          "state": "completed"
+        },
+        "R2": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-125",
+          "state": "completed"
+        },
+        "R3": {
+          "comparison_eligible": true,
+          "folder": "evaluation-runtime/evaluate-126",
+          "state": "completed"
+        }
+      },
+      "seed": 2292600284,
+      "model": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/hf_pyramid_slope/seed123/checkpoint.pt",
+      "model_sha256": "d988ccd4d00aee0d651eafcd712ac364827d080df460af4ba9e5b32378967eb0",
+      "previous_folder": "evaluation-runtime/evaluate-035",
+      "previous_state": "completed",
+      "unavailable_reason": null
+    }
+  ],
+  "source_sha256": {
+    "scripts/eat_nav_all_fields.py": "bbbfe0d98ce95e1da54bc85b11b7156ca325382413ea8a9889b97c213ed50ca7",
+    "scripts/eat_nav_all_fields_learning.py": "c0ae55292ef2431a861e1a729af8ff48375c57c4df5f3df63ee37e5b628f2504",
+    "scripts/eat_nav_all_fields_run.py": "d6c0e2919b6ceefcaef7ee39dbcea398afab65f3bcda3624d44e8bb47851ed2b",
+    "scripts/eat_nav_all_fields_sim.py": "2713edeea1097e1e40786cf549962631976188107df78134c9b8e7e1ba455917",
+    "scripts/eat_nav_command_free_learning.py": "dfcdded2ad8893fbfd6dd562a427030709274776577d595b14306b644c5e2aac",
+    "scripts/eat_nav_current_learning.py": "93b693f78cce858c942c590410ded3718a79f3302db2118eaf727267f993fd67",
+    "scripts/eat_nav_krail_ablation.py": "ae3da4499868ee877e04fe3ed3b3a642e36096f5e08498c95f3eae35e1f21427",
+    "scripts/eat_nav_r4.py": "83dde06d386c7795aa80aec9c9f0438ddb96a42f6ea16bd0588bb90fbc4fa63e",
+    "scripts/eat_nav_r4_audit.py": "979c69cab8af1aa295c7768fbd34ce1f509c2a0d5587fddaa743b2324a0ed48a",
+    "scripts/eat_nav_r4_run.py": "426037dcbf3820a33f14c2d26f17a47ff4350618436cefba7ce58240246f7e6d",
+    "scripts/eat_nav_r4_sim.py": "377bcf489e85cef781bd72b8f4b35c10069da6e04097d67876fc608dd334bb1e",
+    "scripts/eat_nav_r4_star.py": "3a6dc98b6665322111fb600f7c71670a0207f664955d4ad308e12bf2a2fc9df8",
+    "scripts/eat_nav_r4_star14.py": "d52c571ce6af824abd5730b3eb8ffff2fb82be53c1836b86497cb5a9b8aeccf6",
+    "scripts/eat_nav_r4_star14_collect_sim.py": "4e46fe55793015aae44f17b686d858fc223adb1e20ddca3d6a5cd001323963a2",
+    "scripts/eat_nav_r4_star14_learning.py": "244f0e57e09feeeb5381775e079061efa99ea9a20525c3500ef5c44ca2ec08e9",
+    "scripts/eat_nav_r4_star14_run.py": "9f4e20683a3175abc42478772a6649696e9b128c12f0d2b493f4d419aa7e027f",
+    "scripts/eat_nav_r4_star14_tensors.py": "e184c2a1aee41e9394b71e2739d6c8beba8e1ecf483c7f39f8408d384ece2275",
+    "scripts/eat_nav_r4_star_audit.py": "95cf864317ac8dedfb44ac95a7adbe320fe6cb0f59779a1da358c34f6c08c92e",
+    "scripts/eat_nav_r4_star_collect_sim.py": "f59e4ca25c251bd37ef131f041b2024acb113aeec89189818ab1fbb6992be3de",
+    "scripts/eat_nav_r4_star_learning.py": "a53db2ac9cfdd5981754bf92d3302ddd6c8c567853e55a981f4dd45631d6683f",
+    "scripts/eat_nav_r4_star_learning_run.py": "f34958c430b44c3239206539124f572a56e488a423f65a5427692a100538aa75",
+    "scripts/eat_nav_r4_star_run.py": "22c90c4aa92fd4394ff7417253b7d55c213d2e3ea874b53e102490e65d90dbfc",
+    "scripts/eat_nav_r4_star_sim.py": "39568c2672e0b410193b1ad5d6eab1061e59fcebc723ce78347a189ce9d52a84",
+    "scripts/eat_nav_r4_star_tensors.py": "099ff78dbcc002c62090fe4b28f8590bafc0b49fc6dfd5641babea6d3c0b8f68",
+    "scripts/eat_nav_risk_guard.py": "c966443af8ca4b0d270a7a456815495a27699f9f9732b313a5f445f5b7cf961c",
+    "scripts/eat_nav_risk_navigation.py": "7f3813442f7e23e7a0500f0ac57dd00c7e7f45f7821801afe6e45d69b3e08d01",
+    "scripts/eat_nav_risk_navigation_v2.py": "030c23b49bd5ffebb709c9ef544eb6999d54775a5a58adaaecc8624afacbeb40",
+    "src/visualnav_transformer/deployment/src/create_topomap.py": "dd654cb40b00ab9b091c6baa97480a2055025dd7c47da09b708c2888c0773855",
+    "src/visualnav_transformer/deployment/src/explore.py": "910aef7f8949f17f4b53c138630740cc64004830d55da698499e9ff3217d4546",
+    "src/visualnav_transformer/deployment/src/joy_teleop.py": "9673494fb21075d192145259aef4614495ade83ba064db26b58293012cbaba74",
+    "src/visualnav_transformer/deployment/src/navigate.py": "0c4f26d06856b56be306c842058cc88b7e611dea5f8c0793c7f52eaef7c35589",
+    "src/visualnav_transformer/deployment/src/navigate_robot.py": "d468e5568199e8bbc90befaae6fa87b8ec7d0e34fb65f7939e098842d3f92279",
+    "src/visualnav_transformer/deployment/src/pd_controller.py": "dc79fc8e7412a8f8afe6dfe2144271b8db492651cbd2c6127f441f0d3de50325",
+    "src/visualnav_transformer/deployment/src/robot_inference.py": "c40daa250495b990f3e33cd171fb513caa93f1f01862d9a77eec311ad24ceb89",
+    "src/visualnav_transformer/deployment/src/robot_interface.py": "d6baf261f93886c74924e13f9ce63601f8b9e18221fb182fbb58fc9023ded89b",
+    "src/visualnav_transformer/deployment/src/ros_data.py": "fd689c55e1477861eae5dd8523816822715a668788b38593d1695f52ff4b848a",
+    "src/visualnav_transformer/deployment/src/topic_names.py": "1f4bea78550773f96d83371e6abb6f4234ae4fcf76158a570fe839a3f7d639c4",
+    "src/visualnav_transformer/deployment/src/utils.py": "72eb48d1431d68b54c5e7eab91b40806e0c62e5e90c900697f8d9cdf821bcb69",
+    "src/visualnav_transformer/eat_nav/anchor_placement_geometry.py": "6160d0f2e2618e8c4c6b39b8ebbf8261efe96e637c368d067be14ca158512e95",
+    "src/visualnav_transformer/eat_nav/anchor_placement_parity.py": "f5d2fda8fce4b13b21a9d96ba77660f6235d62dacfd9805bf28fca175e5263a2",
+    "src/visualnav_transformer/eat_nav/anchor_placement_rules.py": "60da9ea1a4a7d6cfdde812ac49bc09561518710f7127d1d8cf86111b28ecb3de",
+    "src/visualnav_transformer/eat_nav/arc_bank.py": "4565e148bd79623be12871262dec2e7ea227ce8296050092f10207787643a407",
+    "src/visualnav_transformer/eat_nav/bidirectional_bank.py": "a5f5474598b97dd836a02acf48e506ed4c6baea8818448280880176877d669f6",
+    "src/visualnav_transformer/eat_nav/bidirectional_dataset_schema.py": "7883263f13e3d4a7e8568059b19486d83c6bbc1c6a4a64854e4c9ba4baae954a",
+    "src/visualnav_transformer/eat_nav/bidirectional_labels.py": "3e77e80fe926d39229c9a7461e610d9a0af0e24096a3fa15adc8fd38fdb84c6b",
+    "src/visualnav_transformer/eat_nav/bidirectional_motion_model.py": "1364f25899075fdb17c9cbe93ff0e217e9e5c30eae6d1ffdc09943fd63df6017",
+    "src/visualnav_transformer/eat_nav/candidate_bank_centerline.py": "49828d1d35f06b66f73b7101182beba4d0af943078da70628c84f1e9dc6089b7",
+    "src/visualnav_transformer/eat_nav/candidate_bank_e0.py": "f9d6873eec47c0e023b74fb1095c765b907da3ccac1bbbc71eb71a0829e75062",
+    "src/visualnav_transformer/eat_nav/candidate_bank_e05.py": "3c9be8368cf59e0e5ef30b7b3223491797301d45b98a87010a6d7f5051b93576",
+    "src/visualnav_transformer/eat_nav/candidate_bank_geometry.py": "49648c18270f0de9b21162e98bd47ede2a592104b565cbe50f79f64d18e96b34",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_evaluator.py": "803e831b099f8a5bc60637013fffbda2f66338188f2dd69f6759bbbfff81bd57",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_offline.py": "73ac8b9999d26c9b1526e794c85a4a7f8d217157e7918f8387eb6c2f09cfae67",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_oracle.py": "60dd45cf911bcd6bc9a12d09ee3062c17000190d5c1bb8a4a8d6700b1f1c917e",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_pilot.py": "a915b50b6f074e4ff7a0dbb3529ebdb5e969f70e17dfb6a03adb8819782e2342",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_sampling.py": "e6f410561da31a8cf087b669b7577e3a1509b6db6dfe2cd1bb81bf1228c26e4a",
+    "src/visualnav_transformer/eat_nav/candidate_coverage_selection.py": "6e03ea66f57c0b94fe2047aea2583ad57edc56e07d2be5ae7dccc32a5f73f586",
+    "src/visualnav_transformer/eat_nav/checkpoint.py": "a64016312063538a6c7a161816404fc1d82cf6c1bb716983a9be9c9f5339ee32",
+    "src/visualnav_transformer/eat_nav/command_delivery_journal.py": "2de4c7cce15e7c77f51b1fdf70314cc96969815105920242ce243ac9c7c521e9",
+    "src/visualnav_transformer/eat_nav/command_preview.py": "f785b7f4c1cbebad46d2457115ba0f4a880a4706a870722288873462aef51b1c",
+    "src/visualnav_transformer/eat_nav/command_preview_long_horizon.py": "90ad40ee89319bfa217ab93b335652b9ae4c4ed6db2c3f9a6c2c5da246341602",
+    "src/visualnav_transformer/eat_nav/config.py": "c457cc92522cbdbdcab44b971925fa69a66868ddcc2fcb168a98ddc686876fcf",
+    "src/visualnav_transformer/eat_nav/contact_host_gate.py": "538bf38808cecb63def61c83f3c76b517dfb9451bdf4c272904b6fa6a901aa30",
+    "src/visualnav_transformer/eat_nav/contact_preflight_protocol.py": "9713fe074b79ae28c0e98b670a5c4b2f3365b6a04e9ba64b29d99bffb71e91de",
+    "src/visualnav_transformer/eat_nav/contact_raw_capture.py": "7635ec2d7c2dcba7851fcf074861e3fd4769dd81ad5c864f98621b7415fbde9d",
+    "src/visualnav_transformer/eat_nav/curvature_attainable.py": "2735fa15d2a482a22e25556207f7bcbfea78bef48fd9ee42defea8c4bd1c5ce7",
+    "src/visualnav_transformer/eat_nav/dataset.py": "6ceb12edb028cdfa83dfa55f9927cf3b01d9e5eb798a0c0e04530812a377815b",
+    "src/visualnav_transformer/eat_nav/dem.py": "cd68932c7859986d7b4a600561e52d813fffb8e516ef573bb91daefef320a4e3",
+    "src/visualnav_transformer/eat_nav/demo_arc_candidates.py": "698cdfa8d5586c8d779d218e6ad3728332ff3385655bcac2b42dcf2a00f0a227",
+    "src/visualnav_transformer/eat_nav/demo_contract.py": "091de9dc74e8734d96260dfc66b8caded593c6dd8e3d661a99640171fe09c394",
+    "src/visualnav_transformer/eat_nav/demo_isaac_env_cfg.py": "b3a46d33762887f5773c455d42c9b75739cb0c5a96aa4fd03bed2e12a42ce0bd",
+    "src/visualnav_transformer/eat_nav/demo_motion_14.py": "9444ffdb3dc794e022759f41cd8bab0fae5d5ecbcd345f3047055619c7b04d29",
+    "src/visualnav_transformer/eat_nav/demo_motion_predictor.py": "b20dc773dd2f0a393675d5381fa81cbd4256853c0c1f408edf25ab7b45e0205f",
+    "src/visualnav_transformer/eat_nav/demo_reset_policy.py": "ece6770b26373a6197f94462246270237b36e3708c9c58e2da62679aff1b3fc1",
+    "src/visualnav_transformer/eat_nav/demo_residual.py": "3479c1478097b0d0955d9b7f20bdb186229c1fbe810afb00d96c5dbe8ab36385",
+    "src/visualnav_transformer/eat_nav/demo_terrain.py": "c05e037f1c0079238f3e61b8b6071bad3d9c9e2c92190f3701bd5e5e58f87c95",
+    "src/visualnav_transformer/eat_nav/demo_turn_escape.py": "692815d629c131e4240af950403338752b1d1e9863bd165892550d704d438006",
+    "src/visualnav_transformer/eat_nav/evaluation.py": "b7d36def3de5d1e3be4ccb5593b6f0f3819440f6421370321ac921f5cd0a98a8",
+    "src/visualnav_transformer/eat_nav/evaluator/__init__.py": "8440adf8657a222fc01014e7864f43c69a93e53e5f88b0444ae541bb104692bf",
+    "src/visualnav_transformer/eat_nav/evaluator/dataset.py": "c6c3f764cb7145786741b762be5103461da0d294decac1b5b8b16bddb29275ff",
+    "src/visualnav_transformer/eat_nav/evaluator/inference.py": "2f0b46b3e25e35ccd1afbc25a55b8eb575d971fb2fbeedd2c617ebd06a020518",
+    "src/visualnav_transformer/eat_nav/evaluator/labels.py": "4df73934afb8672b1af2188046a5fae89542f82b2ce0365e12cc48efe4a02d2c",
+    "src/visualnav_transformer/eat_nav/evaluator/model.py": "80c3a722bddb66cba98b6a4c178b1a6b77cc08a1db46e1df65b824b7e57ebb18",
+    "src/visualnav_transformer/eat_nav/evaluator/preprocessing.py": "af718b62a665440bc243cbdee940d8f7ee04a6ca54517671cb45f1fc53c0b41a",
+    "src/visualnav_transformer/eat_nav/evaluator_offline_smoke.py": "0e4ad771a7ad7c6cd63cf594c47ae5a900e2ce0daa1f96482a3d51d8ffb5a326",
+    "src/visualnav_transformer/eat_nav/evaluator_offline_train.py": "b503ed0c528619be7e1b1eaf6934cdcdb0f7043bfec0d2a9ea5e321f67b0154e",
+    "src/visualnav_transformer/eat_nav/evaluator_readiness.py": "ff0424e1f81d9d67a322c997dba61698ce2865dd470e60a74b5af27a83210f78",
+    "src/visualnav_transformer/eat_nav/evaluator_readiness_analysis.py": "5edabaddcb090e72fda5f4944d942c803aaccfef480715f3119a4653de682547",
+    "src/visualnav_transformer/eat_nav/evaluator_readiness_schedule.py": "96f4306f19fe336e5e0f6a98c174181904b25290df96b3d606266ab1e40ad7b5",
+    "src/visualnav_transformer/eat_nav/exact_stamp_protocol.py": "ba3847dd564dca955acec285ebfeb094718758bc8332965e2ecb9f53c49d0fea",
+    "src/visualnav_transformer/eat_nav/fall_stall_additional_targets.py": "1038f65ee5972648f177cc8a3b40a77ed70e27681637ebcb2cc4388975417366",
+    "src/visualnav_transformer/eat_nav/fall_stall_audit.py": "248eb7f10a2190d27c6ad2cccec7f7435d8f70aeadfb2de00d358a2ee005d766",
+    "src/visualnav_transformer/eat_nav/fall_stall_audit_figures.py": "0fd6955a196ae2199e73987ffe2c24d518629c653b2acd2b3e8fcf05a369c258",
+    "src/visualnav_transformer/eat_nav/fall_stall_batch02_contract.py": "44276220621f784c8d40af9f1aeb96bffca081f52f3d7b9792b72f5600e10b04",
+    "src/visualnav_transformer/eat_nav/fall_stall_batch02_runner.py": "4c62a1d887d11d0a389e90b632d8a16489d585385b939cd77b5fff5b1d108f8b",
+    "src/visualnav_transformer/eat_nav/fall_stall_batch02_runtime.py": "368962bb0d0732029e519c3eeaa8bf2a92552c48fa39979a323a70da8eac9e9e",
+    "src/visualnav_transformer/eat_nav/fall_stall_batch02_targets.py": "fa732cd0fa30956fca3d0696067519444aaaa0b17e0ab8379849a32e3c49c57c",
+    "src/visualnav_transformer/eat_nav/fall_stall_blind_verification.py": "7eb960599f2af818caea8fcc455426ff65d8e7cd3cdb0be75866ecb6627ca06a",
+    "src/visualnav_transformer/eat_nav/fall_stall_collection_contract.py": "d6594a91a7d9bae49bfd8598482486813e1287ce638de86b8a87ce2548644da2",
+    "src/visualnav_transformer/eat_nav/fall_stall_collection_runner.py": "49e406b6f785e3292fdf0020f80db5e6e8f418035a9323d44e7d4df9b900c7bb",
+    "src/visualnav_transformer/eat_nav/fall_stall_collection_runtime.py": "d691a847c925715a5bef898b25eeb807217c9025bf0447a33f602ae2bed19ec5",
+    "src/visualnav_transformer/eat_nav/fall_stall_comparison.py": "4388b72806701990e812375b951bd2aaf8a06e019c7014c1aa11d98dbea1cda6",
+    "src/visualnav_transformer/eat_nav/fall_stall_dataset.py": "37a93ca1b1f5d570f56053afc85bca237c568b83679cc1dad9e60d9af99c3173",
+    "src/visualnav_transformer/eat_nav/fall_stall_dataset_splits.py": "7cdc1bf732ff4a2db8af7eaa691ef89a1c15bb7e380c454741a0a740d2d05f15",
+    "src/visualnav_transformer/eat_nav/fall_stall_dataset_tensors.py": "58291c10bc8db9a5af04764c65dc6eeed188285c78ce48f213a741c4d3a256a6",
+    "src/visualnav_transformer/eat_nav/fall_stall_evidence.py": "550830d032ea4c63a97ca6ee13b5118b649955a3001aab48ba2c39e37e058adf",
+    "src/visualnav_transformer/eat_nav/fall_stall_learning.py": "07d01d06ec6733d9c09e50bda81c109af76e7641a7329bac62592e0f91cafd92",
+    "src/visualnav_transformer/eat_nav/fall_stall_metrics.py": "4e0d9f5bfe88c88ea3b3132b96ba18291b1eff0cd1c37372ba1db32138f54f83",
+    "src/visualnav_transformer/eat_nav/fall_stall_targets.py": "d6bc5ab7cdf5f6086e0c3e96c55f16f606e2fc3765d17b51c286d99a7f4ac511",
+    "src/visualnav_transformer/eat_nav/fall_stall_training.py": "21e4ccc45e2f0de83146c1055a8300458dffb52aa475703e598af99760c58840",
+    "src/visualnav_transformer/eat_nav/feasible_set.py": "b1b3a29cbd9cb7a74d0289248620a5f7dbb5122d4126f81a18c254927b6c5e12",
+    "src/visualnav_transformer/eat_nav/feasible_set_state.py": "7ff7cfd9cab42e7167a9995f23a08823d110587910e6b94755476e9c5abdb01c",
+    "src/visualnav_transformer/eat_nav/feasible_transfer.py": "1ab13f792898059500ff866a4c538abfd9597041983fb30501638ddc9273a882",
+    "src/visualnav_transformer/eat_nav/fresh_bridge_equivalence.py": "6c521248a90f9637694ab1e0f7538f89afe23d4931ab40382c384550809c3a16",
+    "src/visualnav_transformer/eat_nav/goal075_offline.py": "4bbf7302bafb8f46b162c446a03ad499d4af0df5ceae38fe3afb050c3577771a",
+    "src/visualnav_transformer/eat_nav/goal_bank_offline.py": "a41c6e73f6e9158406e4c15e0b88a9302a2f21be64d8ae5cb9b539153a73bae1",
+    "src/visualnav_transformer/eat_nav/goal_bank_redesign.py": "c41f8befb3841935c3f03e8b8e1d21b677616bc39d97ea4fb049f2d31bfb849f",
+    "src/visualnav_transformer/eat_nav/heading_predictor.py": "006b45228e6fc04472cd91f4f08f19a8bf7a31a503b3d7a66eaa480c2e50d8b3",
+    "src/visualnav_transformer/eat_nav/heading_score.py": "f9b0452d3fa1f11089c0b295d5f8dfa2d150b33c3c85723c11702508790abbdf",
+    "src/visualnav_transformer/eat_nav/local_motion_primitives.py": "68f537849f40ed4b6db2069a1373e8dbc95b4c2684dd0f678ffa0335343b513f",
+    "src/visualnav_transformer/eat_nav/long_horizon_labels.py": "ae0a4d0cbc4084a6aec6d40257a91a1a8e87e27835f6afd86dab2bfaf31ccf31",
+    "src/visualnav_transformer/eat_nav/mi_a_v2.py": "3201e7a30bbb55350db10f3df9d116a2535cff0f85ee4d2ae429c2bae1e23a65",
+    "src/visualnav_transformer/eat_nav/mi_a_v2_analysis.py": "49778ccfadd34f384358546eb958689b8c0bfa12658237f8e92281d85d3439b8",
+    "src/visualnav_transformer/eat_nav/mi_a_v3.py": "5e58e221aa8b8eae68eb2492b322a3568e9d9526328fa73c338f409ed35c99ef",
+    "src/visualnav_transformer/eat_nav/mi_b_pilot.py": "fd34cfbfc235be84f355d94edc3fcb358667d4b1ba2c9d8a62ae0465a61ec357",
+    "src/visualnav_transformer/eat_nav/mi_fi_v1.py": "4545c508290b28e282db04a3bc5b66b74e6f6d522e0e6191a5073c831c11e04a",
+    "src/visualnav_transformer/eat_nav/mi_fi_v1_analysis.py": "2e0af9920384b30fd7a08e1d9a485cbf8929238b856579c1d46d006f1d536c87",
+    "src/visualnav_transformer/eat_nav/minimal_p1.py": "c4c15a2518797db45b69ed884ccf03efa10dc72b5866c9fa8ab82a10a90b3b8c",
+    "src/visualnav_transformer/eat_nav/minimal_p1_r3.py": "b34e75b4e1cd6f089b2cc932b1b0dc15ec1e0ec6699cf7508027c211fe109acd",
+    "src/visualnav_transformer/eat_nav/minimal_p1_r4.py": "8171c0b4e2e8b03ff7c7591270de607736eb173b826840ab4099170675399141",
+    "src/visualnav_transformer/eat_nav/model.py": "7b488a54234d148ae2b696b67b859cd82db3261be7e8da46a56c50117e3577ad",
+    "src/visualnav_transformer/eat_nav/motion_14_collection.py": "682d0389633637e8040a7906567d902f0289b5c7dcde7fd926c842ff649987b1",
+    "src/visualnav_transformer/eat_nav/motion_14_dataset.py": "082ea72e6d7f1e8caa52e4289d7f46484368bb7c02c4cec03ebe6bd103ee37fc",
+    "src/visualnav_transformer/eat_nav/motion_14_metrics.py": "5307fae967ca1a132c5389440171f254a640932f4b8eac45a4ec7ed4b900a517",
+    "src/visualnav_transformer/eat_nav/motion_14_predictor.py": "a4737ed81cc4cc1b87c2ca19c83fdb7c7e919ee53ba8e9c5bc6fd0ad97db2678",
+    "src/visualnav_transformer/eat_nav/motion_14_stage_a.py": "98260507c3d4cb9e094b9ebd1a3a4e97b80fac3b60e1112a86b8ba0f19387871",
+    "src/visualnav_transformer/eat_nav/motion_collector.py": "9d2177be97a9f5266f0b3452ae79b51cb952bcfba1fc0894d38bf9313d31dc04",
+    "src/visualnav_transformer/eat_nav/motion_dataset.py": "2be87c1d41c5f932e2aec7f6e0bd34f9e15b6d79835161f93651657fae8c135a",
+    "src/visualnav_transformer/eat_nav/motion_identifiability.py": "27aa8cc59abd6ef059193f5d565b447248e7110e1910698127676046986d09c1",
+    "src/visualnav_transformer/eat_nav/motion_model.py": "9576c905fe41b5207f9a23db662b55defe2f8b159ae9cabb85c73eef872d4d45",
+    "src/visualnav_transformer/eat_nav/motion_vnext.py": "eff5dcdcf06710c7207b01882d671644b5ccff071b4d47db2e630e1f7de383fc",
+    "src/visualnav_transformer/eat_nav/p1_batch_golden.py": "f6187c4b937909c0c25b2cbea21a0ad237c0a5e071f1afe9c3cf4d5915708c88",
+    "src/visualnav_transformer/eat_nav/p1_batch_plan.py": "d2e4082750e4b1f69eb02e6dd2841c6bf0029a0fbfbcb090f164d71ee184dbb4",
+    "src/visualnav_transformer/eat_nav/p1_batch_prepath.py": "e45730b3ddda4aa58cf7236270940df1cf76e05ab3bc209afc9b649b8cd85f03",
+    "src/visualnav_transformer/eat_nav/p1_causal_intervention.py": "705b0a083e544d2253d6f0cfb5f5474922d880695af77490ad220d997c5f3f9d",
+    "src/visualnav_transformer/eat_nav/p1_contact_summary.py": "d134778ca3c40026d8a3301afe8d7484d744b863bc30c3fd0156c51c88f7bd75",
+    "src/visualnav_transformer/eat_nav/p1_dem_capture.py": "25a9513e935687aacb8c1f0e0e28c56b2bbda89b429ba42f496ecf2c3efa6873",
+    "src/visualnav_transformer/eat_nav/p1_follower_core.py": "5d71fb602d59cedc8eb0bc8da0a139e06263205a9273835aeb887b1f6e1ec9e1",
+    "src/visualnav_transformer/eat_nav/p1_follower_diagnostic.py": "75d0ed3894bb8db30ba2a7679e71bfa5a2ce84ab326f9c437994d97de29d5589",
+    "src/visualnav_transformer/eat_nav/p1_g3_assignment.py": "fa81c20f1d6ead95adc42f1de0c2dca5a7eb8fc698ab4d5fb9844e39794dcac3",
+    "src/visualnav_transformer/eat_nav/p1_g3_crossover_runtime.py": "8a365245350705291ed23209e9c68b76bedb79c162317d599a95e58f6a586833",
+    "src/visualnav_transformer/eat_nav/p1_g3_direct_repeat.py": "630cb5f802dd577b3932c7638cb1327a4dc0e74e2f5eb50500979377c17ddba8",
+    "src/visualnav_transformer/eat_nav/p1_g3_material_diagnostic.py": "2376f5b3b2f84e59bb9b333133e4987395e932ac7f9c7bf98871a2775e106f40",
+    "src/visualnav_transformer/eat_nav/p1_g3_material_gate_v2.py": "ab7e1f88330375b5a6c5ae87177b6332d749a33c279cdbb0c383f8275003b22a",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_control.py": "e16a310393c3a0bb8759f03e674d702a5fc6f2dbf85d03a35a4924eeda11a112",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_crossover_contract.py": "fbf72307dd1fcd80e58abb94ca59d70e90d3ea3396b115767dccc6442a72f0f8",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_crossover_evidence.py": "e7c8d44f425867f323473b37ce3dc2f6c62469f783292add8ca6812115962da6",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_crossover_path_contract.py": "f67582ced1c2ffe9bcfaae331c998561ea5fefe525d04230e9a89e600825f2f6",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_evidence.py": "6ed339bf8d16eee9d58159759fdb1659153c6712dfa5c38094e9a2412d570c88",
+    "src/visualnav_transformer/eat_nav/p1_g3_rosfree_path_contract.py": "536af7529dfa003e380512c95ef26131857aa7ce77f6fd8229f6464c018be326",
+    "src/visualnav_transformer/eat_nav/p1_g3_shared_dem.py": "6c45e38f709630e5c1a5b9f6f703191f440ffcf75b1c4658aa4a5fe5b5049f5b",
+    "src/visualnav_transformer/eat_nav/p1_longhorizon_protocol.py": "7547b39963ca438badd896e2f5df91e23a7627f21a2e8baff2d5984a3a8ac262",
+    "src/visualnav_transformer/eat_nav/p1_minimal_prepath.py": "7bbaf623917e9452907d10e5f133f4b268db1f0ecd798bb18aab44a30fa7d44a",
+    "src/visualnav_transformer/eat_nav/p1_paired_command.py": "077a625cf2b9b5c281423e53a7beba9aae6c8b6efb09bda6d9ee9439cd097f18",
+    "src/visualnav_transformer/eat_nav/p1_paired_integrity.py": "4cb6e4bb2a6383c928cd448c54c816c6abe060f4bd72d04b62ed8504f3473466",
+    "src/visualnav_transformer/eat_nav/p1_paired_noise.py": "4351c8435ce852f7790da331bba70c7837332d6056a5abd765254cbe785a6867",
+    "src/visualnav_transformer/eat_nav/p1_path_crossover_v2.py": "b2bb609f47fb477424d933c9ea6ee1188a842a382dcf9fbad72fa9205f883422",
+    "src/visualnav_transformer/eat_nav/p1_prepath_divergence.py": "ee3184a3e95a357dce71197a321806a16555ac8e26b2ac877980c43dd91e21bb",
+    "src/visualnav_transformer/eat_nav/p1_statistical_analysis.py": "aeb946930b9c80c1f4811887fabbec05462c0071207d41e86cd38c9ac1d783ba",
+    "src/visualnav_transformer/eat_nav/p1_statistical_freeze.py": "816a6c4de4be77adaf327d97faad4130d3b1a0566ad8f350b579d5ff24ecfc80",
+    "src/visualnav_transformer/eat_nav/p1_statistical_pilot.py": "fd937f7340d76f62929c4f56352a0677379743acef6745cdf49688750974b907",
+    "src/visualnav_transformer/eat_nav/p1_statistical_protocol.py": "dcc93877ff5f93912b1bcb68f88d7fa595e457cb4243269e53f7f4bdff5f0103",
+    "src/visualnav_transformer/eat_nav/p1_statistical_runtime.py": "95a60c8d58c06679142ad595208c347056bc4edf183b3c576c6ad75fee81210c",
+    "src/visualnav_transformer/eat_nav/p1_teacher_capture.py": "317187c6b9c9697e1ee003f2ab75f75bee0055d7da4fcfc88223e8761eea1d18",
+    "src/visualnav_transformer/eat_nav/p1_teacher_chunks.py": "fdf2168f3b051f8c28c91f8d3e21779961e5bf996a4f45d4f6b4c03221517bdc",
+    "src/visualnav_transformer/eat_nav/p1_teacher_path_contract.py": "968c90f830e0f539a2efa01fa7051b6b8212d96cb3698d99b66c90a59b6a0345",
+    "src/visualnav_transformer/eat_nav/p1_teacher_runtime.py": "a7b70331f01f1b42f749757e386b8853ed9b98e85e1dfca9d46188a9a5270cf5",
+    "src/visualnav_transformer/eat_nav/path_corridor.py": "6539ff04aac9ddd9b547139472d880d8bdaeee83f6864a0c3404de8514f6e991",
+    "src/visualnav_transformer/eat_nav/path_corridor_models.py": "361fc6fde6dee02e7e7e745d82d73d4432cd2726cfe07d69dc1f9b7da8c430b4",
+    "src/visualnav_transformer/eat_nav/path_tracking_audit.py": "ec024b7b90f20385e7c7560422f5123859fa792dd503dbc437ccf74e4540d957",
+    "src/visualnav_transformer/eat_nav/path_tracking_geometry.py": "4922ca83a93cb1bcad6662c5c4be64c4d852db0e92210592dcfa8b6380443e20",
+    "src/visualnav_transformer/eat_nav/phase_c_bridge_client.py": "f4dc28eb505d1ab375d4796dd308ddac70629fe57215c7742a54f511dc69b6ce",
+    "src/visualnav_transformer/eat_nav/phase_c_clone_cfg.py": "8cb1893a949fbfb156270a7599c8b37ae890ef64707cbfa60eb95f5ef034de7b",
+    "src/visualnav_transformer/eat_nav/phase_c_reference.py": "fd04153cc0cbe814a91a91c021776dc409bcc8671650c273f26d5ffeb0e301de",
+    "src/visualnav_transformer/eat_nav/phase_c_runner.py": "69198184e9c0ce8d5f02a4267c04782f4baedd6e1d214ddc15382cda529b28f1",
+    "src/visualnav_transformer/eat_nav/phase_c_shortcut.py": "c2d87ee11af81a769ac46114ae39ac3bacf32b8fa2f41620cc76a1d752559615",
+    "src/visualnav_transformer/eat_nav/phase_c_sim.py": "a9f7f6a1c6378bba9582218decf048fdf00edc8698d8732cb4e4575859a5ba75",
+    "src/visualnav_transformer/eat_nav/portable_input_v2.py": "73aeabb2102b6577064816f54c14265c5d03ec2adfe47a6cec1836730d4cfec0",
+    "src/visualnav_transformer/eat_nav/quality.py": "7eee7359bdc162f0891c399791fbd604d491f4f21942fb195245d2812d599b5e",
+    "src/visualnav_transformer/eat_nav/quality_diagnostics.py": "2d1ed16944859ff9b93fdd9605c316f92ed011f5760c47ad8767a85bb987427e",
+    "src/visualnav_transformer/eat_nav/quality_followup.py": "d8298944032ce136e85bfbb9ec2c4d1740bff5152501557b53b7608eb0455eca",
+    "src/visualnav_transformer/eat_nav/quality_followup_io.py": "251aa5697aa464aaa24af2420e0cae822e645efea1f7c3efdeb26cdade1720ef",
+    "src/visualnav_transformer/eat_nav/quality_followup_training.py": "d9fb46af24ec2db77a13ee926f11f81fd766fbce6e181fb4d4a5676753460a25",
+    "src/visualnav_transformer/eat_nav/quality_gate_config.py": "00e699a844a4515229dd68caf65796e56641dec5038c97ee9469d39b2b32acf8",
+    "src/visualnav_transformer/eat_nav/quality_gate_data.py": "5d2ddfb58aaa3071a402338e3a6cb893d7f08ce6c99dc23561da8e7bca0b18a5",
+    "src/visualnav_transformer/eat_nav/quality_gate_evaluation.py": "a99798a402ef517e676cf315a44906f7b9f1adeafbccf88769a3aba27086ddbd",
+    "src/visualnav_transformer/eat_nav/quality_gate_layers.py": "e7f73acbfaa9b8568d4fe5db691e50dec2e81dd1d49d14620b9ddb617390f0c7",
+    "src/visualnav_transformer/eat_nav/quality_gate_overfit.py": "185d49d0e84fee7f1797b417be9a13eb653828572e74933351233b1d851797dc",
+    "src/visualnav_transformer/eat_nav/quality_gate_probe.py": "27c363f2b6bb085fe040eda6f6a6376707569f21fb67d46644f718fd5aa82c1b",
+    "src/visualnav_transformer/eat_nav/r3_anchor_contract.py": "0ef73e312469987865fdc18207ff7de84440097e0a88b294f2e53fb52e7e7948",
+    "src/visualnav_transformer/eat_nav/r3_anchor_decision.py": "fb758a694643ba0a79bd70da779af21fd5ddcd6b345dda93d8dd65426e9cba89",
+    "src/visualnav_transformer/eat_nav/r3_robustness.py": "a1062a15dfa58adc759b81bb25eb2f31c940c80c98bdaaa99e9b9d6a89f6c1b4",
+    "src/visualnav_transformer/eat_nav/r3_second_seed.py": "7396bc78dfc0557a530ae4caa01872b40b5528272cdba4a5801cad216e20c4b2",
+    "src/visualnav_transformer/eat_nav/r3_second_selection.py": "88d76428304f8810b43a00bb0bec8991f8f9380e9ea8532055127d28c370e041",
+    "src/visualnav_transformer/eat_nav/r3_transition_decision.py": "4026c8d64776f6d48b8ae2483b7537288ee82b77e09218e1e4a104c9ec951a92",
+    "src/visualnav_transformer/eat_nav/radial_contact_audit.py": "3e712ffa1d24b3bfd731bd307c89cb30af39ae07d7dd4e07199300b7d57cf681",
+    "src/visualnav_transformer/eat_nav/radial_five_pose_contract.py": "22fb5b84c3b9e793d19672b2f05688c25b322f4740567764ebf0c0042e138826",
+    "src/visualnav_transformer/eat_nav/radial_interaction.py": "fc12a07a372c3597402bf6002e6ef000c63bd7a50db1717c47f2d0c18a3addf8",
+    "src/visualnav_transformer/eat_nav/radial_inventory.py": "fdb1edfb9ef056926c164e3a0b9ea49584f6357d6fe4a2e917280864af62996c",
+    "src/visualnav_transformer/eat_nav/radial_lean_log.py": "267336721ef37908471c84a2913a3ffa840584044ce2c598191a86f56f208c31",
+    "src/visualnav_transformer/eat_nav/radial_shard_inventory.py": "1ba2ba9a9e41e102197cf43b0fcac71aa2e49f144bef019445c977b6a5c6a3bd",
+    "src/visualnav_transformer/eat_nav/radial_termination_capture.py": "535e92bbf9e931bd452693a3b29df275421395904a80970b7fd7251a727cb4eb",
+    "src/visualnav_transformer/eat_nav/readiness_recovery.py": "1d43517a42faa82e92abaea9bd775ae304e6cd6730b69534be0a9c6379e3153b",
+    "src/visualnav_transformer/eat_nav/relative_quality.py": "ff5d491da01e3f2860cd404cdf5fa20a6afa8061a8d741e32b3890e51b5858a7",
+    "src/visualnav_transformer/eat_nav/relative_quality_followup_actor.py": "9158465cd73e7248dfc9188d3314d048a677589882781ccb2aa3f3712aea5a00",
+    "src/visualnav_transformer/eat_nav/relative_quality_followup_audit.py": "32c6697ba49998b0bbf155463709147a49841d4a456e373d598d3d942c24bc5e",
+    "src/visualnav_transformer/eat_nav/relative_quality_followup_permutation.py": "a56acc15540043ec7c326fa4aaf71c0430327be8d201ea3ee6858ba4a86f9af2",
+    "src/visualnav_transformer/eat_nav/relative_quality_followup_probe.py": "2f4a9420f21deb84e7867f82a5ad6ee98656fa7cd10aa8cdfce2cf3670a50f52",
+    "src/visualnav_transformer/eat_nav/relative_quality_followup_train.py": "98419c5cc683ac39ced3b7728357a0f472cd894ca1dfa89e23b06b0d22babc60",
+    "src/visualnav_transformer/eat_nav/relative_quality_matching.py": "d410a47abc11df62824fe62f102f31cde70c39d8f0fe010131408650410ff20e",
+    "src/visualnav_transformer/eat_nav/relative_quality_probe.py": "e114407e03e58e5febc5d54d47962b0f72cdea8af2167bbef8f3d9da4d5ac75c",
+    "src/visualnav_transformer/eat_nav/role_aware_terrain.py": "ed068e6213caad7fe783d4fcb5b2956e4637101cd84f5da5b29e46d01762d97a",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/__init__.py": "8712fe3fb10af07dbbbf4c0c189d54a356a75afb9b1d6f9c0a210d82a4c68c98",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/actor_state.py": "53c91afd92461a226545c0f7a6148eb47089c9b36fe0b19b42db489487195371",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/display_node.py": "904187cd19cc9cc00dc099f6b770b3a348d0b14ad7bd21212cbadb0d08b91799",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/gateway.py": "7847c73bc8538afa6799f3c076be0b17c6976a1b23875d62bec1825b5616c733",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/gridmap.py": "985d0d52f286acc657dda7b341da0eb336e35bd19bc3289cf305a41fa3ef81c5",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/history.py": "c437d7e142ddaaa48e7d78778935cce8df41ecbacd447c09e3eda058e02e5237",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/mock_robot.py": "1097ebc4cf25bb8ca94ebb3b58461d8c8cc3d9c80d131fcf86672591d77b9c04",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/model_worker.py": "7270de7cf79b4e6ceee420c2145a8367716b4ae59b03b39308c62af675ecf72e",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/model_worker_server.py": "e391dec1ec7b4fd64dd93b1a60047344a11ea8ab446dce56ae9f925ca4efad16",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/nodes.py": "50e8e69ac0344e0380d104d6e868db85d693ccb8c3f0d8868f9a91fa773f4d9b",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/persistent_worker.py": "2b8527e6cbdb72101fc134ea41c27c10e61e0ec056be157af89076ae9abdfeb1",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/predictor_client.py": "fe9cb707ae085cb8f7a26820b64c85751de8f4a886268a9b48b0cc9903295cde",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/replay.py": "41357f04e288fa0d39ded979556b94d8a053967ebbe1ff1df659520849e28eef",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/selection.py": "3205df8885c44ec130ea9b69aa69cef9c3aebcd4a29f30c54d3bccff8b4386e7",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/source_nodes.py": "73c6c43af81ff0aa41f0dafb922edb32e45e83e5ecade56b9388fafae5feec95",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/supervisor.py": "6a5404b9142f4dfeb7425313e9a725a3a9db8b773490a79fc3d4985cd895796a",
+    "src/visualnav_transformer/eat_nav/ros2_phase2/wire.py": "6353e7d18bdb7e1c2a56708b3170e730523cf00d0307ab2b6f360a991264d449",
+    "src/visualnav_transformer/eat_nav/ros2_phase3_gui_contract.py": "78380949b73e1e4e194e64166e4e6fc93ad569031c13ff5530a054b02952f6bb",
+    "src/visualnav_transformer/eat_nav/sim_clock_protocol.py": "7b4d51b323963d1a7db1e265803ddd5428c7d088e80d3a2461471ba23e31460a",
+    "src/visualnav_transformer/eat_nav/tf_race_evidence.py": "d74e8d6d2ba20f07243500d085e8fda62700b8295d787997db624d572cfde7a7",
+    "src/visualnav_transformer/eat_nav/visualize.py": "2902911914c692f029ed239c124858028c70672db9a61ee3e1e67c0237eb612d",
+    "src/visualnav_transformer/eat_nav/window_waterfall.py": "be2313bf19dda554edc03e083de9465d301d6ae5f8793f32535ac9ada2442dab",
+    "src/visualnav_transformer/train/data_split.py": "f8681f8a6b59489cf01f5d054eb7b8466032bb282006ac84c3988629000ea0ef",
+    "src/visualnav_transformer/train/process_bag_diff.py": "63f66216e58f2d1cd99ff878299e3c8b1dc28d5a5174fbb2df612af0bd4a6474",
+    "src/visualnav_transformer/train/process_bags.py": "8002ce03209d3be745a6e110d3fb4172287443ae88c9a9f5bd6ed358aff845f1",
+    "src/visualnav_transformer/train/process_recon.py": "b2120d7ae037164cb5a2939443ebb51564f12ff38cca274911a492c0bd1e6bd7",
+    "src/visualnav_transformer/train/setup.py": "2ebc6c104f9beab0392077d65246fb26bed9b06603b42a4832ddc9e173d5767f",
+    "src/visualnav_transformer/train/train.py": "3ed9641b1589d5b30cdc0460886d7a94d5acc2eec9291886358cc437ea6ddd8a",
+    "src/visualnav_transformer/train/train_eat_nav.py": "72783b63a0cbdc9b7fcd7d7f6c8297c5eb794e2a31b4b7e05058c44741cbb1f6",
+    "src/visualnav_transformer/train/vint_train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/data/data_utils.py": "95c17bf3445263504a84024097989af221f8e1203ec5d67c7cee364c5698c01f",
+    "src/visualnav_transformer/train/vint_train/data/vint_dataset.py": "c8c301d7586d81b6e345ed414476d581b286e1e29532464ded0db3ea40aeddb1",
+    "src/visualnav_transformer/train/vint_train/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/models/base_model.py": "25eae97127a9cf42bf28ced42126b82e74382531322b83f8ad4fe0d37c65d8e5",
+    "src/visualnav_transformer/train/vint_train/models/gnm/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/models/gnm/gnm.py": "ab9b1d844a65d22933c447a275385900802f6cb46abee5df7cc04cf28f550b7b",
+    "src/visualnav_transformer/train/vint_train/models/gnm/modified_mobilenetv2.py": "edb1d4ce28216c9670f08ce12563a0673b5f52ff1221acae24b28800d1ff79d8",
+    "src/visualnav_transformer/train/vint_train/models/nomad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/models/nomad/nomad.py": "ac2d93c7b5e7b075daa05c987ed90d56e603cec86d8eed16e385c8c3c6a75b22",
+    "src/visualnav_transformer/train/vint_train/models/nomad/nomad_vint.py": "9296b6503e3c384b414ba159e9aa5f34f3fc4b9b2f5ed1569847981c02c0c5f9",
+    "src/visualnav_transformer/train/vint_train/models/nomad/vib_placeholder.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/models/vint/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/models/vint/self_attention.py": "49a0201f8313078b43a3e38aaaed24dc2587bbbb144ce8e641a1415f1ff13165",
+    "src/visualnav_transformer/train/vint_train/models/vint/vint.py": "2a13b6776719c210cea470d85d78f021976cd246b73f4a37cda7e018a373c957",
+    "src/visualnav_transformer/train/vint_train/models/vint/vit.py": "e8184dc3982685341a220ee5dd767446eda26cfc95319b69dc121d77b9ae4e46",
+    "src/visualnav_transformer/train/vint_train/process_data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/process_data/process_data_utils.py": "84a8a6266cec5f3fbc27a099f7d1a949e929758735dc6722687fcd5ddd5475fb",
+    "src/visualnav_transformer/train/vint_train/training/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/training/logger.py": "3f6e92e08d679154a9604f766a233847af6ffabec84ee2c236dfc77d412a8776",
+    "src/visualnav_transformer/train/vint_train/training/train_eval_loop.py": "986ccaf01f4b655e2b7e660e80f8304c20e2c06180880dd3cdb630d49903bc48",
+    "src/visualnav_transformer/train/vint_train/training/train_utils.py": "11017635caccb4d60dda8afe8f9ac95566185c537c6628ac47ad33b53f3f916d",
+    "src/visualnav_transformer/train/vint_train/visualizing/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/visualnav_transformer/train/vint_train/visualizing/action_utils.py": "65e83760fd0a62862ca71d8eada2937e493f68575a95da79ac26c6cf7f805ddb",
+    "src/visualnav_transformer/train/vint_train/visualizing/distance_utils.py": "8ead0ed8e4618478017d11d6c7a6398dfbad830e6947aa91732dc9139b7b5576",
+    "src/visualnav_transformer/train/vint_train/visualizing/visualize_utils.py": "d8788ac82f7e8a0ac23ec4569e58ef79001c05d34f2e62f7f9dd36d1bf4e01fe",
+    "tests/eat_nav/test_r4_star.py": "64b9c76a7d27bbe453bdbdab7462cc0e73b4d8a34ff3b000e9474e080b026eb1",
+    "tests/eat_nav/test_r4_star14.py": "6ce98685fb51d167ce97fc2f4acb3b05145aec518da3d7bf6a2e46e6f6adae57",
+    "tests/eat_nav/test_r4_star_learning.py": "5bad7818a4b62c34fdfab69565e0fc1e04414085b400fede92893a5027bb51a2",
+    "scripts/eat_nav_r4_star14_eval.py": "432b2eb2497a276f0d02ca28950d1784c74223ac8e806161d42a314d57d556f7",
+    "scripts/eat_nav_r4_star14_eval_sim.py": "daccd99ccbcfaceb9553fb01df598448b00d6482605a73808564ffa9e8f04767",
+    "scripts/eat_nav_r4_star14_eval_audit.py": "5adaebe60281523876d540e14480a1a9ea11ace9ccff6962e0fdb6edd218684c",
+    "tests/eat_nav/test_fourteen_evaluation.py": "cb3c10edf1215869c711594e5523b8b1323105c4adc354863b480cc37b2d0bc3",
+    "scripts/eat_nav_r5.py": "0ae17d9e542e2a9e6a87457ac99f4665e1b82da8c1689d2629924e4028589c24",
+    "scripts/eat_nav_r5_audit.py": "1a3eafde14eb01739283f82b9f16cd93d2ac09bd7f6c0119ad111a14b4e6d5ee",
+    "scripts/eat_nav_r5_run.py": "44c8b3923d07e170d26311b71051a92520dec972d7eb9740c0e01f2034427de9",
+    "scripts/eat_nav_r5_sim.py": "e35f6394693f000f8c0f2e830d38dd04e85330d6a21cd9a888dc7192801ffc58",
+    "tests/eat_nav/test_r5.py": "733fc1a7513980017632aba098f03bfc04b22d2608e3e306c59653e7bba5184f",
+    "scripts/eat_nav_r5_14.py": "246fdc78ef296ada42e5846b727aac47069d5c3bad9f39384755462b6f551222",
+    "scripts/eat_nav_r5_14_sim.py": "e73e006f812662e0e5762845d6ecf12677d91f26c237874a75666a4684e56844",
+    "scripts/eat_nav_r5_14_audit.py": "6c39c360eac0ba58d8d05306bc119aa7cba4b3ce89b4573bd89cf878fb926604"
+  },
+  "spec_sha256": "f801801c35c3a2d6c04555989df36c663d5bf0de85b91f2418f71ea09a8ad500",
+  "previous_root": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026",
+  "previous_ledger_sha256": "eddd7201daba0fd19db7061b5058d30011983a5bb72d60fcfdf3fabe33ac110b",
+  "models_retrained": false,
+  "reserved_test_opened": false
+}
