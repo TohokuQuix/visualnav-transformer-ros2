@@ -1,0 +1,103 @@
+{
+  "event_horizon_sec": 2,
+  "files_sha256": {
+    "coverage.json": "817a22bd097759b6d7c288d7873492c2df06de4addbf3976f81c25f47426b77d",
+    "sample-index.json": "27b9fda92c47f7309b7bd389d58294c38d0263f550e25e927b44eb579021dd1b",
+    "samples.npz": "e9b6e98f7b1c450ed7b64dd55796251d71f4cd3756b8d2479c70e4ba0dd806d8",
+    "source-sha256.json": "5e5e07a82b42f8eae094c992c53e554dc8525c12ad94f872e728f37bb14aace3",
+    "split.json": "0e24d90e6058124e98cd1c2c5f1a860d19f39a4eaf67c128b1dba37f246f3ec0"
+  },
+  "samples": 105,
+  "schema": "eatnav_r6_observed_2s_pose_dataset_v1",
+  "shapes": {
+    "actor_state": [
+      105,
+      22
+    ],
+    "body_state": [
+      105,
+      9
+    ],
+    "candidate_mask": [
+      105,
+      14
+    ],
+    "dem": [
+      105,
+      4,
+      2,
+      20,
+      20
+    ],
+    "directions": [
+      105,
+      14,
+      1
+    ],
+    "event_mask": [
+      105,
+      14,
+      4
+    ],
+    "event_targets": [
+      105,
+      14,
+      4
+    ],
+    "paths": [
+      105,
+      14,
+      8,
+      2
+    ],
+    "trajectory": [
+      105,
+      14,
+      20,
+      9
+    ],
+    "trajectory_mask": [
+      105,
+      14,
+      20
+    ]
+  },
+  "source_reserved_test_opened": false,
+  "source_root": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026",
+  "times_sec": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4,
+    1.5,
+    1.6,
+    1.7,
+    1.8,
+    1.9,
+    2.0
+  ],
+  "trajectory_frame": "initial yaw aligned, initial xyz removed, world up retained",
+  "trajectory_layout": [
+    "dx_m",
+    "dy_m",
+    "dz_m",
+    "sin_relative_yaw",
+    "cos_relative_yaw",
+    "sin_roll",
+    "cos_roll",
+    "sin_pitch",
+    "cos_pitch"
+  ],
+  "artifact_root": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/reused-dataset",
+  "manifest_sha256": "9a675cf1dbccdd253ca79b7cf7768a4f5c6ce98f7a6e264da2e6e418dd8acc1c"
+}
