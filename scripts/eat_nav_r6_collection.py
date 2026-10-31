@@ -13,7 +13,7 @@ from __future__ import annotations
 import numpy as np
 
 STEP_NS = 50_000_000
-SCENES = ('field', 'wall', 'narrow', 'one_sided', 'diagonal', 'approach')
+SCENES = ('field', 'wall', 'narrow', 'one_sided', 'diagonal', 'approach', 'wall_60x100')
 
 
 def validate_groups(groups, num_envs):
@@ -61,6 +61,7 @@ def fixture_boxes(scene):
     wall = dict(size_m=[.20, 3., .8], center_m=[1.1, 0., .4], yaw_rad=0.)
     if scene == 'field': return []
     if scene == 'wall': return [wall]
+    if scene == 'wall_60x100':return [dict(size_m=[.2,.6,1.],center_m=[1.1,0.,.5],yaw_rad=0.)]
     if scene == 'approach': return [dict(wall, center_m=[1.7, 0., .4])]
     if scene == 'diagonal': return [dict(wall, yaw_rad=float(np.pi / 4))]
     if scene == 'one_sided': return [dict(size_m=[1., .5, .3], center_m=[1., .45, .15], yaw_rad=0.)]
@@ -122,3 +123,45 @@ def update_anchor_valid(previous, terminated):
     previous=np.asarray(previous,dtype=bool);terminated=np.asarray(terminated,dtype=bool)
     if previous.ndim!=1 or previous.shape!=terminated.shape:raise ValueError('per-env validity/reset shape mismatch')
     return previous & ~terminated
+
+
+def decode_fixture_contacts(forces,points,normals,separations,counts,starts,origins,scene,body_name,physics_step,physics_dt):
+    """A separate one-body-per-env PhysX view; many-body filters are unsupported."""
+    if np.shape(counts)[0]!=len(origins):raise ValueError('one sensor body per environment required')
+    rows=[]
+    for env_index,fi in np.argwhere(np.asarray(counts)>0):
+        start=int(starts[env_index,fi]);count=int(counts[env_index,fi])
+        for ci in range(start,start+count):
+            fixture=int(fi)
+            if fixture>=len(fixture_boxes(scene)):raise ValueError('unrecognized explicit fixture filter column')
+            if np.isfinite(points[ci]).all() and float(forces[ci,0])>1e-4:
+                rows.append(dict(env_index=int(env_index),body_name=body_name,fixture_index=fixture,contact_identity_source='per-environment exact primitive filter column',analytic_surface_within25mm=fixture_contact_index(points[ci],origins[env_index],scene) is not None,
+                    point_world_m=np.asarray(points[ci]).tolist(),normal_world=np.asarray(normals[ci]).tolist(),normal_force_n=float(forces[ci,0]),separation_m=float(separations[ci,0]),physics_step=int(physics_step),logical_sim_time_ns=int(round(physics_step*physics_dt*1e9))))
+    return rows
+
+
+def audit_fixture_rays(hits_world,origins,scene,tolerance_m=.002):
+    """Downward upper-surface DEM consistency with the same rigid-box geometry."""
+    hits=np.asarray(hits_world,float);origins=np.asarray(origins,float)
+    if hits.shape[0]!=len(origins) or hits.shape[-1]!=3:raise ValueError('one ray grid per physical environment required')
+    maxerror=0.;compared=0;obstacle=0;unknown=0
+    for points,origin in zip(hits,origins):
+        for point in points.reshape(-1,3):
+            if not np.isfinite(point).all():unknown+=1;continue
+            local=point-origin;expected=0.;ambiguous=False
+            for box in fixture_boxes(scene):
+                c,s=np.cos(box['yaw_rad']),np.sin(box['yaw_rad']);xy=(local[:2]-box['center_m'][:2])@np.array([[c,-s],[s,c]])
+                q=np.abs(xy)-np.asarray(box['size_m'][:2])/2
+                if np.max(q)<-.001:expected=max(expected,box['center_m'][2]+box['size_m'][2]/2)
+                elif np.max(q)<=.001:ambiguous=True
+            if ambiguous:continue
+            compared+=1;obstacle+=expected>0;maxerror=max(maxerror,abs(local[2]-expected))
+    return dict(passed=bool(compared>0 and maxerror<=tolerance_m),compared_rays=int(compared),obstacle_top_rays=int(obstacle),unknown_rays=int(unknown),max_abs_height_error_m=float(maxerror),tolerance_m=tolerance_m,definition='static scene upper surface at actual ray-hit XY; boundary cells omitted')
+
+
+def parent_difficulty(parent_seed,level,difficulty_range=(0.,1.)):
+    """A parent chooses its difficulty inside one of five frozen level bands."""
+    if level not in range(5) or difficulty_range[1]<=difficulty_range[0]:raise ValueError('valid five-level difficulty range required')
+    tile_seed=int(np.random.SeedSequence([int(parent_seed),0,int(level)]).generate_state(1)[0])
+    fraction=(level+float(np.random.default_rng(tile_seed).uniform()))/5
+    return float(difficulty_range[0]+fraction*(difficulty_range[1]-difficulty_range[0]))

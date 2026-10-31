@@ -88,3 +88,39 @@ def test_one_failed_settling_environment_does_not_drop_other_anchor():
     valid=m.update_anchor_valid([True,True],[True,False])
     assert valid.tolist()==[False,True]
     assert m.update_anchor_valid(valid,[False,False]).tolist()==[False,True]
+
+
+def test_exact_handoff_wall_case_is_distinct_and_metres():
+    m=load();box=m.fixture_boxes('wall_60x100')[0]
+    assert box['size_m']==[.2,.6,1.]
+    assert box['center_m'][2]==.5
+    assert m.fixture_contact_index([1.,0.,.5],[0,0,0],'wall_60x100')==0
+
+
+def test_one_body_filtered_contact_view_preserves_environment_identity():
+    m=load();forces=np.array([[2.],[3.]]);points=np.array([[1.,0.,.4],[1.,16.,.4]])
+    rows=m.decode_fixture_contacts(forces,points,np.ones((2,3)),np.zeros((2,1)),np.array([[1],[1]]),np.array([[0],[1]]),[[0,0,0],[0,16,0]],'wall','front_roller',99,.005)
+    assert [r['env_index'] for r in rows]==[0,1]
+    assert rows[1]['body_name']=='front_roller' and rows[1]['normal_force_n']==3
+
+
+def test_filtered_primitive_contact_is_truth_even_with_deep_penetration():
+    m=load()
+    rows=m.decode_fixture_contacts(np.array([[2.]]),np.array([[1.1,0.,.4]]),np.ones((1,3)),np.array([[-.1]]),np.array([[1]]),np.array([[0]]),[[0,0,0]],'wall','body',1,.005)
+    assert len(rows)==1 and rows[0]['fixture_index']==0
+    assert rows[0]['contact_identity_source']=='per-environment exact primitive filter column'
+
+
+def test_fixture_dem_audit_detects_hidden_wall_as_flat():
+    m=load();hits=np.array([[[1.1,0.,.8],[0,0,0]]])
+    assert m.audit_fixture_rays(hits,[[0,0,0]],'wall')['passed']
+    hits[0,0,2]=0
+    assert not m.audit_fixture_rays(hits,[[0,0,0]],'wall')['passed']
+
+
+def test_parent_difficulty_is_seed_local_and_stays_in_selected_level_band():
+    m=load()
+    a=m.parent_difficulty(123,4,(0.,1.))
+    assert .8<=a<1.
+    assert a==m.parent_difficulty(123,4,(0.,1.))
+    assert a!=m.parent_difficulty(456,4,(0.,1.))

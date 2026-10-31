@@ -18,7 +18,7 @@ import sys
 from types import SimpleNamespace as NS
 import numpy as np
 
-DEFAULT_ADAPTER = Path('/home/ubuntu/eat_nav_retraining_handoff_20261030/eat_nav_real_robot/eat_nav_real_robot/inputs.py')
+DEFAULT_ADAPTER = Path(__file__).resolve().parents[1]/'src/visualnav_transformer/eat_nav/r6_real_inputs.py'
 
 
 class CDRReader:
@@ -123,7 +123,7 @@ def jsonable(value):
     return value
 
 
-def extract(bag, output, adapter_path=DEFAULT_ADAPTER, interval_sec=1/3, period_sec=2., max_age_sec=1.):
+def extract(bag, output, adapter_path=DEFAULT_ADAPTER, interval_sec=1/3, period_sec=2., max_age_sec=1., allow_inpainted_estimates=False):
     import rosbag2_py
     from rclpy.serialization import deserialize_message
     from rosidl_runtime_py.utilities import get_message
@@ -147,7 +147,11 @@ def extract(bag, output, adapter_path=DEFAULT_ADAPTER, interval_sec=1/3, period_
         blobs.append(raw); cursor += len(raw)
         if topic_types[topic] == 'grid_map_msgs/msg/GridMap':
             msg = CDRReader(raw).grid()
-            grid = adapter.decode_grid_map(msg, 'elevation_inpainted')
+            if hasattr(adapter,'VALIDITY_CONTRACT'):
+                grid = adapter.decode_grid_map(msg,'elevation_inpainted',observed_layer=None if allow_inpainted_estimates else 'elevation')
+            elif allow_inpainted_estimates:grid=adapter.decode_grid_map(msg,'elevation_inpainted')
+            else:raise ValueError('strict observed-elevation validity requires the portableR6 sensor transform')
+            if grid.frame_id!='map':raise ValueError('DEM and map->body TF frames differ')
             grids.append(dict(receive_ns=int(receive), grid=grid, message=msg))
             record['header_ns'] = grid.stamp
         else:
@@ -258,11 +262,11 @@ def extract(bag, output, adapter_path=DEFAULT_ADAPTER, interval_sec=1/3, period_
         adapter_sha256=sha(adapter_path),counts=dict(counts),message_count=len(records),receive_start_ns=start,receive_end_ns=end,
         valid_observations=len(arrays['valid']),decisions=diagnostics,log_minus_header_offsets=offsets,
         common_goal=dict(map_xy=goal,initial_map_position=first_pos,initial_xyzw=first_q,distance_m=2.,basis='first received map->chassis/body TF, yaw-forward'),
-        contract=dict(dem_shape=[4,2,20,20],actor_shape=[22],body_shape=[9],dem_resolution_m=.1,dem_extent_m=2.,
+        contract=dict(dem_shape=[4,2,20,20],actor_shape=[22],body_shape=[9],dem_resolution_m=.1,dem_extent_m=2.,validity_source='selected-layer finite including inpainting; reference sensitivity only' if allow_inpainted_estimates else 'finite observed elevation intersect selected layer; inpainted-only cells unknown',
             nominal_history_interval_sec=interval_sec,training_history_interval_sec=.25,history_match_verified=False,
             decision_period_sec=period_sec,max_receipt_age_sec=max_age_sec,units='m, rad, s; actor angular*.25 speed*.05 effort*.01',
             orientation_source='causal map->body TF; IMU angular transformed using received static mount',
-            imu_orientation_covariance_invalid='preserved; not used for gravity',flipper_calibration='unresolved; raw joint radians retained without mean imputation',
+            imu_orientation_covariance_invalid='preserved; not used for gravity',flipper_calibration='user reference outward0/up90deg confirmed and simulation axes independently verified; real encoder offsets not independently measured; raw radians retained without mean imputation',
             fold_source='causal fold message, otherwise handoff default zero; no fold messages in this bag',
             causality='all input records log/receive_ns <= decision; raw header clocks retained without shifting',
             limitations=['TF localization orientation is not independently calibrated truth','receive clock offset does not resolve physical acquisition clock','no executed candidate labels or counterfactual outcomes','real history spacing differs from frozen training']))
@@ -287,6 +291,7 @@ if __name__ == '__main__':
     parser.add_argument('--bag', type=Path, default=Path('/home/ubuntu/eat_nav_planner_20261029_210926/bag'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--adapter-inputs', type=Path, default=DEFAULT_ADAPTER)
+    parser.add_argument('--allow-inpainted-estimates',action='store_true',help='reference sensitivity only; default excludes unobserved filled cells')
     args = parser.parse_args()
-    result = extract(args.bag,args.output,args.adapter_inputs)
+    result = extract(args.bag,args.output,args.adapter_inputs,allow_inpainted_estimates=args.allow_inpainted_estimates)
     print(json.dumps({k:result[k] for k in ('message_count','valid_observations','counts','common_goal')},indent=2))

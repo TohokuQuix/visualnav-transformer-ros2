@@ -27,12 +27,18 @@ parser.add_argument('--seed', type=int, required=True)
 parser.add_argument('--terrain-cols', type=int)
 parser.add_argument('--tile-indices', help='comma-separated parent column indices; retains terrain grid when chunking')
 parser.add_argument('--groups', type=Path)
-parser.add_argument('--scene', choices=('field','wall','narrow','one_sided','diagonal','approach'), default='field')
+parser.add_argument('--scene', choices=('field','wall','narrow','one_sided','diagonal','approach','wall_60x100'), default='field')
 parser.add_argument('--smoke-steps', type=int, default=0)
+parser.add_argument('--flipper-calibration-probe',action='store_true',help='diagnostic-only0/90/180deg geometry and joint-axis audit')
+parser.add_argument('--contact-calibration-probe',action='store_true',help='diagnostic-only deliberate fixture overlap; never training data')
 parser.add_argument('--horizon-seconds', type=float, default=2.)
 parser.add_argument('--anchor-seconds',type=int,choices=(0,2,4,6),default=0)
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
+if args.flipper_calibration_probe and (not args.smoke_steps or args.groups):
+    parser.error('flipper calibration is diagnostic-only smoke without production groups')
+if args.contact_calibration_probe and (not args.smoke_steps or args.groups or args.scene=='field'):
+    parser.error('contact calibration is diagnostic-only smoke without production groups')
 if args.horizon_seconds != 2. or args.num_envs < 1:
     parser.error('R6 requires 2s horizon and positive num_envs')
 if not args.groups and not args.smoke_steps:
@@ -62,7 +68,7 @@ from visualnav_transformer.eat_nav.fall_stall_audit import sha
 from eat_nav_risk_navigation import body_state
 from eat_nav_r4_star14 import pack_inputs, candidate_paths, CANDIDATE_IDS, ANGLES, extend_path
 from eat_nav_all_fields import needs_extension
-from eat_nav_r6_collection import STEP_NS, fixture_boxes, validate_groups, verify_anchor, step_records, fixture_proximity, selected_tiles, fixture_contact_index, audit_physics_properties, update_anchor_valid
+from eat_nav_r6_collection import STEP_NS, fixture_boxes, validate_groups, verify_anchor, step_records, fixture_proximity, selected_tiles, fixture_contact_index, audit_physics_properties, update_anchor_valid, decode_fixture_contacts
 
 
 TERRAIN_COLS = args.terrain_cols or args.num_envs
@@ -93,7 +99,7 @@ class R6TerrainImporter(EATTerrainImporter):
         floor=sim_utils.CuboidCfg(size=(80.,TERRAIN_COLS*16.,.1),
             collision_props=sim_utils.CollisionPropertiesCfg(),physics_material=self.cfg.physics_material)
         floor.func('/World/R6PhysicsFloor',floor,translation=(0.,0.,-.05))
-        for col in range(TERRAIN_COLS):
+        for col in TILE_INDICES:
             origin=np.asarray([(args.level+.5-2.5)*16.,(col+.5-TERRAIN_COLS/2)*16.,0.])
             for i,box in enumerate(fixture_boxes(args.scene)):
                 shape=sim_utils.CuboidCfg(size=tuple(box['size_m']),
@@ -173,7 +179,8 @@ def main():
         configure_demo_reset_policy(cfg); configure_initialization(cfg,'front_folded')
         cfg.events.ignore_sprocket_self_collision = None
         if args.scene!='field':
-            cfg.scene.contact_forces.filter_prim_paths_expr=['/World/R6Fixtures/Tile.*/Box.*']
+            cfg.scene.height_scanner_eat.offset.pos=(0.,0.,2.)
+            cfg.scene.contact_forces.filter_prim_paths_expr=[]
             cfg.scene.contact_forces.max_contact_data_count_per_prim=64
         generator = cfg.scene.terrain.terrain_generator
         generator.size = (16.,16.)
@@ -195,13 +202,63 @@ def main():
         masses=robot.root_physx_view.get_masses().cpu().numpy()
         inertias=robot.root_physx_view.get_inertias().cpu().numpy()
         physics_audit=audit_physics_properties(masses,inertias)
-        property_arrays=dict(masses_kg=masses,inertias_kg_m2=inertias)
+        property_arrays=dict(masses_kg=masses,inertias_kg_m2=inertias,material_properties=robot.root_physx_view.get_material_properties().cpu().numpy())
+        for property_name in ('joint_stiffness','joint_damping','joint_armature','joint_effort_limits'):
+            property_value=getattr(robot.data,property_name,None)
+            if property_value is not None:property_arrays[property_name]=property_value.cpu().numpy()
         for name in ('default_mass','default_inertia'):
             value=getattr(robot.data,name,None)
             if value is not None:property_arrays[name]=value.cpu().numpy()
         np.savez_compressed(args.output/'actual-physics-properties.npz',**property_arrays)
         write(args.output/'physics-audit.json',physics_audit)
         if not physics_audit['valid']:raise ValueError('actual PhysX masses/inertias invalid; see physics-audit.json')
+        if args.flipper_calibration_probe:
+            from pxr import Usd,UsdGeom,UsdPhysics
+            from visualnav_transformer.eat_nav.r6_geometry import rotation
+            names=robot.body_names;joint_names=robot.joint_names
+            flippers={side:next(i for i,name in enumerate(joint_names) if side+'_flipper_joint' in name) for side in ('rr','rl','fr','fl')}
+            primroot='/World/envs/env_0/onix_chassis'
+            cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.default_,UsdGeom.Tokens.render,UsdGeom.Tokens.proxy,UsdGeom.Tokens.guide])
+            lower=[];upper=[]
+            for name in names:
+                bound=cache.ComputeUntransformedBound(bare.sim.stage.GetPrimAtPath(primroot+'/'+name)).ComputeAlignedRange()
+                lower.append(np.minimum(np.asarray(bound.GetMin()),0));upper.append(np.maximum(np.asarray(bound.GetMax()),0))
+            poses={}
+            for degree in (0,90,180):
+                q=robot.data.default_joint_pos.clone();velocity=torch.zeros_like(q)
+                for index in flippers.values():q[:,index]=math.radians(degree)
+                root=robot.data.default_root_state.clone();root[:,:3]=bare.scene.env_origins;root[:,2]+=2.
+                root[:,3:7]=torch.tensor([1.,0.,0.,0.],device=bare.device);root[:,7:]=0.
+                robot.write_root_state_to_sim(root);robot.write_joint_state_to_sim(q,velocity)
+                robot.set_joint_position_target(q);robot.set_joint_velocity_target(velocity)
+                bare.scene.write_data_to_sim();bare.sim.step(render=False);bare.scene.update(bare.physics_dt)
+                actual_root=robot.data.root_state_w[0].cpu().numpy();root_rotation=rotation(actual_root[3:7])
+                positions=(robot.data.body_pos_w[0].cpu().numpy()-actual_root[:3])@root_rotation
+                rotations=np.stack([root_rotation.T@rotation(quat) for quat in robot.data.body_quat_w[0].cpu().numpy()])
+                poses[str(degree)]=dict(joint_angles_rad={side:float(robot.data.joint_pos[0,index]) for side,index in flippers.items()},body_positions_chassis=positions,body_rotations_chassis=rotations)
+            reference=poses['0'];quarter=poses['90'];axes={}
+            for side in flippers:
+                hinge_index=names.index('chassis_'+side+'_body')
+                arm_indices=[i for i,name in enumerate(names) if name.startswith('chassis_'+side+'_')]
+                R0=reference['body_rotations_chassis'][hinge_index];R1=quarter['body_rotations_chassis'][hinge_index]
+                A=R1@R0.T;delta=quarter['joint_angles_rad'][side]-reference['joint_angles_rad'][side]
+                axis=np.array([A[2,1]-A[1,2],A[0,2]-A[2,0],A[1,0]-A[0,1]])/(2*math.sin(delta));axis/=np.linalg.norm(axis)
+                points0=reference['body_positions_chassis'][arm_indices];points1=quarter['body_positions_chassis'][arm_indices]
+                hinge=np.linalg.lstsq(np.eye(3)-A,(points1-points0@A.T).mean(axis=0),rcond=1e-5)[0]
+                error=np.linalg.norm((points0-hinge)@A.T+hinge-points1,axis=1)
+                tip=arm_indices[int(np.argmax(np.linalg.norm(points0-reference['body_positions_chassis'][hinge_index],axis=1)))]
+                tip_raise=float(quarter['body_positions_chassis'][tip,2]-reference['body_positions_chassis'][tip,2])
+                axes[side]=dict(axis_chassis=axis,hinge_chassis=hinge,body_indices=arm_indices,zero_angle_rad=reference['joint_angles_rad'][side],max_90degree_fit_error_m=float(error.max()),tip_body=names[tip],tip_raise_0_to90_m=tip_raise,positive90_raises_tip=tip_raise>.1)
+            joint_definitions=[]
+            for prim in Usd.PrimRange(bare.sim.stage.GetPrimAtPath(primroot)):
+                if prim.IsA(UsdPhysics.RevoluteJoint):
+                    joint_definitions.append(dict(path=str(prim.GetPath()),attributes={attr.GetName():str(attr.Get()) for attr in prim.GetAttributes() if attr.GetName().startswith('physics:')}))
+            result=dict(schema='eatnav_r6_sim_flipper_geometry_v1',diagnostic_only=True,body_names=names,local_bounds_min=lower,local_bounds_max=upper,poses=poses,axes=axes,joint_definitions=joint_definitions,
+                physical_reference_source='user: outward horizontal0deg, verticalup90deg',numeric_sim_reference_verified=all(a['positive90_raises_tip'] and a['max_90degree_fit_error_m']<.005 for a in axes.values()),
+                limitation='simulation CAD and FK audit; real encoder offsets and real measured body geometry are not independently verified')
+            write(args.output/'flipper-geometry-calibration.json',result)
+            write(args.output/'complete.json',dict(state='completed',smoke=True,diagnostic_only=True,calibration='flipper_geometry',numeric_sim_reference_verified=result['numeric_sim_reference_verified']))
+            return
         runner = OnPolicyRunner(env,OnixRoughPPORunnerCfg().to_dict(),log_dir=None,device=bare.device)
         policy = runner.alg.policy
         policy.load_state_dict(torch.load(args.rl_checkpoint,map_location='cpu',weights_only=True)['model_state_dict'])
@@ -215,24 +272,32 @@ def main():
         terminals={}; active_step=-1
         pending_contacts=[];contact_api_status={'available':False,'reason':'field has no analytic fixture classification'}
         if args.scene!='field':
-            sensor=bare.scene['contact_forces'];view=sensor.contact_physx_view
+            sensor=bare.scene['contact_forces']
+            # Isaac Lab supports one-body-to-many filtering, not many-to-many.
+            contact_views=[(name,sensor._physics_sim_view.create_rigid_contact_view('/World/envs/env_*/onix_chassis/'+name,filter_patterns=[f'/World/R6Fixtures/Tile*/Box{j}' for j in range(len(fixture_boxes(args.scene)))],max_contact_data_count=64*n)) for name in sensor.body_names]
             original_scene_update=bare.scene.update
             def contact_update(*values,**kwargs):
                 original_scene_update(*values,**kwargs)
                 try:
-                    forces,points,normals,separations,counts,starts=view.get_contact_data(bare.physics_dt)
-                    forces=forces.cpu().numpy();points=points.cpu().numpy();normals=normals.cpu().numpy();separations=separations.cpu().numpy();counts=counts.cpu().numpy();starts=starts.cpu().numpy()
                     origins_now=bare.scene.env_origins.cpu().numpy()
-                    for body,filter_index in np.argwhere(counts>0):
-                        env_index=int(body)//sensor.num_bodies
-                        start=int(starts[body,filter_index]);count=int(counts[body,filter_index])
-                        for contact_index in range(start,start+count):
-                            fixture=fixture_contact_index(points[contact_index],origins_now[env_index],args.scene)
-                            if fixture is not None and float(forces[contact_index,0])>1e-4:
-                                pending_contacts.append(dict(env_index=env_index,body_index=int(body)%sensor.num_bodies,fixture_index=fixture,point_world_m=points[contact_index].tolist(),normal_world=normals[contact_index].tolist(),normal_force_n=float(forces[contact_index,0]),separation_m=float(separations[contact_index,0]),physics_step=int(bare._sim_step_counter),logical_sim_time_ns=int(round(bare._sim_step_counter*bare.physics_dt*1e9))))
-                    contact_api_status.update(available=bool(view.filter_count),reason=None if view.filter_count else 'no rigid fixture filters resolved',tensor_api_called=True,filter_count=int(view.filter_count),definition='positive PhysX normal contact point within25mm analytic fixture surface and above30mmground',sample_period_ns=int(round(bare.physics_dt*1e9)))
+                    raw_count=0;new_contact_count=0
+                    gpu_values=[view.get_contact_data(bare.physics_dt) for _,view in contact_views]
+                    # One synchronization for all empty/contact counts, rather
+                    # than six CPU transfers per link on every physics tick.
+                    all_counts=torch.stack([values[4] for values in gpu_values]).cpu().numpy()
+                    raw_count=int(all_counts.sum())
+                    for body_view in np.flatnonzero(all_counts.reshape(len(contact_views),-1).any(axis=1)):
+                        name,_=contact_views[int(body_view)]
+                        values=[v.cpu().numpy() for v in gpu_values[int(body_view)]]
+                        new_contacts=decode_fixture_contacts(*values,origins_now,args.scene,name,bare._sim_step_counter,bare.physics_dt)
+                        new_contact_count+=len(new_contacts);pending_contacts.extend(new_contacts)
+                        if new_contacts and 'first_actual_contact' not in contact_api_status:contact_api_status['first_actual_contact']=new_contacts[0]
+                        for point in new_contacts:contact_api_status.setdefault('first_contact_ns_by_env',{}).setdefault(str(point['env_index']),point['logical_sim_time_ns'])
+                    contact_api_status.update(available=all(view.filter_count>0 for _,view in contact_views) and contact_api_status.get('read_error_count',0)==0,reason=None if contact_api_status.get('read_error_count',0)==0 else 'one_or_more_filtered_contact_reads_failed',
+                        raw_contact_points_seen=contact_api_status.get('raw_contact_points_seen',0)+raw_count,classified_contact_points_seen=contact_api_status.get('classified_contact_points_seen',0)+new_contact_count,
+                        tensor_api_called=True,body_view_count=len(contact_views),definition='one-body-per-env PhysX contact points from exact fixture filter columns; separate floor excluded',sample_period_ns=int(round(bare.physics_dt*1e9)))
                 except Exception as exc:
-                    contact_api_status.update(available=False,reason=type(exc).__name__+': '+str(exc))
+                    contact_api_status.update(available=False,read_error_count=contact_api_status.get('read_error_count',0)+1,reason=type(exc).__name__+': '+str(exc))
             bare.scene.update=contact_update
         original_reset=bare._reset_idx
         def before_reset(ids):
@@ -261,6 +326,15 @@ def main():
             timings['observation_capture']+=time.perf_counter()-started
             return done,detail
         history=[[] for _ in range(n)]; stamps=[]
+        if args.contact_calibration_probe:
+            calibration_state=robot.data.root_state_w.clone()
+            calibration_state[:,:3]=bare.scene.env_origins
+            calibration_state[:,0]+=fixture_boxes(args.scene)[0]['center_m'][0]
+            calibration_state[:,2]+=.15
+            calibration_state[:,3:7]=torch.tensor([1.,0.,0.,0.],device=bare.device)
+            calibration_state[:,7:]=0.
+            robot.write_root_state_to_sim(calibration_state)
+            bare.sim.forward();bare.scene.update(bare.step_dt)
         anchor_valid=np.ones(n,dtype=bool);anchor_failure_reasons=[None]*n
         for step in range(20):
             done,_=advance(zeros)
@@ -300,6 +374,8 @@ def main():
         if isinstance(groups,dict): groups=groups['groups']
         groups=validate_groups(groups,n)
         origins=bare.scene.env_origins.cpu().numpy()
+        if args.scene!='field':
+            np.savez_compressed(args.output/'fixture-raycast-evidence.npz',ray_hits_w=bare.scene['height_scanner_eat'].data.ray_hits_w.cpu().numpy(),sensor_pos_w=bare.scene['height_scanner_eat'].data.pos_w.cpu().numpy(),origins=origins)
         metadata=getattr(generator,'eat_nav_tile_metadata',[])
         write(args.output/'terrain.json',dict(terrain=terrain,scene=args.scene,fixtures=fixture_boxes(args.scene),
               subterrain_config=str(generator.sub_terrains[args.terrain_type].to_dict()),
@@ -307,8 +383,8 @@ def main():
         write(args.output/'manifest.json',dict(schema='eatnav_r6_vector_v1',groups=groups,headless=args.headless,
               seed=args.seed,actor_sha256=sha(args.rl_checkpoint),actor_env_sha256=sha(args.actor_env_yaml),
               eat_config_sha256=sha(args.eat_config),terrain_type=args.terrain_type,level=args.level,
-              scene=args.scene,anchor_seconds=args.anchor_seconds,prefix_command=[.3,0.,0.],geometry_scope='each env retains its own tile across all branches',
-              contact_definition='field: obstacle identity unknown; supplemental: filtered rigidfixture normal contact points sampled every5ms'))
+              scene=args.scene,diagnostic_forced_contact=args.contact_calibration_probe,anchor_seconds=args.anchor_seconds,prefix_command=[.3,0.,0.],geometry_scope='each env retains its own tile across all branches',
+              dem_ray_origin_height_m=2. if args.scene!='field' else .3,contact_definition='field: obstacle identity unknown; supplemental: filtered rigidfixture normal contact points sampled every5ms'))
         initial_root=robot.data.root_state_w.clone(); initial_joint=robot.data.joint_pos.clone(); initial_vel=robot.data.joint_vel.clone()
         scene_state=copy.deepcopy(bare.scene.get_state())
         obs_anchor=copy.deepcopy(obs); observed_anchor=copy.deepcopy(observed); latency_anchor=copy.deepcopy(latency)
@@ -352,7 +428,7 @@ def main():
         anchor=dict(root=initial_root.cpu().numpy(),joint_position=initial_joint.cpu().numpy(),joint_velocity=initial_vel.cpu().numpy(),dem=np.asarray(history),live_dem=np.asarray([dem(bare,config,i,stamps[-1]) for i in range(n)]))
         for i,group in enumerate(groups):
             directory=args.output/f'group-{i:03d}';directory.mkdir()
-            write(directory/'group.json',dict(group,anchor_available=bool(anchor_valid[i]),anchor_failure_reason=anchor_failure_reasons[i],observed_contact_before_anchor=any(row.get('obstacle_contact',False) for row in prefix_rows[i]),prefix_contact_observation_complete=bool(prefix_rows[i]) and all('obstacle_contact' in row for row in prefix_rows[i]),terrain=terrain,env_origin=origins[i],scene=args.scene,dem_stamps_ns=stamps,parent_terrain_seed=args.seed,parent_tile_column=TILE_INDICES[i],tile_generation_index=TILE_INDICES[i]*5+args.level,actual_tile_metadata=metadata[TILE_INDICES[i]*5+args.level] if metadata else None))
+            write(directory/'group.json',dict(group,anchor_available=bool(anchor_valid[i]),pre_anchor_contact_observation_scope='settling_and_prefix_5ms' if args.scene!='field' else 'unknown',anchor_failure_reason=anchor_failure_reasons[i],observed_contact_before_anchor=(str(i) in contact_api_status.get('first_contact_ns_by_env',{})) if args.scene!='field' else None,prefix_contact_observation_complete=bool(contact_api_status.get('available')) if args.scene!='field' else False,terrain=terrain,env_origin=origins[i],scene=args.scene,dem_stamps_ns=stamps,parent_terrain_seed=args.seed,parent_tile_column=TILE_INDICES[i],tile_generation_index=TILE_INDICES[i]*5+args.level,actual_tile_metadata=metadata[TILE_INDICES[i]*5+args.level] if metadata else None))
             with (directory/'prefix-trace.jsonl').open('x') as prefix_stream:
                 for row in prefix_rows[i]:prefix_stream.write(json.dumps(row,allow_nan=False)+'\n')
             arrays=pack_inputs(np.asarray(history[i]),observed['policy_pre_noise'][i].cpu().numpy(),body_state(initial_root[i].cpu().numpy()))

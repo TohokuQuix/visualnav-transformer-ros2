@@ -30,7 +30,7 @@ def metrics(model,stats,arrays,selected,batch_size=32):
  pred={k:np.concatenate(v) for k,v in collected.items()};cm=arrays['candidate_mask'][selected]
  return dict(events=event_metrics(pred['events'],arrays['event_targets'][selected],arrays['event_mask'][selected]&cm[:,:,None]),trajectory=trajectory_metrics(pred['trajectory'],arrays['trajectory'][selected],arrays['trajectory_mask'][selected]&cm[:,:,None]),inference_batch_seconds=timings,inference_including_host_transfer_sec_per_group=sum(timings)/len(selected)),pred
 
-def fit(arrays,index,roles,output,*,epochs=300,batch_size=16,device='cuda',seed=123,use_dem=True,on_epoch=None):
+def fit(arrays,index,roles,output,*,epochs=300,batch_size=16,device='cuda',seed=123,use_dem=True,on_epoch=None,dataset_provenance=None):
  output=pathlib.Path(output)
  if output.exists():raise FileExistsError('fresh training output required')
  verify_roles(index,roles)
@@ -62,7 +62,7 @@ def fit(arrays,index,roles,output,*,epochs=300,batch_size=16,device='cuda',seed=
   row=dict(epoch=epoch,train={k:v/steps for k,v in sums.items()},validation_objective=score,elapsed_sec=time.perf_counter()-start);history.append(row)
   write(output/'progress.json',dict(state='training',done=epoch,planned=epochs,best_epoch=best_epoch,best_validation_objective=best,elapsed_sec=row['elapsed_sec']))
   if on_epoch:on_epoch(row)
- model.load_state_dict(best_state);save_checkpoint(output/'checkpoint.pt',model,stats,support,dict(config=config,roles=roles,best_epoch=best_epoch,training_groups=[index[i].get('episode_group') for i in train],contract=CONTRACT))
+ model.load_state_dict(best_state);save_checkpoint(output/'checkpoint.pt',model,stats,support,dict(config=config,roles=roles,best_epoch=best_epoch,training_groups=[index[i].get('episode_group') for i in train],contract=CONTRACT,dataset=dataset_provenance))
  restored,payload=load_checkpoint(output/'checkpoint.pt',device=device);outmetrics={}
  for role,selected in roles.items():
   outmetrics[role],pred=metrics(restored,stats,arrays,selected,batch_size)
@@ -78,6 +78,6 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--dataset',type=pathlib.Path,required=True);p.add_argument('--output',type=pathlib.Path,required=True);p.add_argument('--epochs',type=int,default=300);p.add_argument('--batch-size',type=int,default=16);p.add_argument('--seed',type=int,default=123);p.add_argument('--device',default='cuda');p.add_argument('--without-dem',action='store_true');a=p.parse_args()
  with np.load(a.dataset/'samples.npz',allow_pickle=False) as f:arrays={k:f[k] for k in f.files}
  index=json.loads((a.dataset/'sample-index.json').read_text());roles=json.loads((a.dataset/'split.json').read_text())['roles']
- result=fit(arrays,index,roles,a.output,epochs=a.epochs,batch_size=a.batch_size,device=a.device,seed=a.seed,use_dem=not a.without_dem,on_epoch=lambda row:print(json.dumps(row),flush=True))
+ result=fit(arrays,index,roles,a.output,epochs=a.epochs,batch_size=a.batch_size,device=a.device,seed=a.seed,use_dem=not a.without_dem,on_epoch=lambda row:print(json.dumps(row),flush=True),dataset_provenance=dict(path=str(a.dataset.resolve()),files_sha256={name:sha(a.dataset/name) for name in ('samples.npz','sample-index.json','split.json','manifest.json')}))
  print(json.dumps(result,indent=2))
 if __name__=='__main__':main()

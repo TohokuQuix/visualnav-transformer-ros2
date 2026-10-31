@@ -11,6 +11,7 @@ NORMALIZATION_SCHEMA='eatnav_r6_two_second_pose_normalization_v1'
 CONTRACT=dict(schema='eatnav_r6_two_second_pose_contract_v1',event_horizon_sec=2,
  times_sec=[i/10 for i in range(1,21)],time_unit='seconds',events=['tip_over','near_fall','linear_stall','turn_stall'],
  dem_shape=[4,2,20,20],dem_extent_m=[2.,2.],dem_resolution_m=.1,dem_nominal_spacing_sec=.25,
+ path_bank_schema='eatnav_forward_reverse_path_bank_v1',path_arc_length_m=.75,path_angles_deg=[0,-30,30,-60,60,-90,90],path_direction_order=[1]*7+[-1]*7,
  state_dim=28,actor_command_indices_excluded=[6,7,8],candidate_count=14,path_shape=[14,8,2],
  trajectory_shape=[14,20,9],trajectory_channels=['dx_m','dy_m','dz_m','sin_relative_yaw','cos_relative_yaw','sin_gravity_roll','cos_gravity_roll','sin_gravity_pitch','cos_gravity_pitch'],
  frame='initial_origin_inverse_initial_yaw_world_up',position_unit='metres',angle_unit='radians',progress='derived_from_two_second_predicted_position_only')

@@ -128,3 +128,28 @@ def test_low_tilt_stall_failures_do_not_impose_a_monotonic_posture_cap():
     result=p.derive_profiles(rows)
     assert result['status']=='derived' and len(result['profiles'])>=10
     assert all(c['pitch_deg']>.1 for c in result['profiles'])
+
+
+def test_censored_unknown_fall_cannot_gain_ranking_advantage():
+ from visualnav_transformer.eat_nav.r6_policy import rank_validation
+ base=dict(split='validation',trials=30,fall_count=0,mean_stop_sec=60.,mean_progress_m=0.,linear_windows=0.,turn_windows=0.,linear_stall_sec=0.,turn_stall_sec=0.)
+ censored=dict(base,id='unknown',ranking_fall_count_upper_bound=1,mean_stop_sec=1.)
+ complete=dict(base,id='known',ranking_fall_count_upper_bound=0)
+ assert rank_validation([censored,complete])['ranking'][0]['id']=='known'
+
+
+def test_outside_map_prediction_is_rejected_before_dense_allocation(monkeypatch):
+ import visualnav_transformer.eat_nav.r6_policy as p
+ t=np.zeros((20,9));t[:,0]=1e6;t[:,4]=t[:,6]=t[:,8]=1
+ d=np.zeros((2,20,20));d[1]=1
+ monkeypatch.setattr(p,'_dense_pose',lambda *args:(_ for _ in ()).throw(AssertionError('must reject before allocation')))
+ g=p.swept_geometry(d,t,p.Footprint(.3,.6,.22))
+ assert g['unknown'] and g['coverage_is_lower_bound']
+
+
+def test_single_flat_topped_wall_is_not_a_repeated_staircase():
+ from visualnav_transformer.eat_nav.r6_policy import longitudinal_geometry
+ x=np.arange(6)*.1
+ assert longitudinal_geometry(x,[0,0,.8,.8,0,0])['kind']=='wall'
+ assert longitudinal_geometry(np.arange(10)*.1,[0,0,.1,.1,0,0,.1,.1,0,0])['kind']=='wall'
+ assert longitudinal_geometry(np.arange(6)*.1,[0,0,.1,.1,.2,.2])['kind']=='stairs'

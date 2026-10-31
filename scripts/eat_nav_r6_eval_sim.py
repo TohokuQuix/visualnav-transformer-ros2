@@ -24,18 +24,21 @@ parser.add_argument('--seed', type=int, required=True)
 parser.add_argument('--terrain-cols', type=int)
 parser.add_argument('--tile-indices', help='comma-separated parent column indices; retains terrain grid when chunking')
 parser.add_argument('--groups', type=Path)
-parser.add_argument('--scene', choices=('field','wall','narrow','one_sided','diagonal','approach'), default='field')
+parser.add_argument('--scene', choices=('field','wall','narrow','one_sided','diagonal','approach','wall_60x100'), default='field')
 parser.add_argument('--max-steps',type=int,default=1200)
 parser.add_argument('--mode',choices=('old_reference','event','pose','hybrid'),required=True)
 parser.add_argument('--checkpoint',type=Path)
 parser.add_argument('--old-checkpoint',type=Path)
 parser.add_argument('--profile',type=Path)
-parser.add_argument('--gui',dest='headless',action='store_false')
+parser.add_argument('--gui',action='store_true')
+parser.add_argument('--focus-env',type=int,default=0)
 parser.add_argument('--parent-seeds',help='comma per-environment parent seeds; also inferred from --groups')
 
 AppLauncher.add_app_launcher_args(parser)
 parser.set_defaults(headless=True)
 args = parser.parse_args()
+args.headless=not args.gui
+if not 0<=args.focus_env<args.num_envs:parser.error('focus env outside runtime batch')
 if args.num_envs<1 or not 1<=args.max_steps<=1200:parser.error('positive environments and 1..1200 fixed steps required')
 if args.mode=='old_reference' and not args.old_checkpoint:parser.error('old_reference requires --old-checkpoint')
 if args.mode!='old_reference' and (not args.checkpoint or not args.profile):parser.error('new policies require --checkpoint and --profile')
@@ -69,7 +72,7 @@ from visualnav_transformer.eat_nav.fall_stall_audit import sha
 from eat_nav_risk_navigation import body_state
 from eat_nav_r4_star14 import pack_inputs, candidate_paths, CANDIDATE_IDS, ANGLES
 from eat_nav_all_fields import needs_extension
-from eat_nav_r6_collection import STEP_NS, fixture_boxes, validate_groups, verify_anchor, step_records, fixture_proximity, selected_tiles, fixture_contact_index, audit_physics_properties
+from eat_nav_r6_collection import STEP_NS, fixture_boxes, validate_groups, verify_anchor, step_records, fixture_proximity, selected_tiles, fixture_contact_index, audit_physics_properties, parent_difficulty
 
 
 TERRAIN_COLS = args.terrain_cols or args.num_envs
@@ -82,6 +85,7 @@ class R6TerrainGenerator(EATTerrainGenerator):
         else:
             column=self._tile_index//5;row=self._tile_index%5
             parent=PARENT_SEEDS[column];tile_seed=_seed(parent,0,row)
+            difficulty=parent_difficulty(parent,row,self.cfg.difficulty_range)
             self._tile_index+=1;old_seed=self.cfg.seed;old_state=np.random.get_state()
             try:
                 self.cfg.seed=tile_seed;np.random.seed(tile_seed)
@@ -165,6 +169,9 @@ def main():
         toggles = {n:saved[n].lower()=='true' for n in ('use_last_action_obs','use_joint_effort_obs','use_height_scan_obs')}
         cfg = make_collection_cfg(OnixRoughEnvCfg(**toggles), config, args.seed, args.num_envs)
         cfg.episode_length_s = 120.
+        if not args.headless:
+            cfg.viewer.origin_type='asset_root';cfg.viewer.asset_name='robot';cfg.viewer.env_index=args.focus_env
+            cfg.viewer.eye=(3.5,-3.5,2.8);cfg.viewer.lookat=(0.,0.,.6)
         configure_demo_reset_policy(cfg); configure_initialization(cfg,'front_folded')
         cfg.events.ignore_sprocket_self_collision = None
         if args.scene!='field':
@@ -190,7 +197,10 @@ def main():
         masses=robot.root_physx_view.get_masses().cpu().numpy()
         inertias=robot.root_physx_view.get_inertias().cpu().numpy()
         physics_audit=audit_physics_properties(masses,inertias)
-        property_arrays=dict(masses_kg=masses,inertias_kg_m2=inertias)
+        property_arrays=dict(masses_kg=masses,inertias_kg_m2=inertias,material_properties=robot.root_physx_view.get_material_properties().cpu().numpy())
+        for property_name in ('joint_stiffness','joint_damping','joint_armature','joint_effort_limits'):
+            property_value=getattr(robot.data,property_name,None)
+            if property_value is not None:property_arrays[property_name]=property_value.cpu().numpy()
         for name in ('default_mass','default_inertia'):
             value=getattr(robot.data,name,None)
             if value is not None:property_arrays[name]=value.cpu().numpy()
@@ -285,29 +295,38 @@ def main():
         active=settling_valid.copy();goal_times=[None]*n;held=np.zeros(n,bool);stopped=np.ones(n,bool)
         selected=[None]*n;paths=[None]*n;headings=[None]*n;followers=[None]*n
         traces=[[] for _ in range(n)];streams=[];decisions=[[] for _ in range(n)];guards=[R5FourteenGuard() for _ in range(n)]
+        # Model construction consumes RNG; keep subsequent simulator noise
+        # identical across old/new policy implementations.
+        simulator_rng=(random.getstate(),np.random.get_state(),torch.get_rng_state(),torch.cuda.get_rng_state_all())
         model=payload=oldfit=None
         if args.mode=='old_reference':
             model,payload=load_old(args.old_checkpoint);oldfit=dict(payload,model=model)
         else:model,payload=load_r6(args.checkpoint)
+        random.setstate(simulator_rng[0]);np.random.set_state(simulator_rng[1]);torch.set_rng_state(simulator_rng[2]);torch.cuda.set_rng_state_all(simulator_rng[3])
         profile=json.loads(args.profile.read_text()) if args.profile else None
         if profile and 'profile' in profile:profile=profile['profile']
-        # USD world AABBs of the complete robot include actual flipper geometry.
-        # Rotating all eight AABB corners into current yaw is conservative. No
-        # body-frame-origin distance is substituted for occupied-body dimensions.
+        # Fabric updates PhysX tensors without updating USD world transforms.
+        # Measure static local geometry once, then use current link poses.
+        from visualnav_transformer.eat_nav.r6_geometry import live_footprint
+        local_bounds={}
         def measured_footprint(i,root):
-            candidates=getattr(robot.root_physx_view,'prim_paths',[])
-            primpath=candidates[i] if len(candidates)>i else robot.cfg.prim_path.replace('{ENV_REGEX_NS}',f'/World/envs/env_{i}').replace('env_.*',f'env_{i}')
-            prim=bare.sim.stage.GetPrimAtPath(primpath)
-            if not prim.IsValid():raise ValueError('cannot resolve robot geometry '+primpath)
-            cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.default_,UsdGeom.Tokens.render,UsdGeom.Tokens.proxy])
-            bounds=cache.ComputeWorldBound(prim).ComputeAlignedRange();lo=np.asarray(bounds.GetMin());hi=np.asarray(bounds.GetMax())
-            corners=np.asarray(list(itertools.product(*zip(lo,hi))))
-            yaw=root_yaw(root.tolist());c,s=math.cos(yaw),math.sin(yaw)
-            local=(corners-root[:3])@np.asarray([[c,-s,0],[s,c,0],[0,0,1]])
-            bodypositions=robot.data.body_pos_w[i].cpu().numpy()
-            if not np.isfinite(local).all() or np.any(bodypositions<lo-1e-4) or np.any(bodypositions>hi+1e-4):raise ValueError('USD bounds fail body-origin containment')
-            dimensions=dict(front_m=float(local[:,0].max()),rear_m=float(-local[:,0].min()),half_width_m=float(np.abs(local[:,1]).max()),stopping_margin_m=float(profile.get('stopping_margin_m',.06)) if profile else .06)
-            return Footprint(**dimensions),dict(dimensions=dimensions,source_prim=str(primpath),world_aabb_min=lo.tolist(),world_aabb_max=hi.tolist(),body_origins_w=bodypositions.tolist(),method='all robot USD geometry world AABB corners yaw transformed; conservative includes visual/flipper extent')
+            primpath=robot.cfg.prim_path.replace('{ENV_REGEX_NS}',f'/World/envs/env_{i}').replace('env_.*',f'env_{i}')
+            if i not in local_bounds:
+                cache=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.default_,UsdGeom.Tokens.render,UsdGeom.Tokens.proxy,UsdGeom.Tokens.guide])
+                lower=[];upper=[]
+                for name in robot.body_names:
+                    prim=bare.sim.stage.GetPrimAtPath(primpath+'/'+name)
+                    if not prim.IsValid():raise ValueError('cannot resolve body geometry '+primpath+'/'+name)
+                    bounds=cache.ComputeUntransformedBound(prim).ComputeAlignedRange()
+                    lo=np.asarray(bounds.GetMin());hi=np.asarray(bounds.GetMax())
+                    if not np.isfinite(lo).all() or not np.isfinite(hi).all() or np.any(lo>hi):raise ValueError('missing measured body geometry '+name)
+                    lower.append(np.minimum(lo,0));upper.append(np.maximum(hi,0))
+                local_bounds[i]=(np.asarray(lower),np.asarray(upper))
+            lower,upper=local_bounds[i]
+            dims,points=live_footprint(lower,upper,robot.data.body_pos_w[i].cpu().numpy(),robot.data.body_quat_w[i].cpu().numpy(),root,float(profile.get('stopping_margin_m',.06)) if profile else .06)
+            return Footprint(**dims),dict(dimensions=dims,source_prim=primpath,body_names=robot.body_names,
+                body_local_bounds_min=lower.tolist(),body_local_bounds_max=upper.tolist(),world_aabb_min=points.min(axis=0).tolist(),world_aabb_max=points.max(axis=0).tolist(),
+                method='static local USD geometry per body transformed by live PhysX link pose; no stale USD world transforms')
         footprints=[]
         for i,g in enumerate(groups):
             folder=args.output/f'group-{i:03d}';folder.mkdir();streams.append((folder/'trace.jsonl').open('x'))
@@ -321,6 +340,10 @@ def main():
             legacy_event_horizon_sec=10 if args.mode=='old_reference' else None,event_horizon_sec=2 if args.mode!='old_reference' else 10,
             geometry_metadata=getattr(generator,'eat_nav_tile_metadata',[]),contact_truth='net forces retained; obstacle identity unknown',
             group_seed_contract='per-environment terrain and initial parent seeds; startup dynamic randomization shares batch cfg.seed and is correlated; identical batch composition required across conditions',parent_seeds=PARENT_SEEDS,per_parent_seed_mode=PER_PARENT))
+        viewer=None
+        if not args.headless:
+            from visualnav_transformer.eat_nav.r6_viewer import R6Viewer
+            viewer=R6Viewer(args.terrain_type,args.level,args.mode)
         library=compile_core(args.output/'core-build');start=time.perf_counter()
         for step in range(args.max_steps):
             active_step=step;stamp=1_000_000_000+step*STEP_NS
@@ -349,18 +372,19 @@ def main():
                         decision.update(predicted_trajectory=predicted['trajectory'][0],event_probabilities=predicted['events'][0],footprint=measurement)
                     decision.update(inference_and_policy_sec=time.perf_counter()-inference_started,decision_step=step,decision_stamp_ns=stamp,goal_body=goal_body,dem_stamps_ns=stamps[-4:])
                     selected[i]=decision['selected_index'];stopped[i]=selected[i] is None
+                    if viewer is not None and i==args.focus_env:viewer.update(bare,roots[i],goals[i],candidate_paths(),decision,step)
                     write(folder/f'decision-{step:04d}.json',decision);decisions[i].append(decision)
                     if followers[i] is not None:followers[i].close();followers[i]=None
                     if selected[i] is not None:
                         k=selected[i];paths[i]=candidate_paths()[k]@np.asarray([[c,s],[-s,c]])+roots[i,:2]
                         headings[i]=yaw+ANGLES[k]
                         followers[i]=PureFollower((paths[i]-origins[i,:2]).tolist(),library=library)
-            terminals.clear();pending_contacts.clear();before=[physical(bare,i) for i in range(n)];commands=[];diagnostics=[]
+            terminals.clear();pending_contacts.clear();before=[physical(bare,i) for i in range(n)];commands=[];diagnostics=[];extensions=[[] for _ in range(n)]
             for i in range(n):
                 if not active[i] or held[i] or stopped[i]:commands.append([0.,0.,0.]);diagnostics.append({});continue
                 p=pose(robot,i)
                 if needs_extension(paths[i],p):
-                    paths[i],headings[i]=extend_path(paths[i],headings[i],selected[i]);followers[i].close()
+                    paths[i],headings[i]=extend_path(paths[i],headings[i],selected[i]);followers[i].close();extensions[i].append(dict(candidate=selected[i],new_waypoint_count=len(paths[i]),terminal_body_heading=headings[i]))
                     followers[i]=PureFollower((paths[i]-origins[i,:2]).tolist(),library=library)
                 command,diag=followers[i].step_diagnostic(float(p[0]-origins[i,0]),float(p[1]-origins[i,1]),float(p[2]),stamp)
                 commands.append(command);diagnostics.append(diag)
@@ -373,7 +397,7 @@ def main():
                 row=dict(before[i],control_step=step,logical_sim_time_ns=stamp,post_timestamp_ns=stamp+STEP_NS,
                     post_root_state=post,body_angular_velocity_radps=body_vector(post,post[10:13]),
                     terminal=None if terminal is None else dict(pre_reset_state=terminal),reset_mask=bool(done[i]),boundary_censor=boundary,
-                    follower_command=list(commands[i]),follower_diagnostic=diagnostics[i],actor_command=detail['actor_seen'][i],actor_observation=observed['policy_pre_noise'][i].cpu().tolist(),
+                    follower_command=list(commands[i]),follower_diagnostic=diagnostics[i],append_events=extensions[i],actor_command=detail['actor_seen'][i],actor_observation=observed['policy_pre_noise'][i].cpu().tolist(),
                     candidate_id='STOP' if selected[i] is None else CANDIDATE_IDS[selected[i]],candidate_cycle=step//40,candidate_replan=bool(step and step%40==0),
                     candidate_path=(candidate_paths()[selected[i]].tolist() if selected[i] is not None else candidate_paths()[0].tolist()),
                     protective_stop=bool(stopped[i] and not held[i]),goal_hold=bool(held[i]),valid_mask=True,
@@ -394,11 +418,11 @@ def main():
             result.update(g,field=args.terrain_type,level=args.level,mode=args.mode,initial_valid=bool(settling_valid[i]),
                 settling_failure=settling_failures.get(i),decision_count=len(decisions[i]),processing_sec=sum(d['inference_and_policy_sec'] for d in decisions[i]),
                 stop_reason='settling_failure' if not settling_valid[i] else 'natural_termination_or_boundary' if not active[i] else 'fixed_horizon_complete',
-                smoke=args.max_steps!=1200,full_evaluation_valid=args.max_steps==1200)
+                smoke=args.max_steps!=1200,full_evaluation_valid=args.max_steps==1200 and bool(settling_valid[i]))
             write(args.output/f'group-{i:03d}'/'result.json',result);results.append(result)
         write(args.output/'complete.json',dict(state='completed',condition=args.mode,num_envs=n,headless=args.headless,smoke=args.max_steps!=1200,
             requested_steps=args.max_steps,elapsed_seconds=time.perf_counter()-start,recorded_rows=sum(len(r) for r in traces),
-            peak_torch_vram_bytes=torch.cuda.max_memory_allocated(),timings=timings,results=results,aggregate=aggregate_trials(results)))
+            peak_torch_vram_bytes=torch.cuda.max_memory_allocated(),gpu_memory_free_total_bytes=list(torch.cuda.mem_get_info()),timings=timings,results=results,aggregate=aggregate_trials(results)))
         print('R6_EVAL_COMPLETE '+str(args.output/'complete.json'),flush=True)
     except BaseException as exc:
         write(args.output/'failure.json',dict(type=type(exc).__name__,message=str(exc),traceback=traceback.format_exc()))

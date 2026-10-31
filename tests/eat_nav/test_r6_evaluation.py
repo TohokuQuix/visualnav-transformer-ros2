@@ -43,3 +43,10 @@ def test_aggregate_keeps_denominators_and_macro_cells():
     agg=aggregate_trials([a,b])
     assert agg['total_trials']==2 and agg['tip_count']==1 and agg['tip_rate']==.5
     assert agg['macro_mean_route_progress_m']==pytest.approx(.04)
+
+
+def test_nonfall_censor_is_unknown_not_a_zero_fall_success():
+ r=summarize_trial(trace(2),[0,0],[2,0],duration_sec=60)
+ assert r['tip_count']==0 and r['fall_outcome_unknown']
+ assert r['ranking_fall_count_upper_bound']==1
+ assert ranking_key(r)>ranking_key(dict(r,complete=True,fall_outcome_unknown=False,ranking_fall_count_upper_bound=0))

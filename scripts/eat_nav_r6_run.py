@@ -148,7 +148,7 @@ def stage_runtime(container,root):
 def validate_collected_group(folder,expected):
     """A missing physical anchor masks this group, not its batch peers."""
     folder=Path(folder);meta=read(folder/'group.json')
-    if any(meta.get(k)!=expected.get(k) for k in ('group_id','seed','role')):raise ValueError('collected group identity mismatch')
+    if any(meta.get(k)!=expected.get(k) for k in ('group_id','seed','role','field','level','scene','tile_index') if k in expected):raise ValueError('collected group identity mismatch')
     available=0
     for slot in range(14):
         branch=folder/f'candidate-{slot:02d}';record=read(branch/'complete.json');trace=branch/'trace.jsonl'
@@ -228,7 +228,9 @@ def pack_collection(plan,collection_root,output,reuse_dataset=None):
         if gid not in expected:raise ValueError('unexpected collected group')
         if gid in observed:raise ValueError('duplicate group attempt; explicit selection required')
         frozen=expected[gid]
-        if meta['role']!=frozen['role'] or meta['seed']!=frozen['seed']:raise ValueError('collected/frozen identity mismatch')
+        if any(meta.get(k)!=frozen.get(k) for k in ('role','seed','field','level','scene','tile_index') if k in frozen):raise ValueError('collected/frozen identity mismatch')
+        terrain=meta.get('terrain',{})
+        if terrain.get('terrain_type')!=frozen.get('field') or terrain.get('terrain_level')!=frozen.get('level'):raise ValueError('actual/frozen terrain identity mismatch')
         observed[gid]=path.parent
     for gid,frozen in expected.items():
         folder=observed.get(gid)
@@ -247,7 +249,9 @@ def pack_collection(plan,collection_root,output,reuse_dataset=None):
         if not candidates:
             audit.append(dict(group_id=gid,state='no_actual_branch_observation',unknown_candidates=14));continue
         packed,contacts=pack_group(initial,candidates);samples.append(packed)
-        index.append(dict(frozen,sample_id=gid,episode_group=frozen['parent_batch_id'],terrain_seed=frozen['seed'],contact_metadata=contacts,source=str(folder)))
+        source_manifest=read(folder.parent/'manifest.json')
+        source_input_contract=dict(dem_ray_origin_height_m=source_manifest.get('dem_ray_origin_height_m',.3),horizontal_extent_m=2.,resolution_m=.1,history_nominal_interval_sec=.25,source_manifest_sha256=sha(folder.parent/'manifest.json'))
+        index.append(dict(frozen,source_input_contract=source_input_contract,**{key:read(folder/'group.json').get(key) for key in ('observed_contact_before_anchor','prefix_contact_observation_complete','pre_anchor_contact_observation_scope','anchor_available')},sample_id=gid,episode_group=frozen['parent_batch_id'],terrain_seed=frozen['seed'],contact_metadata=contacts,source=str(folder)))
         audit.append(dict(group_id=gid,state='included',unknown_candidates=14-len(candidates)))
     if reuse_dataset:
         reuse=Path(reuse_dataset);oldindex=read(reuse/'sample-index.json')

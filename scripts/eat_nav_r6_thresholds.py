@@ -34,6 +34,7 @@ def main():
     freeze.add_argument('--profiles',required=True,type=Path,help='derive output index.json')
     freeze.add_argument('--evaluations',required=True,type=Path,help='validation summary rows, JSON or JSONL')
     freeze.add_argument('--output',required=True,type=Path)
+    freeze.add_argument('--evaluation-binding',required=True,type=Path)
     args=parser.parse_args()
     if args.output.exists():raise FileExistsError('refusing to replace '+str(args.output))
     if args.command=='derive':
@@ -52,9 +53,19 @@ def main():
     else:
         profile_index=read(args.profiles)
         if profile_index.get('status')!='derived':raise ValueError('profiles must be successfully derived')
-        result=freeze_top_three(profile_index['profiles'],read(args.evaluations))
+        summary=read(args.evaluations);binding=read(args.evaluation_binding)
+        if summary.get('schema')!='eatnav_r6_queue_summary_v1' or summary.get('split')!='validation' or not summary.get('all_jobs_completed'):raise ValueError('completed actual validation queue required')
+        cells=summary.get('matched_cell_counts',{})
+        planned=summary.get('planned_cell_counts',{})
+        if len(planned)!=35 or min(planned.values())<30 or len(cells)!=35 or min(cells.values())<1:raise ValueError('30planned trials per cell and positive matched valid support in all35cells required')
+        if binding.get('role')!='validation' or binding.get('model_sha256')!=profile_index.get('model_sha256'):raise ValueError('validation/profile model binding mismatch')
+        result=freeze_top_three(profile_index['profiles'],summary['selection_rows'])
+        result['comparison_profiles']={c['id']:c['profile'] for c in binding['conditions'] if c['id'] in ('event_2s','combined')}
+        result['evaluation_source_sha256']=binding['source_sha256']
+        result['model_sha256']=binding['model_sha256'];result['cohort_sha256']=binding['cohorts_sha256'];result['matched_trials']=summary['matched_initial_valid_trials']
         # Freeze digest covers all selection inputs and exact profile parameters.
-        result['input_files']={str(p.resolve()):digest(p) for p in (args.profiles,args.evaluations)}
+        result['sample_support_note']='30planned trials per field/level; initialization-invalid/missing excluded on the same paired cohort, actual denominators and CIs reported; no conclusive safety claim'
+        result['input_files']={str(p.resolve()):digest(p) for p in (args.profiles,args.evaluations,args.evaluation_binding)}
         result.pop('freeze_sha256')
         result['freeze_sha256']=hashlib.sha256(json.dumps(result,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         args.output.parent.mkdir(parents=True,exist_ok=True)

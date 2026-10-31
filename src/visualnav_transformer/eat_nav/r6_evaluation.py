@@ -43,7 +43,7 @@ def summarize_trial(rows,initial_xy,goal_xy,*,duration_sec=60.,goal_reached_time
     stop=sum(bool(r.get('protective_stop')) for r in rows)*DT;hold=sum(bool(r.get('goal_hold')) for r in rows)*DT
     return dict(schema='eatnav_r6_fixed_duration_trial_metrics_v1',duration_sec=float(duration_sec),observed_sec=observed,
         residual_unavailable_sec=residual,residual_policy=RESIDUAL_POLICY,complete=residual<1e-8,
-        tip_count=tips,near_fall_count=near,protective_stop_sec=stop,goal_hold_sec=hold,
+        tip_count=tips,fall_outcome_unknown=bool(residual>1e-8 and tips==0),ranking_fall_count_upper_bound=int(tips or residual>1e-8),near_fall_count=near,protective_stop_sec=stop,goal_hold_sec=hold,
         all_zero_command_sec=sum(np.max(np.abs(r['follower_command']))<=1e-12 for r in rows)*DT,
         ranking_STOP_upper_bound_sec=stop+residual,route_progress_m=progress,route_progress_definition='sum signed changes in clamped arc on fixed initial-to-2m-goal line',
         physical_distance_m=distance,net_goal_approach_m=length-float(np.linalg.norm(goal-last)),goal_distance_m=float(np.linalg.norm(goal-last)),
@@ -60,7 +60,7 @@ def ranking_key(metrics,scales=None):
     scales=scales or {name:1. for name in names}
     if any(not math.isfinite(scales[name]) or scales[name]<=0 for name in names):raise ValueError('positive frozen validation scales required')
     third=sum((-1 if name=='route_progress_m' else 1)*metrics[name]/scales[name] for name in names)/5
-    return (metrics['tip_count'],metrics['ranking_STOP_upper_bound_sec'],third)
+    return (max(metrics['tip_count'],metrics.get('ranking_fall_count_upper_bound',metrics['tip_count'])),metrics['ranking_STOP_upper_bound_sec'],third)
 
 
 def aggregate_trials(trials):
@@ -69,8 +69,9 @@ def aggregate_trials(trials):
     for row in trials:groups.setdefault((row['field'],row['level']),[]).append(row)
     fields=('protective_stop_sec','goal_hold_sec','route_progress_m','physical_distance_m','net_goal_approach_m','linear_windows','turn_windows','linear_stall_sec','turn_stall_sec','residual_unavailable_sec','ranking_STOP_upper_bound_sec')
     def summarise(rows):
-        n=len(rows);tips=sum(r['tip_count'] for r in rows)
-        return dict(trials=n,tip_count=tips,tip_rate=tips/n,tip_rate_wilson95=wilson(tips,n),
+        n=len(rows);tips=sum(r['tip_count'] for r in rows);unknown=sum(bool(r.get('fall_outcome_unknown',False)) for r in rows)
+        lower=wilson(tips,n);upper=wilson(min(n,tips+unknown),n)
+        return dict(trials=n,tip_count=tips,tip_rate=tips/n,tip_rate_wilson95=[lower[0],upper[1]],fall_outcome_unknown_trials=unknown,ranking_fall_count_upper_bound=tips+unknown,tip_rate_lower_bound=tips/n,tip_rate_upper_bound=(tips+unknown)/n,
             goal_reached_count=sum(r['goal_reached'] for r in rows),incomplete_trials=sum(not r['complete'] for r in rows),
             **{'mean_'+name:float(np.mean([r[name] for r in rows])) for name in fields})
     cells={f'{field}/level{level}':summarise(rows) for (field,level),rows in groups.items()}

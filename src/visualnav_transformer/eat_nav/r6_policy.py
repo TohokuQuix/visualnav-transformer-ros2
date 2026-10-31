@@ -45,7 +45,7 @@ def longitudinal_geometry(distance,height,min_tread_m=.2,flatness_m=.04):
 
     One native-cell longitudinal profile, with elevations in metres. A single
     transition is conservatively classified wall; two stable-tread-separated
-    transitions classify stairs. A DEM cannot establish hidden footholds.
+    consecutive same-direction transitions classify stairs. A DEM cannot establish hidden footholds.
     """
     x=np.asarray(distance,float);z=np.asarray(height,float)
     if x.ndim!=1 or z.shape!=x.shape or len(x)<2 or not np.isfinite(x).all() or not np.isfinite(z).all() or not (np.diff(x)>0).all():
@@ -59,18 +59,23 @@ def longitudinal_geometry(distance,height,min_tread_m=.2,flatness_m=.04):
         if x[end-1]-x[start]+spacing>=min_tread_m-1e-10:
             runs.append((start,end-1,float(np.median(z[start:end]))))
         start=end
-    transitions=[]
+    transitions=[];signed_transitions=[]
     for a,b in zip(runs[:-1],runs[1:]):
         between=np.abs(np.diff(z[a[1]:b[0]+1]))
         # At least one change steeper than the tolerance per native cell.
         if len(between) and between.max()>flatness_m+1e-9:
-            transitions.append(abs(b[2]-a[2]))
+            transitions.append(abs(b[2]-a[2]));signed_transitions.append(b[2]-a[2])
     # Missing stable landing cannot erase a rising/falling edge.
     unresolved=[float(abs(z[i+1]-z[i])) for i in range(len(z)-1)
                 if abs(z[i+1]-z[i])>flatness_m+1e-9]
     maximum=max(transitions+unresolved+[0.])
-    kind='stairs' if len(transitions)>=2 else ('wall' if maximum>0 else 'flat_or_ramp')
-    return dict(kind=kind,max_step_m=maximum,stable_tread_count=len(runs),riser_count=len(transitions),
+    same_direction_run=longest_run=0;previous_sign=0
+    for transition in signed_transitions:
+        sign=1 if transition>0 else -1
+        same_direction_run=same_direction_run+1 if sign==previous_sign else 1
+        longest_run=max(longest_run,same_direction_run);previous_sign=sign
+    kind='stairs' if longest_run>=2 else ('wall' if maximum>0 else 'flat_or_ramp')
+    return dict(kind=kind,max_step_m=maximum,stable_tread_count=len(runs),riser_count=len(transitions),max_same_direction_risers=longest_run,
                 tread_depths_m=[float(x[b]-x[a]+spacing) for a,b,_ in runs],
                 height_range_m=float(np.ptp(z)))
 
@@ -87,6 +92,8 @@ def _dense_pose(trajectory,spacing=.04):
 
 def swept_geometry(dem,trajectory,footprint,min_tread_m=.2):
     dem=np.asarray(dem,float);height,valid=dem
+    if np.any(np.abs(np.asarray(trajectory)[:,:2])>=1.):
+        return dict(coverage=0.,coverage_is_lower_bound=True,unknown=True,max_step_m=0.,geometry_kind='unknown',clearance_m=None,stable_tread_count=0,height_range_m=None,reason='predicted centreline leaves fixed2m map; reject before dense allocation')
     path=_dense_pose(trajectory)
     # Extend both ends for reversals and stopping uncertainty. Dimensions already
     # include flippers. Native raster cell areas are [-1,1) metres on both axes.
@@ -102,12 +109,17 @@ def swept_geometry(dem,trajectory,footprint,min_tread_m=.2):
     known=inside&(valid[ri,ci]==1)&np.isfinite(height[ri,ci])
     # Unique cells prevent long dwell times from diluting an unknown corridor.
     unique=np.unique(np.stack([rows.ravel(),cols.ravel()],1),axis=0)
-    cell_known=[]
-    for row,col in unique:
-        cell_known.append(0<=row<20 and 0<=col<20 and valid[np.clip(row,0,19),np.clip(col,0,19)]==1 and np.isfinite(height[np.clip(row,0,19),np.clip(col,0,19)]))
+    ur,uc=unique.T
+    clipped_r=np.clip(ur,0,19);clipped_c=np.clip(uc,0,19)
+    cell_known=(ur>=0)&(ur<20)&(uc>=0)&(uc<20)&(valid[clipped_r,clipped_c]==1)&np.isfinite(height[clipped_r,clipped_c])
     result=dict(coverage=float(np.mean(cell_known)),unknown=not bool(known.all()),max_step_m=0.,geometry_kind='unknown',
                 clearance_m=None,stable_tread_count=0,height_range_m=None)
     if not known.all():return result
+    if np.isfinite(height).all() and np.ptp(height)<=.04 and footprint.front_m+footprint.rear_m+2*footprint.stopping_margin_m>=.2:
+        # Exact no-riser shortcut: every native-cell profile has at most one
+        # stable tread and no edge above flatness tolerance.
+        result.update(geometry_kind='flat_or_ramp',stable_tread_count=1,height_range_m=float(np.ptp(height[ri,ci],axis=-1).max()))
+        return result
     # Use native cell transitions on longitudinal footprint rays, avoiding
     # oversampling making a .20m tread appear shorter. Classify across all rays.
     geometries=[]
@@ -155,6 +167,29 @@ def select_candidate(trajectory,event_probs,dem,goal_body,profile,*,footprint,mo
     if trajectory_times_sec is not None and not np.allclose(trajectory_times_sec,np.arange(1,21)/10):raise ValueError('trajectory times must be .1..2.0 seconds')
     if not isinstance(footprint,Footprint):raise ValueError('measured Footprint required')
     t,p,d,goal=_validate_predictions(trajectory,event_probs,dem,goal_body)
+    mask=np.ones(14,bool) if candidate_mask is None else np.asarray(candidate_mask)
+    if mask.shape!=(14,) or not np.isin(mask,[False,True]).all():raise ValueError('binary fourteen-candidate mask required')
+    tread=float(profile.get('min_tread_m',.2))
+    if not math.isfinite(tread) or tread<=0:raise ValueError('positive finite tread geometry definition required')
+    features=dict(schema='eatnav_r6_policy_features_v1',candidate_mask=mask.tolist(),min_tread_m=tread,
+        footprint=dict(front_m=footprint.front_m,rear_m=footprint.rear_m,half_width_m=footprint.half_width_m,stopping_margin_m=footprint.stopping_margin_m),
+        max_roll_deg=np.max(np.abs(np.degrees(np.arctan2(t[:,:,5],t[:,:,6]))),axis=1).tolist(),
+        max_pitch_deg=np.max(np.abs(np.degrees(np.arctan2(t[:,:,7],t[:,:,8]))),axis=1).tolist(),
+        event_probabilities=p.tolist(),geometry=[swept_geometry(d,t[i],footprint,min_tread_m=tread) for i in range(14)],
+        goal_progress_m=(np.linalg.norm(goal)-np.linalg.norm(goal[None]-t[:,-1,:2],axis=1)).tolist())
+    result=select_from_features(features,profile,mode=mode,event_support=event_support)
+    result['processing_sec']=time.perf_counter()-start
+    return result
+
+
+def select_from_features(features,profile,*,mode='pose',event_support=None):
+    """Apply thresholds to profile-independent features of the same actual input.
+
+    Used for exact stateless-policy equivalence checks; not a physical rollout.
+    Geometry definitions and stopping footprint must remain identical.
+    """
+    start=time.perf_counter()
+    if features.get('schema')!='eatnav_r6_policy_features_v1' or mode not in ('pose','event','hybrid'):raise ValueError('cached feature contract mismatch')
     for key in ('pitch_deg','roll_deg','step_cm'):
         if key not in profile or not math.isfinite(profile[key]) or profile[key]<=0:raise ValueError('positive explicit '+key+' threshold required')
     for kind,limit in profile.get('conditional_step_cm',{}).items():
@@ -167,15 +202,15 @@ def select_candidate(trajectory,event_probs,dem,goal_body,profile,*,footprint,mo
     thresholds=np.asarray(profile.get('event_thresholds',[.5]*4),float)
     if thresholds.shape!=(4,) or not np.isfinite(thresholds).all() or ((thresholds<0)|(thresholds>1)).any():raise ValueError('four event probability thresholds required')
     if mode in ('event','hybrid') and (event_support is None or len(event_support)!=4 or not all(event_support)):raise ValueError('event policy requires actual training support for all four 2-second heads')
-    mask=np.ones(14,bool) if candidate_mask is None else np.asarray(candidate_mask)
-    if mask.shape!=(14,) or not np.isin(mask,[False,True]).all():raise ValueError('binary fourteen-candidate mask required')
-    roll=np.max(np.abs(np.degrees(np.arctan2(t[:,:,5],t[:,:,6]))),axis=1)
-    pitch=np.max(np.abs(np.degrees(np.arctan2(t[:,:,7],t[:,:,8]))),axis=1)
-    reasons=[];geometries=[]
+    if tread!=features['min_tread_m'] or float(profile.get('stopping_margin_m',.06))!=features['footprint']['stopping_margin_m']:raise ValueError('cached footprint/tread contract differs')
+    mask=np.asarray(features['candidate_mask']);roll=np.asarray(features['max_roll_deg']);pitch=np.asarray(features['max_pitch_deg']);p=np.asarray(features['event_probabilities']);progress=np.asarray(features['goal_progress_m']);geometries=features['geometry']
+    if mask.shape!=(14,) or not np.isin(mask,[False,True]).all() or roll.shape!=(14,) or pitch.shape!=(14,) or p.shape!=(14,4) or progress.shape!=(14,) or len(geometries)!=14:raise ValueError('cached feature shape mismatch')
+    if not all(np.isfinite(a).all() for a in (roll,pitch,p,progress)) or ((p<0)|(p>1)).any():raise ValueError('nonfinite cached feature')
+    reasons=[]
     for i in range(14):
         why=[]
         if not mask[i]:why.append('candidate_unavailable')
-        geo=swept_geometry(d,t[i],footprint,min_tread_m=float(profile.get('min_tread_m',.2)));geometries.append(geo)
+        geo=geometries[i]
         if geo['unknown']:why.append('map_unknown')
         if mode in ('pose','hybrid'):
             if roll[i]+margin>=profile['roll_deg']:why.append('predicted_roll')
@@ -187,15 +222,13 @@ def select_candidate(trajectory,event_probs,dem,goal_body,profile,*,footprint,mo
         if mode in ('event','hybrid'):
             why.extend('event_'+name for name,prob,limit in zip(('tip_over','near_fall','linear_stall','turn_stall'),p[i],thresholds) if prob>=limit)
         reasons.append(why)
-    # Two-second endpoint goal progress only; no legacy ten-second progress.
-    progress=np.linalg.norm(goal)-np.linalg.norm(goal[None]-t[:,-1,:2],axis=1)
     allowed=np.array([not why for why in reasons])
     selected=int(np.argmax(np.where(allowed,progress,-np.inf))) if allowed.any() else None
     return dict(schema=POLICY_SCHEMA,mode=mode,profile_id=profile.get('id'),selected_index=selected,stop=selected is None,
         reasons=reasons,excluded=(~allowed).tolist(),coverage=[x['coverage'] for x in geometries],
         clearance_m=[x['clearance_m'] for x in geometries],geometry=geometries,
         max_predicted_roll_deg=roll.tolist(),max_predicted_pitch_deg=pitch.tolist(),
-        predicted_goal_progress_m=progress.tolist(),processing_sec=time.perf_counter()-start)
+        predicted_goal_progress_m=progress.tolist(),processing_sec=time.perf_counter()-start,policy_features=features)
 
 
 def _support(rows):
@@ -253,6 +286,7 @@ def derive_profiles(records,min_samples=30,min_success=10,min_failure=5):
                 roll_deg=quantile_threshold(rows,'max_abs_roll_deg',qr),step_cm=quantile_threshold(rows,'step_cm',qs),
                 conditional_step_cm=conditional_limits,quantiles=dict(pitch=qp,roll=qr,step=qs),
                 tilt_margin_deg=0.,uncertainty_margin_status='none; prediction-error margin requires separate validation fit',
+                stopping_margin_m=.06,stopping_margin_source='fixed geometric padding; not an empirically measured real braking distance',geometry_definition=dict(flatness_tolerance_m=.04,min_same_direction_risers=2,native_resolution_m=.1),
                 min_tread_m=.2,tread_rule_source='explicit geometry definition, not a learned traversability threshold',
                 event_thresholds=[.5]*4,event_threshold_source='uncalibrated probability comparator; must compare on validation',
                 source=source.copy())
@@ -277,6 +311,8 @@ def rank_validation(rows,scales=None):
     for row in rows:
         if row.get('split')!='validation':raise ValueError('ranking/freezing accepts validation only')
         if not isinstance(row['fall_count'],(int,np.integer)) or not 0<=row['fall_count']<=row['trials']:raise ValueError('valid fall count required')
+        upper=row.get('ranking_fall_count_upper_bound',row['fall_count'])
+        if not isinstance(upper,(int,np.integer)) or not row['fall_count']<=upper<=row['trials']:raise ValueError('valid censored-fall upper bound required')
         for name in ('mean_stop_sec',)+METRICS:
             if not math.isfinite(row[name]):raise ValueError('finite evaluation metrics required')
     if scales is None:
@@ -287,9 +323,9 @@ def rank_validation(rows,scales=None):
         normalized={k:(row[k]-scales[k]['origin'])/scales[k]['scale'] for k in METRICS}
         score=(-normalized['mean_progress_m']+sum(normalized[k] for k in METRICS[1:]))/5
         result.append(dict(row,third_priority_score=score,normalized_third_metrics=normalized,
-                           fall_rate=row['fall_count']/row['trials'],fall_rate_wilson95=wilson(row['fall_count'],row['trials'])))
-    result.sort(key=lambda r:(r['fall_count'],r['mean_stop_sec'],r['third_priority_score'],r['id']))
-    return dict(ranking=result,scales=scales,third_metric_weights={k:.2 for k in METRICS},priority=['fall_count','mean_stop_sec','third_priority_score'])
+                           fall_rate=row['fall_count']/row['trials'],fall_rate_wilson95=[wilson(row['fall_count'],row['trials'])[0],wilson(row.get('ranking_fall_count_upper_bound',row['fall_count']),row['trials'])[1]]))
+    result.sort(key=lambda r:(r.get('ranking_fall_count_upper_bound',r['fall_count']),r['mean_stop_sec'],r['third_priority_score'],r['id']))
+    return dict(ranking=result,scales=scales,third_metric_weights={k:.2 for k in METRICS},priority=['fall_count_upper_bound_for_censored_trials','mean_stop_sec','third_priority_score'])
 
 
 def freeze_top_three(profiles,evaluations):

@@ -1,0 +1,15 @@
+{
+  "schema": "eatnav_r6_evaluation_censor_policy_v1",
+  "frozen_before_production_evaluation": true,
+  "duration_sec": 60,
+  "target_distance_m": 2,
+  "initialization_invalid": "exclude same group from all condition ranking cohorts; retain planned and observed denominators",
+  "observed_tip_count": "85deg or explicit tilt_over; report measured count separately",
+  "non_tip_early_termination": "remaining fall outcome unknown; never credit as a completed nonfall",
+  "ranking_first_priority": "observed_tip_count plus unknown-fall-trial count (conservative upper bound); equals measured count when no censoring",
+  "ranking_second_priority": "mean protective STOP total plus residual unavailable seconds",
+  "third_priority": "equal validation-scaled progress, linear/turn window counts and seconds",
+  "reporting": "measured falls, unknown counts, rate lower/upper bounds, conservative Wilson interval, observed STOP and ranking STOP separately",
+  "paired_initialization_tolerance": {"atol": 0.00001, "rtol": 0},
+  "uncertainty": "bounds handle unavailable outcomes; they do not assert an unobserved fall happened"
+}
