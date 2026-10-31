@@ -1,0 +1,35 @@
+{
+  "reviewer": "independent_agent:/root/r6_preproduction_review",
+  "reviewed_base": "4dc17d8ec5c3ddeb5fa206460081aa1449d67c8a",
+  "reviewed_head": "c6ae47ab9e52b68123ff9624ceffceffbc4611dd",
+  "scope": "read-only source review before expensive full validation; final scientific outcomes and push pending",
+  "findings": [
+    {
+      "severity": "P1",
+      "issue": "Test queue accepted an unverified freeze digest/model/source; bag planner did not bind frozen implementation.",
+      "reproduction": "No-launch test queue accepted deliberately invalid digest, wrong model and policy hashes.",
+      "fix": "Verify digest/schema/top3/model/full execution-source before test and bag, plus validation/test batch capacity.",
+      "regressions": [
+        "test_frozen_test_rejects_tamper_model_and_policy_before_simulation",
+        "test_test_queue_rejects_bogus_freeze_before_writing_binding"
+      ]
+    },
+    {
+      "severity": "P2",
+      "issue": "Resume identity whitelist omitted transitive executed dependencies such as DEM/config/R5 modules.",
+      "fix": "Freeze complete source tree, all staged eat_nav scripts, configuration, actor assets and old reference index.",
+      "regressions": [
+        "test_staged_transitive_sources_and_reference_index_are_bound",
+        "test_validation_queue_rejects_changed_transitive_source_on_resume"
+      ]
+    }
+  ],
+  "fix_test_result": "87 R6 tests passed in 7.53 seconds",
+  "reviewer_fix_recheck": "Both findings resolved; independent reviewer ran7provenance/planner/queue tests; no new blocker, ready for full evaluation conditional on full regressions (87passed).",
+  "declined_to_judge": [
+    "Final validation/test rankings and bag conclusions are pending",
+    "Physical robot safety and independently measured dimensions are outside this offline execution",
+    "Final report/push are pending deliverables",
+    "Aggregate presentation fields pending final reporting; raw metrics retained"
+  ]
+}

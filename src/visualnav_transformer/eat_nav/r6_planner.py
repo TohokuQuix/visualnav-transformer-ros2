@@ -7,13 +7,11 @@ from pathlib import Path
 import numpy as np
 from .r6_model import load_checkpoint,predict
 from .r6_policy import Footprint,select_candidate
+from .r6_provenance import verified_freeze_data,verify_execution_freeze,runtime_source_hashes
 
 
 def verified_freeze(path):
- frozen=json.loads(Path(path).read_text());digest=frozen.pop('freeze_sha256',None)
- actual=hashlib.sha256(json.dumps(frozen,sort_keys=True,separators=(',',':')).encode()).hexdigest()
- if digest!=actual or frozen.get('schema')!='eatnav_r6_frozen_top_three_v1' or frozen.get('source')!='validation_only':raise ValueError('frozen selection digest/source mismatch')
- frozen['freeze_sha256']=digest;return frozen
+ return verified_freeze_data(json.loads(Path(path).read_text()))
 
 
 class R6Planner:
@@ -22,8 +20,7 @@ class R6Planner:
   if hashlib.sha256(Path(checkpoint).read_bytes()).hexdigest()!=expected_sha256:raise ValueError('checkpoint SHA mismatch')
   self.model,self.payload=load_checkpoint(checkpoint)
   if not self.model.use_dem:raise ValueError('state-only diagnostic model is not deployable R6 predictor')
-  frozen=verified_freeze(frozen_selection)
-  if frozen.get('model_sha256')!=expected_sha256:raise ValueError('frozen profile/model binding mismatch')
+  frozen=verify_execution_freeze(verified_freeze(frozen_selection),expected_sha256,runtime_source_hashes(Path(__file__).resolve().parents[3]))
   self.profile=frozen['profiles'][rank-1];self.mode=mode;self.frozen_sha=frozen['freeze_sha256']
  def select(self,arrays,goal_body,*,measured_footprint):
   if not isinstance(measured_footprint,Footprint):raise ValueError('measured real body/flipper footprint required')

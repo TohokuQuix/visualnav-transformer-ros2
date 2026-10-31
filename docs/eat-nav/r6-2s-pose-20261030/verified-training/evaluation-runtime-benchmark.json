@@ -1,0 +1,40 @@
+{
+  "gui": false,
+  "measurements": [
+    {
+      "driver_memory_total_bytes": 16718168064,
+      "driver_memory_used_bytes": 5228789760,
+      "host_rows_per_second": 4.39214508161273,
+      "host_total_sec": 45.53583642700687,
+      "initialization_valid": 5,
+      "loop_rows_per_second": 10.296589805553918,
+      "memory_fraction": 0.31276092811026307,
+      "num_envs": 10,
+      "passed": true,
+      "recorded_rows": 200,
+      "scope": "2simulatedseconds integration/performance probe, not a60s outcome trial",
+      "simulator_loop_sec": 19.42390672804322
+    },
+    {
+      "driver_memory_total_bytes": 16718168064,
+      "driver_memory_used_bytes": 5503516672,
+      "host_rows_per_second": 6.488095033898098,
+      "host_total_sec": 86.31192932196427,
+      "initialization_valid": 14,
+      "loop_rows_per_second": 15.153337834409749,
+      "memory_fraction": 0.32919376398966677,
+      "num_envs": 30,
+      "passed": true,
+      "recorded_rows": 560,
+      "scope": "2simulatedseconds integration/performance probe, not a60s outcome trial",
+      "simulator_loop_sec": 36.9555543550523
+    }
+  ],
+  "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+  "parent_geometry_and_difficulty_capacity_invariant": true,
+  "passed": true,
+  "schema": "eatnav_r6_evaluation_runtime_benchmark_v1",
+  "selected_num_envs": 30,
+  "selection": "actual host throughput improvement>5% and driverVRAM<85%; fixed seed cohort unchanged",
+  "source_binding_sha256": "43719f85d9d480cd0bf73037e069bf2983a6c615af43a8bec57f1365ebc57e11"
+}

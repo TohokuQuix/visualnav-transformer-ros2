@@ -1,0 +1,30 @@
+{
+  "schema": "eatnav_r6_checkpoint_package_v1",
+  "status": "training_verified_closed_loop_evaluation_pending",
+  "models": [
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/model_seed123.pt",
+      "sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+      "role": "DEM_and_state",
+      "model_seed": 123
+    },
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/state_only_seed123.pt",
+      "sha256": "f73c665080c3f95f48b5c1de9dd1891546094bdba24c9aa09c6fc0103ce09aa9",
+      "role": "state_only_diagnostic",
+      "model_seed": 123
+    }
+  ],
+  "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+  "dataset_source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-merged-dataset",
+  "dataset_groups": 979,
+  "training_groups": 519,
+  "validation_groups": 460,
+  "candidate_branches": 13706,
+  "real_robot_commands_sent": false,
+  "limitations": [
+    "Validation has no tip_over or near_fall positive candidates; recall/AP not established",
+    "State-only diagnostic does not establish a DEM accuracy advantage",
+    "Frozen top3 and closed-loop results remain pending; no deployment safety claim"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "verified": true,
+  "models": [
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/model_seed123.pt",
+      "sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+      "events_shape": [
+        1,
+        14,
+        4
+      ],
+      "trajectory_shape": [
+        1,
+        14,
+        20,
+        9
+      ],
+      "all_outputs_finite": true,
+      "active_heads": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "cpu_mean_inference_sec": 0.0004749847343191504,
+      "timing_scope": "single14candidate model inference only; excludes sensor, geometry and planner"
+    },
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/state_only_seed123.pt",
+      "sha256": "f73c665080c3f95f48b5c1de9dd1891546094bdba24c9aa09c6fc0103ce09aa9",
+      "events_shape": [
+        1,
+        14,
+        4
+      ],
+      "trajectory_shape": [
+        1,
+        14,
+        20,
+        9
+      ],
+      "all_outputs_finite": true,
+      "active_heads": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "cpu_mean_inference_sec": 0.0003709552926011384,
+      "timing_scope": "single14candidate model inference only; excludes sensor, geometry and planner"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ from visualnav_transformer.eat_nav.r6_evaluation import aggregate_trials
 from visualnav_transformer.eat_nav.r6_model import load_checkpoint
 from eat_nav_r6_shadow import choice_equivalence
 from eat_nav_r6_storage import verify_copied_tree,compress_traces,remove_verified_scratch
+from visualnav_transformer.eat_nav.r6_provenance import runtime_source_hashes,verify_execution_freeze
 
 
 def evaluation_jobs(groups,conditions,n=10):
@@ -89,10 +90,11 @@ def summarize_queue(jobs,ledger,output,role):
 def run_queue(plan,checkpoint,profile_index,output,role,*,frozen=None,max_jobs=None,container='isaac-lab-onix',timeout_sec=2400,num_envs=10):
  output=Path(output);output.mkdir(parents=True,exist_ok=True)
  conditions=conditions_for(profile_index,role,frozen);jobs=evaluation_jobs(plan[role+'_rollouts'],conditions,n=num_envs)
- critical_sources=[REPO/'src/visualnav_transformer/eat_nav'/name for name in ('r6_model.py','r6_policy.py','r6_geometry.py','r6_evaluation.py','r6_targets.py','fall_stall_targets.py','demo_isaac_env_cfg.py','demo_terrain.py','demo_reset_policy.py','bidirectional_bank.py','mi_fi_v1.py','p1_follower_core.py','p1_follower_core.cpp','p1_g3_rosfree_control.py','phase_c_sim.py')]
- critical_sources.extend(REPO/'scripts'/name for name in ('eat_nav_r6_eval_sim.py','eat_nav_r6_collection.py','eat_nav_r4_star14.py','eat_nav_r5_14.py','eat_nav_all_fields.py','eat_nav_command_free_learning.py'))
- critical_sources.extend([REPO/'config/eat_nav.yaml',REPO/'config/eat_nav/r6/evaluation-censor-policy.json',REPO/'checkpoints/eat_nav/rl_actor/model_10000.pt',REPO/'checkpoints/eat_nav/rl_actor/env.yaml'])
- identity=dict(schema='eatnav_r6_evaluation_binding_v1',source_sha256={str(p.relative_to(REPO)):sha(p) for p in critical_sources},execution_num_envs=num_envs,cohorts_sha256=hashlib.sha256(json.dumps(plan[role+'_rollouts'],sort_keys=True).encode()).hexdigest(),model_sha256=sha(checkpoint),role=role,conditions=conditions,frozen_selection=frozen['freeze_sha256'] if frozen else None)
+ sources=runtime_source_hashes(REPO)
+ if role=='test':
+  frozen=verify_execution_freeze(frozen,sha(checkpoint),sources)
+  if frozen.get('execution_num_envs')!=num_envs:raise ValueError('frozen evaluation capacity mismatch')
+ identity=dict(schema='eatnav_r6_evaluation_binding_v1',source_sha256=sources,execution_num_envs=num_envs,cohorts_sha256=hashlib.sha256(json.dumps(plan[role+'_rollouts'],sort_keys=True).encode()).hexdigest(),model_sha256=sha(checkpoint),role=role,conditions=conditions,frozen_selection=frozen['freeze_sha256'] if frozen else None)
  if (output/'frozen-binding.json').exists() and read(output/'frozen-binding.json')!=identity:raise ValueError('frozen queue binding changed')
  write(output/'frozen-binding.json',identity);write(output/'jobs.json',jobs)
  progress=output/'progress.json';ledger=read(progress) if progress.exists() else {}

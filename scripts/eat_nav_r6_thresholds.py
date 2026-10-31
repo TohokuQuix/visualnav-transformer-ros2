@@ -62,6 +62,7 @@ def main():
         result=freeze_top_three(profile_index['profiles'],summary['selection_rows'])
         result['comparison_profiles']={c['id']:c['profile'] for c in binding['conditions'] if c['id'] in ('event_2s','combined')}
         result['evaluation_source_sha256']=binding['source_sha256']
+        result['execution_num_envs']=binding['execution_num_envs']
         result['model_sha256']=binding['model_sha256'];result['cohort_sha256']=binding['cohorts_sha256'];result['matched_trials']=summary['matched_initial_valid_trials']
         # Freeze digest covers all selection inputs and exact profile parameters.
         result['sample_support_note']='30planned trials per field/level; initialization-invalid/missing excluded on the same paired cohort, actual denominators and CIs reported; no conclusive safety claim'
