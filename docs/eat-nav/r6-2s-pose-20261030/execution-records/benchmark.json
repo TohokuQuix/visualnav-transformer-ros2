@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "selected_num_envs": 10,
+  "measurements": [
+    {
+      "num_envs": 1,
+      "rows": 40,
+      "rows_per_second": 4.500567080020467,
+      "peak_torch_vram_bytes": 16261120,
+      "gpu_memory_free_total_bytes": [
+        11860574208,
+        16718168064
+      ],
+      "path": "/tmp/eatnav-r6-collector-evidence/bench-v2-1/complete.json",
+      "sha256": "15472b68065469b22fa6c16c962eeaab09ae517bfcaaf9cf8c52c79c529c2ac8"
+    },
+    {
+      "num_envs": 2,
+      "rows": 80,
+      "rows_per_second": 8.242786622014789,
+      "peak_torch_vram_bytes": 16339456,
+      "gpu_memory_free_total_bytes": [
+        11827019776,
+        16718168064
+      ],
+      "path": "/tmp/eatnav-r6-collector-evidence/bench-v2-2/complete.json",
+      "sha256": "986ad5d19fdbbd09ab43ed956c04ef98faaaffb658c0b0c95f91e08cd49d29d2"
+    },
+    {
+      "num_envs": 5,
+      "rows": 200,
+      "rows_per_second": 17.46154294565524,
+      "peak_torch_vram_bytes": 16623616,
+      "gpu_memory_free_total_bytes": [
+        11726356480,
+        16718168064
+      ],
+      "path": "/tmp/eatnav-r6-collector-evidence/bench-v2-5/complete.json",
+      "sha256": "87b340c2209e87d6db4e8b3f5472ebcf05464de7af1b368323b079e972bd3606"
+    },
+    {
+      "num_envs": 10,
+      "rows": 400,
+      "rows_per_second": 31.238866792623472,
+      "peak_torch_vram_bytes": 17095168,
+      "gpu_memory_free_total_bytes": [
+        11321606144,
+        16718168064
+      ],
+      "path": "/tmp/eatnav-r6-collector-evidence/bench-v2-10/complete.json",
+      "sha256": "3fa316c1521605b00e00432f5fe0c6ae1f1419dd86950549085da4488fb5fde1"
+    }
+  ],
+  "post_independent_mask_revision_two_env_probe": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/runtime-preflight-independent",
+  "scope": "Benchmark prototypes plus subsequent independent-mask/contact-source 2envprobe. First full production cohort is also the final full14\u00d710 integration gate before continuation.",
+  "gui": false
+}

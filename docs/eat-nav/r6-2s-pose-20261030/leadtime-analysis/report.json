@@ -1,0 +1,1055 @@
+{
+  "candidate_records": 6440,
+  "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+  "limitations": [
+    "Correlated14branches/sharedparentgroups; descriptive CIs only",
+    "One prediction per independent anchor, not earliest detection on a continuous physical episode",
+    "Stall confirmation lead is not physical stall onset lead",
+    "Contact phase remains unknown if full pre-anchor instrumentation was unavailable",
+    "Unknown map exclusion is not counted as successful risk anticipation"
+  ],
+  "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+  "schema": "eatnav_r6_anchor_leadtime_v1",
+  "source_records_sha256": "df8a0488e650cd9b9afda50951f312b757135265a1930c2d38d74d0f6dc18039",
+  "split": "validation",
+  "summaries": {
+    "approach/after_observed_contact": {
+      "candidates": 14,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.2048815797482218,
+          "positive_candidates": 7,
+          "recall": 0.0,
+          "recall_wilson95": [
+            5.551115123125783e-17,
+            0.35433043506668743
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.00010579007669418518,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.00023017789083366682,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 2,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.013730959966778755,
+            0.053596538957208395,
+            0.09346211794763803,
+            0.13332769693806767,
+            0.17319327592849731
+          ],
+          "known_candidates": 14,
+          "mean_probability": 0.2480751666173871,
+          "positive_candidates": 2,
+          "recall": 1.0,
+          "recall_wilson95": [
+            0.34238022750665303,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 2
+        }
+      },
+      "source_groups": 1
+    },
+    "approach/contact_phase_unknown": {
+      "candidates": 126,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.03462594017268173,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.0003867998285343111,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.0006291295458285031,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 1,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.06236966326832771,
+            0.06236966326832771,
+            0.06236966326832771,
+            0.06236966326832771,
+            0.06236966326832771
+          ],
+          "known_candidates": 126,
+          "mean_probability": 0.1570505097056628,
+          "positive_candidates": 2,
+          "recall": 0.5,
+          "recall_wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ],
+          "warning_with_at_least_half_second_count": 1
+        }
+      },
+      "source_groups": 1
+    },
+    "diagonal/after_observed_contact": {
+      "candidates": 42,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 14,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.0063750785775482655,
+            0.027546444442123175,
+            0.03644104674458504,
+            0.05472685024142265,
+            0.07568728923797607
+          ],
+          "known_candidates": 42,
+          "mean_probability": 0.6515228762513116,
+          "positive_candidates": 14,
+          "recall": 1.0,
+          "recall_wilson95": [
+            0.7846891972623643,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 14
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.004040173704110896,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.005655621515740806,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.11668717569799421,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        }
+      },
+      "source_groups": 1
+    },
+    "diagonal/contact_phase_unknown": {
+      "candidates": 98,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 4,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.04436079040169716,
+            0.049145725555717945,
+            0.05074743181467056,
+            0.05133678764104843,
+            0.05308467149734497
+          ],
+          "known_candidates": 98,
+          "mean_probability": 0.14003466258695044,
+          "positive_candidates": 7,
+          "recall": 0.5714285714285714,
+          "recall_wilson95": [
+            0.2504583645276572,
+            0.8417801447485302
+          ],
+          "warning_with_at_least_half_second_count": 4
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 98,
+          "mean_probability": 0.002769440263642648,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 98,
+          "mean_probability": 0.0036465308334745527,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 3,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.054955486208200455,
+            0.05626343749463558,
+            0.05757138878107071,
+            0.061387453228235245,
+            0.06520351767539978
+          ],
+          "known_candidates": 98,
+          "mean_probability": 0.11583994391519215,
+          "positive_candidates": 4,
+          "recall": 0.75,
+          "recall_wilson95": [
+            0.30064184258240184,
+            0.9544127391902995
+          ],
+          "warning_with_at_least_half_second_count": 3
+        }
+      },
+      "source_groups": 1
+    },
+    "field/contact_phase_unknown": {
+      "candidates": 5180,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 2,
+          "already_tilted60_at_anchor_count": 14,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.028430236503481865,
+            0.030370527412742376,
+            0.03231081832200289,
+            0.0342511092312634,
+            0.03619140014052391
+          ],
+          "known_candidates": 5180,
+          "mean_probability": 0.08678985041338981,
+          "positive_candidates": 43,
+          "recall": 0.046511627906976744,
+          "recall_wilson95": [
+            0.012849260094380227,
+            0.15455498004063967
+          ],
+          "warning_with_at_least_half_second_count": 2
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 14,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 5180,
+          "mean_probability": 0.006114364959090472,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 14,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 5180,
+          "mean_probability": 0.0069643921174503565,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 50,
+          "already_tilted60_at_anchor_count": 14,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.03136301040649414,
+            0.05191341880708933,
+            0.07172058150172234,
+            0.18263345584273338,
+            0.4607064723968506
+          ],
+          "known_candidates": 5180,
+          "mean_probability": 0.14972645617004177,
+          "positive_candidates": 102,
+          "recall": 0.49019607843137253,
+          "recall_wilson95": [
+            0.3953140272637241,
+            0.5857897857195398
+          ],
+          "warning_with_at_least_half_second_count": 50
+        }
+      },
+      "source_groups": 47
+    },
+    "narrow/after_observed_contact": {
+      "candidates": 56,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 5,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.01922619715332985,
+            0.028983714058995247,
+            0.03586508333683014,
+            0.04449274018406868,
+            0.04907846823334694
+          ],
+          "known_candidates": 56,
+          "mean_probability": 0.6809468895995191,
+          "positive_candidates": 7,
+          "recall": 0.7142857142857143,
+          "recall_wilson95": [
+            0.35893445183261935,
+            0.9177810759959433
+          ],
+          "warning_with_at_least_half_second_count": 5
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 56,
+          "mean_probability": 0.019156868198608987,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 56,
+          "mean_probability": 0.03367827704265177,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 56,
+          "mean_probability": 0.18414155844012775,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        }
+      },
+      "source_groups": 1
+    },
+    "narrow/contact_phase_unknown": {
+      "candidates": 84,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 84,
+          "mean_probability": 0.24086906426492488,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 84,
+          "mean_probability": 0.0010882473064813137,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 84,
+          "mean_probability": 0.0017660723511476527,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 4,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.05419950187206268,
+            0.0542344069108367,
+            0.06090029142796993,
+            0.0924073401838541,
+            0.16696573793888092
+          ],
+          "known_candidates": 84,
+          "mean_probability": 0.16168266969422498,
+          "positive_candidates": 8,
+          "recall": 0.5,
+          "recall_wilson95": [
+            0.21521606221387757,
+            0.7847839377861224
+          ],
+          "warning_with_at_least_half_second_count": 4
+        }
+      },
+      "source_groups": 1
+    },
+    "one_sided/after_observed_contact": {
+      "candidates": 42,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 5,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.03505762666463852,
+            0.05379234626889229,
+            0.0586363710463047,
+            0.059214383363723755,
+            0.06803358346223831
+          ],
+          "known_candidates": 42,
+          "mean_probability": 0.268679872953466,
+          "positive_candidates": 9,
+          "recall": 0.5555555555555556,
+          "recall_wilson95": [
+            0.26665129349549305,
+            0.8112214789023355
+          ],
+          "warning_with_at_least_half_second_count": 5
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.0034607519018685536,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.00406020996645869,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 42,
+          "mean_probability": 0.08391038940143994,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        }
+      },
+      "source_groups": 1
+    },
+    "one_sided/contact_phase_unknown": {
+      "candidates": 98,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 98,
+          "mean_probability": 0.0324627939428735,
+          "positive_candidates": 1,
+          "recall": 0.0,
+          "recall_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 98,
+          "mean_probability": 0.0005831241324646113,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 98,
+          "mean_probability": 0.0008898739903756627,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 2,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.08028854429721832,
+            0.10061285272240639,
+            0.12093716114759445,
+            0.14126146957278252,
+            0.16158577799797058
+          ],
+          "known_candidates": 98,
+          "mean_probability": 0.13064180750771645,
+          "positive_candidates": 2,
+          "recall": 1.0,
+          "recall_wilson95": [
+            0.34238022750665303,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 2
+        }
+      },
+      "source_groups": 1
+    },
+    "wall/after_observed_contact": {
+      "candidates": 14,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 1,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.006296668667346239,
+            0.006296668667346239,
+            0.006296668667346239,
+            0.006296668667346239,
+            0.006296668667346239
+          ],
+          "known_candidates": 14,
+          "mean_probability": 0.27122966412987026,
+          "positive_candidates": 7,
+          "recall": 0.14285714285714285,
+          "recall_wilson95": [
+            0.02567962434474355,
+            0.5131278292743189
+          ],
+          "warning_with_at_least_half_second_count": 1
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.0001525899699897439,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.0003796521414187737,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.3438239667697677,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        }
+      },
+      "source_groups": 1
+    },
+    "wall/contact_phase_unknown": {
+      "candidates": 126,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.022623820940983325,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.0003980802964308948,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.0006455269058639556,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 126,
+          "mean_probability": 0.12747969686784522,
+          "positive_candidates": 1,
+          "recall": 0.0,
+          "recall_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "warning_with_at_least_half_second_count": 0
+        }
+      },
+      "source_groups": 1
+    },
+    "wall_60x100/after_observed_contact": {
+      "candidates": 14,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 7,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.0011950251646339893,
+            0.0018817348754964769,
+            0.003062197007238865,
+            0.005070571904070675,
+            0.010971290059387684
+          ],
+          "known_candidates": 14,
+          "mean_probability": 0.8207663808550153,
+          "positive_candidates": 7,
+          "recall": 1.0,
+          "recall_wilson95": [
+            0.6456695649333126,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 7
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.008022546734926956,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 14,
+          "mean_probability": 0.019798790270994817,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 1,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.0020033300388604403,
+            0.0020033300388604403,
+            0.0020033300388604403,
+            0.0020033300388604403,
+            0.0020033300388604403
+          ],
+          "known_candidates": 14,
+          "mean_probability": 0.38468606317681925,
+          "positive_candidates": 1,
+          "recall": 1.0,
+          "recall_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 1
+        }
+      },
+      "source_groups": 1
+    },
+    "wall_60x100/before_observed_contact": {
+      "candidates": 546,
+      "heads": {
+        "linear_stall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 546,
+          "mean_probability": 0.038645069995254744,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "near_fall": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 546,
+          "mean_probability": 0.0007758013817393282,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "tip_over": {
+          "alerted_positive_candidates": 0,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": null,
+          "detected_distance_m_quantiles": null,
+          "known_candidates": 546,
+          "mean_probability": 0.00118158923698611,
+          "positive_candidates": 0,
+          "recall": null,
+          "recall_wilson95": [
+            0.0,
+            1.0
+          ],
+          "warning_with_at_least_half_second_count": 0
+        },
+        "turn_stall": {
+          "alerted_positive_candidates": 10,
+          "already_tilted60_at_anchor_count": 0,
+          "detected_confirmation_lead_sec_quantiles": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "detected_distance_m_quantiles": [
+            0.04695241153240204,
+            0.09118065051734447,
+            0.17543303966522217,
+            0.18888095393776894,
+            0.4373878240585327
+          ],
+          "known_candidates": 546,
+          "mean_probability": 0.14783930471740517,
+          "positive_candidates": 15,
+          "recall": 0.6666666666666666,
+          "recall_wilson95": [
+            0.41713547738519774,
+            0.8482367556028526
+          ],
+          "warning_with_at_least_half_second_count": 10
+        }
+      },
+      "source_groups": 4
+    }
+  }
+}

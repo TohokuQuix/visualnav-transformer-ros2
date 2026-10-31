@@ -1,0 +1,17 @@
+{
+  "status": "anchor_analysis_complete_closed_loop_pending",
+  "pre_contact_positive_heads": {
+    "tip_over": 0,
+    "near_fall": 0,
+    "linear_stall": 0,
+    "turn_stall": 15
+  },
+  "source_details_path": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/anchor-leadtime/details.json",
+  "source_details_sha256": "6f41700e31069b35ef916d30457cb5478b1ea89c5ea0e2b83e4af89ba5d5b574",
+  "limitations": [
+    "No pre-contact linear_stall positive support in this validation anchor set; predictive recall cannot be estimated",
+    "All stall lead times refer to 2second interval confirmation, not physical stall onset",
+    "Before/after contact requires full pre-anchor instrumentation; earlier sources are phase unknown",
+    "Candidates and windows sharing source parents are correlated"
+  ]
+}

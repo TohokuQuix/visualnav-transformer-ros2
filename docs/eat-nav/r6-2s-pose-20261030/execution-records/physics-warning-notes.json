@@ -1,0 +1,13 @@
+{
+  "scope": "first validation old_reference k_rail_field level0 job, still running",
+  "warning": "PhysX rejected setMassSpaceInertiaTensor nonpositive components during startup; same messages observed in10/30env benchmark",
+  "actual_physics_audit": {
+    "valid": true,
+    "all_finite": true,
+    "minimum_mass_kg": 0.05104738473892212,
+    "minimum_inertia_eigenvalue": 9.389469778398052e-05,
+    "nonpositive_mass_count": 0,
+    "nonpositive_inertia_eigenvalue_count": 0
+  },
+  "interpretation": "Actual post-initialization properties pass finite positive-definite checks; rejected randomization requests are not asserted to have taken effect. Same actual physics arrays must match across paired conditions."
+}

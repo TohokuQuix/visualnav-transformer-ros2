@@ -1,0 +1,12 @@
+[
+  "/home/ubuntu/venvs/isaaclab_py310/bin/python",
+  "scripts/eat_nav_r6_calibrate_profiles.py",
+  "--dataset",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-merged-dataset",
+  "--checkpoint",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-model/checkpoint.pt",
+  "--records",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-dataset-audit/validation-records.json",
+  "--output",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-derived-profiles"
+]

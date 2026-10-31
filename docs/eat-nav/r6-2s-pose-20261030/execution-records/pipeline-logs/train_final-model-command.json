@@ -1,0 +1,16 @@
+[
+  "/home/ubuntu/venvs/isaaclab_py310/bin/python",
+  "scripts/eat_nav_r6_train.py",
+  "--dataset",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-merged-dataset",
+  "--output",
+  "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-model",
+  "--epochs",
+  "300",
+  "--batch-size",
+  "16",
+  "--seed",
+  "123",
+  "--device",
+  "cuda"
+]
