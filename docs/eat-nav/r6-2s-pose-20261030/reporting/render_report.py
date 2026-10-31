@@ -65,6 +65,14 @@ def render(root, output, interim=False):
         [[name, e['count'], e['positive'], number(e['average_precision']), number(e['recall']),
           number(e['false_positive_rate']), number(e['brier']), number(e['ece'])]
          for name, e in zip(['tip_over', 'near_fall', 'linear_stall', 'turn_stall'], events)])]
+    if (root / 'event-group-support.json').exists():
+        support = read(root / 'event-group-support.json')['roles']
+        sections += [table(['split', 'head', '陽性候補', '陽性anchor組', '陽性episode組', '陽性parent seed数'],
+            [[role, name, x['positive_candidates'], x['positive_anchor_groups'],
+              x['positive_episode_groups'], x['positive_parent_seeds']]
+             for role, heads in support.items() for name, x in heads.items()]),
+            '転倒のtrain陽性19候補は4つのanchor組・3つのepisode組に集中しています。'
+            '陽性候補数を独立した事故数や十分な汎化能力の根拠として扱いません。']
     if (root / 'anchor-leadtime/report.json').exists():
         lead = read(root / 'anchor-leadtime/report.json')
         before = [v for k, v in lead['summaries'].items() if k.endswith('/before_observed_contact')]

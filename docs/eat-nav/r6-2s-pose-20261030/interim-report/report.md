@@ -5,7 +5,6 @@
 未完了の必須成果物:
 
 - scientific-evaluation-complete.json
-- validation-evaluation/summary.json
 - frozen-top3.json
 - test-evaluation/summary.json
 - validation-forecast-metrics/report.json
@@ -32,6 +31,19 @@
 | near_fall | 6440 | 0 | 未確立 | 未確立 | 0.002 | 0.002 | 0.005 |
 | linear_stall | 6440 | 102 | 0.182 | 0.373 | 0.023 | 0.032 | 0.079 |
 | turn_stall | 6440 | 137 | 0.108 | 0.533 | 0.113 | 0.071 | 0.128 |
+
+| split | head | 陽性候補 | 陽性anchor組 | 陽性episode組 | 陽性parent seed数 |
+| --- | --- | --- | --- | --- | --- |
+| train | tip_over | 19 | 4 | 3 | 3 |
+| train | near_fall | 23 | 3 | 3 | 3 |
+| train | linear_stall | 174 | 37 | 22 | 22 |
+| train | turn_stall | 129 | 102 | 49 | 49 |
+| validation | tip_over | 0 | 0 | 0 | 0 |
+| validation | near_fall | 0 | 0 | 0 | 0 |
+| validation | linear_stall | 102 | 40 | 23 | 23 |
+| validation | turn_stall | 137 | 110 | 40 | 40 |
+
+転倒のtrain陽性19候補は4つのanchor組・3つのepisode組に集中しています。陽性候補数を独立した事故数や十分な汎化能力の根拠として扱いません。
 
 ## 接触前の検知余裕
 
@@ -68,6 +80,10 @@
 全7field×level0～4で、開始時yawの前方2mに固定goal、制限60秒、到達半径0.2mです。通常30試行を計画し、開始前に姿勢が崩れやすかったK-Rail level4だけ90試行を事前固定しました。開始無効は全条件で同じgroupを除き、実際の共通分母を示します。headless・30環境並列です。完全に同じ候補を全判断で選ぶ設定だけ、全batchで同一性を検証して実走行を共有します。これは独立した再実験ではありません。経路が分かれた設定は実走行します。
 
 route進捗は開始点→固定goalの線への射影を0～2mに制限した符号付き変化の合計です。旧R4/R5のwaypoint更新型route進捗と直接比較できません。スタックは2秒window・stride2秒で重複なし、陽性秒=陽性window×2です。実際の保護STOPとgoal到達後のholdは分離します。途中打切り後の残り秒は順位付けでSTOP上限へ加えます。転倒未観測の打切りは転倒結果不明です。順位は転倒上限（観測転倒＋不明試行）、STOP上限、validation固定尺度で等重み正規化した進捗・両スタックwindow/秒の順です。
+
+## validation：未完了
+
+完了ジョブ 1 / 481。最終順位は未確定です。
 
 ## 再現・保管と検証
 

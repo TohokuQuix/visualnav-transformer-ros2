@@ -1,0 +1,185 @@
+{
+  "schema": "eatnav_r6_event_support_by_source_group_v1",
+  "roles": {
+    "train": {
+      "tip_over": {
+        "positive_candidates": 19,
+        "positive_anchor_groups": 4,
+        "positive_episode_groups": 3,
+        "positive_parent_seeds": 3,
+        "field_level_scene": [
+          "k_rail_field/level4/field",
+          "pyramid_stairs/level4/field"
+        ]
+      },
+      "near_fall": {
+        "positive_candidates": 23,
+        "positive_anchor_groups": 3,
+        "positive_episode_groups": 3,
+        "positive_parent_seeds": 3,
+        "field_level_scene": [
+          "k_rail_field/level4/field",
+          "pyramid_stairs/level4/field"
+        ]
+      },
+      "linear_stall": {
+        "positive_candidates": 174,
+        "positive_anchor_groups": 37,
+        "positive_episode_groups": 22,
+        "positive_parent_seeds": 22,
+        "field_level_scene": [
+          "boxes/level0/diagonal",
+          "boxes/level0/narrow",
+          "boxes/level0/one_sided",
+          "boxes/level0/wall_60x100",
+          "boxes/level4/field",
+          "hf_pyramid_slope/level4/field",
+          "k_rail_field/level1/field",
+          "k_rail_field/level2/field",
+          "k_rail_field/level3/field",
+          "k_rail_field/level4/field",
+          "k_rail_step_field/level0/field",
+          "k_rail_step_field/level1/field",
+          "k_rail_step_field/level3/field",
+          "k_rail_step_field/level4/field",
+          "pyramid_stairs/level4/field",
+          "pyramid_stairs_inv/level4/field",
+          "random_rough/level0/field",
+          "random_rough/level4/field"
+        ]
+      },
+      "turn_stall": {
+        "positive_candidates": 129,
+        "positive_anchor_groups": 102,
+        "positive_episode_groups": 49,
+        "positive_parent_seeds": 49,
+        "field_level_scene": [
+          "boxes/level0/approach",
+          "boxes/level0/diagonal",
+          "boxes/level0/field",
+          "boxes/level0/narrow",
+          "boxes/level0/one_sided",
+          "boxes/level0/wall",
+          "boxes/level0/wall_60x100",
+          "boxes/level1/field",
+          "boxes/level3/field",
+          "boxes/level4/field",
+          "hf_pyramid_slope/level0/field",
+          "hf_pyramid_slope/level1/field",
+          "hf_pyramid_slope/level2/field",
+          "hf_pyramid_slope/level3/field",
+          "hf_pyramid_slope/level4/field",
+          "k_rail_field/level0/field",
+          "k_rail_field/level2/field",
+          "k_rail_field/level4/field",
+          "k_rail_step_field/level2/field",
+          "pyramid_stairs/level0/field",
+          "pyramid_stairs/level1/field",
+          "pyramid_stairs/level2/field",
+          "pyramid_stairs/level3/field",
+          "pyramid_stairs/level4/field",
+          "pyramid_stairs_inv/level0/field",
+          "pyramid_stairs_inv/level1/field",
+          "pyramid_stairs_inv/level2/field",
+          "pyramid_stairs_inv/level3/field",
+          "pyramid_stairs_inv/level4/field",
+          "random_rough/level0/field",
+          "random_rough/level1/field",
+          "random_rough/level2/field",
+          "random_rough/level3/field",
+          "random_rough/level4/field"
+        ]
+      }
+    },
+    "validation": {
+      "tip_over": {
+        "positive_candidates": 0,
+        "positive_anchor_groups": 0,
+        "positive_episode_groups": 0,
+        "positive_parent_seeds": 0,
+        "field_level_scene": []
+      },
+      "near_fall": {
+        "positive_candidates": 0,
+        "positive_anchor_groups": 0,
+        "positive_episode_groups": 0,
+        "positive_parent_seeds": 0,
+        "field_level_scene": []
+      },
+      "linear_stall": {
+        "positive_candidates": 102,
+        "positive_anchor_groups": 40,
+        "positive_episode_groups": 23,
+        "positive_parent_seeds": 23,
+        "field_level_scene": [
+          "boxes/level0/approach",
+          "boxes/level0/diagonal",
+          "boxes/level0/narrow",
+          "boxes/level0/one_sided",
+          "boxes/level0/wall",
+          "boxes/level0/wall_60x100",
+          "boxes/level4/field",
+          "k_rail_field/level0/field",
+          "k_rail_field/level1/field",
+          "k_rail_field/level2/field",
+          "k_rail_field/level3/field",
+          "k_rail_field/level4/field",
+          "k_rail_step_field/level0/field",
+          "k_rail_step_field/level1/field",
+          "k_rail_step_field/level2/field",
+          "k_rail_step_field/level3/field",
+          "k_rail_step_field/level4/field",
+          "random_rough/level0/field",
+          "random_rough/level1/field",
+          "random_rough/level2/field",
+          "random_rough/level3/field",
+          "random_rough/level4/field"
+        ]
+      },
+      "turn_stall": {
+        "positive_candidates": 137,
+        "positive_anchor_groups": 110,
+        "positive_episode_groups": 40,
+        "positive_parent_seeds": 40,
+        "field_level_scene": [
+          "boxes/level0/approach",
+          "boxes/level0/diagonal",
+          "boxes/level0/field",
+          "boxes/level0/narrow",
+          "boxes/level0/one_sided",
+          "boxes/level0/wall",
+          "boxes/level0/wall_60x100",
+          "boxes/level1/field",
+          "boxes/level2/field",
+          "boxes/level3/field",
+          "boxes/level4/field",
+          "hf_pyramid_slope/level0/field",
+          "hf_pyramid_slope/level1/field",
+          "hf_pyramid_slope/level2/field",
+          "hf_pyramid_slope/level3/field",
+          "hf_pyramid_slope/level4/field",
+          "k_rail_field/level1/field",
+          "k_rail_field/level2/field",
+          "k_rail_field/level3/field",
+          "k_rail_step_field/level4/field",
+          "pyramid_stairs/level0/field",
+          "pyramid_stairs/level1/field",
+          "pyramid_stairs/level2/field",
+          "pyramid_stairs/level3/field",
+          "pyramid_stairs/level4/field",
+          "pyramid_stairs_inv/level0/field",
+          "pyramid_stairs_inv/level1/field",
+          "pyramid_stairs_inv/level2/field",
+          "pyramid_stairs_inv/level3/field",
+          "pyramid_stairs_inv/level4/field",
+          "random_rough/level0/field",
+          "random_rough/level1/field",
+          "random_rough/level2/field",
+          "random_rough/level3/field",
+          "random_rough/level4/field"
+        ]
+      }
+    }
+  },
+  "interpretation": "Anchor groups and14branches share parents; counts are descriptive support, not independent accidents. Parentseed counts alone do not prove independent dynamics."
+}
