@@ -1,0 +1,2291 @@
+{
+  "base_plan_sha256": "9ec26a893d19ef18733990a2861700e56159163fb15ec45471bfd8dff5c80a73",
+  "frozen_before_any_full_production_rollout": true,
+  "reason": "validation initialization-only benchmark14/30 stable atKraillevel4; raise fixed attempts30to90 for this cell in validation and unseen test, all conditions unchanged",
+  "schema": "eatnav_r6_evaluation_initialization_addendum_v1",
+  "seed_exclusion_scope": "all prior publicregistries, originaldevelopment/test cohorts, and walladdendum parent+derivedIDs",
+  "test_rollouts_additional": [
+    {
+      "additional_trial_index": 30,
+      "derived_seed_ids": {
+        "command": 114215785,
+        "initial": 72240287,
+        "terrain": 3096671273
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4192361303/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4192361303",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4192361303,
+      "terrain_seed": 4192361303,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 31,
+      "derived_seed_ids": {
+        "command": 3199664008,
+        "initial": 395519848,
+        "terrain": 3775885460
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3476147673/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3476147673",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3476147673,
+      "terrain_seed": 3476147673,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 32,
+      "derived_seed_ids": {
+        "command": 3585716750,
+        "initial": 3210398842,
+        "terrain": 923395972
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1753360767/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1753360767",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1753360767,
+      "terrain_seed": 1753360767,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 33,
+      "derived_seed_ids": {
+        "command": 4271663299,
+        "initial": 39894764,
+        "terrain": 839436138
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1747182511/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1747182511",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1747182511,
+      "terrain_seed": 1747182511,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 34,
+      "derived_seed_ids": {
+        "command": 3805480646,
+        "initial": 1689142125,
+        "terrain": 1805913151
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1257260551/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1257260551",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1257260551,
+      "terrain_seed": 1257260551,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 35,
+      "derived_seed_ids": {
+        "command": 1688136059,
+        "initial": 1531833138,
+        "terrain": 1603063545
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4273241570/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4273241570",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4273241570,
+      "terrain_seed": 4273241570,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 36,
+      "derived_seed_ids": {
+        "command": 188861744,
+        "initial": 2393248152,
+        "terrain": 1390240537
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1926685908/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1926685908",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1926685908,
+      "terrain_seed": 1926685908,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 37,
+      "derived_seed_ids": {
+        "command": 950689816,
+        "initial": 3649465644,
+        "terrain": 2864138088
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3628652160/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3628652160",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3628652160,
+      "terrain_seed": 3628652160,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 38,
+      "derived_seed_ids": {
+        "command": 2136943757,
+        "initial": 1798641272,
+        "terrain": 497497724
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3971462964/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3971462964",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3971462964,
+      "terrain_seed": 3971462964,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 39,
+      "derived_seed_ids": {
+        "command": 1270483585,
+        "initial": 2229820393,
+        "terrain": 2239852468
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed778674409/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed778674409",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 778674409,
+      "terrain_seed": 778674409,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 40,
+      "derived_seed_ids": {
+        "command": 1627372881,
+        "initial": 2831884331,
+        "terrain": 2013833791
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed904146342/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed904146342",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 904146342,
+      "terrain_seed": 904146342,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 41,
+      "derived_seed_ids": {
+        "command": 103773431,
+        "initial": 2295115348,
+        "terrain": 3681479332
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3648887094/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3648887094",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3648887094,
+      "terrain_seed": 3648887094,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 42,
+      "derived_seed_ids": {
+        "command": 3529448326,
+        "initial": 3994939478,
+        "terrain": 3104115496
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3952482250/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3952482250",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3952482250,
+      "terrain_seed": 3952482250,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 43,
+      "derived_seed_ids": {
+        "command": 4260236000,
+        "initial": 3105441902,
+        "terrain": 98101141
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1868661953/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1868661953",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1868661953,
+      "terrain_seed": 1868661953,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 44,
+      "derived_seed_ids": {
+        "command": 192201269,
+        "initial": 3578017687,
+        "terrain": 970220010
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3188319718/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3188319718",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3188319718,
+      "terrain_seed": 3188319718,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 45,
+      "derived_seed_ids": {
+        "command": 4284832354,
+        "initial": 659755320,
+        "terrain": 2711521765
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed646895569/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed646895569",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 646895569,
+      "terrain_seed": 646895569,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 46,
+      "derived_seed_ids": {
+        "command": 3085006040,
+        "initial": 950274543,
+        "terrain": 3111413256
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2887017279/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2887017279",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2887017279,
+      "terrain_seed": 2887017279,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 47,
+      "derived_seed_ids": {
+        "command": 897558867,
+        "initial": 284569879,
+        "terrain": 643517799
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3026870704/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3026870704",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3026870704,
+      "terrain_seed": 3026870704,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 48,
+      "derived_seed_ids": {
+        "command": 4151211706,
+        "initial": 1852630388,
+        "terrain": 2673668920
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed274269599/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed274269599",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 274269599,
+      "terrain_seed": 274269599,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 49,
+      "derived_seed_ids": {
+        "command": 3504985907,
+        "initial": 3771133283,
+        "terrain": 3720346469
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1008193556/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1008193556",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1008193556,
+      "terrain_seed": 1008193556,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 50,
+      "derived_seed_ids": {
+        "command": 807354092,
+        "initial": 190219459,
+        "terrain": 18420208
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4073479033/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4073479033",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4073479033,
+      "terrain_seed": 4073479033,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 51,
+      "derived_seed_ids": {
+        "command": 3381864294,
+        "initial": 1090769438,
+        "terrain": 957875604
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed816651680/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed816651680",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 816651680,
+      "terrain_seed": 816651680,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 52,
+      "derived_seed_ids": {
+        "command": 699206727,
+        "initial": 3759849344,
+        "terrain": 2193797234
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3251822525/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3251822525",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3251822525,
+      "terrain_seed": 3251822525,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 53,
+      "derived_seed_ids": {
+        "command": 4149610655,
+        "initial": 2262003541,
+        "terrain": 1906544319
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3988913142/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3988913142",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3988913142,
+      "terrain_seed": 3988913142,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 54,
+      "derived_seed_ids": {
+        "command": 2840984145,
+        "initial": 1945096135,
+        "terrain": 2177975661
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4123677666/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4123677666",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4123677666,
+      "terrain_seed": 4123677666,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 55,
+      "derived_seed_ids": {
+        "command": 3576163473,
+        "initial": 2992906009,
+        "terrain": 3416988119
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2624115135/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2624115135",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2624115135,
+      "terrain_seed": 2624115135,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 56,
+      "derived_seed_ids": {
+        "command": 4140768495,
+        "initial": 1371637012,
+        "terrain": 2857879536
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1792622735/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1792622735",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1792622735,
+      "terrain_seed": 1792622735,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 57,
+      "derived_seed_ids": {
+        "command": 1183217779,
+        "initial": 1585745216,
+        "terrain": 1240604318
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3769325319/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3769325319",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3769325319,
+      "terrain_seed": 3769325319,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 58,
+      "derived_seed_ids": {
+        "command": 3394245272,
+        "initial": 3079029980,
+        "terrain": 2812733129
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3845130663/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3845130663",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3845130663,
+      "terrain_seed": 3845130663,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 59,
+      "derived_seed_ids": {
+        "command": 2531339629,
+        "initial": 772178467,
+        "terrain": 887484229
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3895552966/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3895552966",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3895552966,
+      "terrain_seed": 3895552966,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 60,
+      "derived_seed_ids": {
+        "command": 2413990490,
+        "initial": 3663654802,
+        "terrain": 3082547222
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3331671517/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3331671517",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3331671517,
+      "terrain_seed": 3331671517,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 61,
+      "derived_seed_ids": {
+        "command": 207857926,
+        "initial": 4140699855,
+        "terrain": 307302815
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3890800331/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3890800331",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3890800331,
+      "terrain_seed": 3890800331,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 62,
+      "derived_seed_ids": {
+        "command": 2243469618,
+        "initial": 2923408550,
+        "terrain": 561398201
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed53702161/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed53702161",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 53702161,
+      "terrain_seed": 53702161,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 63,
+      "derived_seed_ids": {
+        "command": 1565381055,
+        "initial": 463350538,
+        "terrain": 2687822807
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3304779161/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3304779161",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3304779161,
+      "terrain_seed": 3304779161,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 64,
+      "derived_seed_ids": {
+        "command": 2526600673,
+        "initial": 84086759,
+        "terrain": 2722355857
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed975261783/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed975261783",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 975261783,
+      "terrain_seed": 975261783,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 65,
+      "derived_seed_ids": {
+        "command": 3231161526,
+        "initial": 3889836364,
+        "terrain": 3736693712
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed957962194/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed957962194",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 957962194,
+      "terrain_seed": 957962194,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 66,
+      "derived_seed_ids": {
+        "command": 2578066897,
+        "initial": 763346680,
+        "terrain": 3658703106
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3268253226/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3268253226",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3268253226,
+      "terrain_seed": 3268253226,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 67,
+      "derived_seed_ids": {
+        "command": 2237020354,
+        "initial": 564333172,
+        "terrain": 1746343892
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2849098717/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2849098717",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2849098717,
+      "terrain_seed": 2849098717,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 68,
+      "derived_seed_ids": {
+        "command": 491433,
+        "initial": 2877943098,
+        "terrain": 1050271521
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2887420979/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2887420979",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2887420979,
+      "terrain_seed": 2887420979,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 69,
+      "derived_seed_ids": {
+        "command": 3751621750,
+        "initial": 1371134502,
+        "terrain": 1509081274
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1773529767/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1773529767",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1773529767,
+      "terrain_seed": 1773529767,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 70,
+      "derived_seed_ids": {
+        "command": 3848457252,
+        "initial": 2365485008,
+        "terrain": 3738248698
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2465798989/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2465798989",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2465798989,
+      "terrain_seed": 2465798989,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 71,
+      "derived_seed_ids": {
+        "command": 3366458064,
+        "initial": 4050219432,
+        "terrain": 615892618
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4116177311/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4116177311",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4116177311,
+      "terrain_seed": 4116177311,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 72,
+      "derived_seed_ids": {
+        "command": 388910473,
+        "initial": 2124168361,
+        "terrain": 782022517
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed737329285/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed737329285",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 737329285,
+      "terrain_seed": 737329285,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 73,
+      "derived_seed_ids": {
+        "command": 4235400439,
+        "initial": 2968447216,
+        "terrain": 1190736863
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2883706043/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2883706043",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2883706043,
+      "terrain_seed": 2883706043,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 74,
+      "derived_seed_ids": {
+        "command": 1088488231,
+        "initial": 3697339838,
+        "terrain": 983803681
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2986950218/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2986950218",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2986950218,
+      "terrain_seed": 2986950218,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 75,
+      "derived_seed_ids": {
+        "command": 1101931685,
+        "initial": 4041485685,
+        "terrain": 871065230
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed1170884738/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed1170884738",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 1170884738,
+      "terrain_seed": 1170884738,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 76,
+      "derived_seed_ids": {
+        "command": 1667751449,
+        "initial": 2601749253,
+        "terrain": 4145399684
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4086191094/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4086191094",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4086191094,
+      "terrain_seed": 4086191094,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 77,
+      "derived_seed_ids": {
+        "command": 1022263995,
+        "initial": 433093863,
+        "terrain": 2327079973
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2523665092/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2523665092",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2523665092,
+      "terrain_seed": 2523665092,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 78,
+      "derived_seed_ids": {
+        "command": 4230963724,
+        "initial": 3439811042,
+        "terrain": 4289295905
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed124195373/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed124195373",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 124195373,
+      "terrain_seed": 124195373,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 79,
+      "derived_seed_ids": {
+        "command": 3957996840,
+        "initial": 172017715,
+        "terrain": 941637019
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3042212867/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3042212867",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3042212867,
+      "terrain_seed": 3042212867,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 80,
+      "derived_seed_ids": {
+        "command": 2798009355,
+        "initial": 294748946,
+        "terrain": 2004620616
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2920289205/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2920289205",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2920289205,
+      "terrain_seed": 2920289205,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 81,
+      "derived_seed_ids": {
+        "command": 3677316726,
+        "initial": 3427406116,
+        "terrain": 1989680472
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2067270943/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2067270943",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2067270943,
+      "terrain_seed": 2067270943,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 82,
+      "derived_seed_ids": {
+        "command": 600791046,
+        "initial": 4044448207,
+        "terrain": 2072422735
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3451646607/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3451646607",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3451646607,
+      "terrain_seed": 3451646607,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 83,
+      "derived_seed_ids": {
+        "command": 143533731,
+        "initial": 2115822598,
+        "terrain": 1619229653
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed961967587/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed961967587",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 961967587,
+      "terrain_seed": 961967587,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 84,
+      "derived_seed_ids": {
+        "command": 2004268420,
+        "initial": 906777259,
+        "terrain": 3754068422
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2771912747/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2771912747",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2771912747,
+      "terrain_seed": 2771912747,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 85,
+      "derived_seed_ids": {
+        "command": 2798461516,
+        "initial": 419343017,
+        "terrain": 943969711
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed3572456494/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed3572456494",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 3572456494,
+      "terrain_seed": 3572456494,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 86,
+      "derived_seed_ids": {
+        "command": 2580902618,
+        "initial": 412226686,
+        "terrain": 4148972115
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed458128307/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed458128307",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 458128307,
+      "terrain_seed": 458128307,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 87,
+      "derived_seed_ids": {
+        "command": 583434606,
+        "initial": 658878710,
+        "terrain": 2800078049
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed4041174686/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed4041174686",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 4041174686,
+      "terrain_seed": 4041174686,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 88,
+      "derived_seed_ids": {
+        "command": 1087829242,
+        "initial": 1200542536,
+        "terrain": 1074028432
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed407052081/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed407052081",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 407052081,
+      "terrain_seed": 407052081,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 89,
+      "derived_seed_ids": {
+        "command": 1496223261,
+        "initial": 148784668,
+        "terrain": 3762491872
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/test/seed2889831035/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/test/seed2889831035",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "test",
+      "scene": "field",
+      "seed": 2889831035,
+      "terrain_seed": 2889831035,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    }
+  ],
+  "validation_rollouts_additional": [
+    {
+      "additional_trial_index": 30,
+      "derived_seed_ids": {
+        "command": 3041162952,
+        "initial": 3365929709,
+        "terrain": 4050236004
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed116400083/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed116400083",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 116400083,
+      "terrain_seed": 116400083,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 31,
+      "derived_seed_ids": {
+        "command": 3823397667,
+        "initial": 1310971590,
+        "terrain": 373374803
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2836424157/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2836424157",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2836424157,
+      "terrain_seed": 2836424157,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 32,
+      "derived_seed_ids": {
+        "command": 1564756166,
+        "initial": 4252828869,
+        "terrain": 851215519
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3705899259/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3705899259",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3705899259,
+      "terrain_seed": 3705899259,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 33,
+      "derived_seed_ids": {
+        "command": 3491017592,
+        "initial": 3721841682,
+        "terrain": 2862570580
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3017961611/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3017961611",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3017961611,
+      "terrain_seed": 3017961611,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 34,
+      "derived_seed_ids": {
+        "command": 3576647290,
+        "initial": 3977867295,
+        "terrain": 576453224
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2840299740/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2840299740",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2840299740,
+      "terrain_seed": 2840299740,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 35,
+      "derived_seed_ids": {
+        "command": 402811009,
+        "initial": 1948791202,
+        "terrain": 1911907381
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3835261448/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3835261448",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3835261448,
+      "terrain_seed": 3835261448,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 36,
+      "derived_seed_ids": {
+        "command": 446526582,
+        "initial": 2278577472,
+        "terrain": 2113774168
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed4099658540/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed4099658540",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 4099658540,
+      "terrain_seed": 4099658540,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 37,
+      "derived_seed_ids": {
+        "command": 881590638,
+        "initial": 145707405,
+        "terrain": 277131745
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2934586077/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2934586077",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2934586077,
+      "terrain_seed": 2934586077,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 38,
+      "derived_seed_ids": {
+        "command": 1306312528,
+        "initial": 375324501,
+        "terrain": 2384532491
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3112358853/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3112358853",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3112358853,
+      "terrain_seed": 3112358853,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 39,
+      "derived_seed_ids": {
+        "command": 3875085626,
+        "initial": 1599020712,
+        "terrain": 2239992260
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3166471652/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3166471652",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3166471652,
+      "terrain_seed": 3166471652,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 40,
+      "derived_seed_ids": {
+        "command": 4052545267,
+        "initial": 198442077,
+        "terrain": 387001383
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2806565621/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2806565621",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2806565621,
+      "terrain_seed": 2806565621,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 41,
+      "derived_seed_ids": {
+        "command": 1496269116,
+        "initial": 3314868622,
+        "terrain": 252939448
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed4015767618/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed4015767618",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 4015767618,
+      "terrain_seed": 4015767618,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 42,
+      "derived_seed_ids": {
+        "command": 829463444,
+        "initial": 870944970,
+        "terrain": 1866102962
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2025611332/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2025611332",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2025611332,
+      "terrain_seed": 2025611332,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 43,
+      "derived_seed_ids": {
+        "command": 3588518618,
+        "initial": 1600044774,
+        "terrain": 2279463021
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2236438395/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2236438395",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2236438395,
+      "terrain_seed": 2236438395,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 44,
+      "derived_seed_ids": {
+        "command": 962002917,
+        "initial": 1760066633,
+        "terrain": 1470625213
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed624425997/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed624425997",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 624425997,
+      "terrain_seed": 624425997,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 45,
+      "derived_seed_ids": {
+        "command": 1145488137,
+        "initial": 2114825166,
+        "terrain": 3006000232
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1583818885/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1583818885",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1583818885,
+      "terrain_seed": 1583818885,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 46,
+      "derived_seed_ids": {
+        "command": 2564482008,
+        "initial": 4268782189,
+        "terrain": 1503110259
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3703694018/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3703694018",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3703694018,
+      "terrain_seed": 3703694018,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 47,
+      "derived_seed_ids": {
+        "command": 2330268722,
+        "initial": 3049640270,
+        "terrain": 991174185
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1317378656/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1317378656",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1317378656,
+      "terrain_seed": 1317378656,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 48,
+      "derived_seed_ids": {
+        "command": 2360530669,
+        "initial": 3548361485,
+        "terrain": 426527637
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1972979959/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1972979959",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1972979959,
+      "terrain_seed": 1972979959,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 49,
+      "derived_seed_ids": {
+        "command": 1006270209,
+        "initial": 1282323164,
+        "terrain": 3090546539
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed172290083/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed172290083",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 172290083,
+      "terrain_seed": 172290083,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 50,
+      "derived_seed_ids": {
+        "command": 2229406717,
+        "initial": 1934180511,
+        "terrain": 1802579430
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1537243034/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1537243034",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1537243034,
+      "terrain_seed": 1537243034,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 51,
+      "derived_seed_ids": {
+        "command": 1291941017,
+        "initial": 111786300,
+        "terrain": 2222750362
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2392911286/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2392911286",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2392911286,
+      "terrain_seed": 2392911286,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 52,
+      "derived_seed_ids": {
+        "command": 4032703029,
+        "initial": 3517110479,
+        "terrain": 855020463
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3152229901/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3152229901",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3152229901,
+      "terrain_seed": 3152229901,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 53,
+      "derived_seed_ids": {
+        "command": 3905706379,
+        "initial": 2916603624,
+        "terrain": 387115113
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1660367911/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1660367911",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1660367911,
+      "terrain_seed": 1660367911,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 54,
+      "derived_seed_ids": {
+        "command": 983876558,
+        "initial": 812212395,
+        "terrain": 2664573269
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2277216963/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2277216963",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2277216963,
+      "terrain_seed": 2277216963,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 55,
+      "derived_seed_ids": {
+        "command": 963845307,
+        "initial": 2550114962,
+        "terrain": 4141593210
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed376782906/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed376782906",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 376782906,
+      "terrain_seed": 376782906,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 56,
+      "derived_seed_ids": {
+        "command": 2902713706,
+        "initial": 1485762739,
+        "terrain": 964530359
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed295049668/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed295049668",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 295049668,
+      "terrain_seed": 295049668,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 57,
+      "derived_seed_ids": {
+        "command": 551360353,
+        "initial": 1485872992,
+        "terrain": 175792836
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2849120090/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2849120090",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2849120090,
+      "terrain_seed": 2849120090,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 58,
+      "derived_seed_ids": {
+        "command": 2410636912,
+        "initial": 1991536134,
+        "terrain": 2425940163
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2958493295/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2958493295",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2958493295,
+      "terrain_seed": 2958493295,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 59,
+      "derived_seed_ids": {
+        "command": 1833813264,
+        "initial": 1997256811,
+        "terrain": 2150367703
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1551690574/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1551690574",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1551690574,
+      "terrain_seed": 1551690574,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 60,
+      "derived_seed_ids": {
+        "command": 813344522,
+        "initial": 3163013002,
+        "terrain": 2386535018
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2154096603/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2154096603",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2154096603,
+      "terrain_seed": 2154096603,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 61,
+      "derived_seed_ids": {
+        "command": 161491625,
+        "initial": 2659804357,
+        "terrain": 1749535539
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2502776049/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2502776049",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2502776049,
+      "terrain_seed": 2502776049,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 62,
+      "derived_seed_ids": {
+        "command": 23995577,
+        "initial": 1486712360,
+        "terrain": 1710300503
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3368952945/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3368952945",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3368952945,
+      "terrain_seed": 3368952945,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 63,
+      "derived_seed_ids": {
+        "command": 4022708551,
+        "initial": 2156449319,
+        "terrain": 3899871037
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed4252443017/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed4252443017",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 4252443017,
+      "terrain_seed": 4252443017,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 64,
+      "derived_seed_ids": {
+        "command": 3064628894,
+        "initial": 640853090,
+        "terrain": 60622142
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed109150713/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed109150713",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 109150713,
+      "terrain_seed": 109150713,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 65,
+      "derived_seed_ids": {
+        "command": 3083825032,
+        "initial": 3218534319,
+        "terrain": 3405141127
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1771513421/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1771513421",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1771513421,
+      "terrain_seed": 1771513421,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 66,
+      "derived_seed_ids": {
+        "command": 2330196956,
+        "initial": 608832433,
+        "terrain": 66392361
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2155276532/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2155276532",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2155276532,
+      "terrain_seed": 2155276532,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 67,
+      "derived_seed_ids": {
+        "command": 2163003420,
+        "initial": 1172938792,
+        "terrain": 1339225947
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3316257849/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3316257849",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3316257849,
+      "terrain_seed": 3316257849,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 68,
+      "derived_seed_ids": {
+        "command": 2126169624,
+        "initial": 3631977572,
+        "terrain": 3030545977
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3502629240/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3502629240",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3502629240,
+      "terrain_seed": 3502629240,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 69,
+      "derived_seed_ids": {
+        "command": 3239477722,
+        "initial": 3533421270,
+        "terrain": 844969323
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3858322303/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3858322303",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3858322303,
+      "terrain_seed": 3858322303,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 70,
+      "derived_seed_ids": {
+        "command": 4016147177,
+        "initial": 2466923149,
+        "terrain": 1278229024
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed390997990/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed390997990",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 390997990,
+      "terrain_seed": 390997990,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 71,
+      "derived_seed_ids": {
+        "command": 2011889711,
+        "initial": 2649967789,
+        "terrain": 4071578323
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1987131451/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1987131451",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1987131451,
+      "terrain_seed": 1987131451,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 72,
+      "derived_seed_ids": {
+        "command": 659108616,
+        "initial": 429508412,
+        "terrain": 3842381505
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2886894859/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2886894859",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2886894859,
+      "terrain_seed": 2886894859,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 73,
+      "derived_seed_ids": {
+        "command": 3805613179,
+        "initial": 1359974638,
+        "terrain": 3621969944
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2391813940/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2391813940",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2391813940,
+      "terrain_seed": 2391813940,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 74,
+      "derived_seed_ids": {
+        "command": 652772573,
+        "initial": 1885737192,
+        "terrain": 1478039942
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1695258338/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1695258338",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1695258338,
+      "terrain_seed": 1695258338,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 75,
+      "derived_seed_ids": {
+        "command": 148277011,
+        "initial": 433921633,
+        "terrain": 1281112130
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed4182787265/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed4182787265",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 4182787265,
+      "terrain_seed": 4182787265,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 76,
+      "derived_seed_ids": {
+        "command": 2228905091,
+        "initial": 991545329,
+        "terrain": 1995624680
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2855151621/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2855151621",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2855151621,
+      "terrain_seed": 2855151621,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 77,
+      "derived_seed_ids": {
+        "command": 1240195347,
+        "initial": 2124817983,
+        "terrain": 3543959971
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1875868651/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1875868651",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1875868651,
+      "terrain_seed": 1875868651,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 78,
+      "derived_seed_ids": {
+        "command": 1464098471,
+        "initial": 1023686434,
+        "terrain": 573504575
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3669775051/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3669775051",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3669775051,
+      "terrain_seed": 3669775051,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 79,
+      "derived_seed_ids": {
+        "command": 1909546106,
+        "initial": 2711847015,
+        "terrain": 1423007456
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1230506404/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1230506404",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1230506404,
+      "terrain_seed": 1230506404,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 80,
+      "derived_seed_ids": {
+        "command": 3626986230,
+        "initial": 3111990447,
+        "terrain": 2219245154
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed2524973464/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed2524973464",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 2524973464,
+      "terrain_seed": 2524973464,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 81,
+      "derived_seed_ids": {
+        "command": 1415064626,
+        "initial": 2848841068,
+        "terrain": 1944449521
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed274791982/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed274791982",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 274791982,
+      "terrain_seed": 274791982,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 82,
+      "derived_seed_ids": {
+        "command": 2702996608,
+        "initial": 3614252625,
+        "terrain": 2835969379
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1505823233/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1505823233",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1505823233,
+      "terrain_seed": 1505823233,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 83,
+      "derived_seed_ids": {
+        "command": 1135086940,
+        "initial": 4077441713,
+        "terrain": 4029284159
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed590329623/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed590329623",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 590329623,
+      "terrain_seed": 590329623,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 84,
+      "derived_seed_ids": {
+        "command": 2939071532,
+        "initial": 4087175626,
+        "terrain": 2572303944
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1222835679/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1222835679",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1222835679,
+      "terrain_seed": 1222835679,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 85,
+      "derived_seed_ids": {
+        "command": 2129593045,
+        "initial": 622759986,
+        "terrain": 607640554
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1278831478/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1278831478",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1278831478,
+      "terrain_seed": 1278831478,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 86,
+      "derived_seed_ids": {
+        "command": 2898590293,
+        "initial": 421778674,
+        "terrain": 2743490064
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1054645510/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1054645510",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1054645510,
+      "terrain_seed": 1054645510,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 87,
+      "derived_seed_ids": {
+        "command": 51135666,
+        "initial": 2768309527,
+        "terrain": 2236905359
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed3825296444/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed3825296444",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 3825296444,
+      "terrain_seed": 3825296444,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 88,
+      "derived_seed_ids": {
+        "command": 1782981375,
+        "initial": 2992518388,
+        "terrain": 929869239
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1668451814/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1668451814",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1668451814,
+      "terrain_seed": 1668451814,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    },
+    {
+      "additional_trial_index": 89,
+      "derived_seed_ids": {
+        "command": 930295468,
+        "initial": 3728666007,
+        "terrain": 4154721447
+      },
+      "field": "k_rail_field",
+      "group_id": "closed_loop/k_rail_field/level4/validation/seed1358638010/tile00",
+      "level": 4,
+      "parent_batch_id": "closed_loop/k_rail_field/level4/validation/seed1358638010",
+      "physical_identity_scope": "terrain and root RNG fixed; vector dynamics randomization batch sensitivity must be verified",
+      "role": "validation",
+      "scene": "field",
+      "seed": 1358638010,
+      "terrain_seed": 1358638010,
+      "tile_generation_index": 4,
+      "tile_index": 0
+    }
+  ]
+}

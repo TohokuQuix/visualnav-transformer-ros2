@@ -1,0 +1,47 @@
+{
+  "actual_candidate_count": 13706,
+  "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+  "errors": [],
+  "event_horizon_sec": 2,
+  "event_support": {
+    "train": {
+      "negative": [
+        7247,
+        7242,
+        7074,
+        7119
+      ],
+      "positive": [
+        19,
+        23,
+        174,
+        129
+      ],
+      "unknown": 37
+    },
+    "validation": {
+      "negative": [
+        6440,
+        6440,
+        6338,
+        6303
+      ],
+      "positive": [
+        0,
+        0,
+        102,
+        137
+      ],
+      "unknown": 0
+    }
+  },
+  "group_count": 979,
+  "passed": true,
+  "roles": {
+    "train": 519,
+    "validation": 460
+  },
+  "summary_count_correction": "strict bank validation no longer shadows trajectory mask counter; data, masks, model and metrics unchanged",
+  "test_included": false,
+  "valid_future_points": 273842
+}

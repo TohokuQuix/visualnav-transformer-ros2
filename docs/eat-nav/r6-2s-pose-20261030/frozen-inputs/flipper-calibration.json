@@ -1,0 +1,31 @@
+{
+  "schema": "eatnav_r6_flipper_reference_v1",
+  "source": "direct_user_statement",
+  "date_jst": "2026-10-30",
+  "physical_reference": {
+    "horizontal_outward_from_main_tracks_deg": 0,
+    "vertical_upward_deg": 90,
+    "positive_direction": "upward from outward horizontal"
+  },
+  "applies_to": "subcrawlers/flippers; four-channel numerical joint mapping still audited separately",
+  "ros_position_unit_expected": "radians",
+  "physical_deg_to_rad_factor": 0.017453292519943295,
+  "simulation_reset_contract": {
+    "outward_rest_rad": 0,
+    "folded_rad": 3.141592653589793,
+    "mapping_order": [
+      "rr",
+      "rl",
+      "fr",
+      "fl"
+    ]
+  },
+  "status": "simulation zero/upward-positive convention independently verified and matches user physical reference; real encoder calibration not independently measured",
+  "no_training_mean_imputation": true,
+  "simulation_axis_audit": {
+    "evidence": "flipper-geometry-calibration/sim-output/flipper-geometry-calibration.json",
+    "all_four_positive90_raises_tip": true,
+    "tip_raise_m": 0.3055999279022217,
+    "max_kinematic_fit_residual_m": 1.4310923701779565e-06
+  }
+}
