@@ -20,7 +20,9 @@ tail -f /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030
 
 tmux new -A -s r6-codex
 cd /tmp/eatnav-r6-20261030
-/usr/lib/chatgpt/resources/codex resume 01a1541e-50e0-78f1-9938-d41a6a5e74f7
+/usr/lib/chatgpt/resources/codex --no-daemon resume 01a1541e-50e0-78f1-9938-d41a6a5e74f7
+
+アプリ同梱CLIで「this CLI has no complete local package」と表示された場合に備え、--no-daemonを明示しています。このオプションの存在は実機上のresume --helpで確認済みです。対話的な同時再開は既存作業との競合を避けるため実行していません。必ず別PCからSSHで元PCへ接続した状態で実行してください。
 
 再開後の指示:
 「docs/eat-nav/r6-2s-pose-20261030/operations/SSH-HANDOFF.mdを読み、既存プロセスと成果物を確認してください。動いている評価は再起動せず監視し、失敗時は原因と証拠を確認して安全な境界から再開してください。元の引継ぎ仕様の全範囲を保ち、最終比較・上位3設定凍結・未使用test・指定bag評価・最終報告・必要なレビュー・新ブランチpushとremote SHA確認まで継続してください。実機指令は禁止です。」
