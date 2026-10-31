@@ -1,0 +1,23 @@
+{
+  "schema": "eatnav_r6_descriptive_validation_figures_v1",
+  "records_sha256": "df8a0488e650cd9b9afda50951f312b757135265a1930c2d38d74d0f6dc18039",
+  "complete_candidates": 6440,
+  "failures": 236,
+  "independent_safety_claim": false,
+  "notes": [
+    "14branches/anchors share source groups; empirical CDFs descriptive",
+    "Validation has zero tip/near positives; observed events here do not establish a fall boundary",
+    "Threshold dot size represents global step threshold, not climb probability",
+    "No held-out test or model bag results read or used"
+  ],
+  "source_sha256": {
+    "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-dataset-audit/validation-records.json": "df8a0488e650cd9b9afda50951f312b757135265a1930c2d38d74d0f6dc18039",
+    "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/production-profiles/index.json": "3fed167fb26d8f2d0610520d2f0eb7e2913271fca9162dc761eb648511fb881c",
+    "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-model/metrics.json": "f68fc11462b8f143b004dd6d37fd52e5f001a81c63a7ab270055bbefe5583044",
+    "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/state-only-diagnostic/metrics.json": "040383d53d82a4ebccc23619532055a87c90434a21caa44fedcd9918577033b3"
+  },
+  "libraries": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.10.7"
+  }
+}
