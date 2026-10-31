@@ -44,3 +44,9 @@ branch: exp/eatnav-r6-2s-pose-thresholds-20261030
 参考公式資料:
 https://learn.chatgpt.com/docs/codex/cli
 https://learn.chatgpt.com/docs/pricing
+
+## デスクトップからCLIへ切り替える確認
+
+直前の状態は成果物ルート operations/before-cli-switch.json に保存しています。デスクトップの応答を停止してアプリを終了した後、SSHでCLIを再開してください。評価が残って動いている可能性も、停止している可能性もあるため、実プロセスと新しいtrace書込みを先に確認します。完了済みjobは保護し、未完了jobは成功へ変換しません。
+
+同時接続のロック表示が残る場合は、元のデスクトップ側が終了したことを確認してrで再試行します。fでforkしないでください。
