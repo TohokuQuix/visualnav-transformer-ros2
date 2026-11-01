@@ -1,0 +1,2822 @@
+{
+  "schema": "eatnav_r6_completed_cell_13_condition_interim_v1",
+  "interim": true,
+  "observed_unix": 1793563012.5631146,
+  "field": "k_rail_field",
+  "level": 1,
+  "complete_conditions": 13,
+  "planned_conditions": 13,
+  "common_initial_groups": 30,
+  "unique_group_ids": [
+    "closed_loop/k_rail_field/level1/validation/seed1194189895/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed1252024171/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed1474248536/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed1668264878/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed1919368729/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed193826210/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed2081305577/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed2397584992/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed2434761936/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed265890066/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed2907907539/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3505248005/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3524019283/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3525697095/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3657232613/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3719040635/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3735685329/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3804225750/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed382253360/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3933645085/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed3936300208/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed4115376217/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed4149892680/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed4151368808/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed4220120753/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed4284883937/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed501642287/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed739004956/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed77243464/tile00",
+    "closed_loop/k_rail_field/level1/validation/seed857013310/tile00"
+  ],
+  "rows": [
+    {
+      "condition": "old_reference",
+      "mode": "old_reference",
+      "profile": null,
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 0.0,
+      "mean_ranking_STOP_upper_bound_sec": 0.0,
+      "mean_route_progress_m": 1.8517350957771725,
+      "mean_net_goal_approach_m": 1.4796638438444851,
+      "mean_physical_distance_m": 5.489363407127856,
+      "goal_reached_count": 14,
+      "linear_windows": 61,
+      "turn_windows": 14,
+      "mean_linear_stall_sec": 4.066666666666666,
+      "mean_turn_stall_sec": 0.9333333333333333,
+      "timeout_count": 16,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 0.023084447833631807,
+      "all_candidates_excluded_decisions": 0,
+      "decision_count": 710
+    },
+    {
+      "condition": "event_2s",
+      "mode": "event",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 0.13333333333333333,
+      "mean_ranking_STOP_upper_bound_sec": 0.13333333333333333,
+      "mean_route_progress_m": 1.700561898579655,
+      "mean_net_goal_approach_m": 1.484478371337732,
+      "mean_physical_distance_m": 6.138744570701929,
+      "goal_reached_count": 16,
+      "linear_windows": 58,
+      "turn_windows": 23,
+      "mean_linear_stall_sec": 3.8666666666666667,
+      "mean_turn_stall_sec": 1.5333333333333334,
+      "timeout_count": 14,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 16.122423825096728,
+      "all_candidates_excluded_decisions": 2,
+      "decision_count": 678
+    },
+    {
+      "condition": "pose_q3_2",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 42.8,
+      "mean_ranking_STOP_upper_bound_sec": 43.95166666666667,
+      "mean_route_progress_m": 0.7465364059001031,
+      "mean_net_goal_approach_m": 0.6521848466579545,
+      "mean_physical_distance_m": 4.616017381773776,
+      "goal_reached_count": 1,
+      "linear_windows": 8,
+      "turn_windows": 2,
+      "mean_linear_stall_sec": 0.5333333333333333,
+      "mean_turn_stall_sec": 0.13333333333333333,
+      "timeout_count": 28,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 25.031728244031548,
+      "all_candidates_excluded_decisions": 642,
+      "decision_count": 870
+    },
+    {
+      "condition": "pose_q3_1",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 15.573491603136066,
+          "wall": 14.343087300658224
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_1",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 143,
+          "failure_rate": 0.03228719801309551,
+          "failure_rate_wilson95": [
+            0.027473253555883936,
+            0.037911773522842904
+          ],
+          "group_any_failure_wilson95": [
+            0.6106910949571832,
+            0.8388134737397926
+          ],
+          "group_count": 54,
+          "groups_with_any_failure": 40,
+          "sample_count": 4429
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.75,
+          "step": 0.85
+        },
+        "roll_deg": 5.748455732331279,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 6.689757853746414,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 2.871824081986115,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.85,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 53.733333333333334,
+      "mean_ranking_STOP_upper_bound_sec": 53.733333333333334,
+      "mean_route_progress_m": 0.16512632284526155,
+      "mean_net_goal_approach_m": -0.21258698594691428,
+      "mean_physical_distance_m": 4.669994071902902,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 20.321168325790495,
+      "all_candidates_excluded_decisions": 806,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q3_0",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.69934631884098,
+          "wall": 11.372357495129107
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 109,
+          "failure_rate": 0.035632559660019616,
+          "failure_rate_wilson95": [
+            0.029624253848493563,
+            0.04280569781675234
+          ],
+          "group_any_failure_wilson95": [
+            0.5519435355159235,
+            0.8092015919723277
+          ],
+          "group_count": 46,
+          "groups_with_any_failure": 32,
+          "sample_count": 3059
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.5,
+          "step": 0.725
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 1.1498504247323373,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.725,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 60.0,
+      "mean_ranking_STOP_upper_bound_sec": 60.0,
+      "mean_route_progress_m": 0.19710961692641726,
+      "mean_net_goal_approach_m": -0.047555793059418684,
+      "mean_physical_distance_m": 3.9692179526571794,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 21.87211560126452,
+      "all_candidates_excluded_decisions": 900,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q2_2",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 17.778530716896057,
+          "wall": 15.984094142913818
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q2_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 157,
+          "failure_rate": 0.03253886010362694,
+          "failure_rate_wilson95": [
+            0.027892624371769325,
+            0.03792884885968313
+          ],
+          "group_any_failure_wilson95": [
+            0.6506132834036111,
+            0.8680458343236688
+          ],
+          "group_count": 54,
+          "groups_with_any_failure": 42,
+          "sample_count": 4825
+        },
+        "pitch_deg": 5.4119491058958324,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.8,
+          "roll": 0.95,
+          "step": 0.875
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 7.650714018382132,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 3.349706723351445,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.875,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 59.53333333333333,
+      "mean_ranking_STOP_upper_bound_sec": 59.53333333333333,
+      "mean_route_progress_m": 0.20506023930703374,
+      "mean_net_goal_approach_m": -0.012746251646930476,
+      "mean_physical_distance_m": 3.9572940120012925,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 21.1834291396129,
+      "all_candidates_excluded_decisions": 893,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q2_0",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 11.099094487726688,
+          "wall": 10.35001702606678
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q2_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 104,
+          "failure_rate": 0.03547066848567531,
+          "failure_rate_wilson95": [
+            0.029360198059806223,
+            0.042796783777281557
+          ],
+          "group_any_failure_wilson95": [
+            0.5207048830990042,
+            0.7864112506566996
+          ],
+          "group_count": 45,
+          "groups_with_any_failure": 30,
+          "sample_count": 2932
+        },
+        "pitch_deg": 5.4119491058958324,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.8,
+          "roll": 0.5,
+          "step": 0.65
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.4713139281201188,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.65,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 59.86666666666667,
+      "mean_ranking_STOP_upper_bound_sec": 59.86666666666667,
+      "mean_route_progress_m": 0.19775643821723443,
+      "mean_net_goal_approach_m": -0.05043741132984027,
+      "mean_physical_distance_m": 3.984804287356583,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 21.924024741404477,
+      "all_candidates_excluded_decisions": 898,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q1_2",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 13.705450519919399,
+          "wall": 12.954153269529344
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 121,
+          "failure_rate": 0.03198519693365054,
+          "failure_rate_wilson95": [
+            0.026835540952109615,
+            0.03808438281392376
+          ],
+          "group_any_failure_wilson95": [
+            0.5646316733114988,
+            0.8048169727242108
+          ],
+          "group_count": 53,
+          "groups_with_any_failure": 37,
+          "sample_count": 3783
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.95,
+          "step": 0.8
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 4.616537839174273,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 2.0743098462605745,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.8,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 58.46666666666667,
+      "mean_ranking_STOP_upper_bound_sec": 58.46666666666667,
+      "mean_route_progress_m": 0.19987594589040072,
+      "mean_net_goal_approach_m": 0.010558018792742038,
+      "mean_physical_distance_m": 3.9724120655119384,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 22.233372045100744,
+      "all_candidates_excluded_decisions": 877,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q1_1",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.20177173614502,
+          "wall": 11.107135415077208
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_1",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 103,
+          "failure_rate": 0.03046435965690624,
+          "failure_rate_wilson95": [
+            0.02518305470598279,
+            0.03681141722825208
+          ],
+          "group_any_failure_wilson95": [
+            0.521538260502326,
+            0.7756305077749992
+          ],
+          "group_count": 50,
+          "groups_with_any_failure": 33,
+          "sample_count": 3381
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.75,
+          "step": 0.7
+        },
+        "roll_deg": 5.748455732331279,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.9164416366567162,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.7,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 49.0,
+      "mean_ranking_STOP_upper_bound_sec": 49.0,
+      "mean_route_progress_m": 0.2375559155541143,
+      "mean_net_goal_approach_m": -0.056753116341541586,
+      "mean_physical_distance_m": 4.95621484298025,
+      "goal_reached_count": 0,
+      "linear_windows": 9,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.6,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 22.93326545409897,
+      "all_candidates_excluded_decisions": 735,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q1_0",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 10.490934550762177,
+          "wall": 9.401479102671145
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 84,
+          "failure_rate": 0.03361344537815126,
+          "failure_rate_wilson95": [
+            0.02723212777475227,
+            0.04142641957952703
+          ],
+          "group_any_failure_wilson95": [
+            0.4983581419637687,
+            0.7678091739578413
+          ],
+          "group_count": 45,
+          "groups_with_any_failure": 29,
+          "sample_count": 2499
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.5,
+          "step": 0.575
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.0,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.575,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 59.4,
+      "mean_ranking_STOP_upper_bound_sec": 59.4,
+      "mean_route_progress_m": 0.21469362248152052,
+      "mean_net_goal_approach_m": -0.055870170712144375,
+      "mean_physical_distance_m": 4.004720399274418,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 22.16807875283072,
+      "all_candidates_excluded_decisions": 891,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q0_2",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.69934631884098,
+          "wall": 11.372357495129107
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q0_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 98,
+          "failure_rate": 0.033630748112560054,
+          "failure_rate_wilson95": [
+            0.027674794685479915,
+            0.04081469031260637
+          ],
+          "group_any_failure_wilson95": [
+            0.529683778569708,
+            0.7803006814641148
+          ],
+          "group_count": 51,
+          "groups_with_any_failure": 34,
+          "sample_count": 2914
+        },
+        "pitch_deg": 3.759471221319799,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.5,
+          "roll": 0.95,
+          "step": 0.725
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 1.1498504247323373,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.725,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 56.0,
+      "mean_ranking_STOP_upper_bound_sec": 56.0,
+      "mean_route_progress_m": 0.2541058324485571,
+      "mean_net_goal_approach_m": 0.03951570957998665,
+      "mean_physical_distance_m": 4.220207515462367,
+      "goal_reached_count": 0,
+      "linear_windows": 5,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.3333333333333333,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 21.776125363101407,
+      "all_candidates_excluded_decisions": 840,
+      "decision_count": 900
+    },
+    {
+      "condition": "pose_q0_0",
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 9.346336498856544,
+          "wall": 8.464933186769485
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q0_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 72,
+          "failure_rate": 0.036072144288577156,
+          "failure_rate_wilson95": [
+            0.028742283926681357,
+            0.04518430568801551
+          ],
+          "group_any_failure_wilson95": [
+            0.45579063062873904,
+            0.7363468524170255
+          ],
+          "group_count": 43,
+          "groups_with_any_failure": 26,
+          "sample_count": 1996
+        },
+        "pitch_deg": 3.759471221319799,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.5,
+          "roll": 0.5,
+          "step": 0.5
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.0,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.5,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 59.53333333333333,
+      "mean_ranking_STOP_upper_bound_sec": 59.53333333333333,
+      "mean_route_progress_m": 0.21166107959021774,
+      "mean_net_goal_approach_m": -0.042685063177370454,
+      "mean_physical_distance_m": 3.9861672951457487,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 30,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 22.427163475197933,
+      "all_candidates_excluded_decisions": 893,
+      "decision_count": 900
+    },
+    {
+      "condition": "combined",
+      "mode": "hybrid",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 43.4,
+      "mean_ranking_STOP_upper_bound_sec": 43.4,
+      "mean_route_progress_m": 0.6925596871292888,
+      "mean_net_goal_approach_m": 0.5058917647290256,
+      "mean_physical_distance_m": 4.658028512093894,
+      "goal_reached_count": 2,
+      "linear_windows": 6,
+      "turn_windows": 2,
+      "mean_linear_stall_sec": 0.4,
+      "mean_turn_stall_sec": 0.13333333333333333,
+      "timeout_count": 28,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 24.003137430593295,
+      "all_candidates_excluded_decisions": 651,
+      "decision_count": 861
+    }
+  ],
+  "complete_source_sha256": {
+    "old_reference-k_rail_field-l1-batch00": "0d29920b80399955ed8b14ad8d53d73e037f4a3eb5134ce66d323359d2e783a9",
+    "event_2s-k_rail_field-l1-batch00": "4755cfd1d8fe0ba01a00274d84fd1d9ea64eecbb27f7da0f7547e95a169917a6",
+    "pose_q3_2-k_rail_field-l1-batch00": "884a3a7d8e33978f3b76cb788a96e66d7f94def6fd7ce1efae4724d7ed327fd2",
+    "pose_q3_1-k_rail_field-l1-batch00": "582866cdd622bcd386d735f220b7ab9156e4c7298c679926a984505860256b1e",
+    "pose_q3_0-k_rail_field-l1-batch00": "6d291b4590e7bab931f90161594742172dea72b30e51f5a0ad5a754a0d9ab3e9",
+    "pose_q2_2-k_rail_field-l1-batch00": "9b13e1316510f52ef200a623c111a70b17863fa37e3c8ff2e117ae3eb875a9c9",
+    "pose_q2_0-k_rail_field-l1-batch00": "76ec5f5010defb5f3e5e0feb105e8a954cab6c6b0ad15400ffe7c753b51ca603",
+    "pose_q1_2-k_rail_field-l1-batch00": "e0f6f6ebc40cf0ed2515a8644be4e6da2ecf0f48b53f390fa24e7f082fdd4eb3",
+    "pose_q1_1-k_rail_field-l1-batch00": "bf098c82ac4148760d947b47ee944737b13a380b1f21182399065dbf25200d65",
+    "pose_q1_0-k_rail_field-l1-batch00": "f90cb0d0cd6485c6aec0ed13ece11a3aab3c8d789b104aeeb403ef62fe9e49e0",
+    "pose_q0_2-k_rail_field-l1-batch00": "f1f56acc853137d8413dfd28786e841ce3d066860cd5cd1422c6ce7f6a2297ba",
+    "pose_q0_0-k_rail_field-l1-batch00": "71bb4577050fe5d755378918ba389bdcca804df5d51da548039c2c6d81ce9915",
+    "combined-k_rail_field-l1-batch00": "1efbf4f73a2840e96381dd46759ce990ca0e52a5d80f35b9de960c4c62d99d91"
+  },
+  "binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "generator_sha256": "f232f66fc05ac8149ecfa1cc786cd6ec1e5cc30e0615d7ab0950b4afca9563e2",
+  "completed_cells": 2,
+  "planned_cells": 35,
+  "full_goal_complete": false,
+  "limitations": [
+    "390 condition-trials share30parents; not390independentterrains",
+    "no top3 freeze or final ranking from partial study",
+    "test and offline bag model evaluation not performed",
+    "STOP is request time, not physical static; zero events under STOP is not driving success"
+  ]
+}
