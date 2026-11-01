@@ -1,0 +1,21 @@
+{
+  "schema": "eatnav_r6_independent_interim_diagnostic_review_v1",
+  "saved_unix": 1793574867.889701,
+  "reviewer": "/root/r6_preproduction_review",
+  "review_scope": "Single validation parent seed1756069594 descriptive STOP-tip diagnostic only; not final research completion review",
+  "P1_P2_findings": [],
+  "reviewed_files_sha256": {
+    "docs/eat-nav/r6-2s-pose-20261030/reporting/level2_shared_tip.py": "68308e45c25bd8eae70ad1e8bffb8d1cca7f47ce6138cf54627d7ac1cc773295",
+    "docs/eat-nav/r6-2s-pose-20261030/validation-progress/level2-shared-STOP-tip-diagnostic.json": "bbbd2a745b25eef5667dd5347a4fe276d6a5575085fe322136f59f3e6422cfb1",
+    "docs/eat-nav/r6-2s-pose-20261030/validation-progress/level2-shared-STOP-tip-diagnostic.md": "4321fb6dc1cbe4fa426ab69e939623a2c7caa9bb1370a2c27c4a667ce1231ae0",
+    "docs/eat-nav/r6-2s-pose-20261030/validation-progress/level2-shared-STOP-tip-diagnostic.txt": "4321fb6dc1cbe4fa426ab69e939623a2c7caa9bb1370a2c27c4a667ce1231ae0"
+  },
+  "confirmed": [
+    "7 conditions have identical physical, joint and command SHA; two are reuse, not new independent physical trials",
+    "499 rows /24.95seconds; all Actor commands zero; all499rows nonzero joint torque",
+    "Planar distance1.83452934m; endpoint displacement0.82357621m; pre-reset terminal gravity tilt93.69343789degrees",
+    "Old reference/event same seed observed no tip;8 actual batches paired initial/physical identity and original copySHA verified",
+    "MD/TXT identical; single-seed association only, no causal or global superiority claim"
+  ],
+  "evidence_kind": "Independent reviewer response following original-trace recomputation; no simulator restart or runtime mutation"
+}
