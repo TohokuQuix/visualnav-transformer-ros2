@@ -64,7 +64,7 @@ PY
 - standalone Isaac Sim version file: `5.1.0-rc.19+release.26219.9c81211b.gl`。
 - container: local tag `isaac-lab-onix`。image IDはJSONに保存済みです。この作業でcontainer imageを公開したという意味ではなく、IDはdownload URLではありません。
 - container側package: PyTorch2.7.0+cu128、NumPy1.26.0、isaaclab0.48.0、isaaclab-rl0.4.4、rsl-rl-lib3.1.2。これらは実際に読んだpackage metadataで、standalone Simのversionと別です。metadataのnullはその名前のPython distributionが見つからない意味で、Simが無いという意味ではありません。
-- 外部onix project commit: `87fe97d266ae2f64d802a80471727d3429b05ff4`。IsaacLab側のcommitもJSONに保存し、取得時点のtracked treeは両方cleanであることを確認しています。
+- 外部onix project commit: `87fe97d266ae2f64d802a80471727d3429b05ff4`。onix側のtracked treeはcleanと確認しています。IsaacLab本体のディレクトリはGit checkoutではなく、commit・clean状態は確認できません。使用したisaaclab/isaaclab_rl/isaaclab_tasksの実ファイル一覧SHAを`execution-records/external-isaaclab-source-sha256.json`に保存しています。
 - actorのURDF参照: `/workspace/isaaclab_onix/source/onix_isaac_lab/onix_isaac_lab/assets/data/urdf/onix2.urdf`。このURDFにはmesh参照がなく、別のSTL取得を必要とするという推測はしていません。
 
 外部環境の記録は読み取り専用で取得しました。実行中の物理設定・依存package・学習済みモデル・閾値を変更していません。再現時は環境記録に加え、実行時のsource/model/cohort bindingと実際の初期物理条件の一致を確認してください。

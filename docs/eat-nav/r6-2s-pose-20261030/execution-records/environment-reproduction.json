@@ -73,5 +73,21 @@
     "/isaac-sim/VERSION": "5.1.0-rc.19+release.26219.9c81211b.gl"
   },
   "host_gpu_and_driver": "NVIDIA GeForce RTX 4090 Laptop GPU, 580.178.04",
-  "package_metadata_note": "null means no installed Python distribution metadata under that name; it does not imply the standalone simulator is absent"
+  "package_metadata_note": "null means no installed Python distribution metadata under that name; it does not imply the standalone simulator is absent",
+  "external_isaaclab_source_identity": {
+    "/workspace/isaaclab/source/isaaclab": {
+      "file_count": 409,
+      "inventory_sha256": "c7a28cb9d93b29305c708ccaa904e3731a13339fd146e1c2e279f7ae6db7a53d"
+    },
+    "/workspace/isaaclab/source/isaaclab_rl": {
+      "file_count": 31,
+      "inventory_sha256": "b0291817eefb348daaa96b41d49e62f8396f3b864948eb3a94fd487251069afd"
+    },
+    "/workspace/isaaclab/source/isaaclab_tasks": {
+      "file_count": 492,
+      "inventory_sha256": "8fcf6424720915e96216381dc77d368f2e95e811bf4d58618096ab57a2f9e342"
+    }
+  },
+  "external_isaaclab_source_hash_rule": "SHA256 of sorted compact JSON mapping relative file paths to SHA256; exclude __pycache__ and *.pyc",
+  "external_isaaclab_git_status": "unavailable: directory is not a Git checkout; neither commit nor clean tracked status established"
 }
