@@ -78,3 +78,7 @@
 - Generated actualvalidation signedpitch/roll peak and initialplanarspeed CDFs (6440branches,236eventpositive,56groups), PNG/PDF withsourceSHA. PNG visually inspected, readable/unclipped. Integrated signedposture/rate medians and speedbin counts/rates/CIs into report withvalidation sourceSHA gate. Actualinterimrenderpassed and2reporttests passed; defaultfullreport independently confirmed refusesincomplete scientific outputs beforecreatingfinalartifact. Runtime model/profiles unchanged.
 
 - Independent reviewer checked fed13a0/fc5d89a statistics/figures/report integration andthreshold documentation. Independently recomputed6440/236/56episodegroups/35cells,20Hz andfullposehorizons,quantiles,speeddenominators andWilsonintervals:match. NoP1/P2findings; no runtime touched. Scope-specific review doesnotreplace finalwhole-studyresultreview.
+
+## 2026-11-01 user-requested poweroff pause
+
+Userrequested poweroffinabout10minutes. Stopped exactcurrentcontainer evaluator q2_0 viaSIGINT afterPID/starttick/outputverification. Pipeline exited1 onmissingcompletiongate asintended; no livepipeline/evaluatorremained. Preserved6completedjobs/180conditiontrials. Copiedpartial997files to poweroff-save-1793502720/partial-job withSHA andoldledgers/logs/exitproof. Runtime859sourcebinding and modelSHAs verified, Gitconnectivityfscksuccess. LatestPOWER-OFF-HANDOFF + resumecommand saved. No retraining/recollection or partialsuccessclaim. Fullgoalwillpause afterdurablesaveverification atuserrequest.

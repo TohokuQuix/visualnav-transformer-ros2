@@ -1,3 +1,5 @@
+> 現在の状態（2026-11-01）: 電源断に備えて評価を停止・保存済みです。最新手順は POWER-OFF-HANDOFF.md / latest-poweroff-save.json を優先してください。以下の「動作中」の説明は前回再開時の履歴です。
+
 # R6 SSH引継ぎ（旅行中の確認・Codex再開）
 
 評価プログラムは1回の起動でvalidation→上位3設定凍結→test→bag評価を順に進めます。2026-11-01、再起動前の意図的中断を証拠付きで復旧し、独立したtmuxセッション（socket: eatnav-r6、session: evaluation）で再開しました。SSHやCodexを閉じても評価は継続します。PCの電源断・再起動・Docker停止では評価も停止します。各走行のたびにCodexへの依頼は不要ですが、異常時の調査と最後のレビュー・Git pushにはCodexの作業が必要です。OS上のPython/Docker実行とCodexの推論利用枠は別です。
