@@ -1,0 +1,77 @@
+{
+  "schema": "eatnav_r6_environment_reproduction_v1",
+  "observed_unix": 1793522153.652565,
+  "training_python_executable": "/home/ubuntu/venvs/isaaclab_py310/bin/python",
+  "host_training_environment": {
+    "python": "3.10.13 (main, Nov 10 2025, 17:59:38) [GCC 13.3.0]",
+    "packages": {
+      "torch": "2.7.0+cu128",
+      "numpy": "1.26.4",
+      "matplotlib": "3.10.7",
+      "pytest": "9.0.0"
+    }
+  },
+  "simulator_container": "isaac-lab-onix",
+  "local_image_tag": "isaac-lab-onix",
+  "local_image_id": "sha256:1fd67e3c37d4fad6c41d078763763c6592c2472e105776ed94dec033e7b428b9",
+  "container_environment": {
+    "python": "3.11.13 (tags/v3.11.13-dirty:498b971, Jun  9 2025, 16:37:36) [GCC 7.3.1 20180303 (Red Hat 7.3.1-5)]",
+    "packages": {
+      "torch": "2.7.0+cu128",
+      "numpy": "1.26.0",
+      "isaacsim": null,
+      "isaaclab": "0.48.0",
+      "isaaclab-rl": "0.4.4",
+      "rsl-rl-lib": "3.1.2"
+    },
+    "repositories": {
+      "/workspace/isaaclab": {
+        "commit": {
+          "returncode": 128,
+          "stdout": "",
+          "stderr": "fatal: not a git repository (or any of the parent directories): .git"
+        },
+        "tracked_status": {
+          "returncode": 128,
+          "stdout": "",
+          "stderr": "fatal: not a git repository (or any of the parent directories): .git"
+        }
+      },
+      "/workspace/isaaclab_onix": {
+        "commit": {
+          "returncode": 0,
+          "stdout": "87fe97d266ae2f64d802a80471727d3429b05ff4",
+          "stderr": ""
+        },
+        "tracked_status": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    "asset_manifest": {
+      "/workspace/isaaclab_onix/source/onix_isaac_lab/onix_isaac_lab/assets/data/urdf/onix2.urdf": {
+        "sha256": "94cb178f40dd0de375b3f21c83c9f58529b530de5cfac4d70f083b4d2a771ece",
+        "bytes": 130769
+      }
+    },
+    "mesh_references": []
+  },
+  "onix_project": {
+    "host_path": "/home/ubuntu/Projects/onix_isaac_lab",
+    "remote": "https://github.com/TohokuQuix/onix_isaac_lab.git",
+    "commit": "87fe97d266ae2f64d802a80471727d3429b05ff4"
+  },
+  "limitations": [
+    "Local Docker image identity is recorded; this task has not published a downloadable container image",
+    "The Git model package supports standalone CPU inference without Isaac/ROS; full simulation additionally needs compatible IsaacSim/IsaacLab/onix assets",
+    "Tracked repository status and URDF/available relative mesh bytes are recorded; untracked or package:// unresolved asset availability is not invented",
+    "This read-only inventory does not change the running experiment or replace paired-physics/source binding verification"
+  ],
+  "simulator_version_files": {
+    "/isaac-sim/VERSION": "5.1.0-rc.19+release.26219.9c81211b.gl"
+  },
+  "host_gpu_and_driver": "NVIDIA GeForce RTX 4090 Laptop GPU, 580.178.04",
+  "package_metadata_note": "null means no installed Python distribution metadata under that name; it does not imply the standalone simulator is absent"
+}
