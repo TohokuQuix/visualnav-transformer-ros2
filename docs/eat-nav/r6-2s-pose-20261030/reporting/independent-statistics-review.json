@@ -1,0 +1,34 @@
+{
+  "schema": "eatnav_r6_reporting_statistics_review_v1",
+  "reviewer": "/root/r6_preproduction_review",
+  "commits_reviewed": [
+    "fed13a0",
+    "fc5d89a"
+  ],
+  "scope": "descriptive validation signedposture/speed statistics, figures, report integration and threshold-method update only",
+  "independent_recalculation": {
+    "candidates": 6440,
+    "positive": 236,
+    "episode_groups": 56,
+    "field_level_cells": 35,
+    "all_source_observation_hz": 20,
+    "full_pose_horizon": true,
+    "quantiles_speed_denominators_wilson_intervals_match": true
+  },
+  "P1_P2_findings": [],
+  "interpretation_checked": [
+    "signedangles andunits",
+    "sharedgroup correlation andlimitedCIs",
+    "no causalclaim fromassociations",
+    "unfinished closed-loop/test/bag evaluation keptpending"
+  ],
+  "runtime_simulation_touched": false,
+  "does_not_replace_final_whole_result_review": true,
+  "source_sha256": {
+    "docs/eat-nav/r6-2s-pose-20261030/reporting/validation_posture_statistics.py": "c038dff04c827a238c54072eb4bc08a42f37a5c9d47f769e372c129a915d43c4",
+    "docs/eat-nav/r6-2s-pose-20261030/reporting/plot_signed_posture.py": "a35c35f054c456fb74fb878c37739ee0b40a357862638d6b7d44fda0b2ccf801",
+    "docs/eat-nav/r6-2s-pose-20261030/reporting/render_report.py": "674c7bac8ddc9da39a753fc12a4592a65cc604d6c57977e11760ab4bf63611b3",
+    "docs/eat-nav/r6-2s-pose-20261030/threshold-method.md": "7363f3329c98aa41cb5b24aabe8515105c9cd8b6c47830ec6acb27bd838c8114"
+  },
+  "unix": 1793501327.3690443
+}
