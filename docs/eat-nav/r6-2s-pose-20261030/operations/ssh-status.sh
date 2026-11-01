@@ -25,3 +25,9 @@ if p.exists():
 print('A running ledger is not proof of a live process. Check processes below.')
 PY
 pgrep -af 'python.*scripts/eat_nav_r6_(evaluation_pipeline|eval_sim|eval_queue)\.py' || true
+
+printf '\nIndependent tmux session (absence alone does not authorize restart):\n'
+tmux -L eatnav-r6 list-panes -t evaluation -F '#{pane_pid} #{pane_dead} #{pane_current_command}' 2>/dev/null || true
+if [ -f "$R6_ARTIFACT_ROOT/operations/independent-evaluation-exit.json" ]; then
+  cat "$R6_ARTIFACT_ROOT/operations/independent-evaluation-exit.json"
+fi

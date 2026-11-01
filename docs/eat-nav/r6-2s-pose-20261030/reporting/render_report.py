@@ -23,6 +23,45 @@ def table(headers, rows):
     return '\n'.join([line(headers), line(['---'] * len(headers)), *map(line, rows)])
 
 
+def diagnostic_rows(summary, ledger, jobs):
+    """Use exactly the queue's common initial-valid denominator.
+
+    all_candidates_excluded_decisions is a flag at each 2s decision boundary,
+    not a duration. Actual protective STOP seconds are reported separately.
+    """
+    if not summary.get('all_jobs_completed'):
+        raise ValueError('complete queue required for final diagnostic table')
+    by_condition = {j['condition']['id']: {} for j in jobs}
+    if not by_condition:
+        raise ValueError('nonempty queue required')
+    for job in jobs:
+        record = ledger[job['job_id']]
+        if record['state'] != 'completed':
+            raise ValueError('incomplete job in final diagnostic table')
+        target = by_condition[job['condition']['id']]
+        for row in record['results']:
+            if row['group_id'] in target:
+                raise ValueError('duplicate cohort within condition')
+            target[row['group_id']] = row
+    common = set.intersection(*(set(rows) for rows in by_condition.values()))
+    common = {gid for gid in common if all(rows[gid]['initial_valid'] for rows in by_condition.values())}
+    if not common or len(common) != summary['matched_initial_valid_trials']:
+        raise ValueError('diagnostic denominator differs from frozen queue summary')
+    output = []
+    for name, values in sorted(by_condition.items()):
+        rows = [values[gid] for gid in sorted(common)]
+        n = len(rows)
+        processing = sum(r['processing_sec'] for r in rows)
+        decisions = sum(r['decision_count'] for r in rows)
+        excluded = sum(r['all_candidates_excluded_decisions'] for r in rows)
+        output.append([name, n, sum(r['near_fall_count'] for r in rows),
+            sum(bool(r['intervention']) for r in rows), sum(bool(r['timeout']) for r in rows),
+            number(processing/n), number(processing/decisions if decisions else None),
+            excluded, number(excluded/decisions if decisions else None),
+            sum(r['unknown_stall_windows'] for r in rows)])
+    return output
+
+
 def render(root, output, interim=False):
     required = [
         'scientific-evaluation-complete.json', 'validation-evaluation/summary.json',
@@ -135,6 +174,36 @@ def render(root, output, interim=False):
                     number(x['mean_linear_stall_sec']), number(x['mean_turn_stall_sec'])])
         (output / f'{role}-field-level.md').write_text(table(
             ['条件', 'field/level', '有効数', '転倒', '不明', 'STOP秒', '進捗m', '直線秒', '旋回秒'], cellrows)+'\n')
+        sections += ['### field/levelを等重みにしたmacro平均',
+            table(['条件', 'cell数', '転倒率macro', '保護STOP秒', '順位STOP上限秒', 'route進捗m',
+                   '正味接近m', '移動距離m', '直線window/走行', '旋回window/走行', '直線秒/走行', '旋回秒/走行'],
+                [[name, len(a['cells']), number(a['macro_tip_rate']),
+                  *[number(a['macro_mean_'+key]) for key in ('protective_stop_sec',
+                    'ranking_STOP_upper_bound_sec', 'route_progress_m', 'net_goal_approach_m',
+                    'physical_distance_m', 'linear_windows', 'turn_windows', 'linear_stall_sec', 'turn_stall_sec')]]
+                 for name, a in sorted(summary['aggregates'].items())]),
+            'macroはfield/levelの各cellを等重みにした値です。転倒結果不明の件数・上限とCIは前表およびsummary.jsonで分けています。',
+            '### 診断指標', table(['条件', '有効数', 'near-fall観測回数', '介入走行数', 'timeout走行数',
+                '判断処理秒/走行', '判断処理秒/判断', '全候補除外判断数計', '全判断に対する除外比率', 'スタック不明window計'],
+                diagnostic_rows(summary, read(root / f'{role}-evaluation/progress.json'),
+                                read(root / f'{role}-evaluation/jobs.json'))),
+            '処理時間は実シミュレーション出力で計測した判断処理時間です。同一policyの共有出力は元試行の計測値を共有し、独立した再計測ではありません。'
+            '全候補除外は2秒ごとの判断時点の件数です。goal到達後のholdには判断を行いません。STOPの実時間は主表の保護STOP秒を参照してください。']
+        forecast_path = root / f'{role}-forecast-metrics/report.json'
+        if forecast_path.exists():
+            forecasts = read(forecast_path)
+            sections += ['### 実行された候補に対する未来予測精度',
+                'STOPには実行されたbank候補がなく、教師から除きます。未実行の13候補へ真値を複製していません。'
+                'policy同一性による共有出力も重複計上しません。選択された候補の分布に依存する診断で、全14候補の精度とは異なります。',
+                table(['実走行の方式', 'window数', 'ADE m', 'FDE m', 'yaw誤差°', 'roll誤差°', 'pitch誤差°', '回転誤差°', '最大傾斜誤差°'],
+                    [[name, x['windows'], *[number(x['trajectory'][key]) for key in
+                      ('ade_3d_m', 'fde_3d_m', 'yaw_mae_deg', 'roll_mae_deg', 'pitch_mae_deg', 'rotation_geodesic_deg', 'max_tilt_mae_deg')]]
+                     for name, x in sorted(forecasts['by_condition'].items())]),
+                table(['実走行の方式', 'head', '既知数', '陽性数', 'AP', '再現率', 'FPR', 'Brier', 'ECE'],
+                    [[name, head, e['count'], e['positive'], number(e['average_precision']), number(e['recall']),
+                      number(e['false_positive_rate']), number(e['brier']), number(e['ece'])]
+                     for name, x in sorted(forecasts['by_condition'].items())
+                     for head, e in zip(('tip_over','near_fall','linear_stall','turn_stall'), x['events'])])]
     if (root / 'frozen-top3.json').exists():
         frozen = read(root / 'frozen-top3.json')
         sections += ['## validationで凍結した上位3設定',

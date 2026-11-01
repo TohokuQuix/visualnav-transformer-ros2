@@ -1,0 +1,12 @@
+{
+  "schema": "eatnav_r6_reporting_review_v1",
+  "reviewer": "/root/r6_preproduction_review",
+  "scope": "reporting additions only; runtime source and models unchanged",
+  "finding": "P2: all_candidates_excluded_decisions counts 2s planner decisions, not20Hz duration",
+  "resolution": "report count and fraction of actual planner decisions; protective_stop_sec separately",
+  "reproduction": "tests/eat_nav/test_r6_reporting.py:1excluded/4decisions=.250; RED before fix, GREEN after",
+  "verification": "independent reviewer confirmed fix and independently ran2report tests",
+  "additional_P1_P2": false,
+  "whole_R6_suite": "89passed before reporting correction;2report tests rerun after correction",
+  "unix": 1793499257.4059947
+}

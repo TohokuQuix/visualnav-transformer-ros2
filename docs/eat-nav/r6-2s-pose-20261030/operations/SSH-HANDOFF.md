@@ -1,6 +1,6 @@
 # R6 SSH引継ぎ（旅行中の確認・Codex再開）
 
-評価プログラムは1回の起動でvalidation→上位3設定凍結→test→bag評価を順に進めます。各走行のたびにCodexへの依頼は不要です。OS上のPython/Docker実行と、Codexの推論利用枠は別です。ただし実行中のアプリや親プロセスを終了した場合の継続は保証しないため、現在のPC・Docker・Codexアプリは起動したままにしてください。tmuxへの現在の評価プロセスの移行はまだ実施していません。
+評価プログラムは1回の起動でvalidation→上位3設定凍結→test→bag評価を順に進めます。2026-11-01、再起動前の意図的中断を証拠付きで復旧し、独立したtmuxセッション（socket: eatnav-r6、session: evaluation）で再開しました。SSHやCodexを閉じても評価は継続します。PCの電源断・再起動・Docker停止では評価も停止します。各走行のたびにCodexへの依頼は不要ですが、異常時の調査と最後のレビュー・Git pushにはCodexの作業が必要です。OS上のPython/Docker実行とCodexの推論利用枠は別です。
 
 ## SSHから進捗確認
 
@@ -19,7 +19,7 @@ tail -f /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030
 です。ローカルのsession保存ファイルの存在とCLI resumeコマンドを確認済みです。
 
 tmux new -A -s r6-codex
-cd /tmp/eatnav-r6-20261030
+cd /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/restart-backup/1793452520/worktree
 /usr/lib/chatgpt/resources/codex --no-daemon resume 01a1541e-50e0-78f1-9938-d41a6a5e74f7
 
 アプリ同梱CLIで「this CLI has no complete local package」と表示された場合に備え、--no-daemonを明示しています。このオプションの存在は実機上のresume --helpで確認済みです。対話的な同時再開は既存作業との競合を避けるため実行していません。必ず別PCからSSHで元PCへ接続した状態で実行してください。
@@ -33,7 +33,7 @@ SSHを切る前にCtrl+Bを押してからDを押すとtmuxをdetachできます
 
 progress.jsonのrunning表示だけでは生存確認になりません。実プロセスを確認してください。停止済みでも、原因を見ずにpipelineを重複起動したり、running/failed記録を削除したりしないでください。現在のrunnerは未調査のrunning/failed stageを自動再実行せず拒否します。成功済みjobの出力は保持し、実装・モデル・設定・cohortのSHAが変わらないことを確認してから明示的に再開します。
 
-作業コード: /tmp/eatnav-r6-20261030
+作業コード: /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/restart-backup/1793452520/worktree
 成果物: /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030
 branch: exp/eatnav-r6-2s-pose-thresholds-20261030
 元の依頼: /home/ubuntu/eat_nav_retraining_handoff_20261030/追加学習依頼プロンプト.txt
@@ -50,3 +50,14 @@ https://learn.chatgpt.com/docs/pricing
 直前の状態は成果物ルート operations/before-cli-switch.json に保存しています。デスクトップの応答を停止してアプリを終了した後、SSHでCLIを再開してください。評価が残って動いている可能性も、停止している可能性もあるため、実プロセスと新しいtrace書込みを先に確認します。完了済みjobは保護し、未完了jobは成功へ変換しません。
 
 同時接続のロック表示が残る場合は、元のデスクトップ側が終了したことを確認してrで再試行します。fでforkしないでください。
+
+## 再起動後の常駐実行の確認
+
+```bash
+tmux -L eatnav-r6 list-panes -t evaluation -F '#{pane_pid} #{pane_dead} #{pane_current_command}'
+cat /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/independent-evaluation-launch.json
+```
+
+実行終了時は operations/independent-evaluation-exit.json にexit codeと時刻が保存されます。tmuxが見つからないだけでは再起動せず、実プロセス・終了記録・台帳を照合してください。手動でpipelineを二重起動しないでください。
+
+復旧証拠: operations/latest-recovery.json のarchiveに、旧台帳・中断部分694ファイルのSHA・再試行理由を保存しています。完了済み3ジョブ90走行は再実行していません。859 sourceファイル・checkpoint・cohort・条件は固定bindingとの一致を確認しました。再起動で消えた /run/user/1000/gdm はDockerのread-only GUI認証用bind元なので空ディレクトリのみ復元しました。GUI認証を復元・表示確認したという意味ではありません。
