@@ -216,6 +216,7 @@ def render(root, output, interim=False):
         if forecast_path.exists():
             forecasts = read(forecast_path)
             sections += ['### 実行された候補に対する未来予測精度',
+                'この表は全て新しいR6予測器の精度です。旧参照の行も、旧plannerが実行した走行上でR6を採点しています。旧モデルに未来XYZ・姿勢headがあるという意味ではありません。'
                 'STOPには実行されたbank候補がなく、教師から除きます。未実行の13候補へ真値を複製していません。'
                 'policy同一性による共有出力も重複計上しません。選択された候補の分布に依存する診断で、全14候補の精度とは異なります。',
                 table(['実走行の方式', 'window数', 'ADE m', 'FDE m', 'yaw誤差°', 'roll誤差°', 'pitch誤差°', '回転誤差°', '最大傾斜誤差°'],
