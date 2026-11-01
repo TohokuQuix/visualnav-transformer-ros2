@@ -1,0 +1,26 @@
+{
+  "schema": "eatnav_r6_signed_posture_figures_v1",
+  "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/final-dataset-audit/validation-records.json",
+  "source_sha256": "df8a0488e650cd9b9afda50951f312b757135265a1930c2d38d74d0f6dc18039",
+  "rows": 6440,
+  "positive": 236,
+  "episode_groups": 56,
+  "signed_peak_rule": "signed value at largest absolute extremum of observed future roll/pitch; min chosen on ties",
+  "speed_definition": "sqrt(initial body_state[3]^2 + body_state[4]^2), m/s",
+  "speed_quartiles_mps": [
+    0.04118899956122006,
+    0.11203536954176933,
+    0.2924896641500948
+  ],
+  "libraries": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.10.7"
+  },
+  "script_sha256": "a35c35f054c456fb74fb878c37739ee0b40a357862638d6b7d44fda0b2ccf801",
+  "limitations": [
+    "No validationtip/near positives; event outcomes are stall dominated",
+    "Unequal class sizes are normalized separately for descriptive CDFs, not a conditional failure probability",
+    "Repeated candidates/anchors share sourcegroups; no independent-safety claim",
+    "No thresholds or modelweights fitted; no test/bag reads"
+  ]
+}

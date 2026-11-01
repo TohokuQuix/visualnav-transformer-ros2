@@ -68,6 +68,7 @@ def render(root, output, interim=False):
         'frozen-top3.json', 'test-evaluation/summary.json',
         'validation-forecast-metrics/report.json', 'test-forecast-metrics/report.json',
         'top3-bag-evaluation/report.json', 'top3-bag-inpainted-sensitivity/report.json',
+        'validation-posture-statistics/statistics.json',
     ]
     missing = [name for name in required if not (root / name).exists()]
     if missing and not interim:
@@ -112,6 +113,28 @@ def render(root, output, interim=False):
              for role, heads in support.items() for name, x in heads.items()]),
             '転倒のtrain陽性19候補は4つのanchor組・3つのepisode組に集中しています。'
             '陽性候補数を独立した事故数や十分な汎化能力の根拠として扱いません。']
+    if (root / 'validation-posture-statistics/statistics.json').exists():
+        posture = read(root / 'validation-posture-statistics/statistics.json')
+        observed = root / 'final-dataset-audit/validation-records.json'
+        if hashlib.sha256(observed.read_bytes()).hexdigest() != posture['source_sha256']:
+            raise ValueError('posture statistics differ from actual validation source')
+        distributions = posture['overall']['signed_posture_and_rate_distributions']
+        sections += ['## 符号付き姿勢・速度別の観測統計',
+            '以下は実際の2秒候補走行の記述統計で、転倒予測の成功や2m段差走破の保証ではありません。'
+            '全35 field/levelの分布、正負の傾斜持続時間、角度変化速度と区間はvalidation-posture-statistics/に保存しています。',
+            table(['2秒の観測結果', '候補数', 'pitch最小の中央値°', 'pitch最大の中央値°',
+                   'roll最小の中央値°', 'roll最大の中央値°', '最大pitch変化速度の中央値°/s', '最大roll変化速度の中央値°/s'],
+                [[label, values['count'], *[number(values['quantiles'][key]['0.5']) if values['count'] else '未確立'
+                  for key in ('pitch_min_deg','pitch_max_deg','roll_min_deg','roll_max_deg','max_pitch_rate_degps','max_roll_rate_degps')]]
+                 for label, values in distributions.items() if label != 'all']),
+            table(['初期平面速度bin', '候補数', 'イベント陽性数', '陽性率', 'Wilson95%'],
+                [[key, values['branch_count'], values['positive_branch_count'], number(values['branch_event_rate'],4),
+                  '–'.join(number(x,4) for x in values['branch_event_wilson95'])]
+                 for key, values in sorted(posture['by_speed_bin'].items())]),
+            '初期平面速度はbody座標のsqrt(vx²+vy²)[m/s]です。四分位の区切りは' +
+            ', '.join(number(x,6) for x in posture['speed_bin_cutpoints_mps']) +
+            'で、境界値は上側のbinに含めます。候補・anchorはepisode groupを共有し、区間は独立事故の安全性証明ではありません。'
+            '速度と失敗の因果関係もこの分布だけでは確定しません。']
     if (root / 'anchor-leadtime/report.json').exists():
         lead = read(root / 'anchor-leadtime/report.json')
         before = [v for k, v in lead['summaries'].items() if k.endswith('/before_observed_contact')]
