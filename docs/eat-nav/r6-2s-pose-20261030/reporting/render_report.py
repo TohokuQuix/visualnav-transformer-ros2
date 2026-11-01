@@ -186,7 +186,7 @@ def render(root, output, interim=False):
         'route進捗は開始点→固定goalの線への射影を0～2mに制限した符号付き変化の合計です。'
         '旧R4/R5のwaypoint更新型route進捗と直接比較できません。'
         'スタックは2秒window・stride2秒で重複なし、陽性秒=陽性window×2です。'
-        '実際の保護STOPとgoal到達後のholdは分離します。'
+        '保護STOPの要求時間とgoal到達後のholdは分離します。既存の指令遅延補間により切替直後のActor入力へ前指令が残る場合があり、STOP要求秒はActor入力ゼロ時間や機体の静止時間ではありません。'
         '途中打切り後の残り秒は順位付けでSTOP上限へ加えます。転倒未観測の打切りは転倒結果不明です。'
         '順位は転倒上限（観測転倒＋不明試行）、STOP上限、validation固定尺度で等重み正規化した進捗・両スタックwindow/秒の順です。']
     for role in ['validation', 'test']:
@@ -199,7 +199,7 @@ def render(root, output, interim=False):
             continue
         sections += [f'## {role}の走行結果',
             f"各条件の計画試行数{summary['planned_cohort_trials']}、共通の開始有効試行数{summary['matched_initial_valid_trials']}。",
-            table(['条件', '有効数', '転倒', '転倒結果不明', '転倒率CI95%', '保護STOP秒/走行', '順位STOP上限秒/走行',
+            table(['条件', '有効数', '転倒', '転倒結果不明', '転倒率CI95%', '保護STOP要求秒/走行', '順位STOP上限秒/走行',
                    'route進捗m', '正味接近m', '移動距離m', '到達数', '直線window計', '旋回window計', '直線秒/走行', '旋回秒/走行'],
                 [[name, a['trials'], a['tip_count'], a['fall_outcome_unknown_trials'],
                   '–'.join(number(x) for x in a['tip_rate_wilson95']), number(a['mean_protective_stop_sec']),
@@ -219,7 +219,7 @@ def render(root, output, interim=False):
         (output / f'{role}-field-level.md').write_text(table(
             ['条件', 'field/level', '有効数', '転倒', '不明', 'STOP秒', '進捗m', '直線秒', '旋回秒'], cellrows)+'\n')
         sections += ['### field/levelを等重みにしたmacro平均',
-            table(['条件', 'cell数', '転倒率macro', '保護STOP秒', '順位STOP上限秒', 'route進捗m',
+            table(['条件', 'cell数', '転倒率macro', '保護STOP要求秒', '順位STOP上限秒', 'route進捗m',
                    '正味接近m', '移動距離m', '直線window/走行', '旋回window/走行', '直線秒/走行', '旋回秒/走行'],
                 [[name, len(a['cells']), number(a['macro_tip_rate']),
                   *[number(a['macro_mean_'+key]) for key in ('protective_stop_sec',
