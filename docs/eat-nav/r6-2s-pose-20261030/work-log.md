@@ -116,3 +116,7 @@ Finalreport now requires completedvalidation/test20Hzdiagnostics and separately 
 - Savedfirst-cell12-conditioninterimMD/TXT/JSON fromall12completedK-RailL0conditions; asserted30commoninitialgroupIDsandallfullprotocolvalid. Includes10frozenposeprofiles,observedtipWilsonCI,STOPrequest/residualupperbound,route/approach/distance/goals/bothstallwindows/seconds andcomplete-sourceSHAs. 360conditiontrials share30parents, no13thcombined/other34cells/test included; no provisionaltop3freeze/rank/safetyclaim. Totals4tipobservations/103linear/27turnwindows acrossconditions, notindependentaccidents.
 
 - Independentreviewer recomputedfirst-cell12conditioninterim fromactualcomplete/ledger andfrozenbinding:30commonvalidgroups,allmetrics/WilsonCI/stallseconds/10exactprofiles/SHA matched; noP1/P2. Reviewproofsaved. Fullvalidationstillunfinished/combinedlive; noselectionfreeze.
+
+## 2026-11-02 first full cell completed
+
+CombinedK-RailL0 completed30validprotocoltrials:1tip/0nearfall/8linear/2turnwindows,35895observed20Hzrows/793causaldecisions. ActualSTOPrequest25.491667s vsresidualupper25.666667s,route1.31453034m,7goals;5.25unavailableterminalseconds retained. Fullcompressed/raw/copySHA,continuous50mstiming,DEMcausality,pairedinitialphysicsverified. Savedaudit and13conditioninterimMD/TXT/JSON; allprevious12completeSHAs/common30IDschecked. Thisis1of35cells only, nofinalranking/top3freeze/test/bagclaim. Queuecontinuesold_referenceKrailL1;13completedjobs390conditiontrials.
