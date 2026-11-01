@@ -62,11 +62,32 @@ def diagnostic_rows(summary, ledger, jobs):
     return output
 
 
+
+def raw_peak_rows(report, role, model_sha256, binding_sha256):
+    """Final-only table: observed-prefix bounds never become full-horizon MAE."""
+    if (report.get('schema') != 'eatnav_r6_observed_20hz_peak_diagnostics_v1'
+            or report.get('interim') or not report.get('queue_complete')
+            or report.get('split') != role or report.get('model_sha256') != model_sha256
+            or report.get('binding_sha256') != binding_sha256):
+        raise ValueError('complete model-bound raw peak report required')
+    result = []
+    for condition, values in sorted(report['by_condition'].items()):
+        if (values['windows'] != values['full_windows'] + values['partial_windows']
+                or values['full_window_max_tilt_MAE_deg']['count'] != values['full_windows']):
+            raise ValueError('partial/full window diagnostic denominator mismatch')
+        result.append([condition, values['full_windows'], values['partial_windows'],
+            values['tip_observed_windows'], number(values['full_window_max_tilt_MAE_deg']['mean']),
+            number(values['observed_underprediction_lower_bound_deg']['max']),
+            number(values['observed_20hz_minus_10hz_peak_deg']['max'])])
+    return result
+
+
 def render(root, output, interim=False):
     required = [
         'scientific-evaluation-complete.json', 'validation-evaluation/summary.json',
         'frozen-top3.json', 'test-evaluation/summary.json',
         'validation-forecast-metrics/report.json', 'test-forecast-metrics/report.json',
+        'validation-raw-peak-metrics/report.json', 'test-raw-peak-metrics/report.json',
         'top3-bag-evaluation/report.json', 'top3-bag-inpainted-sensitivity/report.json',
         'validation-posture-statistics/statistics.json',
     ]
@@ -228,6 +249,19 @@ def render(root, output, interim=False):
                       number(e['false_positive_rate']), number(e['brier']), number(e['ece'])]
                      for name, x in sorted(forecasts['by_condition'].items())
                      for head, e in zip(('tip_over','near_fall','linear_stall','turn_stall'), x['events'])])]
+        peak_path = root / f'{role}-raw-peak-metrics/report.json'
+        if peak_path.exists():
+            peaks = read(peak_path)
+            binding = read(root / f'{role}-evaluation/frozen-binding.json')
+            sections += ['### 20Hz実測ピークと部分観測',
+                table(['方式', '完全2秒window', '部分window', '転倒観測window',
+                       '完全window最大傾斜MAE°', '過小予測量の観測下限 最大°', '20Hzと0.1秒格子のピーク差 最大°'],
+                      raw_peak_rows(peaks, role, binding['model_sha256'],
+                                    hashlib.sha256((root / f'{role}-evaluation/frozen-binding.json').read_bytes()).hexdigest())),
+                '自然転倒の終端直前姿勢を保持しています。終端・停止で2秒分の未来を観測できないwindowはMAEに含めず、'
+                '観測済み最大値から分かる過小予測量の下限を別に示します。完全windowの平均誤差だけで転倒前の予測性能を判断できません。'
+                'STOP/goal-hold中の転倒は候補windowへ付け替えず、走行単位の転倒集計には保持します。'
+                '20Hz記録も物理substepのピークを全て観測するものではありません。']
     if (root / 'frozen-top3.json').exists():
         frozen = read(root / 'frozen-top3.json')
         sections += ['## validationで凍結した上位3設定',

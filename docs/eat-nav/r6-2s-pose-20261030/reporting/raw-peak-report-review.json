@@ -1,0 +1,17 @@
+{
+  "reviewed_unix": 1793542743.1511154,
+  "reviewer": "/root/r6_preproduction_review",
+  "initial_finding": "P2: report model/split match alone could accept different cohort/profile binding",
+  "reproduction": "independent synthetic same-model different-binding report accepted before fix",
+  "resolution": "renderer hashes actual queue frozen-binding.json; raw_peak_rows rejects mismatching binding_sha256",
+  "focused_tests_passed": 8,
+  "reviewer_verified_resolution": true,
+  "remaining_P1_P2": [],
+  "actual_integration_checks": {
+    "default_final_refuses_missing_artifacts": true,
+    "missing_required_final_artifacts": 9,
+    "interim_generation_succeeds_and_marks_incomplete": true
+  },
+  "runtime_sources_unchanged": 859,
+  "scope": "report postprocessing only; no simulator changes"
+}
