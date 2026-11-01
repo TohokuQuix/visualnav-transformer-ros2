@@ -1,0 +1,69 @@
+{
+  "verified_unix": 1793543876.923847,
+  "visual_inspection": "Final PNG inspected:3panels/alltitles/axes/legend/terminalpoints readable, requestedSTOP/latency caption visible, no clipping",
+  "requested_STOP_zero_follower_rows_verified": 1549,
+  "nonzero_actor_transition_records": [
+    {
+      "condition": "pose_q1_1",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed16151788/tile00",
+      "control_step": 200,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.7000000012283861
+    },
+    {
+      "condition": "pose_q1_1",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed16151788/tile00",
+      "control_step": 720,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.6999999801574759
+    },
+    {
+      "condition": "pose_q1_1",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed16151788/tile00",
+      "control_step": 800,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.699999964567884
+    },
+    {
+      "condition": "pose_q1_1",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed16151788/tile00",
+      "control_step": 880,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.6999999718921974
+    },
+    {
+      "condition": "pose_q0_2",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed3891979502/tile00",
+      "control_step": 120,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.39999999122720076
+    },
+    {
+      "condition": "pose_q0_2",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed3891979502/tile00",
+      "control_step": 280,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.39999998644504803
+    },
+    {
+      "condition": "pose_q0_2",
+      "group_id": "closed_loop/k_rail_field/level0/validation/seed3891979502/tile00",
+      "control_step": 520,
+      "control_interval_sec": 0.05,
+      "prior_command_mix_alpha": 0.3999999519595613
+    }
+  ],
+  "examples": 3,
+  "scope": "descriptive selectedvalidationfailures, no rate/causal/safetyclaim",
+  "files_sha256": {
+    "terminal-tilt-examples.png": "f0e7bee5e4b43e710c89e2b2ed9bf378e8c2557838c658ef1641be1e54715f3d",
+    "terminal-tilt-examples.pdf": "a10d88073273c65f9dac2e3a2fa3b6b10466aa8af8aee16c3ee6a82ccf7f9a47",
+    "terminal-tilt-sources.json": "2b1d11537adf753cb3d32fcc3b8ef8b18a7124337626d087a1e0a7d4509c8154"
+  },
+  "reproduction": "PYTHONPATH=src:scripts:tests/eat_nav:. /home/ubuntu/venvs/isaaclab_py310/bin/python docs/eat-nav/r6-2s-pose-20261030/reporting/plot_terminal_examples.py --root /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030 --output docs/eat-nav/r6-2s-pose-20261030/descriptive-figures",
+  "independent_review": {
+    "reviewer": "/root/r6_preproduction_review",
+    "result": "no P1/P2; reviewer corrected initial follower-only zero check after fullactorinput evidence",
+    "verified": "3trace/decisionSHA; terminalpre-reset/timing; requestedSTOPzero; actortransitionprior mixes0.7/0.4,7rows total; physicalrest/causalclaims rejected"
+  }
+}
