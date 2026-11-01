@@ -1,0 +1,59 @@
+{
+  "verified_unix": 1793549828.761519,
+  "source_head": "fa7a499b9351ab95093708e1cb061752bdaca391",
+  "git_blob_models": [
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/model_seed123.pt",
+      "sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+      "git_blob_bytes": 739701,
+      "strict_load": true,
+      "all_heads_active": true,
+      "use_dem": true,
+      "event_shape": [
+        1,
+        14,
+        4
+      ],
+      "trajectory_shape": [
+        1,
+        14,
+        20,
+        9
+      ],
+      "all_finite": true,
+      "cpu_threads": 1,
+      "synthetic_warm_inference_mean_sec": 0.0005587879015365616,
+      "synthetic_warm_inference_runs": 10
+    },
+    {
+      "path": "checkpoints/eat_nav/r6_2s_pose_20261030/state_only_seed123.pt",
+      "sha256": "f73c665080c3f95f48b5c1de9dd1891546094bdba24c9aa09c6fc0103ce09aa9",
+      "git_blob_bytes": 739701,
+      "strict_load": true,
+      "all_heads_active": true,
+      "use_dem": false,
+      "event_shape": [
+        1,
+        14,
+        4
+      ],
+      "trajectory_shape": [
+        1,
+        14,
+        20,
+        9
+      ],
+      "all_finite": true,
+      "cpu_threads": 1,
+      "synthetic_warm_inference_mean_sec": 0.0004245898002409376,
+      "synthetic_warm_inference_runs": 10
+    }
+  ],
+  "package_files_verified": 16,
+  "r6_regression_tests": 106,
+  "regression_seconds": 8.8,
+  "test_exit_code": 0,
+  "synthetic_only": true,
+  "heldout_test_opened": false,
+  "closed_loop_complete": false
+}
