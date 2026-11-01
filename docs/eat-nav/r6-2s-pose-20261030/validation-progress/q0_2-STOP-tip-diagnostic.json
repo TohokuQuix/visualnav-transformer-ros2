@@ -1,0 +1,112 @@
+{
+  "schema": "eatnav_r6_observed_STOP_terminal_diagnostic_v1",
+  "observed_unix": 1793543420.6870296,
+  "group_id": "closed_loop/k_rail_field/level0/validation/seed3891979502/tile00",
+  "condition": "pose_q0_2",
+  "terminal_sec": 35.45,
+  "continuous_zero_command_protective_STOP_start_sec": 26.05,
+  "continuous_zero_command_protective_STOP_sec": 9.4,
+  "planar_displacement_during_STOP_m": 0.5456278328643914,
+  "initial_combined_tilt_deg": 12.071367324704688,
+  "terminal_combined_tilt_deg": 93.56665780152593,
+  "terminal_world_linear_speed_mps": 0.8570750100578771,
+  "terminal_world_angular_speed_radps": 3.491622762840301,
+  "zero_actor_commands_all_rows": true,
+  "paired_same_group_conditions": [
+    {
+      "condition": "event_2s-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 0.0,
+      "route_progress_m": 1.4028440374875748,
+      "goal_reached": true
+    },
+    {
+      "condition": "old_reference-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 0.0,
+      "route_progress_m": 1.5521562321107831,
+      "goal_reached": true
+    },
+    {
+      "condition": "pose_q0_2-k_rail_field-l0-batch00",
+      "tip_count": 1,
+      "observed_sec": 35.45,
+      "actual_STOP_sec": 29.450000000000003,
+      "route_progress_m": 1.4912066496296408,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q1_0-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 52.0,
+      "route_progress_m": 0.20236945212197882,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q1_1-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 24.0,
+      "route_progress_m": 1.1941658926391843,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q1_2-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 58.0,
+      "route_progress_m": 0.0,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q2_0-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 58.0,
+      "route_progress_m": 0.0,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q2_2-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 60.0,
+      "route_progress_m": 0.0,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q3_0-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 60.0,
+      "route_progress_m": 0.0,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q3_1-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 36.0,
+      "route_progress_m": 0.6406958746071715,
+      "goal_reached": false
+    },
+    {
+      "condition": "pose_q3_2-k_rail_field-l0-batch00",
+      "tip_count": 0,
+      "observed_sec": 60.0,
+      "actual_STOP_sec": 14.0,
+      "route_progress_m": 1.9999999999999996,
+      "goal_reached": false
+    }
+  ],
+  "trace_compressed_sha256": "e78b17078abdf7d78dcb37b47aa3316ed7615dc5bbde254740c69d15bb0ba3fb",
+  "limitations": [
+    "STOP is zero commanded body velocity; existing fixed low-level RL remains active and physical rest is not guaranteed",
+    "Temporal association is observed; this does not prove STOP caused the tip or that motion would have avoided it",
+    "Other conditions share initial group, but after policy divergence trajectories and contacts differ",
+    "This diagnostic does not alter frozen thresholds, low-level controller, dataset or test; no robot command sent"
+  ]
+}
