@@ -1,13 +1,13 @@
-# 最新のR6再開引継ぎ（2026-11-01）
+# R6 最新引継ぎ
 
-現在はユーザーの電源断希望で停止済みです。完了済み6ジョブ180走行を保持し、pose_q2_0だけを意図的に中断・SHA付き退避しました。
+最新の実行状態は **CURRENT-EXECUTION.md**、実際の復旧記録は **latest-poweroff-resume.json**、現在の台帳は成果物ルート evaluation-pipeline.json / validation-evaluation/progress.json を確認してください。
 
-最新の手順は同ディレクトリの **POWER-OFF-HANDOFF.md** と **latest-poweroff-save.json** を読んでください。以前の3ジョブ90走行時点の引継ぎや復旧記録を、現在の台帳へ復元しないでください。
+2026-11-01 17:15 JST、ユーザーの再開指示で180条件走行を保持してpose_q2_0を再試行しました。以前のPOWER-OFF-HANDOFF.mdは停止時点の履歴です。実プロセスが動いていれば重複起動せず、以前の180走行時点の台帳へ復元しないでください。
 
-再開コマンド:
+会話を開くコマンド:
 
 ```bash
 bash /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/resume-codex.sh
 ```
 
-会話を開いたら、POWER-OFF-HANDOFF.md記載の再開指示を送信してください。実評価の重複起動は禁止、実機指令は禁止です。
+実機指令は禁止です。

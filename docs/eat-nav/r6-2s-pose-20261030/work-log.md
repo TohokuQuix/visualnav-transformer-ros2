@@ -82,3 +82,7 @@
 ## 2026-11-01 user-requested poweroff pause
 
 Userrequested poweroffinabout10minutes. Stopped exactcurrentcontainer evaluator q2_0 viaSIGINT afterPID/starttick/outputverification. Pipeline exited1 onmissingcompletiongate asintended; no livepipeline/evaluatorremained. Preserved6completedjobs/180conditiontrials. Copiedpartial997files to poweroff-save-1793502720/partial-job withSHA andoldledgers/logs/exitproof. Runtime859sourcebinding and modelSHAs verified, Gitconnectivityfscksuccess. LatestPOWER-OFF-HANDOFF + resumecommand saved. No retraining/recollection or partialsuccessclaim. Fullgoalwillpause afterdurablesaveverification atuserrequest.
+
+## 2026-11-01 17:15 JST poweroff-pause resume
+
+Userreactivatedgoal. No livehost/containerevaluatorfound. VerifiedcurrentHEAD33f0174 and859runtime source/model/profiles/cohort/capacity30binding; rehashed997archivedpartialfiles andsameassignment; all6completed/180conditiontrials identicaltosavedledger. Archivedoldledgers/runtimebinding/launch/exitproof inoperations/resume-poweroff-*, removedonlyq2_0failedrecord andvalidationfailedphase. Launched independenttmuxevaluation, actualpipeline20746/sim20966verifiedlive. Updatedhandoff to distinguishcurrentrunningstate fromhistoricalpoweroffready snapshot. No recollection/retraining/thresholdchange.

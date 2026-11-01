@@ -1,4 +1,4 @@
-> 現在の状態（2026-11-01）: 電源断に備えて評価を停止・保存済みです。最新手順は POWER-OFF-HANDOFF.md / latest-poweroff-save.json を優先してください。以下の「動作中」の説明は前回再開時の履歴です。
+> 現在の状態（2026-11-01 17:15 JST）: 再開指示により評価を独立tmuxで再開しました。CURRENT-EXECUTION.md / latest-poweroff-resume.json と実プロセスを確認してください。POWER-OFF-HANDOFF.mdは前回停止時点の履歴です。
 
 # R6 SSH引継ぎ（旅行中の確認・Codex再開）
 

@@ -1,0 +1,34 @@
+{
+  "state": "launched_independent_tmux",
+  "interrupted_job": "pose_q2_0-k_rail_field-l0-batch00",
+  "partial_archive": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/poweroff-save-1793502720/partial-job",
+  "partial_files_sha256_verified": 997,
+  "frozen_binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "completed_jobs_preserved": 6,
+  "completed_condition_trials_preserved": 180,
+  "runtime_source_matches_frozen": true,
+  "model_and_conditions_and_cohort_unchanged": true,
+  "unix": 1793520909.1967363,
+  "archive": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/resume-poweroff-1793520909196165110",
+  "launch": {
+    "command": [
+      "tmux",
+      "-L",
+      "eatnav-r6",
+      "new-session",
+      "-d",
+      "-s",
+      "evaluation",
+      "-c",
+      "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/restart-backup/1793452520/worktree",
+      "/home/ubuntu/venvs/isaaclab_py310/bin/python /home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/run-evaluation-independent.py"
+    ],
+    "cwd": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/restart-backup/1793452520/worktree",
+    "unix": 1793520935.7382746,
+    "tmux_pane": "20739 0 python\n",
+    "launcher_sha256": "087d081e4857015d2e095ed4b7aada98ab83e476519685c4a83f8f3f80650758",
+    "log": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/evaluation-production.log",
+    "resume_archive": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/resume-poweroff-1793520909196165110",
+    "model_profiles_and_cohorts_changed": false
+  }
+}
