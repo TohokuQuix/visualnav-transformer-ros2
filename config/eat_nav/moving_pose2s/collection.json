@@ -1,0 +1,72 @@
+{
+  "anchor_qualification": "measured causal DEM and physical state; no future observations",
+  "anchor_snapshot": "single full-world common control step; no asynchronous clock/RNG stitching; earliest step improving number of qualified parents; stop when all qualify or 20s",
+  "candidate_count": 14,
+  "collection_budget_sec": 10800,
+  "control_hz": 20,
+  "dem_flat_gradient": "2D least-squares plane over center +/-0.25m, >=16 validcells, slope norm < tan10deg",
+  "disk_free_min_gib": 50,
+  "horizon_seconds": 2.0,
+  "horizon_steps": 40,
+  "interventions": {
+    "append": false,
+    "internal_replan": false,
+    "protective_stop": false,
+    "recovery": false
+  },
+  "parents_per_state": 10,
+  "persistence_samples": 4,
+  "physics_cache_restorable": false,
+  "planned_branches": 980,
+  "prefix_reset": {
+    "descent": 0.0,
+    "moving_flat": 0.0,
+    "slow": 0.0,
+    "step_before": -6.0,
+    "turning": 0.0,
+    "uphill_before": -7.8,
+    "uphill_mid": -6.0
+  },
+  "prefix_reset_reference": "tile-local x in m; y/yaw zero, worldz actual generated mesh surface + defaultroot clearance; initial velocity zero",
+  "prefix_search_limit_sec": 20,
+  "raw_budget_gib": 20,
+  "restoration_description": "observable snapshot branch; PhysX contact warm-start caches not serialized",
+  "ruling": "deadline980 selected before outcomes to reduce implementation and collection risk",
+  "schema": "eatnav_moving_pose2s_collection_v1",
+  "split_fixed_before_outcomes": true,
+  "terrain_predicate": {
+    "boundary_rise_m": 0.02,
+    "flat_slope_threshold": 0.17632698,
+    "forward_boundary_range_m": [
+      0.2,
+      0.5
+    ],
+    "local_slope_threshold": 0.08,
+    "profile_rows": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "step_rise_m": 0.06,
+    "valid_fraction": 0.7
+  },
+  "geometry_reset_correction": {
+    "uphill_before": {
+      "x_m": 7.95,
+      "yaw_rad": 3.141592653589793,
+      "rationale": "inward from positive outer edge; measured qualification unchanged; reverse may boundary censor"
+    },
+    "descent": {
+      "x_m": -6.0,
+      "yaw_rad": 0.0,
+      "rationale": "inverted stairs descend inward from negative edge"
+    }
+  },
+  "execution_amendment_policy": {
+    "remaining_diagnostics": "initial_c0_repeat_all14_forward_postforward_c0",
+    "counterfactual_complete_with_reduced_diagnostics": false,
+    "persistent_budget_seconds": 10800,
+    "raw_budget_includes_sibling_fresh_process_runtime": true
+  }
+}
