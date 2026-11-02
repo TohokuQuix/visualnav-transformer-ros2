@@ -1,0 +1,39 @@
+{
+  "schema": "r6_independent_masked_reuse_review_v1",
+  "verified_unix": 1793589270.6335065,
+  "source_job": "pose_q3_0-k_rail_field-l3-batch00",
+  "source_tip_count_valid_trials": 2,
+  "source_valid_trials": 29,
+  "copy_inventory_counts": {
+    "verified_original_files": 1843,
+    "decompressed_trace_files": 30
+  },
+  "paired_initial_and_physics": true,
+  "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+  "reviews": [
+    {
+      "job": "pose_q2_2-k_rail_field-l3-batch00",
+      "environments": 30,
+      "valid": 29,
+      "invalid": 1,
+      "recomputed_decisions": 859,
+      "all_selected_indices_and_results_match": true,
+      "invalid_has_zero_rows_and_decisions": true,
+      "invalid_goal_false_tip_zero_fall_unknown_true": true,
+      "all_provenance_hashes_match": true
+    },
+    {
+      "job": "pose_q2_0-k_rail_field-l3-batch00",
+      "environments": 30,
+      "valid": 29,
+      "invalid": 1,
+      "recomputed_decisions": 859,
+      "all_selected_indices_and_results_match": true,
+      "invalid_has_zero_rows_and_decisions": true,
+      "invalid_goal_false_tip_zero_fall_unknown_true": true,
+      "all_provenance_hashes_match": true
+    }
+  ],
+  "findings": [],
+  "no_simulator_operations": true
+}
