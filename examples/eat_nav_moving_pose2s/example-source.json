@@ -1,0 +1,375 @@
+{
+  "scope": "training-source input only, no future targets",
+  "dataset_index": 0,
+  "source_index": {
+    "anchor": 0,
+    "branch_id": "boxes/1178301990/anchor0/forward_direct",
+    "candidate_id": "forward_direct",
+    "candidate_slot": 0,
+    "current_input_signature": "1e087a4db20dd6723b22d9dcdbe9755b5caca602b60b2c28176a75a39b471cbc",
+    "dem_stamps_ns": [
+      4250000000,
+      4500000000,
+      4750000000,
+      5000000000
+    ],
+    "direction": 1.0,
+    "env": 0,
+    "episode_id": "boxes/1178301990/env0",
+    "field": "boxes",
+    "geometry_sha256": "7041248cfcdb244db5ebf39fb8e3d20861ec557f8d2f3b7c1a4867aa8a8604bc",
+    "global_step": 80,
+    "index": 0,
+    "initial_state_signature": "2a0539de50329a817cde630c409e007f83d6acde1550653addf36cc5c5fa3df6",
+    "input_path": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output/input-0080.npz",
+    "input_sha256": "23da3ad99ff267b52dfd08a7589ec07477a78a347b54cb43f71d37b37c12ccd4",
+    "is_initial": false,
+    "kind": "r4",
+    "level": 4,
+    "moving": true,
+    "original_role": "train",
+    "parent_id": "boxes/1178301990",
+    "pitch_deg": 2.723924421923782,
+    "prefix_id": "boxes/1178301990/anchor0",
+    "raw_path": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output/raw-dem-0080.npz",
+    "raw_sha256": "7ba9583c68d304f54bdaefc5c6a50ad8bc4e0c35c89b67066eafd342791320dc",
+    "role": "train",
+    "sample_id": "boxes/1178301990/anchor0",
+    "seed": 1178301990,
+    "selection_path": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output/selection-0080.json",
+    "selection_sha256": "de836464b5c8085d271e7efa3119ed74e2c7e6ed6c867d972ac9233b7ca65459",
+    "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output",
+    "source_trace": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output/trace.jsonl",
+    "source_trace_sha256": "007a40f65bff34f5cd9a51d14a58c9d245150f3841477d40747e80e1a35f8e70",
+    "speed_mps": 0.30309975147247314,
+    "split_parent_id": "1178301990",
+    "start": 80,
+    "state_signature": "eb58c91b707c2e4b2aae92a21f04e426353fa9ad4eb9da64ca80a0340bf2e972",
+    "t0_ns": 5000000000,
+    "teacher_metadata": {
+      "candidate_id": "forward_direct",
+      "event_evidence": {
+        "activation_stamp_ns": 5000000000,
+        "control_hz": 20,
+        "cycles": [
+          {
+            "actual_commanded_ratio": 0.625648054498482,
+            "actual_distance_m": 0.3665410919420445,
+            "best_progress_m": 0.3497543451159647,
+            "commanded_distance_m": 0.5858582781590569,
+            "complete": true,
+            "cycle": 0,
+            "end_step": 39,
+            "interval_count": 40,
+            "linear_stall": {
+              "label": 0,
+              "reason": "complete_cycle",
+              "target_mask": true
+            },
+            "start_step": 0,
+            "turn_stall": {
+              "label": 0,
+              "reason": "complete_cycle",
+              "target_mask": true
+            }
+          }
+        ],
+        "diagnostics": {
+          "effective_tilt_deg": [
+            2.2291868196952995,
+            2.398423873454283,
+            4.597309763185894,
+            5.819335579031865,
+            6.967051461342673,
+            8.908588202663486,
+            11.05169101957717,
+            12.218473692186492,
+            14.621702672692562,
+            18.52367986994514,
+            22.289618552729113,
+            26.44532467402635,
+            29.657632038207552,
+            30.04610445430185,
+            28.051804841259038,
+            25.148832268670393,
+            22.80466681339742,
+            20.22844206904597,
+            19.92446652531748,
+            19.54989570635178,
+            18.222761493544425,
+            17.334990764136183,
+            17.21860854103229,
+            16.35949799537604,
+            16.319946687899954,
+            16.813205926978807,
+            16.361175751610535,
+            15.867667812362262,
+            15.947860774406701,
+            14.91351974699045,
+            14.835891504451292,
+            14.696908471653774,
+            14.460455276213834,
+            14.442544134306534,
+            14.445584848938115,
+            14.625302358005863,
+            14.654372284788767,
+            14.086345984497035,
+            14.424601059163622,
+            14.081000448919555
+          ],
+          "progress_increment_m": [
+            0.015424821422471242,
+            0.017043671538536954,
+            0.01861869426655706,
+            0.01713166764907032,
+            0.01375703271948596,
+            0.015346325742945074,
+            0.011562505553243466,
+            0.015364016457200452,
+            0.01278659097735435,
+            0.009351217962051128,
+            0.014529875347625537,
+            0.014234805139888201,
+            0.017659646890649527,
+            0.013077961824007112,
+            0.012312436230257684,
+            0.007784025891302115,
+            0.00047224499425868594,
+            0.016661387857817095,
+            0.002152911509059663,
+            0.0026133861658470536,
+            0.005711065732705772,
+            0.006661364151012372,
+            0.0075136490260546696,
+            0.012070101475924633,
+            0.009202606363009236,
+            0.006457952559008273,
+            0.0038404800599526334,
+            0.0008916563709804315,
+            0.0013699564220268634,
+            0.014212254268612723,
+            0.011006450415636637,
+            0.003278639696662866,
+            0.0014509571331086657,
+            0.0004852377034044175,
+            0.0026552050773306912,
+            0.001775495527538029,
+            0.0007754850544853253,
+            0.0032014825204362274,
+            0.0014949742228178575,
+            0.007814105195627696
+          ],
+          "progress_m": [
+            0.015424821422471242,
+            0.0324684929610082,
+            0.05108718722756526,
+            0.06821885487663558,
+            0.08197588759612154,
+            0.09732221333906661,
+            0.10888471889231008,
+            0.12424873534951053,
+            0.13703532632686488,
+            0.146386544288916,
+            0.16091641963654155,
+            0.17515122477642975,
+            0.19281087166707928,
+            0.2058888334910864,
+            0.21820126972134407,
+            0.2259852956126462,
+            0.22645754060690487,
+            0.24311892846472197,
+            0.24527183997378163,
+            0.24788522613962868,
+            0.25359629187233446,
+            0.26025765602334683,
+            0.2677713050494015,
+            0.27984140652532613,
+            0.28904401288833537,
+            0.29550196544734364,
+            0.2993424455072963,
+            0.3002341018782767,
+            0.30160405830030357,
+            0.3158163125689163,
+            0.32682276298455293,
+            0.3301014026812158,
+            0.33155235981432446,
+            0.3320375975177289,
+            0.33469280259505957,
+            0.3364682981225976,
+            0.3372437831770829,
+            0.34044526569751915,
+            0.341940239920337,
+            0.3497543451159647
+          ]
+        },
+        "end_reason": "horizon_complete",
+        "event_counts": {
+          "linear_stall": 0,
+          "near_fall": 0,
+          "tip_over": 0,
+          "turn_stall": 0
+        },
+        "event_free_10s": {
+          "label": null,
+          "reason": "censored_or_missing_signal",
+          "target_mask": false
+        },
+        "events": [],
+        "horizons": {
+          "10s": {
+            "events": {
+              "linear_stall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "near_fall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "tip_over": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "turn_stall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              }
+            },
+            "observed_until_sec": 2.0,
+            "progress": {
+              "reason": "right_censored",
+              "target_mask": false,
+              "value_m": null
+            }
+          },
+          "1s": {
+            "events": {
+              "linear_stall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "near_fall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "tip_over": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "turn_stall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              }
+            },
+            "observed_until_sec": 1,
+            "progress": {
+              "reason": "observed_progress",
+              "target_mask": true,
+              "value_m": 0.24788522613962868
+            }
+          },
+          "2s": {
+            "events": {
+              "linear_stall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "near_fall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "tip_over": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              },
+              "turn_stall": {
+                "label": 0,
+                "reason": "complete_event_free_horizon",
+                "target_mask": true
+              }
+            },
+            "observed_until_sec": 2.0,
+            "progress": {
+              "reason": "observed_progress",
+              "target_mask": true,
+              "value_m": 0.3497543451159647
+            }
+          },
+          "5s": {
+            "events": {
+              "linear_stall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "near_fall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "tip_over": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              },
+              "turn_stall": {
+                "label": null,
+                "reason": "right_censored",
+                "target_mask": false
+              }
+            },
+            "observed_until_sec": 2.0,
+            "progress": {
+              "reason": "right_censored",
+              "target_mask": false,
+              "value_m": null
+            }
+          }
+        },
+        "max_tilt_deg": 30.04610445430185,
+        "observed_until_sec": 2.0,
+        "recoveries": [],
+        "replan_every_steps": 40,
+        "row_count": 40,
+        "schema": "eatnav_fall_stall_targets_v2",
+        "unknown_tilt_samples": 0
+      },
+      "event_names": [
+        "tip_over",
+        "near_fall",
+        "linear_stall",
+        "turn_stall"
+      ],
+      "horizon_sec": 2.0,
+      "interval_count": 40,
+      "pose_supervision": "complete_2s_only",
+      "start_control_step": 80,
+      "start_index": 80,
+      "t0_ns": 5000000000,
+      "terminal_observed": false
+    },
+    "teacher_reasons": {
+      "events": {
+        "linear_stall": "complete_event_free_horizon",
+        "near_fall": "complete_event_free_horizon",
+        "tip_over": "complete_event_free_horizon",
+        "turn_stall": "complete_event_free_horizon"
+      },
+      "pose": "complete_2s",
+      "window": []
+    },
+    "yawrate_radps": 0.0003878122952301055
+  },
+  "example_sha256": "ba3c9f931ade7db1510304b9b37c4e489914c27b7350c6b6c330d7b05d5398d7"
+}

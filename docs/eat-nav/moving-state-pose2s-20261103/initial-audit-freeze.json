@@ -1,0 +1,21 @@
+{
+  "schema": "eatnav_moving_pose2s_initial_audit_freeze_v1",
+  "frozen_unix": 1793630490.664342,
+  "initial_model_checkpoints": {
+    "M_move": "75fa9659d6924b4f6bae421498a45f485fb737d8e6b86e1a9a91a245eb9457b1",
+    "M_stop": "a34e1e4face53181af761d585a5427a1258636303d3fb1741fe92113addc54b7"
+  },
+  "M_final_recipe": "same original encoder initialization, same train config, reused+fresh train only, selection-validation only; no tuning on existing audit",
+  "source_sha256": {
+    "scripts/eat_nav_moving_pose2s_train.py": "80e6467d596d33c45e016befa5d409ea81e23a9fd16c6c8b7c79484f25732c5d",
+    "src/visualnav_transformer/eat_nav/moving_pose2s_model.py": "32d478792ffc1e26c40abb074f72d3082395635ffa8302af272604e335e00162",
+    "config/eat_nav/moving_pose2s/train.json": "859206e2716dfb29eb611abc5e0cbf8e1a83feeba1dc209484f51aa44cd18190",
+    "config/eat_nav/moving_pose2s/collection.json": "a0ed391f7f10abda72c71b8a1ed20c907ffdb4290cf5a0efffc283bad07c14c4"
+  },
+  "fresh_plan_sha256": "cd7d7f290b722894e6ac64170a2222fd8ebc05ab5fcd41aca05e628ffd977087",
+  "existing_audit_role": "audit_eval",
+  "existing_audit_rows": 807,
+  "existing_audit_previously_used_for_model_selection": false,
+  "fresh_audit_opened_for_prediction_evaluation": false,
+  "allowed_future_changes": "implementation bug fixes independently reproduced by tests; outcome-independent resource changes recorded; no audit-based tuning"
+}

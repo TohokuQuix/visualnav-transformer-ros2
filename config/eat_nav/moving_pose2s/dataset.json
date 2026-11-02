@@ -1,0 +1,14 @@
+{
+  "schema": "eatnav_moving_pose2s_dataset_v1",
+  "input_schema": "eatnav_moving_pose2s_input_v1",
+  "horizon_sec": 2.0,
+  "control_hz": 20,
+  "trajectory_points": 40,
+  "dedup_key": ["source_trace_sha256", "t0_ns", "candidate_id", "input_sha256"],
+  "split_parent": ["field", "seed"],
+  "validation_order": "SHA256('moving-pose2s-v1' + str(seed)); per field, even validation, odd audit_eval",
+  "reserved_test_opened": false,
+  "normalization_fitted": false,
+  "primary_append_allowed": false,
+  "expected_pre_dedup": {"r4_initial": 1290, "common_initial": 512, "r4_moving": 5095, "pose": 6880, "partial": 17}
+}
