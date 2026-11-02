@@ -1,0 +1,936 @@
+{
+  "all_subsequent_starts": {
+    "windows": 5851,
+    "roles": {
+      "train": 4511,
+      "validation": 1340
+    },
+    "events": {
+      "tip_over": {
+        "negative": 5835,
+        "positive": 16
+      },
+      "near_fall": {
+        "negative": 5831,
+        "positive": 15,
+        "unknown": 5
+      },
+      "linear_stall": {
+        "negative": 5510,
+        "positive": 325,
+        "unknown": 16
+      },
+      "turn_stall": {
+        "negative": 5755,
+        "positive": 80,
+        "unknown": 16
+      }
+    },
+    "groups": {
+      "train": {
+        "anchor_groups": 81,
+        "terrain_seeds": 41,
+        "source_executions": 1130
+      },
+      "validation": {
+        "anchor_groups": 24,
+        "terrain_seeds": 12,
+        "source_executions": 336
+      }
+    },
+    "fieldlevelrole": [
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "k_rail_field",
+        "level": 4,
+        "role": "train",
+        "windows": 493
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "train",
+        "windows": 669
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "train",
+        "windows": 662
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "validation",
+        "windows": 223
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "train",
+        "windows": 671
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "validation",
+        "windows": 221
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      }
+    ],
+    "speed_bins": {
+      ">=0.2": 1762,
+      "[0.05,0.2)": 3158,
+      "<0.05": 931
+    },
+    "pitch_bins": {
+      "[-10,10]": 4487,
+      ">10": 629,
+      "<-10": 735
+    },
+    "abs_body_yawrate_ge_point2": 1118
+  },
+  "full_pose": {
+    "windows": 5835,
+    "roles": {
+      "train": 4499,
+      "validation": 1336
+    },
+    "events": {
+      "tip_over": {
+        "negative": 5835
+      },
+      "near_fall": {
+        "negative": 5831,
+        "positive": 4
+      },
+      "linear_stall": {
+        "negative": 5510,
+        "positive": 325
+      },
+      "turn_stall": {
+        "negative": 5755,
+        "positive": 80
+      }
+    },
+    "groups": {
+      "train": {
+        "anchor_groups": 81,
+        "terrain_seeds": 41,
+        "source_executions": 1128
+      },
+      "validation": {
+        "anchor_groups": 24,
+        "terrain_seeds": 12,
+        "source_executions": 336
+      }
+    },
+    "fieldlevelrole": [
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "k_rail_field",
+        "level": 4,
+        "role": "train",
+        "windows": 490
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "train",
+        "windows": 665
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "train",
+        "windows": 658
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "validation",
+        "windows": 221
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "train",
+        "windows": 670
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "validation",
+        "windows": 219
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "train",
+        "windows": 672
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "validation",
+        "windows": 224
+      }
+    ],
+    "speed_bins": {
+      ">=0.2": 1755,
+      "[0.05,0.2)": 3150,
+      "<0.05": 930
+    },
+    "pitch_bins": {
+      "[-10,10]": 4480,
+      ">10": 623,
+      "<-10": 732
+    },
+    "abs_body_yawrate_ge_point2": 1115
+  },
+  "strict_full_pose": {
+    "windows": 5080,
+    "roles": {
+      "train": 3915,
+      "validation": 1165
+    },
+    "events": {
+      "tip_over": {
+        "negative": 5080
+      },
+      "near_fall": {
+        "negative": 5076,
+        "positive": 4
+      },
+      "linear_stall": {
+        "negative": 4755,
+        "positive": 325
+      },
+      "turn_stall": {
+        "negative": 5000,
+        "positive": 80
+      }
+    },
+    "groups": {
+      "train": {
+        "anchor_groups": 81,
+        "terrain_seeds": 41,
+        "source_executions": 1078
+      },
+      "validation": {
+        "anchor_groups": 24,
+        "terrain_seeds": 12,
+        "source_executions": 319
+      }
+    },
+    "fieldlevelrole": [
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "train",
+        "windows": 564
+      },
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "validation",
+        "windows": 191
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "train",
+        "windows": 476
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "validation",
+        "windows": 163
+      },
+      {
+        "field": "k_rail_field",
+        "level": 4,
+        "role": "train",
+        "windows": 461
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "train",
+        "windows": 604
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "validation",
+        "windows": 211
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "train",
+        "windows": 529
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "validation",
+        "windows": 173
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "train",
+        "windows": 639
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "validation",
+        "windows": 217
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "train",
+        "windows": 642
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "validation",
+        "windows": 210
+      }
+    ],
+    "speed_bins": {
+      ">=0.2": 1240,
+      "[0.05,0.2)": 2943,
+      "<0.05": 897
+    },
+    "pitch_bins": {
+      "[-10,10]": 3939,
+      ">10": 487,
+      "<-10": 654
+    },
+    "abs_body_yawrate_ge_point2": 949
+  },
+  "strict_event_prefix_including_partial": {
+    "windows": 5095,
+    "roles": {
+      "train": 3927,
+      "validation": 1168
+    },
+    "events": {
+      "tip_over": {
+        "negative": 5080,
+        "positive": 15
+      },
+      "near_fall": {
+        "negative": 5076,
+        "positive": 15,
+        "unknown": 4
+      },
+      "linear_stall": {
+        "negative": 4755,
+        "positive": 325,
+        "unknown": 15
+      },
+      "turn_stall": {
+        "negative": 5000,
+        "positive": 80,
+        "unknown": 15
+      }
+    },
+    "groups": {
+      "train": {
+        "anchor_groups": 81,
+        "terrain_seeds": 41,
+        "source_executions": 1081
+      },
+      "validation": {
+        "anchor_groups": 24,
+        "terrain_seeds": 12,
+        "source_executions": 319
+      }
+    },
+    "fieldlevelrole": [
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "train",
+        "windows": 564
+      },
+      {
+        "field": "boxes",
+        "level": 4,
+        "role": "validation",
+        "windows": 191
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "train",
+        "windows": 476
+      },
+      {
+        "field": "hf_pyramid_slope",
+        "level": 4,
+        "role": "validation",
+        "windows": 163
+      },
+      {
+        "field": "k_rail_field",
+        "level": 4,
+        "role": "train",
+        "windows": 464
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "train",
+        "windows": 608
+      },
+      {
+        "field": "k_rail_step_field",
+        "level": 4,
+        "role": "validation",
+        "windows": 211
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "train",
+        "windows": 533
+      },
+      {
+        "field": "pyramid_stairs",
+        "level": 4,
+        "role": "validation",
+        "windows": 174
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "train",
+        "windows": 640
+      },
+      {
+        "field": "pyramid_stairs_inv",
+        "level": 4,
+        "role": "validation",
+        "windows": 219
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "train",
+        "windows": 642
+      },
+      {
+        "field": "random_rough",
+        "level": 4,
+        "role": "validation",
+        "windows": 210
+      }
+    ],
+    "speed_bins": {
+      ">=0.2": 1246,
+      "[0.05,0.2)": 2951,
+      "<0.05": 898
+    },
+    "pitch_bins": {
+      "[-10,10]": 3946,
+      ">10": 492,
+      "<-10": 657
+    },
+    "abs_body_yawrate_ge_point2": 952
+  },
+  "limitations": [
+    "Event counts use existing fall_stall_targets.build_targets with each window rebased; near-fall history is reset. Future spec carrying pre-start run history will differ.",
+    "Current DEM reconstructed exactly in52schema/field/role/anchor-stratified spotchecks; latest DEM has raw rays but historical3raw DEMs at intermediate.25s not all retained. All5851timestamp histories causal/fresh.",
+    "Pitch and instantaneous velocity bins are not terrain-phase/climb/descent/contact semantic labels.",
+    "Common512initial records reused from prior hash-verified cached audit; later common moving cycles and common geometry split not audited.",
+    "Moving means subsequent actual rollout decision state, not guaranteed nonzero velocity.",
+    "These observations are correlated same-candidate continuations, not14new counterfactual branches from each moving state."
+  ],
+  "investigation_scope": "Read-only pre-spec audit; no collection/training/model code modifications/push; counts before content deduplication",
+  "reference_checkpoint_sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421",
+  "initial_noappend": {
+    "records": 1290,
+    "pose_valid": 1288,
+    "early_terminal": 2,
+    "event_positive_negative_unknown": {
+      "tip_over": [
+        3,
+        1287,
+        0
+      ],
+      "near_fall": [
+        5,
+        1285,
+        0
+      ],
+      "linear_stall": [
+        45,
+        1243,
+        2
+      ],
+      "turn_stall": [
+        18,
+        1270,
+        2
+      ]
+    }
+  },
+  "common_initial": {
+    "records": 512,
+    "pose_valid": 512,
+    "event_positive_negative_unknown": {
+      "tip_over": [
+        0,
+        512,
+        0
+      ],
+      "near_fall": [
+        5,
+        507,
+        0
+      ],
+      "linear_stall": [
+        7,
+        505,
+        0
+      ],
+      "turn_stall": [
+        0,
+        512,
+        0
+      ]
+    }
+  },
+  "combined_before_dedup": {
+    "records": 6897,
+    "pose_valid": 6880,
+    "early_terminal": 17,
+    "event_positive_negative_unknown": {
+      "tip_over": [
+        18,
+        6879,
+        0
+      ],
+      "near_fall": [
+        25,
+        6868,
+        4
+      ],
+      "linear_stall": [
+        377,
+        6503,
+        17
+      ],
+      "turn_stall": [
+        98,
+        6782,
+        17
+      ]
+    }
+  },
+  "dem_spotchecks": [
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-320/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-800/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-324/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-810/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-368/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-920/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-372/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-930/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-384/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-960/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-388/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-970/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-432/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-1080/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-436/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-1090/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-000/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-000/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-004/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-011/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-064/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-160/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-068/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-170/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-112/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-280/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-116/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-290/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-128/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-320/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-132/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-330/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-176/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-440/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-180/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-450/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-192/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-480/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-196/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-490/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-240/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-600/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-244/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-610/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-256/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-640/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-260/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-650/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-304/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-760/sim-output",
+      "global_step": 40,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/collect-308/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    },
+    {
+      "source": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-770/sim-output",
+      "global_step": 240,
+      "exact_equal": true,
+      "maxabs": 0.0
+    }
+  ],
+  "resource_snapshot": {
+    "time_jst": "2026-11-02T22:44:34+09:00",
+    "gpu": "RTX 4090 Laptop GPU",
+    "vram_total_mib": 16376,
+    "vram_used_mib": 7426,
+    "gpu_utilization_pct": 96,
+    "logical_cpus": 32,
+    "ram_total_gib": 62,
+    "ram_available_gib": 53,
+    "disk_available_gib": 261,
+    "r6_evaluation_running": true,
+    "changes_to_running_processes_during_spec_stage": false,
+    "user_choice": "After specification approval, preserve R6 at batch boundary and pause new batch dispatch to prioritize this collection"
+  }
+}
