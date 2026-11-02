@@ -1,0 +1,158 @@
+{
+  "schema": "r6_independent_level4_reference_event_comparison_review_v1",
+  "verified_unix": 1793604311.4205923,
+  "report_sha256": "04b990949c23a05c08ca2c937c40c8a56c598cece40504d53efa3598e2920e94",
+  "binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "generator_sha256": "420525170b9cf0c7bb0d1eca1eaa07bbdf772573a87458bc8b1193edec133843",
+  "batches": [
+    {
+      "job": "old_reference-k_rail_field-l4-batch00",
+      "valid": 14,
+      "invalid": 16,
+      "observed_rows": 16800,
+      "decisions": 382,
+      "copy_artifact_counts": {
+        "verified_original_files": 889,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "job": "old_reference-k_rail_field-l4-batch01",
+      "valid": 15,
+      "invalid": 15,
+      "observed_rows": 16683,
+      "decisions": 294,
+      "copy_artifact_counts": {
+        "verified_original_files": 713,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "job": "old_reference-k_rail_field-l4-batch02",
+      "valid": 19,
+      "invalid": 11,
+      "observed_rows": 22024,
+      "decisions": 426,
+      "copy_artifact_counts": {
+        "verified_original_files": 977,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "job": "event_2s-k_rail_field-l4-batch00",
+      "valid": 14,
+      "invalid": 16,
+      "observed_rows": 15748,
+      "decisions": 358,
+      "copy_artifact_counts": {
+        "verified_original_files": 841,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "job": "event_2s-k_rail_field-l4-batch01",
+      "valid": 15,
+      "invalid": 15,
+      "observed_rows": 16916,
+      "decisions": 401,
+      "copy_artifact_counts": {
+        "verified_original_files": 927,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "job": "event_2s-k_rail_field-l4-batch02",
+      "valid": 19,
+      "invalid": 11,
+      "observed_rows": 22064,
+      "decisions": 521,
+      "copy_artifact_counts": {
+        "verified_original_files": 1167,
+        "decompressed_trace_files": 30
+      },
+      "raw_trace_metrics_match": true,
+      "source_hashes_match": true
+    }
+  ],
+  "paired_batches": 3,
+  "byte_identical_initial_and_physics_files_per_pair": 31,
+  "common_valid_groups": 48,
+  "common_invalid_groups": 42,
+  "all_180_initial_NPZ_finite": true,
+  "all_invalid_prepolicy_tilt_over_zero_trace_decisions_goal_false_fallunknown_true": true,
+  "raw_valid_trace_metrics_recomputed_for_both_conditions": true,
+  "pooled_condition_metrics": [
+    {
+      "condition": "old_reference",
+      "protocol_trials": 90,
+      "initial_valid_trials": 48,
+      "initial_invalid_trials": 42,
+      "tip_observed_trials": 5,
+      "tip_rate_wilson95": [
+        0.045321719041813105,
+        0.2216742169438633
+      ],
+      "near_fall_count": 8,
+      "goal_reached_trials": 18,
+      "linear_windows": 443,
+      "turn_windows": 68,
+      "observed_rows": 55507,
+      "observed_seconds": 2775.35,
+      "residual_unavailable_seconds": 104.64999999999999,
+      "unknown_stall_windows": 5,
+      "timeout_count": 25,
+      "intervention_count": 0,
+      "mean_protective_stop_sec": 0.0,
+      "mean_ranking_STOP_upper_bound_sec": 2.1802083333333333,
+      "mean_route_progress_m": 1.4019903671137495,
+      "mean_physical_distance_m": 4.210002830981317,
+      "mean_net_goal_approach_m": 1.197761433328484,
+      "mean_linear_stall_sec": 18.458333333333332,
+      "mean_turn_stall_sec": 2.8333333333333335,
+      "mean_processing_sec": 0.023174767624368542
+    },
+    {
+      "condition": "event_2s",
+      "protocol_trials": 90,
+      "initial_valid_trials": 48,
+      "initial_invalid_trials": 42,
+      "tip_observed_trials": 4,
+      "tip_rate_wilson95": [
+        0.032883756818091775,
+        0.1955330179036728
+      ],
+      "near_fall_count": 6,
+      "goal_reached_trials": 6,
+      "linear_windows": 294,
+      "turn_windows": 26,
+      "observed_rows": 54728,
+      "observed_seconds": 2736.3999999999996,
+      "residual_unavailable_seconds": 143.60000000000002,
+      "unknown_stall_windows": 4,
+      "timeout_count": 38,
+      "intervention_count": 0,
+      "mean_protective_stop_sec": 5.355208333333334,
+      "mean_ranking_STOP_upper_bound_sec": 8.346874999999999,
+      "mean_route_progress_m": 1.1950014761294112,
+      "mean_physical_distance_m": 4.950480090335033,
+      "mean_net_goal_approach_m": 1.0725713851585894,
+      "mean_linear_stall_sec": 12.25,
+      "mean_turn_stall_sec": 1.0833333333333333,
+      "mean_processing_sec": 37.47622198005107
+    }
+  ],
+  "MD_TXT_identical": true,
+  "only_two_conditions_interim": true,
+  "findings": [],
+  "no_simulator_operations": true
+}
