@@ -1,0 +1,37 @@
+{
+  "schema": "r6_independent_level3_q1_0_reuse_review_v1",
+  "verified_unix": 1793592581.7094681,
+  "job": "pose_q1_0-k_rail_field-l3-batch00",
+  "source_job": "pose_q3_0-k_rail_field-l3-batch00",
+  "protocol_environments": 30,
+  "valid": 29,
+  "initial_invalid": 1,
+  "invalid_group_ids": [
+    "closed_loop/k_rail_field/level3/validation/seed1558235351/tile00"
+  ],
+  "decisions_recomputed": 859,
+  "all_choices_and_saved_results_match": true,
+  "invalid_trace_and_decisions_zero": true,
+  "invalid_goal_false_tip_zero_fall_unknown_true": true,
+  "all_provenance_SHA_match": true,
+  "paired_initial_and_physics": true,
+  "source_copy_counts": {
+    "verified_original_files": 1843,
+    "decompressed_trace_files": 30
+  },
+  "independent_simulation": false,
+  "independent_timing": false,
+  "q1_1_actual_audit": {
+    "valid": 29,
+    "tips": 2,
+    "linear_windows": 1,
+    "mean_STOP_request_sec": 58.53103448275862,
+    "mean_route_progress_m": 0.17865618147098428,
+    "copy_counts": {
+      "verified_original_files": 1843,
+      "decompressed_trace_files": 30
+    }
+  },
+  "findings": [],
+  "no_simulator_operations": true
+}
