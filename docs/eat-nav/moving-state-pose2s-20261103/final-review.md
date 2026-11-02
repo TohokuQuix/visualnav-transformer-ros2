@@ -9,3 +9,5 @@
 修正前の回帰テストはraw/CLI16件・診断8件がfail、修正後の関連統合154件がpass。M_move/M_finalの正しい14候補入力の予測は修正前と完全一致し、全3datasetのraw inputsもvalidatorを通過した。重み・教師・正規化・recipeを変えず、再学習はしていない。修正範囲8d87ac3..87f84b5の独立再レビューはReady: Yes。3指摘はすべてADDRESSED、残件なし。154テスト・99checksum・実train診断値・予測一致を再確認した。
 
 実機・closed-loop登坂改善・接触前保証は対象外。過去のIsaac physics全実験の独立再実行は行わず、コードと記録済み証拠をレビュー。旧fixture不足があるため全repository suite成功は主張しない。
+
+通常push後にremote headと公開モデル3個の実bytes SHAを照合した。コード・モデル公開commitとblobはgithub-release-verification.jsonに保存。このメタデータ記録のcommitはコード・重みを変更しない。
