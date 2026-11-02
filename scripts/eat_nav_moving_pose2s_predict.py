@@ -4,7 +4,7 @@ import argparse,json
 from pathlib import Path
 import numpy as np
 import torch
-from visualnav_transformer.eat_nav.moving_pose2s_model import INPUT_SCHEMA,load_checkpoint,predict
+from visualnav_transformer.eat_nav.moving_pose2s_model import INPUT_SCHEMA,load_checkpoint,predict,validate_raw_inputs
 
 REQUIRED={'dem','actor_state','body_state','paths','directions','candidate_mask','dem_timestamps_ns','current_time_ns'}
 OPTIONAL={'current_quat_wxyz','dem_timestamps_ns','current_time_ns','input_schema'}
@@ -17,12 +17,13 @@ def load_inputs(path):
     if not REQUIRED<=set(a):raise ValueError('missing required input tensors')
     if str(a.get('input_schema',''))!=INPUT_SCHEMA:raise ValueError('input schema mismatch')
     a.pop('input_schema')
+    validate_raw_inputs(a)
     if ('current_time_ns' in a)!=('dem_timestamps_ns' in a):raise ValueError('history/current time must be provided together')
     if 'current_time_ns' in a:
         t=np.asarray(a.pop('current_time_ns'));history=np.asarray(a.pop('dem_timestamps_ns'))
         if t.shape!=(len(a['dem']),) or history.shape!=(len(t),4):raise ValueError('history/current time shape mismatch')
         if not np.issubdtype(t.dtype,np.integer) or not np.issubdtype(history.dtype,np.integer):raise ValueError('history time must be integer nanoseconds')
-        if np.any(history>t[:,None]) or np.any(t-history[:,-1]>250_000_000) or np.any(t-history[:,-1]<0) or np.any(np.diff(history,axis=1)!=250_000_000):raise ValueError('noncausal future/stale/malformed DEM history')
+        if np.any(history>t[:,None]) or np.any(t-history[:,-1]>=250_000_000) or np.any(t-history[:,-1]<0) or np.any(np.diff(history,axis=1)!=250_000_000):raise ValueError('noncausal future/stale/malformed DEM history')
     return a
 
 

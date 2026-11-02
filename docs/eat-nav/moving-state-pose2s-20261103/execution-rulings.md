@@ -1,0 +1,13 @@
+# 実行中の判断と制約
+
+1. Ruling: independent geometry/targets, dataset, collection tasks delegated with disjoint file ownership, parent owns model/train/metrics/integration — approved plan allows parallel independent execution — interface mismatches cost integration fixes.
+
+2. Baseline: pytest fall_stall_targets + command_free_learning ->27passed,3failed,3errors; command_free legacy cases require untracked sealed dataset artifacts absent from fresh Git worktree. Ruling: do not fabricate or change old seals; record unavailable external-data fixtures, run new self-contained tests and later full suite with missing-fixture limits reported. Nomad-gpu lacks pytest; isaaclab_py310 contains torch2.7+cu128,pytest9,numpy1.26; use that existing environment without installs.
+
+3. Ruling: newdata cohort uses980branches before outcomes due deadline; preservesall7state types and6/2/2roles perstate. Numenvactualgate determinescapacity. First actualbench policy-input dict capturefailed; preservedfailedattempt, collectorinvestigating.
+
+4. Task5 true repeatability limit: correctedcache movingflat snapshotduplicatesstill differedmax.165m/.227rad; sameprocessmatchedprefix replaybeginstate~1.9cmerror pluscontrollerdifferences. Failedgates excluded; doNOTacceptassame14state. Ruling: implementtruefreshprocess-percandidateprefix replay (approvedspecfallback; oldR4freshprocessdatahadexactanchors), fixedprefix-stepdiscoveredonce;14freshprocessjobs/state10parents. Estimate98start20-40min+rollouts~20min+gates5-10min,within3hproductioncap. Ownnewfailedgateparent178410SIGSTOP childturning179712continues, collectoragentpreserve/retireafterfinish. R6parent91045stillSTOP. SourcefreezeinvalidatedONLYforreproducedcollectorbugfix, freshboundstage/gatesrequired. NN/model/recipe unchanged; nolearningbasedonaudit. Initialab2e01cpushverifiedremotecommit; awaitfullfinalscope.
+
+5. Ruling: remainingfreshstates retain14forwardcandidates plusinitialc0duplicate+postforwardc0 (16processes), omitexhaustive14reversechecks; markCFcompletefalseforreduceddiagnostics — actualturnprefix~92s/process projects143minremainingvs155minbudget withlittlemargin, priorityall7causalstatecohorts — costlesscomprehensivecandidateorderreproevidence, nofewertrainingcandidates/parents. Keepflat30roundCFtrueunchanged. Onecoherentoutcome-independentexecutionamendmentforhostpersistentbudget/rawcap/import+correctedcausalgeometrybeforeuphill/descent; originalplan/contractsremainimmutable, unexecutedknownbadsetupskippedwithgeometricevidence, nofalsefailedtrialclaim. Remaining3hdeadlineunchanged.
+
+最終レビューの指摘：不正shape/非有限値を特徴選択前に拒否する修正、250ms境界の統一、固定train統計の分位点・標準化範囲の診断を追加する。重み・教師・recipeを変更しない。

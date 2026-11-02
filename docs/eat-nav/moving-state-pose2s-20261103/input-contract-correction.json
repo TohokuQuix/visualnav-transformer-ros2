@@ -1,0 +1,57 @@
+{
+  "schema": "eatnav_moving_pose2s_input_contract_correction_v1",
+  "review_base": "5d50730a96ca072a4cd482a8d1c7dab9defbcca6",
+  "review_head": "8d87ac3",
+  "fixes": [
+    "exact raw tensor shapes/common batch/candidate dimensions before feature slicing",
+    "raw finite checks including excluded commands and masked DEM heights",
+    "binary candidate masks before boolean coercion",
+    "reject latest DEM age>=250000000ns",
+    "frozen train-only perchannel quantiles and standardized ranges"
+  ],
+  "weights_changed": false,
+  "normalization_changed": false,
+  "teacher_changed": false,
+  "training_repeated": false,
+  "valid_input_prediction_parity": "exact0 on M_move and M_final actual14candidateexample",
+  "raw_saved_dataset_validation": "all3datasets pass",
+  "diagnostic_train_rows": {
+    "M_stop": 1372,
+    "M_move": 5299,
+    "M_final": 5831
+  },
+  "original_source_recoverable_from_commit": "8d87ac3",
+  "collection_freeze_note": "Original collector/runtime/teacher evidence remains immutable. Original N source hashes in collection freeze are time-of-collection provenance; later inference guards and reporting-only diagnostics are listed here rather than falsely claiming unchanged source.",
+  "files": [
+    {
+      "path": "src/visualnav_transformer/eat_nav/moving_pose2s_model.py",
+      "pre_fix_sha256": "fd828399cfa37466acb4499206a12d9a6ebe4564cb016ec06d0b0532786f5f3d",
+      "current_sha256": "dc3cf79273072b0a42e6986744bd060265a748d6519ffd84aea80377e7ea5b93"
+    },
+    {
+      "path": "scripts/eat_nav_moving_pose2s_predict.py",
+      "pre_fix_sha256": "08bd1c3ef7b79ceb2208769b9db902c915bd86fdea8b400daf4fef34f779ee14",
+      "current_sha256": "546bc5bd7439eb26b3155590f7b97cf9a6a1acb64d7d738d3c987e34acbd423e"
+    },
+    {
+      "path": "scripts/eat_nav_moving_pose2s_input_diagnostics.py",
+      "pre_fix_sha256": null,
+      "current_sha256": "504578c81d4f3f6d7c8b0a886df456a1ce94017d5e05f4fd84cd12dac9430424"
+    },
+    {
+      "path": "tests/eat_nav/test_moving_pose2s_model.py",
+      "pre_fix_sha256": "ff96875a56e2ff55f5fe43d2be8634e912bac7a37628c0f18cbecf3b8ea0f31e",
+      "current_sha256": "f44ab6d0b14bbf519f0bad4fa30367795cb890b353b492e20404dea6726604fe"
+    },
+    {
+      "path": "tests/eat_nav/test_moving_pose2s_predict.py",
+      "pre_fix_sha256": "f132efccfbc53e8242e7d6c20f458972b76a003b52cd7beccdec5c9383436e99",
+      "current_sha256": "f00d274831a73774411ff5a2d6acfe1a065b12d8541cae3311fa926c8d749f17"
+    },
+    {
+      "path": "tests/eat_nav/test_moving_pose2s_input_diagnostics.py",
+      "pre_fix_sha256": null,
+      "current_sha256": "20582484e986f448a145ac7a90658e696872c208f943a7e31f454c680c8e8d5d"
+    }
+  ]
+}

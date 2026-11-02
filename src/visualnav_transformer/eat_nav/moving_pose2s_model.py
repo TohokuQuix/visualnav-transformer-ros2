@@ -43,9 +43,35 @@ def fit_normalization(arrays,train_indices):
         position_mean=pos.mean(0).tolist(),position_std=np.maximum(pos.std(0),[.05,.05,.02]).tolist(),state_keep_indices=list(KEEP))
 
 
+def validate_raw_inputs(arrays):
+    """Validate the complete raw input contract before selection or lossy transforms."""
+    shapes={'dem':(4,2,20,20),'actor_state':(22,),'body_state':(9,)}
+    if 'dem' not in arrays or np.ndim(arrays['dem'])!=5:
+        raise ValueError('DEM shape mismatch')
+    b=len(arrays['dem'])
+    if b<1 or 'paths' not in arrays or np.ndim(arrays['paths'])!=4:
+        raise ValueError('raw input batch/path shape mismatch')
+    k=np.shape(arrays['paths'])[1]
+    if k<1:raise ValueError('candidate count must be positive')
+    shapes.update(paths=(k,8,2),directions=(k,1),candidate_mask=(k,))
+    for key,tail in shapes.items():
+        if key not in arrays or np.shape(arrays[key])!=(b,*tail):
+            raise ValueError('raw input shape mismatch: '+key)
+        value=np.asarray(arrays[key])
+        if value.dtype.kind not in 'biuf' or not np.isfinite(value).all():
+            raise ValueError('nonfinite/nonnumeric raw input: '+key)
+    if not np.isin(arrays['dem'][:,:,1],[0,1]).all() or not np.isin(arrays['candidate_mask'],[0,1]).all():
+        raise ValueError('raw input masks must be binary')
+    cm=np.asarray(arrays['candidate_mask'],bool)
+    if not cm.any(1).all():raise ValueError('all candidates invalid')
+    if not np.isin(arrays['directions'][cm],[-1,1]).all():
+        raise ValueError('direction must be +1/-1')
+
+
 def prepare_inputs(arrays,indices,stats,device='cpu'):
     if stats.get('schema')!=NORMALIZATION_SCHEMA or stats.get('source')!='train_split_only' or stats.get('state_keep_indices')!=list(KEEP):
         raise ValueError('normalization schema/source mismatch')
+    validate_raw_inputs(arrays)
     ids=_ids(arrays,indices);dem=np.asarray(arrays['dem'][ids],np.float32).copy();mask=dem[:,:,1]
     if dem.shape[1:]!=(4,2,20,20) or not np.isin(mask,[0,1]).all():raise ValueError('DEM shape/mask mismatch')
     rawstate=np.concatenate([arrays['actor_state'][ids],arrays['body_state'][ids]],axis=1)[:,KEEP]

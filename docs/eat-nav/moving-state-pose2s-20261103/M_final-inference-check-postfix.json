@@ -1,0 +1,22 @@
+{
+  "schema": "eatnav_moving_pose2s_actual_checkpoint_inference_check_v1",
+  "checkpoint_sha256": "3f64a6617702a5d50ac704ccc099cb18fc9e171aabf427e51b2865bd800d272b",
+  "device": "cpu",
+  "threads": 4,
+  "batch": 1,
+  "candidates": 14,
+  "warmup": 20,
+  "repetitions": 200,
+  "full_api_ms": {
+    "median": 2.2671435,
+    "p95": 2.3023661,
+    "mean": 2.244914355
+  },
+  "includes": "input transform, NN, relative rotation/gravity/world decoding and validation; excludes file IO/model load/JSON encoding",
+  "k1_matches_k14": true,
+  "candidate_permutation_matches": true,
+  "rotation_valid": true,
+  "timing_scope": "same server; real robot PC unmeasured",
+  "torch_version": "2.7.0+cu128",
+  "numpy_version": "1.26.4"
+}

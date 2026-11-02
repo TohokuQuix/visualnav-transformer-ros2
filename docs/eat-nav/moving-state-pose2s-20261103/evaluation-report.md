@@ -40,7 +40,7 @@ tip/nearの既存・新規audit陽性はともに0で、検出性能を評価で
 
 接触時刻は必須条件にせず、接触前だけの性能は未評価。同一状態から14候補比較による登坂性能改善、closed-loop走行改善、実機PCの処理時間、実機状態のscale/フリッパー原点変換は未検証。実機plannerへ自動接続しない。
 
-CPU4thread、14候補一括の全predict APIはmedian1.93ms／P95 4.69ms（warmup20、200回。同一サーバー、ファイルIO・モデルload・JSON出力を除く）。M_finalを新しいプロセスでCPUロードし、K=1との一致・候補順序置換・別PyTorch/NumPy環境との一致も確認した。
+CPU4thread、14候補一括の全predict APIはmedian2.27ms／P95 2.30ms（入力検証修正後、warmup20、200回。同一サーバー、ファイルIO・モデルload・JSON出力を除く）。M_finalを新しいプロセスでCPUロードし、K=1との一致・候補順序置換・別PyTorch/NumPy環境との一致も確認した。
 
 集計表示でcollection_stateが抜ける不具合を最終整理時に修正し、同じ保存予測から状態別表だけを再生成した。重み・教師・正規化・集計全体値は変えていない。元評価はローカルに保存し、公開版のsource hashと差分理由はreporting-correction.jsonに記録した。収集freezeは当時のsourceを示し、その後の表示用2行修正とは区別する。
 
@@ -175,3 +175,5 @@ AP/AUROC require both classes. A zero-positive cohort cannot verify event detect
 | uphill_mid | 28 | 2 | 0.106031 | 0.275292 | 0.091025 |
 
 軸別XYZの符号付き誤差・MAE・RMSE・中央値・P95、wrapped roll/pitch/yaw、重力傾斜、候補arc baselineのXY/yawは各metrics.jsonのmodel.pose/candidate_arcに保存。角度単位はrad。
+
+入力shape・全raw値の有限性・binary maskを変換前に検査し、DEMの最新観測が250ms以上古い場合を拒否する。最終レビューの修正はinput-contract-correction.jsonを参照。各モデルの固定train IDと保存済み統計から計算した分位点・標準化後範囲はinput-diagnostics/*.jsonに保存し、統計の再fitはしていない。再作成は `PYTHONPATH=src:scripts python scripts/eat_nav_moving_pose2s_input_diagnostics.py --dataset <bound dataset> --checkpoint <checkpoint> --output <fresh JSON>`。

@@ -29,3 +29,5 @@ DATA=/home/ubuntu/eatnav-moving-state-pose2s-data-20261103
 実際の実行は独立監査のfreeze成功後にdataset→audit→merge→audit→fit→freeze→evaluateの順で進めた。公開版ではcollection_stateの層別表示だけを修正し、保存予測から同じ集計全体値を再現した。元評価ファイルはローカルに残している。
 
 入力・座標・損失の完全な定義は承認仕様、学習に使った各checkpointのconfig.json／dataset-binding.json／training.json、collection/の固定plan・amendmentを参照。checkpointの取得と推論だけならREADMEのコマンドでよく、Isaac Simとローカルdatasetは不要。
+
+入力shape・全raw値の有限性・binary maskを変換前に検査し、DEMの最新観測が250ms以上古い場合を拒否する。最終レビューの修正はinput-contract-correction.jsonを参照。各モデルの固定train IDと保存済み統計から計算した分位点・標準化後範囲はinput-diagnostics/*.jsonに保存し、統計の再fitはしていない。再作成は `PYTHONPATH=src:scripts python scripts/eat_nav_moving_pose2s_input_diagnostics.py --dataset <bound dataset> --checkpoint <checkpoint> --output <fresh JSON>`。

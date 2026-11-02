@@ -101,3 +101,19 @@ def test_large_standardized_state_warns_without_clipping():
 def test_current_quaternion_and_projected_gravity_must_agree():
     m=module();a=arrays();s=m.fit_normalization(a,[0,1,2]);net=m.MovingPose2sEvaluator();a['current_quat_wxyz'][0]=[np.sqrt(.5),np.sqrt(.5),0,0]
     with pytest.raises(ValueError,match='gravity.*quaternion|quaternion.*gravity'):m.predict(net,s,a,[0])
+
+
+@pytest.mark.parametrize('case',['actor_extra','body_short','batch','path_shape','direction_shape','candidate_shape','nan_mask','nonbinary_mask','command_nan','invalid_dem_nan'])
+def test_raw_contract_rejects_before_transform(case):
+    m=module();a=arrays(k=14);stats=m.fit_normalization(a,[0,1,2])
+    if case=='actor_extra':a['actor_state']=np.pad(a['actor_state'],((0,0),(0,1)))
+    elif case=='body_short':a['body_state']=a['body_state'][:,:8]
+    elif case=='batch':a['body_state']=a['body_state'][:3]
+    elif case=='path_shape':a['paths']=a['paths'][:,:,:7]
+    elif case=='direction_shape':a['directions']=a['directions'][:,:13]
+    elif case=='candidate_shape':a['candidate_mask']=a['candidate_mask'][:,:13]
+    elif case=='nan_mask':a['candidate_mask']=a['candidate_mask'].astype(float);a['candidate_mask'][0,0]=np.nan
+    elif case=='nonbinary_mask':a['candidate_mask']=a['candidate_mask'].astype(float);a['candidate_mask'][0,0]=2
+    elif case=='command_nan':a['actor_state'][0,6]=np.nan
+    elif case=='invalid_dem_nan':a['dem'][0,0,1,0,0]=0;a['dem'][0,0,0,0,0]=np.nan
+    with pytest.raises(ValueError):m.prepare_inputs(a,[0],stats)

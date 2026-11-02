@@ -95,3 +95,5 @@ trainと地形hashが一致するものを除いた641区間・6親の[追加集
 [最終評価](evaluation-report.md)、[追加coverage](fresh-coverage.json)、[収集独立監査](collection/collection-final-audit.json)、[状態集計の表示修正](reporting-correction.json)を参照。M_final checkpoint SHA-256は `3f64a6617702a5d50ac704ccc099cb18fc9e171aabf427e51b2865bd800d272b`。
 
 追加auditにもtip/near陽性がなく検出性能は未検証。M_finalのスタックrecall@0.5は0であり、今回の出力を実機の安全判定として検証できたとはしない。接触前性能、閉ループの登坂改善、実機走行は今回の対象外。
+
+入力shape・全raw値の有限性・binary maskを変換前に検査し、DEMの最新観測が250ms以上古い場合を拒否する。最終レビューの修正はinput-contract-correction.jsonを参照。各モデルの固定train IDと保存済み統計から計算した分位点・標準化後範囲はinput-diagnostics/*.jsonに保存し、統計の再fitはしていない。再作成は `PYTHONPATH=src:scripts python scripts/eat_nav_moving_pose2s_input_diagnostics.py --dataset <bound dataset> --checkpoint <checkpoint> --output <fresh JSON>`。
