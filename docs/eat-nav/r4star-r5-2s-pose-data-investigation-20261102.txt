@@ -1,0 +1,250 @@
+EAT-Nav既存データの2秒後位置・向き・姿勢予測への拡張調査
+調査日：2026-11-02
+
+対象ブランチ：exp/eatnav-r4star-r5-code-checkpoints-20261028
+対象モデル：random_rough / seed123
+対象checkpoint：
+docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/random_rough/seed123/checkpoint.pt
+SHA-256：c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421
+
+この文書は、会話中の調査回答を別PCで読めるようにTXT化したものです。
+調査では実ファイルの読み取り、整合確認、集計、既存モデルのCPU推論だけを実施しました。
+再収集・再学習・モデルや実装の変更は行っていません。
+確認先は現在アクセスできるPCであり、別PC上での動作確認まではできていません。
+以下の絶対パスは調査元PC上のパスです。GitHubからTXTを取得しても、元データ一式が転送されるわけではありません。
+
+結論
+====
+既存の元記録を再加工すれば、2秒後の位置・向き・姿勢を予測する学習に着手できます。
+位置・姿勢を得るためだけに、最初から再収集する必要はありません。
+ただし、障害物への接触前から予測できるかを厳密に評価するには、接触の識別情報が不足しています。
+現在の加工済みdatasetには、2秒後のXYZ・回転そのものの教師は入っていません。
+
+1. 指定モデルの確認結果
+========================
+実ファイルと指定ブランチ内のcheckpointの両方で、指定SHA-256との一致を確認しました。
+指定ブランチの実装で重みを読み込み、実datasetのサンプルを使ったCPU推論も確認しました。
+
+項目                         確認結果
+入力                         DEM履歴、車体状態、候補経路、進行方向
+イベント出力                 10秒以内の転倒・near-fall・直線スタック・旋回スタックの4確率
+進捗出力                     1・2・5・10秒後の進捗量
+2秒後のXYZ・回転出力          現在はない
+候補ごとの採点               共通ネットワークで採点する構造
+
+したがって、現在のモデル出力についての認識は正しいです。
+進捗量はスカラーなので、そこから横方向・上下方向の移動や姿勢を復元することはできません。
+
+根拠となる指定ブランチ上のコード：
+scripts/eat_nav_command_free_learning.py
+src/visualnav_transformer/eat_nav/fall_stall_learning.py
+src/visualnav_transformer/eat_nav/fall_stall_targets.py
+
+モデル実装URL：
+https://github.com/TohokuQuix/visualnav-transformer-ros2/blob/exp/eatnav-r4star-r5-code-checkpoints-20261028/scripts/eat_nav_command_free_learning.py
+学習処理URL：
+https://github.com/TohokuQuix/visualnav-transformer-ros2/blob/exp/eatnav-r4star-r5-code-checkpoints-20261028/src/visualnav_transformer/eat_nav/fall_stall_learning.py
+
+2. 学習データと元記録の対応
+==========================
+このrandom_roughモデルは、random_roughだけで学習したモデルではありません。
+新しい14候補データと、共通の4候補データを混ぜて学習しています。
+
+使用データ                                   train                       validation                候補数
+random_roughの新データ                        12初期状態・168候補結果      4初期状態・56候補結果       14
+共通データ：stepfield・階段、level1／4          96初期状態・384候補結果      32初期状態・128候補結果     4
+合計                                         108初期状態・552候補結果     36初期状態・184候補結果     ―
+
+共通データは14候補の配列に拡張されていますが、追加10候補はマスクされています。
+4候補の記録から14候補の結果が増えたわけではありません。
+
+実際の保存先：
+
+[加工済みrandom_rough dataset]
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/datasets/random_rough/
+
+[加工済み共通dataset]
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/additional-development-batch02-cumulative-20261021/cumulative/
+
+[14候補の追加10候補の元記録]
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/
+
+[14候補の収集計画]
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/plan.json
+
+[既存4候補の元記録]
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/all-fields-learning-20261023/
+
+[共通データbatch01の元記録]
+/home/ubuntu/Projects/onix_isaac_lab/.eatnav-fall-stall-additional-v0.1-batch01/
+
+[共通データbatch02の元記録]
+/home/ubuntu/Projects/onix_isaac_lab/.eatnav-fall-stall-additional-v0.2-batch02/
+
+samples.npzと元記録は、sample-index.jsonのfield・seed・anchor・role・sourcesで対応付けられます。
+共通データではtargets.jsonlにも元記録とハッシュがあります。
+共通512件は、実際のtraceのハッシュ一致も確認しました。
+
+このcheckpointの学習でreserved testを使用した記録はありません。
+testを使った精度確認が済んでいる、とは言えません。
+GitHubの移植ブランチには元記録・dataset一式が含まれていないため、別PCでは別途コピーが必要です。
+
+3. 元記録に残っている情報
+========================
+時間：control_step、logical_sim_time_ns
+車体位置：root_state／post_root_stateのworld座標XYZ
+回転：quaternion、順序はw,x,y,z
+速度：並進速度・角速度
+現在の入力：DEM、actor/body state、候補経路、方向のNPZ
+指令：follower指令・Actorへ渡した指令。遅延等で両者は異なる場合があります。
+終端・リセット：terminal、終了理由、リセット前状態、境界打切り情報
+地形設定：field・level・seed・地形メタデータ
+記録周期：制御・車体状態は20Hz、DEMは4Hz
+
+DEMは車体のyawに合わせた局所地形表現で、絶対標高そのものではありません。
+姿勢の教師には、DEMの高さではなく、元記録の車体位置・quaternionを使えます。
+
+代表例：
+random_rough/sample-index.jsonの先頭はseed3127154980・anchor0です。
+対応する14候補の開始位置はすべて次で一致していました。
+world XYZ = [31.8968849, -0.0128076, 0.1786619]
+
+元記録は、既存4候補がall-fields-learning-20261023/collect-256～259/sim-output、
+追加10候補がr4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-640～649/sim-outputです。
+
+追加候補の実記録例：
+/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/collection-runtime/collect-640/sim-output/
+
+trace.jsonl、初期入力、DEM原記録、収集設定が実在しています。
+
+4. 2秒後の教師を作れるか
+=======================
+作れます。終点だけでなく、途中の軌跡も作れます。
+
+20Hzなので、開始直前の状態と40ステップ後の状態を対応付けます。
+例えば開始時刻1秒の場合、2秒後は3秒です。
+行番号の取り違えを避け、最初の行のroot_stateと40行目のpost_root_stateを使います。
+
+現在の車体座標系に対する変位・回転：
+位置変位 = R現在の転置 × (位置2秒後 − 位置現在)
+相対回転 = R現在の転置 × R2秒後
+
+回転の学習表現はquaternionや6次元回転表現が候補です。
+yaw・pitch・rollは確認用に変換できます。
+現在車体に対する相対回転と、重力基準の2秒後の傾きは別物なので、教師仕様で区別する必要があります。
+
+終端等の扱い：
+・2秒より前に転倒・終了したもの：完全な2秒後姿勢は欠測としてマスクする。観測済み軌跡・転倒イベントは残せる。
+・ちょうど2秒で終了したもの：リセット前の状態が残っていれば終点として使える。
+・リセット後の状態：前episodeの未来として接続しない。
+・途中の軌跡：最初の2秒について、最大40点の位置・姿勢を作れる。
+
+実サンプルでは、共通データの前進候補について、1秒→3秒の車体座標系変位を次のように算出できました。
+前後 +0.4996 m、左右 −0.0503 m、上下 −0.00044 m
+
+この実サンプルのtrace：
+/home/ubuntu/Projects/onix_isaac_lab/.eatnav-fall-stall-additional-v0.1-batch01/train/k_rail_step_field-level1-slot0/forward_direct/sim-output/trace-env-0.jsonl
+
+「その候補を実行した結果」の意味
+--------------------------------
+14候補は同じ初期状態から分岐して実行されています。
+ただし、10秒間ずっと最初のworld座標の経路を追い続ける方式ではありません。
+・同じ候補IDを維持する。
+・2秒ごとに現在位置から経路を作り直す。
+・さらに、一部では最初の2秒以内にも経路延長が発生する。
+
+最初の2秒区間は定期再計画を跨ぎませんが、延長ありのデータは
+「候補＋現在の追従・延長規則を実行した結果」です。
+入力した最初の経路形状だけを変更せず実行した結果として扱いたい場合は、延長ありを除外する必要があります。
+
+5. 有効件数
+===========
+各候補の開始時点から2秒後までを対象に、元traceの連続性・姿勢・終端を確認した件数です。
+独立した事故件数ではありません。
+
+元データ                         level    train有効    validation有効    合計
+boxes・14候補                    4        168          56                224
+hf_pyramid_slope・14候補          4        168          56                224
+k_rail_field・14候補              4        124          0                 124
+k_rail_step_field・14候補         4        168          56                224
+pyramid_stairs・14候補            4        167          56                223
+pyramid_stairs_inv・14候補        4        168          56                224
+random_rough・14候補              4        168          56                224
+共通stepfield・4候補              1        96           32                128
+共通stepfield・4候補              4        96           32                128
+共通階段・4候補                  1        96           32                128
+共通階段・4候補                  4        96           32                128
+合計                             ―       1515         464               1979
+
+注意点：
+・指定random_roughモデルが実際に使った範囲だけなら736件すべて有効です。train552件、validation184件です。
+・他fieldも含む14候補データ全体では、1470件中1467件が有効。除外3件は2秒より前の転倒でした。
+・有効1467件中179件に経路延長があります。延長を除くと1288件です。
+・指定モデルの736件では、延長13件を除くと723件です。
+・後続の2秒区間にも入力snapshotが残っており、14候補記録で別途5835区間を確認しました。
+  ただし、同じ走行中の相関した区間であり、同じ初期状態から14分岐した新規データとは区別すべきです。
+・k_rail_fieldの既存14候補datasetにはvalidationの初期状態がありません。
+
+6. 事例の偏りと接触前予測の制約
+==============================
+14候補データの、開始から2秒以内の既存イベント教師：
+
+field                  転倒    near-fall    直線スタック    旋回スタック
+boxes                  0       0            7               5
+hf_pyramid_slope       0       0            1               2
+k_rail_field           2       7            6               0
+k_rail_step_field      0       0            10              1
+pyramid_stairs         2       2            14              5
+pyramid_stairs_inv     0       0            6               3
+random_rough           0       0            1               3
+合計                   4       9            45              19
+
+共通512件では、同じ2秒horizonで転倒0、near-fall5、直線スタック7、旋回スタック0です。
+早期転倒もイベント陽性にできるため、イベント件数の母集団と完全な2秒姿勢がある件数は一致しません。
+
+2秒以内の転倒姿勢の事例は少なく、件数があることと十分な予測性能が得られることは別です。
+
+地形別の収録は確認できましたが、平坦・登坂・段差通過・障害物接近・接触の各局面には、統一した区間ラベルがありません。
+したがって、その正確な件数は現状では出せません。
+
+特に接触について：
+・新14候補の通常traceには、継続的な接触力記録がない。
+・共通データには接触力があるが、通常の接地と障害物への接触を区別する接触相手IDがない。
+
+接触力があるだけでは「障害物へ接触した時刻」は確定できません。
+現在以前の入力だけで教師を作ることは可能ですが、
+「接触前サンプルで学習・評価した」と保証するには追加の識別が必要です。
+
+7. 分割と漏洩
+=============
+指定モデルのtrain／validationには、base seedの重複はありません。
+再加工時も、同じseed・episode・anchor・候補分岐・後続区間を同じsplitにまとめれば、走行由来の漏洩を防げます。
+
+一方、seedが違っても地形が違うとは限りません。
+地形ハッシュを確認したところ、新14候補のk_rail_step_fieldにはtrain／validation間で同一形状がありました。
+random_roughの選択地形ハッシュは重複していませんでした。
+
+そのため、未知地形への汎化を評価する場合は、seedだけでなく地形ハッシュでも分割を確認する必要があります。
+共通4候補データを含む全体の地形非重複までは、今回確定できていません。
+
+8. A〜Dの整理と結論
+===================
+A. 加工済みデータをそのまま利用可能
+DEM・車体状態・候補経路・方向、既存イベント／進捗教師。既存モデルの再現確認。
+
+B. 元記録の再加工で対応可能
+2秒後XYZ・相対回転、2秒間の軌跡、終端マスク、経路延長の除外、episode単位の分割維持。
+
+C. 追加収集が必要になるもの
+障害物接触を確実に識別した接触前／後データ、不足する早期転倒事例、K-Railの独立した検証用初期状態。
+既存記録だけでこれらを満たせることは確認できていません。
+
+D. 現時点では確認できないもの
+別PCでの実動作、正確な接触前／後件数、平坦・接近・接触等の局面別件数、
+共通データを含む完全な地形非重複、未使用testでの性能。
+
+結論として、指定モデルに実際に使われた736件を出発点に、既存元記録から2秒位置・姿勢の教師を作り、学習を開始できます。
+最初に必要なのは再収集ではなく、座標系・経路延長・早期終端の扱いを固定した教師生成と監査です。
+
+ただし、目標である「接触前の地形観測から予測できる」ことの検証は別途必要です。
+既存データで初期モデルを作ることと、接触前の予測性能を保証することを分けて進めるのが適切です。
