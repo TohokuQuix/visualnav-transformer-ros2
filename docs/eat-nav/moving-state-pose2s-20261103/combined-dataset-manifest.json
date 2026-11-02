@@ -1,0 +1,188 @@
+{
+  "arrays": {
+    "actor_state": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        22
+      ]
+    },
+    "body_state": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        9
+      ]
+    },
+    "candidate_mask": {
+      "dtype": "bool",
+      "shape": [
+        7765,
+        1
+      ]
+    },
+    "canonical_directions": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        14,
+        1
+      ]
+    },
+    "canonical_paths": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        14,
+        8,
+        2
+      ]
+    },
+    "current_quat_wxyz": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        4
+      ]
+    },
+    "dem": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        4,
+        2,
+        20,
+        20
+      ]
+    },
+    "directions": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        1
+      ]
+    },
+    "event_mask": {
+      "dtype": "bool",
+      "shape": [
+        7765,
+        1,
+        4
+      ]
+    },
+    "event_targets": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        4
+      ]
+    },
+    "initial_body_angular_velocity": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        3
+      ]
+    },
+    "initial_body_velocity": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        3
+      ]
+    },
+    "paths": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        8,
+        2
+      ]
+    },
+    "pose_mask": {
+      "dtype": "bool",
+      "shape": [
+        7765,
+        1
+      ]
+    },
+    "position_targets": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        3
+      ]
+    },
+    "rotation_targets": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        6
+      ]
+    },
+    "trajectory_mask": {
+      "dtype": "bool",
+      "shape": [
+        7765,
+        1,
+        40
+      ]
+    },
+    "trajectory_position": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        40,
+        3
+      ]
+    },
+    "trajectory_quaternion": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        40,
+        4
+      ]
+    },
+    "trajectory_time_offset_sec": {
+      "dtype": "float32",
+      "shape": [
+        7765,
+        1,
+        40
+      ]
+    }
+  },
+  "components": {
+    "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/fresh-dataset/manifest.json": "5724039b2d5a2ad670206dd8367facce848ba14d2dcf907d4ebc4fbc71b655d2",
+    "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/reused-dataset/manifest.json": "cb54cf2525e5cb1b865211c2730b443c3b71587b9987b5942dcec9636564aa68"
+  },
+  "counts": {
+    "duplicates_removed": 0,
+    "partial": 17,
+    "pose": 7748,
+    "post_dedup": 7765,
+    "pre_dedup": 7765
+  },
+  "files": {
+    "exclusions.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "sample-index.json": "9a0f2567430e7c9aec6cb2ef09c7e3e921ae4c040bdf672b1ada68ebc742ff44",
+    "samples.npz": "d59da404f1dd3e1a57f8b723cbc4fa7ca85c659dcebfb264cde31a5009d9f668",
+    "source-binding.json": "97e6bc05f87c6045029018e5457dd1c4f837530278f6700dfd842af2fe04dbc5",
+    "split.json": "a4d30eb6e5854a67a7323cd332294f709343a94e5b57731557ffc5ba57e9a624",
+    "teacher-reasons.json": "4b7e97d7c2ca203d17a4c0bd3d5ce3847b490a4f4104e3749eae29efd11d2300"
+  },
+  "horizon_sec": 2.0,
+  "input_schema": "eatnav_moving_pose2s_input_v1",
+  "normalization_fitted": false,
+  "pose_supervision": "complete_2s_only",
+  "reserved_test_opened": false,
+  "schema": "eatnav_moving_pose2s_dataset_v1"
+}

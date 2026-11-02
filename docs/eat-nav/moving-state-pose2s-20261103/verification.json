@@ -1,0 +1,14 @@
+{
+  "schema": "eatnav_moving_pose2s_verification_v1",
+  "focused_tests": 129,
+  "focused_test_command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src:scripts /home/ubuntu/venvs/isaaclab_py310/bin/python -m pytest tests/eat_nav/test_moving_pose2s_*.py tests/eat_nav/test_fall_stall_targets.py tests/eat_nav/test_r6_targets.py -q",
+  "full_repository_suite_claimed_pass": false,
+  "legacy_baseline_limitation": "27 passed,3 failed,3 errors in old external-data-dependent baseline tests: sealed untracked dataset artifacts absent in isolated worktree. No old seals/fixtures were fabricated.",
+  "collection_independent_audit_passed": true,
+  "frozen_dataset_audits_passed": true,
+  "strict_raw_input_failures": 0,
+  "teacher_alignment": "40 intervals,pre/post root endpoint validation,reset/termination/boundary masks",
+  "model_cpu_reload": true,
+  "real_robot_tested": false,
+  "whole_branch_review": "pending"
+}

@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "prior_r6_rates_are_estimates_only": true,
+  "production_capacity_reason": "actual staged2/5/10 benchmark; same fixed terrain width and parent identities",
+  "records": [
+    {
+      "complete": {
+        "anchor_available_by_env": [
+          true,
+          true
+        ],
+        "anchor_failure_reasons": [
+          null,
+          null
+        ],
+        "candidate_indices": [
+          0
+        ],
+        "elapsed_collection_seconds": 6.221759394014953,
+        "gpu_memory_free_total_bytes": [
+          11683823616,
+          16718168064
+        ],
+        "headless": true,
+        "num_envs": 2,
+        "peak_torch_vram_bytes": 16317440,
+        "physics_audit": {
+          "all_finite": true,
+          "minimum_inertia_eigenvalue": 0.00040056667057797313,
+          "minimum_mass_kg": 0.20000000298023224,
+          "nonpositive_inertia_eigenvalue_count": 0,
+          "nonpositive_mass_count": 0,
+          "valid": true
+        },
+        "prefix_steps": [
+          5,
+          5
+        ],
+        "recorded_rows": 80,
+        "restoration_method": "fresh_process_prefix",
+        "rows_per_second": 12.85809928248854,
+        "smoke": false,
+        "state": "completed"
+      },
+      "completed_unix": 1793634579.7781212,
+      "copy_returncode": 0,
+      "num_envs": 2,
+      "returncode": 0,
+      "started_unix": 1793634559.7841735,
+      "state": "completed"
+    },
+    {
+      "complete": {
+        "anchor_available_by_env": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "anchor_failure_reasons": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "candidate_indices": [
+          0
+        ],
+        "elapsed_collection_seconds": 8.160643979004817,
+        "gpu_memory_free_total_bytes": [
+          11113398272,
+          16718168064
+        ],
+        "headless": true,
+        "num_envs": 5,
+        "peak_torch_vram_bytes": 16589824,
+        "physics_audit": {
+          "all_finite": true,
+          "minimum_inertia_eigenvalue": 0.00040056667057797313,
+          "minimum_mass_kg": 0.20000000298023224,
+          "nonpositive_inertia_eigenvalue_count": 0,
+          "nonpositive_mass_count": 0,
+          "valid": true
+        },
+        "prefix_steps": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "recorded_rows": 200,
+        "restoration_method": "fresh_process_prefix",
+        "rows_per_second": 24.507869785098727,
+        "smoke": false,
+        "state": "completed"
+      },
+      "completed_unix": 1793634603.6599789,
+      "copy_returncode": 0,
+      "num_envs": 5,
+      "returncode": 0,
+      "started_unix": 1793634579.8112926,
+      "state": "completed"
+    },
+    {
+      "complete": {
+        "anchor_available_by_env": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "anchor_failure_reasons": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "candidate_indices": [
+          0
+        ],
+        "elapsed_collection_seconds": 10.161678913020296,
+        "gpu_memory_free_total_bytes": [
+          10706550784,
+          16718168064
+        ],
+        "headless": true,
+        "num_envs": 10,
+        "peak_torch_vram_bytes": 17041408,
+        "physics_audit": {
+          "all_finite": true,
+          "minimum_inertia_eigenvalue": 0.00022592720051761717,
+          "minimum_mass_kg": 0.12282902002334595,
+          "nonpositive_inertia_eigenvalue_count": 0,
+          "nonpositive_mass_count": 0,
+          "valid": true
+        },
+        "prefix_steps": [
+          5,
+          5,
+          6,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "recorded_rows": 400,
+        "restoration_method": "fresh_process_prefix",
+        "rows_per_second": 39.36357401408094,
+        "smoke": false,
+        "state": "completed"
+      },
+      "completed_unix": 1793634632.663132,
+      "copy_returncode": 0,
+      "num_envs": 10,
+      "returncode": 0,
+      "started_unix": 1793634603.6906939,
+      "state": "completed"
+    }
+  ],
+  "selected_num_envs": 10
+}

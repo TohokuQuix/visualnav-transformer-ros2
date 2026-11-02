@@ -1,0 +1,65 @@
+{
+  "schema": "eatnav_moving_pose2s_postfreeze_reporting_correction_v1",
+  "reason": "dataset collection_state was retained but omitted by metrics stratification key allowlist",
+  "old_metrics_source_sha256": "39051d25593943b9d61c317905e5e34fbd7666770eaff2c9829879d2e4a66f0b",
+  "new_metrics_source_sha256": "79417293b1d2d2762db4ac6e5287611f1956e4a0e21c8b223884a6ff69826dff",
+  "old_source_recoverable_from_commit": "ede6b92",
+  "preserved_old_source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/source-at-freeze/moving_pose2s_metrics.py",
+  "collection_physics_changed": false,
+  "teacher_changed": false,
+  "dataset_changed": false,
+  "model_changed": false,
+  "normalization_changed": false,
+  "aggregate_metrics_changed": false,
+  "original_collection_freeze_note": "postcollection-freeze.json records source hashes AT COLLECTION/READINESS TIME. The metrics source at its original absolute worktree path was subsequently changed only for this reporting correction; recover that original file from the recorded commit or preserved copy. Raw/source-stage archives remain immutable.",
+  "outputs": [
+    {
+      "job": "M_final-combined-validation",
+      "added_groups": [
+        "collection_state:descent",
+        "collection_state:moving_flat",
+        "collection_state:slow",
+        "collection_state:step_before",
+        "collection_state:turning",
+        "collection_state:uphill_before",
+        "collection_state:uphill_mid"
+      ],
+      "source_metrics_sha256": "5ae9f628935a298efc6167e7866a4aa29fb32b24b47cfc33312610fcb3505dc1",
+      "published_metrics_sha256": "07c9b856b4264c591efdd6b64f0df2a40e7b79f35f49c9550b57d66ce52f2d98"
+    },
+    {
+      "job": "M_final-existing-audit",
+      "added_groups": [],
+      "source_metrics_sha256": "fa577c41ce6e8ed72f96644ac29b177ae0fadf76073e8edb1176afe128c2100d",
+      "published_metrics_sha256": "c5727af2236bfc5e5403e914bd433f90aa0696b10b24c71d674b2bcc7a2c17f6"
+    },
+    {
+      "job": "M_final-fresh-audit",
+      "added_groups": [
+        "collection_state:descent",
+        "collection_state:moving_flat",
+        "collection_state:slow",
+        "collection_state:step_before",
+        "collection_state:turning",
+        "collection_state:uphill_before",
+        "collection_state:uphill_mid"
+      ],
+      "source_metrics_sha256": "90ad01e26348abcae9ad12fe30b3da49a2b12405e630e5d3f274af5b4ddd28f0",
+      "published_metrics_sha256": "c41d161f5702b0a508c27e5687c9d74f2fcb4b36ab3a405515a309541d3c644a"
+    }
+  ],
+  "changed_reporting_files": [
+    {
+      "path": "src/visualnav_transformer/eat_nav/moving_pose2s_metrics.py",
+      "at_collection_sha256": "39051d25593943b9d61c317905e5e34fbd7666770eaff2c9829879d2e4a66f0b",
+      "current_sha256": "79417293b1d2d2762db4ac6e5287611f1956e4a0e21c8b223884a6ff69826dff",
+      "old_recoverable_commit": "ede6b92"
+    },
+    {
+      "path": "tests/eat_nav/test_moving_pose2s_metrics.py",
+      "at_collection_sha256": "90bc5a11915e07313b452b7b6c317650576fb4946c9799a32ae58199e867f21c",
+      "current_sha256": "bb5c01b5792d1170db1d2d98a67fd208f2795e21533b5bba164f23412a5d9b36",
+      "old_recoverable_commit": "ede6b92"
+    }
+  ]
+}

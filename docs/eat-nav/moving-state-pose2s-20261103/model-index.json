@@ -1,6 +1,6 @@
 {
   "schema": "eatnav_moving_pose2s_model_index_v1",
-  "phase": "initial_model_verified_collection_in_progress",
+  "phase": "initial_and_additional_models_trained_and_evaluated",
   "horizon_sec": 2.0,
   "input_schema": "eatnav_moving_pose2s_input_v1",
   "prediction_schema": "eatnav_moving_pose2s_prediction_v1",
@@ -118,14 +118,68 @@
           1.0
         ]
       }
+    },
+    {
+      "id": "M_final",
+      "path": "docs/eat-nav/moving-state-pose2s-20261103/models/M_final/checkpoint.pt",
+      "sha256": "3f64a6617702a5d50ac704ccc099cb18fc9e171aabf427e51b2865bd800d272b",
+      "bytes": 157455,
+      "training_seed": 123,
+      "epochs_completed": 57,
+      "best_epoch": 37,
+      "training_scope": "existing initial plus moving windows plus868 headless qualified branches",
+      "support": {
+        "trained": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "counts": [
+          {
+            "positive": 15,
+            "negative": 5816,
+            "unknown": 0
+          },
+          {
+            "positive": 22,
+            "negative": 5805,
+            "unknown": 4
+          },
+          {
+            "positive": 336,
+            "negative": 5481,
+            "unknown": 14
+          },
+          {
+            "positive": 92,
+            "negative": 5725,
+            "unknown": 14
+          }
+        ],
+        "constant_probability": [
+          0.002657750342935528,
+          0.003860672614962251,
+          0.05783774492952905,
+          0.015898934341698177
+        ],
+        "pos_weight": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
     }
   ],
   "M_final": {
-    "state": "not_trained",
-    "reason": "fresh moving-state collection gates in progress"
+    "state": "trained_and_evaluated",
+    "validation_best_epoch": 37,
+    "extra_data_improvement_claimed": false
   },
   "real_robot_tested": false,
   "planner_changed": false,
   "precontact_performance_verified": false,
-  "raw_data_in_git": false
+  "raw_data_in_git": false,
+  "default_model_reason": "Retained initial default; combined validation mean3D/SO3 errors did not improve with M_final. No audit-based tuning or promotion."
 }

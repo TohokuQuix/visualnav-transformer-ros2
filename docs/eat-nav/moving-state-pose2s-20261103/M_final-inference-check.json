@@ -1,0 +1,31 @@
+{
+  "schema": "eatnav_moving_pose2s_actual_checkpoint_inference_check_v1",
+  "checkpoint_sha256": "3f64a6617702a5d50ac704ccc099cb18fc9e171aabf427e51b2865bd800d272b",
+  "device": "cpu",
+  "threads": 4,
+  "batch": 1,
+  "candidates": 14,
+  "warmup": 20,
+  "repetitions": 200,
+  "full_api_ms": {
+    "median": 1.9330315,
+    "p95": 4.691692199999999,
+    "mean": 2.3984568150000003
+  },
+  "includes": "input transform, NN, relative rotation/gravity/world decoding and validation; excludes file IO/model load/JSON encoding",
+  "k1_matches_k14": true,
+  "candidate_permutation_matches": true,
+  "rotation_valid": true,
+  "timing_scope": "same server; real robot PC unmeasured",
+  "torch_version": "2.7.0+cu128",
+  "numpy_version": "1.26.4",
+  "cross_version_cpu_max_absolute_difference": {
+    "delta_position_body_m": 0.0,
+    "delta_rotation_6d": 0.0,
+    "delta_quaternion_wxyz": 0.0,
+    "relative_rpy_rad": 0.0,
+    "event_probability": 0.0,
+    "future_tilt_rad": 0.0
+  },
+  "cross_version_environment": "PyTorch2.8.0+cu128/NumPy2.2.6 compared against2.7.0+cu128/1.26.4 on same server"
+}

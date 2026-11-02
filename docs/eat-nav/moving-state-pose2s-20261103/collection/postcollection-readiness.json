@@ -1,0 +1,47 @@
+{
+  "NN_training_started_by_this_agent": false,
+  "all_seven_states_role_coverage_passed": true,
+  "audit": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/collection-final-audit.json",
+  "canonical_manifest": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/collection-manifest.json",
+  "collection_audit_passed": true,
+  "created_unix": 1793639421.4389422,
+  "model_predictions_used": false,
+  "original_deadline_unix": 1793642969,
+  "supervised_eligible_counts_by_state_role": {
+    "descent": {
+      "audit_eval": 14,
+      "train": 84,
+      "validation": 28
+    },
+    "moving_flat": {
+      "audit_eval": 28,
+      "train": 84,
+      "validation": 28
+    },
+    "slow": {
+      "audit_eval": 28,
+      "train": 70,
+      "validation": 14
+    },
+    "step_before": {
+      "audit_eval": 28,
+      "train": 84,
+      "validation": 28
+    },
+    "turning": {
+      "audit_eval": 28,
+      "train": 84,
+      "validation": 28
+    },
+    "uphill_before": {
+      "audit_eval": 14,
+      "train": 42,
+      "validation": 14
+    },
+    "uphill_mid": {
+      "audit_eval": 28,
+      "train": 84,
+      "validation": 28
+    }
+  }
+}

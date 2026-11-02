@@ -1,0 +1,7557 @@
+{
+  "schema": "eatnav_moving_pose2s_fresh_coverage_v1",
+  "event_order": [
+    "tip_over",
+    "near_fall",
+    "linear_stall",
+    "turn_stall"
+  ],
+  "state_coverage": [
+    {
+      "state": "moving_flat",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 10,
+      "all14_started": 10,
+      "all14_outcomes_observed": 10,
+      "all14_full_2s_pose": 10,
+      "counterfactual_complete_groups": 10,
+      "packed_windows": 140
+    },
+    {
+      "state": "turning",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 10,
+      "all14_started": 10,
+      "all14_outcomes_observed": 10,
+      "all14_full_2s_pose": 10,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 140
+    },
+    {
+      "state": "uphill_before",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 10,
+      "all14_started": 10,
+      "all14_outcomes_observed": 0,
+      "all14_full_2s_pose": 0,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 70
+    },
+    {
+      "state": "uphill_mid",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 10,
+      "all14_started": 10,
+      "all14_outcomes_observed": 10,
+      "all14_full_2s_pose": 10,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 140
+    },
+    {
+      "state": "step_before",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 10,
+      "all14_started": 10,
+      "all14_outcomes_observed": 10,
+      "all14_full_2s_pose": 10,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 140
+    },
+    {
+      "state": "descent",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 9,
+      "all14_started": 9,
+      "all14_outcomes_observed": 9,
+      "all14_full_2s_pose": 9,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 126
+    },
+    {
+      "state": "slow",
+      "planned_parents": 10,
+      "canonical_parent_records": 10,
+      "qualified_parents": 8,
+      "all14_started": 8,
+      "all14_outcomes_observed": 8,
+      "all14_full_2s_pose": 8,
+      "counterfactual_complete_groups": 0,
+      "packed_windows": 112
+    }
+  ],
+  "state_candidate_role": [
+    {
+      "state": "descent",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        1,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "descent",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        1,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "moving_flat",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 5,
+      "parents": 5,
+      "full_2s_pose": 5,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "slow",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 1,
+      "parents": 1,
+      "full_2s_pose": 1,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "step_before",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "turning",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        3
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_before",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        5
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "forward_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_+90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-30",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-30",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-30",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-60",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-60",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-60",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-90",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-90",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_-90",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_direct",
+      "role": "audit_eval",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_direct",
+      "role": "train",
+      "windows": 6,
+      "parents": 6,
+      "full_2s_pose": 6,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "state": "uphill_mid",
+      "candidate_id": "reverse_direct",
+      "role": "validation",
+      "windows": 2,
+      "parents": 2,
+      "full_2s_pose": 2,
+      "event_positive": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "event_negative": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "event_unknown": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "packed_exclusions": [
+    {
+      "reason": "anchor_unavailable",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/descent-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/group.json"
+    },
+    {
+      "reason": "anchor_unavailable",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/slow-tiles0-1-2-3-4-5-6-7-8-9/sim-output/group-000/group.json"
+    },
+    {
+      "reason": "anchor_unavailable",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/slow-tiles0-1-2-3-4-5-6-7-8-9/sim-output/group-007/group.json"
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-000/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-001/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-002/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-003/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-004/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-005/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-006/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-007/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-008/candidate-13/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-07/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-08/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-09/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-10/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-11/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-12/trace.jsonl",
+      "start": 0
+    },
+    {
+      "reason": "boundary_censor",
+      "source": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/production/uphill_before-tiles0-1-2-3-4-5-6-7-8-9-geometry-v2/sim-output/group-009/candidate-13/trace.jsonl",
+      "start": 0
+    }
+  ],
+  "limitations": [
+    "Windows/candidate branches are correlated within each parent.",
+    "Reduced candidate-order diagnostics imply counterfactual_complete=false; labels still describe actual observed execution.",
+    "Near-edge boundary-censored branches are excluded by the frozen teacher policy, not completed or extrapolated."
+  ]
+}

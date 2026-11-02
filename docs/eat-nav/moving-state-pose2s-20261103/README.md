@@ -2,9 +2,9 @@
 
 ## 現在の状態
 
-**既存データで学習した初期モデルM_moveとCPU推論例を利用可能。追加収集・追加後のM_finalは進行中。最終版の完了報告ではない。**
+**実装・追加収集・M_final学習・固定評価・14候補CPU推論を完了。公開モデルはM_move／M_final／M_stop。追加学習による一律改善は確認されず、既定はM_moveを維持する。**
 
-[承認仕様](../moving-state-pose2s-spec-v0.1.md)、[実行計画](../moving-state-pose2s-execution-plan-v0.1.md)、[初期評価結果](evaluations/M_move-existing-audit/report.md)、[モデル索引](model-index.json)。実機走行、plannerの選択条件変更、接触前性能の保証は実施していない。
+[承認仕様](../moving-state-pose2s-spec-v0.1.md)、[実行計画](../moving-state-pose2s-execution-plan-v0.1.md)、[最終評価・データ集計](evaluation-report.md)、[モデル索引](model-index.json)。実機走行、plannerの選択条件変更、接触前性能の保証は実施していない。
 
 旧random_rough/seed123の特徴抽出部を初期値に、7fieldの既存初期・走行中データで新しいモデルを学習した。旧checkpointを上書きしていない。旧10秒risk/progress headは転移していない。
 
@@ -23,7 +23,7 @@ TohokuQuix/visualnav-transformer-ros2のclone内で実行する。現在の未�
     python -m pip install numpy==1.26.4
     python -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
 
-CPU wheelの指定は[PyTorch公式の過去バージョン手順](https://pytorch.org/get-started/previous-versions/#v270)による。推論にtorchvision、Isaac Sim、ROS、学習datasetは不要。作成環境はPython3.10.13、NumPy1.26.4、PyTorch2.7.0+cu128で、推論はdevice=cpuを検証済み。別PC自体の速度・実機topic接続は未検証。
+CPU wheelの指定は[PyTorch公式の過去バージョン手順](https://pytorch.org/get-started/previous-versions/#v270)による。推論にtorchvision、Isaac Sim、ROS、学習datasetは不要。作成環境はPython3.10.13、NumPy1.26.4、PyTorch2.7.0+cu128で、推論はdevice=cpuを検証済み。同一ホストの別環境（PyTorch2.8.0+cu128／NumPy2.2.6）でも14候補の出力一致を確認した。別PC自体の速度・実機topic接続は未検証。
 
 checksumは成果物ディレクトリから確認する：
 
@@ -52,6 +52,8 @@ input_schema=eatnav_moving_pose2s_input_v1、prediction_schema=eatnav_moving_pos
 - event_probability [B,14,4]はtip_over、near_fall、linear_stall、turn_stallの2秒以内の未校正確率推定値。0.5は評価用で、実機STOP閾値ではない。
 - validityには回転復元、Euler特異点、候補有効性と、大きな標準化入力（絶対値10超）の警告がある。値を隠すclip・学習平均補完はしない。これは厳密なOOD検知器ではない。
 
+登坂の上昇量を読む場合、車体z変位とworldの高さ変化を区別する。現在の重力ベクトルをg0（body_state先頭3成分）とすると、world高さ変化は `−g0・delta_position_body_m`。現在quaternionがあればworld変位全体は `R(q0) delta_position_body_m` で求められる。傾いた車体に沿って登ると、車体z変位が小さくてもworld高さは増える。
+
 古いR4*/R5の10秒risk/progress loaderとの混用をschemaで拒否する。進捗headとNNによる途中軌跡は今回の初期版にはない。40点のGT軌跡はローカルdatasetに保存している。早期終端後の2秒姿勢を補完していないため、pose性能は2秒状態を観測できた区間に限られる。
 
 ## 初期モデルの評価
@@ -65,6 +67,8 @@ input_schema=eatnav_moving_pose2s_input_v1、prediction_schema=eatnav_moving_pos
 | 現在body速度・角速度一定 | 0.26629 | 0.55772 | 0.90076 |
 
 同じ後続590区間・6独立親では、初期区間限定M_stopの平均3D誤差0.09017mから、M_moveの0.07545mへ低下。SO(3)は0.14206radから0.12478radへ低下した。親bootstrap95%CIと双方の状態別指標は評価JSON/CSVにある。構造・seed・上限設定は同じだが、追加データ・正規化・early stoppingの結果が異なる比較であり、あらゆる走行で改善する保証ではない。
+
+trainと地形hashが一致するものを除いた641区間・6親の[追加集計](evaluations/M_move-geometry-nonoverlap/report.md)では、平均3D誤差0.06615m、平均SO(3)誤差0.10572radだった。同じ地形クラスのseed違いを含むため、未知の地形クラスへの汎化を示すものではない。
 
 このholdoutのtip/near-fall陽性は0であり、その検出性能は未評価。直線スタック19陽性（3親）、旋回スタック11陽性（4親）で、少数例である。イベントhead全てを十分に検証できたとはしない。
 
@@ -82,6 +86,12 @@ input_schema=eatnav_moving_pose2s_input_v1、prediction_schema=eatnav_moving_pos
 
 再学習にはGitHubのコード・checkpointだけでなく、ローカルdatasetまたは元記録の転送が必要。最小推論例はtrain由来の現在入力のみで、未来GTを含まない。
 
-## 残作業
+## 追加学習の結果と取得方法
 
-7状態の追加headless収集は、復元gateで検出したlazy cacheと状態整合性の修正・再検証中。ベンチマーク成功を14分岐の復元成功と読み替えない。採用済み追加データ、追加後M_final、追加audit-eval、収集後の全成果まとめはまだ完了していない。進行中状態は[モデル索引](model-index.json)で確認する。
+追加868枝を統合しM_finalを学習・検証した。統合datasetは7,765区間。既存audit平均3D誤差はM_move 7.61cm、M_final 8.91cm。新規auditはM_move 9.29cm、M_final 9.76cm。追加学習の一律改善は確認されず、combined validationでも改善しなかったため、既定はM_moveを維持する。M_finalは同じ入力・出力schemaで比較用に取得できる。
+
+    PYTHONPATH=src:scripts python scripts/eat_nav_moving_pose2s_predict.py --checkpoint docs/eat-nav/moving-state-pose2s-20261103/models/M_final/checkpoint.pt --input examples/eat_nav_moving_pose2s/example-input.npz --output /tmp/eatnav-pose2s-final.json --device cpu
+
+[最終評価](evaluation-report.md)、[追加coverage](fresh-coverage.json)、[収集独立監査](collection/collection-final-audit.json)、[状態集計の表示修正](reporting-correction.json)を参照。M_final checkpoint SHA-256は `3f64a6617702a5d50ac704ccc099cb18fc9e171aabf427e51b2865bd800d272b`。
+
+追加auditにもtip/near陽性がなく検出性能は未検証。M_finalのスタックrecall@0.5は0であり、今回の出力を実機の安全判定として検証できたとはしない。接触前性能、閉ループの登坂改善、実機走行は今回の対象外。

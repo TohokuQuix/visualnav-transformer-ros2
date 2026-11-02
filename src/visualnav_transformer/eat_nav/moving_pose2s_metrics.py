@@ -131,7 +131,7 @@ def state_groups(arrays,index):
     tilt=np.arccos(np.clip(-body[:,2],-1,1));result.update({'current_tilt:>=60deg':tilt>=np.deg2rad(60),'current_tilt:<60deg':tilt<np.deg2rad(60)})
     if 'directions' in arrays:
         d=np.asarray(arrays['directions']).reshape(n,-1)[:,0];result['direction:forward']=d>0;result['direction:reverse']=d<0
-    for key in ('qualified_state','state_name'):
+    for key in ('qualified_state','state_name','collection_state'):
         values=[r.get(key) for r in index]
         for value in sorted(set(x for x in values if isinstance(x,str))):result[key+':'+value]=np.array([x==value for x in values])
     return result
@@ -158,7 +158,7 @@ def evaluate_predictions(arrays,index,indices,prediction,*,train_indices,bootstr
         y=arrays['event_targets'][train,...,h];known=np.asarray(arrays['event_mask'][train,...,h],bool)&np.isfinite(y)&np.asarray(arrays['candidate_mask'][train],bool);prevalence.append(float(y[known].mean()) if known.any() else None)
     baseline_prob=np.broadcast_to(np.array([x if x is not None else 0. for x in prevalence]),shape+(4,))
     twistp,twistr=constant_body_twist(a['body_state'][:,3:6],a['body_state'][:,6:9]);twistp=np.broadcast_to(twistp[:,None],shape+(3,));twistr=np.broadcast_to(twistr[:,None],shape+(3,3))
-    all_errors={};result=dict(scope='executed_candidates_only; pose_complete_2s_only',window_count=len(ids),candidate_count=int(candidate.sum()),independent_parents=len(set(parents.tolist())),pose_missing_count=int((candidate&~pose).sum()),invalid_rotation_count=int((candidate&~rotvalid).sum()),baseline_event_train_prevalence=prevalence,probability_calibration='uncalibrated_unweighted_BCE',threshold=.5,units=dict(position='m',angles='rad'),qualified_terrain_state_note='only explicit qualified_state/state_name metadata is used; pitch alone is not ascent/descent qualification')
+    all_errors={};result=dict(scope='executed_candidates_only; pose_complete_2s_only',window_count=len(ids),candidate_count=int(candidate.sum()),independent_parents=len(set(parents.tolist())),pose_missing_count=int((candidate&~pose).sum()),invalid_rotation_count=int((candidate&~rotvalid).sum()),baseline_event_train_prevalence=prevalence,probability_calibration='uncalibrated_unweighted_BCE',threshold=.5,units=dict(position='m',angles='rad'),qualified_terrain_state_note='only explicit qualified_state/state_name/collection_state metadata is used; pitch alone is not ascent/descent qualification')
     variants={'model':(prediction['delta_position_body_m'],prR,prediction['event_probability'],rotvalid),'no_motion':(np.zeros(shape+(3,)),np.broadcast_to(np.eye(3),shape+(3,3)),baseline_prob,np.ones(shape,bool)),'constant_body_twist':(twistp,twistr,baseline_prob,np.ones(shape,bool))}
     for name,(p,R,prob,rv) in variants.items():
         e=pose_errors(p,a['position_targets'],R,gtR,gravity,pose,rv);all_errors[name]=e

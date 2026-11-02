@@ -12,5 +12,23 @@
     "future_quaternion_wxyz",
     "future_rpy_rad"
   ],
-  "training_input_example_only": true
+  "training_input_example_only": true,
+  "additional_cpu_environment": {
+    "torch": "2.8.0+cu128",
+    "numpy": "2.2.6",
+    "python": "3.10.13",
+    "candidate_count": 14,
+    "max_abs_difference_vs_torch27": {
+      "event_probability": 0.0,
+      "delta_position_body_m": 0.0,
+      "delta_rotation_6d": 0.0,
+      "delta_quaternion_wxyz": 0.0,
+      "relative_rpy_rad": 0.0,
+      "future_projected_gravity": 0.0,
+      "future_tilt_rad": 0.0,
+      "future_quaternion_wxyz": 1.1102230246251565e-16,
+      "future_rpy_rad": 1.3877787807814457e-17
+    },
+    "same_host_not_robot_pc": true
+  }
 }

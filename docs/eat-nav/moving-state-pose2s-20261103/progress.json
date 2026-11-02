@@ -1,29 +1,31 @@
 {
   "schema": "eatnav_moving_pose2s_progress_v1",
-  "updated_unix": 1793631393.2277808,
-  "state": "initial_model_verified_additional_collection_gate_in_progress",
-  "initial_model": "M_move",
-  "reused_records": 6897,
-  "complete_pose": 6880,
-  "train": 5299,
-  "validation": 791,
-  "audit_eval": 807,
-  "initial_models_trained": [
+  "updated_unix": 1793639866.0238655,
+  "state": "models_data_evaluation_verified_final_branch_review_pending",
+  "models_trained": [
+    "M_stop",
     "M_move",
-    "M_stop"
+    "M_final"
   ],
+  "fresh_observed_branches": 938,
+  "fresh_records": 868,
+  "combined_records": 7765,
+  "combined_complete_pose": 7748,
+  "train": 5831,
+  "validation": 959,
+  "audit_eval": 975,
   "initial_audit_completed": true,
-  "fresh_data_accepted": false,
-  "final_model_trained": false,
+  "fresh_audit_completed": true,
+  "fresh_data_accepted": true,
+  "final_model_trained": true,
+  "default_model": "M_move",
+  "additional_training_improvement_claimed": false,
   "real_robot_tested": false,
   "planner_changed": false,
-  "r6_parent_paused_pid": 91045,
+  "precontact_performance_verified": false,
+  "r6_resumed_pid": 91045,
+  "r6_evaluation_complete_claimed": false,
   "remaining": [
-    "qualified moving-state headless collection gates and production",
-    "fresh dataset audit and merged dataset",
-    "M_final training and heldout evaluation",
-    "geometry-nonoverlap evaluation subset",
-    "final whole-branch review, final push and R6 resume"
-  ],
-  "latest_test_count": 118
+    "final whole-branch review and normal GitHub push"
+  ]
 }

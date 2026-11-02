@@ -184,3 +184,24 @@ def test_paired_comparison_separates_moving_effect_from_initial_errors():
     empty=c.paired_model_comparison(a,index,[0],{k:(v[:1] if isinstance(v,np.ndarray) else {'rotation_valid':np.ones((1,1),bool)}) for k,v in current.items()},{k:(v[:1] if isinstance(v,np.ndarray) else {'rotation_valid':np.ones((1,1),bool)}) for k,v in reference.items()},resamples=20)
     assert empty['moving_only']['window_count']==0
     assert empty['moving_only']['paired_difference_95ci']['position_3d_m']['estimate'] is None
+
+
+def test_fresh_audited_collection_states_form_seven_groups_without_pitch_inference():
+    """Dataset carries explicit cohort identity even when order gates are reduced."""
+    states=('moving_flat','turning','uphill_before','uphill_mid','step_before','descent','slow')
+    rows=[]
+    for state in states:
+        for branch in range(2):
+            rows.append(dict(kind='fresh',parent_id='fresh/'+state,collection_state=state,candidate_id='candidate-'+str(branch),is_initial=False,counterfactual_complete=state=='moving_flat',restoration_gate_passed=state=='moving_flat'))
+    # A reused row with a steep pitch has no explicit fresh cohort identity.
+    rows.append(dict(kind='r4',parent_id='reused',is_initial=False,qualified_state='legacy_qualified'))
+    n=len(rows);q=np.tile([1.,0,0,0],(n,1));q[-1]=[np.cos(np.deg2rad(15)),0,np.sin(np.deg2rad(15)),0]
+    arrays=dict(body_state=np.tile([0,0,-1,.1,0,0,0,0,0],(n,1)),current_quat_wxyz=q,pose_mask=np.ones((n,1),bool),directions=np.ones((n,1,1)))
+    arrays['body_state'][-1,:3]=[np.sin(np.deg2rad(30)),0,-np.cos(np.deg2rad(30))]
+    groups=metrics().state_groups(arrays,rows)
+    assert {key for key in groups if key.startswith('collection_state:')}=={'collection_state:'+state for state in states}
+    for ordinal,state in enumerate(states):
+        mask=groups['collection_state:'+state]
+        assert np.flatnonzero(mask).tolist()==[2*ordinal,2*ordinal+1]
+        assert not mask[-1]
+    assert np.flatnonzero(groups['qualified_state:legacy_qualified']).tolist()==[n-1]

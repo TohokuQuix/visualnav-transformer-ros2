@@ -1,0 +1,22 @@
+{
+  "pid": 171584,
+  "command": "/home/ubuntu/venvs/isaaclab_py310/bin/python scripts/eat_nav_moving_pose2s_collect.py --plan /home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/plan.json --gates --output /home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/gates ",
+  "state": "dispatch_paused_to_replace_failed_gate_runtime",
+  "paused_unix": 1793630763.40005,
+  "child_interrupted": false,
+  "reason": "Failed duplicated continuation exposed lazy TimestampedBuffer restoration; source/gate binding and original-anchor checks must be fixed before production.",
+  "second_failed_scheduler_retired": {
+    "pid": 178410,
+    "cmdline": "/home/ubuntu/venvs/isaaclab_py310/bin/python scripts/eat_nav_moving_pose2s_collect.py --plan /home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/plan.json --gates --output /home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/gates-attempt02 ",
+    "children_states": {
+      "179667": "Z"
+    },
+    "preservation_record": "/home/ubuntu/eatnav-moving-state-pose2s-data-20261103/collection/gates-attempt02/retired-attempt.json",
+    "unix_time": 1793632080.5772989,
+    "signals": [
+      "SIGTERM",
+      "SIGCONT"
+    ],
+    "r6_pid_untouched": 91045
+  }
+}
