@@ -1,0 +1,160 @@
+{
+  "schema": "r6_independent_level3_interim_table_review_v1",
+  "verified_unix": 1793595953.1459672,
+  "report_sha256": "668ead1f064ac4afd122f4da54e3241f081a06cdbf6dc865b16fd6242adda20d",
+  "binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "generator_sha256": "71ee035dd710e0fad9a75f03c206822241e1006e36ba56f19b2959f40fa6bdc8",
+  "conditions_checked": [
+    {
+      "condition": "old_reference",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 3,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "event_2s",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 0,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q3_2",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q3_1",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 1,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q3_0",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q2_2",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q2_0",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q1_2",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q1_1",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q1_0",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q0_2",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 1,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "pose_q0_0",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    },
+    {
+      "condition": "combined",
+      "valid_trials": 29,
+      "invalid_excluded": 1,
+      "fall_count": 2,
+      "all_numeric_columns_match": true,
+      "source_hashes_match": true
+    }
+  ],
+  "common_valid_groups": 29,
+  "protocol_groups": 30,
+  "initial_invalid_group_ids": [
+    "closed_loop/k_rail_field/level3/validation/seed1558235351/tile00"
+  ],
+  "paired_initial_and_physics_comparisons": 12,
+  "actual_valid_simulation_trials": 261,
+  "reused_valid_condition_results": 116,
+  "recomputed_reuse": [
+    {
+      "condition": "pose_q2_2",
+      "valid": 29,
+      "initial_invalid": 1,
+      "decisions_recomputed": 859,
+      "all_choices_and_results_match": true
+    },
+    {
+      "condition": "pose_q2_0",
+      "valid": 29,
+      "initial_invalid": 1,
+      "decisions_recomputed": 859,
+      "all_choices_and_results_match": true
+    },
+    {
+      "condition": "pose_q1_0",
+      "valid": 29,
+      "initial_invalid": 1,
+      "decisions_recomputed": 859,
+      "all_choices_and_results_match": true
+    },
+    {
+      "condition": "pose_q0_0",
+      "valid": 29,
+      "initial_invalid": 1,
+      "decisions_recomputed": 859,
+      "all_choices_and_results_match": true
+    }
+  ],
+  "exact_pose_profiles": 10,
+  "MD_TXT_identical": true,
+  "combined_copy_counts": {
+    "verified_original_files": 1801,
+    "decompressed_trace_files": 30
+  },
+  "combined_residual_sec": 67.6,
+  "findings": [],
+  "no_simulator_operations": true
+}
