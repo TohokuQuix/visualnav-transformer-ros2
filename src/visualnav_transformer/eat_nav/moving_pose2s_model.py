@@ -157,7 +157,11 @@ def load_checkpoint(path,device='cpu'):
 
 def predict(model,normalization,arrays,indices=None,support=None):
     ids=_ids(arrays,indices);device=next(model.parameters()).device;model.eval()
-    with torch.inference_mode():o={k:v.detach().cpu().numpy() for k,v in model(**prepare_inputs(arrays,ids,normalization,device)).items()}
+    transformed=prepare_inputs(arrays,ids,normalization,device)
+    with torch.inference_mode():o={k:v.detach().cpu().numpy() for k,v in model(**transformed).items()}
+    large_state=(transformed['state'].detach().abs().amax(-1)>10).cpu().numpy()
+    large_dem=(transformed['dem'][:,0::2].detach().abs().flatten(1).amax(-1)>10).cpu().numpy()
+    large_path=(transformed['paths'].detach().abs().flatten(2).amax(-1)>10).cpu().numpy()
     if any(not np.isfinite(v).all() for v in o.values()):raise ValueError('nonfinite network output')
     position=o['position_z']*np.asarray(normalization['position_std'])+np.asarray(normalization['position_mean'])
     rotation,valid=sixd_to_matrix(o['rotation_6d']);q=matrix_to_quat(rotation);rpy,lock=matrix_to_rpy(rotation)
@@ -170,6 +174,9 @@ def predict(model,normalization,arrays,indices=None,support=None):
             if not trained:probabilities[...,h]=support['constant_probability'][h]
     futureq=futurerpy=futurelock=None
     if 'current_quat_wxyz' in arrays:
-        current=quat_to_matrix(arrays['current_quat_wxyz'][ids]);future=current[:,None]@rotation;futureq=matrix_to_quat(future);futurerpy,futurelock=matrix_to_rpy(future)
+        current=quat_to_matrix(arrays['current_quat_wxyz'][ids])
+        expected_gravity=np.einsum('bji,j->bi',current,np.array([0.,0.,-1.]))
+        if not np.allclose(expected_gravity,g0,atol=.02,rtol=0):raise ValueError('current projected gravity and quaternion disagree')
+        future=current[:,None]@rotation;futureq=matrix_to_quat(future);futurerpy,futurelock=matrix_to_rpy(future)
     if not all(np.isfinite(x).all() for x in (position,q,rpy,tilt,probabilities)):raise ValueError('nonfinite prediction')
-    return dict(schema=PREDICTION_SCHEMA,horizon_sec=2.,event_names=list(EVENTS),event_probability=probabilities,delta_position_body_m=position,delta_rotation_6d=o['rotation_6d'],delta_quaternion_wxyz=q,relative_rpy_rad=rpy,future_projected_gravity=gf,future_tilt_rad=tilt,future_quaternion_wxyz=futureq,future_rpy_rad=futurerpy,future_orientation_missing_reason=None if futureq is not None else 'current_quat_wxyz_not_provided',validity=dict(candidate=np.asarray(arrays['candidate_mask'][ids],bool),rotation_valid=valid,relative_euler_gimbal_lock=lock,future_euler_gimbal_lock=futurelock),support=copy.deepcopy(support),pose_supervision='complete_2s_only',probability_calibration='uncalibrated_unweighted_BCE')
+    return dict(schema=PREDICTION_SCHEMA,horizon_sec=2.,event_names=list(EVENTS),event_probability=probabilities,delta_position_body_m=position,delta_rotation_6d=o['rotation_6d'],delta_quaternion_wxyz=q,relative_rpy_rad=rpy,future_projected_gravity=gf,future_tilt_rad=tilt,future_quaternion_wxyz=futureq,future_rpy_rad=futurerpy,future_orientation_missing_reason=None if futureq is not None else 'current_quat_wxyz_not_provided',validity=dict(candidate=np.asarray(arrays['candidate_mask'][ids],bool),large_standardized_state_input=large_state,large_standardized_dem_input=large_dem,large_standardized_path_input=large_path,standardized_warning_threshold=10.,rotation_valid=valid,relative_euler_gimbal_lock=lock,future_euler_gimbal_lock=futurelock),support=copy.deepcopy(support),pose_supervision='complete_2s_only',probability_calibration='uncalibrated_unweighted_BCE')

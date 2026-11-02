@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from visualnav_transformer.eat_nav.moving_pose2s_model import INPUT_SCHEMA,load_checkpoint,predict
 
-REQUIRED={'dem','actor_state','body_state','paths','directions','candidate_mask'}
+REQUIRED={'dem','actor_state','body_state','paths','directions','candidate_mask','dem_timestamps_ns','current_time_ns'}
 OPTIONAL={'current_quat_wxyz','dem_timestamps_ns','current_time_ns','input_schema'}
 
 

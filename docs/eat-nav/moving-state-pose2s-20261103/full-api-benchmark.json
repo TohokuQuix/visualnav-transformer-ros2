@@ -1,0 +1,11 @@
+{
+  "scope": "CPU warm model, input transform + NN + geometry decoding + validation + output arrays; excludes model loading, input disk IO, JSON serialization",
+  "threads": 4,
+  "batch": 1,
+  "candidates": 14,
+  "warmup": 20,
+  "repetitions": 200,
+  "median_ms": 1.7657545,
+  "p95_ms": 1.82994195,
+  "measured_on_robot_pc": false
+}

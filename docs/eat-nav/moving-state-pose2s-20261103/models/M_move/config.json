@@ -1,0 +1,21 @@
+{
+  "variant": "moving",
+  "epochs": 150,
+  "batch_size": 64,
+  "device": "cpu",
+  "threads": 8,
+  "seed": 123,
+  "warmup_epochs": 5,
+  "learning_rate_head": 0.0003,
+  "learning_rate_backbone": 0.0001,
+  "weight_decay": 1e-05,
+  "gradient_clip_norm": 5.0,
+  "early_stop_min_epochs": 30,
+  "patience": 20,
+  "time_budget_sec": 7200,
+  "loss": "Lpos+.5Lrot+.5unweightedBCE+.001Lreg",
+  "event_pos_weight": 1.0,
+  "selection": "validation_pose_plus_rotation_plus_unweighted_event",
+  "normalization_source": "train_only",
+  "transfer_sha256": "c29bef5a56947db03f91ae2261dd8d259762479ebd9d38553017f3d5bd3c0421"
+}

@@ -88,3 +88,16 @@ def test_nonfinite_network_rotation_is_rejected_not_identity_success():
     m=module();a=arrays();s=m.fit_normalization(a,[0,1,2]);net=m.MovingPose2sEvaluator()
     with torch.no_grad():net.rotation_head.bias[0]=float('nan')
     with pytest.raises(ValueError,match='nonfinite'):m.predict(net,s,a,[0])
+
+
+def test_large_standardized_state_warns_without_clipping():
+    m=module();a=arrays();s=m.fit_normalization(a,[0,1,2]);net=m.MovingPose2sEvaluator();a['body_state'][3,3]=99.
+    result=m.predict(net,s,a,[3])
+    assert result['validity']['large_standardized_state_input'][0]
+    transformed=m.prepare_inputs(a,[3],s)
+    assert transformed['state'][0,22]>1000
+
+
+def test_current_quaternion_and_projected_gravity_must_agree():
+    m=module();a=arrays();s=m.fit_normalization(a,[0,1,2]);net=m.MovingPose2sEvaluator();a['current_quat_wxyz'][0]=[np.sqrt(.5),np.sqrt(.5),0,0]
+    with pytest.raises(ValueError,match='gravity.*quaternion|quaternion.*gravity'):m.predict(net,s,a,[0])

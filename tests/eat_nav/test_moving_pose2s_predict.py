@@ -19,3 +19,8 @@ def test_snapshot_requires_causal_fresh_history(tmp_path):
 def test_future_label_extra_key_rejected(tmp_path):
     m=module();a=data();a['position_targets']=np.zeros((1,14,3));p=tmp_path/'x.npz';np.savez(p,**a)
     with pytest.raises(ValueError,match='unexpected'):m.load_inputs(p)
+
+
+def test_missing_timestamp_metadata_rejected(tmp_path):
+    m=module();a=data();a.pop('current_time_ns');a.pop('dem_timestamps_ns');p=tmp_path/'x.npz';np.savez(p,**a)
+    with pytest.raises(ValueError,match='missing|time'):m.load_inputs(p)

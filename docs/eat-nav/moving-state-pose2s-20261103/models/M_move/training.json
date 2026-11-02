@@ -1,0 +1,1530 @@
+{
+  "state": "completed",
+  "variant": "moving",
+  "epochs_completed": 113,
+  "best_epoch": 93,
+  "best_validation_objective": 0.16555890440940857,
+  "stop_reason": "validation_early_stop",
+  "elapsed_sec": 63.839686621009605,
+  "checkpoint_sha256": "75fa9659d6924b4f6bae421498a45f485fb737d8e6b86e1a9a91a245eb9457b1",
+  "role_counts": {
+    "train": 5299,
+    "validation": 791
+  },
+  "audit_evaluation_opened": false,
+  "support": {
+    "trained": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "counts": [
+      {
+        "positive": 15,
+        "negative": 5284,
+        "unknown": 0
+      },
+      {
+        "positive": 22,
+        "negative": 5273,
+        "unknown": 4
+      },
+      {
+        "positive": 328,
+        "negative": 4957,
+        "unknown": 14
+      },
+      {
+        "positive": 85,
+        "negative": 5200,
+        "unknown": 14
+      }
+    ],
+    "constant_probability": [
+      0.0029245283018867925,
+      0.004248489425981873,
+      0.062145289443813846,
+      0.016174801362088535
+    ],
+    "pos_weight": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "device": "cpu",
+  "checkpoint_cpu_reload_verified": true,
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "total": 0.8201256506812867,
+        "position": 0.624031277785753,
+        "rotation": 0.023550272016914515,
+        "event": 0.36833275383425157,
+        "rotation_regularizer": 0.15286587739460328
+      },
+      "validation_objective": 0.31809258460998535,
+      "best_epoch": 1,
+      "elapsed_sec": 0.30269519399735145
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "total": 0.3319293664500137,
+        "position": 0.27062632838922485,
+        "rotation": 0.022305946424005896,
+        "event": 0.10013602023645828,
+        "rotation_regularizer": 0.08205349476360155
+      },
+      "validation_objective": 0.270298033952713,
+      "best_epoch": 2,
+      "elapsed_sec": 0.584165534004569
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "total": 0.3081516085547937,
+        "position": 0.25034555206773057,
+        "rotation": 0.021931426914749415,
+        "event": 0.09355687517001396,
+        "rotation_regularizer": 0.061907200888291374
+      },
+      "validation_objective": 0.2519960403442383,
+      "best_epoch": 3,
+      "elapsed_sec": 0.8546558439848013
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "total": 0.2980286397868045,
+        "position": 0.24185143604067547,
+        "rotation": 0.021738146665673207,
+        "event": 0.09048913999376802,
+        "rotation_regularizer": 0.06356024103188913
+      },
+      "validation_objective": 0.24237178266048431,
+      "best_epoch": 4,
+      "elapsed_sec": 1.1254419579927344
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "total": 0.29137902556556333,
+        "position": 0.23609095307639644,
+        "rotation": 0.02173407908559273,
+        "event": 0.08867686467885319,
+        "rotation_regularizer": 0.08259948460372198
+      },
+      "validation_objective": 0.23441171646118164,
+      "best_epoch": 5,
+      "elapsed_sec": 1.3953120119986124
+    },
+    {
+      "epoch": 6,
+      "train": {
+        "total": 0.27232530640248737,
+        "position": 0.21849896627892906,
+        "rotation": 0.020968106311502872,
+        "event": 0.08661537917844415,
+        "rotation_regularizer": 0.03459805220957465
+      },
+      "validation_objective": 0.20067620277404785,
+      "best_epoch": 6,
+      "elapsed_sec": 1.8067601170041598
+    },
+    {
+      "epoch": 7,
+      "train": {
+        "total": 0.2582204264387767,
+        "position": 0.20550257802448266,
+        "rotation": 0.020858868928093643,
+        "event": 0.08451153579793531,
+        "rotation_regularizer": 0.03264380795844244
+      },
+      "validation_objective": 0.19586136937141418,
+      "best_epoch": 7,
+      "elapsed_sec": 2.2158135839854367
+    },
+    {
+      "epoch": 8,
+      "train": {
+        "total": 0.2520319052401928,
+        "position": 0.19997129411174566,
+        "rotation": 0.020823610406794296,
+        "event": 0.08320482222566876,
+        "rotation_regularizer": 0.046396563326647135
+      },
+      "validation_objective": 0.18860648572444916,
+      "best_epoch": 8,
+      "elapsed_sec": 2.6278094130102545
+    },
+    {
+      "epoch": 9,
+      "train": {
+        "total": 0.24764393698294043,
+        "position": 0.19630670120894267,
+        "rotation": 0.020403166964494086,
+        "event": 0.08220119964086035,
+        "rotation_regularizer": 0.035051700413567345
+      },
+      "validation_objective": 0.18599700927734375,
+      "best_epoch": 9,
+      "elapsed_sec": 3.04512516700197
+    },
+    {
+      "epoch": 10,
+      "train": {
+        "total": 0.2446756154849948,
+        "position": 0.19384742352305145,
+        "rotation": 0.020338173398888996,
+        "event": 0.08125225987948322,
+        "rotation_regularizer": 0.032974011367909256
+      },
+      "validation_objective": 0.18367105722427368,
+      "best_epoch": 10,
+      "elapsed_sec": 3.471224095992511
+    },
+    {
+      "epoch": 11,
+      "train": {
+        "total": 0.24205108378648443,
+        "position": 0.19166334357255357,
+        "rotation": 0.020220724512176325,
+        "event": 0.08047918950501569,
+        "rotation_regularizer": 0.037782631742069014
+      },
+      "validation_objective": 0.1850253790616989,
+      "best_epoch": 10,
+      "elapsed_sec": 3.8837688170024194
+    },
+    {
+      "epoch": 12,
+      "train": {
+        "total": 0.24002294670379168,
+        "position": 0.19006789322562162,
+        "rotation": 0.01998097886325931,
+        "event": 0.07985190414546076,
+        "rotation_regularizer": 0.03861147244106736
+      },
+      "validation_objective": 0.18179835379123688,
+      "best_epoch": 12,
+      "elapsed_sec": 4.309772990003694
+    },
+    {
+      "epoch": 13,
+      "train": {
+        "total": 0.23755240353475676,
+        "position": 0.18805730546177682,
+        "rotation": 0.01994785144826695,
+        "event": 0.07896256710259077,
+        "rotation_regularizer": 0.03988941946717383
+      },
+      "validation_objective": 0.18014302849769592,
+      "best_epoch": 13,
+      "elapsed_sec": 4.738264971994795
+    },
+    {
+      "epoch": 14,
+      "train": {
+        "total": 0.23542453696770946,
+        "position": 0.18634992513252352,
+        "rotation": 0.019818701992765038,
+        "event": 0.07824731365360839,
+        "rotation_regularizer": 0.04160465723159156
+      },
+      "validation_objective": 0.18047988414764404,
+      "best_epoch": 13,
+      "elapsed_sec": 5.398118226003135
+    },
+    {
+      "epoch": 15,
+      "train": {
+        "total": 0.23366434009688422,
+        "position": 0.18494118407022775,
+        "rotation": 0.01975775694737858,
+        "event": 0.07760524386120002,
+        "rotation_regularizer": 0.041657342505715976
+      },
+      "validation_objective": 0.18051375448703766,
+      "best_epoch": 13,
+      "elapsed_sec": 6.005860490986379
+    },
+    {
+      "epoch": 16,
+      "train": {
+        "total": 0.23226838397921246,
+        "position": 0.18394753587743115,
+        "rotation": 0.019606391017000603,
+        "event": 0.07695617850474096,
+        "rotation_regularizer": 0.0395626124879688
+      },
+      "validation_objective": 0.17830830812454224,
+      "best_epoch": 16,
+      "elapsed_sec": 6.7260776970069855
+    },
+    {
+      "epoch": 17,
+      "train": {
+        "total": 0.23083480892822097,
+        "position": 0.1827577489485694,
+        "rotation": 0.019611332848686377,
+        "event": 0.07643837129033204,
+        "rotation_regularizer": 0.052207381607429285
+      },
+      "validation_objective": 0.1776634156703949,
+      "best_epoch": 17,
+      "elapsed_sec": 7.218887172988616
+    },
+    {
+      "epoch": 18,
+      "train": {
+        "total": 0.2295977918578445,
+        "position": 0.18188414438802536,
+        "rotation": 0.019516197368917396,
+        "event": 0.07582331190082932,
+        "rotation_regularizer": 0.043893872542125054
+      },
+      "validation_objective": 0.17834049463272095,
+      "best_epoch": 17,
+      "elapsed_sec": 7.916829838999547
+    },
+    {
+      "epoch": 19,
+      "train": {
+        "total": 0.22784026913382824,
+        "position": 0.1804285183813262,
+        "rotation": 0.019457384089795703,
+        "event": 0.07527874967188436,
+        "rotation_regularizer": 0.04368306459708919
+      },
+      "validation_objective": 0.17757105827331543,
+      "best_epoch": 19,
+      "elapsed_sec": 8.436763153003994
+    },
+    {
+      "epoch": 20,
+      "train": {
+        "total": 0.22640470687702796,
+        "position": 0.17933474121723203,
+        "rotation": 0.019290761569218547,
+        "event": 0.07474814830894491,
+        "rotation_regularizer": 0.05051339895994028
+      },
+      "validation_objective": 0.17807328701019287,
+      "best_epoch": 19,
+      "elapsed_sec": 8.957858273992315
+    },
+    {
+      "epoch": 21,
+      "train": {
+        "total": 0.2257993170412605,
+        "position": 0.17883420331362487,
+        "rotation": 0.019489254166937524,
+        "event": 0.07433654124398438,
+        "rotation_regularizer": 0.052217218368981196
+      },
+      "validation_objective": 0.1764664202928543,
+      "best_epoch": 21,
+      "elapsed_sec": 9.51448882900877
+    },
+    {
+      "epoch": 22,
+      "train": {
+        "total": 0.22413113534697993,
+        "position": 0.17751355558650678,
+        "rotation": 0.019164274592542396,
+        "event": 0.07397751226827184,
+        "rotation_regularizer": 0.04668720340653959
+      },
+      "validation_objective": 0.17578640580177307,
+      "best_epoch": 22,
+      "elapsed_sec": 10.016812335001305
+    },
+    {
+      "epoch": 23,
+      "train": {
+        "total": 0.2225343022122206,
+        "position": 0.17620119223011554,
+        "rotation": 0.019056361712582844,
+        "event": 0.0735052291618122,
+        "rotation_regularizer": 0.05231404882595773
+      },
+      "validation_objective": 0.17611610889434814,
+      "best_epoch": 22,
+      "elapsed_sec": 10.516795167990495
+    },
+    {
+      "epoch": 24,
+      "train": {
+        "total": 0.22187760731289355,
+        "position": 0.17576138582695744,
+        "rotation": 0.01913375760794001,
+        "event": 0.0729947576454325,
+        "rotation_regularizer": 0.05196596981557186
+      },
+      "validation_objective": 0.17687061429023743,
+      "best_epoch": 22,
+      "elapsed_sec": 11.023868191987276
+    },
+    {
+      "epoch": 25,
+      "train": {
+        "total": 0.22049572379111254,
+        "position": 0.1745927489465825,
+        "rotation": 0.01907944781285684,
+        "event": 0.07261889427548805,
+        "rotation_regularizer": 0.05380245391718845
+      },
+      "validation_objective": 0.17550155520439148,
+      "best_epoch": 25,
+      "elapsed_sec": 11.53770664599142
+    },
+    {
+      "epoch": 26,
+      "train": {
+        "total": 0.21961767319958939,
+        "position": 0.1739094773946134,
+        "rotation": 0.01900400483766706,
+        "event": 0.07230570869371618,
+        "rotation_regularizer": 0.05333909101729394
+      },
+      "validation_objective": 0.17677855491638184,
+      "best_epoch": 25,
+      "elapsed_sec": 12.062128169985954
+    },
+    {
+      "epoch": 27,
+      "train": {
+        "total": 0.218752640207931,
+        "position": 0.17311264328049766,
+        "rotation": 0.01910807774441746,
+        "event": 0.07205538790490935,
+        "rotation_regularizer": 0.05826474443797931
+      },
+      "validation_objective": 0.17585521936416626,
+      "best_epoch": 25,
+      "elapsed_sec": 12.603642706002574
+    },
+    {
+      "epoch": 28,
+      "train": {
+        "total": 0.21747988632859588,
+        "position": 0.17226641347473984,
+        "rotation": 0.01886203385918354,
+        "event": 0.07145336515333972,
+        "rotation_regularizer": 0.05577434186376723
+      },
+      "validation_objective": 0.17581912875175476,
+      "best_epoch": 25,
+      "elapsed_sec": 13.133805023011519
+    },
+    {
+      "epoch": 29,
+      "train": {
+        "total": 0.21684283449061975,
+        "position": 0.17169262212354028,
+        "rotation": 0.01890001981602646,
+        "event": 0.07128193639753101,
+        "rotation_regularizer": 0.05923463480104521
+      },
+      "validation_objective": 0.17682363092899323,
+      "best_epoch": 25,
+      "elapsed_sec": 13.677331679005874
+    },
+    {
+      "epoch": 30,
+      "train": {
+        "total": 0.21589728431316743,
+        "position": 0.17087076339047458,
+        "rotation": 0.019136843252747796,
+        "event": 0.0708133811045,
+        "rotation_regularizer": 0.0514085024530583
+      },
+      "validation_objective": 0.17401495575904846,
+      "best_epoch": 30,
+      "elapsed_sec": 14.171958755003288
+    },
+    {
+      "epoch": 31,
+      "train": {
+        "total": 0.21447994289060296,
+        "position": 0.1697076161355652,
+        "rotation": 0.01885877768111006,
+        "event": 0.07057896929375292,
+        "rotation_regularizer": 0.05345473354771961
+      },
+      "validation_objective": 0.17449842393398285,
+      "best_epoch": 30,
+      "elapsed_sec": 14.665540929010604
+    },
+    {
+      "epoch": 32,
+      "train": {
+        "total": 0.21396092276097153,
+        "position": 0.16947891744133842,
+        "rotation": 0.01875404864626969,
+        "event": 0.07010269619610247,
+        "rotation_regularizer": 0.05363432168440338
+      },
+      "validation_objective": 0.1742774248123169,
+      "best_epoch": 30,
+      "elapsed_sec": 15.260637953004334
+    },
+    {
+      "epoch": 33,
+      "train": {
+        "total": 0.21279257154617698,
+        "position": 0.16828550359965,
+        "rotation": 0.018841376705128567,
+        "event": 0.07006335844449062,
+        "rotation_regularizer": 0.05469963936847681
+      },
+      "validation_objective": 0.1737988144159317,
+      "best_epoch": 33,
+      "elapsed_sec": 15.858551804005401
+    },
+    {
+      "epoch": 34,
+      "train": {
+        "total": 0.2120919912311126,
+        "position": 0.16792362832780108,
+        "rotation": 0.018705905455541252,
+        "event": 0.06953043185960439,
+        "rotation_regularizer": 0.050194996595945104
+      },
+      "validation_objective": 0.1742030531167984,
+      "best_epoch": 33,
+      "elapsed_sec": 16.356662431004224
+    },
+    {
+      "epoch": 35,
+      "train": {
+        "total": 0.21102935183462185,
+        "position": 0.16711944966923406,
+        "rotation": 0.018447730495329228,
+        "event": 0.0692716829568727,
+        "rotation_regularizer": 0.050195101387749574
+      },
+      "validation_objective": 0.17478647828102112,
+      "best_epoch": 33,
+      "elapsed_sec": 16.824366885004565
+    },
+    {
+      "epoch": 36,
+      "train": {
+        "total": 0.21042642130910685,
+        "position": 0.16652111812320874,
+        "rotation": 0.018629510705412886,
+        "event": 0.06907648263823583,
+        "rotation_regularizer": 0.05230722631566658
+      },
+      "validation_objective": 0.17350412905216217,
+      "best_epoch": 36,
+      "elapsed_sec": 17.29699279999477
+    },
+    {
+      "epoch": 37,
+      "train": {
+        "total": 0.20961235276054135,
+        "position": 0.1657627246434519,
+        "rotation": 0.018663940834702974,
+        "event": 0.06891878909700477,
+        "rotation_regularizer": 0.058260841907802945
+      },
+      "validation_objective": 0.17408765852451324,
+      "best_epoch": 36,
+      "elapsed_sec": 17.768524121987866
+    },
+    {
+      "epoch": 38,
+      "train": {
+        "total": 0.2087001976769563,
+        "position": 0.16512676345433666,
+        "rotation": 0.01853194628680657,
+        "event": 0.06850834289619463,
+        "rotation_regularizer": 0.053289549563387294
+      },
+      "validation_objective": 0.17393982410430908,
+      "best_epoch": 36,
+      "elapsed_sec": 18.23986718201195
+    },
+    {
+      "epoch": 39,
+      "train": {
+        "total": 0.20734666881245878,
+        "position": 0.1640156681882613,
+        "rotation": 0.018347208046307427,
+        "event": 0.06821242345672415,
+        "rotation_regularizer": 0.05118655754844858
+      },
+      "validation_objective": 0.17256304621696472,
+      "best_epoch": 39,
+      "elapsed_sec": 18.7195088469889
+    },
+    {
+      "epoch": 40,
+      "train": {
+        "total": 0.20640021852219548,
+        "position": 0.16315285026166637,
+        "rotation": 0.018288873082965718,
+        "event": 0.06810154791363884,
+        "rotation_regularizer": 0.05215803667647048
+      },
+      "validation_objective": 0.175187349319458,
+      "best_epoch": 39,
+      "elapsed_sec": 19.197849301010137
+    },
+    {
+      "epoch": 41,
+      "train": {
+        "total": 0.20594637216284806,
+        "position": 0.1626450486212637,
+        "rotation": 0.01853480421788435,
+        "event": 0.06795186429173963,
+        "rotation_regularizer": 0.05798905561455782
+      },
+      "validation_objective": 0.17297005653381348,
+      "best_epoch": 39,
+      "elapsed_sec": 19.668824082997162
+    },
+    {
+      "epoch": 42,
+      "train": {
+        "total": 0.2048247213418989,
+        "position": 0.1617672572295201,
+        "rotation": 0.018410001604783184,
+        "event": 0.06758851708486116,
+        "rotation_regularizer": 0.05820487284195223
+      },
+      "validation_objective": 0.1719721406698227,
+      "best_epoch": 42,
+      "elapsed_sec": 20.15067313599866
+    },
+    {
+      "epoch": 43,
+      "train": {
+        "total": 0.2041212621359898,
+        "position": 0.16134205737537338,
+        "rotation": 0.01814449062245081,
+        "event": 0.06731334093035077,
+        "rotation_regularizer": 0.05028924010068341
+      },
+      "validation_objective": 0.17146480083465576,
+      "best_epoch": 43,
+      "elapsed_sec": 20.73041772999568
+    },
+    {
+      "epoch": 44,
+      "train": {
+        "total": 0.20396194642873322,
+        "position": 0.16125733299758394,
+        "rotation": 0.018269031340578668,
+        "event": 0.06702908752006301,
+        "rotation_regularizer": 0.0555557679510787
+      },
+      "validation_objective": 0.17286652326583862,
+      "best_epoch": 43,
+      "elapsed_sec": 21.31991887598997
+    },
+    {
+      "epoch": 45,
+      "train": {
+        "total": 0.2023262010304112,
+        "position": 0.159794692239023,
+        "rotation": 0.018121425310758953,
+        "event": 0.0668235740245266,
+        "rotation_regularizer": 0.05900834734472695
+      },
+      "validation_objective": 0.17177259922027588,
+      "best_epoch": 43,
+      "elapsed_sec": 21.917950309987646
+    },
+    {
+      "epoch": 46,
+      "train": {
+        "total": 0.20147348447275917,
+        "position": 0.15913600022696306,
+        "rotation": 0.01806260728732294,
+        "event": 0.06649284354975413,
+        "rotation_regularizer": 0.05975835701402549
+      },
+      "validation_objective": 0.172016441822052,
+      "best_epoch": 43,
+      "elapsed_sec": 22.536154664005153
+    },
+    {
+      "epoch": 47,
+      "train": {
+        "total": 0.20106434322658812,
+        "position": 0.15881740213829654,
+        "rotation": 0.018011712200783587,
+        "event": 0.06637212533695695,
+        "rotation_regularizer": 0.05502211020608784
+      },
+      "validation_objective": 0.17020496726036072,
+      "best_epoch": 47,
+      "elapsed_sec": 23.34390629499103
+    },
+    {
+      "epoch": 48,
+      "train": {
+        "total": 0.200301785288464,
+        "position": 0.15824160770152645,
+        "rotation": 0.017931666603066894,
+        "event": 0.06606923919266003,
+        "rotation_regularizer": 0.059725020435125696
+      },
+      "validation_objective": 0.1721203476190567,
+      "best_epoch": 47,
+      "elapsed_sec": 24.105891010985943
+    },
+    {
+      "epoch": 49,
+      "train": {
+        "total": 0.1996051961772958,
+        "position": 0.15776090208770735,
+        "rotation": 0.01770682748710126,
+        "event": 0.06586267457120958,
+        "rotation_regularizer": 0.059542115864905126
+      },
+      "validation_objective": 0.17098459601402283,
+      "best_epoch": 47,
+      "elapsed_sec": 25.1373847030045
+    },
+    {
+      "epoch": 50,
+      "train": {
+        "total": 0.19913167389193037,
+        "position": 0.15719427490210752,
+        "rotation": 0.017843764770764083,
+        "event": 0.06591112178032028,
+        "rotation_regularizer": 0.05995626363127856
+      },
+      "validation_objective": 0.17109963297843933,
+      "best_epoch": 47,
+      "elapsed_sec": 25.971098162001
+    },
+    {
+      "epoch": 51,
+      "train": {
+        "total": 0.1984378768236238,
+        "position": 0.1567504467348779,
+        "rotation": 0.01788079581844017,
+        "event": 0.06538297945503824,
+        "rotation_regularizer": 0.05554327872799891
+      },
+      "validation_objective": 0.17056140303611755,
+      "best_epoch": 47,
+      "elapsed_sec": 26.751039182010572
+    },
+    {
+      "epoch": 52,
+      "train": {
+        "total": 0.19755375210373644,
+        "position": 0.1560856922926667,
+        "rotation": 0.017583736364915475,
+        "event": 0.06523287452083867,
+        "rotation_regularizer": 0.059753117700790906
+      },
+      "validation_objective": 0.17350703477859497,
+      "best_epoch": 47,
+      "elapsed_sec": 27.401480728003662
+    },
+    {
+      "epoch": 53,
+      "train": {
+        "total": 0.19659658326959134,
+        "position": 0.1551848597646007,
+        "rotation": 0.01755573510438918,
+        "event": 0.06513902959544764,
+        "rotation_regularizer": 0.06434063533481663
+      },
+      "validation_objective": 0.17230843007564545,
+      "best_epoch": 47,
+      "elapsed_sec": 28.12769583699992
+    },
+    {
+      "epoch": 54,
+      "train": {
+        "total": 0.1959610376313714,
+        "position": 0.15475599897719933,
+        "rotation": 0.017681008691657465,
+        "event": 0.06460843350021912,
+        "rotation_regularizer": 0.060317966121787234
+      },
+      "validation_objective": 0.17086690664291382,
+      "best_epoch": 47,
+      "elapsed_sec": 28.754328100010753
+    },
+    {
+      "epoch": 55,
+      "train": {
+        "total": 0.19598950011187127,
+        "position": 0.15492787818415793,
+        "rotation": 0.017437593499980662,
+        "event": 0.06456488115418788,
+        "rotation_regularizer": 0.06038407251241635
+      },
+      "validation_objective": 0.16871199011802673,
+      "best_epoch": 55,
+      "elapsed_sec": 29.38152356800856
+    },
+    {
+      "epoch": 56,
+      "train": {
+        "total": 0.19469678251641856,
+        "position": 0.1537733099135639,
+        "rotation": 0.017482343898299793,
+        "event": 0.06426217212146815,
+        "rotation_regularizer": 0.05121481578546125
+      },
+      "validation_objective": 0.17079025506973267,
+      "best_epoch": 55,
+      "elapsed_sec": 30.25078985199798
+    },
+    {
+      "epoch": 57,
+      "train": {
+        "total": 0.19402232173366982,
+        "position": 0.15333412896408002,
+        "rotation": 0.017346369318599397,
+        "event": 0.06391307098886262,
+        "rotation_regularizer": 0.058472268130812334
+      },
+      "validation_objective": 0.16884784400463104,
+      "best_epoch": 55,
+      "elapsed_sec": 31.26798341498943
+    },
+    {
+      "epoch": 58,
+      "train": {
+        "total": 0.1936247571698223,
+        "position": 0.15295088330818407,
+        "rotation": 0.01738720616702905,
+        "event": 0.06383820387543057,
+        "rotation_regularizer": 0.061168681620668526
+      },
+      "validation_objective": 0.1692333221435547,
+      "best_epoch": 55,
+      "elapsed_sec": 31.90165780900861
+    },
+    {
+      "epoch": 59,
+      "train": {
+        "total": 0.1933367210970237,
+        "position": 0.15279185115183092,
+        "rotation": 0.017325685842686452,
+        "event": 0.06365328196384847,
+        "rotation_regularizer": 0.05538510436139077
+      },
+      "validation_objective": 0.17237383127212524,
+      "best_epoch": 55,
+      "elapsed_sec": 32.54452034900896
+    },
+    {
+      "epoch": 60,
+      "train": {
+        "total": 0.19235571104330845,
+        "position": 0.151877523390926,
+        "rotation": 0.01734923371093625,
+        "event": 0.06347533744506947,
+        "rotation_regularizer": 0.06590181290062896
+      },
+      "validation_objective": 0.1710425615310669,
+      "best_epoch": 55,
+      "elapsed_sec": 33.19241282698931
+    },
+    {
+      "epoch": 61,
+      "train": {
+        "total": 0.1927586243155543,
+        "position": 0.15255059347127514,
+        "rotation": 0.01722975819617521,
+        "event": 0.06307336631976034,
+        "rotation_regularizer": 0.0564675140429227
+      },
+      "validation_objective": 0.17043571174144745,
+      "best_epoch": 55,
+      "elapsed_sec": 33.84931902401149
+    },
+    {
+      "epoch": 62,
+      "train": {
+        "total": 0.1912812643901855,
+        "position": 0.15115293449451392,
+        "rotation": 0.017235026604320716,
+        "event": 0.06290116868941295,
+        "rotation_regularizer": 0.06023215627004952
+      },
+      "validation_objective": 0.16859617829322815,
+      "best_epoch": 62,
+      "elapsed_sec": 34.33580322799389
+    },
+    {
+      "epoch": 63,
+      "train": {
+        "total": 0.19062477018129467,
+        "position": 0.15062549558281335,
+        "rotation": 0.017108744330729522,
+        "event": 0.06276769990428008,
+        "rotation_regularizer": 0.06105147835108374
+      },
+      "validation_objective": 0.16786572337150574,
+      "best_epoch": 63,
+      "elapsed_sec": 34.9003536250093
+    },
+    {
+      "epoch": 64,
+      "train": {
+        "total": 0.19093761662842756,
+        "position": 0.15094739520104342,
+        "rotation": 0.017109681282014604,
+        "event": 0.06274979374845831,
+        "rotation_regularizer": 0.060485573696047436
+      },
+      "validation_objective": 0.17119887471199036,
+      "best_epoch": 63,
+      "elapsed_sec": 35.641849009
+    },
+    {
+      "epoch": 65,
+      "train": {
+        "total": 0.190116910124347,
+        "position": 0.15026155337452282,
+        "rotation": 0.017200699426510757,
+        "event": 0.06240359157468659,
+        "rotation_regularizer": 0.053211160168645064
+      },
+      "validation_objective": 0.16799545288085938,
+      "best_epoch": 63,
+      "elapsed_sec": 36.350393064989476
+    },
+    {
+      "epoch": 66,
+      "train": {
+        "total": 0.18950534605613226,
+        "position": 0.14980187893172528,
+        "rotation": 0.017013343276744586,
+        "event": 0.0622792567637371,
+        "rotation_regularizer": 0.057166873085642785
+      },
+      "validation_objective": 0.17094919085502625,
+      "best_epoch": 63,
+      "elapsed_sec": 36.81049961299868
+    },
+    {
+      "epoch": 67,
+      "train": {
+        "total": 0.18896215251142698,
+        "position": 0.14940272707222857,
+        "rotation": 0.016924212229404555,
+        "event": 0.062086903369382856,
+        "rotation_regularizer": 0.05386851171102248
+      },
+      "validation_objective": 0.1673271358013153,
+      "best_epoch": 67,
+      "elapsed_sec": 37.274341039010324
+    },
+    {
+      "epoch": 68,
+      "train": {
+        "total": 0.187662760097028,
+        "position": 0.14820252881396107,
+        "rotation": 0.01697618287066527,
+        "event": 0.06182815388666164,
+        "rotation_regularizer": 0.058063421839896316
+      },
+      "validation_objective": 0.17108362913131714,
+      "best_epoch": 67,
+      "elapsed_sec": 37.73339437501272
+    },
+    {
+      "epoch": 69,
+      "train": {
+        "total": 0.18744034366937015,
+        "position": 0.14806089858459648,
+        "rotation": 0.016910393080324538,
+        "event": 0.06173145855423875,
+        "rotation_regularizer": 0.05851969906118573
+      },
+      "validation_objective": 0.16859373450279236,
+      "best_epoch": 67,
+      "elapsed_sec": 38.212606312998105
+    },
+    {
+      "epoch": 70,
+      "train": {
+        "total": 0.18663472423667749,
+        "position": 0.1474815245762054,
+        "rotation": 0.016845057847459523,
+        "event": 0.06134584405626255,
+        "rotation_regularizer": 0.05774823268641727
+      },
+      "validation_objective": 0.16987396776676178,
+      "best_epoch": 67,
+      "elapsed_sec": 38.675798495998606
+    },
+    {
+      "epoch": 71,
+      "train": {
+        "total": 0.1866115079210218,
+        "position": 0.14742632880933465,
+        "rotation": 0.01681403429455708,
+        "event": 0.06142476670251385,
+        "rotation_regularizer": 0.06577905400698872
+      },
+      "validation_objective": 0.1715083122253418,
+      "best_epoch": 67,
+      "elapsed_sec": 39.13936440899852
+    },
+    {
+      "epoch": 72,
+      "train": {
+        "total": 0.18627083560535876,
+        "position": 0.14718934731070424,
+        "rotation": 0.016770973368729764,
+        "event": 0.0612737094583793,
+        "rotation_regularizer": 0.059146292558968756
+      },
+      "validation_objective": 0.16826176643371582,
+      "best_epoch": 67,
+      "elapsed_sec": 39.60024025698658
+    },
+    {
+      "epoch": 73,
+      "train": {
+        "total": 0.18635506827576157,
+        "position": 0.14731091734884505,
+        "rotation": 0.01695349849003031,
+        "event": 0.06099654248296781,
+        "rotation_regularizer": 0.06913077160941022
+      },
+      "validation_objective": 0.16678789258003235,
+      "best_epoch": 73,
+      "elapsed_sec": 40.131737852003425
+    },
+    {
+      "epoch": 74,
+      "train": {
+        "total": 0.18582378335860927,
+        "position": 0.14684324123135467,
+        "rotation": 0.016794148084548852,
+        "event": 0.061030623949621284,
+        "rotation_regularizer": 0.0681549035930863
+      },
+      "validation_objective": 0.16745556890964508,
+      "best_epoch": 73,
+      "elapsed_sec": 40.67683889399632
+    },
+    {
+      "epoch": 75,
+      "train": {
+        "total": 0.18485513184403085,
+        "position": 0.1459514164341398,
+        "rotation": 0.016778990767641683,
+        "event": 0.06089228482617817,
+        "rotation_regularizer": 0.06807789220002759
+      },
+      "validation_objective": 0.16807737946510315,
+      "best_epoch": 73,
+      "elapsed_sec": 41.22094064299017
+    },
+    {
+      "epoch": 76,
+      "train": {
+        "total": 0.1842822434458334,
+        "position": 0.14540335092399004,
+        "rotation": 0.016711571137486742,
+        "event": 0.06091675558957903,
+        "rotation_regularizer": 0.06472896254749923
+      },
+      "validation_objective": 0.16781634092330933,
+      "best_epoch": 73,
+      "elapsed_sec": 41.77530373100308
+    },
+    {
+      "epoch": 77,
+      "train": {
+        "total": 0.1836829363532079,
+        "position": 0.14508742696526006,
+        "rotation": 0.01659374952191147,
+        "event": 0.06047032113308461,
+        "rotation_regularizer": 0.06347415999357015
+      },
+      "validation_objective": 0.16852788627147675,
+      "best_epoch": 73,
+      "elapsed_sec": 42.25771081299172
+    },
+    {
+      "epoch": 78,
+      "train": {
+        "total": 0.18336321245214582,
+        "position": 0.1448288147593809,
+        "rotation": 0.0165465891218524,
+        "event": 0.060391897635134036,
+        "rotation_regularizer": 0.06515310785625426
+      },
+      "validation_objective": 0.16767682135105133,
+      "best_epoch": 73,
+      "elapsed_sec": 42.72146598401014
+    },
+    {
+      "epoch": 79,
+      "train": {
+        "total": 0.18258323263820556,
+        "position": 0.14417991920487344,
+        "rotation": 0.01641866856046017,
+        "event": 0.060249383808951104,
+        "rotation_regularizer": 0.06928866196534143
+      },
+      "validation_objective": 0.16705931723117828,
+      "best_epoch": 73,
+      "elapsed_sec": 43.237216461013304
+    },
+    {
+      "epoch": 80,
+      "train": {
+        "total": 0.1824097114872271,
+        "position": 0.14403952448958382,
+        "rotation": 0.01658192312017654,
+        "event": 0.06002523944872936,
+        "rotation_regularizer": 0.06660553312291512
+      },
+      "validation_objective": 0.16819322109222412,
+      "best_epoch": 73,
+      "elapsed_sec": 43.83602631598478
+    },
+    {
+      "epoch": 81,
+      "train": {
+        "total": 0.18215278426269965,
+        "position": 0.1438956606326789,
+        "rotation": 0.01636093597687608,
+        "event": 0.060001107738768975,
+        "rotation_regularizer": 0.07610201498183873
+      },
+      "validation_objective": 0.16834069788455963,
+      "best_epoch": 73,
+      "elapsed_sec": 44.509059017000254
+    },
+    {
+      "epoch": 82,
+      "train": {
+        "total": 0.18203779758935065,
+        "position": 0.14386050517710003,
+        "rotation": 0.016310634883094293,
+        "event": 0.059897192589872555,
+        "rotation_regularizer": 0.07337945813510323
+      },
+      "validation_objective": 0.1683174967765808,
+      "best_epoch": 73,
+      "elapsed_sec": 45.36454819201026
+    },
+    {
+      "epoch": 83,
+      "train": {
+        "total": 0.1816096843922784,
+        "position": 0.14354271710953817,
+        "rotation": 0.016380568394540423,
+        "event": 0.059614123514681004,
+        "rotation_regularizer": 0.06961990846628557
+      },
+      "validation_objective": 0.16570620238780975,
+      "best_epoch": 83,
+      "elapsed_sec": 46.236528415000066
+    },
+    {
+      "epoch": 84,
+      "train": {
+        "total": 0.18079508413321838,
+        "position": 0.1426416112257301,
+        "rotation": 0.01654981539935678,
+        "event": 0.05961864842036903,
+        "rotation_regularizer": 0.06924056237804978
+      },
+      "validation_objective": 0.16863742470741272,
+      "best_epoch": 83,
+      "elapsed_sec": 47.49005757199484
+    },
+    {
+      "epoch": 85,
+      "train": {
+        "total": 0.18044434913848342,
+        "position": 0.1424925883050504,
+        "rotation": 0.01647765129230949,
+        "event": 0.05926385136705386,
+        "rotation_regularizer": 0.0810101270348053
+      },
+      "validation_objective": 0.16874971985816956,
+      "best_epoch": 83,
+      "elapsed_sec": 48.41039987100521
+    },
+    {
+      "epoch": 86,
+      "train": {
+        "total": 0.18005260113843952,
+        "position": 0.14213369307843757,
+        "rotation": 0.01624452569744293,
+        "event": 0.059389903898181995,
+        "rotation_regularizer": 0.10169287263829656
+      },
+      "validation_objective": 0.16614294052124023,
+      "best_epoch": 83,
+      "elapsed_sec": 48.90399618400261
+    },
+    {
+      "epoch": 87,
+      "train": {
+        "total": 0.17991880861053514,
+        "position": 0.1419601983088978,
+        "rotation": 0.01639670984347455,
+        "event": 0.05938864415952633,
+        "rotation_regularizer": 0.06593209337411478
+      },
+      "validation_objective": 0.16805675625801086,
+      "best_epoch": 83,
+      "elapsed_sec": 49.612737872987054
+    },
+    {
+      "epoch": 88,
+      "train": {
+        "total": 0.18033699940585668,
+        "position": 0.14242095421633422,
+        "rotation": 0.016388146031509426,
+        "event": 0.0593166466177376,
+        "rotation_regularizer": 0.06364960588654002
+      },
+      "validation_objective": 0.16990269720554352,
+      "best_epoch": 83,
+      "elapsed_sec": 50.1030355989933
+    },
+    {
+      "epoch": 89,
+      "train": {
+        "total": 0.17953892171124194,
+        "position": 0.14171861744974218,
+        "rotation": 0.016320213255094435,
+        "event": 0.0591653817303227,
+        "rotation_regularizer": 0.07750760653298921
+      },
+      "validation_objective": 0.1694924235343933,
+      "best_epoch": 83,
+      "elapsed_sec": 50.60017361599603
+    },
+    {
+      "epoch": 90,
+      "train": {
+        "total": 0.17897729233264428,
+        "position": 0.1413687247910192,
+        "rotation": 0.016300326998335536,
+        "event": 0.05877437838058828,
+        "rotation_regularizer": 0.07121364476560287
+      },
+      "validation_objective": 0.16740256547927856,
+      "best_epoch": 83,
+      "elapsed_sec": 51.1866292800114
+    },
+    {
+      "epoch": 91,
+      "train": {
+        "total": 0.1784862686896981,
+        "position": 0.14083291681606064,
+        "rotation": 0.016371786013171064,
+        "event": 0.058786696818897824,
+        "rotation_regularizer": 0.07411093986465765
+      },
+      "validation_objective": 0.16808027029037476,
+      "best_epoch": 83,
+      "elapsed_sec": 51.733687767991796
+    },
+    {
+      "epoch": 92,
+      "train": {
+        "total": 0.17774970050543337,
+        "position": 0.1403527122906951,
+        "rotation": 0.016128389563416397,
+        "event": 0.058524376649995144,
+        "rotation_regularizer": 0.07060449315784427
+      },
+      "validation_objective": 0.16629934310913086,
+      "best_epoch": 83,
+      "elapsed_sec": 52.34702077601105
+    },
+    {
+      "epoch": 93,
+      "train": {
+        "total": 0.17727542361221713,
+        "position": 0.13993285878280756,
+        "rotation": 0.0161715435007579,
+        "event": 0.05837144778809765,
+        "rotation_regularizer": 0.07106941282976954
+      },
+      "validation_objective": 0.16555890440940857,
+      "best_epoch": 93,
+      "elapsed_sec": 52.946053479012335
+    },
+    {
+      "epoch": 94,
+      "train": {
+        "total": 0.1768362403962045,
+        "position": 0.1394856781861336,
+        "rotation": 0.016079003018384882,
+        "event": 0.058478172867084184,
+        "rotation_regularizer": 0.07197547560706412
+      },
+      "validation_objective": 0.1662621647119522,
+      "best_epoch": 93,
+      "elapsed_sec": 53.63357252100832
+    },
+    {
+      "epoch": 95,
+      "train": {
+        "total": 0.17662381080889122,
+        "position": 0.1394200592777553,
+        "rotation": 0.01608694529617467,
+        "event": 0.058182842967281996,
+        "rotation_regularizer": 0.06885747383182556
+      },
+      "validation_objective": 0.17031091451644897,
+      "best_epoch": 93,
+      "elapsed_sec": 54.17636808700627
+    },
+    {
+      "epoch": 96,
+      "train": {
+        "total": 0.17631956735693705,
+        "position": 0.1389925068180715,
+        "rotation": 0.016141983115376672,
+        "event": 0.05837438298889513,
+        "rotation_regularizer": 0.06887784012043043
+      },
+      "validation_objective": 0.16737598180770874,
+      "best_epoch": 93,
+      "elapsed_sec": 54.86300297098933
+    },
+    {
+      "epoch": 97,
+      "train": {
+        "total": 0.17614937485231727,
+        "position": 0.13887223378625269,
+        "rotation": 0.016194553384959846,
+        "event": 0.05821056077603035,
+        "rotation_regularizer": 0.07458314965903523
+      },
+      "validation_objective": 0.16828595101833344,
+      "best_epoch": 93,
+      "elapsed_sec": 55.47844971800805
+    },
+    {
+      "epoch": 98,
+      "train": {
+        "total": 0.17611114364690345,
+        "position": 0.13893698730104756,
+        "rotation": 0.016150136086488697,
+        "event": 0.05805030008762158,
+        "rotation_regularizer": 0.07393849489373472
+      },
+      "validation_objective": 0.16913633048534393,
+      "best_epoch": 93,
+      "elapsed_sec": 56.040206048986875
+    },
+    {
+      "epoch": 99,
+      "train": {
+        "total": 0.17582575213652687,
+        "position": 0.13862240538605655,
+        "rotation": 0.016180726542230888,
+        "event": 0.05808537352389379,
+        "rotation_regularizer": 0.07029694621842253
+      },
+      "validation_objective": 0.16728565096855164,
+      "best_epoch": 93,
+      "elapsed_sec": 56.64984064499731
+    },
+    {
+      "epoch": 100,
+      "train": {
+        "total": 0.17552466268167335,
+        "position": 0.13834672196391934,
+        "rotation": 0.016159018253649904,
+        "event": 0.0580375736361715,
+        "rotation_regularizer": 0.07964344470104219
+      },
+      "validation_objective": 0.1694561243057251,
+      "best_epoch": 93,
+      "elapsed_sec": 57.27469258700148
+    },
+    {
+      "epoch": 101,
+      "train": {
+        "total": 0.1746936949058892,
+        "position": 0.1377284567993662,
+        "rotation": 0.01607633012681384,
+        "event": 0.05771517292983938,
+        "rotation_regularizer": 0.0694876385810162
+      },
+      "validation_objective": 0.16775503754615784,
+      "best_epoch": 93,
+      "elapsed_sec": 57.86094808400958
+    },
+    {
+      "epoch": 102,
+      "train": {
+        "total": 0.17437680599362834,
+        "position": 0.1375314429272996,
+        "rotation": 0.015900336677772013,
+        "event": 0.057650326981586564,
+        "rotation_regularizer": 0.07002982874735726
+      },
+      "validation_objective": 0.16818220913410187,
+      "best_epoch": 93,
+      "elapsed_sec": 58.49735480599338
+    },
+    {
+      "epoch": 103,
+      "train": {
+        "total": 0.1738466292051667,
+        "position": 0.13700038532245426,
+        "rotation": 0.016080848706749435,
+        "event": 0.057473544821573394,
+        "rotation_regularizer": 0.0690464156465916
+      },
+      "validation_objective": 0.16672039031982422,
+      "best_epoch": 93,
+      "elapsed_sec": 59.109430293989135
+    },
+    {
+      "epoch": 104,
+      "train": {
+        "total": 0.1739167445733831,
+        "position": 0.1371438974230936,
+        "rotation": 0.015952914954637847,
+        "event": 0.05744971166772423,
+        "rotation_regularizer": 0.07153397446888801
+      },
+      "validation_objective": 0.16807982325553894,
+      "best_epoch": 93,
+      "elapsed_sec": 59.590327096986584
+    },
+    {
+      "epoch": 105,
+      "train": {
+        "total": 0.1730938775907442,
+        "position": 0.13634259711826582,
+        "rotation": 0.015998284579037632,
+        "event": 0.05735762790161825,
+        "rotation_regularizer": 0.07332280632104934
+      },
+      "validation_objective": 0.17109036445617676,
+      "best_epoch": 93,
+      "elapsed_sec": 60.05896699000732
+    },
+    {
+      "epoch": 106,
+      "train": {
+        "total": 0.17303874220043156,
+        "position": 0.13632057676913267,
+        "rotation": 0.016010218226459986,
+        "event": 0.05727650257993428,
+        "rotation_regularizer": 0.07480704229782721
+      },
+      "validation_objective": 0.165800541639328,
+      "best_epoch": 93,
+      "elapsed_sec": 60.52759463500115
+    },
+    {
+      "epoch": 107,
+      "train": {
+        "total": 0.17289201959694842,
+        "position": 0.13604515934354922,
+        "rotation": 0.016083057710570836,
+        "event": 0.05746592999954261,
+        "rotation_regularizer": 0.07236581650611972
+      },
+      "validation_objective": 0.16591329872608185,
+      "best_epoch": 93,
+      "elapsed_sec": 60.99758712601033
+    },
+    {
+      "epoch": 108,
+      "train": {
+        "total": 0.17242291273317556,
+        "position": 0.13572254849365464,
+        "rotation": 0.015988974122302074,
+        "event": 0.057262558845764824,
+        "rotation_regularizer": 0.07459890977909236
+      },
+      "validation_objective": 0.16955165565013885,
+      "best_epoch": 93,
+      "elapsed_sec": 61.470261490991106
+    },
+    {
+      "epoch": 109,
+      "train": {
+        "total": 0.1725698166097486,
+        "position": 0.13593479246885332,
+        "rotation": 0.015989784199120886,
+        "event": 0.057130768224470434,
+        "rotation_regularizer": 0.07474767961905776
+      },
+      "validation_objective": 0.16743670403957367,
+      "best_epoch": 93,
+      "elapsed_sec": 61.942576014000224
+    },
+    {
+      "epoch": 110,
+      "train": {
+        "total": 0.171974092359182,
+        "position": 0.13542001762774153,
+        "rotation": 0.016024998921368803,
+        "event": 0.05693651094876622,
+        "rotation_regularizer": 0.07331948475126591
+      },
+      "validation_objective": 0.1689452826976776,
+      "best_epoch": 93,
+      "elapsed_sec": 62.41490922498633
+    },
+    {
+      "epoch": 111,
+      "train": {
+        "total": 0.17148001307411045,
+        "position": 0.13503340458218657,
+        "rotation": 0.01583269521524449,
+        "event": 0.056907314362517954,
+        "rotation_regularizer": 0.07660462004122902
+      },
+      "validation_objective": 0.16744104027748108,
+      "best_epoch": 93,
+      "elapsed_sec": 62.88749053599895
+    },
+    {
+      "epoch": 112,
+      "train": {
+        "total": 0.17167401605815252,
+        "position": 0.1352721120874642,
+        "rotation": 0.01591695085938392,
+        "event": 0.05673731438454243,
+        "rotation_regularizer": 0.07477089451180581
+      },
+      "validation_objective": 0.16695375740528107,
+      "best_epoch": 93,
+      "elapsed_sec": 63.35656296700472
+    },
+    {
+      "epoch": 113,
+      "train": {
+        "total": 0.17124063555509061,
+        "position": 0.1348492395449841,
+        "rotation": 0.015891504060434134,
+        "event": 0.05674665576192563,
+        "rotation_regularizer": 0.07231456085837074
+      },
+      "validation_objective": 0.16914303600788116,
+      "best_epoch": 93,
+      "elapsed_sec": 63.824748095008545
+    }
+  ]
+}

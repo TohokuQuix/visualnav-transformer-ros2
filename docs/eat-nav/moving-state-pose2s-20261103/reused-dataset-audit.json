@@ -1,0 +1,955 @@
+{
+  "hashes_verified": true,
+  "leakage": {
+    "encoder_train_eval_parent_overlap": [],
+    "geometry_interpretation": "Geometry overlap is known shared terrain, not unseen-terrain evaluation. Missing hashes do not establish unseen terrain.",
+    "geometry_missing": 0,
+    "geometry_overlap": {
+      "boxes": {
+        "counts": {
+          "audit_eval": 1,
+          "train": 6,
+          "validation": 1
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      },
+      "hf_pyramid_slope": {
+        "counts": {
+          "audit_eval": 1,
+          "train": 6,
+          "validation": 1
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      },
+      "k_rail_field": {
+        "counts": {
+          "audit_eval": 0,
+          "train": 3,
+          "validation": 0
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      },
+      "k_rail_step_field": {
+        "counts": {
+          "audit_eval": 5,
+          "train": 9,
+          "validation": 6
+        },
+        "train_audit_eval": 5,
+        "train_validation": 6,
+        "validation_audit_eval": 4
+      },
+      "pyramid_stairs": {
+        "counts": {
+          "audit_eval": 9,
+          "train": 54,
+          "validation": 9
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      },
+      "pyramid_stairs_inv": {
+        "counts": {
+          "audit_eval": 1,
+          "train": 6,
+          "validation": 1
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      },
+      "random_rough": {
+        "counts": {
+          "audit_eval": 1,
+          "train": 6,
+          "validation": 1
+        },
+        "train_audit_eval": 0,
+        "train_validation": 0,
+        "validation_audit_eval": 0
+      }
+    },
+    "initial_signature_role_collisions": {},
+    "parent_role_collisions": {}
+  },
+  "limitations": [
+    "Only executed candidates have targets; windows are correlated within parents.",
+    "DEM history is causal; exhaustive historical raw-ray reconstruction is not performed.",
+    "Pose supervision is complete_2s_only; missing teachers retain explicit masks."
+  ],
+  "manifest_counts": {
+    "duplicates_removed": 0,
+    "exclusions": {
+      "append_excluded": 936
+    },
+    "post_dedup": 6897,
+    "pre_dedup": {
+      "common_initial": 512,
+      "partial": 17,
+      "pose": 6880,
+      "r4_initial": 1290,
+      "r4_moving": 5095
+    }
+  },
+  "normalization_fitted": false,
+  "reserved_test_opened": false,
+  "schema": "eatnav_moving_pose2s_audit_v1",
+  "source_hashes_verified": true,
+  "strata": [
+    {
+      "dimension": "direction",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 35,
+          "negative": 3369,
+          "positive": 158,
+          "unknown": 9
+        },
+        "near_fall": {
+          "independent_positive_parents": 7,
+          "negative": 3524,
+          "positive": 10,
+          "unknown": 2
+        },
+        "tip_over": {
+          "independent_positive_parents": 6,
+          "negative": 3526,
+          "positive": 10,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 29,
+          "negative": 3456,
+          "positive": 71,
+          "unknown": 9
+        }
+      },
+      "parents": 69,
+      "partial": 9,
+      "pose": 3527,
+      "records": 3536,
+      "value": "-1.0"
+    },
+    {
+      "dimension": "direction",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 25,
+          "negative": 3134,
+          "positive": 219,
+          "unknown": 8
+        },
+        "near_fall": {
+          "independent_positive_parents": 9,
+          "negative": 3344,
+          "positive": 15,
+          "unknown": 2
+        },
+        "tip_over": {
+          "independent_positive_parents": 7,
+          "negative": 3353,
+          "positive": 8,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 15,
+          "negative": 3326,
+          "positive": 27,
+          "unknown": 8
+        }
+      },
+      "parents": 69,
+      "partial": 8,
+      "pose": 3353,
+      "records": 3361,
+      "value": "1.0"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 6,
+          "negative": 904,
+          "positive": 44,
+          "unknown": 0
+        },
+        "near_fall": {
+          "independent_positive_parents": 0,
+          "negative": 948,
+          "positive": 0,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 0,
+          "negative": 948,
+          "positive": 0,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 6,
+          "negative": 931,
+          "positive": 17,
+          "unknown": 0
+        }
+      },
+      "parents": 8,
+      "partial": 0,
+      "pose": 948,
+      "records": 948,
+      "value": "boxes"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 1,
+          "negative": 808,
+          "positive": 1,
+          "unknown": 0
+        },
+        "near_fall": {
+          "independent_positive_parents": 0,
+          "negative": 809,
+          "positive": 0,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 0,
+          "negative": 809,
+          "positive": 0,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 5,
+          "negative": 794,
+          "positive": 15,
+          "unknown": 0
+        }
+      },
+      "parents": 8,
+      "partial": 0,
+      "pose": 809,
+      "records": 809,
+      "value": "hf_pyramid_slope"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 5,
+          "negative": 479,
+          "positive": 96,
+          "unknown": 4
+        },
+        "near_fall": {
+          "independent_positive_parents": 3,
+          "negative": 570,
+          "positive": 8,
+          "unknown": 1
+        },
+        "tip_over": {
+          "independent_positive_parents": 2,
+          "negative": 575,
+          "positive": 4,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 4,
+          "negative": 569,
+          "positive": 6,
+          "unknown": 4
+        }
+      },
+      "parents": 5,
+      "partial": 4,
+      "pose": 575,
+      "records": 579,
+      "value": "k_rail_field"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 10,
+          "negative": 1164,
+          "positive": 121,
+          "unknown": 4
+        },
+        "near_fall": {
+          "independent_positive_parents": 4,
+          "negative": 1280,
+          "positive": 7,
+          "unknown": 2
+        },
+        "tip_over": {
+          "independent_positive_parents": 3,
+          "negative": 1285,
+          "positive": 4,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 4,
+          "negative": 1278,
+          "positive": 7,
+          "unknown": 4
+        }
+      },
+      "parents": 16,
+      "partial": 4,
+      "pose": 1285,
+      "records": 1289,
+      "value": "k_rail_step_field"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 3,
+          "negative": 1111,
+          "positive": 35,
+          "unknown": 6
+        },
+        "near_fall": {
+          "independent_positive_parents": 5,
+          "negative": 1144,
+          "positive": 7,
+          "unknown": 1
+        },
+        "tip_over": {
+          "independent_positive_parents": 4,
+          "negative": 1145,
+          "positive": 7,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 7,
+          "negative": 1120,
+          "positive": 26,
+          "unknown": 6
+        }
+      },
+      "parents": 16,
+      "partial": 6,
+      "pose": 1146,
+      "records": 1152,
+      "value": "pyramid_stairs"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 8,
+          "negative": 983,
+          "positive": 71,
+          "unknown": 3
+        },
+        "near_fall": {
+          "independent_positive_parents": 2,
+          "negative": 1054,
+          "positive": 3,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 2,
+          "negative": 1054,
+          "positive": 3,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 5,
+          "negative": 1036,
+          "positive": 18,
+          "unknown": 3
+        }
+      },
+      "parents": 8,
+      "partial": 3,
+      "pose": 1054,
+      "records": 1057,
+      "value": "pyramid_stairs_inv"
+    },
+    {
+      "dimension": "field",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 6,
+          "negative": 1054,
+          "positive": 9,
+          "unknown": 0
+        },
+        "near_fall": {
+          "independent_positive_parents": 0,
+          "negative": 1063,
+          "positive": 0,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 0,
+          "negative": 1063,
+          "positive": 0,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 5,
+          "negative": 1054,
+          "positive": 9,
+          "unknown": 0
+        }
+      },
+      "parents": 8,
+      "partial": 0,
+      "pose": 1063,
+      "records": 1063,
+      "value": "random_rough"
+    },
+    {
+      "dimension": "level",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 0,
+          "negative": 256,
+          "positive": 0,
+          "unknown": 0
+        },
+        "near_fall": {
+          "independent_positive_parents": 0,
+          "negative": 256,
+          "positive": 0,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 0,
+          "negative": 256,
+          "positive": 0,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 0,
+          "negative": 256,
+          "positive": 0,
+          "unknown": 0
+        }
+      },
+      "parents": 16,
+      "partial": 0,
+      "pose": 256,
+      "records": 256,
+      "value": "1"
+    },
+    {
+      "dimension": "level",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 39,
+          "negative": 6247,
+          "positive": 377,
+          "unknown": 17
+        },
+        "near_fall": {
+          "independent_positive_parents": 14,
+          "negative": 6612,
+          "positive": 25,
+          "unknown": 4
+        },
+        "tip_over": {
+          "independent_positive_parents": 11,
+          "negative": 6623,
+          "positive": 18,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 36,
+          "negative": 6526,
+          "positive": 98,
+          "unknown": 17
+        }
+      },
+      "parents": 69,
+      "partial": 17,
+      "pose": 6624,
+      "records": 6641,
+      "value": "4"
+    },
+    {
+      "dimension": "pitch",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 13,
+          "negative": 729,
+          "positive": 83,
+          "unknown": 4
+        },
+        "near_fall": {
+          "independent_positive_parents": 4,
+          "negative": 808,
+          "positive": 7,
+          "unknown": 1
+        },
+        "tip_over": {
+          "independent_positive_parents": 4,
+          "negative": 812,
+          "positive": 4,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 5,
+          "negative": 800,
+          "positive": 12,
+          "unknown": 4
+        }
+      },
+      "parents": 37,
+      "partial": 4,
+      "pose": 812,
+      "records": 816,
+      "value": "pitch<-10"
+    },
+    {
+      "dimension": "pitch",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 10,
+          "negative": 621,
+          "positive": 52,
+          "unknown": 6
+        },
+        "near_fall": {
+          "independent_positive_parents": 4,
+          "negative": 672,
+          "positive": 6,
+          "unknown": 1
+        },
+        "tip_over": {
+          "independent_positive_parents": 5,
+          "negative": 672,
+          "positive": 7,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 2,
+          "negative": 670,
+          "positive": 3,
+          "unknown": 6
+        }
+      },
+      "parents": 44,
+      "partial": 6,
+      "pose": 673,
+      "records": 679,
+      "value": "pitch>10"
+    },
+    {
+      "dimension": "pitch",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 37,
+          "negative": 5153,
+          "positive": 242,
+          "unknown": 7
+        },
+        "near_fall": {
+          "independent_positive_parents": 8,
+          "negative": 5388,
+          "positive": 12,
+          "unknown": 2
+        },
+        "tip_over": {
+          "independent_positive_parents": 6,
+          "negative": 5395,
+          "positive": 7,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 33,
+          "negative": 5312,
+          "positive": 83,
+          "unknown": 7
+        }
+      },
+      "parents": 69,
+      "partial": 7,
+      "pose": 5395,
+      "records": 5402,
+      "value": "pitch[-10,10]"
+    },
+    {
+      "dimension": "role",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 3,
+          "negative": 788,
+          "positive": 19,
+          "unknown": 0
+        },
+        "near_fall": {
+          "independent_positive_parents": 0,
+          "negative": 807,
+          "positive": 0,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 0,
+          "negative": 807,
+          "positive": 0,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 4,
+          "negative": 796,
+          "positive": 11,
+          "unknown": 0
+        }
+      },
+      "parents": 8,
+      "partial": 0,
+      "pose": 807,
+      "records": 807,
+      "value": "audit_eval"
+    },
+    {
+      "dimension": "role",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 33,
+          "negative": 4957,
+          "positive": 328,
+          "unknown": 14
+        },
+        "near_fall": {
+          "independent_positive_parents": 12,
+          "negative": 5273,
+          "positive": 22,
+          "unknown": 4
+        },
+        "tip_over": {
+          "independent_positive_parents": 9,
+          "negative": 5284,
+          "positive": 15,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 30,
+          "negative": 5200,
+          "positive": 85,
+          "unknown": 14
+        }
+      },
+      "parents": 53,
+      "partial": 14,
+      "pose": 5285,
+      "records": 5299,
+      "value": "train"
+    },
+    {
+      "dimension": "role",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 3,
+          "negative": 758,
+          "positive": 30,
+          "unknown": 3
+        },
+        "near_fall": {
+          "independent_positive_parents": 2,
+          "negative": 788,
+          "positive": 3,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 2,
+          "negative": 788,
+          "positive": 3,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 2,
+          "negative": 786,
+          "positive": 2,
+          "unknown": 3
+        }
+      },
+      "parents": 8,
+      "partial": 3,
+      "pose": 788,
+      "records": 791,
+      "value": "validation"
+    },
+    {
+      "dimension": "speed",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 32,
+          "negative": 3735,
+          "positive": 185,
+          "unknown": 8
+        },
+        "near_fall": {
+          "independent_positive_parents": 9,
+          "negative": 3917,
+          "positive": 11,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 7,
+          "negative": 3920,
+          "positive": 8,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 23,
+          "negative": 3863,
+          "positive": 57,
+          "unknown": 8
+        }
+      },
+      "parents": 69,
+      "partial": 8,
+      "pose": 3920,
+      "records": 3928,
+      "value": "v0.05-0.2"
+    },
+    {
+      "dimension": "speed",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 31,
+          "negative": 1147,
+          "positive": 149,
+          "unknown": 2
+        },
+        "near_fall": {
+          "independent_positive_parents": 4,
+          "negative": 1292,
+          "positive": 6,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 2,
+          "negative": 1296,
+          "positive": 2,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 19,
+          "negative": 1266,
+          "positive": 30,
+          "unknown": 2
+        }
+      },
+      "parents": 68,
+      "partial": 2,
+      "pose": 1296,
+      "records": 1298,
+      "value": "v<0.05"
+    },
+    {
+      "dimension": "speed",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 19,
+          "negative": 1621,
+          "positive": 43,
+          "unknown": 7
+        },
+        "near_fall": {
+          "independent_positive_parents": 3,
+          "negative": 1659,
+          "positive": 8,
+          "unknown": 4
+        },
+        "tip_over": {
+          "independent_positive_parents": 4,
+          "negative": 1663,
+          "positive": 8,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 10,
+          "negative": 1653,
+          "positive": 11,
+          "unknown": 7
+        }
+      },
+      "parents": 57,
+      "partial": 7,
+      "pose": 1664,
+      "records": 1671,
+      "value": "v>=0.2"
+    },
+    {
+      "dimension": "state",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 13,
+          "negative": 1748,
+          "positive": 52,
+          "unknown": 2
+        },
+        "near_fall": {
+          "independent_positive_parents": 4,
+          "negative": 1792,
+          "positive": 10,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 2,
+          "negative": 1799,
+          "positive": 3,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 14,
+          "negative": 1782,
+          "positive": 18,
+          "unknown": 2
+        }
+      },
+      "parents": 69,
+      "partial": 2,
+      "pose": 1800,
+      "records": 1802,
+      "value": "initial"
+    },
+    {
+      "dimension": "state",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 35,
+          "negative": 4755,
+          "positive": 325,
+          "unknown": 15
+        },
+        "near_fall": {
+          "independent_positive_parents": 12,
+          "negative": 5076,
+          "positive": 15,
+          "unknown": 4
+        },
+        "tip_over": {
+          "independent_positive_parents": 11,
+          "negative": 5080,
+          "positive": 15,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 31,
+          "negative": 5000,
+          "positive": 80,
+          "unknown": 15
+        }
+      },
+      "parents": 53,
+      "partial": 15,
+      "pose": 5080,
+      "records": 5095,
+      "value": "moving"
+    },
+    {
+      "dimension": "yawrate",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 38,
+          "negative": 5306,
+          "positive": 327,
+          "unknown": 14
+        },
+        "near_fall": {
+          "independent_positive_parents": 11,
+          "negative": 5621,
+          "positive": 22,
+          "unknown": 4
+        },
+        "tip_over": {
+          "independent_positive_parents": 8,
+          "negative": 5632,
+          "positive": 15,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 35,
+          "negative": 5537,
+          "positive": 96,
+          "unknown": 14
+        }
+      },
+      "parents": 69,
+      "partial": 14,
+      "pose": 5633,
+      "records": 5647,
+      "value": "|wz|<0.2"
+    },
+    {
+      "dimension": "yawrate",
+      "events": {
+        "linear_stall": {
+          "independent_positive_parents": 18,
+          "negative": 1197,
+          "positive": 50,
+          "unknown": 3
+        },
+        "near_fall": {
+          "independent_positive_parents": 3,
+          "negative": 1247,
+          "positive": 3,
+          "unknown": 0
+        },
+        "tip_over": {
+          "independent_positive_parents": 3,
+          "negative": 1247,
+          "positive": 3,
+          "unknown": 0
+        },
+        "turn_stall": {
+          "independent_positive_parents": 2,
+          "negative": 1245,
+          "positive": 2,
+          "unknown": 3
+        }
+      },
+      "parents": 65,
+      "partial": 3,
+      "pose": 1247,
+      "records": 1250,
+      "value": "|wz|>=0.2"
+    }
+  ],
+  "total": {
+    "events": {
+      "linear_stall": {
+        "independent_positive_parents": 39,
+        "negative": 6503,
+        "positive": 377,
+        "unknown": 17
+      },
+      "near_fall": {
+        "independent_positive_parents": 14,
+        "negative": 6868,
+        "positive": 25,
+        "unknown": 4
+      },
+      "tip_over": {
+        "independent_positive_parents": 11,
+        "negative": 6879,
+        "positive": 18,
+        "unknown": 0
+      },
+      "turn_stall": {
+        "independent_positive_parents": 36,
+        "negative": 6782,
+        "positive": 98,
+        "unknown": 17
+      }
+    },
+    "parents": 69,
+    "partial": 17,
+    "pose": 6880,
+    "records": 6897
+  }
+}

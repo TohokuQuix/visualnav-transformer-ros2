@@ -1,0 +1,131 @@
+{
+  "schema": "eatnav_moving_pose2s_model_index_v1",
+  "phase": "initial_model_verified_collection_in_progress",
+  "horizon_sec": 2.0,
+  "input_schema": "eatnav_moving_pose2s_input_v1",
+  "prediction_schema": "eatnav_moving_pose2s_prediction_v1",
+  "position_frame": "full t0 body, x forward/y left/z up, meters",
+  "quaternion_order": "wxyz",
+  "rotation_representation": "relative SO(3),6D first two columns",
+  "event_names": [
+    "tip_over",
+    "near_fall",
+    "linear_stall",
+    "turn_stall"
+  ],
+  "default_model": "M_move",
+  "models": [
+    {
+      "id": "M_move",
+      "path": "docs/eat-nav/moving-state-pose2s-20261103/models/M_move/checkpoint.pt",
+      "sha256": "75fa9659d6924b4f6bae421498a45f485fb737d8e6b86e1a9a91a245eb9457b1",
+      "bytes": 155919,
+      "training_seed": 123,
+      "epochs_completed": 113,
+      "best_epoch": 93,
+      "training_scope": "existing initial plus moving windows",
+      "support": {
+        "trained": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "counts": [
+          {
+            "positive": 15,
+            "negative": 5284,
+            "unknown": 0
+          },
+          {
+            "positive": 22,
+            "negative": 5273,
+            "unknown": 4
+          },
+          {
+            "positive": 328,
+            "negative": 4957,
+            "unknown": 14
+          },
+          {
+            "positive": 85,
+            "negative": 5200,
+            "unknown": 14
+          }
+        ],
+        "constant_probability": [
+          0.0029245283018867925,
+          0.004248489425981873,
+          0.062145289443813846,
+          0.016174801362088535
+        ],
+        "pos_weight": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "M_stop",
+      "path": "docs/eat-nav/moving-state-pose2s-20261103/models/M_stop/checkpoint.pt",
+      "sha256": "a34e1e4face53181af761d585a5427a1258636303d3fb1741fe92113addc54b7",
+      "bytes": 144335,
+      "training_seed": 123,
+      "epochs_completed": 66,
+      "best_epoch": 46,
+      "training_scope": "existing initial windows only",
+      "support": {
+        "trained": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "counts": [
+          {
+            "positive": 3,
+            "negative": 1369,
+            "unknown": 0
+          },
+          {
+            "positive": 10,
+            "negative": 1362,
+            "unknown": 0
+          },
+          {
+            "positive": 46,
+            "negative": 1324,
+            "unknown": 2
+          },
+          {
+            "positive": 15,
+            "negative": 1355,
+            "unknown": 2
+          }
+        ],
+        "constant_probability": [
+          0.0025491624180626364,
+          0.00764748725418791,
+          0.03391684901531729,
+          0.011305616338439095
+        ],
+        "pos_weight": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "M_final": {
+    "state": "not_trained",
+    "reason": "fresh moving-state collection gates in progress"
+  },
+  "real_robot_tested": false,
+  "planner_changed": false,
+  "precontact_performance_verified": false,
+  "raw_data_in_git": false
+}
