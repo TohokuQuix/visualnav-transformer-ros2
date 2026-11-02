@@ -1,0 +1,144 @@
+{
+  "schema": "r6_independent_level2_interim_table_review_v1",
+  "verified_unix": 1793582009.394926,
+  "report_sha256": "0a7325696cfe8fb64b725f89245ac2fc6a732f8d476bd97e2a0dd7da3e278495",
+  "generator_sha256": "ca885f78ffa529197c8cf5c5b91b0033f4cecbd5a2033148760560daa789290e",
+  "binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "rows_checked": [
+    {
+      "condition": "old_reference",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 0,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "event_2s",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 0,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q3_2",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 3,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q3_1",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q3_0",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q2_2",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q2_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q1_2",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q1_1",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q1_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q0_2",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "pose_q0_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 1,
+      "source_SHA_match": true
+    },
+    {
+      "condition": "combined",
+      "execution": "simulated",
+      "trials": 30,
+      "all_numeric_columns_match": true,
+      "fall_count": 3,
+      "source_SHA_match": true
+    }
+  ],
+  "common_initial_groups": 30,
+  "paired_initial_and_physics_comparisons": 12,
+  "actual_simulated_trials": 300,
+  "reused_condition_results": 90,
+  "reuse_recomputed": [
+    {
+      "condition": "pose_q2_0",
+      "source": "pose_q3_0-k_rail_field-l2-batch00",
+      "environments": 30,
+      "decisions_recomputed": 883,
+      "equivalent": true
+    },
+    {
+      "condition": "pose_q1_0",
+      "source": "pose_q3_0-k_rail_field-l2-batch00",
+      "environments": 30,
+      "decisions_recomputed": 883,
+      "equivalent": true
+    },
+    {
+      "condition": "pose_q0_0",
+      "source": "pose_q3_0-k_rail_field-l2-batch00",
+      "environments": 30,
+      "decisions_recomputed": 883,
+      "equivalent": true
+    }
+  ],
+  "exact_pose_profiles": 10,
+  "MD_TXT_identical": true,
+  "no_simulator_operations": true,
+  "findings": []
+}

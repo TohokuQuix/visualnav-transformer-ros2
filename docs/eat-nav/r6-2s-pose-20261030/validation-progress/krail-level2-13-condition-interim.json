@@ -1,0 +1,2945 @@
+{
+  "schema": "eatnav_r6_completed_cell_13_condition_interim_v1",
+  "interim": true,
+  "observed_unix": 1793581901.703124,
+  "field": "k_rail_field",
+  "level": 2,
+  "complete_conditions": 13,
+  "planned_conditions": 13,
+  "common_initial_groups": 30,
+  "unique_group_ids": [
+    "closed_loop/k_rail_field/level2/validation/seed1352145881/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed168367721/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed1702092961/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed1705001286/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed1756069594/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed1876930440/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed1980778842/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed2001031176/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed214730067/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed2178832432/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed2448283120/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed295731238/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed2979175091/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed33521233/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed35599496/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed3682562133/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed3723366756/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed3819064893/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed399344841/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed3996617212/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed3996703347/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4003470269/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4033941118/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4101749542/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4182248194/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4197924982/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed4234602600/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed448879230/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed665152942/tile00",
+    "closed_loop/k_rail_field/level2/validation/seed744830211/tile00"
+  ],
+  "rows": [
+    {
+      "condition": "old_reference",
+      "execution": "simulated",
+      "source_job": "old_reference-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "old_reference",
+      "profile": null,
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 0,
+      "mean_STOP_request_sec": 0.0,
+      "mean_ranking_STOP_upper_bound_sec": 0.0,
+      "mean_route_progress_m": 1.7261073030232146,
+      "mean_net_goal_approach_m": 1.5582751763967162,
+      "mean_physical_distance_m": 5.433637607670585,
+      "goal_reached_count": 16,
+      "linear_windows": 59,
+      "turn_windows": 31,
+      "mean_linear_stall_sec": 3.933333333333333,
+      "mean_turn_stall_sec": 2.066666666666667,
+      "timeout_count": 14,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 0.02314728859588892,
+      "all_candidates_excluded_decisions": 0,
+      "decision_count": 698
+    },
+    {
+      "condition": "event_2s",
+      "execution": "simulated",
+      "source_job": "event_2s-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "event",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 0,
+      "tip_rate_wilson95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 0.8666666666666667,
+      "mean_ranking_STOP_upper_bound_sec": 0.8666666666666667,
+      "mean_route_progress_m": 1.7179089821185018,
+      "mean_net_goal_approach_m": 1.5468268920079344,
+      "mean_physical_distance_m": 6.158849925243952,
+      "goal_reached_count": 10,
+      "linear_windows": 112,
+      "turn_windows": 38,
+      "mean_linear_stall_sec": 7.466666666666667,
+      "mean_turn_stall_sec": 2.533333333333333,
+      "timeout_count": 20,
+      "intervention_count": 0,
+      "unknown_stall_windows": 0,
+      "mean_processing_sec": 26.623718097301996,
+      "all_candidates_excluded_decisions": 13,
+      "decision_count": 757
+    },
+    {
+      "condition": "pose_q3_2",
+      "execution": "simulated",
+      "source_job": "pose_q3_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 3,
+      "tip_rate_wilson95": [
+        0.03459988874733419,
+        0.25621082579184085
+      ],
+      "near_fall_count": 3,
+      "mean_STOP_request_sec": 47.14,
+      "mean_ranking_STOP_upper_bound_sec": 50.6,
+      "mean_route_progress_m": 0.8347843487585886,
+      "mean_net_goal_approach_m": 0.721599250746112,
+      "mean_physical_distance_m": 4.255915016196373,
+      "goal_reached_count": 0,
+      "linear_windows": 6,
+      "turn_windows": 1,
+      "mean_linear_stall_sec": 0.4,
+      "mean_turn_stall_sec": 0.06666666666666667,
+      "timeout_count": 27,
+      "intervention_count": 0,
+      "unknown_stall_windows": 3,
+      "mean_processing_sec": 32.72040748104045,
+      "all_candidates_excluded_decisions": 709,
+      "decision_count": 850
+    },
+    {
+      "condition": "pose_q3_1",
+      "execution": "simulated",
+      "source_job": "pose_q3_1-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 15.573491603136066,
+          "wall": 14.343087300658224
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_1",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 143,
+          "failure_rate": 0.03228719801309551,
+          "failure_rate_wilson95": [
+            0.027473253555883936,
+            0.037911773522842904
+          ],
+          "group_any_failure_wilson95": [
+            0.6106910949571832,
+            0.8388134737397926
+          ],
+          "group_count": 54,
+          "groups_with_any_failure": 40,
+          "sample_count": 4429
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.75,
+          "step": 0.85
+        },
+        "roll_deg": 5.748455732331279,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 6.689757853746414,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 2.871824081986115,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.85,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 57.431666666666665,
+      "mean_ranking_STOP_upper_bound_sec": 58.6,
+      "mean_route_progress_m": 0.27140577673602656,
+      "mean_net_goal_approach_m": 0.01093677268479368,
+      "mean_physical_distance_m": 4.056774596564555,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 31.75021710507232,
+      "all_candidates_excluded_decisions": 862,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q3_0",
+      "execution": "simulated",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.69934631884098,
+          "wall": 11.372357495129107
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 109,
+          "failure_rate": 0.035632559660019616,
+          "failure_rate_wilson95": [
+            0.029624253848493563,
+            0.04280569781675234
+          ],
+          "group_any_failure_wilson95": [
+            0.5519435355159235,
+            0.8092015919723277
+          ],
+          "group_count": 46,
+          "groups_with_any_failure": 32,
+          "sample_count": 3059
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.5,
+          "step": 0.725
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 1.1498504247323373,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.725,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.83166666666667,
+      "mean_ranking_STOP_upper_bound_sec": 60.0,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.05217380091916172,
+      "mean_physical_distance_m": 3.788341696470035,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 29.672262031897358,
+      "all_candidates_excluded_decisions": 883,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q2_2",
+      "execution": "simulated",
+      "source_job": "pose_q2_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 17.778530716896057,
+          "wall": 15.984094142913818
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q2_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 157,
+          "failure_rate": 0.03253886010362694,
+          "failure_rate_wilson95": [
+            0.027892624371769325,
+            0.03792884885968313
+          ],
+          "group_any_failure_wilson95": [
+            0.6506132834036111,
+            0.8680458343236688
+          ],
+          "group_count": 54,
+          "groups_with_any_failure": 42,
+          "sample_count": 4825
+        },
+        "pitch_deg": 5.4119491058958324,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.8,
+          "roll": 0.95,
+          "step": 0.875
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 7.650714018382132,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 3.349706723351445,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.875,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.765,
+      "mean_ranking_STOP_upper_bound_sec": 59.93333333333333,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.0359341076218601,
+      "mean_physical_distance_m": 3.8501375219354035,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 30.80694951987292,
+      "all_candidates_excluded_decisions": 882,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q2_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 11.099094487726688,
+          "wall": 10.35001702606678
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q2_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 104,
+          "failure_rate": 0.03547066848567531,
+          "failure_rate_wilson95": [
+            0.029360198059806223,
+            0.042796783777281557
+          ],
+          "group_any_failure_wilson95": [
+            0.5207048830990042,
+            0.7864112506566996
+          ],
+          "group_count": 45,
+          "groups_with_any_failure": 30,
+          "sample_count": 2932
+        },
+        "pitch_deg": 5.4119491058958324,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.8,
+          "roll": 0.5,
+          "step": 0.65
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.4713139281201188,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.65,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.83166666666667,
+      "mean_ranking_STOP_upper_bound_sec": 60.0,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.05217380091916172,
+      "mean_physical_distance_m": 3.788341696470035,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 29.672262031897358,
+      "all_candidates_excluded_decisions": 883,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q1_2",
+      "execution": "simulated",
+      "source_job": "pose_q1_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 13.705450519919399,
+          "wall": 12.954153269529344
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 121,
+          "failure_rate": 0.03198519693365054,
+          "failure_rate_wilson95": [
+            0.026835540952109615,
+            0.03808438281392376
+          ],
+          "group_any_failure_wilson95": [
+            0.5646316733114988,
+            0.8048169727242108
+          ],
+          "group_count": 53,
+          "groups_with_any_failure": 37,
+          "sample_count": 3783
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.95,
+          "step": 0.8
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 4.616537839174273,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 2.0743098462605745,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.8,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.63166666666667,
+      "mean_ranking_STOP_upper_bound_sec": 59.8,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.023641485731593172,
+      "mean_physical_distance_m": 3.8159168094619544,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 29.400993298033914,
+      "all_candidates_excluded_decisions": 880,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q1_1",
+      "execution": "simulated",
+      "source_job": "pose_q1_1-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.20177173614502,
+          "wall": 11.107135415077208
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_1",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 103,
+          "failure_rate": 0.03046435965690624,
+          "failure_rate_wilson95": [
+            0.02518305470598279,
+            0.03681141722825208
+          ],
+          "group_any_failure_wilson95": [
+            0.521538260502326,
+            0.7756305077749992
+          ],
+          "group_count": 50,
+          "groups_with_any_failure": 33,
+          "sample_count": 3381
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.75,
+          "step": 0.7
+        },
+        "roll_deg": 5.748455732331279,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.9164416366567162,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.7,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 56.89833333333333,
+      "mean_ranking_STOP_upper_bound_sec": 58.06666666666667,
+      "mean_route_progress_m": 0.24877034433280068,
+      "mean_net_goal_approach_m": 0.0784211613848638,
+      "mean_physical_distance_m": 3.814492494058731,
+      "goal_reached_count": 0,
+      "linear_windows": 2,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.13333333333333333,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 30.82650603056924,
+      "all_candidates_excluded_decisions": 854,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q1_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 10.490934550762177,
+          "wall": 9.401479102671145
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q1_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 84,
+          "failure_rate": 0.03361344537815126,
+          "failure_rate_wilson95": [
+            0.02723212777475227,
+            0.04142641957952703
+          ],
+          "group_any_failure_wilson95": [
+            0.4983581419637687,
+            0.7678091739578413
+          ],
+          "group_count": 45,
+          "groups_with_any_failure": 29,
+          "sample_count": 2499
+        },
+        "pitch_deg": 4.389094812686136,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.65,
+          "roll": 0.5,
+          "step": 0.575
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.0,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.575,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.83166666666667,
+      "mean_ranking_STOP_upper_bound_sec": 60.0,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.05217380091916172,
+      "mean_physical_distance_m": 3.788341696470035,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 29.672262031897358,
+      "all_candidates_excluded_decisions": 883,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q0_2",
+      "execution": "simulated",
+      "source_job": "pose_q0_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 12.69934631884098,
+          "wall": 11.372357495129107
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q0_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 98,
+          "failure_rate": 0.033630748112560054,
+          "failure_rate_wilson95": [
+            0.027674794685479915,
+            0.04081469031260637
+          ],
+          "group_any_failure_wilson95": [
+            0.529683778569708,
+            0.7803006814641148
+          ],
+          "group_count": 51,
+          "groups_with_any_failure": 34,
+          "sample_count": 2914
+        },
+        "pitch_deg": 3.759471221319799,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.5,
+          "roll": 0.95,
+          "step": 0.725
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 1.1498504247323373,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.725,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.565000000000005,
+      "mean_ranking_STOP_upper_bound_sec": 59.733333333333334,
+      "mean_route_progress_m": 0.23747612549446542,
+      "mean_net_goal_approach_m": 0.027823646178675904,
+      "mean_physical_distance_m": 3.7863868034791355,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 27.51334567570302,
+      "all_candidates_excluded_decisions": 879,
+      "decision_count": 883
+    },
+    {
+      "condition": "pose_q0_0",
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "mode": "pose",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 9.346336498856544,
+          "wall": 8.464933186769485
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q0_0",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 72,
+          "failure_rate": 0.036072144288577156,
+          "failure_rate_wilson95": [
+            0.028742283926681357,
+            0.04518430568801551
+          ],
+          "group_any_failure_wilson95": [
+            0.45579063062873904,
+            0.7363468524170255
+          ],
+          "group_count": 43,
+          "groups_with_any_failure": 26,
+          "sample_count": 1996
+        },
+        "pitch_deg": 3.759471221319799,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.5,
+          "roll": 0.5,
+          "step": 0.5
+        },
+        "roll_deg": 2.4880066860599355,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 0.001,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 0.0,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.5,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 1,
+      "tip_rate_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "near_fall_count": 1,
+      "mean_STOP_request_sec": 58.83166666666667,
+      "mean_ranking_STOP_upper_bound_sec": 60.0,
+      "mean_route_progress_m": 0.24663968103988826,
+      "mean_net_goal_approach_m": 0.05217380091916172,
+      "mean_physical_distance_m": 3.788341696470035,
+      "goal_reached_count": 0,
+      "linear_windows": 0,
+      "turn_windows": 0,
+      "mean_linear_stall_sec": 0.0,
+      "mean_turn_stall_sec": 0.0,
+      "timeout_count": 29,
+      "intervention_count": 0,
+      "unknown_stall_windows": 1,
+      "mean_processing_sec": 29.672262031897358,
+      "all_candidates_excluded_decisions": 883,
+      "decision_count": 883
+    },
+    {
+      "condition": "combined",
+      "execution": "simulated",
+      "source_job": "combined-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "mode": "hybrid",
+      "profile": {
+        "conditional_step_cm": {
+          "flat_or_ramp": 0.001,
+          "stairs": 21.15409970283506,
+          "wall": 57.611483335494974
+        },
+        "dataset_sha256": "955a5ab0b5e2bfc3b49c620ab33c24c0f7f9824485e793ff5951e536f229fc67",
+        "event_threshold_source": "uncalibrated probability comparator; must compare on validation",
+        "event_thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geometry_definition": {
+          "flatness_tolerance_m": 0.04,
+          "min_same_direction_risers": 2,
+          "native_resolution_m": 0.1
+        },
+        "id": "pose_q3_2",
+        "min_tread_m": 0.2,
+        "model_sha256": "3b9491b03bf81cd8bb642468f8dab7d6292063e45c52d19a5fd2dba7f2339070",
+        "observed_envelope_support": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "failure_count": 176,
+          "failure_rate": 0.03050259965337955,
+          "failure_rate_wilson95": [
+            0.02636832961542378,
+            0.03526160278895067
+          ],
+          "group_any_failure_wilson95": [
+            0.681553923735416,
+            0.8866140432567635
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 45,
+          "sample_count": 5770
+        },
+        "pitch_deg": 11.346981424243188,
+        "position_error_q95_m": 0.17452731281518893,
+        "position_error_scope": "diagnostic for clearance interpretation; control footprint unchanged",
+        "quantiles": {
+          "pitch": 0.95,
+          "roll": 0.95,
+          "step": 0.95
+        },
+        "roll_deg": 11.471964959436061,
+        "schema": "eatnav_r6_two_second_policy_v1",
+        "source": {
+          "branch_CI_assumption": "descriptive; shared source groups are correlated",
+          "censored_excluded": 0,
+          "conditional": {
+            "flat_or_ramp": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 163,
+              "failure_rate": 0.03225806451612903,
+              "failure_rate_wilson95": [
+                0.0277306837549701,
+                0.03749609100288764
+              ],
+              "group_any_failure_wilson95": [
+                0.5910955707120475,
+                0.8238317234697763
+              ],
+              "group_count": 54,
+              "groups_with_any_failure": 39,
+              "sample_count": 5053
+            },
+            "stairs": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 4,
+              "failure_rate": 0.045454545454545456,
+              "failure_rate_wilson95": [
+                0.01781624923590725,
+                0.11111744773217658
+              ],
+              "group_any_failure_wilson95": [
+                0.09000928108601694,
+                0.45214584316212625
+              ],
+              "group_count": 18,
+              "groups_with_any_failure": 4,
+              "sample_count": 88
+            },
+            "wall": {
+              "branch_CI_assumption": "descriptive; shared source groups are correlated",
+              "failure_count": 69,
+              "failure_rate": 0.053117782909930716,
+              "failure_rate_wilson95": [
+                0.04218650882472189,
+                0.06668434254432047
+              ],
+              "group_any_failure_wilson95": [
+                0.3344640430301664,
+                0.6410510333438121
+              ],
+              "group_count": 37,
+              "groups_with_any_failure": 18,
+              "sample_count": 1299
+            }
+          },
+          "failure_count": 236,
+          "failure_rate": 0.03664596273291926,
+          "failure_rate_wilson95": [
+            0.032326320684862596,
+            0.04151805644042119
+          ],
+          "group_any_failure_wilson95": [
+            0.7219379333025048,
+            0.9130733239240486
+          ],
+          "group_count": 56,
+          "groups_with_any_failure": 47,
+          "magnitude_distributions": {
+            "max_abs_pitch_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 1.8606688236066011,
+                  "0.25": 2.706803075368704,
+                  "0.5": 3.5133943624353465,
+                  "0.75": 4.845950168666578,
+                  "0.9": 9.751355725322822,
+                  "0.95": 12.90487524225737
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 2.136613084111481,
+                  "0.25": 2.888273340518081,
+                  "0.5": 3.7719947624495562,
+                  "0.75": 4.955534863785226,
+                  "0.9": 7.932261072188654,
+                  "0.95": 11.263517195448246
+                }
+              }
+            },
+            "max_abs_roll_deg": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.5199745735177799,
+                  "0.25": 0.917514010182169,
+                  "0.5": 1.8947161643819626,
+                  "0.75": 4.674326996864423,
+                  "0.9": 7.925270273940804,
+                  "0.95": 9.264630758222639
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.6740691229679588,
+                  "0.25": 1.129525580159699,
+                  "0.5": 2.5135357205771913,
+                  "0.75": 5.773885821330227,
+                  "0.9": 8.437330320693293,
+                  "0.95": 11.566896813003874
+                }
+              }
+            },
+            "step_cm": {
+              "failure": {
+                "count": 236,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 9.497705474495888,
+                  "0.9": 70.58323189704936,
+                  "0.95": 78.98104041814804
+                }
+              },
+              "success": {
+                "count": 6204,
+                "quantiles": {
+                  "0.1": 0.0,
+                  "0.25": 0.0,
+                  "0.5": 0.0,
+                  "0.75": 0.0,
+                  "0.9": 8.667719140648842,
+                  "0.95": 11.603610999882203
+                }
+              }
+            }
+          },
+          "method": "observed_success_and_failure_mixture_quantiles_v2",
+          "records_sha256": "93653073d8e41d54ed8e8d661d7bdcb0632225c6024cda1e09ed42cc8e61c45a",
+          "sample_count": 6440,
+          "split": "validation"
+        },
+        "step_cm": 12.101936377584863,
+        "stopping_margin_m": 0.06,
+        "stopping_margin_source": "fixed geometric padding; not an empirically measured real braking distance",
+        "tilt_margin_deg": 6.290901620768268,
+        "tread_rule_source": "explicit geometry definition, not a learned traversability threshold",
+        "uncertainty_margin_quantile": 0.95,
+        "uncertainty_margin_status": "validation_peak_underestimation_profile_quantile"
+      },
+      "trials": 30,
+      "tip_count": 3,
+      "tip_rate_wilson95": [
+        0.03459988874733419,
+        0.25621082579184085
+      ],
+      "near_fall_count": 3,
+      "mean_STOP_request_sec": 47.07333333333334,
+      "mean_ranking_STOP_upper_bound_sec": 50.53333333333333,
+      "mean_route_progress_m": 0.8508996234761699,
+      "mean_net_goal_approach_m": 0.7617537903155235,
+      "mean_physical_distance_m": 4.264706167012429,
+      "goal_reached_count": 0,
+      "linear_windows": 7,
+      "turn_windows": 1,
+      "mean_linear_stall_sec": 0.4666666666666667,
+      "mean_turn_stall_sec": 0.06666666666666667,
+      "timeout_count": 27,
+      "intervention_count": 0,
+      "unknown_stall_windows": 3,
+      "mean_processing_sec": 32.07108784176865,
+      "all_candidates_excluded_decisions": 708,
+      "decision_count": 850
+    }
+  ],
+  "complete_source_sha256": {
+    "old_reference-k_rail_field-l2-batch00": "5414d81b9a37bf19bcfe79dbcd288bcf39db16697b47023e8561f9192f1bef20",
+    "event_2s-k_rail_field-l2-batch00": "edc430a86c2672d81de4d5bd2729f69add26c7c36b87313d79142a714f29565c",
+    "pose_q3_2-k_rail_field-l2-batch00": "42d26bf4441233b04c8a9fb0ed36b2c6e09864c7e486894bce0577136c27c8ba",
+    "pose_q3_1-k_rail_field-l2-batch00": "b95a1b5f2d3fc9770feb4dd45f2cb670fd44d6a662f562414fe0ee6e91130a5c",
+    "pose_q3_0-k_rail_field-l2-batch00": "0ac8ad76418dc4162c8df2ed221220572d2070a49a1c819ee03a8d85fd5c461e",
+    "pose_q2_2-k_rail_field-l2-batch00": "dc836df07c389b7f0f1be3b4fad2c9dc7bfa80f530dee538bd0c7a8fc06ead1c",
+    "pose_q2_0-k_rail_field-l2-batch00": "0ac8ad76418dc4162c8df2ed221220572d2070a49a1c819ee03a8d85fd5c461e",
+    "pose_q1_2-k_rail_field-l2-batch00": "55053cefa370deae06c487fa84996c1da6f47b5c69f2aecddbc3487c89b424e4",
+    "pose_q1_1-k_rail_field-l2-batch00": "6589d8ce11f9dcc8d9ed9220cb4d12b6952452d7b05ed4a07a0c5c3d9f596120",
+    "pose_q1_0-k_rail_field-l2-batch00": "0ac8ad76418dc4162c8df2ed221220572d2070a49a1c819ee03a8d85fd5c461e",
+    "pose_q0_2-k_rail_field-l2-batch00": "0113075c15f2dffceaf468aae01374a72353d6302740acbc1df7e1f67806c8d7",
+    "pose_q0_0-k_rail_field-l2-batch00": "0ac8ad76418dc4162c8df2ed221220572d2070a49a1c819ee03a8d85fd5c461e",
+    "combined-k_rail_field-l2-batch00": "30cb9e60a0bfd91d796e51c2670572ff2047280ac8f9559578681de9a75e8d16"
+  },
+  "source_origins": {
+    "old_reference-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "old_reference-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "b029d52d2ec575c4102e716d1d6ad322e57c0406d7f9279f04ba69066dd4b9fe"
+    },
+    "event_2s-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "event_2s-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "c459b252edf37586ad9fdef773a044268762b8e3b64346b911d23f85b4912324"
+    },
+    "pose_q3_2-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q3_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "e5b19ce9172a7d75dd2847ddaed84a710e35105365c454721a361bb98e894404"
+    },
+    "pose_q3_1-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q3_1-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "9b2e1faf7b5266610ed99f899c781ce0af8070ca712f62b6d47db6b411681c08"
+    },
+    "pose_q3_0-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "92e3242f8a27610b2f4613fb2821e309438f7eb41456c33a9db486af5974be5c"
+    },
+    "pose_q2_2-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q2_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "5e06d1b25358fbd8cd2a1a4d01baa36c302870ca8e5a7602f95bb9e09530a8c2"
+    },
+    "pose_q2_0-k_rail_field-l2-batch00": {
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "audit_sha256": "f5f648eefd2f8e3a90d5712ad705653c15508d36a3d8a0b0b8befb71dbfe75bf"
+    },
+    "pose_q1_2-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q1_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "8df59a19106ab5fa7f776e93803a76a6724c0d42f5397a35674cc254136abf0a"
+    },
+    "pose_q1_1-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q1_1-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "8b5c7c775cf5505c14fac63386a335d9470767360c64f32868f9fa1cea245f06"
+    },
+    "pose_q1_0-k_rail_field-l2-batch00": {
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "audit_sha256": "d52d81c4756467d9e42834f4b8c40926ac5d9a36bec4df3047f89f2dd1a7edc7"
+    },
+    "pose_q0_2-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "pose_q0_2-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "3b7629aa91bff6f2a42564c58f42431bd79acd8d98426d5d382aaf219239a3c6"
+    },
+    "pose_q0_0-k_rail_field-l2-batch00": {
+      "execution": "verified_policy_equivalent_reuse",
+      "source_job": "pose_q3_0-k_rail_field-l2-batch00",
+      "independent_timing": false,
+      "audit_sha256": "bd8418a9948b993afde8a7076ce8ff6a165a2b8ab2cfb9c03291a8e45cf27bef"
+    },
+    "combined-k_rail_field-l2-batch00": {
+      "execution": "simulated",
+      "source_job": "combined-k_rail_field-l2-batch00",
+      "independent_timing": true,
+      "audit_sha256": "9d5be1b4c8c0362714a1139e416deae58eb057094f11262035d03eb34fef722f"
+    }
+  },
+  "execution_counts": {
+    "simulated": 10,
+    "verified_policy_equivalent_reuse": 3
+  },
+  "binding_sha256": "6a532288276185219cf33c43811e5f95d2736363b89b0ce5e7e30f560f411a44",
+  "generator_sha256": "ca885f78ffa529197c8cf5c5b91b0033f4cecbd5a2033148760560daa789290e",
+  "completed_cells": 3,
+  "planned_cells": 35,
+  "full_goal_complete": false,
+  "limitations": [
+    "390 condition results share30parents;300actual simulation trials plus90exact policy-equivalent results; not390independent simulations/terrains",
+    "no top3 freeze or final ranking from partial study",
+    "test and offline bag model evaluation not performed",
+    "STOP is request time, not physical static; zero events under STOP is not driving success"
+  ]
+}
