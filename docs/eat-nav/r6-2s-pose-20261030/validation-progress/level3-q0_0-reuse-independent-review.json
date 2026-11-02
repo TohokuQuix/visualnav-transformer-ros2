@@ -1,0 +1,41 @@
+{
+  "schema": "r6_independent_level3_q0_0_reuse_review_v1",
+  "verified_unix": 1793594245.8373287,
+  "job": "pose_q0_0-k_rail_field-l3-batch00",
+  "source_job": "pose_q3_0-k_rail_field-l3-batch00",
+  "protocol_environments": 30,
+  "valid": 29,
+  "initial_invalid": 1,
+  "invalid_group_ids": [
+    "closed_loop/k_rail_field/level3/validation/seed1558235351/tile00"
+  ],
+  "decisions_recomputed": 859,
+  "all_target_choices_and_saved_results_match": true,
+  "invalid_trace_and_decisions_zero": true,
+  "invalid_goal_false_tip_zero_fall_unknown_true": true,
+  "all_provenance_SHA_match": true,
+  "paired_initial_and_physics": true,
+  "source_copy_counts": {
+    "verified_original_files": 1843,
+    "decompressed_trace_files": 30
+  },
+  "independent_simulation": false,
+  "independent_timing": false,
+  "q0_2_actual_audit": {
+    "valid": 29,
+    "tip_observed_trials": 1,
+    "near_fall_count": 1,
+    "linear_windows": 0,
+    "turn_windows": 1,
+    "mean_STOP_request_sec": 59.11034482758621,
+    "mean_route_progress_m": 0.18583706699414237,
+    "goal_reached_trials": 0,
+    "residual_unavailable_seconds": 13.799999999999997,
+    "copy_counts": {
+      "verified_original_files": 1853,
+      "decompressed_trace_files": 30
+    }
+  },
+  "findings": [],
+  "no_simulator_operations": true
+}
