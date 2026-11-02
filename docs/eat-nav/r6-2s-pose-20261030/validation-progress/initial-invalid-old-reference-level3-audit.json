@@ -1,0 +1,25 @@
+{
+  "schema": "eatnav_r6_initial_invalid_evaluation_mask_audit_v1",
+  "verified_unix": 1793582561.4720623,
+  "job": "old_reference-k_rail_field-l3-batch00",
+  "planned_trials": 30,
+  "initial_valid_trials": 29,
+  "invalid": [
+    {
+      "seed": 1558235351,
+      "group_id": "closed_loop/k_rail_field/level3/validation/seed1558235351/tile00",
+      "initial_valid": false,
+      "full_evaluation_valid": false,
+      "observed_sec": 0.0,
+      "fall_outcome_unknown": true,
+      "trace_rows": 0,
+      "decision_records": 0,
+      "initial_arrays_finite": true,
+      "initial_npz_sha256": "45fa4e293e8f7c9c8f066585a312a6bf2cb7b1c877caa2aafb39ed71a72baeeb",
+      "group_json_sha256": "cef3c3c874e48d770367a9341dda18ca3dc1944ec67ce88ed95e1afdc9c400e7"
+    }
+  ],
+  "mean_and_fall_rate_denominator": 29,
+  "invalid_not_credited_as_success": true,
+  "scope": "Initialization-failed cohort member only; not policy-executed failure or event-free outcome; other active environments continue independently"
+}
