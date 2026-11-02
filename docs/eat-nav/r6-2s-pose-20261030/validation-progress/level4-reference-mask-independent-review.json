@@ -1,0 +1,40 @@
+{
+  "schema": "r6_independent_level4_reference_initial_mask_review_v1",
+  "verified_unix": 1793596700.9426053,
+  "job": "old_reference-k_rail_field-l4-batch00",
+  "protocol_trials": 30,
+  "initial_valid_trials": 14,
+  "initial_invalid_trials": 16,
+  "all_30_initial_arrays_finite": true,
+  "invalid_prepolicy_tilt_over": true,
+  "invalid_trace_and_decisions_zero": true,
+  "invalid_goal_false_fullvalid_false_tip_zero_stall_zero_fallunknown_true": true,
+  "valid_raw_trace_metrics_recomputed": true,
+  "metrics": {
+    "tip_observed_trials": 0,
+    "near_fall_count": 1,
+    "linear_windows": 194,
+    "turn_windows": 45,
+    "observed_rows": 16800,
+    "observed_seconds": 840.0,
+    "causal_decision_records": 382,
+    "mean_STOP_request_sec": 0.0,
+    "mean_ranking_STOP_upper_bound_sec": 0.0,
+    "mean_route_progress_m": 1.3789142867748154,
+    "goal_reached_trials": 4,
+    "residual_unavailable_seconds": 0.0
+  },
+  "copy_artifact_counts": {
+    "verified_original_files": 889,
+    "decompressed_trace_files": 30
+  },
+  "all_source_SHA_match": true,
+  "cross_condition_pairing_not_claimed": true,
+  "preplanned_L4_reference_batches": 3,
+  "tip_rate_wilson95": [
+    1.3877787807814457e-17,
+    0.2153108027376358
+  ],
+  "findings": [],
+  "no_simulator_operations": true
+}
