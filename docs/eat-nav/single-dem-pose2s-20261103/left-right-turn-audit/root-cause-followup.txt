@@ -1,0 +1,85 @@
+旧RLポリシー左右差の追加原因調査（2026-11-03）
+
+新たに確認できたこと
+1. 同梱env.yaml、共有フォルダrl_actor_env.yamlは同一SHA256。
+2. Isaac Labの現行クラスからbase/収集設定を実際に生成した。
+   観測の順序・関数・パラメータ・noise・scale・clip、action順序・左右割当・scale/clip等は、
+   同梱env.yamlと一致。Python sliceとYAML tupleの等価表現を正規化して比較した。
+   ロボット設定の差はprim_pathのテンプレート表記。収集時の初期姿勢やfold_mode等の
+   意図したreset変更も比較JSONに全件残した。環境全体が同一という主張ではない。
+3. 観測配置はgyro3、gravity3、command3、fold_mode1、flipper_pos4、track_vel2、effort6。
+   末尾6はlast_actionではない。現行Actorはuse_last_action_obs=false、use_joint_effort_obs=true。
+4. 左右速度倍率とclipは共通14.2および±14.2。現行CPU再生で保存actionを再現できる。
+5. 旋回指令の低速バイアスはsign(x)*abs(x)^powerで、符号を維持する実装。
+   旋回追従報酬も指令とworld角速度の差の二乗。確認箇所に一方向だけ優遇する符号処理はない。
+
+重み内の非対称な旋回応答
+左右対称の静止入力、flipper=(0,0,pi,pi)、fold_mode=0で、
+要求v=0・yaw=-0.3 -> (右目標-左目標)=-6.101rad/s。
+要求v=0・yaw= 0.0 -> (右目標-左目標)=-3.652rad/s。
+要求v=0・yaw=+0.3 -> (右目標-左目標)=-0.309rad/s。
+この合成状態で左右速度出力が等しくなる要求yawは約+0.326902rad/s。
+これはActorの入出力関数の中立点であり、実機や閉ループ運動の中立点ではない。
+この数値を一律の旋回補正として採用してはいけない。
+
+最後の出力層の左右bias差は速度換算で-0.699rad/s。
+上記ゼロ指令時の残り約-2.953rad/sは中間層の活性から最終重みを介して生じる。
+したがって最終bias一つだけを直せば解消すると言えない。
+
+単一入力要因の検査
+最終評価の区間開始観測2450件をCPUで使い、要求速度を全て0にして再推論。
+effortだけ0、gyroだけ0、track速度だけ0、flipper位置だけ左右対称にする各検査でも、
+平均左右目標差は-3.11～-3.45rad/s程度で残った。
+全てを左右対称の静止入力にした場合も-3.652rad/s。
+入力の瞬間的な左右偏り・effortだけが原因という仮説は支持されない。
+合成/変更入力が学習分布内とは限らず、物理的な介入試験ではない。
+fold_modeを±1やflipper姿勢を変更してもゼロ要求時の負の偏りが残る（pose_mode_sweep.py）。
+
+結論の範囲
+現在の候補生成、FAST-LIO、2秒予測NNを外しても、既存Actorの関数自体に
+非対称な左右クローラ出力が存在する。現行の同梱設定に対する単純な入力/出力配線ミスは
+見つかっていない。これは現在の左右旋回差を生む、上流の確認済み要因である。
+
+ただし「なぜその重みに学習されたか」という歴史的根本原因は未特定。
+対象checkpointが由来すると文書にある2026-07-24_18-20-16の実ログ/agent設定/学習時Git記録は、
+調べたホスト/home/ubuntuおよびコンテナ/home,/workspace,/tmpには見つからなかった。
+checkpoint iter=10000、infos=Noneで、重み自体に学習時の実行設定・Git識別情報はない。
+同梱env.yamlの一致は、それが実際に元学習へ使用された証明にはならない。
+元学習の分布、報酬の効き方、物理モデル差の補償、最適化の偏りのどれが
+起点だったかを断定するには元ログが必要。ユーザーへ保存場所を問い合わせ済み。
+現行PPO設定は通常のMLPで左右共有重みや鏡映学習を保証する設定が確認できないが、
+それだけをこのcheckpointの非対称の唯一の原因として扱わない。
+
+今回の操作
+新しい走行データ収集・学習・重み変更・follower変更・実機指令送信なし。
+設定を生成するためのheadless CPUアプリを起動したが、環境/ロボット生成や物理stepは行っていない。
+証拠：actor-contract-comparison.json、current-actor-config.json、feature-ablation.json。
+再現用コードも同じディレクトリへ保存。比較コードは同梱設定と生成JSONを読み、
+設定生成コードはコンテナ内の既存staging領域を参照する。元の生記録は従来productionを参照。
+
+ユーザー提示READMEからの追加追跡
+提示URLのexp/eatnav-ros2-gui-demo-terrain版READMEをローカルGit objectから読み出した。
+現行worktreeのREADMEとSHA256が一致（80d21330e8dc4db2692a1d39f4fe80f5461553953245f574275fcbf47479b45c）。
+GitHub Web取得は失敗したため、内容照合はローカルの該当remote-tracking branchで実施。
+READMEのRLパスはonix_rough/2026-07-24_18-20-16/model_10000.pt。
+共有フォルダのRL重みSHA256は現在と完全一致。予測モデルとRL Actorは別物。
+
+旧共有データ training-evidence/grouped.npz の実測yawも調べた。
+4フィールドlevel1-3、前/後folded姿勢を含む288group、各候補288区間の平均：
+前進 -90度 -21.04度、前進 +90度 +5.20度。
+後退 -90度 -19.00度、後退 +90度 +5.47度。
+従って同じ符号の非対称は2026-10-14の既存データにも存在し、今回の
+4Hz単一DEM・FAST-LIO・新予測NN・連続5区間収集で初めて生じた現象ではない。
+旧データと新データは条件分布が異なるため、数値差を新旧性能の対照実験とは扱わない。
+元記録yawはdelta_body_yaw_radを集計したものとsource-snapshotコードで確認した。
+実ファイルのハッシュと全14候補の値はoriginal-shared-evidence.jsonに保存。
+
+READMEの旧GUIではfollowerとActorの間にTurnStuckEscapeが存在する。
+旋回応答が要求の50%以下で2秒続くと、最大0.2m/sの前後移動を交互に足す処理。
+今回の承認済み収集ではこの追加処理を使用していない。これは旧デモと今回の
+走行条件の相違だが、Actor単体の非対称な出力を生んだ理由ではない。
+旧GUIで動いて見えたことだけを、ポリシー単体の左右対称性の証明にはできない。
+
+このREADMEは利用・再生手順であり、RL自体の学習履歴ではない。
+同梱のtraining-evidenceはEAT-Nav Motion Predictorの学習結果であり、
+RL ActorのJuly学習ログではない。この区別を保ち、学習上の原因は未特定とする。

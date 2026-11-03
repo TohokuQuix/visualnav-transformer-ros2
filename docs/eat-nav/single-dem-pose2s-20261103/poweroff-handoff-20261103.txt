@@ -1,0 +1,19 @@
+{
+  "state": "paused_preserved_for_poweroff",
+  "paused_unix": 1793694581.8775203,
+  "reason": "User requested pause before PC shutdown",
+  "completed_batches": 67,
+  "completed_parents": 1284,
+  "valid_raw_pose_windows": 6413,
+  "planned_parents": 1330,
+  "training_started": false,
+  "actual_fastlio_processing_started": false,
+  "last_saved_batch": "mixed-k_rail_field-l3-n30-2dcac7076daa",
+  "last_saved_batch_raw_hashes_verified": true,
+  "source_commit": "5d62984d4b899fdb96f4197d2478e04e4968a3df",
+  "resume_note": "Start Docker container, rerun workflow; completed raw parents are hash-verified and skipped. Existing R6 is separately paused; do not resume it blindly."
+}
+
+cd /home/ubuntu/eatnav-moving-state-pose2s-20261103
+docker start isaac-lab-onix
+PYTHONPATH=src /home/ubuntu/venvs/isaaclab_py310/bin/python scripts/eat_nav_single_pose2s_workflow.py --output /home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production

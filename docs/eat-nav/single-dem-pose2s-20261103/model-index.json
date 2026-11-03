@@ -1,0 +1,16 @@
+{
+  "schema": "eatnav_pose2s_provisional_model_index_v1",
+  "checkpoint": "models/seed123/checkpoint.pt",
+  "checkpoint_sha256": "2f2e5ff3b8805e159b23b1e2708211edb0749a4749d46cb4fdc97fbf9619f009",
+  "input_schema": "eatnav_single_dem_pose2s_fastlio_input_v2",
+  "model_schema": "eatnav_single_dem_pose2s_fastlio_model_v2",
+  "horizon_seconds": 2,
+  "strict_accuracy_achieved": false,
+  "strict_passed_groups": 323,
+  "strict_required_groups": 490,
+  "release_basis": "User authorizes provisional model and B-only selection assessment based on overall means; per-condition maximum gate remains unmet",
+  "real_robot_compatibility_verified": false,
+  "automatic_real_robot_commands": false,
+  "raw_dataset_local_only": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production",
+  "dataset_git_upload": false
+}

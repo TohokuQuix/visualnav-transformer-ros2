@@ -1,0 +1,43 @@
+{
+  "probes": [
+    {
+      "probe": "recorded_state",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.12941837310791,
+      "median": -3.2433266639709473
+    },
+    {
+      "probe": "zero_effort",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.453554630279541,
+      "median": -3.4160289764404297
+    },
+    {
+      "probe": "zero_gyro",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.2406115531921387,
+      "median": -3.3440234661102295
+    },
+    {
+      "probe": "zero_track_velocity",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.2891364097595215,
+      "median": -3.3893003463745117
+    },
+    {
+      "probe": "symmetric_joint_position",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.1078667640686035,
+      "median": -3.202134132385254
+    },
+    {
+      "probe": "all_symmetric_static",
+      "n": 2450,
+      "right_minus_left_mean_rad_s": -3.6517410278320312,
+      "median": -3.6517410278320312
+    }
+  ],
+  "final_output_bias_difference_scaled_rad_s": -0.6991726160049438,
+  "neutral_hidden_contribution_scaled_rad_s": -2.9525684118270874,
+  "note": "Offline interventions only. Modified observations may be outside learned distribution; not a closed-loop dynamics test."
+}

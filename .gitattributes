@@ -11,3 +11,9 @@ docs/eat-nav/r4-star-fourteen-training-six-evaluation-20261026/models/** -text
 
 # Moving-state 2s inference checkpoint bytes.
 docs/eat-nav/moving-state-pose2s-20261103/models/** -text
+
+# Provisional single-frame pose2s checkpoint bytes.
+docs/eat-nav/single-dem-pose2s-20261103/models/** -text
+
+# Preserve generated reports/CSV bytes and accept their CRLF record terminators.
+docs/eat-nav/single-dem-pose2s-20261103/** -text whitespace=cr-at-eol

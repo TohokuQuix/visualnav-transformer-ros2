@@ -1,0 +1,75 @@
+2秒後状態予測NN・条件B実験の取得手順
+
+この成果は暫定モデルです。全体平均誤差は要件内ですが、490組の最大誤差では
+323組合格・167組未達です。ユーザー指示により条件Bを先行評価しています。
+実機入力・制御・計測特性との互換性は未確認です。
+
+取得（既存リポジトリ内、未コミット変更があれば先に保全）
+git fetch origin exp/eatnav-pose2s-selector-b-20261104
+git switch --track origin/exp/eatnav-pose2s-selector-b-20261104
+既に同名ローカルbranchがある場合は git switch exp/eatnav-pose2s-selector-b-20261104。
+今回branchを取得するremoteがTohokuQuix/visualnav-transformer-ros2であることを確認してください。
+
+チェックポイント
+ docs/eat-nav/single-dem-pose2s-20261103/models/seed123/checkpoint.pt
+SHA256
+ 2f2e5ff3b8805e159b23b1e2708211edb0749a4749d46cb4fdc97fbf9619f009
+通常Gitに実体を保存。今回モデルは約0.69MBで、LFS取得は不要。
+sha256sum docs/eat-nav/single-dem-pose2s-20261103/models/seed123/checkpoint.pt
+
+依存関係
+Python3.10、PyTorch2.7.0、NumPy、SciPyを使って検証しました。
+CPUで推論可能です。Isaac SimやROSはこの最小推論例には不要。
+既存環境を使うか専用venvを作り、NumPy/PyTorchを導入してください。
+今回実際に使用したバージョンの索引はruntime-dependencies.jsonを参照。
+
+14候補の最小推論（リポジトリのrootから）
+PYTHONPATH=src python scripts/eat_nav_single_pose2s_predict.py \
+ --checkpoint docs/eat-nav/single-dem-pose2s-20261103/models/seed123/checkpoint.pt \
+ --input docs/eat-nav/single-dem-pose2s-20261103/inference-example/input-fourteen.npz \
+ --output /tmp/eatnav-pose2s-predictions.json --all-fourteen
+
+結果JSON
+position_body_m: [1,14,3]、予測起点のfull-body座標での2秒後変位[m]。
+relative_quaternion_wxyz: [1,14,4]、起点姿勢に対する相対回転。
+relative_rpy_deg: [1,14,3]、確認用の相対roll/pitch/yaw[deg]。
+future_rpy_deg: [1,14,3]、入力q0と合成したworld重力基準の姿勢[deg]。
+rotation_valid: 全14候補の有効性。結果は予測であり実測ではありません。
+4イベント確率を出すR4*/R5とはschemaが異なり、既存loaderへ読み替えません。
+
+モデル入力
+schema=eatnav_single_dem_pose2s_fastlio_input_v2
+profile_sha256=e0f7f59133a0669f390bda2c5df164dab1bdeebb74f83ade8314d445de170e20
+DEM: [B,3,40,40]。4m四方0.1m、1frameの高さ+height-valid+raw-support。
+更新4Hz。画像/複数frame/goalは入力しません。セル軸・高さ基準は仕様書参照。
+state: [B,27]、mask/ageも各[B,27]、dem_context[B,6]。
+0:3 body重力、3:6 body角速度、6:10フリッパ角RR/RL/FR/FL、
+10:14同角速度、14:18 sprocket速度FR/RR/FL/RL、
+18:21 body線速度、21:24 body角速度（後者2群は実FAST-LIOの過去pose差分）、
+24:27 fold mode[-1,0,+1] one-hot。
+状態27成分は必須、観測age上限0.2s。未知modeを0へ置換しません。
+paths[B,14,8,2]は0.75mの既存円弧/直線、direction[B,14,1]は±1。
+候補ID0..6=前進、7..13=後退、各群角度0,-30,+30,-60,+60,-90,+90。
+時刻t0_ns、dem_stamp_ns、dem_received_nsを含み、未来の観測は不可。
+取得後の実測速度・実測指令・gate結果は入力に使用しません。
+例の入力はシミュレータの実際の記録から作ったfixtureで、実機の入力ではありません。
+
+今回の実機rosbag確認
+ユーザー報告の2本は実機PCの /media/yasuda-haruki/Extreme SSD/ にあり、
+この学習PCでは未読です。4mDEMだがodomはFAST-LIO由来でないとの報告。
+1) 2本それぞれのtopic/type、DEM解像度・更新時刻、IMU/JointState/mode/TFを監査。
+2) odomの取得元、frame、単位、欠損を確認。車輪由来なら滑りの影響を残す。
+3) 本モデルのFAST-LIO入力一致とは扱わず、別profileの診断結果として保存。
+4) 手動走行に候補を後付け近似した場合は代理評価であり、指定候補を同じfollowerで
+   2秒実行した正式な精度や、未実行13候補の正しい順位とは主張しない。
+5) 前進/後退はbag内の実測速度・採用指令から確認。ファイル順や復路という名称で決めない。
+型だけ合わせてFAST-LIOと偽装したり、stamp改変やDEM複製で4Hzに見せたりしません。
+
+経路選択
+条件Bは予測終点のXYゴール進捗最大化+予測重力傾斜60度超の候補除外だけ。
+他のDEMルール・スタック確率・45度STOP・退避ルールを追加していません。
+このbranchはモデル/推論/シミュレータ評価の成果物であり、実機の速度topicを
+自動publishするノードではありません。実機ではまずshadow予測の記録に利用してください。
+
+大きな生記録・学習datasetはローカルのみ。取得/分割/欠測件数はdataset-index、
+予測精度はprediction-evaluation、条件B結果はselector-b-evaluationを参照。

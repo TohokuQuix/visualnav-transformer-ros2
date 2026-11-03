@@ -1,0 +1,246 @@
+{
+  "checkpoint": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production/model-seed123/checkpoint.pt",
+  "checkpoint_sha256": "2f2e5ff3b8805e159b23b1e2708211edb0749a4749d46cb4fdc97fbf9619f009",
+  "input_schema": "eatnav_single_dem_pose2s_fastlio_input_v2",
+  "profile_sha256": "e0f7f59133a0669f390bda2c5df164dab1bdeebb74f83ade8314d445de170e20",
+  "horizon_s": 2,
+  "scope": "CPU input-output probe; identical synthetic symmetric state/DEM, candidate only changes; no simulator/real robot run, no learning",
+  "input_conditions": {
+    "flat_dem_height_body_reference_m": -0.35,
+    "dem_channels": "height/inpaint_valid/raw_support",
+    "all_cells_observed": true,
+    "gravity_body": [
+      0,
+      0,
+      -1
+    ],
+    "linear_angular_velocity": 0,
+    "flipper_angles_rr_rl_fr_fl_rad": [
+      0,
+      0,
+      3.141592653589793,
+      3.141592653589793
+    ],
+    "fold_mode": 0,
+    "dem_age_s": 0,
+    "state_ages_s": 0
+  },
+  "caveats": [
+    "Synthetic input is schema-valid but not proven in-distribution.",
+    "There is no ground truth for this synthetic input; this checks output asymmetry, not prediction error.",
+    "Candidate +/-90 means arc geometry, not an instruction to rotate 90deg within2s.",
+    "Asymmetric predictions may reflect asymmetric RL-driven training outcomes."
+  ],
+  "predictions": [
+    {
+      "candidate_id": 0,
+      "direction": 1,
+      "candidate_angle_deg": 0,
+      "pred_x_cm": 54.631062585172785,
+      "pred_y_cm": -1.3517234474420547,
+      "pred_z_cm": -1.2112349975517578,
+      "pred_roll_deg": 0.699267236526647,
+      "pred_pitch_deg": 3.793238234839396,
+      "pred_yaw_deg": 0.4099047649288322
+    },
+    {
+      "candidate_id": 1,
+      "direction": 1,
+      "candidate_angle_deg": -30,
+      "pred_x_cm": 49.91564592987601,
+      "pred_y_cm": -2.4111412465572357,
+      "pred_z_cm": -1.609292064317347,
+      "pred_roll_deg": 0.3973111299882362,
+      "pred_pitch_deg": 4.846267351809687,
+      "pred_yaw_deg": -6.023376012183076
+    },
+    {
+      "candidate_id": 2,
+      "direction": 1,
+      "candidate_angle_deg": 30,
+      "pred_x_cm": 43.62355086622394,
+      "pred_y_cm": -0.553100872784853,
+      "pred_z_cm": -0.8593550603955835,
+      "pred_roll_deg": 0.7144856002546011,
+      "pred_pitch_deg": 2.468244145505633,
+      "pred_yaw_deg": 3.9436892943728035
+    },
+    {
+      "candidate_id": 3,
+      "direction": 1,
+      "candidate_angle_deg": -60,
+      "pred_x_cm": 37.50892256257252,
+      "pred_y_cm": -2.8199559450149536,
+      "pred_z_cm": -1.9148626062257312,
+      "pred_roll_deg": 0.14867464351162085,
+      "pred_pitch_deg": 4.515586695744656,
+      "pred_yaw_deg": -11.145700305864825
+    },
+    {
+      "candidate_id": 4,
+      "direction": 1,
+      "candidate_angle_deg": 60,
+      "pred_x_cm": 22.43607920043562,
+      "pred_y_cm": -0.1842671073973179,
+      "pred_z_cm": -0.3044956790263842,
+      "pred_roll_deg": 0.3154023461089457,
+      "pred_pitch_deg": 1.5700587499883973,
+      "pred_yaw_deg": 1.319555487323154
+    },
+    {
+      "candidate_id": 5,
+      "direction": 1,
+      "candidate_angle_deg": -90,
+      "pred_x_cm": 27.404868119365844,
+      "pred_y_cm": -2.718256264925003,
+      "pred_z_cm": -2.0763612420979793,
+      "pred_roll_deg": 0.09879856450929166,
+      "pred_pitch_deg": 3.8473227235073395,
+      "pred_yaw_deg": -13.99734973743184
+    },
+    {
+      "candidate_id": 6,
+      "direction": 1,
+      "candidate_angle_deg": 90,
+      "pred_x_cm": 11.885065875418377,
+      "pred_y_cm": 0.1593025773763657,
+      "pred_z_cm": -0.08042621462507615,
+      "pred_roll_deg": 0.005956541234373504,
+      "pred_pitch_deg": 1.130214327835695,
+      "pred_yaw_deg": -0.6347739412949177
+    },
+    {
+      "candidate_id": 7,
+      "direction": -1,
+      "candidate_angle_deg": 0,
+      "pred_x_cm": -26.71143479249345,
+      "pred_y_cm": 0.9539779275655746,
+      "pred_z_cm": 0.2170157827143332,
+      "pred_roll_deg": -0.7885851823620276,
+      "pred_pitch_deg": 0.6562946636031307,
+      "pred_yaw_deg": -4.981033756545875
+    },
+    {
+      "candidate_id": 8,
+      "direction": -1,
+      "candidate_angle_deg": -30,
+      "pred_x_cm": -21.249982708044968,
+      "pred_y_cm": 1.1735117435455322,
+      "pred_z_cm": 0.18217820382977756,
+      "pred_roll_deg": -0.9079372262956125,
+      "pred_pitch_deg": 0.5996882020963237,
+      "pred_yaw_deg": -5.662975181132858
+    },
+    {
+      "candidate_id": 9,
+      "direction": -1,
+      "candidate_angle_deg": 30,
+      "pred_x_cm": -26.070225469800334,
+      "pred_y_cm": 0.5387217551469804,
+      "pred_z_cm": 0.23688369831974254,
+      "pred_roll_deg": -0.43094669090764554,
+      "pred_pitch_deg": 0.5872128886495165,
+      "pred_yaw_deg": -3.234514188142243
+    },
+    {
+      "candidate_id": 10,
+      "direction": -1,
+      "candidate_angle_deg": -60,
+      "pred_x_cm": -14.023261450776303,
+      "pred_y_cm": 1.2887690961360931,
+      "pred_z_cm": 0.12246446903322605,
+      "pred_roll_deg": -0.8981136545754621,
+      "pred_pitch_deg": 0.5012033021926873,
+      "pred_yaw_deg": -5.794161894610819
+    },
+    {
+      "candidate_id": 11,
+      "direction": -1,
+      "candidate_angle_deg": 60,
+      "pred_x_cm": -13.440367234412776,
+      "pred_y_cm": 0.13468034565448764,
+      "pred_z_cm": 0.20693186444771527,
+      "pred_roll_deg": 0.17394102727156655,
+      "pred_pitch_deg": 0.14831437283031323,
+      "pred_yaw_deg": -0.7972190229782077
+    },
+    {
+      "candidate_id": 12,
+      "direction": -1,
+      "candidate_angle_deg": -90,
+      "pred_x_cm": -8.852069009642793,
+      "pred_y_cm": 1.2976917624473572,
+      "pred_z_cm": 0.03947131355291622,
+      "pred_roll_deg": -0.8131750725800997,
+      "pred_pitch_deg": 0.4162921042090884,
+      "pred_yaw_deg": -5.568798598350589
+    },
+    {
+      "candidate_id": 13,
+      "direction": -1,
+      "candidate_angle_deg": 90,
+      "pred_x_cm": -3.1254360334072473,
+      "pred_y_cm": 0.041514560580253615,
+      "pred_z_cm": 0.10038780319506224,
+      "pred_roll_deg": 0.5322008253982132,
+      "pred_pitch_deg": -0.24895126067884363,
+      "pred_yaw_deg": 0.6670698557472564
+    }
+  ],
+  "pairs": [
+    {
+      "direction": 1,
+      "angle_magnitude_deg": 30,
+      "minus_candidate_pred_yaw_deg": -6.023376012183076,
+      "plus_candidate_pred_yaw_deg": 3.9436892943728035,
+      "yaw_signed_sum_deg": -2.0796867178102723,
+      "x_difference_cm": -6.29209506365207,
+      "y_signed_sum_cm": -2.9642421193420887
+    },
+    {
+      "direction": 1,
+      "angle_magnitude_deg": 60,
+      "minus_candidate_pred_yaw_deg": -11.145700305864825,
+      "plus_candidate_pred_yaw_deg": 1.319555487323154,
+      "yaw_signed_sum_deg": -9.826144818541673,
+      "x_difference_cm": -15.0728433621369,
+      "y_signed_sum_cm": -3.0042230524122715
+    },
+    {
+      "direction": 1,
+      "angle_magnitude_deg": 90,
+      "minus_candidate_pred_yaw_deg": -13.99734973743184,
+      "plus_candidate_pred_yaw_deg": -0.6347739412949177,
+      "yaw_signed_sum_deg": -14.63212367872676,
+      "x_difference_cm": -15.519802243947467,
+      "y_signed_sum_cm": -2.5589536875486374
+    },
+    {
+      "direction": -1,
+      "angle_magnitude_deg": 30,
+      "minus_candidate_pred_yaw_deg": -5.662975181132858,
+      "plus_candidate_pred_yaw_deg": -3.234514188142243,
+      "yaw_signed_sum_deg": -8.897489369275101,
+      "x_difference_cm": -4.820242761755367,
+      "y_signed_sum_cm": 1.7122334986925125
+    },
+    {
+      "direction": -1,
+      "angle_magnitude_deg": 60,
+      "minus_candidate_pred_yaw_deg": -5.794161894610819,
+      "plus_candidate_pred_yaw_deg": -0.7972190229782077,
+      "yaw_signed_sum_deg": -6.591380917589027,
+      "x_difference_cm": 0.5828942163635276,
+      "y_signed_sum_cm": 1.4234494417905807
+    },
+    {
+      "direction": -1,
+      "angle_magnitude_deg": 90,
+      "minus_candidate_pred_yaw_deg": -5.568798598350589,
+      "plus_candidate_pred_yaw_deg": 0.6670698557472564,
+      "yaw_signed_sum_deg": -4.901728742603333,
+      "x_difference_cm": 5.726632976235546,
+      "y_signed_sum_cm": 1.3392063230276108
+    }
+  ]
+}

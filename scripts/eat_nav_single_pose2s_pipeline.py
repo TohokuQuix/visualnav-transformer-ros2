@@ -20,7 +20,7 @@ def active_collection_workers(proc_root=Path('/proc')):
         if not proc.name.isdigit():continue
         try:
             args=(proc/'cmdline').read_bytes().split(b'\0')
-            if args and args[0]==b'/isaac-sim/kit/python/bin/python3' and any(b'eat_nav_single_pose2s_collect_sim.py' in x for x in args[1:]):result.append(int(proc.name))
+            if args and args[0]==b'/isaac-sim/kit/python/bin/python3' and any(any(name in x for name in [b'eat_nav_single_pose2s_collect_sim.py',b'eat_nav_single_pose2s_select_sim.py']) for x in args[1:]):result.append(int(proc.name))
         except (OSError,ProcessLookupError):pass
     return sorted(result)
 

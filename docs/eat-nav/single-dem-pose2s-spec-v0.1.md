@@ -1,5 +1,8 @@
 # 1フレームDEMによる2秒後状態予測・経路選択 仕様案 v0.1
 
+> 2026-11-04のユーザー変更：最大誤差未達を保持した暫定モデルで、条件Bのみ350走行を先行。比較完了・成果物検証後に新規branchへpush。rosbagは実機側PCで確認。[移行記録](single-dem-pose2s-20261103/provisional-selector-transition.txt)。以下の承認待ち・未実施・全組pass必須という記述は原提案の履歴で、最新状態はstage-status.jsonを参照。
+
+
 > 最新の確定変更：ユーザーは**実FAST-LIO本体の実行と最大30台収集**を選択済み。詳細は [実FAST-LIO・30台の変更仕様](single-dem-pose2s-20261103/actual-fastlio-thirty-amendment.md)。以下の旧wheel-odom入力仕様はこの変更記録で置き換える。
 
 

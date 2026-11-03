@@ -86,3 +86,14 @@
 - [ ] Accuracy pass required for first release upload; preserve failed results as local honest reports if not achieved. No premature trained-ready assertion.
 - [ ] Fresh whole-branch review, meaningful tests, model CPU reload/K14/permutation and checksum validation.
 - [ ] Push new branch normally only at approved milestones. Verify remote HEAD and checkpoint availability. Second upload contains selector results only if actually completed.
+
+## User-approved transition amendment (2026-11-04)
+
+- User explicitly elects to proceed with the provisional model because overall means meet targets. Original 490-group maximum gate remains failed (323/490); do not rewrite the strict accuracy attestation.
+- User then explicitly requests Task6 before GitHub, and defers all pushes until simulator comparison and available rosbag checks finish.
+- Task6 authorization is a separate file bound to checkpoint SHA; scope exploratory_selector_and_offline_bag, not an accuracy pass or real-robot command authorization.
+- First verify pure selection and causal input tests. Implement host/worker file handoff: simulator pauses at current observation, host runs actual FAST-LIO only over recorded sensor prefix then predicts K14 and returns chosen candidate. Do not substitute root velocity for LIO.
+- Small A/B prototype before full 700 runs. Both conditions restart fresh with the same parent seeds, env order, initial/terrain setup and warmup. Check actual stage0 states/terrain hashes for pairing; report any mismatch rather than claiming identical conditions.
+- Use 10 environments per simulator process initially to bound synchronous actual-LIO prefix replay overhead. Preserve dt=.005/control=.05/DEM=.25/replan2s. This is selection evaluation, not another training dataset collection.
+- Goal forward3m and predicted tilt filter60deg, no other selection constraints. Failed/terminal runs retained; no rescue policies.
+- Current old bags are incompatible20x20; user reports a new4x4m bag with non-FAST-LIO odometry. Await path/source, audit input compatibility, label odometry substitution as distribution mismatch; never relabel as FAST-LIO or formal matched-candidate accuracy.
