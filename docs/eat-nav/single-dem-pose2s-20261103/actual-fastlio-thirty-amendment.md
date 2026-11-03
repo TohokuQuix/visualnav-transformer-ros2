@@ -33,3 +33,15 @@ IMUは20Hz。姿勢から重力を車体軸へ変換し、直前との速度差�
 旧wheel-odom収集は区切りで停止・保存済み。新実FAST-LIOデータは `/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v1/` 配下へ保存し、旧データを上書きしない。manifest、条件別件数、欠測理由、実行コマンド、hashと保存場所を共有する。dataset本体と大量点群は通常Gitへpushしない。
 
 実機互換性未確認、シミュレーション先行の承認は維持。精度未達なら経路選択へ進まない。dataset生成・監査終了時に通知し、学習未完を学習済みと報告しない。
+
+## 修正と再検証（本収集再開前）
+
+レビューで、terrain origin.z（接地面高）とmesh配置translationを混同する不具合を修正。正しくは `mesh_world_translation = env_origin - local_terrain_origin`。高さ原点3.411mのpyramid_stairs level4で、物理DEMとLiDAR用meshの64点比較の最大差5.73e-7mを確認。各本収集workerで同じ幾何一致検査を行う。
+
+またIsaac `root_state_w` はlink poseとCOM velocityを混在させるため、IMU生成にはpose/velocityが同じactor原点の `root_link_state_w` を使用する。終端時はpre-resetのlink状態を保存する。
+
+旧source版productionは38親を保全して停止し、新しい実行rootは `/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production`。旧版を新datasetへ混ぜない。新profile SHA256は `e0f7f59133a0669f390bda2c5df164dab1bdeebb74f83ade8314d445de170e20`。
+
+1度、私の検証起動が進行中workerと重複しGPU OOMとなった。失敗出力は隔離し不採用。対策として、global flockと実行中collector検出でGPU workerを直列化し、重複起動を防止した。これは30台単独の容量測定とは区別する。
+
+runtime-stage.jsonは最新pointerに限定し、不変のstage manifestをruntime-stagesへ保持する。実行workerは実import先とファイルhash、Actor/env/config/late sensor sourceのhashを保存し、canonical runtime identityを親metadataへ紐付ける。次batchとdataset監査で未承認の混在を拒否する。新productionは修正版prototypeで検証済みidentity `ccc13100778d95f2b05fa7dcd52e0b92bfcc508fe46001d18de6266c5034d675` に固定する。

@@ -24,3 +24,12 @@ def test_imu_specific_force_keeps_stationary_gravity_and_no_future():
     np.testing.assert_allclose(imu_specific_force(root,root,.05),[0,0,9.81])
     current=root.copy();current[7]=.1
     np.testing.assert_allclose(imu_specific_force(root,current,.05),[2,0,9.81])
+
+
+def test_lidar_translation_does_not_subtract_terrain_support_height():
+    from visualnav_transformer.eat_nav.single_pose2s_fastlio import mesh_placement_translation
+    # The mesh stays at local ground z=1.5, despite env-origin z=1.5.
+    placement=mesh_placement_translation([40,56,1.5],[0,0,1.5])
+    np.testing.assert_allclose(placement,[40,56,0])
+    root=np.array([40,56,2.])
+    np.testing.assert_allclose(root-placement,[0,0,2.])

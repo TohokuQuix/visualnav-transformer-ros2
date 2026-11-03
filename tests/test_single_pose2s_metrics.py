@@ -23,3 +23,14 @@ def test_maximum_not_mean_and_invalid_predictions_stay_denominator():
     rows[0]['prediction_valid']=False
     g=next(g for g in evaluate_records(rows)['groups'] if g['valid_intervals'])
     assert g['valid_intervals']==5 and g['valid_predictions']==4 and g['joint_within_fraction']==.8 and not g['pass']
+
+
+def test_evaluation_requires_checkpoint_dataset_identity(tmp_path):
+    import hashlib
+    import pytest
+    from visualnav_transformer.eat_nav.single_pose2s_metrics import verify_dataset_identity
+    (tmp_path/'manifest.json').write_text('{}');(tmp_path/'audit.json').write_text('{"a":1}')
+    checkpoint={f'dataset_{key}_sha256':hashlib.sha256((tmp_path/(key+'.json')).read_bytes()).hexdigest() for key in ['manifest','audit']}
+    verify_dataset_identity(checkpoint,tmp_path)
+    (tmp_path/'manifest.json').write_text('{"different":true}')
+    with pytest.raises(ValueError,match='dataset identity'):verify_dataset_identity(checkpoint,tmp_path)

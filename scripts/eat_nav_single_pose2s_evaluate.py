@@ -8,7 +8,7 @@ from scipy.linalg import expm
 from visualnav_transformer.eat_nav.single_pose2s_model import SinglePose2s,prepare
 from visualnav_transformer.eat_nav.single_pose2s_contract import MODEL_SCHEMA,PROFILE_SHA
 from visualnav_transformer.eat_nav.single_pose2s_geometry import path_errors,orientation_errors,arc_position
-from visualnav_transformer.eat_nav.single_pose2s_metrics import evaluate_records,save_evaluation
+from visualnav_transformer.eat_nav.single_pose2s_metrics import evaluate_records,save_evaluation,verify_dataset_identity
 from visualnav_transformer.eat_nav.moving_pose2s_geometry import sixd_to_matrix,quat_to_matrix
 from visualnav_transformer.eat_nav.bidirectional_bank import bank
 
@@ -50,6 +50,7 @@ def main():
     args.output.mkdir(parents=True);torch.set_num_threads(4)
     checkpoint=torch.load(args.checkpoint,map_location='cpu',weights_only=True)
     if checkpoint.get('schema')!=MODEL_SCHEMA or checkpoint.get('profile_sha256')!=PROFILE_SHA:raise ValueError('checkpoint schema/profile mismatch')
+    verify_dataset_identity(checkpoint,args.dataset)
     freeze=dict(schema='eatnav_single_dem_pose2s_accuracy_freeze_v1',role=args.role,checkpoint_sha256=sha(args.checkpoint),dataset_manifest_sha256=sha(args.dataset/'manifest.json'),role_samples_sha256=sha(args.dataset/(args.role+'-samples.npz')),evaluation_code_sha256=sha(__file__),metrics_sha256=sha(Path(__file__).resolve().parents[1]/'src/visualnav_transformer/eat_nav/single_pose2s_metrics.py'),opened_unix=time.time(),pass_rule='maximum per490 groups, >=5 samples and parents',profile_sha256=PROFILE_SHA)
     (args.output/'freeze.json').write_text(json.dumps(freeze,indent=2)+'\n')
     with np.load(args.dataset/(args.role+'-samples.npz'),allow_pickle=False) as f:a={k:f[k] for k in f.files}

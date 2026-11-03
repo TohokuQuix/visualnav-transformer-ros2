@@ -75,12 +75,20 @@ def audit_split(records,allow_known_terrain=False):
 def build_dataset(raw_root,manifest,output):
     raw_root=Path(raw_root);output=Path(output)
     if output.exists():raise FileExistsError(output)
-    expected={p['parent_id']:p for p in manifest['parents']};rows=[];sources=[];found=set()
+    expected={p['parent_id']:p for p in manifest['parents']};rows=[];sources=[];found=set();runtime_ids=set()
     for meta_path in sorted(raw_root.rglob('metadata.json')):
         metadata=json.loads(meta_path.read_text());parent=metadata['parent'];pid=parent['parent_id']
         if pid not in expected:continue
         if pid in found:raise ValueError('duplicate raw parent '+pid)
         if parent!=expected[pid] or metadata['profile_sha256']!=PROFILE_SHA:raise ValueError('frozen manifest/profile mismatch')
+        runtime_file=meta_path.parent/metadata['runtime_imports_file']
+        if hashlib.sha256(runtime_file.read_bytes()).hexdigest()!=metadata['runtime_imports_sha256']:raise ValueError('runtime import manifest hash mismatch')
+        identity=json.loads(runtime_file.read_text())['canonical_sha256']
+        if identity!=metadata.get('runtime_identity_sha256'):raise ValueError('runtime identity mismatch')
+        runtime_ids.add(identity)
+        approved=manifest.get('approved_runtime_identities')
+        if approved is not None and identity not in approved:raise ValueError('unapproved runtime identity')
+        if len(runtime_ids)>1 and approved is None:raise ValueError('unapproved mixed runtime identities')
         path=meta_path.with_name('raw.npz');digest=hashlib.sha256(path.read_bytes()).hexdigest()
         if digest!=metadata['raw_sha256']:raise ValueError('raw hash mismatch')
         lio_dir=meta_path.parent/'fastlio'
@@ -116,7 +124,7 @@ def build_dataset(raw_root,manifest,output):
         np.savez_compressed(output/(role+'-samples.npz'),**{k:v[ids] for k,v in arrays.items()})
         (output/(role+'-records.json')).write_text(json.dumps([records[i] for i in ids],indent=2)+'\n')
     coverage=Counter((r['role'],r['field'],r['level'],r['candidate_id']) for r in records if r['pose_mask'])
-    audit=dict(schema='eatnav_single_dem_pose2s_dataset_audit_v1',planned_parents=len(expected),observed_parents=len(found),missing_parent_ids=sorted(set(expected)-found),planned_windows=len(expected)*5,observed_windows=N,valid_pose_windows=int(arrays['pose_mask'].sum()),invalid_reasons=dict(Counter(r['reason'] for r in records if r['reason'])),leakage=leakage,role_counts={role:dict(planned_parents=sum(p['role']==role for p in manifest['parents']),observed_parents=len({r['parent_id'] for r in records if r['role']==role}),observed_windows=len(ids),valid_windows=int(arrays['pose_mask'][ids].sum())) for role,ids in splits.items()},profile_sha256=PROFILE_SHA,complete_parent_coverage=len(found)==len(expected),coverage=[dict(role=k[0],field=k[1],level=k[2],candidate_id=k[3],valid_windows=v) for k,v in sorted(coverage.items())])
+    audit=dict(schema='eatnav_single_dem_pose2s_dataset_audit_v1',planned_parents=len(expected),observed_parents=len(found),missing_parent_ids=sorted(set(expected)-found),planned_windows=len(expected)*5,observed_windows=N,valid_pose_windows=int(arrays['pose_mask'].sum()),invalid_reasons=dict(Counter(r['reason'] for r in records if r['reason'])),leakage=leakage,role_counts={role:dict(planned_parents=sum(p['role']==role for p in manifest['parents']),observed_parents=len({r['parent_id'] for r in records if r['role']==role}),observed_windows=len(ids),valid_windows=int(arrays['pose_mask'][ids].sum())) for role,ids in splits.items()},profile_sha256=PROFILE_SHA,complete_parent_coverage=len(found)==len(expected),runtime_identity_sha256=sorted(runtime_ids),coverage=[dict(role=k[0],field=k[1],level=k[2],candidate_id=k[3],valid_windows=v) for k,v in sorted(coverage.items())])
     for name,data in [('records.json',records),('split.json',splits),('source-index.json',sources),('audit.json',audit),('manifest.json',manifest)]:
         (output/name).write_text(json.dumps(data,indent=2,allow_nan=False)+'\n')
     return audit

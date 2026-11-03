@@ -12,8 +12,8 @@ from .single_pose2s_fastlio import imu_specific_force
 
 
 class SimLioSensors:
-    def __init__(self, meshes, origins, device, count):
-        self.device=device;self.count=count;self.origins=np.asarray(origins)
+    def __init__(self, meshes, mesh_world_translations, device, count):
+        self.device=device;self.count=count;self.origins=np.asarray(mesh_world_translations)
         self.mesh=[convert_to_warp_mesh(*meshes[i],device=device) for i in range(count)]
         az,el=np.meshgrid(np.arange(512)*2*np.pi/512,np.deg2rad(np.linspace(-40,20,16)))
         self.directions=np.stack([np.cos(el)*np.cos(az),np.cos(el)*np.sin(az),np.sin(el)],-1).reshape(-1,3).astype(np.float32)
@@ -34,5 +34,17 @@ class SimLioSensors:
                 points.append(local.astype(np.float32))
             self.points.append(np.stack(points));self.lidar_stamps.append(stamp_ns)
         self.previous=roots.copy()
+    def verify_dem_alignment(self,roots,physical_hits):
+        errors=[];counts=[]
+        for i,r in enumerate(roots):
+            sample=np.asarray(physical_hits[i])[::25];valid=np.isfinite(sample).all(1);sample=sample[valid]
+            starts=sample.copy();starts[:,2]=r[2]+3.;starts-=self.origins[i]
+            directions=np.zeros_like(starts);directions[:,2]=-1
+            hit,_,_,_=raycast_mesh(torch.as_tensor(starts.astype(np.float32),device=self.device),torch.as_tensor(directions.astype(np.float32),device=self.device),self.mesh[i],max_dist=20.)
+            hit=hit.cpu().numpy()+self.origins[i];pair=np.isfinite(hit).all(1)
+            counts.append(int(pair.sum()));errors.append(float(np.max(np.abs(hit[pair,2]-sample[pair,2]))) if pair.any() else None)
+        passed=all(n>0 and e is not None and e<=.005 for n,e in zip(counts,errors))
+        return dict(passed=passed,valid_comparisons_per_env=counts,max_height_difference_m_per_env=errors,numerical_tolerance_m=.005)
+
     def save(self,path,index):
         np.savez_compressed(path,imu_stamp_ns=np.asarray(self.imu_stamps,np.int64),imu_acc=np.asarray(self.acc)[:,index],imu_gyro=np.asarray(self.gyro)[:,index],lidar_end_stamp_ns=np.asarray(self.lidar_stamps,np.int64),lidar_points=np.asarray(self.points)[:,index])

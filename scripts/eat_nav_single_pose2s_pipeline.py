@@ -1,6 +1,6 @@
 """Resumable host-side headless collection; never launches path selection implicitly."""
 from __future__ import annotations
-import argparse,json,subprocess,time,uuid,os,shutil
+import argparse,json,subprocess,time,uuid,os,shutil,fcntl,functools
 from pathlib import Path
 from visualnav_transformer.eat_nav.single_pose2s_contract import make_manifest
 from visualnav_transformer.eat_nav.single_pose2s_collection import pending_parent_batches
@@ -13,6 +13,30 @@ def write(p,x):
     p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(x,indent=2)+'\n');tmp.replace(p)
 
 
+
+def active_collection_workers(proc_root=Path('/proc')):
+    result=[]
+    for proc in Path(proc_root).iterdir():
+        if not proc.name.isdigit():continue
+        try:
+            args=(proc/'cmdline').read_bytes().split(b'\0')
+            if args and args[0]==b'/isaac-sim/kit/python/bin/python3' and any(b'eat_nav_single_pose2s_collect_sim.py' in x for x in args[1:]):result.append(int(proc.name))
+        except (OSError,ProcessLookupError):pass
+    return sorted(result)
+
+
+def serialized_gpu(function):
+    @functools.wraps(function)
+    def wrapped(*args,**kwargs):
+        with Path('/tmp/eatnav-single-pose2s-gpu-collection.lock').open('a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            start=time.monotonic()
+            while active_collection_workers():
+                if time.monotonic()-start>2400:raise RuntimeError('another collector still active; not starting overlapping simulator')
+                time.sleep(2)
+            return function(*args,**kwargs)
+    return wrapped
+
 def stage_source(root):
     path='/tmp/eatnav-single-dem-pose2s-'+uuid.uuid4().hex[:10]
     subprocess.run(['docker','exec',CONTAINER,'mkdir','-p',path],check=True)
@@ -22,10 +46,16 @@ def stage_source(root):
     sources={}
     for source in list((REPO/'src/visualnav_transformer/eat_nav').glob('*.py'))+list((REPO/'scripts').glob('eat_nav_single_pose2s*.py')):
         sources[str(source.relative_to(REPO))]=hashlib.sha256(source.read_bytes()).hexdigest()
-    write(root/'runtime-stage.json',dict(container=CONTAINER,path=path,created_unix=time.time(),source_sha256=sources))
+    record=dict(container=CONTAINER,path=path,created_unix=time.time(),source_sha256=sources)
+    stage_id=path.rsplit('/',1)[-1];immutable=root/'runtime-stages'/f'{stage_id}.json'
+    if immutable.exists():raise FileExistsError(immutable)
+    write(immutable,record)
+    write(root/'runtime-stage.json',record)  # latest pointer; immutable records retained above
+
     return path
 
 
+@serialized_gpu
 def run_batch(root,stage,parents,tag,record_lidar=False):
     target=root/'raw'/tag
     if (target/'complete.json').exists():return json.loads((target/'complete.json').read_text())
@@ -35,13 +65,18 @@ def run_batch(root,stage,parents,tag,record_lidar=False):
     out=stage+'/'+tag
     command=['docker','exec','-e','PYTHONPATH='+stage+'/src:'+stage+'/scripts:/workspace/isaaclab_onix/source/onix_isaac_lab:/workspace/isaaclab/source/isaaclab:/workspace/isaaclab/source/isaaclab_rl:/workspace/isaaclab/source/isaaclab_tasks',CONTAINER,'timeout','--signal=INT','--kill-after=30s','1800s','/isaac-sim/python.sh',stage+'/scripts/eat_nav_single_pose2s_collect_sim.py','--headless','--parents',stage+'/'+tag+'.json','--output',out,'--rl-checkpoint',stage+'/actor.pt','--actor-env-yaml',stage+'/env.yaml','--eat-config',stage+'/eat_nav.yaml']
     if record_lidar:command.append('--record-lidar')
-    write(root/'runtime'/f'{tag}-command.json',dict(command=command,parents=[p['parent_id'] for p in parents]))
+    write(root/'runtime'/f'{tag}-command.json',dict(command=command,parents=[p['parent_id'] for p in parents],stage_manifest=str(root/'runtime-stages'/(stage.rsplit('/',1)[-1]+'.json'))))
     start=time.time();print('START '+tag,flush=True)
     log=root/'logs'/f'{tag}.log';log.parent.mkdir(parents=True,exist_ok=True)
     with log.open('x') as f:result=subprocess.run(command,stdout=f,stderr=subprocess.STDOUT)
     target.parent.mkdir(parents=True,exist_ok=True)
     subprocess.run(['docker','cp',CONTAINER+':'+out,str(target)],check=True,stdout=subprocess.DEVNULL)
     if result.returncode or not (target/'complete.json').exists():raise RuntimeError(f'collector failed {tag}, returncode={result.returncode}; see {log}')
+    identity=json.loads((target/'runtime-imports.json').read_text())['canonical_sha256']
+    identity_path=root/'collection-runtime-identity.json'
+    if identity_path.exists():
+        if json.loads(identity_path.read_text())['canonical_sha256']!=identity:raise ValueError('runtime source identity changed; preserve batch and audit before continuing')
+    else:write(identity_path,dict(canonical_sha256=identity,first_batch=tag))
     complete=json.loads((target/'complete.json').read_text());complete['host_wall_seconds']=time.time()-start;complete['host_valid_windows_per_second']=complete['valid_windows']/complete['host_wall_seconds'];write(target/'complete.json',complete)
     print('DONE '+tag+' '+json.dumps({k:complete[k] for k in ['valid_windows','host_wall_seconds','host_valid_windows_per_second']}),flush=True)
     return complete

@@ -14,7 +14,7 @@ PHYSICS_DT=.005
 HORIZON_STEPS=40
 TRIAL_STEPS=200
 REQUIRED=tuple(range(27))
-PROFILE=dict(actor_sha256=ACTOR_SHA,fold_mode=0,control_dt=.05,physics_dt=.005,dem_hz=4,dem_cells=40,dem_resolution_m=.1,lookahead_m=.5,linear_speed_mps=.3,angular_gain=.5,max_angular_rps=1.6,goal_tolerance_m=.2,recovery=False,angular_boost=False,measured_tilt_stop=False,follower_revision='legacy_nominal_end_tangent_v1',initialization='terrain_support_clearance_v1',observation_profile='single_grid_actual_fastlio_pose_velocity_v2',settling_seconds=2,lio_initialization_seconds=2,lidar_profile='terrain_only_16x512_10hz_colocated_root',imu_hz=20,fastlio_binary_sha256='d91e9e2806280a56070e55fec2490f754bdbd8e7c85f362911c887bb2c7e026e',fastlio_config_sha256='46e0f4a9aaa8d6542665c988d586b7090fea352751a9f3d285d8adf632071ea8')
+PROFILE=dict(actor_sha256=ACTOR_SHA,fold_mode=0,control_dt=.05,physics_dt=.005,dem_hz=4,dem_cells=40,dem_resolution_m=.1,lookahead_m=.5,linear_speed_mps=.3,angular_gain=.5,max_angular_rps=1.6,goal_tolerance_m=.2,recovery=False,angular_boost=False,measured_tilt_stop=False,follower_revision='legacy_nominal_end_tangent_v1',initialization='terrain_support_clearance_v1',observation_profile='single_grid_actual_fastlio_pose_velocity_v2',settling_seconds=2,lio_initialization_seconds=2,lidar_profile='terrain_only_16x512_10hz_colocated_root_mesh_placement_v2',imu_hz=20,imu_profile='link_origin_past_velocity_specific_force_v1',fastlio_binary_sha256='d91e9e2806280a56070e55fec2490f754bdbd8e7c85f362911c887bb2c7e026e',fastlio_config_sha256='46e0f4a9aaa8d6542665c988d586b7090fea352751a9f3d285d8adf632071ea8')
 PROFILE_SHA=hashlib.sha256(json.dumps(PROFILE,sort_keys=True).encode()).hexdigest()
 
 

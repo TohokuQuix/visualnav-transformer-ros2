@@ -1,0 +1,107 @@
+{
+  "audit": {
+    "schema": "eatnav_single_dem_pose2s_dataset_audit_v1",
+    "planned_parents": 1,
+    "observed_parents": 1,
+    "missing_parent_ids": [],
+    "planned_windows": 5,
+    "observed_windows": 5,
+    "valid_pose_windows": 5,
+    "invalid_reasons": {},
+    "leakage": {
+      "parent_count": 1,
+      "terrain_hash_count": 1,
+      "cross_role_terrain_overlap": 0,
+      "terrain_overlap_groups": {},
+      "cross_role_seed_overlap": 0,
+      "cross_role_raw_overlap": 0,
+      "cross_role_initial_state_overlap": 0,
+      "terrain_generalization_claim": "mesh_disjoint"
+    },
+    "role_counts": {
+      "train": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      },
+      "validation": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      },
+      "final_test": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      }
+    },
+    "profile_sha256": "e0f7f59133a0669f390bda2c5df164dab1bdeebb74f83ade8314d445de170e20",
+    "complete_parent_coverage": true,
+    "runtime_identity_sha256": [
+      "ccc13100778d95f2b05fa7dcd52e0b92bfcc508fe46001d18de6266c5034d675"
+    ],
+    "coverage": [
+      {
+        "role": "benchmark",
+        "field": "pyramid_stairs",
+        "level": 4,
+        "candidate_id": 4,
+        "valid_windows": 1
+      },
+      {
+        "role": "benchmark",
+        "field": "pyramid_stairs",
+        "level": 4,
+        "candidate_id": 6,
+        "valid_windows": 1
+      },
+      {
+        "role": "benchmark",
+        "field": "pyramid_stairs",
+        "level": 4,
+        "candidate_id": 9,
+        "valid_windows": 1
+      },
+      {
+        "role": "benchmark",
+        "field": "pyramid_stairs",
+        "level": 4,
+        "candidate_id": 11,
+        "valid_windows": 1
+      },
+      {
+        "role": "benchmark",
+        "field": "pyramid_stairs",
+        "level": 4,
+        "candidate_id": 13,
+        "valid_windows": 1
+      }
+    ]
+  },
+  "alignment": {
+    "passed": true,
+    "valid_comparisons_per_env": [
+      64
+    ],
+    "max_height_difference_m_per_env": [
+      5.729889247518827e-07
+    ],
+    "numerical_tolerance_m": 0.005
+  },
+  "mesh_local_origin": [
+    0.0,
+    0.0,
+    3.4111680022979405
+  ],
+  "mesh_world_translation": [
+    32.0,
+    0.0,
+    9.615176654875768e-08
+  ],
+  "source_root": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/prototype-raised-origin-r3",
+  "production_root": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production",
+  "input_profile_sha256": "e0f7f59133a0669f390bda2c5df164dab1bdeebb74f83ade8314d445de170e20"
+}

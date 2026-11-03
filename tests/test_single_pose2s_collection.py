@@ -55,3 +55,13 @@ def test_thirty_env_batches_preserve_parent_splits_and_skip_completed():
     assert all(p==original[p['parent_id']] for batch in batches for p in batch)
     with pytest.raises(ValueError):pending_parent_batches(m,set(),0)
     with pytest.raises(ValueError):pending_parent_batches(m,{'unknown-parent'},30)
+
+
+def test_active_worker_detection_ignores_host_wrapper_and_paused_r6(tmp_path):
+    import importlib.util
+    from pathlib import Path
+    script=Path(__file__).resolve().parents[1]/'scripts/eat_nav_single_pose2s_pipeline.py'
+    spec=importlib.util.spec_from_file_location('pose_pipeline_test',script);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    for pid,cmd in [(11,b'/isaac-sim/kit/python/bin/python3\0/stage/eat_nav_single_pose2s_collect_sim.py\0'),(12,b'/usr/bin/python3\0/stage/eat_nav_single_pose2s_collect_sim.py\0'),(13,b'/isaac-sim/kit/python/bin/python3\0/eat_nav_r6_eval_sim.py\0')]:
+        d=tmp_path/str(pid);d.mkdir();(d/'cmdline').write_bytes(cmd)
+    assert module.active_collection_workers(tmp_path)==[11]

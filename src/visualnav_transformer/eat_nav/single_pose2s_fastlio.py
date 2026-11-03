@@ -26,6 +26,17 @@ def odom_velocity_at(t0_ns,stamps_ns,received_ns,poses):
 
 
 def imu_specific_force(previous_root,current_root,dt):
+    """Requires root_link_state_w: pose and velocity at the same actor origin.
+
+    Isaac root_state_w mixes link pose with COM velocity and must not be used.
+    """
     if dt<=0:raise ValueError('positive sample interval required')
     r=np.asarray(current_root);a=(r[7:10]-np.asarray(previous_root)[7:10])/dt
     return quat_to_matrix(r[3:7]).T@(a-np.array([0.,0.,-9.81]))
+
+
+def mesh_placement_translation(env_origins,local_origins):
+    """Terrain origin includes support z; mesh placement is a separate transform."""
+    env=np.asarray(env_origins,float);local=np.asarray(local_origins,float)
+    if env.shape!=local.shape or env.shape[-1]!=3 or not np.isfinite(env).all() or not np.isfinite(local).all():raise ValueError('invalid mesh origin transforms')
+    return env-local

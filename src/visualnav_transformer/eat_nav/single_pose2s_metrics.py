@@ -75,3 +75,11 @@ def save_evaluation(output,records,report):
         directory=output/kind;directory.mkdir(exist_ok=True)
         for v in values:(directory/(str(v)+'.md')).write_text(table([r for r in report['groups'] if r[kind]==v]))
     (output/'README.md').write_text('# 独立予測精度評価\n\n490組全体の精度達成：'+str(report['accuracy_achieved'])+'。合格'+str(report['passed_groups'])+'/490、評価なし'+str(report['missing_groups'])+'、件数不足'+str(report['insufficient_groups'])+'。\n\n最大絶対誤差を組別に判定。高さには合否閾値なし。CSVとcandidate_id/field/level別Markdownを参照。\n')
+
+
+def verify_dataset_identity(checkpoint,dataset):
+    import hashlib
+    from pathlib import Path
+    for key in ['manifest','audit']:
+        actual=hashlib.sha256((Path(dataset)/(key+'.json')).read_bytes()).hexdigest()
+        if actual!=checkpoint.get('dataset_'+key+'_sha256'):raise ValueError('checkpoint dataset identity mismatch: '+key)
