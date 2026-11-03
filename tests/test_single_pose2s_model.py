@@ -45,3 +45,11 @@ def test_inference_rejects_shape_compatible_wheel_odom_input():
     m=SinglePose2s();payload=dict(schema=MODEL_SCHEMA,input_schema=INPUT_SCHEMA,profile_sha256=PROFILE_SHA,normalization=fit_normalization(a,[0]),state_dict=m.state_dict())
     a['input_schema']='eatnav_single_dem_pose2s_input_v1'
     with pytest.raises(ValueError,match='input provenance'):predict(payload,a)
+
+
+def test_latency_summary_reports_milliseconds_and_tail():
+    from visualnav_transformer.eat_nav.single_pose2s_model import latency_summary
+    s=latency_summary([.001,.002,.003])
+    assert s['mean_ms']==pytest.approx(2.) and s['median_ms']==pytest.approx(2.)
+    assert s['max_ms']==pytest.approx(3.) and s['p95_ms']==pytest.approx(2.9)
+    assert s['repeats']==3

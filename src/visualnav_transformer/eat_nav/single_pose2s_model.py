@@ -89,3 +89,9 @@ def predict(payload,a,device='cpu'):
         frpy,fsingular=matrix_to_rpy(future)
         result.update(future_quaternion_wxyz=matrix_to_quat(future),future_rpy_rad=frpy,future_rpy_deg=np.rad2deg(frpy),future_euler_singular=fsingular,future_gravity_body=np.einsum('...ji,j->...i',future,[0.,0.,-1.]))
     return result
+
+
+def latency_summary(seconds):
+    x=np.asarray(seconds,float)*1000
+    if x.ndim!=1 or not len(x) or not np.isfinite(x).all() or np.any(x<0):raise ValueError('finite nonnegative latency samples required')
+    return dict(repeats=len(x),mean_ms=float(x.mean()),median_ms=float(np.median(x)),p95_ms=float(np.percentile(x,95)),max_ms=float(x.max()))
