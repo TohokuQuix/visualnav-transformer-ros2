@@ -1,0 +1,134 @@
+{
+  "state": "completed",
+  "results": [
+    {
+      "num_envs": 2,
+      "repeat": 0,
+      "state": "completed",
+      "parents": 2,
+      "planned_windows": 10,
+      "valid_windows": 6,
+      "elapsed_seconds": 49.85422544099856,
+      "timings": {
+        "env_step": 44.322676244948525,
+        "actor": 0.14469035167712718,
+        "sensor": 0.16128574215690605,
+        "save": 0.05281638499582186
+      },
+      "window_per_wall_second": 0.12035088193478956,
+      "sim_seconds_per_wall_second": 0.40116960644929855,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.00040056667057797313,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 16401920,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 55.13804054260254,
+      "host_valid_windows_per_second": 0.10881779513662779
+    },
+    {
+      "num_envs": 5,
+      "repeat": 0,
+      "state": "completed",
+      "parents": 5,
+      "planned_windows": 25,
+      "valid_windows": 25,
+      "elapsed_seconds": 65.02072242097347,
+      "timings": {
+        "env_step": 56.012135426164605,
+        "actor": 0.15961267505190335,
+        "sensor": 0.333100994117558,
+        "save": 0.14506142400205135
+      },
+      "window_per_wall_second": 0.3844928058187162,
+      "sim_seconds_per_wall_second": 0.7689856116374324,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.00040056667057797313,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 16804864,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 70.65586256980896,
+      "host_valid_windows_per_second": 0.35382768096985096
+    },
+    {
+      "num_envs": 10,
+      "repeat": 0,
+      "state": "completed",
+      "parents": 10,
+      "planned_windows": 50,
+      "valid_windows": 50,
+      "elapsed_seconds": 83.64950273701106,
+      "timings": {
+        "env_step": 68.73758875587373,
+        "actor": 0.16690009101876058,
+        "sensor": 0.3646761280542705,
+        "save": 0.2757022360165138
+      },
+      "window_per_wall_second": 0.597732184460163,
+      "sim_seconds_per_wall_second": 1.195464368920326,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.00040056667057797313,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 17758720,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 89.19465827941895,
+      "host_valid_windows_per_second": 0.5605716862927559
+    },
+    {
+      "num_envs": 10,
+      "repeat": 1,
+      "state": "completed",
+      "parents": 10,
+      "planned_windows": 50,
+      "valid_windows": 50,
+      "elapsed_seconds": 83.60462095000548,
+      "timings": {
+        "env_step": 68.91903402691241,
+        "actor": 0.16822423815028742,
+        "sensor": 0.36353819887153804,
+        "save": 0.29350373399211094
+      },
+      "window_per_wall_second": 0.5980530673047292,
+      "sim_seconds_per_wall_second": 1.1961061346094584,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.00040056667057797313,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 17758720,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 89.30704283714294,
+      "host_valid_windows_per_second": 0.5598662592733943
+    }
+  ],
+  "mean_rate": {
+    "2": 0.10881779513662779,
+    "5": 0.35382768096985096,
+    "10": 0.5602189727830751
+  },
+  "selected_num_envs": 10,
+  "physics_dt": 0.005,
+  "control_dt": 0.05,
+  "horizon_s": 2.0
+}

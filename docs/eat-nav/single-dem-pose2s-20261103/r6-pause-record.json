@@ -1,0 +1,22 @@
+{
+  "user_authorized": true,
+  "request": "pause R6 and prioritize single DEM pose2s GPU",
+  "recorded_unix": 1793677885.8412263,
+  "coordinator_pid": 91045,
+  "coordinator_signal": "SIGSTOP",
+  "current_sim_pid": 273124,
+  "current_batch": "pose_q1_1-k_rail_step_field-l2-batch00",
+  "current_container_output": "/tmp/eatnav-r6-production-v9ks3_cr/evaluations/pose_q1_1-k_rail_step_field-l2-batch00",
+  "policy": "coordinator and simulator both paused in memory, preserving physics/control state and existing output; VRAM remains resident",
+  "resume_same_process": null,
+  "restart_entrypoint": "/home/ubuntu/visualnav-transformer-ros2/docs/eat-nav/r6-2s-pose-20261030/operations/run-evaluation-independent.py",
+  "completed_outputs_preserved": true,
+  "simulator_signal": "SIGSTOP",
+  "simulator_paused_unix": 1793678570.7793496,
+  "container_simulator_pid": 98159,
+  "simulator_pause_verified": true,
+  "container_timeout_pid": 98148,
+  "timeout_supervisor_paused": true,
+  "resume_requires_audit_of_expired_watchdogs": true,
+  "resume_note": "Do not blindly SIGCONT original watchdog/coordinator after long pause: both container timeout and Python subprocess deadlines include wallclock. Keep simulator state preserved; resume simulator without watchdog, seal/copy its completion, then reconcile queue and restart coordinator from sealed jobs."
+}

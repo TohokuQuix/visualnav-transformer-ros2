@@ -8,7 +8,8 @@ from visualnav_transformer.eat_nav.bidirectional_bank import bank
 
 
 def valid():
-    return dict(schema=INPUT_SCHEMA,dem=np.stack([np.zeros((40,40)),np.ones((40,40)),np.ones((40,40))]),state=np.zeros(27),state_mask=np.ones(27),state_age=np.zeros(27),dem_context=np.array([0.,1.,0.,0.,0.,1.]),t0_ns=250000000,dem_stamp_ns=250000000,dem_received_ns=250000000,paths=np.stack([x.waypoints for x in bank()]),directions=np.array([[x.direction] for x in bank()]))
+    state=np.zeros(27);state[2]=-1;state[25]=1
+    return dict(schema=INPUT_SCHEMA,dem=np.stack([np.zeros((40,40)),np.ones((40,40)),np.ones((40,40))]),state=state,state_mask=np.ones(27),state_age=np.zeros(27),dem_context=np.array([0.,1.,0.,0.,0.,1.]),t0_ns=250000000,dem_stamp_ns=250000000,dem_received_ns=250000000,paths=np.stack([x.waypoints for x in bank()]),directions=np.array([[x.direction] for x in bank()]))
 
 
 def test_plan_counts_and_independent_parents():
@@ -57,3 +58,29 @@ def test_nominal_follower_does_not_recover_when_stationary():
         assert v==pytest.approx(.3) and vy==0 and w==pytest.approx(0)
     r=NominalFollower(bank()[7].waypoints)
     assert r.step(0.,0.,0.)[0]==pytest.approx(-.3)
+
+
+def test_bad_gravity_mode_and_nonbank_path_rejected():
+    a=valid();a['state'][:3]=0
+    with pytest.raises(ValueError):validate_input(a)
+    a=valid();a['state'][24:]=0
+    with pytest.raises(ValueError):validate_input(a)
+    a=valid();a['paths'][0,-1,0]=42
+    with pytest.raises(ValueError):validate_input(a)
+
+
+def test_nominal_curve_endpoint_extension_uses_legacy_end_tangent():
+    f=NominalFollower(bank()[5].waypoints)
+    cmd=f.step(.19514863273861344,-.1532974059593647,-2.030677995822562)
+    np.testing.assert_allclose(cmd,[0.,0.,.5739419673092182],atol=1e-9)
+
+
+def test_cpp_nominal_stateful_direction_parity(tmp_path):
+    from visualnav_transformer.eat_nav.p1_follower_core import PureFollower,compile_core
+    library=compile_core(tmp_path)
+    for c in bank():
+        old=PureFollower(c.waypoints.tolist(),library=library);new=NominalFollower(c.waypoints)
+        try:
+            for step,yaw in enumerate([0.,np.pi,1.5,1.3,1.8]):
+                np.testing.assert_allclose(old.step(0.,0.,yaw,step*50000000),new.step(0.,0.,yaw),atol=1e-9)
+        finally:old.close()

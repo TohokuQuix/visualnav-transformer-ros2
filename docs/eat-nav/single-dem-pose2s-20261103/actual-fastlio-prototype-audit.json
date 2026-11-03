@@ -1,0 +1,186 @@
+{
+  "collection": {
+    "state": "completed",
+    "parents": 30,
+    "planned_windows": 150,
+    "valid_windows": 145,
+    "elapsed_seconds": 175.3590664359799,
+    "timings": {
+      "env_step": 93.6726243190642,
+      "actor": 0.17299415974412113,
+      "sensor": 0.513280535931699,
+      "save": 9.108011539006839
+    },
+    "window_per_wall_second": 0.8268748399897339,
+    "sim_seconds_per_wall_second": 1.7107755310132424,
+    "physics_audit": {
+      "valid": true,
+      "all_finite": true,
+      "minimum_mass_kg": 0.19780069589614868,
+      "nonpositive_mass_count": 0,
+      "minimum_inertia_eigenvalue": 0.0003638273337855935,
+      "nonpositive_inertia_eigenvalue_count": 0
+    },
+    "peak_gpu_bytes": 23259136,
+    "headless": true,
+    "profile_sha256": "205a0777b60d1b707e57e35d156b8c8b3f9358b28400de5c2bf8693969f143a8",
+    "host_wall_seconds": 180.91910886764526,
+    "host_valid_windows_per_second": 0.8014631561449789
+  },
+  "fastlio": {
+    "phase": "completed",
+    "expected_parents": 30,
+    "completed_parents": 30,
+    "workers": 4,
+    "elapsed_seconds": 83.25626230239868,
+    "error": null
+  },
+  "dataset_audit": {
+    "schema": "eatnav_single_dem_pose2s_dataset_audit_v1",
+    "planned_parents": 30,
+    "observed_parents": 30,
+    "missing_parent_ids": [],
+    "planned_windows": 150,
+    "observed_windows": 150,
+    "valid_pose_windows": 145,
+    "invalid_reasons": {
+      "ended_before_2s": 2,
+      "start_after_terminal": 3
+    },
+    "leakage": {
+      "parent_count": 30,
+      "terrain_hash_count": 3,
+      "cross_role_terrain_overlap": 0,
+      "terrain_overlap_groups": {},
+      "cross_role_seed_overlap": 0,
+      "cross_role_raw_overlap": 0,
+      "cross_role_initial_state_overlap": 0,
+      "terrain_generalization_claim": "mesh_disjoint"
+    },
+    "role_counts": {
+      "train": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      },
+      "validation": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      },
+      "final_test": {
+        "planned_parents": 0,
+        "observed_parents": 0,
+        "observed_windows": 0,
+        "valid_windows": 0
+      }
+    },
+    "profile_sha256": "205a0777b60d1b707e57e35d156b8c8b3f9358b28400de5c2bf8693969f143a8",
+    "complete_parent_coverage": true,
+    "coverage": [
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 0,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 1,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 2,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 3,
+        "valid_windows": 11
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 4,
+        "valid_windows": 11
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 5,
+        "valid_windows": 11
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 6,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 7,
+        "valid_windows": 11
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 8,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 9,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 10,
+        "valid_windows": 11
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 11,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 12,
+        "valid_windows": 10
+      },
+      {
+        "role": "benchmark",
+        "field": "k_rail_field",
+        "level": 4,
+        "candidate_id": 13,
+        "valid_windows": 10
+      }
+    ]
+  },
+  "prototype_only": true,
+  "source_root": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v1/prototype-n30",
+  "production_root": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v1/production"
+}

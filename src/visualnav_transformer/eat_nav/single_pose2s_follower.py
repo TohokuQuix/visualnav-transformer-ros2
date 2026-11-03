@@ -39,7 +39,7 @@ class NominalFollower:
         if self.direction is None:self.direction=1 if err<=math.pi/2 else -1
         elif err<=math.radians(80):self.direction=1
         elif err>=math.radians(100):self.direction=-1
-        line_yaw=math.atan2(self.path[-1,1]-y,self.path[-1,0]-x)
+        line_yaw=self.tangent(7)
         extension=remaining<=.5
         if np.linalg.norm(robot-self.path[-1])<.2 or (extension and (robot-self.path[-1])@np.array([math.cos(line_yaw),math.sin(line_yaw)])>=0):
             self.goal=True;return (0.,0.,0.)

@@ -1,5 +1,11 @@
 # 1フレームDEMによる2秒後状態予測・経路選択 仕様案 v0.1
 
+> 最新の確定変更：ユーザーは**実FAST-LIO本体の実行と最大30台収集**を選択済み。詳細は [実FAST-LIO・30台の変更仕様](single-dem-pose2s-20261103/actual-fastlio-thirty-amendment.md)。以下の旧wheel-odom入力仕様はこの変更記録で置き換える。
+
+
+> 最新変更：車体速度はFAST-LIO `/Odometry` 由来へ変更するユーザー指示を受領。旧車輪換算入力の記述は変更前の仕様であり、新規学習では使用しない。詳細・未確認項目・学習保留は [変更記録](single-dem-pose2s-20261103/fast-lio-velocity-amendment.md) を参照。
+
+
 2026-11-03作成。**仕様承認待ち。本仕様の収集・学習・経路選択実験は未実施。**
 
 本仕様は今回のユーザー指示を基準にdataset設計から作り直したもの。以前の`real-conditions-pose2s-spec-v0.1.md`にある約3Hz・複数DEM・状態履歴・18,816区間の計画は継続しない。既存成果・branchは保全する。

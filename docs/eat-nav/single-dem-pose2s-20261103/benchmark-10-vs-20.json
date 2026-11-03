@@ -1,0 +1,77 @@
+{
+  "benchmark_root": "/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/benchmark-10-vs-20-1793681733",
+  "results": [
+    {
+      "num_envs": 10,
+      "state": "completed",
+      "parents": 10,
+      "planned_windows": 50,
+      "valid_windows": 50,
+      "elapsed_seconds": 83.31780994700966,
+      "timings": {
+        "env_step": 68.8211090300465,
+        "actor": 0.17058054488734342,
+        "sensor": 0.3745009039994329,
+        "save": 0.2817489820008632
+      },
+      "window_per_wall_second": 0.6001117892056947,
+      "sim_seconds_per_wall_second": 1.2002235784113895,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.00040056667057797313,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 17758720,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 89.10213208198547,
+      "host_valid_windows_per_second": 0.5611537999336934
+    },
+    {
+      "num_envs": 20,
+      "state": "completed",
+      "parents": 20,
+      "planned_windows": 100,
+      "valid_windows": 100,
+      "elapsed_seconds": 108.22888655000133,
+      "timings": {
+        "env_step": 81.86799566211994,
+        "actor": 0.19245092500932515,
+        "sensor": 0.4386981939023826,
+        "save": 0.5989828589954413
+      },
+      "window_per_wall_second": 0.9239677426950187,
+      "sim_seconds_per_wall_second": 1.8479354853900374,
+      "physics_audit": {
+        "valid": true,
+        "all_finite": true,
+        "minimum_mass_kg": 0.20000000298023224,
+        "nonpositive_mass_count": 0,
+        "minimum_inertia_eigenvalue": 0.0003683469258248806,
+        "nonpositive_inertia_eigenvalue_count": 0
+      },
+      "peak_gpu_bytes": 20442624,
+      "headless": true,
+      "profile_sha256": "50a68bbabf0512818308a907fa277efb07a45203068889fe9ca0c5aa3ebdbc3f",
+      "host_wall_seconds": 113.97405457496643,
+      "host_valid_windows_per_second": 0.8773926695239661
+    }
+  ],
+  "throughput_speedup_20_vs_10": 1.5635511505538051,
+  "estimated_same_work_time_reduction_fraction": 0.36043026181407434,
+  "peak_total_gpu_memory_mib": 12534.0,
+  "includes_paused_r6_gpu_allocation": true,
+  "repetitions_per_size": 1,
+  "field": "k_rail_field",
+  "level": 4,
+  "physics_dt_s": 0.005,
+  "control_dt_s": 0.05,
+  "dem_hz": 4,
+  "failure_count": 0,
+  "production_num_envs_unchanged": 10,
+  "not_training_data": true,
+  "limitation": "Single field/level, one repetition per size. First ten parents shared; stochastic physics/noise may differ with vector size. No cross-field speed guarantee. Production cell role counts 10/14 need regrouping to exploit twenty."
+}

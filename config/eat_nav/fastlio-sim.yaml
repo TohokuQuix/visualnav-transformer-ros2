@@ -1,0 +1,44 @@
+/**:
+  ros__parameters:
+    feature_extract_enable: false
+    point_filter_num: 1
+    max_iteration: 5
+    filter_size_surf: 0.15
+    filter_size_map: 0.15
+    cube_side_length: 100.0
+    runtime_pos_log_enable: false
+    base_frame: sim_body
+    map_frame: sim_map
+    sensor_frame: sim_body
+    sensor_init_frame: sim_lio_init
+    common:
+      lid_topic: /eatnav_sim/lidar
+      imu_topic: /eatnav_sim/imu
+      time_sync_en: false
+      time_offset_lidar_to_imu: 0.0
+    preprocess:
+      lidar_type: 2
+      scan_line: 16
+      blind: 0.15
+      timestamp_unit: 0
+      scan_rate: 10
+    mapping:
+      acc_cov: 0.1
+      gyr_cov: 0.01
+      b_acc_cov: 0.0001
+      b_gyr_cov: 0.0001
+      fov_degree: 360.0
+      det_range: 15.0
+      extrinsic_est_en: false
+      extrinsic_T: [0.0, 0.0, 0.0]
+      extrinsic_R: [1.,0.,0.,0.,1.,0.,0.,0.,1.]
+    publish:
+      path_en: false
+      map_en: false
+      effect_map_en: false
+      scan_publish_en: false
+      dense_publish_en: false
+      scan_bodyframe_pub_en: false
+    pcd_save:
+      pcd_save_en: false
+      interval: -1
