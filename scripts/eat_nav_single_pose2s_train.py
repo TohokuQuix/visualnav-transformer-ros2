@@ -44,6 +44,7 @@ def main():
     R0=quat_to_matrix(arrays['root0'][val,3:7]);Rgt,_=sixd_to_matrix(arrays['rotation'][val]);gt_rpy,gt_lock=matrix_to_rpy(R0@Rgt);basis=validation_basis(arrays,records,val)
     best=float('inf');best_epoch=0;history=[];start=time.time()
     config=dict(epochs=a.epochs,seed=a.seed,batch_size=a.batch_size,lr=.001,weight_decay=.0001,min_epochs=30,patience=25,diagnostic=a.diagnostic,selection='validation normalized path longitudinal/lateral and future wrapped RPY MAE',profile_sha256=PROFILE_SHA)
+    config.update(training_script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),model_source_sha256=hashlib.sha256((Path(__file__).resolve().parents[1]/'src/visualnav_transformer/eat_nav/single_pose2s_model.py').read_bytes()).hexdigest(),torch_version=str(torch.__version__))
     save_json(a.output/'config.json',config)
     for epoch in range(1,a.epochs+1):
         model.train();losses=[]
