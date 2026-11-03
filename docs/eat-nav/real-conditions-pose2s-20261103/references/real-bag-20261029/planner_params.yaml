@@ -1,0 +1,27 @@
+/eat_nav_planner:
+  ros__parameters:
+    base_frame: chassis/body
+    checkpoint: ''
+    checkpoint_sha256: ''
+    dem_max_age_sec: 1.0
+    dem_topic: /filtered_elevation_map
+    enable_robot: true
+    fold_timeout_sec: 0.0
+    goal_tolerance_m: 0.2
+    height_layer: elevation_inpainted
+    history_interval_sec: 0.3333333333333333
+    history_tolerance_sec: 1.0
+    imu_topic: /bno055/imu
+    joint_topic: /joint_states
+    navigation_mode: r5_14
+    odom_topic: /diff_drive_controller/odom
+    planning_frame: map
+    replan_period_sec: 2.0
+    repository: /home/yasuda-haruki/visualnav-transformer-ros2
+    stall_risk_only: true
+    start_type_description_service: true
+    state_timeout_sec: 1.0
+    tf_max_age_sec: 1.0
+    torch_site_packages: /home/yasuda-haruki/venvs/isaaclab_env/lib/python3.12/site-packages
+    use_sim_time: false
+

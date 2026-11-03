@@ -1,0 +1,30 @@
+eat_nav_planner:
+  ros__parameters:
+    enable_robot: false
+    dem_topic: /filtered_elevation_map
+    height_layer: elevation
+    imu_topic: /bno055/imu
+    joint_topic: /joint_states
+    odom_topic: /diff_drive_controller/odom
+    planning_frame: map
+    base_frame: chassis/body
+    state_timeout_sec: 1.0
+    fold_timeout_sec: 0.0  # mode is latched until changed; defaults to 0 before first sample
+    tf_max_age_sec: 1.0
+    dem_max_age_sec: 1.0
+    history_interval_sec: 0.3333333333333333
+    history_tolerance_sec: 1.0
+    replan_period_sec: 2.0
+    stall_risk_only: false  # true: either stall head >= .95 vetoes regardless of progress
+    goal_tolerance_m: 0.2
+eat_nav_command_gate:
+  ros__parameters:
+    enable_robot: false
+    bridge_node: /onix_policy_bridge
+    follower_node: /eat_nav_follower
+    planner_node: /eat_nav_planner
+    base_frame: chassis/body
+    bridge_timeout_max_sec: 0.5
+    rearm_delay_sec: 0.15
+    max_linear_mps: 0.3
+    max_angular_rps: 1.6

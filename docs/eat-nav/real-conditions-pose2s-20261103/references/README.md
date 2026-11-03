@@ -1,0 +1,10 @@
+# 参照コード・設定の凍結コピー
+
+既存コードを変更せず、調査で参照したファイルをそのまま保存した文書添付です。新規実装・配布用の制御コードではなく、インストールや実機制御に使用しません。
+
+- visualnav-transformer-ros2参照commit：43bb7b69fde5d29095b6add17965aacd48ae58fa。
+- ローカルonix_automation参照commit：39bd4b2431dfb7b049204133e1a52548d03dcbe0。選んだファイルはこのcommitと一致。実機PCの現在版・実行中版との一致は未確認。
+- 10/30引継ぎコピーは元commit不明。ここに保存したbytesのSHAと、この文書一式のGit commitを識別子にする。元commitを推測しない。
+- 実機の専用eat_nav_cycle_follower本体・完全設定・実行中Actor checkpointは未受領。旧simple_trajectory_follower設定で代用しない。
+
+対応表は../reference-index.jsonを参照。実機側では自身の実行パラメータとファイルSHAを比較し、同じソースがディスクにあるだけで実行中バイナリまで一致したと判断しないでください。
