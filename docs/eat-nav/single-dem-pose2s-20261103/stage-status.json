@@ -1,0 +1,35 @@
+{
+  "schema": "eatnav_single_dem_pose2s_stage_status_v1",
+  "spec_approved": false,
+  "full_collection_started": false,
+  "training_started": false,
+  "prediction_accuracy_achieved": false,
+  "path_selection_evaluation_started": false,
+  "specification_sharing_only": true,
+  "previous_3hz_multiframe_plan_superseded": true,
+  "proposed_dem_update_hz": 4,
+  "dem_input_frame_count": 1,
+  "dem_grid": [
+    40,
+    40
+  ],
+  "dem_extent_m": [
+    4,
+    4
+  ],
+  "planned_parent_trials": {
+    "train": 350,
+    "validation": 490,
+    "final_test": 490
+  },
+  "planned_windows": {
+    "train": 1750,
+    "validation": 2450,
+    "final_test": 2450
+  },
+  "evaluation_groups": 490,
+  "proposed_final_examples_per_group": 5,
+  "proposed_pass_statistic": "maximum_absolute_error_per_group",
+  "proposed_selector_tilt_threshold_deg": 60,
+  "actor_confirmed_by_user": true
+}
