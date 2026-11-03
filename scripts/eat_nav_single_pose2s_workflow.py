@@ -34,6 +34,7 @@ def main():
         audit=json.loads((dataset/'audit.json').read_text())
         if not audit['complete_parent_coverage']:raise ValueError('missing expected parents; do not train as completed collection')
         save(root/'dataset-completed-notification.json',dict(state='dataset_completed_and_audited',audit_path=str(dataset/'audit.json'),valid_pose_windows=audit['valid_pose_windows'],observed_parents=audit['observed_parents'],notification_requested_by_user=True,dataset_not_for_git=True,completed_unix=time.time()))
+        print('DATASET_COMPLETED '+json.dumps(dict(valid_windows=audit['valid_pose_windows'],parents=audit['observed_parents'],role_counts=audit['role_counts'],audit=str(dataset/'audit.json'))),flush=True)
         phase('training')
         models=root/'model-seed123'
         if not (models/'training-complete.json').exists():

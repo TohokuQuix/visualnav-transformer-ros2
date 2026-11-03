@@ -1,6 +1,6 @@
 """Run actual FAST-LIO per parent, with bounded CPU parallelism and strict provenance."""
 from __future__ import annotations
-import argparse,concurrent.futures,hashlib,json,os,subprocess,time
+import argparse,concurrent.futures,hashlib,json,os,subprocess,time,signal
 from pathlib import Path
 
 REPO=Path(__file__).resolve().parents[1]
@@ -19,9 +19,16 @@ def main():
             return record
         if output.exists():raise ValueError('incomplete FAST-LIO output preserved for inspection: '+str(output))
         command=['bash','-c','source /home/ubuntu/onix/install/setup.bash; export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ROS_DOMAIN_ID=77 ROS_LOCALHOST_ONLY=1 OMP_NUM_THREADS=1; exec /usr/bin/python3 "$@"','fastlio-replay',str(REPO/'scripts/eat_nav_single_pose2s_fastlio_replay.py'),'--parent',str(parent),'--output',str(output)]
-        result=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=180)
-        (parent/'fastlio-host.log').write_text(result.stdout)
-        if result.returncode:raise RuntimeError('FAST-LIO failed '+str(parent)+'; see fastlio-host.log')
+        process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,start_new_session=True)
+        try:stdout,_=process.communicate(timeout=180)
+        except subprocess.TimeoutExpired:
+            os.killpg(process.pid,signal.SIGTERM)
+            try:stdout,_=process.communicate(timeout=5)
+            except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);stdout,_=process.communicate()
+            (parent/'fastlio-host.log').write_text(stdout)
+            raise RuntimeError('FAST-LIO timeout; process group stopped: '+str(parent))
+        (parent/'fastlio-host.log').write_text(stdout)
+        if process.returncode:raise RuntimeError('FAST-LIO failed '+str(parent)+'; see fastlio-host.log')
         return json.loads(done.read_text())
     report=a.raw.parent/'fastlio-processing-status.json';start=time.time();completed=0
     def status(phase,error=None):
