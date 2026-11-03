@@ -1,0 +1,57 @@
+{
+  "schema": "eatnav_pose2s_exploratory_selector_report_v1",
+  "evaluation_identity": {
+    "checkpoint_sha256": "2f2e5ff3b8805e159b23b1e2708211edb0749a4749d46cb4fdc97fbf9619f009",
+    "worker_sha256": "7e316bb90f869a4918251ce26db82fd09ac2139d14fd7f94d1bb93b7bd913ae8",
+    "selector_behavior_sha256": "261e99b7592ff4b6c76f45743150b5d1c02a00ca515f3ffb3618b67630d83834",
+    "predictor_source_sha256": "ec2cafc334fae2a2bc230ac8f4e7a6204e4cb89420566b0eab3592f8b3a9265d",
+    "follower_source_sha256": "762dcfa3a84285ea07ccf13c3e4e50daa834673802f870217e836592f7b1b575",
+    "fastlio_replay_source_sha256": "316ac183be4dfcaf72557aa40f76ce23881bd0035011e08bb8558e1e547dec80"
+  },
+  "runtime_identity_sha256": [
+    "c5bca784784051942dfcf36cf56c242d35c8890b8363a3a9ec81e836c4f9576f"
+  ],
+  "conditions": [
+    "B"
+  ],
+  "planned_runs": 350,
+  "completed_runs": 350,
+  "strict_accuracy_achieved": false,
+  "real_robot_compatibility_verified": false,
+  "comparison_A_available": false,
+  "summary": {
+    "valid_runs": 350,
+    "goal_reached_runs": 0,
+    "tip_over_runs": 2,
+    "mean_route_progress_m": 2.027755215103002,
+    "mean_filter_stop_seconds": 0.0,
+    "mean_follower_zero_command_seconds": 0.10614285714285714,
+    "linear_stall_windows": 20,
+    "turn_stall_windows": 0,
+    "mean_linear_stall_positive_seconds": 0.11428571428571428,
+    "mean_turn_stall_positive_seconds": 0.0,
+    "mean_duration_seconds": 9.980714285714285
+  },
+  "candidate_selection_counts": {
+    "0": 1569,
+    "1": 10,
+    "2": 157,
+    "4": 7,
+    "5": 1,
+    "6": 2,
+    "12": 1
+  },
+  "definitions": {
+    "route_progress": "initial minus final XY goal distance, signed metres",
+    "filter_stop_seconds": "duration of all14 candidates rejected by predicted tilt; NOT computation waiting or measured stall",
+    "linear_stall": "complete2s window: integrated requested |v|>=.20m, travelled distance/request<=.25, canonical arc progress<=.05m",
+    "turn_stall": "complete2s window: all commanded |w|>=.01rad/s and each post-step measured body |wz|<=.5*command",
+    "tip_over": "measured gravity tilt>=85deg or tilt_over termination",
+    "time_domain": "physics time; host pauses for actual FAST-LIO do not count as STOP seconds"
+  },
+  "limits": [
+    "B-only has no A/B causal comparison; no claim that tilt filter improves navigation.",
+    "Global mean accuracy acceptable, per-condition maximum accuracy unmet.",
+    "Genuine FAST-LIO on ideal simulated sensors, not calibrated real sensor noise/latency."
+  ]
+}

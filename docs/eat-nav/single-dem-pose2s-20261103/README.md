@@ -19,3 +19,7 @@
 全体平均は許容値内だが、元の各組最大誤差判定は323/490組合格で未達。暫定モデルでの探索的評価をユーザーが指定した。旧Actorの左右非対称は確認できたが、予測誤差の主要原因と証明したわけではない。実機互換性・実機安全性は未検証。
 
 本番は条件Bのみ350走行。Aは後日同じseedで追加できる。A/Bの効果比較を実施したとは扱わない。rosbagはユーザーの実機側PCで確認する。今回の実機bagはodomがFAST-LIO以外との報告があり、入力分布の相違を明記する。
+
+## 条件Bの結果
+
+条件Bの350走行（7field×5level×10seed）が完了。[集計](selector-b-evaluation/summary.txt)／[35条件表](selector-b-evaluation/field-level.csv)／[350走行表](selector-b-evaluation/per-run.csv)／[代表trace](selector-b-evaluation/representative-traces/)。Aは未実施なので、傾斜除外による改善効果を比較したとは主張しない。

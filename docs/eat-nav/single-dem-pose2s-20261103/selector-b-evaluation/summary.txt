@@ -1,0 +1,18 @@
+条件Bのみの探索的シミュレータ評価
+
+{
+  "valid_runs": 350,
+  "goal_reached_runs": 0,
+  "tip_over_runs": 2,
+  "mean_route_progress_m": 2.027755215103002,
+  "mean_filter_stop_seconds": 0.0,
+  "mean_follower_zero_command_seconds": 0.10614285714285714,
+  "linear_stall_windows": 20,
+  "turn_stall_windows": 0,
+  "mean_linear_stall_positive_seconds": 0.11428571428571428,
+  "mean_turn_stall_positive_seconds": 0.0,
+  "mean_duration_seconds": 9.980714285714285
+}
+
+Aは未実施のため、傾斜除外の有無による改善効果は主張しません。
+STOP秒は候補の全除外による物理時間です。ホスト計算待ちや実測スタックとは別です。
