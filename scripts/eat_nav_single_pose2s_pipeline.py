@@ -40,7 +40,7 @@ def serialized_gpu(function):
 def stage_source(root):
     path='/tmp/eatnav-single-dem-pose2s-'+uuid.uuid4().hex[:10]
     subprocess.run(['docker','exec',CONTAINER,'mkdir','-p',path],check=True)
-    for source,name in [(REPO/'src','src'),(REPO/'scripts','scripts'),(REPO/'checkpoints/eat_nav/rl_actor/model_10000.pt','actor.pt'),(REPO/'checkpoints/eat_nav/rl_actor/env.yaml','env.yaml'),(REPO/'config/eat_nav.yaml','eat_nav.yaml')]:
+    for source,name in [(REPO/'src','src'),(REPO/'scripts','scripts'),(REPO/'checkpoints/eat_nav/rl_actor_model2000/model_2000.pt','actor.pt'),(REPO/'checkpoints/eat_nav/rl_actor_model2000/model_2000.pt','model_2000.pt'),(REPO/'checkpoints/eat_nav/rl_actor_model2000/env.yaml','env.yaml'),(REPO/'checkpoints/eat_nav/rl_actor_model2000/agent.yaml','agent.yaml'),(REPO/'config/eat_nav.yaml','eat_nav.yaml')]:
         subprocess.run(['docker','cp',str(source),CONTAINER+':'+path+'/'+name],check=True,stdout=subprocess.DEVNULL)
     import hashlib
     sources={}

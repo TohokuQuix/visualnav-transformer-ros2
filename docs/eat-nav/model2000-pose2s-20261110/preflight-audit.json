@@ -1,0 +1,104 @@
+{
+  "approved": true,
+  "base_commit": "285c25696382e4b0f7f253780fe4de48830abe9b",
+  "old_dataset_not_used_for_training": true,
+  "old_prediction_weights_not_loaded": true,
+  "parents_identical": true,
+  "planned_parents": 1330,
+  "profile_sha256": "87052c0c4032a4f525ab157f98bf9bbf6232d514b3e656ab72a265cf40d4e3a8",
+  "paired_config_changes": [
+    {
+      "key": "actuators.flipper_actuator.dynamic_friction",
+      "old": "null",
+      "new": null
+    },
+    {
+      "key": "actuators.flipper_actuator.effort_limit",
+      "old": "null",
+      "new": "25.0"
+    },
+    {
+      "key": "actuators.flipper_actuator.effort_limit_sim",
+      "old": "40.0",
+      "new": "null"
+    },
+    {
+      "key": "actuators.flipper_actuator.velocity_limit",
+      "old": "null",
+      "new": "1.04"
+    },
+    {
+      "key": "actuators.flipper_actuator.velocity_limit_sim",
+      "old": "2.0",
+      "new": "null"
+    },
+    {
+      "key": "actuators.flipper_actuator.viscous_friction",
+      "old": "null",
+      "new": null
+    },
+    {
+      "key": "actuators.l_maintrack_sync.dynamic_friction",
+      "old": "null",
+      "new": null
+    },
+    {
+      "key": "actuators.l_maintrack_sync.effort_limit",
+      "old": "null",
+      "new": "3000.0"
+    },
+    {
+      "key": "actuators.l_maintrack_sync.effort_limit_sim",
+      "old": "3000.0",
+      "new": "null"
+    },
+    {
+      "key": "actuators.l_maintrack_sync.velocity_limit",
+      "old": "null",
+      "new": "4.0"
+    },
+    {
+      "key": "actuators.l_maintrack_sync.velocity_limit_sim",
+      "old": "14.2",
+      "new": "null"
+    },
+    {
+      "key": "actuators.l_maintrack_sync.viscous_friction",
+      "old": "null",
+      "new": null
+    },
+    {
+      "key": "actuators.r_maintrack_sync.dynamic_friction",
+      "old": "null",
+      "new": null
+    },
+    {
+      "key": "actuators.r_maintrack_sync.effort_limit",
+      "old": "null",
+      "new": "3000.0"
+    },
+    {
+      "key": "actuators.r_maintrack_sync.effort_limit_sim",
+      "old": "3000.0",
+      "new": "null"
+    },
+    {
+      "key": "actuators.r_maintrack_sync.velocity_limit",
+      "old": "null",
+      "new": "4.0"
+    },
+    {
+      "key": "actuators.r_maintrack_sync.velocity_limit_sim",
+      "old": "14.2",
+      "new": "null"
+    },
+    {
+      "key": "actuators.r_maintrack_sync.viscous_friction",
+      "old": "null",
+      "new": null
+    }
+  ],
+  "actual_training_source_assumed_corresponding": true,
+  "physics_difference_scope": "paired actuator config; no unrequested limit migration; other physics kept",
+  "realsense": false
+}

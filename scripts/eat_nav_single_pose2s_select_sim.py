@@ -107,6 +107,8 @@ def main():
     cfg0=yaml.load(args.actor_env_yaml.read_text(),Loader=yaml.BaseLoader)
     toggles={name:cfg0[name].lower()=='true' for name in ['use_last_action_obs','use_joint_effort_obs','use_height_scan_obs']}
     cfg=make_collection_cfg(OnixRoughEnvCfg(**toggles),load_eat_config(args.eat_config),123,N)
+    from visualnav_transformer.eat_nav.model2000_policy import apply_bundle
+    agent_config=apply_bundle(cfg,args.actor_env_yaml)
     configure_demo_reset_policy(cfg);configure_initialization(cfg,'front_folded')
     cfg.episode_length_s=120.;cfg.events.push_robot=None;cfg.events.ignore_sprocket_self_collision=None
     cfg.events.reset_base.func=reset_parent
@@ -122,8 +124,9 @@ def main():
     if abs(bare.step_dt-.05)>1e-9 or abs(bare.physics_dt-.005)>1e-9:raise ValueError('physics/control mismatch')
     env.reset();audit=audit_physics_properties(robot.root_physx_view.get_masses().cpu().numpy(),robot.root_physx_view.get_inertias().cpu().numpy())
     if not audit['valid']:raise ValueError('nonfinite/invalid physical properties')
-    np.savez_compressed(args.output/'actual-physics-properties.npz',masses_kg=robot.root_physx_view.get_masses().cpu().numpy(),inertias_kg_m2=robot.root_physx_view.get_inertias().cpu().numpy(),material_properties=robot.root_physx_view.get_material_properties().cpu().numpy())
-    runner=OnPolicyRunner(env,OnixRoughPPORunnerCfg().to_dict(),log_dir=None,device=bare.device);policy=runner.alg.policy
+    np.savez_compressed(args.output/'actual-physics-properties.npz',masses_kg=robot.root_physx_view.get_masses().cpu().numpy(),inertias_kg_m2=robot.root_physx_view.get_inertias().cpu().numpy(),material_properties=robot.root_physx_view.get_material_properties().cpu().numpy(),joint_velocity_limits=robot.root_physx_view.get_dof_max_velocities().cpu().numpy(),joint_effort_limits=robot.root_physx_view.get_dof_max_forces().cpu().numpy())
+    runner_config=OnixRoughPPORunnerCfg().to_dict();runner_config.update(agent_config)
+    runner=OnPolicyRunner(env,runner_config,log_dir=None,device=bare.device);policy=runner.alg.policy
     policy.load_state_dict(torch.load(args.rl_checkpoint,map_location='cpu',weights_only=True)['model_state_dict']);policy.eval()
     if getattr(policy,'is_recurrent',False):raise ValueError('Actor hidden state unsupported')
     override=CommandOverride(bare.command_manager,N);capture=ObservationCapture(bare.observation_manager)

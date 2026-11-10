@@ -103,7 +103,7 @@ def main():
  if f.exists() and json.loads(f.read_text())!=manifest:raise ValueError('manifest changed')
  if not f.exists():write(f,manifest)
  # The paired seed set is separate from the already collected training/validation/final data.
- training=Path('/home/ubuntu/eatnav-single-dem-pose2s-data-20261103/actual-fastlio-v2/production/manifest.json')
+ training=root.parent/'production'/'manifest.json'
  old={p['seed'] for p in json.loads(training.read_text())['parents']};new={p['seed'] for b in manifest['batches'] for p in b['parents']}
  if old&new:raise ValueError('selector seed overlaps supervised dataset')
  stage=stage_source(root);ipc=HOST/('.eatnav-single-pose2s-selector-'+root.name+'-'+str(int(time.time())))

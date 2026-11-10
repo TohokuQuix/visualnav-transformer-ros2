@@ -1,0 +1,117 @@
+{
+  "schema": "eatnav_single_dem_pose2s_dataset_audit_v1",
+  "planned_parents": 2,
+  "observed_parents": 2,
+  "missing_parent_ids": [],
+  "planned_windows": 10,
+  "observed_windows": 10,
+  "valid_pose_windows": 10,
+  "invalid_reasons": {},
+  "leakage": {
+    "parent_count": 2,
+    "terrain_hash_count": 2,
+    "cross_role_terrain_overlap": 0,
+    "terrain_overlap_groups": {},
+    "cross_role_seed_overlap": 0,
+    "cross_role_raw_overlap": 0,
+    "cross_role_initial_state_overlap": 0,
+    "terrain_generalization_claim": "known_terrain_independent_runs"
+  },
+  "role_counts": {
+    "train": {
+      "planned_parents": 2,
+      "observed_parents": 2,
+      "observed_windows": 10,
+      "valid_windows": 10
+    },
+    "validation": {
+      "planned_parents": 0,
+      "observed_parents": 0,
+      "observed_windows": 0,
+      "valid_windows": 0
+    },
+    "final_test": {
+      "planned_parents": 0,
+      "observed_parents": 0,
+      "observed_windows": 0,
+      "valid_windows": 0
+    }
+  },
+  "profile_sha256": "87052c0c4032a4f525ab157f98bf9bbf6232d514b3e656ab72a265cf40d4e3a8",
+  "complete_parent_coverage": true,
+  "runtime_identity_sha256": [
+    "c9a79e1884e4a18ed759d8873e7e75de6aee14fe0608a90a513a01ec010a1699"
+  ],
+  "coverage": [
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 0,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 1,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 4,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 6,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 8,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 9,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 10,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 11,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 12,
+      "valid_windows": 1
+    },
+    {
+      "role": "train",
+      "field": "pyramid_stairs",
+      "level": 4,
+      "candidate_id": 13,
+      "valid_windows": 1
+    }
+  ]
+}
