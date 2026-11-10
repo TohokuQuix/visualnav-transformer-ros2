@@ -40,3 +40,5 @@
 Pre-flight: Task1→Task2→Task3はprofile/manifest/checkpoint identityを共有。旧Actor hashを残したgateをすべて更新し、旧raw再利用は禁止。承認済みのため通常実装の再承認は求めない。
 
 Task1: policy identity/paired settings tests RED→GREEN; related suite43pass. First prototype failed on IsaacLab None→float config API; failure preserved at prototype/. Explicit literal actuator assignment fixes API without migrating legacy limits. prototype-r2 produced10/10 valid windows with actual FAST-LIO and positive finite masses/inertias. Full pytest has28 dependency-related collection errors listed in test-limitations.txt. New 30-env capacity batch in progress.
+
+Review: Important runtime identity omitted late-imported policy adapter. Fixed by early import in both workers; regression tests RED→GREEN. In-flight30env remains capacity/benchmark-only; production will start with new frozen source identity, without mixing prior worker versions.

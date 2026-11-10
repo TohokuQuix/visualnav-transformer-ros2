@@ -41,6 +41,7 @@ from visualnav_transformer.eat_nav.single_pose2s_follower import NominalFollower
 from visualnav_transformer.eat_nav.bidirectional_bank import bank
 from visualnav_transformer.eat_nav.moving_pose2s_geometry import quat_to_matrix
 from eat_nav_r6_collection import audit_physics_properties
+from visualnav_transformer.eat_nav.model2000_policy import apply_bundle
 
 if not args.record_lidar:raise ValueError('actual FAST-LIO sensor prefixes required')
 N=len(parents);FIELD=parents[0]['field'];LEVEL=parents[0]['level'];SPAWN_MESH={};SPAWN_LOCAL_ORIGINS={}
@@ -107,7 +108,6 @@ def main():
     cfg0=yaml.load(args.actor_env_yaml.read_text(),Loader=yaml.BaseLoader)
     toggles={name:cfg0[name].lower()=='true' for name in ['use_last_action_obs','use_joint_effort_obs','use_height_scan_obs']}
     cfg=make_collection_cfg(OnixRoughEnvCfg(**toggles),load_eat_config(args.eat_config),123,N)
-    from visualnav_transformer.eat_nav.model2000_policy import apply_bundle
     agent_config=apply_bundle(cfg,args.actor_env_yaml)
     configure_demo_reset_policy(cfg);configure_initialization(cfg,'front_folded')
     cfg.episode_length_s=120.;cfg.events.push_robot=None;cfg.events.ignore_sprocket_self_collision=None

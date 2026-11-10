@@ -29,3 +29,11 @@ def test_paired_legacy_actuator_values_replace_none_without_migration():
     values={'effort_limit':25.0,'effort_limit_sim':None,'velocity_limit':4.0,'velocity_limit_sim':None}
     policy.apply_actuator_values(target,values)
     assert vars(target)==values
+
+@pytest.mark.parametrize('worker',['collect','select'])
+def test_policy_adapter_imported_before_runtime_identity_capture(worker):
+    import ast
+    tree=ast.parse((ROOT/f'scripts/eat_nav_single_pose2s_{worker}_sim.py').read_text())
+    imports=[n for n in tree.body if isinstance(n,ast.ImportFrom) and n.module=='visualnav_transformer.eat_nav.model2000_policy']
+    assert imports, 'adapter must be imported at module scope before main hashes loaded modules'
+    assert any(a.name=='apply_bundle' for a in imports[0].names)
