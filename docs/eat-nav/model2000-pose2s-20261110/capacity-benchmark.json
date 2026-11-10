@@ -1,0 +1,38 @@
+{
+  "state": "completed",
+  "selected_num_envs": 30,
+  "actual_lidar_recording": true,
+  "prototype_dataset": "/home/ubuntu/eatnav-model2000-pose2s-data-20261110/prototype-r2/dataset/audit.json",
+  "capacity_result": {
+    "state": "completed",
+    "parents": 30,
+    "planned_windows": 150,
+    "valid_windows": 150,
+    "elapsed_seconds": 321.84973763000016,
+    "timings": {
+      "env_step": 97.25734834200648,
+      "actor": 0.17176103299971146,
+      "sensor": 0.5159479629928683,
+      "save": 8.829114006000054
+    },
+    "window_per_wall_second": 0.4660559958959502,
+    "sim_seconds_per_wall_second": 0.9321119917919004,
+    "physics_audit": {
+      "valid": true,
+      "all_finite": true,
+      "minimum_mass_kg": 0.19780069589614868,
+      "nonpositive_mass_count": 0,
+      "minimum_inertia_eigenvalue": 0.0003638273337855935,
+      "nonpositive_inertia_eigenvalue_count": 0
+    },
+    "peak_gpu_bytes": 23248896,
+    "headless": true,
+    "profile_sha256": "87052c0c4032a4f525ab157f98bf9bbf6232d514b3e656ab72a265cf40d4e3a8",
+    "host_wall_seconds": 329.29629254341125,
+    "host_valid_windows_per_second": 0.4555168199478755
+  },
+  "capacity_tag": "mixed-k_rail_step_field-l0-n30-7a6f2a05499d",
+  "capacity_source_root": "/home/ubuntu/eatnav-model2000-pose2s-data-20261110/capacity-source-v1",
+  "capacity_only_not_in_training": true,
+  "production_identity_revision": "25ec5b0"
+}
