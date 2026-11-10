@@ -51,6 +51,9 @@ def main():
     (out/'matched-segments-comparison.json').write_text(json.dumps(paired,indent=2)+'\n')
     index_data=dict(schema='eatnav_model2000_pose2s_release_v1',checkpoint='models/seed123/checkpoint.pt',checkpoint_sha256=sha(checkpoint),actor_sha256='56c16ecca41b315ef57aea57beae17a05d94c5c0f54ede88066e9688b7f8a770',profile_sha256=PROFILE_SHA,input_schema=INPUT_SCHEMA,horizon_seconds=2,strict_accuracy_achieved=att['accuracy_achieved'],strict_passed_groups=att['passed_groups'],raw_dataset_local_only=str(prod),dataset_git_upload=False,real_robot_compatibility_verified=False,automatic_real_robot_commands=False,example_is_all14_predictions_not_all14_ground_truth=True)
     (out/'model-index.json').write_text(json.dumps(index_data,indent=2)+'\n')
+    # CSV writer defaults to CRLF; normalize exported copies only for Git whitespace checks.
+    for csv_path in out.rglob('*.csv'):
+        csv_path.write_bytes(csv_path.read_bytes().replace(b'\r\n',b'\n'))
     (out/'artifact-sha256.json').write_text(json.dumps({str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file() and p.name!='artifact-sha256.json'},indent=2)+'\n')
     print(json.dumps(index_data,indent=2))
 

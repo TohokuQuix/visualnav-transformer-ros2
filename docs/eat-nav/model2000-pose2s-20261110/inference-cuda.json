@@ -1,0 +1,38 @@
+{
+  "schema": "eatnav_single_dem_pose2s_inference_benchmark_v1",
+  "checkpoint_sha256": "78474a26145137ab12c7486c9b8dde72f2078e6fd61d861d6db58a07ccbb6125",
+  "input_sha256": "fdcd40345b0918f61adcd7ea052b3b69b469e155bc613f4d84a9abb8d29633d2",
+  "device": "cuda",
+  "torch_version": "2.7.0+cu128",
+  "python": "3.10.13",
+  "cpu_threads": 4,
+  "batch": 1,
+  "candidates": 14,
+  "warmup_iterations": 20,
+  "model_only": {
+    "repeats": 100,
+    "mean_ms": 0.23599867014127085,
+    "median_ms": 0.23419749959430192,
+    "p95_ms": 0.2478930991856032,
+    "max_ms": 0.25667099907877855
+  },
+  "preprocessing_only": {
+    "repeats": 100,
+    "mean_ms": 0.07262686012836639,
+    "median_ms": 0.07060250027279835,
+    "p95_ms": 0.07643025201105047,
+    "max_ms": 0.18759600061457604
+  },
+  "public_end_to_end": {
+    "repeats": 100,
+    "mean_ms": 8.663343299922417,
+    "median_ms": 8.64607150106167,
+    "p95_ms": 8.904948150484415,
+    "max_ms": 9.107922000112012
+  },
+  "first_public_call_in_existing_process_ms": 133.7279680010397,
+  "persistent_model_setup_ms": 2.4320769989572,
+  "public_api_includes": "input validation, preprocessing, model construction/load, model forward, coordinate/output conversion; no file IO",
+  "model_only_excludes": "preprocessing, construction, postprocessing, file IO",
+  "horizon_seconds": 2
+}

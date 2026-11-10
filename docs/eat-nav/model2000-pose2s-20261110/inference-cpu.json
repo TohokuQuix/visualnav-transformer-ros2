@@ -1,0 +1,38 @@
+{
+  "schema": "eatnav_single_dem_pose2s_inference_benchmark_v1",
+  "checkpoint_sha256": "78474a26145137ab12c7486c9b8dde72f2078e6fd61d861d6db58a07ccbb6125",
+  "input_sha256": "fdcd40345b0918f61adcd7ea052b3b69b469e155bc613f4d84a9abb8d29633d2",
+  "device": "cpu",
+  "torch_version": "2.7.0+cu128",
+  "python": "3.10.13",
+  "cpu_threads": 4,
+  "batch": 1,
+  "candidates": 14,
+  "warmup_iterations": 20,
+  "model_only": {
+    "repeats": 100,
+    "mean_ms": 0.17720695985190105,
+    "median_ms": 0.17385249884682707,
+    "p95_ms": 0.1900355997349834,
+    "max_ms": 0.32073699912871234
+  },
+  "preprocessing_only": {
+    "repeats": 100,
+    "mean_ms": 0.03821599002549192,
+    "median_ms": 0.037163501474424265,
+    "p95_ms": 0.03968680102843791,
+    "max_ms": 0.11400100265746005
+  },
+  "public_end_to_end": {
+    "repeats": 100,
+    "mean_ms": 8.554757730053097,
+    "median_ms": 8.538720499927877,
+    "p95_ms": 8.854108952073148,
+    "max_ms": 9.339448999526212
+  },
+  "first_public_call_in_existing_process_ms": 10.222802997304825,
+  "persistent_model_setup_ms": 1.8345120006415527,
+  "public_api_includes": "input validation, preprocessing, model construction/load, model forward, coordinate/output conversion; no file IO",
+  "model_only_excludes": "preprocessing, construction, postprocessing, file IO",
+  "horizon_seconds": 2
+}
