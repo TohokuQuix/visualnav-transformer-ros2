@@ -1,0 +1,164 @@
+{
+  "state": "independent_audit_passed_with_reported_FASTLIO_quality_limitations",
+  "parents": 1330,
+  "planned_windows": 19950,
+  "valid_teacher_windows": 19546,
+  "missing_teacher_windows": 404,
+  "teacher_max_abs_difference_m": 5.9333020829832606e-08,
+  "rotation6d_max_abs_difference": 2.980090796356194e-08,
+  "causal_velocity_max_abs_difference": 7.332194059017638e-06,
+  "parent_raw_initial_cross_role_overlap": 0,
+  "known_terrain_overlap_hashes": 31,
+  "baseline_files_unchanged": true,
+  "checkpoint_sha256": "520a0af98184e26a74d01f6f75b4fec6c410eb22b8c2fe91f0dafce50e8b1f1e",
+  "metrics": {
+    "M10": {
+      "valid_windows": 7181,
+      "max_metric_difference": 5.042988107106794e-07,
+      "metrics": {
+        "longitudinal_cm": {
+          "mean": 21.7225624531055,
+          "median": 9.111095780785156,
+          "p95": 34.844378648281655,
+          "max": 5748.07191190476
+        },
+        "lateral_cm": {
+          "mean": 13.419510285668085,
+          "median": 4.215706795363011,
+          "p95": 18.27985485026567,
+          "max": 6991.112314851016
+        },
+        "height_cm": {
+          "mean": 8.439629720451508,
+          "median": 1.5403125206831132,
+          "p95": 11.14378959484913,
+          "max": 2630.5765045829544
+        },
+        "distance_3d_cm": {
+          "mean": 29.497233519830377,
+          "median": 12.031372104142058,
+          "p95": 39.76346646483634,
+          "max": 7931.280745028795
+        },
+        "roll_deg": {
+          "mean": 6.039592687777843,
+          "median": 2.3547983940076445,
+          "p95": 18.162390773544917,
+          "max": 178.8271982078563
+        },
+        "pitch_deg": {
+          "mean": 3.9594826391844022,
+          "median": 2.3859060070764277,
+          "p95": 13.702526437246323,
+          "max": 65.46232792334285
+        },
+        "yaw_deg": {
+          "mean": 10.252727053352952,
+          "median": 6.939064134039505,
+          "p95": 25.99520638343967,
+          "max": 179.35684710700232
+        },
+        "rotation_deg": {
+          "mean": 13.803655429981411,
+          "median": 10.115895040675662,
+          "p95": 31.44595967008509,
+          "max": 179.48709885902267
+        }
+      },
+      "rates": {
+        "first10": {
+          "positive_windows": 24,
+          "valid_windows": 2442
+        },
+        "seconds10to20": {
+          "positive_windows": 47,
+          "valid_windows": 2405
+        },
+        "seconds20to30": {
+          "positive_windows": 128,
+          "valid_windows": 2334
+        },
+        "full30": {
+          "positive_windows": 199,
+          "valid_windows": 7181
+        }
+      },
+      "position_error_gt1m": 75,
+      "position_error_gt5m": 45
+    },
+    "M30": {
+      "valid_windows": 7181,
+      "max_metric_difference": 6.162359866834777e-07,
+      "metrics": {
+        "longitudinal_cm": {
+          "mean": 10.453260491079968,
+          "median": 8.050402167109105,
+          "p95": 28.1026774825484,
+          "max": 72.80644286571459
+        },
+        "lateral_cm": {
+          "mean": 4.4583501695777645,
+          "median": 3.065980149797829,
+          "p95": 12.87561922945703,
+          "max": 111.83609054285127
+        },
+        "height_cm": {
+          "mean": 2.162148110156678,
+          "median": 1.2001709111365957,
+          "p95": 7.271770874818673,
+          "max": 34.94693918043835
+        },
+        "distance_3d_cm": {
+          "mean": 12.574288793445389,
+          "median": 10.005488284480696,
+          "p95": 30.765354610487496,
+          "max": 118.51987565905273
+        },
+        "roll_deg": {
+          "mean": 4.520035804011301,
+          "median": 2.1791442679768624,
+          "p95": 16.42629574034563,
+          "max": 73.42207819758205
+        },
+        "pitch_deg": {
+          "mean": 3.5752321587083173,
+          "median": 2.3253589656892983,
+          "p95": 11.149326213387077,
+          "max": 81.09621054841034
+        },
+        "yaw_deg": {
+          "mean": 7.441153347135014,
+          "median": 5.409378791530296,
+          "p95": 21.62647634889106,
+          "max": 92.33419186071406
+        },
+        "rotation_deg": {
+          "mean": 10.787274414510982,
+          "median": 8.627058296810086,
+          "p95": 26.68424221719073,
+          "max": 97.12339923825219
+        }
+      },
+      "rates": {
+        "first10": {
+          "positive_windows": 15,
+          "valid_windows": 2442
+        },
+        "seconds10to20": {
+          "positive_windows": 13,
+          "valid_windows": 2405
+        },
+        "seconds20to30": {
+          "positive_windows": 28,
+          "valid_windows": 2334
+        },
+        "full30": {
+          "positive_windows": 56,
+          "valid_windows": 7181
+        }
+      },
+      "position_error_gt1m": 1,
+      "position_error_gt5m": 0
+    }
+  }
+}

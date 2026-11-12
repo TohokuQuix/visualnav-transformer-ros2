@@ -1,0 +1,109 @@
+{
+  "definition": "requested mean abs body vx>=.1m/s AND actual net worldXY displacement<.05m over complete2s; descriptive only, not40cm rule",
+  "summary": {
+    "all": {
+      "first10": {
+        "valid_complete_raw_windows": 6631,
+        "proxy_stall_windows": 50,
+        "rate": 0.007540340823405218,
+        "independent_parents": 1329
+      },
+      "seconds10to20": {
+        "valid_complete_raw_windows": 6536,
+        "proxy_stall_windows": 88,
+        "rate": 0.01346389228886169,
+        "independent_parents": 1319
+      },
+      "seconds20to30": {
+        "valid_complete_raw_windows": 6379,
+        "proxy_stall_windows": 115,
+        "rate": 0.01802790406019752,
+        "independent_parents": 1289
+      },
+      "full30": {
+        "valid_complete_raw_windows": 19546,
+        "proxy_stall_windows": 253,
+        "rate": 0.012943824823493297,
+        "independent_parents": 1329
+      }
+    },
+    "train": {
+      "first10": {
+        "valid_complete_raw_windows": 1746,
+        "proxy_stall_windows": 15,
+        "rate": 0.00859106529209622,
+        "independent_parents": 350
+      },
+      "seconds10to20": {
+        "valid_complete_raw_windows": 1722,
+        "proxy_stall_windows": 20,
+        "rate": 0.011614401858304297,
+        "independent_parents": 347
+      },
+      "seconds20to30": {
+        "valid_complete_raw_windows": 1680,
+        "proxy_stall_windows": 27,
+        "rate": 0.01607142857142857,
+        "independent_parents": 338
+      },
+      "full30": {
+        "valid_complete_raw_windows": 5148,
+        "proxy_stall_windows": 62,
+        "rate": 0.012043512043512044,
+        "independent_parents": 350
+      }
+    },
+    "validation": {
+      "first10": {
+        "valid_complete_raw_windows": 2443,
+        "proxy_stall_windows": 17,
+        "rate": 0.006958657388456815,
+        "independent_parents": 489
+      },
+      "seconds10to20": {
+        "valid_complete_raw_windows": 2409,
+        "proxy_stall_windows": 31,
+        "rate": 0.012868410128684102,
+        "independent_parents": 487
+      },
+      "seconds20to30": {
+        "valid_complete_raw_windows": 2365,
+        "proxy_stall_windows": 40,
+        "rate": 0.016913319238900635,
+        "independent_parents": 477
+      },
+      "full30": {
+        "valid_complete_raw_windows": 7217,
+        "proxy_stall_windows": 88,
+        "rate": 0.012193432174033531,
+        "independent_parents": 489
+      }
+    },
+    "final_test": {
+      "first10": {
+        "valid_complete_raw_windows": 2442,
+        "proxy_stall_windows": 18,
+        "rate": 0.007371007371007371,
+        "independent_parents": 490
+      },
+      "seconds10to20": {
+        "valid_complete_raw_windows": 2405,
+        "proxy_stall_windows": 37,
+        "rate": 0.015384615384615385,
+        "independent_parents": 485
+      },
+      "seconds20to30": {
+        "valid_complete_raw_windows": 2334,
+        "proxy_stall_windows": 48,
+        "rate": 0.02056555269922879,
+        "independent_parents": 474
+      },
+      "full30": {
+        "valid_complete_raw_windows": 7181,
+        "proxy_stall_windows": 103,
+        "rate": 0.014343406210834145,
+        "independent_parents": 490
+      }
+    }
+  }
+}

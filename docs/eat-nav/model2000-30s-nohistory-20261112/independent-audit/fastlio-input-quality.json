@@ -1,0 +1,340 @@
+{
+  "summary": {
+    "train": {
+      "valid_windows": 5148,
+      "lio_speed_median": 0.2255358832257056,
+      "lio_speed_p95": 4.770898698956292,
+      "lio_speed_max": 207.12995391674295,
+      "true_speed_max": 1.743048877964479,
+      "lio_speed_gt2mps": 422,
+      "lio_speed_gt10mps": 175,
+      "velocity_error_mean": 2.088121715809949,
+      "velocity_error_p95": 4.811915253517608
+    },
+    "validation": {
+      "valid_windows": 7217,
+      "lio_speed_median": 0.21910983487986452,
+      "lio_speed_p95": 5.720834517731332,
+      "lio_speed_max": 247.7536258389002,
+      "true_speed_max": 1.2303183447872268,
+      "lio_speed_gt2mps": 658,
+      "lio_speed_gt10mps": 263,
+      "velocity_error_mean": 2.3750857776283434,
+      "velocity_error_p95": 5.701217660045749
+    },
+    "final_test": {
+      "valid_windows": 7181,
+      "lio_speed_median": 0.2147986052077882,
+      "lio_speed_p95": 3.3487533590727736,
+      "lio_speed_max": 219.93578498352252,
+      "true_speed_max": 1.783676873139971,
+      "lio_speed_gt2mps": 488,
+      "lio_speed_gt10mps": 174,
+      "velocity_error_mean": 1.5561749986547146,
+      "velocity_error_p95": 3.27063610554627
+    }
+  },
+  "largest_errors": [
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-013",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 247.7536258389002,
+      "speed_true": 0.1048851848683623,
+      "velocity_error": 247.66791879060656
+    },
+    {
+      "role": "final_test",
+      "parent_id": "final_test-hf_pyramid_slope-l4-001",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 219.93578498352252,
+      "speed_true": 0.13471466814451732,
+      "velocity_error": 219.92116843622662
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-013",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 214.029272720316,
+      "speed_true": 0.2078744515855407,
+      "velocity_error": 214.162982696836
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l2-003",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 2,
+      "speed_lio": 207.12995391674295,
+      "speed_true": 0.03635850202551072,
+      "velocity_error": 207.1017359990522
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-005",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 194.3900885890581,
+      "speed_true": 0.5196511961330175,
+      "velocity_error": 194.33777447165733
+    },
+    {
+      "role": "final_test",
+      "parent_id": "final_test-hf_pyramid_slope-l4-001",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 185.8855589913061,
+      "speed_true": 0.4787561272246645,
+      "velocity_error": 185.55149682737462
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-013",
+      "stage": 12,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 179.41293520188813,
+      "speed_true": 0.15472158442836953,
+      "velocity_error": 179.30095392625063
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l1-013",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 1,
+      "speed_lio": 179.18711721447116,
+      "speed_true": 0.5860837724197332,
+      "velocity_error": 179.09457536698343
+    },
+    {
+      "role": "train",
+      "parent_id": "train-pyramid_stairs-l0-004",
+      "stage": 14,
+      "field": "pyramid_stairs",
+      "level": 0,
+      "speed_lio": 175.08516403878758,
+      "speed_true": 0.09449316020569729,
+      "velocity_error": 175.0496868821696
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l2-003",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 2,
+      "speed_lio": 173.07940115292044,
+      "speed_true": 0.1589692704958343,
+      "velocity_error": 173.0450668872541
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-000",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 165.28623595894342,
+      "speed_true": 0.2621601446230453,
+      "velocity_error": 165.47286315702763
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-004",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 163.23261966144494,
+      "speed_true": 0.7426948143815981,
+      "velocity_error": 162.61214884025335
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l4-005",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 161.44938584687714,
+      "speed_true": 0.615950123561312,
+      "velocity_error": 161.0368632883516
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-001",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 160.38745481353192,
+      "speed_true": 0.07235532414200414,
+      "velocity_error": 160.3913040841376
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-005",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 160.01612233298988,
+      "speed_true": 0.3853880782098867,
+      "velocity_error": 160.04188622387323
+    },
+    {
+      "role": "final_test",
+      "parent_id": "final_test-hf_pyramid_slope-l0-003",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 157.0482110175484,
+      "speed_true": 0.49885655955606806,
+      "velocity_error": 156.7795741009449
+    },
+    {
+      "role": "final_test",
+      "parent_id": "final_test-hf_pyramid_slope-l4-001",
+      "stage": 12,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 152.97831518628482,
+      "speed_true": 0.284287720137521,
+      "velocity_error": 152.79820384765836
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l1-013",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 1,
+      "speed_lio": 152.52602601245093,
+      "speed_true": 0.06094936042339225,
+      "velocity_error": 152.48783202445813
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l1-004",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 1,
+      "speed_lio": 149.86315388536883,
+      "speed_true": 0.5417493691487453,
+      "velocity_error": 149.68407771867376
+    },
+    {
+      "role": "train",
+      "parent_id": "train-pyramid_stairs-l0-004",
+      "stage": 13,
+      "field": "pyramid_stairs",
+      "level": 0,
+      "speed_lio": 148.91870461030115,
+      "speed_true": 0.1369108131423609,
+      "velocity_error": 148.92700427884347
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l4-013",
+      "stage": 11,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 144.34679869332106,
+      "speed_true": 0.26972921111928094,
+      "velocity_error": 144.3312262428081
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l4-003",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 143.11523147276006,
+      "speed_true": 0.16825978845177836,
+      "velocity_error": 142.99021349012185
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l4-005",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 4,
+      "speed_lio": 140.60596117480227,
+      "speed_true": 0.5034779770181158,
+      "velocity_error": 140.98136139227057
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l2-003",
+      "stage": 12,
+      "field": "hf_pyramid_slope",
+      "level": 2,
+      "speed_lio": 140.12722318140402,
+      "speed_true": 0.17224970766148515,
+      "velocity_error": 140.13802134413814
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-004",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 139.35746282341108,
+      "speed_true": 0.18266051972015748,
+      "velocity_error": 139.46286954981127
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-001",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 138.58211001677904,
+      "speed_true": 0.13378885369969437,
+      "velocity_error": 138.6491609383583
+    },
+    {
+      "role": "train",
+      "parent_id": "train-hf_pyramid_slope-l1-004",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 1,
+      "speed_lio": 137.16018083807865,
+      "speed_true": 0.053117137291424865,
+      "velocity_error": 137.18185172358272
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l0-000",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 135.53866822710233,
+      "speed_true": 0.07142833916427535,
+      "velocity_error": 135.5744490024049
+    },
+    {
+      "role": "validation",
+      "parent_id": "validation-hf_pyramid_slope-l3-013",
+      "stage": 14,
+      "field": "hf_pyramid_slope",
+      "level": 3,
+      "speed_lio": 135.5702591083522,
+      "speed_true": 0.1072461551254352,
+      "velocity_error": 135.55851571547495
+    },
+    {
+      "role": "final_test",
+      "parent_id": "final_test-hf_pyramid_slope-l0-003",
+      "stage": 13,
+      "field": "hf_pyramid_slope",
+      "level": 0,
+      "speed_lio": 135.29059075115273,
+      "speed_true": 0.26642950526644316,
+      "velocity_error": 135.11486409675499
+    }
+  ],
+  "note": "Diagnostic thresholds only; no samples excluded or normalization changed. Actual FAST-LIO can drift; not NN motion truth."
+}
