@@ -56,7 +56,7 @@ def stage_source(root):
 
 
 @serialized_gpu
-def run_batch(root,stage,parents,tag,record_lidar=False):
+def run_batch(root,stage,parents,tag,record_lidar=False,trial_seconds=10):
     target=root/'raw'/tag
     if (target/'complete.json').exists():return json.loads((target/'complete.json').read_text())
     if target.exists():raise ValueError('existing incomplete output requires audit: '+str(target))
@@ -64,6 +64,7 @@ def run_batch(root,stage,parents,tag,record_lidar=False):
     subprocess.run(['docker','cp',str(group),CONTAINER+':'+stage+'/'+tag+'.json'],check=True,stdout=subprocess.DEVNULL)
     out=stage+'/'+tag
     command=['docker','exec','-e','PYTHONPATH='+stage+'/src:'+stage+'/scripts:/workspace/isaaclab_onix/source/onix_isaac_lab:/workspace/isaaclab/source/isaaclab:/workspace/isaaclab/source/isaaclab_rl:/workspace/isaaclab/source/isaaclab_tasks',CONTAINER,'timeout','--signal=INT','--kill-after=30s','1800s','/isaac-sim/python.sh',stage+'/scripts/eat_nav_single_pose2s_collect_sim.py','--headless','--parents',stage+'/'+tag+'.json','--output',out,'--rl-checkpoint',stage+'/actor.pt','--actor-env-yaml',stage+'/env.yaml','--eat-config',stage+'/eat_nav.yaml']
+    command.extend(['--trial-seconds',str(trial_seconds)])
     if record_lidar:command.append('--record-lidar')
     write(root/'runtime'/f'{tag}-command.json',dict(command=command,parents=[p['parent_id'] for p in parents],stage_manifest=str(root/'runtime-stages'/(stage.rsplit('/',1)[-1]+'.json'))))
     start=time.time();print('START '+tag,flush=True)

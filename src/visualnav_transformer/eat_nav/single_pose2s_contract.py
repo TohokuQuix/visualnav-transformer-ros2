@@ -18,8 +18,9 @@ PROFILE=dict(actor_sha256=ACTOR_SHA,actor_bundle='onix_rough_standard_model2000_
 PROFILE_SHA=hashlib.sha256(json.dumps(PROFILE,sort_keys=True).encode()).hexdigest()
 
 
-def make_manifest(seed:int=123)->dict:
+def make_manifest(seed:int=123, trial_seconds:int=10)->dict:
     if not isinstance(seed,int) or seed<0:raise ValueError('nonnegative seed required')
+    if trial_seconds not in (10,30):raise ValueError('trial duration must be10 or30 seconds')
     parents=[];used=set()
     for role_id,(role,count) in enumerate([('train',10),('validation',14),('final_test',14)]):
         for fi,field in enumerate(TERRAIN_TYPES):
@@ -30,8 +31,8 @@ def make_manifest(seed:int=123)->dict:
                     pseed=int(stream.generate_state(1)[0])
                     if pseed in used:raise ValueError('seed collision')
                     used.add(pseed)
-                    parents.append(dict(parent_id=f'{role}-{field}-l{level}-{r:03d}',role=role,field=field,level=level,trial_index=r,seed=pseed,initial_seed=int(np.random.SeedSequence([pseed,1]).generate_state(1)[0]),dem_phase_steps=r%5,candidates=[int(permutation[(r+3*j)%14]) for j in range(5)]))
-    return dict(schema='eatnav_single_dem_pose2s_manifest_v1',seed=seed,fields=list(TERRAIN_TYPES),parents=parents,profile=PROFILE,profile_sha256=PROFILE_SHA,expected_groups=490,planned_windows=len(parents)*5)
+                    parents.append(dict(parent_id=f'{role}-{field}-l{level}-{r:03d}',role=role,field=field,level=level,trial_index=r,seed=pseed,initial_seed=int(np.random.SeedSequence([pseed,1]).generate_state(1)[0]),dem_phase_steps=r%5,candidates=[int(permutation[(r+3*j)%14]) for j in range(trial_seconds//2)]))
+    return dict(schema='eatnav_single_dem_pose2s_manifest_v1',seed=seed,fields=list(TERRAIN_TYPES),parents=parents,profile=PROFILE,profile_sha256=PROFILE_SHA,expected_groups=490,planned_windows=len(parents)*(trial_seconds//2),trial_seconds=trial_seconds)
 
 
 def validate_input(sample:dict)->None:

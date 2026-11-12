@@ -10,10 +10,13 @@ parser.add_argument('--rl-checkpoint',type=Path,required=True)
 parser.add_argument('--actor-env-yaml',type=Path,required=True)
 parser.add_argument('--eat-config',type=Path,required=True)
 parser.add_argument('--record-lidar',action='store_true')
+parser.add_argument('--trial-seconds',type=int,choices=[10,30],default=10)
 AppLauncher.add_app_launcher_args(parser)
 args=parser.parse_args()
 if not args.headless:parser.error('headless required')
 parents=json.loads(args.parents.read_text())['parents']
+TRIAL_STEPS=args.trial_seconds*20
+if any(len(p['candidates'])!=args.trial_seconds//2 for p in parents):parser.error('candidate schedule/duration mismatch')
 if not parents or len({(p['field'],p['level']) for p in parents})!=1:parser.error('one field/level per worker')
 if args.output.exists():raise FileExistsError(args.output)
 args.output.mkdir(parents=True)
@@ -140,7 +143,7 @@ def main():
             if alive[i]:terminal[i]=dict(step=active_step+1,root=robot.data.root_state_w[i].cpu().numpy().copy(),root_link=robot.data.root_link_state_w[i].cpu().numpy().copy(),joint_position=robot.data.joint_pos[i].cpu().numpy().copy(),joint_velocity=robot.data.joint_vel[i].cpu().numpy().copy(),effort=robot.data.applied_torque[i].cpu().numpy().copy(),gravity=robot.data.projected_gravity_b[i].cpu().numpy().copy(),gyro=robot.data.root_ang_vel_b[i].cpu().numpy().copy(),reasons=[name for name in bare.termination_manager.active_terms if bool(bare.termination_manager.get_term(name)[i])])
         return original_reset(ids)
     bare._reset_idx=before_reset
-    frames=[[] for _ in parents];frame_stamps=[[] for _ in parents];frame_roots=[[] for _ in parents];frame_steps=[set(acquisition_steps(p['dem_phase_steps'])) for p in parents]
+    frames=[[] for _ in parents];frame_stamps=[[] for _ in parents];frame_roots=[[] for _ in parents];frame_steps=[set(acquisition_steps(p['dem_phase_steps'],trial_seconds=args.trial_seconds)) for p in parents]
     timings=dict(env_step=0.,actor=0.,sensor=0.,save=0.);followers=[None]*N
     def capture_state():
         roots=robot.data.root_state_w.cpu().numpy().copy();q=robot.data.joint_pos.cpu().numpy().copy();v=robot.data.joint_vel.cpu().numpy().copy();torque=robot.data.applied_torque.cpu().numpy().copy()
@@ -171,7 +174,7 @@ def main():
             if warm>=39:lio_sensors.capture((warm-79)*50000000,robot.data.root_link_state_w.cpu().numpy().copy())
         terminal.clear();alive[:]=True;active_step=-1
     roots=capture_state()
-    for step in range(201):
+    for step in range(TRIAL_STEPS+1):
         active_step=step
         if lio_sensors is not None and step>0:
             imu_roots=robot.data.root_link_state_w.cpu().numpy().copy()
@@ -195,7 +198,7 @@ def main():
                 if raw.any():
                     frames[i].append(inpaint_frame(h,raw,roots[i,2]));frame_stamps[i].append(step*50000000);frame_roots[i].append(roots[i].copy())
         timings['sensor']+=time.perf_counter()-started
-        if step==200:break
+        if step==TRIAL_STEPS:break
         if step%40==0:
             for i in range(N):
                 if not alive[i]:continue
@@ -231,14 +234,14 @@ def main():
     for i,parent in enumerate(parents):
         directory=args.output/parent['parent_id'];directory.mkdir()
         tile=next(x for x in metadata if x['column']==i and x['row']==LEVEL)
-        np.savez_compressed(directory/'raw.npz',stamps_ns=np.arange(201,dtype=np.int64)*50000000,root=roots[:,i],state=states[:,i],state_mask=np.tile(np.array([1]*20+[0,0,0,1,1,1,1],np.float32),(201,1)),state_age=np.zeros((201,27),np.float32),alive=alive_array[:,i],joint_position=np.asarray(joint_pos)[:,i],joint_velocity=np.asarray(joint_vel)[:,i],applied_effort=np.asarray(effort)[:,i],command=np.asarray(commands)[:,i],action=np.asarray(actions)[:,i],actor_input=np.asarray(actor_obs)[:,i],dem=np.asarray(frames[i]),dem_stamp_ns=np.asarray(frame_stamps[i],np.int64),dem_root=np.asarray(frame_roots[i]))
+        np.savez_compressed(directory/'raw.npz',stamps_ns=np.arange(TRIAL_STEPS+1,dtype=np.int64)*50000000,root=roots[:,i],state=states[:,i],state_mask=np.tile(np.array([1]*20+[0,0,0,1,1,1,1],np.float32),(TRIAL_STEPS+1,1)),state_age=np.zeros((TRIAL_STEPS+1,27),np.float32),alive=alive_array[:,i],joint_position=np.asarray(joint_pos)[:,i],joint_velocity=np.asarray(joint_vel)[:,i],applied_effort=np.asarray(effort)[:,i],command=np.asarray(commands)[:,i],action=np.asarray(actions)[:,i],actor_input=np.asarray(actor_obs)[:,i],dem=np.asarray(frames[i]),dem_stamp_ns=np.asarray(frame_stamps[i],np.int64),dem_root=np.asarray(frame_roots[i]))
         if lio_sensors is not None:lio_sensors.save(directory/'lio-sensors.npz',i)
         t=terminal.get(i);terminal_json=None if t is None else dict(step=t['step'],reasons=t['reasons'])
-        write(directory/'metadata.json',dict(schema='eatnav_single_dem_pose2s_raw_v1',runtime_imports_file='../runtime-imports.json',runtime_imports_sha256=runtime_imports_sha256,runtime_identity_sha256=runtime_identity_sha256,parent=parent,profile=PROFILE,profile_sha256=PROFILE_SHA,terrain=tile,env_origin_w=bare.scene.env_origins[i].cpu().numpy(),initialization='seededxyyaw; root height uses max local terrain support + legacy .35m clearance; no in-trial reset',terminal=terminal_json,terminal_row_is_pre_reset=True,post_terminal_rows_excluded_from_trial=True,joint_names=joint_names,flipper_indices=fids,right_track_indices=right,left_track_indices=left,physics_properties_file='../actual-physics-properties.npz',physics_environment_index=i,observation_profile=dict(imu='ideal simulated IMU',odom='raw wheel snapshot only; NOT NN input. Actual FAST-LIO sidecar supplies all NN odom components' if args.record_lidar else 'wheel radius .0703m plus IMU yaw gyro; planar',dem='ideal geometric rays or 56% independent coverage sensitivity then nearest observed inpaint; not calibrated real sensor',root_state='teacher and frame transforms only'),actor_sha256=sha(args.rl_checkpoint),actor_env_sha256=sha(args.actor_env_yaml),raw_sha256=sha(directory/'raw.npz'),lio_sensor_file='lio-sensors.npz' if args.record_lidar else None,lio_sensor_sha256=sha(directory/'lio-sensors.npz') if args.record_lidar else None,mesh_local_origin=SPAWN_LOCAL_ORIGINS[i],mesh_world_translation=bare.scene.env_origins[i].cpu().numpy()-SPAWN_LOCAL_ORIGINS[i],lio_sensor_profile='ideal_terrain_16x512_10hz_imu20hz_collocated_root_mesh_placement_v2' if args.record_lidar else None,settling_seconds=2 if args.record_lidar else 0,lio_initialization_seconds=2 if args.record_lidar else 0))
+        write(directory/'metadata.json',dict(schema='eatnav_single_dem_pose2s_raw_v1',trial_seconds=args.trial_seconds,runtime_imports_file='../runtime-imports.json',runtime_imports_sha256=runtime_imports_sha256,runtime_identity_sha256=runtime_identity_sha256,parent=parent,profile=PROFILE,profile_sha256=PROFILE_SHA,terrain=tile,env_origin_w=bare.scene.env_origins[i].cpu().numpy(),initialization='seededxyyaw; root height uses max local terrain support + legacy .35m clearance; no in-trial reset',terminal=terminal_json,terminal_row_is_pre_reset=True,post_terminal_rows_excluded_from_trial=True,joint_names=joint_names,flipper_indices=fids,right_track_indices=right,left_track_indices=left,physics_properties_file='../actual-physics-properties.npz',physics_environment_index=i,observation_profile=dict(imu='ideal simulated IMU',odom='raw wheel snapshot only; NOT NN input. Actual FAST-LIO sidecar supplies all NN odom components' if args.record_lidar else 'wheel radius .0703m plus IMU yaw gyro; planar',dem='ideal geometric rays or 56% independent coverage sensitivity then nearest observed inpaint; not calibrated real sensor',root_state='teacher and frame transforms only'),actor_sha256=sha(args.rl_checkpoint),actor_env_sha256=sha(args.actor_env_yaml),raw_sha256=sha(directory/'raw.npz'),lio_sensor_file='lio-sensors.npz' if args.record_lidar else None,lio_sensor_sha256=sha(directory/'lio-sensors.npz') if args.record_lidar else None,mesh_local_origin=SPAWN_LOCAL_ORIGINS[i],mesh_world_translation=bare.scene.env_origins[i].cpu().numpy()-SPAWN_LOCAL_ORIGINS[i],lio_sensor_profile='ideal_terrain_16x512_10hz_imu20hz_collocated_root_mesh_placement_v2' if args.record_lidar else None,settling_seconds=2 if args.record_lidar else 0,lio_initialization_seconds=2 if args.record_lidar else 0))
     timings['save']=time.perf_counter()-started
     elapsed=time.perf_counter()-begin
-    valid=sum(bool(alive_array[s:s+40,i].all()) for i in range(N) for s in range(0,200,40))
-    write(args.output/'complete.json',dict(state='completed',parents=N,planned_windows=N*5,valid_windows=valid,elapsed_seconds=elapsed,timings=timings,window_per_wall_second=valid/elapsed,sim_seconds_per_wall_second=10*N/elapsed,physics_audit=audit,peak_gpu_bytes=int(torch.cuda.max_memory_allocated()),headless=True,profile_sha256=PROFILE_SHA))
+    valid=sum(bool(alive_array[s:s+40,i].all()) for i in range(N) for s in range(0,TRIAL_STEPS,40))
+    write(args.output/'complete.json',dict(state='completed',parents=N,planned_windows=N*(args.trial_seconds//2),valid_windows=valid,elapsed_seconds=elapsed,timings=timings,window_per_wall_second=valid/elapsed,sim_seconds_per_wall_second=args.trial_seconds*N/elapsed,physics_audit=audit,peak_gpu_bytes=int(torch.cuda.max_memory_allocated()),headless=True,profile_sha256=PROFILE_SHA))
     capture.close();override.close();env.close()
 
 try:main()

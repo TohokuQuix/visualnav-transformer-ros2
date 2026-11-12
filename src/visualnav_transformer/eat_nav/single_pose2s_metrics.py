@@ -25,6 +25,8 @@ def summarize(rows):
     result['joint_within_fraction']=sum(all(r.get(m) is not None and np.isfinite(r[m]) and abs(r[m])<=lim for m,lim in LIMITS.items()) for r in pred)/n if n else None
     values=[r['longitudinal_cm'] for r in pred if r.get('longitudinal_cm') is not None and np.isfinite(r['longitudinal_cm'])]
     result['longitudinal_signed_bias_cm']=float(np.mean(values)) if values else None
+    lateral=[r['lateral_cm'] for r in pred if r.get('lateral_cm') is not None and np.isfinite(r['lateral_cm'])]
+    result['lateral_signed_bias_cm']=float(np.mean(lateral)) if lateral else None
     result['euler_singular_count']=sum(bool(r.get('euler_singular',False)) for r in valid)
     result['pass']=bool(n>=5 and parents>=5 and len(pred)==n and all(result[m+'_max'] is not None and result[m+'_max']<=lim for m,lim in LIMITS.items()))
     result['status']='評価データなし' if n==0 else '評価件数不足' if n<5 or parents<5 else '合格' if result['pass'] else '未達'

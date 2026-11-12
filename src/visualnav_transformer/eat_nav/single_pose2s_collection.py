@@ -4,15 +4,17 @@ from scipy.ndimage import distance_transform_edt
 from .moving_pose2s_geometry import quat_to_matrix
 
 
-def window_endpoints(stamps,alive):
+def window_endpoints(stamps,alive,trial_seconds=10):
     stamps=np.asarray(stamps,np.int64);alive=np.asarray(alive,bool)
-    if stamps.shape!=(201,) or alive.shape!=(201,) or not np.array_equal(stamps,np.arange(201,dtype=np.int64)*50000000):raise ValueError('exact 20Hz complete time index required')
-    return [(s,s+40,bool(alive[s:s+40].all())) for s in range(0,200,40)]
+    if trial_seconds not in (10,30):raise ValueError('trial duration must be10 or30 seconds')
+    steps=trial_seconds*20
+    if stamps.shape!=(steps+1,) or alive.shape!=(steps+1,) or not np.array_equal(stamps,np.arange(steps+1,dtype=np.int64)*50000000):raise ValueError('exact 20Hz complete time index required')
+    return [(s,s+40,bool(alive[s:s+40].all())) for s in range(0,steps,40)]
 
 
-def acquisition_steps(phase):
+def acquisition_steps(phase,trial_seconds=10):
     if phase not in range(5):raise ValueError('phase must be0..4')
-    return sorted(set([0]+list(range(phase,201,5))))
+    return sorted(set([0]+list(range(phase,trial_seconds*20+1,5))))
 
 
 def inpaint_frame(heights,raw_mask,z_ref):

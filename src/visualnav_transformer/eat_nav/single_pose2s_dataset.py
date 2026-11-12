@@ -14,7 +14,7 @@ from .single_pose2s_fastlio import odom_velocity_at
 def trial_samples(raw,metadata,odometry=None):
     parent=metadata['parent'];stamps=np.asarray(raw['stamps_ns'],np.int64)
     out=[]
-    for j,(start,end,observed) in enumerate(window_endpoints(stamps,raw['alive'])):
+    for j,(start,end,observed) in enumerate(window_endpoints(stamps,raw['alive'],trial_seconds=metadata.get('trial_seconds',10))):
         t0=int(stamps[start]);cid=parent['candidates'][j]
         start_motion='unknown'
         if start>=20:
@@ -124,7 +124,7 @@ def build_dataset(raw_root,manifest,output):
         np.savez_compressed(output/(role+'-samples.npz'),**{k:v[ids] for k,v in arrays.items()})
         (output/(role+'-records.json')).write_text(json.dumps([records[i] for i in ids],indent=2)+'\n')
     coverage=Counter((r['role'],r['field'],r['level'],r['candidate_id']) for r in records if r['pose_mask'])
-    audit=dict(schema='eatnav_single_dem_pose2s_dataset_audit_v1',planned_parents=len(expected),observed_parents=len(found),missing_parent_ids=sorted(set(expected)-found),planned_windows=len(expected)*5,observed_windows=N,valid_pose_windows=int(arrays['pose_mask'].sum()),invalid_reasons=dict(Counter(r['reason'] for r in records if r['reason'])),leakage=leakage,role_counts={role:dict(planned_parents=sum(p['role']==role for p in manifest['parents']),observed_parents=len({r['parent_id'] for r in records if r['role']==role}),observed_windows=len(ids),valid_windows=int(arrays['pose_mask'][ids].sum())) for role,ids in splits.items()},profile_sha256=PROFILE_SHA,complete_parent_coverage=len(found)==len(expected),runtime_identity_sha256=sorted(runtime_ids),coverage=[dict(role=k[0],field=k[1],level=k[2],candidate_id=k[3],valid_windows=v) for k,v in sorted(coverage.items())])
+    audit=dict(schema='eatnav_single_dem_pose2s_dataset_audit_v1',planned_parents=len(expected),observed_parents=len(found),missing_parent_ids=sorted(set(expected)-found),planned_windows=manifest['planned_windows'],observed_windows=N,valid_pose_windows=int(arrays['pose_mask'].sum()),invalid_reasons=dict(Counter(r['reason'] for r in records if r['reason'])),leakage=leakage,role_counts={role:dict(planned_parents=sum(p['role']==role for p in manifest['parents']),observed_parents=len({r['parent_id'] for r in records if r['role']==role}),observed_windows=len(ids),valid_windows=int(arrays['pose_mask'][ids].sum())) for role,ids in splits.items()},profile_sha256=PROFILE_SHA,complete_parent_coverage=len(found)==len(expected),runtime_identity_sha256=sorted(runtime_ids),coverage=[dict(role=k[0],field=k[1],level=k[2],candidate_id=k[3],valid_windows=v) for k,v in sorted(coverage.items())])
     for name,data in [('records.json',records),('split.json',splits),('source-index.json',sources),('audit.json',audit),('manifest.json',manifest)]:
         (output/name).write_text(json.dumps(data,indent=2,allow_nan=False)+'\n')
     return audit

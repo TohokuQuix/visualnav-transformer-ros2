@@ -1,0 +1,59 @@
+{
+  "stage": "read_only_spec_audit_no_collection_no_training",
+  "source_sha256": {
+    "/home/ubuntu/eatnav-model2000-pose2s-data-20261110/production/dataset/manifest.json": "0d811149919a8f97385618a7fed276ed8dcbffe9c121c3e34c8a15d350dfef3e",
+    "/home/ubuntu/eatnav-model2000-pose2s-data-20261110/production/dataset/audit.json": "ae09dfc2715a3da73412e54d41a7bebd7f9a307405feb058642c2e406805ff46",
+    "/home/ubuntu/eatnav-model2000-pose2s-data-20261110/production/dataset/split.json": "4f1463ab743258f8b1503ab96734812cb68e6564fd319ef36792415b4136e55f"
+  },
+  "prefix_matches": 1330,
+  "planned_roles": {
+    "train": {
+      "parents": 350,
+      "windows_10s": 1750,
+      "windows_30s": 5250,
+      "planned_windows_per_candidate_field_level_min": 10,
+      "planned_windows_per_candidate_field_level_max": 11
+    },
+    "validation": {
+      "parents": 490,
+      "windows_10s": 2450,
+      "windows_30s": 7350,
+      "planned_windows_per_candidate_field_level_min": 15,
+      "planned_windows_per_candidate_field_level_max": 15
+    },
+    "final_test": {
+      "parents": 490,
+      "windows_10s": 2450,
+      "windows_30s": 7350,
+      "planned_windows_per_candidate_field_level_min": 15,
+      "planned_windows_per_candidate_field_level_max": 15
+    }
+  },
+  "example": {
+    "parent_id": "train-k_rail_step_field-l0-000",
+    "old_candidates": [
+      5,
+      4,
+      9,
+      1,
+      8
+    ],
+    "extended_candidates": [
+      5,
+      4,
+      9,
+      1,
+      8,
+      3,
+      11,
+      0,
+      2,
+      7,
+      12,
+      6,
+      13,
+      10,
+      5
+    ]
+  }
+}
