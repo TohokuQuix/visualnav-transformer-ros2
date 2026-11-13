@@ -1,0 +1,62 @@
+{
+  "schema": "scene1_model2000_30s_nohistory_navigation_v1",
+  "authorized_by_user": true,
+  "poses_status": "user_approved_measured_settled_start",
+  "start_xy": [
+    0.5607292652130127,
+    1.6615122556686401
+  ],
+  "start_yaw_rad": -1.4820018095688425,
+  "start_adjustment_m": 0.2,
+  "start_adjustment_reason": "user requested slightly backward relative to initial arrow; choose20cm backward along+y",
+  "goal_xy": [
+    4.3,
+    0.5
+  ],
+  "goal_tolerance_m": 0.2,
+  "goal_yaw_required": false,
+  "trials": 10,
+  "maximum_trial_seconds": 300.0,
+  "physics_dt": 0.005,
+  "control_dt": 0.05,
+  "replan_seconds": 2.0,
+  "dem_hz": 4,
+  "nn_sha256": "520a0af98184e26a74d01f6f75b4fec6c410eb22b8c2fe91f0dafce50e8b1f1e",
+  "actor_sha256": "56c16ecca41b315ef57aea57beae17a05d94c5c0f54ede88066e9688b7f8a770",
+  "condition": "B goal progress plus predicted gravity tilt60deg exclusion; explicit course boundary constraint",
+  "tip_over_deg": 85.0,
+  "course_xy_bounds": [
+    0.0,
+    4.9,
+    0.0,
+    2.48
+  ],
+  "course_rule": "candidate waypoints and predicted endpoint inside course rectangle; actual outside-course incurs bypass flag and invalidates goal success",
+  "wall_variant_trigger": "all10original trials show outside-course flat bypass; retain original10 and then run separate10 with only perimeter gap walls",
+  "observation_source": "ideal synchronous sim, not actual FAST-LIO",
+  "goal_nn_input": false,
+  "headless": true,
+  "no_training": true,
+  "no_git_push": false,
+  "gpu_order": "previous experiments complete; check GPU before each worker",
+  "video": "select trial with minimum measured course-valid goal distance; replay recorded root/joints in Isaac, not a fresh physics rerun; record provenance",
+  "trial_parallelism": "ten isolated translated copies of exact Scene1, same mesh/robot physics; lower if resource failure, preserve partials",
+  "initialization_tolerance_xy_m": 0.05,
+  "initialization_tolerance_yaw_deg": 5.0,
+  "below_terrain_handling": "diagnostic only; no z-based early termination; goal / actualtilt85 /300s only",
+  "placement_spawn_xy": [
+    0.6,
+    1.7
+  ],
+  "placement_spawn_yaw_rad": -1.5707963267948966,
+  "placement_calibration_source": "/home/ubuntu/eatnav-scene1-model2000-navigation-20261111/runs/smoke-c45cc76b-4d2d2726/smoke-t01/run.json",
+  "placement_calibration_note": "User approved measured settled position/yaw from original nominal spawn. Restore original horizontal collision-clear spawn(.6,1.7,-pi/2) then40step settle. Compare actual t0 to approved measured reference(.560729,1.661512,-84.91245deg), same5cm/5deg tolerance. Do not directly spawn a tilted chassis at settled height or use failed drift compensation.",
+  "start_reference_source": "/home/ubuntu/eatnav-scene1-model2000-navigation-20261111/runs/smoke-c45cc76b-4d2d2726/smoke-t01/run.json",
+  "start_reference_approval": "user: \u63a5\u5730\u5f8c\u306e\u5b9f\u6e2c\u4f4d\u7f6e\u30fb\u5411\u304d\u3067\u9032\u3081\u308b",
+  "baseline_root": "/home/ubuntu/eatnav-scene1-model2000-navigation-20261111",
+  "checkpoint_training": "30s continuous nohistory NN",
+  "authorization": "2026-11-13 user explicitly requested10runs; confirmed no retrace recovery; other conditions same as baseline",
+  "accuracy_all490_achieved": false,
+  "accuracy_unmet_exploratory_authorized": true,
+  "git_push_scope": "code model reports to new branch; no giant raw dataset"
+}
